@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T14:38:29.982Z",
+  "generatedAt": "2026-11-11T15:27:55.294Z",
   "lookbackDays": 30,
   "minScore": 20,
   "connectors": [
@@ -8,7 +8,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 102
+      "rows": 101
     },
     {
       "id": "so",
@@ -20,13 +20,13 @@
       "id": "github",
       "label": "GitHub Issues (public REST API)",
       "enabled": true,
-      "rows": 208
+      "rows": 233
     },
     {
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 0
+      "rows": 1
     },
     {
       "id": "firstParty",
@@ -42,38 +42,97 @@
     }
   ],
   "totals": {
-    "rawRecords": 310,
-    "complaintRecords": 77,
-    "opportunities": 52
+    "rawRecords": 335,
+    "complaintRecords": 90,
+    "opportunities": 60
   },
-  "errors": [
-    {
-      "source": "rss",
-      "feed": "https://news.ycombinator.com/rss",
-      "message": "fetch failed"
-    },
-    {
-      "source": "github",
-      "niche": "invoice-export",
-      "query": "expense tool frustration",
-      "message": "The operation was aborted due to timeout"
-    }
-  ],
+  "errors": [],
   "items": [
     {
-      "id": "solo-crm-smart-home-devices-should-work-without-the-inter",
+      "id": "solo-crm-announcing-net-11",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "Smart home devices should work without the internet",
-      "score": 32,
+      "title": "Announcing .NET 11",
+      "score": 31,
       "breakdown": {
         "frequency": 6,
-        "intensity": 6,
+        "intensity": 5,
         "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
       "mentions": 2,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "wish"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:44:57.000Z",
+      "evidence": [
+        {
+          "title": "Announcing .NET 11",
+          "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:14:33.000Z",
+          "excerpt": "You are right about the pattern matching, so it&#x27;s on me that I didn&#x27;t write clearly enough, what I meant is that I wish C# had Rust&#x27;s compiler enforced exhaustive pattern matching over enums and the abilit"
+        },
+        {
+          "title": "Announcing .NET 11",
+          "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:44:57.000Z",
+          "excerpt": "when I realised I didn&#x27;t have time to actually finish my own programming language (there was a big change needed in the type checker and it would have taken months with how much I can use a computer atm), I let clau"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-apple-is-killing-its-support-community-forum-nex",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Apple is killing its Support Community forum next week",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "frustration"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:51:30.000Z",
+      "evidence": [
+        {
+          "title": "Apple is killing its Support Community forum next week",
+          "url": "https://www.theverge.com/tech/1031507/apple-community-support-forum-shutting-down",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:51:30.000Z",
+          "excerpt": "There&#x27;s also a ton of \"fixes\" which don&#x27;t work. My most annoying long-term peeve with macOS is how long it takes to switch spaces with the touchpad gesture. It takes like 1.5 seconds from the gesture starts unt"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-smart-home-devices-should-work-without-the-inter",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Smart home devices should work without the internet",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
       "sources": [
         "hn"
       ],
@@ -89,85 +148,14 @@
           "source": "hn",
           "createdAt": "2026-11-11T14:19:50.000Z",
           "excerpt": "I&#x27;ve waited for Internet-connected devices to get better but honestly, the experience continues to be terrible. A few anecdotes: 1. I bought some highly-rated smart plugs on Amazon. They make their own Wifi network "
-        },
-        {
-          "title": "Smart home devices should work without the internet",
-          "url": "https://docodethatmatters.com/home-automation-overnight-success/",
-          "source": "hn",
-          "createdAt": "2026-11-11T14:19:50.000Z",
-          "excerpt": "I&#x27;ve waited for Internet-connected devices to get better but honestly, the experience continues to be terrible. A few anecdotes: 1. I bought some highly-rated smart plugs on Amazon. They make their own Wifi network "
         }
       ]
     },
     {
-      "id": "solo-crm-protecting-ssh-keys-with-macos-secure-enclave",
+      "id": "solo-crm-scion-is-back-and-is-going-to-sell-a-kei-truck-i",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "Protecting SSH Keys with macOS Secure Enclave",
-      "score": 29,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:02:57.000Z",
-      "evidence": [
-        {
-          "title": "Protecting SSH Keys with macOS Secure Enclave",
-          "url": "https://gatezh.com/posts/macos-secure-enclave-ssh-keys/",
-          "source": "hn",
-          "createdAt": "2026-11-11T14:02:57.000Z",
-          "excerpt": "Great until Tailscale fails either completely or on that node. I did something similar but this was how it completely broke - once on a Raspberry Pi two metres away and once on a VPS two continents away. Recoverable via "
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-show-errors-on-screen-on-dev-and-preview-error-f",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Show errors on screen on dev and preview (error floater)",
-      "score": 29,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 14.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T00:50:15.000Z",
-      "evidence": [
-        {
-          "title": "Show errors on screen on dev and preview (error floater)",
-          "url": "https://github.com/SGAOperationalAffairs/husky-proposals/issues/191",
-          "source": "github",
-          "createdAt": "2026-11-11T00:50:15.000Z",
-          "excerpt": "Errors on dev and preview are only written to the server log today, so a broken flow looks like nothing happened. Show them on screen instead. ## Scope - Shown only when `APP_ENV` is `dev` or `preview`. Production is unc"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-announcing-net-11",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Announcing .NET 11",
+      "title": "Scion is back and is going to sell a kei truck in America",
       "score": 28,
       "breakdown": {
         "frequency": 3,
@@ -184,46 +172,51 @@
         "wish"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:14:33.000Z",
+      "lastSeen": "2026-11-11T15:12:24.000Z",
       "evidence": [
         {
-          "title": "Announcing .NET 11",
-          "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
+          "title": "Scion is back and is going to sell a kei truck in America",
+          "url": "https://www.theautopian.com/scion-is-back-and-its-going-to-sell-a-freaking-kei-truck-in-america/",
           "source": "hn",
-          "createdAt": "2026-11-11T14:14:33.000Z",
-          "excerpt": "You are right about the pattern matching, so it&#x27;s on me that I didn&#x27;t write clearly enough, what I meant is that I wish C# had Rust&#x27;s compiler enforced exhaustive pattern matching over enums and the abilit"
+          "createdAt": "2026-11-11T15:12:24.000Z",
+          "excerpt": "The towing&#x2F;payload capacity I wish was a little higher. My family Odyssey actually has a 1500lb greater towing capacity. The times I wish I had a truck are occasionally for oversized material, but more often a situa"
         }
       ]
     },
     {
-      "id": "support-transcripts-extract-mainpage-wizard-navigation-state",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Extract MainPage wizard navigation state",
-      "score": 27,
+      "id": "solo-crm-ai-users-have-workdays-up-to-90-min-longer-than-",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "AI Users have workdays up to 90 min longer than non-users",
+      "score": 26,
       "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
+        "frequency": 6,
+        "intensity": 0,
         "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
-      "mentions": 1,
+      "mentions": 2,
       "sources": [
-        "github"
+        "hn"
       ],
-      "signals": [
-        "churn"
-      ],
+      "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:22:36.000Z",
+      "lastSeen": "2026-11-11T15:16:34.000Z",
       "evidence": [
         {
-          "title": "Extract MainPage wizard navigation state",
-          "url": "https://github.com/lumenpearson/cdpiui/issues/223",
-          "source": "github",
-          "createdAt": "2026-11-11T13:22:36.000Z",
-          "excerpt": "## Context and expected result Accepted local stage #221 leaves MainPage with 677 lines across four partials. The main partial still owns the current wizard step, Next availability/text, Cancel availability and the navig"
+          "title": "AI Users have workdays up to 90 min longer than non-users",
+          "url": "https://www.activtrak.com/news/productivity-lab-ai-users-longer-workdays/",
+          "source": "hn",
+          "createdAt": "2026-11-11T15:16:34.000Z",
+          "excerpt": "well, I spent a few months wandering the desert of offerings. Once Qwen3.8-Flash-Next demonstrated it could consistently implement Test Driven Development, I decided to hard fork the \"best\" work flow that made sense to m"
+        },
+        {
+          "title": "AI Users have workdays up to 90 min longer than non-users",
+          "url": "https://www.activtrak.com/news/productivity-lab-ai-users-longer-workdays/",
+          "source": "hn",
+          "createdAt": "2026-11-11T15:16:34.000Z",
+          "excerpt": "well, I spent a few months wandering the desert of offerings. Once Qwen3.8-Flash-Next demonstrated it could consistently implement Test Driven Development, I decided to hard fork the \"best\" work flow that made sense to m"
         }
       ]
     },
@@ -261,6 +254,36 @@
           "source": "github",
           "createdAt": "2026-11-10T16:50:51.000Z",
           "excerpt": "> Moved from apache/iggy#2753, which @amuldotexe opened on 2026-02-17. Its 12 comments stay there. > Paths in this text use the apache/iggy layout. `core/connectors/ ` is ` ` in this repository. The tests from `core/inte"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-175-concierge-the-empathetic-reply-does-not-incl",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "[$175] Concierge - The empathetic reply does not include a clickable link \"talk to a human\" link",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T15:54:58.000Z",
+      "evidence": [
+        {
+          "title": "[$175] Concierge - The empathetic reply does not include a clickable link \"talk to a human\" link",
+          "url": "https://github.com/Expensify/App/issues/106517",
+          "source": "github",
+          "createdAt": "2026-11-10T15:54:58.000Z",
+          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
         }
       ]
     },
@@ -565,15 +588,15 @@
       ]
     },
     {
-      "id": "scheduling-common-cli-run-and-launch-commands-require-json-",
+      "id": "scheduling-engine-cd-audio-shutdown-destroys-worker-resourc",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
-      "title": "Common CLI run and launch commands require JSON files",
+      "title": "[engine] CD audio shutdown destroys worker resources after bounded polling without joining the…",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -583,14 +606,44 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T12:06:44.000Z",
+      "lastSeen": "2026-11-11T15:09:15.000Z",
       "evidence": [
         {
-          "title": "Common CLI run and launch commands require JSON files",
-          "url": "https://github.com/viminizer/nowaitqa/issues/50",
+          "title": "[engine] CD audio shutdown destroys worker resources after bounded polling without joining the thread",
+          "url": "https://github.com/hzqst/GoldSrc-SDK/issues/101",
           "source": "github",
-          "createdAt": "2026-11-11T12:06:44.000Z",
-          "excerpt": "## Problem and evidence The CLI in draft PR #49 supports agents through typed commands and JSON output, but common single-run and Android/iOS launch creation requires writing a request file first. This adds unnecessary s"
+          "createdAt": "2026-11-11T15:09:15.000Z",
+          "excerpt": "## 核对范围与来源 目标为 GoldSrc-SDK `d6f1317dcd4471bbac65134c6aae759e3bc1c1b5`（2026-11-11 核对时本地 HEAD 与远端 main 一致）。 来源为 [MetaHookSv/ThreadGuard](https://github.com/MetaHookSv/ThreadGuard) 对“引擎模块卸载前必须等待后台线程实际退出”的修复与防护，尤其是 [Engine_W"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-event-that-lists-every-job-in-the-dag-before-exe",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Event that lists every job in the DAG before execution, including up-to-date jobs",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:50:26.000Z",
+      "evidence": [
+        {
+          "title": "Event that lists every job in the DAG before execution, including up-to-date jobs",
+          "url": "https://github.com/snakemake/snakemake-interface-logger-plugins/issues/55",
+          "source": "github",
+          "createdAt": "2026-11-11T14:50:26.000Z",
+          "excerpt": "## Problem A logger plugin that mirrors a run into an external view (a job table, a graph, a workflow manager's UI) can only show the jobs Snakemake executes. It cannot show the whole run: - `JOB_INFO`, `JOB_FINISHED` an"
         }
       ]
     },
@@ -621,6 +674,36 @@
           "source": "github",
           "createdAt": "2026-11-11T13:28:18.000Z",
           "excerpt": "# Android application: shared UI, vehicle pairing and standard MDM deployment Status: Published; approved for implementation. Repository: `open-triage/open-triage-epcr` Implementation branch: `feature/android_app` Source"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-refresh-claims-without-signing-out-and-drop-allo",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Refresh claims without signing out, and drop allow_any_sign_out_redirect_uri",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:20:00.000Z",
+      "evidence": [
+        {
+          "title": "Refresh claims without signing out, and drop allow_any_sign_out_redirect_uri",
+          "url": "https://github.com/nickytonline/pomerium-quest/issues/20",
+          "source": "github",
+          "createdAt": "2026-11-11T15:20:00.000Z",
+          "excerpt": "**Is your feature request related to a problem? Please describe.** To refresh claims after the Oracle awarded one, the game signed the player out and back in. Landing back in the game needs Pomerium's `allow_any_sign_out"
         }
       ]
     },
@@ -663,7 +746,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -745,10 +828,10 @@
       ]
     },
     {
-      "id": "solo-crm-claude-whiteboards-claude-sheets-and-claude-data",
+      "id": "solo-crm-anthropic-envy-on-hn",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "Claude Whiteboards, Claude Sheets, and Claude Data",
+      "title": "Anthropic Envy on HN",
       "score": 23,
       "breakdown": {
         "frequency": 3,
@@ -763,44 +846,14 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T12:51:52.000Z",
+      "lastSeen": "2026-11-11T15:00:54.000Z",
       "evidence": [
         {
-          "title": "Claude Whiteboards, Claude Sheets, and Claude Data",
-          "url": "https://claude.com/resources/articles/sheets-whiteboards-data",
+          "title": "Anthropic Envy on HN",
+          "url": "https://news.ycombinator.com/item?id=50454277",
           "source": "hn",
-          "createdAt": "2026-11-11T12:51:52.000Z",
-          "excerpt": "\"You could have done that with the model du jour, right?\" > Yes, I did it with my &#x27;model du jour&#x27; - I opened up the Claude web app, asked it for what I wanted, and it built it. My &#x27;model du jour&#x27; is O"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-how-long-can-life-wait",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "How Long Can Life Wait?",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:01:22.000Z",
-      "evidence": [
-        {
-          "title": "How Long Can Life Wait?",
-          "url": "https://mceglowski.substack.com/p/how-long-can-life-wait",
-          "source": "hn",
-          "createdAt": "2026-11-11T14:01:22.000Z",
-          "excerpt": "I think 100years is optimistic. I&#x27;m not talking about perfect humans, that reads like eugenics to me. My hope is that we could find a way to convince more people to stop hating each other simply for being different."
+          "createdAt": "2026-11-11T15:00:54.000Z",
+          "excerpt": "I have a few reasons I&#x27;m worried about companies like Anthropic. The first is that our current power grid isn&#x27;t sufficient for the projected needs of AI. Forget water- most of the water used by the AI is used b"
         }
       ]
     },
@@ -835,10 +888,40 @@
       ]
     },
     {
-      "id": "support-transcripts-action-required-upstream-sync-failure-at-bd60fba",
+      "id": "solo-crm-what-constant-surveillance-is-doing-to-children-",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "What constant surveillance is doing to children and parents",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:56:33.000Z",
+      "evidence": [
+        {
+          "title": "What constant surveillance is doing to children and parents",
+          "url": "https://www.theatlantic.com/magazine/2026/12/location-tracking-apps-parental-surveillance/689031/",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:56:33.000Z",
+          "excerpt": "I&#x27;m really curious why these traits specifically. I suppose I get why women feel threatened just existing outside of locked doors and walls, but you rattled off a very long list of otherwise not true things. I&#x27;"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-a-local-quality-check-does-not-download-220-mb-o",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
-      "title": "[Action Required] Upstream sync failure at bd60fba",
+      "title": "A local quality check does not download 220 MB of advisory data on every run",
       "score": 23,
       "breakdown": {
         "frequency": 3,
@@ -853,14 +936,14 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:23:59.000Z",
+      "lastSeen": "2026-11-11T13:41:36.000Z",
       "evidence": [
         {
-          "title": "[Action Required] Upstream sync failure at bd60fba",
-          "url": "https://github.com/dscott98/cloudflare-os-overlay/issues/62",
+          "title": "A local quality check does not download 220 MB of advisory data on every run",
+          "url": "https://github.com/overnightworks/quality/issues/768",
           "source": "github",
-          "createdAt": "2026-11-11T13:23:59.000Z",
-          "excerpt": "### ❌ Upstream Sync Failed: Patch Application Conflict - **Current Pin**: `b09c64cb66c13eb106f5f825e8c5f71636f09eb8` - **Proposed Upstream SHA**: [`bd60fba6faa8d0f4cd7ac0d0bf0f6713be2a6255`](https://github.com/cloudflare"
+          "createdAt": "2026-11-11T13:41:36.000Z",
+          "excerpt": "# A verified local copy of the advisory databases is reused Marking: the ruled contract is quoted word for word with its source. Every other sentence is a proposal (mine) for the independent plan review the contract asks"
         }
       ]
     },
@@ -891,36 +974,6 @@
           "source": "github",
           "createdAt": "2026-11-11T06:59:40.000Z",
           "excerpt": "## Objective Eliminate SIGMA's recurring **LaTeX typesetting whack-a-mole** by fixing the **architecture at the authoring → LaTeX boundary**, rather than perpetually adding individual commands to a homegrown TeX math all"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-call-detection-google-meet-slack-huddles-in-a-br",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Call detection: Google Meet, Slack huddles in a browser, Zoom web",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T12:52:14.000Z",
-      "evidence": [
-        {
-          "title": "Call detection: Google Meet, Slack huddles in a browser, Zoom web",
-          "url": "https://github.com/mkdsrt10/cora-ai-meeting-notes/issues/20",
-          "source": "github",
-          "createdAt": "2026-11-11T12:52:14.000Z",
-          "excerpt": "# Call detection: Google Meet, Slack huddles in a browser, Zoom web Status: ready-for-agent. Vocabulary: `GLOSSARY.md` (Call, Recording, Participant, Speaker timeline). ## Problem Statement Cora is supposed to notice whe"
         }
       ]
     },
@@ -993,7 +1046,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.4,
+        "recency": 9.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1013,6 +1066,36 @@
           "source": "github",
           "createdAt": "2026-10-31T08:12:04.000Z",
           "excerpt": "### Information about bug The Helpdesk app is aggressively overriding the application's login routes and causing serious routing issues. Even when the Portal Settings are explicitly configured to prevent the Helpdesk app"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-encrypted-storage-backup-and-recovery-kit-prove-",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Encrypted storage, backup and Recovery Kit: prove recovery after device loss",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:49:15.000Z",
+      "evidence": [
+        {
+          "title": "Encrypted storage, backup and Recovery Kit: prove recovery after device loss",
+          "url": "https://github.com/elastos/elastos-runtime/issues/567",
+          "source": "github",
+          "createdAt": "2026-11-11T14:49:15.000Z",
+          "excerpt": "## Problem and scope People need to recover their identity and private data after losing a device, replacing the desktop app or changing storage provider. Encryption, retained data and usable recovery keys are separate r"
         }
       ]
     },
@@ -1137,36 +1220,6 @@
       ]
     },
     {
-      "id": "support-transcripts-keep-pad-addresses-and-titles-out-of-google-anal",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Keep pad addresses and titles out of Google Analytics on in-app navigation",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T12:33:45.000Z",
-      "evidence": [
-        {
-          "title": "Keep pad addresses and titles out of Google Analytics on in-app navigation",
-          "url": "https://github.com/docs-plus/docs.plus/issues/741",
-          "source": "github",
-          "createdAt": "2026-11-11T12:33:45.000Z",
-          "excerpt": "## Summary A tab that opens on Home sends Google Analytics (GA) the real pad address and title. It happens when the reader moves to a pad inside the app. GA's own history listener sends that `page_view`. Our redaction ru"
-        }
-      ]
-    },
-    {
       "id": "support-transcripts-map-agent-factory-and-skills-to-a-full-aruvii-ru",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -1175,7 +1228,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1257,6 +1310,66 @@
       ]
     },
     {
+      "id": "support-transcripts-post-training-does-opd-cause-less-drift-and-inte",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "[post-training] Does OPD cause less drift and interference than SFT on Snowball?",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:00:49.000Z",
+      "evidence": [
+        {
+          "title": "[post-training] Does OPD cause less drift and interference than SFT on Snowball?",
+          "url": "https://github.com/marin-community/marin/issues/11207",
+          "source": "github",
+          "createdAt": "2026-11-11T15:00:49.000Z",
+          "excerpt": "Final write-up: https://public.applets.marina.oa.dev/a/75757ac8-fc52-432d-83a5-b2d6be662547/v/1/ ## Overview **What this is.** This is a Marin ablation which tests a simple hypothesis: on-policy distillation (OPD) teache"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-program-elsa-4-multi-tenancy-provider-agnostic-c",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Program: Elsa 4 multi-tenancy (provider-agnostic, contract-level)",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:09:26.000Z",
+      "evidence": [
+        {
+          "title": "Program: Elsa 4 multi-tenancy (provider-agnostic, contract-level)",
+          "url": "https://github.com/elsa-workflows/elsa-foundation/issues/4131",
+          "source": "github",
+          "createdAt": "2026-11-11T15:09:26.000Z",
+          "excerpt": "[Elsa 4 Lead] On behalf of @sfmskywalker. 🔥 # Elsa 4 multi-tenancy program Status: **In progress, Phase 0 starting (11 Nov 2026).** Assessment: [#4123](https://github.com/elsa-workflows/elsa-foundation/issues/4123) (rea"
+        }
+      ]
+    },
+    {
       "id": "support-transcripts-s16-1-the-generator-writes-sentences-with-named-",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -1317,6 +1430,156 @@
       ]
     },
     {
+      "id": "support-transcripts-story-003-010-conversation-view",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "STORY-003-010: Conversation view",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:00:47.000Z",
+      "evidence": [
+        {
+          "title": "STORY-003-010: Conversation view",
+          "url": "https://github.com/ohtia/ohtia/issues/212",
+          "source": "github",
+          "createdAt": "2026-11-11T15:00:47.000Z",
+          "excerpt": "# STORY-003-010 — Conversation view ## Description Show one conversation in the chat panel with attributed plain-text messages, streamed replies, reading-position rules, paging by 50, panel states and the shared timeline"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-story-003-015-new-project-flow",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "STORY-003-015: New project flow",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:01:12.000Z",
+      "evidence": [
+        {
+          "title": "STORY-003-015: New project flow",
+          "url": "https://github.com/ohtia/ohtia/issues/217",
+          "source": "github",
+          "createdAt": "2026-11-11T15:01:12.000Z",
+          "excerpt": "# STORY-003-015 — New project flow ## Description Add \"New project\" to the welcome, context bar, menu, palette and Ctrl/Cmd+N, the no-connection dialog, idempotent creation, the setup texts, the new `ActionProposalCard` "
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-story-003-034-late-usage-and-diagnostics",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "STORY-003-034: Late usage and diagnostics",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:02:44.000Z",
+      "evidence": [
+        {
+          "title": "STORY-003-034: Late usage and diagnostics",
+          "url": "https://github.com/ohtia/ohtia/issues/236",
+          "source": "github",
+          "createdAt": "2026-11-11T15:02:44.000Z",
+          "excerpt": "# STORY-003-034 — Late usage and diagnostics ## Description Add `usage_reports` with the 15-minute late-report window, the \"Details\" view for agent replies, the end-to-end diagnostic marker sweep and the applicable scena"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-story-003-036-anthropic-api-key",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "STORY-003-036: Anthropic API key",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:02:55.000Z",
+      "evidence": [
+        {
+          "title": "STORY-003-036: Anthropic API key",
+          "url": "https://github.com/ohtia/ohtia/issues/238",
+          "source": "github",
+          "createdAt": "2026-11-11T15:02:55.000Z",
+          "excerpt": "# STORY-003-036 — Anthropic API key ## Description Add the Anthropic API-key connection, model listing with effort levels, Messages requests through `@anthropic-ai/sdk` in the main process with mapped tools and text hist"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-swallowed-and-unobserved-errors-leave-no-trace-w",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Swallowed and unobserved errors leave no trace without CRASH_DSN",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:46:43.000Z",
+      "evidence": [
+        {
+          "title": "Swallowed and unobserved errors leave no trace without CRASH_DSN",
+          "url": "https://github.com/mguttmann/bothy/issues/1259",
+          "source": "github",
+          "createdAt": "2026-11-11T14:46:43.000Z",
+          "excerpt": "Finding `client-chat-11` of the full audit of 2026-11-11 at commit 70f776ab3 (lens: Client app: sidebar, forum, thread, composer, search). ## Problem In the reviewed folders, ten places discard the error entirely (`on Ob"
+        }
+      ]
+    },
+    {
       "id": "support-transcripts-taiga-tui-mvp-spec",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -1373,6 +1636,36 @@
           "source": "github",
           "createdAt": "2026-11-09T21:08:47.000Z",
           "excerpt": "## Problem and proposed direction Applications need to sell recurring subscriptions in addition to `chargeCredits`. First use case: LinkedIn charges **N EUR per connected LinkedIn account per month**, independently of th"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-ccao-f-mock-test",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "CCAO-F MOCK TEST",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T06:20:43.000Z",
+      "evidence": [
+        {
+          "title": "CCAO-F MOCK TEST",
+          "url": "https://github.com/HungVu-brse/skills-getting-started-with-github-copilot/issues/4",
+          "source": "github",
+          "createdAt": "2026-11-10T06:20:43.000Z",
+          "excerpt": "# CCAO-F practice questions 30 practice questions for **Claude Certified Associate - Foundations** (CCAO-F), written for this repo and spread across the exam's seven domains by their official weights. 6 of them ask for m"
         }
       ]
     },
@@ -1445,7 +1738,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.1,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1467,11 +1760,41 @@
       ]
     },
     {
+      "id": "invoice-export-release-complete-encrypted-backup-restore-and-cl",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "release: complete encrypted backup, restore and clinical acceptance gates",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-07T08:09:10.000Z",
+      "evidence": [
+        {
+          "title": "release: complete encrypted backup, restore and clinical acceptance gates",
+          "url": "https://github.com/crauch2088-source/roshan-health-hub/issues/199",
+          "source": "github",
+          "createdAt": "2026-11-07T08:09:10.000Z",
+          "excerpt": "## Purpose Track the remaining evidence-based release gates. This issue supersedes no feature PR and does not imply that the clinic is ready for live clinical use. ## Verified on 2026-11-07 - Production app root responds"
+        }
+      ]
+    },
+    {
       "id": "support-transcripts-why-i-will-not-be-using-llms-in-my-coding",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
       "title": "Why I will not be using LLMs in my coding",
-      "score": 22,
+      "score": 21,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
@@ -1497,15 +1820,15 @@
       ]
     },
     {
-      "id": "invoice-export-release-complete-encrypted-backup-restore-and-cl",
+      "id": "invoice-export-booking-tour-form-put-act-name-and-home-city-at-",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
-      "title": "release: complete encrypted backup, restore and clinical acceptance gates",
-      "score": 21,
+      "title": "Booking/Tour form: put act name and home city at top and prefill from saved profile",
+      "score": 20,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.9,
+        "recency": 11.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1515,27 +1838,27 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-07T08:09:10.000Z",
+      "lastSeen": "2026-11-05T01:00:36.000Z",
       "evidence": [
         {
-          "title": "release: complete encrypted backup, restore and clinical acceptance gates",
-          "url": "https://github.com/crauch2088-source/roshan-health-hub/issues/199",
+          "title": "Booking/Tour form: put act name and home city at top and prefill from saved profile",
+          "url": "https://github.com/danzstak/danzstak-web/issues/52",
           "source": "github",
-          "createdAt": "2026-11-07T08:09:10.000Z",
-          "excerpt": "## Purpose Track the remaining evidence-based release gates. This issue supersedes no feature PR and does not imply that the clinic is ready for live clinical use. ## Verified on 2026-11-07 - Production app root responds"
+          "createdAt": "2026-11-05T01:00:36.000Z",
+          "excerpt": "## Owner-reported UX defect — 2026-11-05 Screenshot shows deeply nested accordions **“Use the map or fill in the details yourself” → “Prefer boxes? Enter your home town”**, with **Act name** and **Home city** fields. Use"
         }
       ]
     },
     {
-      "id": "scheduling-backlog-what-a-v2-of-this-portfolio-could-do",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Backlog: what a v2 of this portfolio could do",
+      "id": "invoice-export-research-round-3-what-users-love-hate-across-90-",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "[Research] Round 3: what users love & hate across ~90 SSH, terminal & remote-desktop tools…",
       "score": 20,
       "breakdown": {
         "frequency": 3,
-        "intensity": 0,
-        "recency": 11.5,
+        "intensity": 6,
+        "recency": 6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1543,106 +1866,18 @@
       "sources": [
         "github"
       ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-04T16:30:45.000Z",
-      "evidence": [
-        {
-          "title": "Backlog: what a v2 of this portfolio could do",
-          "url": "https://github.com/Habibwasi/portfoliowasi/issues/22",
-          "source": "github",
-          "createdAt": "2026-11-04T16:30:45.000Z",
-          "excerpt": "# Backlog: what a v2 of this portfolio could do A full-repo sweep of `main` at `391c205`, covering the site, the AI guide, CI and test infrastructure, the planning docs and the motion video subproject. Everything below i"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-lampos-queue-2-the-builders-coordination-after-4",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "lampOS Queue (2): the builders' coordination, after #4710 filled up",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 11.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
+      "signals": [
+        "frustration"
       ],
-      "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-05T04:12:59.000Z",
+      "lastSeen": "2026-10-24T16:42:27.000Z",
       "evidence": [
         {
-          "title": "lampOS Queue (2): the builders' coordination, after #4710 filled up",
-          "url": "https://github.com/autonomous-ai/lampOS/issues/5385",
+          "title": "[Research] Round 3: what users love & hate across ~90 SSH, terminal & remote-desktop tools (2026-10)",
+          "url": "https://github.com/konraddzbik/termdesk/issues/148",
           "source": "github",
-          "createdAt": "2026-11-05T04:12:59.000Z",
-          "excerpt": "Opened by Faye (PM), 5 Nov 11:12 GMT+7. **#4710 is full**: GitHub allows no more comments past 2,500, so the builders' coordination moves here from now on. **What goes here, as on #4710:** READ ASKs addressed to a person"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-community-ideas",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "community ideas",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 11.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-04T15:43:25.000Z",
-      "evidence": [
-        {
-          "title": "community ideas",
-          "url": "https://github.com/microprediction/skaters/issues/319",
-          "source": "github",
-          "createdAt": "2026-11-04T15:43:25.000Z",
-          "excerpt": "https://lnkd.in/p/gHE9eFuD Albert Galick • 1st Founder at Systems Behavioral Research 5d [Peter Cotton](https://www.linkedin.com/in/petercotton/), the all-knowing Google AI assistant says skaters can't really handle the "
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-textedit-vs-pages",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "TextEdit vs. Pages",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.1,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-05T20:44:38.000Z",
-      "evidence": [
-        {
-          "title": "TextEdit vs. Pages",
-          "url": "https://leancrew.com/all-this/2026/10/textedit-vs-pages/",
-          "source": "hn",
-          "createdAt": "2026-11-05T20:44:38.000Z",
-          "excerpt": "Back when Apple put in cloud in TextEdit I had to stop using it because it was too many steps to start writing, you had to choose a file path and name before you could start typing. I&#x27;ve always used it to quickly jo"
+          "createdAt": "2026-10-24T16:42:27.000Z",
+          "excerpt": "> Round-3 competitive research, 2026-10-24. Earlier rounds: #43–#69 (round 1, 2026-08-28) and #86–#104 (round 2, 2026-09-09). **This round asks what users actually love and hate**, not which features each product lists. "
         }
       ]
     }

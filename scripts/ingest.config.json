@@ -1,0 +1,29 @@
+{
+  "lookbackDays": 30,
+  "minScore": 20,
+  "maxItems": 60,
+  "maxPerSource": 25,
+  "niches": [
+    {
+      "id": "solo-crm",
+      "label": "CRM complexity for solo founders",
+      "queries": ["CRM too complex", "hate my CRM", "simple CRM alternative"]
+    },
+    {
+      "id": "invoice-export",
+      "label": "Invoicing and expense export failures",
+      "queries": ["invoice export broken", "multi-currency accounting", "expense tool frustration"]
+    },
+    {
+      "id": "support-transcripts",
+      "label": "Support tooling and transcript exports",
+      "queries": ["export support chat", "helpdesk frustrating", "support ticket tool broken"]
+    },
+    {
+      "id": "scheduling",
+      "label": "Scheduling and booking workflows",
+      "queries": ["booking tool annoying", "recurring appointments broken", "scheduling alternative"]
+    }
+  ],
+  "feeds": ["https://news.ycombinator.com/rss"]
+}

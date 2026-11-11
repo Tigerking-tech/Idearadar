@@ -1,0 +1,71 @@
+name: Ingest community complaints
+
+# 在 GitHub 托管 runner 上定时抓取，不依赖本机网络。
+# 沙箱/本地受限时，把本文件连同 scripts/ 推送到仓库即可自动运行。
+on:
+  schedule:
+    - cron: "17 */6 * * *" # 每 6 小时一次（UTC）
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason for a manual run"
+        required: false
+        default: "manual"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingest-opportunities
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Unit-test scoring rules
+        run: node --test scripts/ingest.test.mjs
+
+      - name: Run multi-source ingestion
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 可选：把采集结果推送到外部系统
+          INGEST_WEBHOOK_URL: ${{ secrets.INGEST_WEBHOOK_URL }}
+          # Reddit 默认关闭。只有持有 Reddit 商业数据授权时才在
+          # 仓库 Secrets 中设置以下三项，并把 ENABLE_REDDIT 设为 true。
+          ENABLE_REDDIT: ${{ vars.ENABLE_REDDIT || 'false' }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ vars.REDDIT_USER_AGENT }}
+        run: node scripts/ingest.mjs
+
+      - name: Upload structured output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: opportunities
+          path: |
+            data/opportunities.json
+            public/opportunities.json
+          retention-days: 14
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "rantradar-bot"
+          git config user.email "bot@rantradar.app"
+          git add data/opportunities.json public/opportunities.json
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore(data): refresh opportunity index [skip ci]"
+            git push
+          fi

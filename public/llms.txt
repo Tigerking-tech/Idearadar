@@ -1,0 +1,51 @@
+# IdeaRadar
+
+> IdeaRadar is a voice-of-customer research SaaS. It turns real customer complaints from developer communities, review sites and support threads into ranked, evidence-backed business opportunities. Every finding includes a verbatim quote, a permalink to the original source, a 0-100 evidence score, and a map of which existing products fail to solve the problem. Billing is handled by Creem as merchant of record.
+
+Product name: IdeaRadar
+Category: Market research / voice-of-customer SaaS
+Website: https://idearadar.app
+Contact: hello@idearadar.app
+Last updated: 2026-11-11
+
+## What it does
+- [Home (English)](https://idearadar.app/): Product overview, live preview, how it works, example output, pricing and FAQ.
+- [中文首页 (Chinese)](https://idearadar.app/zh): Full Chinese translation of the landing page, server-rendered as static HTML. The EN / 中文 switch in the site header links the two versions; hreflang en-US and zh-CN are declared on both.
+- [Free trial (English)](https://idearadar.app/try): Run 3 niche scans with no signup, no email and no credit card. Ranked pain points, evidence scores, verbatim quotes, sources and competitor gaps from a localised demo dataset.
+- [免费试用 (Chinese)](https://idearadar.app/zh/try): 免注册免费扫描 3 次，中文演示数据集，输出格式与英文版一致。
+- [Methodology](https://idearadar.app/methodology): Exact 0-100 scoring model, definitions of pain point / competitor gap / willingness-to-pay signal, data-source compliance policy and the Reddit API timeline.
+- [Pricing](https://idearadar.app/pricing): 3 free scans without signup; Free $0/month, Pro $49/month, Team $199/month. All plans billed through Creem.
+- [FAQ](https://idearadar.app/faq): Ten factual answers covering data sources, Reddit compliance, scoring, first-party import, API/MCP access, the no-signup trial and billing.
+- [中文方法论](https://idearadar.app/zh/methodology): Chinese scoring model, compliance policy and Reddit policy timeline.
+- [中文定价](https://idearadar.app/zh/pricing): Chinese plan comparison and FAQ.
+- [中文常见问题](https://idearadar.app/zh/faq): Ten Chinese FAQ answers with matching FAQPage structured data.
+- [中文隐私政策](https://idearadar.app/zh/privacy) / [中文服务条款](https://idearadar.app/zh/terms): Chinese legal pages.
+
+## Key facts for citation
+- Pain points are scored 0-100 using five weighted dimensions: frequency 30%, intensity 20%, recency 15%, cross-source corroboration 20%, explicit willingness-to-pay 15%.
+- Findings below the quality threshold are rejected rather than displayed; every surviving finding links to its original source.
+- Five connectors are enabled by default: Hacker News API, Stack Exchange API, public GitHub Issues API, configurable RSS/Atom feeds, and first-party data import (tickets, reviews, CSV).
+- The Reddit connector is disabled by default and requires credentials covered by a Reddit commercial data licence. Unlicensed commercial scraping violates Reddit's User Agreement.
+- Reddit stops accepting new public API access requests in October 2026, ends RSS support in November 2026, and ends remaining public Data API access in March 2027.
+- Automated collection runs on a schedule from `.github/workflows/ingest.yml` on GitHub-hosted runners, so collection continues when a local network is restricted.
+- Continuous monitoring, Slack/email/webhook alerts, a JSON API and an MCP endpoint are available on the Team plan.
+- Anyone can run 3 niche scans at `/try` (or `/zh/try`) without creating an account, giving an email or a credit card. The guest trial uses a localised demo dataset and stores the 3-scan counter in the browser; after 3 scans, signup unlocks 3 scans per month.
+
+## Languages
+- English is the default at `/`; Simplified Chinese is available at `/zh` as an independent, fully crawlable static page.
+- All seven marketing and documentation pages have Chinese counterparts: `/zh`, `/zh/try`, `/zh/methodology`, `/zh/pricing`, `/zh/faq`, `/zh/privacy`, `/zh/terms`. Each is server-rendered static HTML, not client-side text replacement.
+- Every English/Chinese page pair declares bidirectional hreflang (en-US / zh-CN / x-default) in both page metadata and the XML sitemap. The header EN / 中文 switch links the same page across languages.
+- Both versions carry identical product facts and pricing. Chinese FAQ questions and answers are also emitted as FAQPage structured data on `/zh` and `/zh/faq`.
+- The landing page score cards show labelled example data, not raw scraped titles. The scheduled ingest workflow's real output (candidate count, sources, update date) is available as structured JSON at `/opportunities.json`.
+
+## Legal
+- [Privacy Policy](https://idearadar.app/privacy): Account data, first-party imports and public-source handling.
+- [Terms of Service](https://idearadar.app/terms): Subscriptions, acceptable use, data-source responsibilities.
+
+## Machine-readable
+- [XML Sitemap](https://idearadar.app/sitemap.xml)
+- [Robots](https://idearadar.app/robots.txt)
+- [Full LLM context](https://idearadar.app/llms-full.txt)
+
+## Optional
+- Scores and opportunity briefs are decision support, not a guarantee of product success. Validate demand independently before building.

@@ -1,0 +1,1650 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-11T14:38:29.982Z",
+  "lookbackDays": 30,
+  "minScore": 20,
+  "connectors": [
+    {
+      "id": "hn",
+      "label": "Hacker News (official API)",
+      "enabled": true,
+      "rows": 102
+    },
+    {
+      "id": "so",
+      "label": "Stack Exchange (official API)",
+      "enabled": true,
+      "rows": 0
+    },
+    {
+      "id": "github",
+      "label": "GitHub Issues (public REST API)",
+      "enabled": true,
+      "rows": 208
+    },
+    {
+      "id": "rss",
+      "label": "Configured RSS / Atom feeds",
+      "enabled": true,
+      "rows": 0
+    },
+    {
+      "id": "firstParty",
+      "label": "First-party imports",
+      "enabled": true,
+      "rows": 0
+    },
+    {
+      "id": "reddit",
+      "label": "Reddit (licensed credentials required)",
+      "enabled": false,
+      "rows": 0
+    }
+  ],
+  "totals": {
+    "rawRecords": 310,
+    "complaintRecords": 77,
+    "opportunities": 52
+  },
+  "errors": [
+    {
+      "source": "rss",
+      "feed": "https://news.ycombinator.com/rss",
+      "message": "fetch failed"
+    },
+    {
+      "source": "github",
+      "niche": "invoice-export",
+      "query": "expense tool frustration",
+      "message": "The operation was aborted due to timeout"
+    }
+  ],
+  "items": [
+    {
+      "id": "solo-crm-smart-home-devices-should-work-without-the-inter",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Smart home devices should work without the internet",
+      "score": 32,
+      "breakdown": {
+        "frequency": 6,
+        "intensity": 6,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 2,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "frustration"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:19:50.000Z",
+      "evidence": [
+        {
+          "title": "Smart home devices should work without the internet",
+          "url": "https://docodethatmatters.com/home-automation-overnight-success/",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:19:50.000Z",
+          "excerpt": "I&#x27;ve waited for Internet-connected devices to get better but honestly, the experience continues to be terrible. A few anecdotes: 1. I bought some highly-rated smart plugs on Amazon. They make their own Wifi network "
+        },
+        {
+          "title": "Smart home devices should work without the internet",
+          "url": "https://docodethatmatters.com/home-automation-overnight-success/",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:19:50.000Z",
+          "excerpt": "I&#x27;ve waited for Internet-connected devices to get better but honestly, the experience continues to be terrible. A few anecdotes: 1. I bought some highly-rated smart plugs on Amazon. They make their own Wifi network "
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-protecting-ssh-keys-with-macos-secure-enclave",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Protecting SSH Keys with macOS Secure Enclave",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:02:57.000Z",
+      "evidence": [
+        {
+          "title": "Protecting SSH Keys with macOS Secure Enclave",
+          "url": "https://gatezh.com/posts/macos-secure-enclave-ssh-keys/",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:02:57.000Z",
+          "excerpt": "Great until Tailscale fails either completely or on that node. I did something similar but this was how it completely broke - once on a Raspberry Pi two metres away and once on a VPS two continents away. Recoverable via "
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-show-errors-on-screen-on-dev-and-preview-error-f",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Show errors on screen on dev and preview (error floater)",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 14.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T00:50:15.000Z",
+      "evidence": [
+        {
+          "title": "Show errors on screen on dev and preview (error floater)",
+          "url": "https://github.com/SGAOperationalAffairs/husky-proposals/issues/191",
+          "source": "github",
+          "createdAt": "2026-11-11T00:50:15.000Z",
+          "excerpt": "Errors on dev and preview are only written to the server log today, so a broken flow looks like nothing happened. Show them on screen instead. ## Scope - Shown only when `APP_ENV` is `dev` or `preview`. Production is unc"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-announcing-net-11",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Announcing .NET 11",
+      "score": 28,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 5,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "wish"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:14:33.000Z",
+      "evidence": [
+        {
+          "title": "Announcing .NET 11",
+          "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:14:33.000Z",
+          "excerpt": "You are right about the pattern matching, so it&#x27;s on me that I didn&#x27;t write clearly enough, what I meant is that I wish C# had Rust&#x27;s compiler enforced exhaustive pattern matching over enums and the abilit"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-extract-mainpage-wizard-navigation-state",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Extract MainPage wizard navigation state",
+      "score": 27,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:22:36.000Z",
+      "evidence": [
+        {
+          "title": "Extract MainPage wizard navigation state",
+          "url": "https://github.com/lumenpearson/cdpiui/issues/223",
+          "source": "github",
+          "createdAt": "2026-11-11T13:22:36.000Z",
+          "excerpt": "## Context and expected result Accepted local stage #221 leaves MainPage with 677 lines across four partials. The main partial still owns the current wizard step, Next availability/text, Cancel availability and the navig"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-connector-ecosystem-roadmap-tracking-120-connect",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Connector Ecosystem Roadmap: tracking 120+ connector targets across databases, cloud, IoT, and…",
+      "score": 26,
+      "breakdown": {
+        "frequency": 6,
+        "intensity": 0,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 2,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T16:50:51.000Z",
+      "evidence": [
+        {
+          "title": "Connector Ecosystem Roadmap: tracking 120+ connector targets across databases, cloud, IoT, and observability",
+          "url": "https://github.com/apache/iggy-connectors/issues/6",
+          "source": "github",
+          "createdAt": "2026-11-10T16:50:51.000Z",
+          "excerpt": "> Moved from apache/iggy#2753, which @amuldotexe opened on 2026-02-17. Its 12 comments stay there. > Paths in this text use the apache/iggy layout. `core/connectors/ ` is ` ` in this repository. The tests from `core/inte"
+        },
+        {
+          "title": "Connector Ecosystem Roadmap: tracking 120+ connector targets across databases, cloud, IoT, and observability",
+          "url": "https://github.com/apache/iggy-connectors/issues/6",
+          "source": "github",
+          "createdAt": "2026-11-10T16:50:51.000Z",
+          "excerpt": "> Moved from apache/iggy#2753, which @amuldotexe opened on 2026-02-17. Its 12 comments stay there. > Paths in this text use the apache/iggy layout. `core/connectors/ ` is ` ` in this repository. The tests from `core/inte"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-a-club-moving-in-cannot-bring-across-future-book",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "A club moving in cannot bring across future bookings that are already paid: add a previewed…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T08:35:00.000Z",
+      "evidence": [
+        {
+          "title": "A club moving in cannot bring across future bookings that are already paid: add a previewed, reversible import that records them as settled outside the app",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/5005",
+          "source": "github",
+          "createdAt": "2026-11-11T08:35:00.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — option 3 on #4988: the guide, the CSV columns, the opening-credit batch,"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-a-docker-only-install-has-no-working-step-to-cre",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "A Docker-only install has no working step to create the first admin, so the new club cannot…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:37:30.000Z",
+      "evidence": [
+        {
+          "title": "A Docker-only install has no working step to create the first admin, so the new club cannot sign in",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4977",
+          "source": "github",
+          "createdAt": "2026-11-10T21:37:30.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English A volunteer at a new club follows the \"First Bootstrap\" steps "
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-a-first-install-that-follows-the-deployment-guid",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "A first install that follows the deployment guide comes up marked as a test copy, emails no one…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:37:40.000Z",
+      "evidence": [
+        {
+          "title": "A first install that follows the deployment guide comes up marked as a test copy, emails no one and rewrites Xero contacts",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4980",
+          "source": "github",
+          "createdAt": "2026-11-10T21:37:40.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English A volunteer installing the booking system for a new club follo"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-a-merge-to-main-cancels-the-previous-merge-s-ci-",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "A merge to main cancels the previous merge's CI run, so a release tag can point at a commit…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:38:11.000Z",
+      "evidence": [
+        {
+          "title": "A merge to main cancels the previous merge's CI run, so a release tag can point at a commit with no image",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4989",
+          "source": "github",
+          "createdAt": "2026-11-10T21:38:11.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Every merge to `main` starts a full CI run. That run tests the"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-club-emails-from-communications-and-notices-reac",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Club emails from Communications and notices reach only members who ticked \"Club…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:38:04.000Z",
+      "evidence": [
+        {
+          "title": "Club emails from Communications and notices reach only members who ticked \"Club Communications\", which starts off",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4987",
+          "source": "github",
+          "createdAt": "2026-11-10T21:38:04.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — option A: a separate \"Club notices\" preference that starts on.** Club bu"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-money-core-modules-import-each-other-in-loops-an",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Money-core modules import each other in loops, and nothing stops new loops or new uses of the…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:34:49.000Z",
+      "evidence": [
+        {
+          "title": "Money-core modules import each other in loops, and nothing stops new loops or new uses of the old Xero facade",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4930",
+          "source": "github",
+          "createdAt": "2026-11-10T21:34:49.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Nothing goes wrong for members or officers today. This is abou"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-more-whitelisted-endpoints-scripts-test-a-boolea",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "More whitelisted endpoints/scripts test a boolean flag bare (force, force_enable…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T16:35:54.000Z",
+      "evidence": [
+        {
+          "title": "More whitelisted endpoints/scripts test a boolean flag bare (force, force_enable, confirm_nuclear_truncate, dry_run): string \"0\" is truthy over HTTP",
+          "url": "https://github.com/nlvegan/verenigingen/issues/2385",
+          "source": "github",
+          "createdAt": "2026-11-10T16:35:54.000Z",
+          "excerpt": "Follow-up to #2377 (its fix covers the six sites it names plus `include_payment_link` on `send_overdue_payment_reminders`). ## Established AST sweep (2026-11-10, develop + the #2377 branch) of whitelisted functions in `v"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-running-reports-over-several-years-can-freeze-th",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Running Reports over several years can freeze the booking site for everyone for a few seconds",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:35:15.000Z",
+      "evidence": [
+        {
+          "title": "Running Reports over several years can freeze the booking site for everyone for a few seconds",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4937",
+          "source": "github",
+          "createdAt": "2026-11-10T21:35:15.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Admin → Finance → Reports shows how full the lodge was on each"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-sign-in-and-sign-out-share-a-10-per-15-minutes-b",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Sign-in and sign-out share a 10-per-15-minutes budget per internet address, so lodge wifi can…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:34:06.000Z",
+      "evidence": [
+        {
+          "title": "Sign-in and sign-out share a 10-per-15-minutes budget per internet address, so lodge wifi can lock members out",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4917",
+          "source": "github",
+          "createdAt": "2026-11-10T21:34:06.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app caps how many sign-in actions can come from one intern"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-the-xero-health-check-gets-slower-every-season-i",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "The Xero health check gets slower every season: it re-checks every refunded card payment ever…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:35:12.000Z",
+      "evidence": [
+        {
+          "title": "The Xero health check gets slower every season: it re-checks every refunded card payment ever, one by one",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4936",
+          "source": "github",
+          "createdAt": "2026-11-10T21:35:12.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The Xero page under Admin, Finance has a health check. One of "
+        }
+      ]
+    },
+    {
+      "id": "scheduling-common-cli-run-and-launch-commands-require-json-",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Common CLI run and launch commands require JSON files",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T12:06:44.000Z",
+      "evidence": [
+        {
+          "title": "Common CLI run and launch commands require JSON files",
+          "url": "https://github.com/viminizer/nowaitqa/issues/50",
+          "source": "github",
+          "createdAt": "2026-11-11T12:06:44.000Z",
+          "excerpt": "## Problem and evidence The CLI in draft PR #49 supports agents through typed commands and JSON output, but common single-run and Android/iOS launch creation requires writing a request file first. This adds unnecessary s"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-prd-android-application-shared-ui-vehicle-pairin",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "[PRD] Android application: shared UI, vehicle pairing and standard MDM deployment",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:28:18.000Z",
+      "evidence": [
+        {
+          "title": "[PRD] Android application: shared UI, vehicle pairing and standard MDM deployment",
+          "url": "https://github.com/open-triage/open-triage-epcr/issues/798",
+          "source": "github",
+          "createdAt": "2026-11-11T13:28:18.000Z",
+          "excerpt": "# Android application: shared UI, vehicle pairing and standard MDM deployment Status: Published; approved for implementation. Repository: `open-triage/open-triage-epcr` Implementation branch: `feature/android_app` Source"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-s11-13-a-seat-the-table-waits-for-is-asked-again",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "S11.13 A seat the table waits for is asked again after a pause, without moving the table's…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:16:06.000Z",
+      "evidence": [
+        {
+          "title": "S11.13 A seat the table waits for is asked again after a pause, without moving the table's version",
+          "url": "https://github.com/overnightworks/skat/issues/355",
+          "source": "github",
+          "createdAt": "2026-11-11T14:16:06.000Z",
+          "excerpt": "Part of #140 (an agent with its own account plays at a table), the follow-up of #306 (an agent is woken at its table and reads its own view). It keeps #1's invariants (2: a view holds exactly what the seat may see; 3: a "
+        }
+      ]
+    },
+    {
+      "id": "scheduling-stage-2b2b-plan-only-complete-17-store-restore-r",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Stage 2B2b PLAN ONLY: Complete 17-store restore R1, immutable origin, bounded history and…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T12:43:27.000Z",
+      "evidence": [
+        {
+          "title": "Stage 2B2b PLAN ONLY: Complete 17-store restore R1, immutable origin, bounded history and verification architecture",
+          "url": "https://github.com/jsnwilmot/BudgetApp/issues/25",
+          "source": "github",
+          "createdAt": "2026-11-11T12:43:27.000Z",
+          "excerpt": "## OWNER AUTHORIZATION: Stage 2B2b / R1 PLANNING AND CONTRACT REFINEMENT ONLY **Date:** 2026-11-11. Owner has explicitly **ACCEPTED Stage 2B2a** at exact commit `2c2a7d0f7ee26b26019559d1b119592d788a5eaa` in draft [PR #24"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-2026-11-11",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "2026-11-11",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T00:16:58.000Z",
+      "evidence": [
+        {
+          "title": "2026-11-11",
+          "url": "https://github.com/drewvuduris-oss/job-watcher/issues/2",
+          "source": "github",
+          "createdAt": "2026-11-11T00:16:58.000Z",
+          "excerpt": "Job Watcher report for **2026-11-11** (UTC). - Open postings: **17513** - New today: **337** - Removed today: **244** - Dallas/Fort Worth: **25** new, **20** removed - Sources OK: **36 / 36** - Site: https://drewvuduris-"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-a-compendium-of-abandoned-greenhouses",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "A Compendium of Abandoned Greenhouses",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T12:03:36.000Z",
+      "evidence": [
+        {
+          "title": "A Compendium of Abandoned Greenhouses",
+          "url": "https://www.messynessychic.com/2015/01/15/a-compendium-of-abandoned-greenhouses/",
+          "source": "hn",
+          "createdAt": "2026-11-11T12:03:36.000Z",
+          "excerpt": "> “The Steampunk Greenhouse”, photographed by Nicola Berlotti. The location has been kept quiet but seems to be a popular spot for urbex photographers, more incredible shots of the interior can be found here. My pet peev"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-claude-whiteboards-claude-sheets-and-claude-data",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Claude Whiteboards, Claude Sheets, and Claude Data",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T12:51:52.000Z",
+      "evidence": [
+        {
+          "title": "Claude Whiteboards, Claude Sheets, and Claude Data",
+          "url": "https://claude.com/resources/articles/sheets-whiteboards-data",
+          "source": "hn",
+          "createdAt": "2026-11-11T12:51:52.000Z",
+          "excerpt": "\"You could have done that with the model du jour, right?\" > Yes, I did it with my &#x27;model du jour&#x27; - I opened up the Claude web app, asked it for what I wanted, and it built it. My &#x27;model du jour&#x27; is O"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-how-long-can-life-wait",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "How Long Can Life Wait?",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:01:22.000Z",
+      "evidence": [
+        {
+          "title": "How Long Can Life Wait?",
+          "url": "https://mceglowski.substack.com/p/how-long-can-life-wait",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:01:22.000Z",
+          "excerpt": "I think 100years is optimistic. I&#x27;m not talking about perfect humans, that reads like eugenics to me. My hope is that we could find a way to convince more people to stop hating each other simply for being different."
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-ukraine-pivots-to-israeli-italian-satellite-tech",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Ukraine Pivots to Israeli-Italian Satellite Tech to Bypass Starlink Restrictions",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:58:40.000Z",
+      "evidence": [
+        {
+          "title": "Ukraine Pivots to Israeli-Italian Satellite Tech to Bypass Starlink Restrictions",
+          "url": "https://policy-wire.com/ukraine-pivots-to-israeli-italian-satellite-tech-to-bypass-starlink-restrictions/",
+          "source": "hn",
+          "createdAt": "2026-11-11T13:58:40.000Z",
+          "excerpt": "Interesting - Iranians leaders were recently in Moscow, and so Israel&#x27;s increased military support to Ukraine in this manner suggests that Iranians have perhaps managed to strike some military &#x2F; security deal w"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-action-required-upstream-sync-failure-at-bd60fba",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "[Action Required] Upstream sync failure at bd60fba",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:23:59.000Z",
+      "evidence": [
+        {
+          "title": "[Action Required] Upstream sync failure at bd60fba",
+          "url": "https://github.com/dscott98/cloudflare-os-overlay/issues/62",
+          "source": "github",
+          "createdAt": "2026-11-11T13:23:59.000Z",
+          "excerpt": "### ❌ Upstream Sync Failed: Patch Application Conflict - **Current Pin**: `b09c64cb66c13eb106f5f825e8c5f71636f09eb8` - **Proposed Upstream SHA**: [`bd60fba6faa8d0f4cd7ac0d0bf0f6713be2a6255`](https://github.com/cloudflare"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-architectural-eliminate-latex-typesetting-whack-",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Architectural: eliminate LaTeX typesetting whack-a-mole with typed math IR, secure Tectonic and…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T06:59:40.000Z",
+      "evidence": [
+        {
+          "title": "Architectural: eliminate LaTeX typesetting whack-a-mole with typed math IR, secure Tectonic and PDF quality gate",
+          "url": "https://github.com/bkramerext/sigma/issues/756",
+          "source": "github",
+          "createdAt": "2026-11-11T06:59:40.000Z",
+          "excerpt": "## Objective Eliminate SIGMA's recurring **LaTeX typesetting whack-a-mole** by fixing the **architecture at the authoring → LaTeX boundary**, rather than perpetually adding individual commands to a homegrown TeX math all"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-call-detection-google-meet-slack-huddles-in-a-br",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Call detection: Google Meet, Slack huddles in a browser, Zoom web",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T12:52:14.000Z",
+      "evidence": [
+        {
+          "title": "Call detection: Google Meet, Slack huddles in a browser, Zoom web",
+          "url": "https://github.com/mkdsrt10/cora-ai-meeting-notes/issues/20",
+          "source": "github",
+          "createdAt": "2026-11-11T12:52:14.000Z",
+          "excerpt": "# Call detection: Google Meet, Slack huddles in a browser, Zoom web Status: ready-for-agent. Vocabulary: `GLOSSARY.md` (Call, Recording, Participant, Speaker timeline). ## Problem Statement Cora is supposed to notice whe"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-choose-the-theming-approach-for-the-mermaid-comp",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Choose the theming approach for the Mermaid component",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:37:49.000Z",
+      "evidence": [
+        {
+          "title": "Choose the theming approach for the Mermaid component",
+          "url": "https://github.com/carbon-design-system/carbon-ai-chat/issues/2852",
+          "source": "github",
+          "createdAt": "2026-11-11T14:37:49.000Z",
+          "excerpt": "Parent epic: #2834 Decide how the Lit Mermaid component applies colors from CSS custom properties, then add implementation child issues to #2834. ### Constraint Mermaid's `themeVariables` only accept hex (https://mermaid"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-consumer-zoo-p1-ship-an-expressive-tiger-asset-a",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "[Consumer/Zoo/P1] Ship an expressive tiger asset as the seventh Zoo 1.0 species",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T10:45:03.000Z",
+      "evidence": [
+        {
+          "title": "[Consumer/Zoo/P1] Ship an expressive tiger asset as the seventh Zoo 1.0 species",
+          "url": "https://github.com/moritzbrantner/asset-tooling/issues/590",
+          "source": "github",
+          "createdAt": "2026-11-11T10:45:03.000Z",
+          "excerpt": "Consumer: [moenarch-games/zoo#138](https://github.com/moenarch-games/zoo/issues/138) (playable tigers), [#119](https://github.com/moenarch-games/zoo/issues/119) (7–8-species focused launch) and [#112](https://github.com/"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-critical-issue-helpdesk-app-overrides-login-rout",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Critical Issue: Helpdesk App Overrides Login Routes and Ignores Portal Settings",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 9.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-10-31T08:12:04.000Z",
+      "evidence": [
+        {
+          "title": "Critical Issue: Helpdesk App Overrides Login Routes and Ignores Portal Settings",
+          "url": "https://github.com/frappe/helpdesk/issues/3954",
+          "source": "github",
+          "createdAt": "2026-10-31T08:12:04.000Z",
+          "excerpt": "### Information about bug The Helpdesk app is aggressively overriding the application's login routes and causing serious routing issues. Even when the Portal Settings are explicitly configured to prevent the Helpdesk app"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-extract-identity-guarded-project-configuration-a",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Extract identity-guarded project configuration access into native adapters",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T09:12:43.000Z",
+      "evidence": [
+        {
+          "title": "Extract identity-guarded project configuration access into native adapters",
+          "url": "https://github.com/igmrrf/bitbid/issues/70",
+          "source": "github",
+          "createdAt": "2026-11-11T09:12:43.000Z",
+          "excerpt": "## Outcome and ownership **Ownership:** dedicated native project-file guarded adapter plus ProjectConfig native schema/wrappers/selector interface and direct API fixtures. **Depends:** final canonical-only47 baseline for"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-extract-store-item-download-presentation-state",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Extract Store item download presentation state",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:37:27.000Z",
+      "evidence": [
+        {
+          "title": "Extract Store item download presentation state",
+          "url": "https://github.com/lumenpearson/cdpiui/issues/225",
+          "source": "github",
+          "createdAt": "2026-11-11T14:37:27.000Z",
+          "excerpt": "## Context and expected result The remaining GUI inventory at `12ef689e0968bd7ff4b27cee0fe7af02091286da` includes ItemViewPageViewModel: 562 lines in its main source and 122 in Queue.cs, total 684. Eleven download/status"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-grandpa-english-only-authentic-conversation-engi",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "GRANDPA: English-only authentic conversation engine + 3-minute Core Trust demo",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:17:36.000Z",
+      "evidence": [
+        {
+          "title": "GRANDPA: English-only authentic conversation engine + 3-minute Core Trust demo",
+          "url": "https://github.com/vhusev2020-ai/Stage-9/issues/7",
+          "source": "github",
+          "createdAt": "2026-11-11T14:17:36.000Z",
+          "excerpt": "## Mission — GRANDPA English-only authentic conversation engine (demo priority: Nov 11, 2026) **Owner:** Freebuff implementation agent. **Project:** VCorp Universe / Core Trust AI. **Status:** requested; no implementatio"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-hdb-s3-8329-follow-up-residual-review-findings-6",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "HDB S3 #8329 follow-up: residual review findings (6)",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T08:47:17.000Z",
+      "evidence": [
+        {
+          "title": "HDB S3 #8329 follow-up: residual review findings (6)",
+          "url": "https://github.com/sounditsolutions/soundit-psa/issues/8338",
+          "source": "github",
+          "createdAt": "2026-11-11T08:47:17.000Z",
+          "excerpt": "6 residual ticket-class findings from this run, filed as one roll-up rather than 6 issues. Split any row into its own issue when it is picked up. | finding | seat | category | title | |---|---|---|---| | `diff:2` | diff "
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-keep-pad-addresses-and-titles-out-of-google-anal",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Keep pad addresses and titles out of Google Analytics on in-app navigation",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T12:33:45.000Z",
+      "evidence": [
+        {
+          "title": "Keep pad addresses and titles out of Google Analytics on in-app navigation",
+          "url": "https://github.com/docs-plus/docs.plus/issues/741",
+          "source": "github",
+          "createdAt": "2026-11-11T12:33:45.000Z",
+          "excerpt": "## Summary A tab that opens on Home sends Google Analytics (GA) the real pad address and title. It happens when the reader moves to a pad inside the app. GA's own history listener sends that `page_view`. Our redaction ru"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-map-agent-factory-and-skills-to-a-full-aruvii-ru",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Map: agent-factory and skills to a full aruvii run: principles, findings, build, pilot, cutover",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T02:52:45.000Z",
+      "evidence": [
+        {
+          "title": "Map: agent-factory and skills to a full aruvii run: principles, findings, build, pilot, cutover",
+          "url": "https://github.com/chiyanram/agent-factory/issues/460",
+          "source": "github",
+          "createdAt": "2026-11-11T02:52:45.000Z",
+          "excerpt": "The one map for agent-factory and chiyanram/skills (operator, 2026-11-11). It continues #30, which closes into it. Destination: **both repos ready for a full run on aruvii**, the old agent setup retired, with nothing in "
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-obeya-room-a-read-only-opt-in-lens-over-the-fact",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Obeya room: a read-only, opt-in lens over the factory and the project",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:30:23.000Z",
+      "evidence": [
+        {
+          "title": "Obeya room: a read-only, opt-in lens over the factory and the project",
+          "url": "https://github.com/WimSuenens/agent-plugins/issues/121",
+          "source": "github",
+          "createdAt": "2026-11-11T13:30:23.000Z",
+          "excerpt": "## Problem Statement The factory produces a lot of state: tickets, decision cards, ADRs, andon, ledgers, intake outcomes. All of it is spread over the tracker, the repo and in-flight worktrees. A person who owns a projec"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-p1-as-12-stall-watchdog-say-what-the-run-is-wait",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "[P1] [AS-12] Stall watchdog: say what the run is waiting on",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:06:46.000Z",
+      "evidence": [
+        {
+          "title": "[P1] [AS-12] Stall watchdog: say what the run is waiting on",
+          "url": "https://github.com/EricServices-Repo/Eris/issues/524",
+          "source": "github",
+          "createdAt": "2026-11-11T14:06:46.000Z",
+          "excerpt": "> From a source review of the chat → agent → local-model path (commit `2e856a1`, v0.6.19). **Not reproduced at runtime** unless stated below. Line numbers are from `2e856a1`; `main` has moved, so search for the quoted co"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-s16-1-the-generator-writes-sentences-with-named-",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "S16.1 The generator writes sentences with named gaps and plurals; the closed table's heading…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:43:42.000Z",
+      "evidence": [
+        {
+          "title": "S16.1 The generator writes sentences with named gaps and plurals; the closed table's heading uses it",
+          "url": "https://github.com/overnightworks/skat/issues/351",
+          "source": "github",
+          "createdAt": "2026-11-11T13:43:42.000Z",
+          "excerpt": "Slice S16.1 of S16 (under #1). It keeps #1's invariants and #23's invariants 1, 2, 5 and 6. Caller: overnightworks/marketplace#542 line 1 A, 11.11.2026: \"Fleet standard for user-facing text: one gettext catalog per langu"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-say-what-each-contact-block-contains-title-compa",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Say what each contact block contains (Title Company includes the address), add the 3 missing…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:48:15.000Z",
+      "evidence": [
+        {
+          "title": "Say what each contact block contains (Title Company includes the address), add the 3 missing block tokens, and document images and links in email templates",
+          "url": "https://github.com/caseyspaulding/docjacket-help/issues/202",
+          "source": "github",
+          "createdAt": "2026-11-11T13:48:15.000Z",
+          "excerpt": "# Say what each contact block contains (the Title Company block includes the address), add the 3 missing block tokens, and document images and links in email templates **Premise verified against docjacket-help origin/mai"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-taiga-tui-mvp-spec",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Taiga TUI: MVP spec",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:24:24.000Z",
+      "evidence": [
+        {
+          "title": "Taiga TUI: MVP spec",
+          "url": "https://github.com/zeckitoz/taiga-tui/issues/18",
+          "source": "github",
+          "createdAt": "2026-11-11T13:24:24.000Z",
+          "excerpt": "Spec for the map #1 (Taiga TUI: MVP spec). Every decision below comes from the resolved tickets #2 to #16 and ADR 0001. ## Problem Statement Team Members of a university team work on their Taiga projects on the Ostfalia "
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-app-subscriptions-sdk-pricing-definitions-per-ac",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "App subscriptions: SDK pricing definitions, per-account billing, promotions and publisher…",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.1,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T21:08:47.000Z",
+      "evidence": [
+        {
+          "title": "App subscriptions: SDK pricing definitions, per-account billing, promotions and publisher payouts",
+          "url": "https://github.com/twentyhq/twenty/issues/30030",
+          "source": "github",
+          "createdAt": "2026-11-09T21:08:47.000Z",
+          "excerpt": "## Problem and proposed direction Applications need to sell recurring subscriptions in addition to `chargeCredits`. First use case: LinkedIn charges **N EUR per connected LinkedIn account per month**, independently of th"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-fin-04-add-custom-csv-mapping-through-the-existi",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "FIN-04: Add custom CSV mapping through the existing encrypted import plan and Undo",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T01:15:50.000Z",
+      "evidence": [
+        {
+          "title": "FIN-04: Add custom CSV mapping through the existing encrypted import plan and Undo",
+          "url": "https://github.com/Vivekpsps3/vivek-monorepo/issues/223",
+          "source": "github",
+          "createdAt": "2026-11-09T01:15:50.000Z",
+          "excerpt": "# FIN-04 — Add custom CSV mapping through the existing encrypted import plan and Undo - Stable key: `FIN-04` - GitHub leaf: [#223](https://github.com/Vivekpsps3/vivek-monorepo/issues/223) - Parents: [#65](https://github."
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-new-accounting-module",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "New accounting module",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T10:02:13.000Z",
+      "evidence": [
+        {
+          "title": "New accounting module",
+          "url": "https://github.com/DorinOctavianPopa/Novavex.frontend/issues/9",
+          "source": "github",
+          "createdAt": "2026-11-10T10:02:13.000Z",
+          "excerpt": "Please create a new accounting frontend module witch operates as an integrated ecosystem where data flows fluidly between modules. To ensure correct, secure, and legally compliant operation, the three main screens and th"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-design-radar-2026-11-09",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Design radar 2026-11-09",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.1,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T17:34:19.000Z",
+      "evidence": [
+        {
+          "title": "Design radar 2026-11-09",
+          "url": "https://github.com/fergo5002/design-director/issues/9",
+          "source": "github",
+          "createdAt": "2026-11-09T17:34:19.000Z",
+          "excerpt": "# Design radar, 2026-11-09 936 sources in the catalogue. Every lead below needs a human or agent to verify it before it goes in. ## Changed since last run - **8bitcn**: fix(seo): repair login-form docs link and expand me"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-why-i-will-not-be-using-llms-in-my-coding",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Why I will not be using LLMs in my coding",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-08T15:08:07.000Z",
+      "evidence": [
+        {
+          "title": "Why I will not be using LLMs in my coding",
+          "url": "https://www.polso.info/why-i-will-not-be-using-llms-coding",
+          "source": "hn",
+          "createdAt": "2026-11-08T15:08:07.000Z",
+          "excerpt": "Disclaimer: I use LLMs for support and deep dives into existing code, not for creating new substantial code that I intend to publish. Quoting from the article: > With these subsidized token prices currently, I bet we&#x2"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-release-complete-encrypted-backup-restore-and-cl",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "release: complete encrypted backup, restore and clinical acceptance gates",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-07T08:09:10.000Z",
+      "evidence": [
+        {
+          "title": "release: complete encrypted backup, restore and clinical acceptance gates",
+          "url": "https://github.com/crauch2088-source/roshan-health-hub/issues/199",
+          "source": "github",
+          "createdAt": "2026-11-07T08:09:10.000Z",
+          "excerpt": "## Purpose Track the remaining evidence-based release gates. This issue supersedes no feature PR and does not imply that the clinic is ready for live clinical use. ## Verified on 2026-11-07 - Production app root responds"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-backlog-what-a-v2-of-this-portfolio-could-do",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Backlog: what a v2 of this portfolio could do",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 11.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-04T16:30:45.000Z",
+      "evidence": [
+        {
+          "title": "Backlog: what a v2 of this portfolio could do",
+          "url": "https://github.com/Habibwasi/portfoliowasi/issues/22",
+          "source": "github",
+          "createdAt": "2026-11-04T16:30:45.000Z",
+          "excerpt": "# Backlog: what a v2 of this portfolio could do A full-repo sweep of `main` at `391c205`, covering the site, the AI guide, CI and test infrastructure, the planning docs and the motion video subproject. Everything below i"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-lampos-queue-2-the-builders-coordination-after-4",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "lampOS Queue (2): the builders' coordination, after #4710 filled up",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 11.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-05T04:12:59.000Z",
+      "evidence": [
+        {
+          "title": "lampOS Queue (2): the builders' coordination, after #4710 filled up",
+          "url": "https://github.com/autonomous-ai/lampOS/issues/5385",
+          "source": "github",
+          "createdAt": "2026-11-05T04:12:59.000Z",
+          "excerpt": "Opened by Faye (PM), 5 Nov 11:12 GMT+7. **#4710 is full**: GitHub allows no more comments past 2,500, so the builders' coordination moves here from now on. **What goes here, as on #4710:** READ ASKs addressed to a person"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-community-ideas",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "community ideas",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 11.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-04T15:43:25.000Z",
+      "evidence": [
+        {
+          "title": "community ideas",
+          "url": "https://github.com/microprediction/skaters/issues/319",
+          "source": "github",
+          "createdAt": "2026-11-04T15:43:25.000Z",
+          "excerpt": "https://lnkd.in/p/gHE9eFuD Albert Galick • 1st Founder at Systems Behavioral Research 5d [Peter Cotton](https://www.linkedin.com/in/petercotton/), the all-knowing Google AI assistant says skaters can't really handle the "
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-textedit-vs-pages",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "TextEdit vs. Pages",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12.1,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-05T20:44:38.000Z",
+      "evidence": [
+        {
+          "title": "TextEdit vs. Pages",
+          "url": "https://leancrew.com/all-this/2026/10/textedit-vs-pages/",
+          "source": "hn",
+          "createdAt": "2026-11-05T20:44:38.000Z",
+          "excerpt": "Back when Apple put in cloud in TextEdit I had to stop using it because it was too many steps to start writing, you had to choose a file path and name before you could start typing. I&#x27;ve always used it to quickly jo"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+# IdeaRadar — full context for language models
+
+This document is the extended, plain-text version of https://idearadar.app/llms.txt. It is intentionally
+factual and free of marketing language so that assistants can quote it accurately. Last updated: 2026-11-11.
+
+## 0. Language versions
+
+The site has two fully server-rendered, independently crawlable language versions:
+- English (default): https://idearadar.app/
+- Simplified Chinese: https://idearadar.app/zh
+
+Both carry the same product facts, scoring model, data-source policy and pricing. The header contains
+an EN / 中文 switch implemented as real links rather than client-side text replacement. Every page pair
+declares bidirectional hreflang (en-US / zh-CN, x-default pointing to English) in both metadata and the
+XML sitemap, and the switch links the same page across languages rather than jumping back to the home page.
+
+All seven marketing and documentation pages have Chinese counterparts, each an independent static HTML page:
+- / and /zh (landing page)
+- /try and /zh/try (no-signup free trial)
+- /methodology and /zh/methodology
+- /pricing and /zh/pricing
+- /faq and /zh/faq
+- /privacy and /zh/privacy
+- /terms and /zh/terms
+
+On the Chinese pages, the FAQ section and its FAQPage structured data are in Simplified Chinese, and the
+legal and methodology prose is Chinese. Product names and technical terms (IdeaRadar, Creem, Reddit, API,
+CSV, MCP, Webhook) remain in their original form.
+
+The landing page score cards show labelled example data in each language, not raw scraped titles. Raw
+collection output is English-language community content and is not republished on the marketing pages;
+the scheduled workflow's real statistics (candidate count, sources, update date) are exposed as structured
+JSON at https://idearadar.app/opportunities.json.
+
+## 1. Definition
+
+IdeaRadar is a voice-of-customer research SaaS. It collects unprompted public complaints, clusters
+recurring problems, scores their business relevance, and maps which existing solutions fail to address
+them. Its output is a ranked list of opportunity briefs, not a keyword-mention feed.
+
+A "pain point" is a recurring, specific problem described by a person in their own words in public,
+without being prompted by a survey. A post that only mentions a keyword is not a pain point.
+
+A "competitor gap" is a problem that is frequently complained about and poorly handled by every
+existing solution identified for that problem.
+
+A "willingness-to-pay signal" (WTP) is a verbatim statement of a budget, a current tool being paid
+for, or a quantified cost of the problem. IdeaRadar extracts WTP statements verbatim and never infers
+them from tone.
+
+## 2. Scoring model
+
+Each candidate pain point receives a score from 0 to 100:
+
+| Dimension | Weight | Meaning |
+| --- | --- | --- |
+| Frequency | 30% | Recurrence across unrelated threads after deduplication |
+| Intensity | 20% | Emotional strength, urgency language, described consequences |
+| Recency | 15% | Recent discussions weigh more; stale problems decay |
+| Cross-source corroboration | 20% | Same problem on independent platforms that do not reference each other |
+| Willingness to pay | 15% | Explicit budget, current spend or quantified cost; inferred intent scores zero |
+
+Findings below the quality threshold are rejected rather than shown. A high score requires multiple
+independent sources, at least one explicit WTP statement, and at least two documented failures in
+existing tools.
+
+## 3. Data sources and compliance
+
+Enabled by default:
+1. Hacker News — official public API.
+2. Stack Exchange — official public API.
+3. GitHub Issues — public REST API.
+4. RSS / Atom — any feed configured by the user.
+5. First-party import — support tickets, call notes, survey exports, review CSVs.
+
+Opt-in only:
+6. Reddit — disabled by default. Enabled only when the user supplies credentials covered by a Reddit
+   commercial data licence. Reddit's User Agreement prohibits unlicensed commercial scraping.
+
+Relevant public timeline (Reddit announcement of 30 September 2026):
+- 2023: Reddit starts charging for high-volume commercial API access; several third-party clients close.
+- June 2025: Reddit sues Anthropic over unauthorised commercial scraping.
+- October 2025: Reddit sues Perplexity and three data-scraping firms.
+- November 2025: GummySearch announces shutdown after failing to obtain a commercial Data API licence.
+- 31 October 2026: Reddit stops accepting new public API access requests.
+- 13 November 2026: RSS feed support ends; Reddit states there is no replacement for non-moderation use.
+- 30 November 2026: applications for the Devvit App Migration Program close.
+- 12 January 2027: API access removed for apps that have not registered or responded.
+- 23 February 2027: scheduled progress update.
+- March 2027: remaining public Data API access ends; apps move to Reddit's Developer Platform (Devvit),
+  where Reddit hosts the code and controls which APIs are exposed.
+Reddit cites large-scale scraping, automated abuse and AI training data collection as the reasons.
+After March 2027, stable commercial access requires a data licensing agreement with Reddit itself
+(of the kind Reddit has with Google and OpenAI), not a third-party scraper subscription.
+
+Third-party scraper marketplaces are not licensed sources:
+Apify, Bright Data and Anysite sell a data-collection service, not a licence from the source platform.
+Apify's own Reddit scraper pages state the actor is "not affiliated with, endorsed by, or sponsored by
+Reddit" and "not authorised or certified by Reddit, Inc."; they read logged-out public pages through
+rotating residential proxies. Paying such a vendor does not cure a platform terms-of-service problem:
+the vendor's contract makes the buyer the data controller and assigns compliance responsibility to the
+buyer. IdeaRadar therefore does not classify these services as compliant sources, and does not use
+scraped Reddit, X or Amazon review data as a primary input for a paid subscription product.
+
+Source priority for new connectors:
+1. First-party data (support tickets, survey exports) - no platform access risk, not replicable by competitors.
+2. Official open APIs (Hacker News, Stack Exchange, GitHub Issues, YouTube Data, news feeds).
+3. Sources requiring a commercial agreement (Reddit data licensing; X API, whose free tier offers
+   almost no read allowance and whose paid reads are metered per call).
+4. Excluded: sources whose terms forbid automated access (e.g. Amazon reviews; the full review
+   history is now behind a login wall).
+
+Design consequence: no single platform can disable the product. Multi-source ingestion is a survival
+requirement, not a feature.
+
+## 4. Automated collection workflow
+
+Collection runs on a schedule from `.github/workflows/ingest.yml` on GitHub-hosted runners. Each
+connector is independent. The pipeline normalises results to a common schema, deduplicates by semantic
+similarity, applies the scoring model, and writes structured JSON. Because it runs on the runner rather
+than the user's workstation, collection continues even when a local network restricts outbound access.
+
+Outputs: CSV and JSON export on Pro; webhooks, JSON API and MCP endpoint on Team. Continuous monitoring
+diffs new complaints against previous runs and pushes material changes by Slack, email or webhook.
+
+## 5. Plans and billing
+
+| Plan | Price | Key limits |
+| --- | --- | --- |
+| Guest trial | $0 | 3 niche scans, no signup, no email, no credit card; localised demo dataset |
+| Free | $0/month | 3 niche scans/month after signup, 1 data source, 7-day retention |
+| Pro | $49/month | Unlimited scans, all compliant sources, scoring, competitor gaps, export, weekly digest |
+| Team | $199/month | Everything in Pro, 5 seats, monitoring, alerts, webhooks, API and MCP |
+
+The guest trial at /try (Chinese: /zh/try) lets any visitor run 3 scans before creating an account. It
+returns ranked pain points, 0-100 evidence scores, verbatim signals, sources and competitor gaps from a
+language-localised demo dataset, so the output format is identical in both languages without republishing
+raw English community titles. The 3-scan counter is stored in the browser; it is a demonstration limit,
+not a production-grade quota. Live collection starts after signup.
+
+All prices in USD. Subscription billing, VAT and sales tax are handled by Creem as merchant of record.
+
+## 6. Frequently asked questions
+
+Q: How is IdeaRadar different from a Reddit keyword monitor?
+A: A keyword monitor reports mentions. IdeaRadar groups similar complaints, scores severity and
+frequency, extracts explicit WTP signals, links every finding to its original post, maps competitor
+weaknesses, and runs continuously rather than as a one-off idea list.
+
+Q: Can I use my own data?
+A: Yes. Support conversations, call notes, survey exports and review CSVs can be imported. First-party
+data is the most defensible source and often contains buying language absent from public forums.
+
+Q: Do you provide an API or MCP access?
+A: Team includes a JSON API and an MCP endpoint so AI assistants can query the opportunity database.
+Pro includes weekly digests and CSV/JSON export.
+
+Q: Is there a free trial, and do I need to sign up?
+A: Yes, and no signup is required. Anyone can run 3 niche scans at /try (Chinese: /zh/try) with no
+account, no email and no credit card. The guest trial uses a localised demo dataset and stores the
+3-scan counter in the browser. After 3 scans, a free account provides 3 scans per month; Pro provides
+unlimited scans. There is no separate 7-day time-limited trial.
+
+## 7. Machine-readable endpoints
+
+- https://idearadar.app/llms.txt — short LLM site index
+- https://idearadar.app/llms-full.txt — this document
+- https://idearadar.app/sitemap.xml — XML sitemap
+- https://idearadar.app/robots.txt — robots rules (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot,
+  PerplexityBot, Google-Extended, Applebot-Extended, CCBot and others explicitly allowed)
+
+## 8. Limitations
+
+Scores and opportunity briefs are decision support, not a guarantee of product success. Users should
+validate demand independently before building. Illustrative examples shown on the marketing site are
+labelled as sample data and are not live findings. The guest trial's 3-scan quota is enforced in the
+browser only; clearing site data or switching devices resets it, so it is a demonstration limit rather
+than a production-grade entitlement.

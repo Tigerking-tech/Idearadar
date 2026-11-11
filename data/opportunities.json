@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T23:14:37.908Z",
+  "generatedAt": "2026-11-11T23:30:14.079Z",
   "lookbackDays": 30,
   "minScore": 20,
   "connectors": [
@@ -8,7 +8,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 108
+      "rows": 107
     },
     {
       "id": "so",
@@ -26,7 +26,7 @@
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 0
+      "rows": 2
     },
     {
       "id": "firstParty",
@@ -42,72 +42,12 @@
     }
   ],
   "totals": {
-    "rawRecords": 341,
-    "complaintRecords": 65,
-    "opportunities": 40
+    "rawRecords": 342,
+    "complaintRecords": 63,
+    "opportunities": 37
   },
-  "errors": [
-    {
-      "source": "rss",
-      "feed": "https://news.ycombinator.com/rss",
-      "message": "fetch failed"
-    }
-  ],
+  "errors": [],
   "items": [
-    {
-      "id": "solo-crm-united-airlines-bans-ai-agents-from-booking-flig",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-      "score": 43,
-      "breakdown": {
-        "frequency": 12,
-        "intensity": 11,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 4,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "frustration",
-        "wish"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T23:00:17.000Z",
-      "evidence": [
-        {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-          "source": "hn",
-          "createdAt": "2026-11-11T22:18:19.000Z",
-          "excerpt": "How do they plan on stopping me from using Claude code with the Claude in chrome plugin, or some other computer use agent? At this point it feels like I have an adversarial relationship with many merchants I use online. "
-        },
-        {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-          "source": "hn",
-          "createdAt": "2026-11-11T22:29:41.000Z",
-          "excerpt": "> I wish the simple “you have a product, I have money” relationship was possible It is still but you&#x27;re not shopping around prices based off \"you have a product, I have money\". You&#x27;re shopping around because \"y"
-        },
-        {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-          "source": "hn",
-          "createdAt": "2026-11-11T22:36:16.000Z",
-          "excerpt": "Some of us have an adversarial problem with AI. I create things for humans. I don&#x27;t want your AI on my website or reading my documents. How do they plan to stop you? I don&#x27;t know but the punishment would be can"
-        },
-        {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-          "source": "hn",
-          "createdAt": "2026-11-11T23:00:17.000Z",
-          "excerpt": "Good, I hate this world where planning and micro optimizing my life has so much advantage over living in the moment, I want my AI to deal with all that (and restaurant reservations, credit card churning, etc) I can live "
-        }
-      ]
-    },
     {
       "id": "invoice-export-preserve-separate-chatgpt-reasoning-and-codex-us",
       "nicheId": "invoice-export",
@@ -137,6 +77,97 @@
           "source": "github",
           "createdAt": "2026-11-11T18:19:03.000Z",
           "excerpt": "## Background: ChatGPT Business Standard subscriber I am an independent software developer currently paying for a **ChatGPT Business Standard seat**. Even with the current configuration, I already struggle to remain with"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-united-airlines-bans-ai-agents-from-booking-flig",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "score": 40,
+      "breakdown": {
+        "frequency": 9,
+        "intensity": 11,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 3,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "frustration",
+        "wish"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:00:17.000Z",
+      "evidence": [
+        {
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-11T22:29:41.000Z",
+          "excerpt": "> I wish the simple “you have a product, I have money” relationship was possible It is still but you&#x27;re not shopping around prices based off \"you have a product, I have money\". You&#x27;re shopping around because \"y"
+        },
+        {
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-11T22:36:16.000Z",
+          "excerpt": "Some of us have an adversarial problem with AI. I create things for humans. I don&#x27;t want your AI on my website or reading my documents. How do they plan to stop you? I don&#x27;t know but the punishment would be can"
+        },
+        {
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-11T23:00:17.000Z",
+          "excerpt": "Good, I hate this world where planning and micro optimizing my life has so much advantage over living in the moment, I want my AI to deal with all that (and restaurant reservations, credit card churning, etc) I can live "
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-100x-developers",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "100x Developers",
+      "score": 29,
+      "breakdown": {
+        "frequency": 9,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 3,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:29:25.000Z",
+      "evidence": [
+        {
+          "title": "100x Developers",
+          "url": "https://jcarreras.es/posts/100x-developers/",
+          "source": "hn",
+          "createdAt": "2026-11-11T17:55:13.000Z",
+          "excerpt": "In case some contrarian climbs out of the woodwork to yell \"umm aktually it&#x27;s just a metaphor! nobody would actually think that\", let me introduce you to Garry Tan and his 100x AI dev [0]. | Task type | Human team |"
+        },
+        {
+          "title": "100x Developers",
+          "url": "https://jcarreras.es/posts/100x-developers/",
+          "source": "hn",
+          "createdAt": "2026-11-11T23:29:25.000Z",
+          "excerpt": "I&#x27;ll list two. These projects are hyper-niche and were developed to satisfy my own needs. They have a user base of 1 (me). Print gallery transform: https:&#x2F;&#x2F;github.com&#x2F;abetusk&#x2F;CursedLogic&#x2F;tre"
+        },
+        {
+          "title": "100x Developers",
+          "url": "https://jcarreras.es/posts/100x-developers/",
+          "source": "hn",
+          "createdAt": "2026-11-11T23:29:25.000Z",
+          "excerpt": "I&#x27;ll list two. These projects are hyper-niche and were developed to satisfy my own needs. They have a user base of 1 (me). Print gallery transform: https:&#x2F;&#x2F;github.com&#x2F;abetusk&#x2F;CursedLogic&#x2F;tre"
         }
       ]
     },
@@ -429,7 +460,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -511,36 +542,6 @@
       ]
     },
     {
-      "id": "solo-crm-100x-developers",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "100x Developers",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T17:55:13.000Z",
-      "evidence": [
-        {
-          "title": "100x Developers",
-          "url": "https://jcarreras.es/posts/100x-developers/",
-          "source": "hn",
-          "createdAt": "2026-11-11T17:55:13.000Z",
-          "excerpt": "In case some contrarian climbs out of the woodwork to yell \"umm aktually it&#x27;s just a metaphor! nobody would actually think that\", let me introduce you to Garry Tan and his 100x AI dev [0]. | Task type | Human team |"
-        }
-      ]
-    },
-    {
       "id": "support-transcripts-ai-terminal-rendering-breaks-intermittently-unti",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -567,126 +568,6 @@
           "source": "github",
           "createdAt": "2026-11-11T22:28:46.000Z",
           "excerpt": "## Problem (measured: reporter statement, not an independent reproduction) The repository owner reports intermittent rendering problems in AI terminals that disappear after resizing the right panel, for example, with Web"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-annotate-pdfs-in-the-files-panel-and-send-all-th",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Annotate PDFs in the Files panel and send all the comments to the agent at once",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T21:09:24.000Z",
-      "evidence": [
-        {
-          "title": "Annotate PDFs in the Files panel and send all the comments to the agent at once",
-          "url": "https://github.com/tannerpolley/t3code/issues/369",
-          "source": "github",
-          "createdAt": "2026-11-11T21:09:24.000Z",
-          "excerpt": "## Request (owner, 2026-11-11) > i am often wanting to annoate or leave comments for ai agents to make edits of pdfs (slide decks or manuscripts) while I read them in the side panel in t3code and would like a way to nati"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-cloud-image-workflow-loops-on-preview-only-uploa",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Cloud image workflow loops on 'preview only' uploads instead of reusing the attached image",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T21:12:43.000Z",
-      "evidence": [
-        {
-          "title": "Cloud image workflow loops on 'preview only' uploads instead of reusing the attached image",
-          "url": "https://github.com/openai/codex/issues/60858",
-          "source": "github",
-          "createdAt": "2026-11-11T21:12:43.000Z",
-          "excerpt": "### What version of the Codex App are you using (From “About Codex” dialog)? Not collected. This report concerns a retained Codex desktop/cloud task incident; no exact app build is inferred. ### What subscription do you "
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-compare-coding-agent-configurations-on-windows",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Compare coding-agent configurations on Windows",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T21:36:38.000Z",
-      "evidence": [
-        {
-          "title": "Compare coding-agent configurations on Windows",
-          "url": "https://github.com/sifiadlene/compareModels/issues/1",
-          "source": "github",
-          "createdAt": "2026-11-11T21:36:38.000Z",
-          "excerpt": "## Problem Statement A developer wants to compare the coding capabilities of the model strategies available through their GitHub Copilot account. Comparing chat responses alone does not establish whether an agent can com"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-dev-personal-wiki-memory-consent-safe-pkm-projec",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Dev: personal wiki memory, consent-safe PKM projections, and ADK recall",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T23:09:31.000Z",
-      "evidence": [
-        {
-          "title": "Dev: personal wiki memory, consent-safe PKM projections, and ADK recall",
-          "url": "https://github.com/hushh-labs/hushh-research/issues/9370",
-          "source": "github",
-          "createdAt": "2026-11-11T23:09:31.000Z",
-          "excerpt": "**Dev only · owner @RGlodAkshat · lead Kushal · full staged delivery** Build one coherent personal knowledge system: **Authorized sources → versioned personal wiki → derived graph/search, ADK recall, and PKM scope projec"
         }
       ]
     },
@@ -759,7 +640,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -807,6 +688,36 @@
           "source": "github",
           "createdAt": "2026-11-11T21:38:26.000Z",
           "excerpt": "### Gate verdict (round 2) **Verdict:** PASS - advisory: client startup test asserts absence of a nonexistent \"Sending keepalive\" line; assert on \"Keepalive sent successfully\" / \"Failed to send keepalive\" / \"Error sendin"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-review-low-severity-and-low-confidence-findings-",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "review: low-severity and low-confidence findings (roll-up)",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:20:48.000Z",
+      "evidence": [
+        {
+          "title": "review: low-severity and low-confidence findings (roll-up)",
+          "url": "https://github.com/nuncaeslupus/ai-chat-exporter/issues/286",
+          "source": "github",
+          "createdAt": "2026-11-11T23:20:48.000Z",
+          "excerpt": "Findings from the full repo review of 2026-11-11 that did not get their own issue. Tick or delete as triaged. - [ ] **#7 [medium/low] Print opens exported HTML as a blob: document in the chat provider's own origin** — na"
         }
       ]
     },

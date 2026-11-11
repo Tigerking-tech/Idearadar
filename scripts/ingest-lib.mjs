@@ -25,8 +25,18 @@ export const WTP_RULES = [
  * 背景：社区检索返回的多是「资讯标题 / 文章标题 / issue 标题」，直接拿标题
  * 匹配抱怨词会把 "Why Agile Often Fails"、"IPO buyers see valuation" 这类
  * 新闻当成用户抱怨。新闻标题、发行公告、CI 日志、多语言 issue 一律不是痛点。
+ *
+ * 规则分三层，按「谁会污染发现流」组织：
+ *  A. 通用社区噪音（HN 投稿前缀、榜单、社论、市场新闻、QA 日志、非 ASCII…）；
+ *  B. 资讯 / 公告（发行公告、路线图、带日期的文章、公司动向、调查研究标题）——
+ *     这些是「读者在看的资讯」，不是「某人在抱怨某工具」；
+ *  C. 开发工单 / 规格文档（方括号标签、工单编号、PRD/spec/epic、code review 跟进）——
+ *     这些是「团队待办」，同样不是用户痛点。
+ * 所有 B/C 规则都要求高置信形态（前缀 / 冒号 / 编号 / 括号），避免误杀
+ * "Configuration management is a nightmare" 这类真实的通用抱怨标题。
  */
 export const NOISE_TITLE_RULES = [
+  /* --- A. 通用社区噪音 --- */
   { id: "hn_submission", pattern: /^(?:show|ask|tell)\s+hn\b/i },
   { id: "listicle", pattern: /^(?:the|top|n)\s+\d+\s+\b/i },
   { id: "editorial", pattern: /^(?:why|how|what|when|is|are)\b[\s\S]*\b(?:fails?|often|matters?|works?|readiness|guide|explained|vs\.?)\b/i },
@@ -34,14 +44,33 @@ export const NOISE_TITLE_RULES = [
   { id: "finance_figure", pattern: /\$\s?\d+(?:\.\d+)?\s*(?:t|b|m|bn|trillion|billion|million)\b/i },
   { id: "qa_log", pattern: /\b(?:qa run|not-run|pass\s*\/|checked in ci|ci pipeline|release notes?|changelog|v?\d+\.\d+\.\d+)\b/i },
   { id: "issue_prefix", pattern: /^\s*\[(?:bug|feat|feature|chore|fix|docs?)\]/i },
-  // 开发任务 / 工单标题：祈使动词或 conventional-commit 前缀，是待办事项而非用户抱怨
-  { id: "task_imperative", pattern: /^(?:create|add|implement|build|generate|update|refactor|support|introduce|enable|migrate|integrate|setup|set up|allow|provide|document)\b/i },
-  { id: "conventional_commit", pattern: /^[a-z]+\([^)]{1,30}\):|^(?:feat|fix|chore|docs?|refactor|test|build|ci)(\s*[:!]|\s)/i },
+  // 祈使动词开头的开发工单；但若标题里出现明确抱怨/故障语义（keeps breaking / are a pain / broken …），
+  // 说明它是通用抱怨句而非待办工单，须保留 —— 否则会误杀 "Support chat transcripts are a pain to export"。
+  { id: "task_imperative", pattern: /^(?:create|add|implement|build|generate|update|refactor|support|introduce|enable|migrate|integrate|setup|set up|allow|provide|document|extract|refresh)\b(?![\s\S]*\b(?:keeps?|crash(?:es|ed)?|fails?|failing|broken|buggy|bugs?|pain|painful|annoying|frustrat(?:ed|ing)|freez(?:e|es|ing)|slow|too\s+(?:complex|slow|expensive|hard|many|long|much|complicated|clunky)|loses?|losing|doesn'?t|does not|not working|hate|nightmare|headache|waste|struggl(?:e|ing)|terrible|awful|useless|killing)\b)/i },
+  // 必须带冒号/感叹号才算 commit 前缀；早期允许 "feat " 无冒号，会误杀 "Build times are killing us"。
+  { id: "conventional_commit", pattern: /^[a-z]+\([^)]{1,30}\):|^(?:feat|fix|chore|docs?|refactor|test|build|ci|release)\s*[:!]/i },
   { id: "feature_request", pattern: /\[?(?:feature request|enhancement|proposal|rfc|todo)\]?\b/i },
   { id: "task_label", pattern: /^\s*\[(?:task|spec|epic|story|ticket|todo|tracker)\]/i },
   { id: "spec_prefix", pattern: /^(?:spec|epic|tracker)\s*[:—-]/i },
   { id: "non_ascii", pattern: /[^\x20-\x7e]/ },
   { id: "code_tick", pattern: /`/ },
+
+  /* --- B. 资讯 / 公告：读者在看的内容，不是用户抱怨 --- */
+  { id: "announcement", pattern: /^(?:announcing|introducing|presenting|launching|releasing|shipping|now available|meet the|we'?re (?:excited|thrilled|launching|shipping))\b/i },
+  { id: "roadmap", pattern: /\b(?:roadmap|what'?s (?:coming|next)|looking ahead|upcoming (?:release|features?)|release (?:plan|schedule)|future plans?|quarterly plan)\b/i },
+  { id: "dated_article", pattern: /\(\s*(?:19|20)\d{2}\s*\)\s*$|^\s*\d{4}-\d{2}-\d{2}\s*$|\b(?:19|20)\d{2}-\d{2}-\d{2}\b/i },
+  { id: "company_news", pattern: /\b(?:is back\b|is killing|is shutting down|is discontinuing|is sunsetting|pivots? to|imposes? (?:new )?rules|bypass \w+ restrictions|is going to sell)\b/i },
+  { id: "study_headline", pattern: /\b(?:workdays? (?:up to \d+|longer)|study finds?|research shows?|survey finds?)/i },
+
+  /* --- C. 开发工单 / 规格文档：团队待办，不是用户痛点 --- */
+  // 通用方括号标签开头：[Bug] / [Feature Request] / [Consumer/Zoo/P1] / [$175] / [S175] / [engine] …
+  { id: "bracket_prefix", pattern: /^\s*\[[^\]]{1,40}\]/ },
+  // 工单编号开头：STORY-003-010: / FIN-04: / #123 / S11.13 / V4（后跟大写词的形态）
+  { id: "ticket_id", pattern: /^(?:[A-Za-z]{2,8}[-_]\d[\w.-]*|#\d+|[A-Z]\d+(?:\.\d+)?\s+[A-Z]|[A-Z]\d+\s+[A-Z])/ },
+  // 规格 / 文档类型前缀（要求冒号或破折号，避免误杀通用抱怨标题）
+  { id: "doc_prefix", pattern: /^(?:prd|spec|epic|rfc|adr|program|initiative|proposal|architectural|architecture|configuration|idea|research|critical issue|bug report|known issue|design doc|design radar)\b\s*[:—-]/i },
+  { id: "spec_suffix", pattern: /\b(?:MVP spec|spec sheet|design spec|technical spec)\b/i },
+  { id: "review_followup", pattern: /\b(?:follow-up|residual (?:review )?findings|review findings|round \d+:|\(\s*#\d+\s*\)|sprite frames|whack-a-mole)/i },
 ];
 
 /** 标题是否属于明确的非抱怨类内容（新闻、公告、日志、多语言 issue 等）。 */

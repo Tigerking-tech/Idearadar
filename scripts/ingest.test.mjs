@@ -216,3 +216,95 @@ test("classifyTrend 峰值只看近 12 点，久远历史不永久影响当前�
   const recent = Array.from({ length: 12 }, () => ({ score: 20, mentions: 10 }));
   assert.equal(classifyTrend([...old, ...recent]), "steady", "久远峰值不应让近期平稳序列被判为已过峰");
 });
+
+/* ---------------- 噪音标题收紧：资讯/公告 + 开发工单 ---------------- */
+
+test("isNoiseTitle 拒绝资讯/公告类标题（发行公告、路线图、带日期文章、公司动向、研究标题）", () => {
+  const noise = [
+    "Announcing .NET 11",
+    "Connector Ecosystem Roadmap: tracking 120+ connector targets across databases, cloud and IoT",
+    "Apple is killing its Support Community forum next week",
+    "Scion is back and is going to sell a kei truck in America",
+    "Ukraine Pivots to Israeli-Italian Satellite Tech to Bypass Starlink Restrictions",
+    "To deter bioterrorism, U.S. imposes new rules on ordering synthetic DNA",
+    "AI Users have workdays up to 90 min longer than non-users",
+    "A great old-timey game-programming hack (2013)",
+    "2026-11-11",
+    "Design radar 2026-11-09",
+  ];
+  for (const t of noise) assert.equal(isNoiseTitle(t), true, `应识别为资讯/公告: ${t}`);
+});
+
+test("isNoiseTitle 拒绝开发工单/规格文档类标题（方括号标签、工单号、PRD/spec、review 跟进）", () => {
+  const noise = [
+    "[$175] Concierge - The empathetic reply does not include a clickable link",
+    "[S175] Concierge - The empathetic reply does not include a clickable link",
+    "[Consumer/Zoo/P1] Ship an expressive tiger asset as the seventh Zoo 1.0 species",
+    "[post-training] Does OPD cause less drift and interference than SFT on Snowball?",
+    "[engine] CD audio shutdown destroys worker resources after bounded polling",
+    "[Research] Round 3: what users love and hate across SSH tools",
+    "STORY-003-010: Conversation view",
+    "FIN-04: Add custom CSV mapping through the existing encrypted import plan and Undo",
+    "S11.13 A seat the table waits for is asked again after a pause",
+    "V4 Enhanced Play Epic: Python plugin framework, community modding and V5 federation",
+    "PRD: Grapevine for Ubuntu",
+    "Program: Elsa 4 multi-tenancy (provider-agnostic, contract-level)",
+    "Configuration: organize setup and options into shared sections",
+    "Idea: run B.U.N.N.Y. on the Mac and the PC with shared state",
+    "Critical Issue: Helpdesk App Overrides Login Routes and Ignores Portal Settings",
+    "Architectural: eliminate LaTeX typesetting whack-a-mole with typed math IR",
+    "Taiga TUI: MVP spec",
+    "release: complete encrypted backup, restore and clinical acceptance gates",
+    "Follow-up to #429: non-blocking review findings (Customer to store chat)",
+    "HDB S3 #8329 follow-up: residual review findings (6)",
+    "HDB sprite frames (#8339): residual review findings (18)",
+    "Extract identity-guarded project configuration access into native adapters",
+    "Refresh claims without signing out, and drop allow_any_sign_out_redirect_uri",
+  ];
+  for (const t of noise) assert.equal(isNoiseTitle(t), true, `应识别为开发工单: ${t}`);
+});
+
+test("noiseTitleReasons 覆盖本次新增的每一条规则 id（防止规则写错却漏测）", () => {
+  const samples = [
+    "Announcing .NET 11",
+    "Connector Ecosystem Roadmap: tracking 120+ integrations",
+    "2026-11-11",
+    "Scion is back and is going to sell a kei truck",
+    "AI Users have workdays up to 90 min longer",
+    "[engine] CD audio shutdown destroys worker resources",
+    "STORY-003-010: Conversation view",
+    "PRD: Grapevine for Ubuntu",
+    "Taiga TUI: MVP spec",
+    "Follow-up to #429: non-blocking review findings",
+  ];
+  const hit = new Set(samples.flatMap((t) => noiseTitleReasons(t)));
+  for (const id of [
+    "announcement", "roadmap", "dated_article", "company_news", "study_headline",
+    "bracket_prefix", "ticket_id", "doc_prefix", "spec_suffix", "review_followup",
+  ]) {
+    assert.ok(hit.has(id), `规则 ${id} 应至少命中一个样本`);
+  }
+});
+
+test("isNoiseTitle 不误杀真实抱怨标题（含祈使动词开头但带抱怨语义的）", () => {
+  const keep = [
+    "CRM tools are too complex for solo founders",
+    "Multi-currency invoices keep breaking exports",
+    "No clean way to export support chat transcripts",
+    "Booking tools lose recurring appointments",
+    "Why is there no simple CRM for freelancers",
+    "Invoices fail to export when using multi-currency",
+    "Support chat transcripts are a pain to export",
+    "Our CRM crashes every time we import contacts",
+    "Spent 3 hours manually fixing invoice exports",
+    "Billing exports are broken after the 2024 update",
+    "Configuration management is a nightmare for our team",
+    "Smart home devices should work without the internet",
+    "Running Reports over several years can freeze the booking site for everyone for a few seconds",
+    "v2 API broke our exports",
+    "Users have reported that exports break",
+    "Build times are killing our productivity",
+    "Create flow keeps losing data",
+  ];
+  for (const t of keep) assert.equal(isNoiseTitle(t), false, `不应误杀: ${t}`);
+});

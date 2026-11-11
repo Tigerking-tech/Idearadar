@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T16:58:48.472Z",
+  "generatedAt": "2026-11-11T23:14:37.908Z",
   "lookbackDays": 30,
   "minScore": 20,
   "connectors": [
@@ -8,7 +8,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 101
+      "rows": 108
     },
     {
       "id": "so",
@@ -26,7 +26,7 @@
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 1
+      "rows": 0
     },
     {
       "id": "firstParty",
@@ -42,17 +42,141 @@
     }
   ],
   "totals": {
-    "rawRecords": 335,
-    "complaintRecords": 90,
-    "opportunities": 60
+    "rawRecords": 341,
+    "complaintRecords": 65,
+    "opportunities": 40
   },
-  "errors": [],
+  "errors": [
+    {
+      "source": "rss",
+      "feed": "https://news.ycombinator.com/rss",
+      "message": "fetch failed"
+    }
+  ],
   "items": [
     {
-      "id": "solo-crm-scion-is-back-and-is-going-to-sell-a-kei-truck-i",
+      "id": "solo-crm-united-airlines-bans-ai-agents-from-booking-flig",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "Scion is back and is going to sell a kei truck in America",
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "score": 43,
+      "breakdown": {
+        "frequency": 12,
+        "intensity": 11,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 4,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "frustration",
+        "wish"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:00:17.000Z",
+      "evidence": [
+        {
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-11T22:18:19.000Z",
+          "excerpt": "How do they plan on stopping me from using Claude code with the Claude in chrome plugin, or some other computer use agent? At this point it feels like I have an adversarial relationship with many merchants I use online. "
+        },
+        {
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-11T22:29:41.000Z",
+          "excerpt": "> I wish the simple “you have a product, I have money” relationship was possible It is still but you&#x27;re not shopping around prices based off \"you have a product, I have money\". You&#x27;re shopping around because \"y"
+        },
+        {
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-11T22:36:16.000Z",
+          "excerpt": "Some of us have an adversarial problem with AI. I create things for humans. I don&#x27;t want your AI on my website or reading my documents. How do they plan to stop you? I don&#x27;t know but the punishment would be can"
+        },
+        {
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-11T23:00:17.000Z",
+          "excerpt": "Good, I hate this world where planning and micro optimizing my life has so much advantage over living in the moment, I want my AI to deal with all that (and restaurant reservations, credit card churning, etc) I can live "
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-preserve-separate-chatgpt-reasoning-and-codex-us",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Preserve Separate ChatGPT Reasoning and Codex Usage Limits for Paying Subscribers",
+      "score": 43,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 5,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 15
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "pain"
+      ],
+      "willingnessToPay": true,
+      "lastSeen": "2026-11-11T18:19:03.000Z",
+      "evidence": [
+        {
+          "title": "Preserve Separate ChatGPT Reasoning and Codex Usage Limits for Paying Subscribers",
+          "url": "https://github.com/openai/codex/issues/60835",
+          "source": "github",
+          "createdAt": "2026-11-11T18:19:03.000Z",
+          "excerpt": "## Background: ChatGPT Business Standard subscriber I am an independent software developer currently paying for a **ChatGPT Business Standard seat**. Even with the current configuration, I already struggle to remain with"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-15-x-exit-code-1-during-snapraid-up-command-due-",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "15.x exit code 1 during snapraid up command due to network drive",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T20:30:13.000Z",
+      "evidence": [
+        {
+          "title": "15.x exit code 1 during snapraid up command due to network drive",
+          "url": "https://github.com/amadvance/snapraid/issues/79",
+          "source": "github",
+          "createdAt": "2026-11-11T20:30:13.000Z",
+          "excerpt": "While it's possible to disable smart probing on my network drive, presently the snapraid-daemon is failing all of its scheduled maintenance tasks on my setup due to the following failures: ``` Failed to read '/sys/dev/bl"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-deferred-dispatch-closures-accept-non-static-bor",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Deferred dispatch closures accept non-static borrows that outlive their data",
       "score": 29,
       "breakdown": {
         "frequency": 3,
@@ -63,33 +187,33 @@
       },
       "mentions": 1,
       "sources": [
-        "hn"
+        "github"
       ],
       "signals": [
         "broken"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:00:12.000Z",
+      "lastSeen": "2026-11-11T22:10:35.000Z",
       "evidence": [
         {
-          "title": "Scion is back and is going to sell a kei truck in America",
-          "url": "https://www.theautopian.com/scion-is-back-and-its-going-to-sell-a-freaking-kei-truck-in-america/",
-          "source": "hn",
-          "createdAt": "2026-11-11T16:00:12.000Z",
-          "excerpt": "Great answer. Excited to hear about the crumple zones. I&#x27;m going to watch some crash tests. Thanks for the Smart Fortwo comparison, a good reminder about that vehicle. I accept it as safe enough to sell and have pro"
+          "title": "Deferred dispatch closures accept non-static borrows that outlive their data",
+          "url": "https://github.com/madsmtm/objc2/issues/894",
+          "source": "github",
+          "createdAt": "2026-11-11T22:10:35.000Z",
+          "excerpt": "Hi, I am the Co-Lead of the Cargo Team and was recently hired by the Rust Foundation to help triage AI discovered bugs. This bug was found with AI, namely [scrutineer](https://github.com/alpha-omega-security/scrutineer) "
         }
       ]
     },
     {
-      "id": "solo-crm-smart-home-devices-should-work-without-the-inter",
+      "id": "solo-crm-retirement-savings-are-fueling-the-ai-bubble",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "Smart home devices should work without the internet",
+      "title": "Retirement Savings Are Fueling the AI Bubble",
       "score": 29,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.9,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -101,152 +225,78 @@
         "frustration"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:19:50.000Z",
+      "lastSeen": "2026-11-11T21:30:18.000Z",
       "evidence": [
         {
-          "title": "Smart home devices should work without the internet",
-          "url": "https://docodethatmatters.com/home-automation-overnight-success/",
+          "title": "Retirement Savings Are Fueling the AI Bubble",
+          "url": "https://lpeproject.org/blog/your-retirement-savings-are-fueling-the-ai-bubble/",
           "source": "hn",
-          "createdAt": "2026-11-11T14:19:50.000Z",
-          "excerpt": "I&#x27;ve waited for Internet-connected devices to get better but honestly, the experience continues to be terrible. A few anecdotes: 1. I bought some highly-rated smart plugs on Amazon. They make their own Wifi network "
+          "createdAt": "2026-11-11T21:30:18.000Z",
+          "excerpt": "For some reason the people who hate him the most are the ones most inclined to completely ignore the topics he actually talks about. Huh? His predictions on both the financial and technical sides (see https:&#x2F;&#x2F;d"
         }
       ]
     },
     {
-      "id": "solo-crm-announcing-net-11",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Announcing .NET 11",
-      "score": 28,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 5,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "wish"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:14:33.000Z",
-      "evidence": [
-        {
-          "title": "Announcing .NET 11",
-          "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
-          "source": "hn",
-          "createdAt": "2026-11-11T14:14:33.000Z",
-          "excerpt": "You are right about the pattern matching, so it&#x27;s on me that I didn&#x27;t write clearly enough, what I meant is that I wish C# had Rust&#x27;s compiler enforced exhaustive pattern matching over enums and the abilit"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-to-deter-bioterrorism-u-s-imposes-new-rules-on-o",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "To deter bioterrorism, U.S. imposes new rules on ordering synthetic DNA",
-      "score": 28,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 5,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "wish"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:38:39.000Z",
-      "evidence": [
-        {
-          "title": "To deter bioterrorism, U.S. imposes new rules on ordering synthetic DNA",
-          "url": "https://www.science.org/content/article/deter-bioterrorism-u-s-imposes-new-rules-ordering-synthetic-dna",
-          "source": "hn",
-          "createdAt": "2026-11-11T16:38:39.000Z",
-          "excerpt": "> You&#x27;ve all received memetic inoculations to that though. Unlikely, anyone will ever be able to write a book that does the same again. I wish it were so, but even the memorial stones and constitutional bans on the "
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-idea-run-b-u-n-n-y-on-the-mac-and-the-pc-with-sh",
+      "id": "support-transcripts-public-assistant-messages-are-missing-from-the-a",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
-      "title": "Idea: run B.U.N.N.Y. on the Mac and the PC with shared state and a Mac-preferred lead",
-      "score": 26,
+      "title": "Public assistant messages are missing from the app history while visible in ChatGPT Web",
+      "score": 29,
       "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
+        "frequency": 3,
+        "intensity": 6,
         "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
-      "mentions": 2,
+      "mentions": 1,
       "sources": [
         "github"
       ],
-      "signals": [],
+      "signals": [
+        "broken"
+      ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:00:35.000Z",
+      "lastSeen": "2026-11-11T21:56:57.000Z",
       "evidence": [
         {
-          "title": "Idea: run B.U.N.N.Y. on the Mac and the PC with shared state and a Mac-preferred lead",
-          "url": "https://github.com/jimmie-potts/agent-device-hub/issues/1723",
+          "title": "Public assistant messages are missing from the app history while visible in ChatGPT Web",
+          "url": "https://github.com/totec448-spec/chat-on-steroids/issues/2157",
           "source": "github",
-          "createdAt": "2026-11-11T16:00:35.000Z",
-          "excerpt": "Design record for an idea: B.U.N.N.Y. runs on both the Mac and the PC with shared state, so that either can keep full function if the other goes down. This issue records the direction and the decisions so far. It authori"
-        },
-        {
-          "title": "Idea: run B.U.N.N.Y. on the Mac and the PC with shared state and a Mac-preferred lead",
-          "url": "https://github.com/jimmie-potts/agent-device-hub/issues/1723",
-          "source": "github",
-          "createdAt": "2026-11-11T16:00:35.000Z",
-          "excerpt": "Design record for an idea: B.U.N.N.Y. runs on both the Mac and the PC with shared state, so that either can keep full function if the other goes down. This issue records the direction and the decisions so far. It authori"
+          "createdAt": "2026-11-11T21:56:57.000Z",
+          "excerpt": "### A bug, not a feature - [x] This is a bug in something the app already does ### App version 2.1.52, with companion extension 2.1.52. Also observed on app/extension 2.1.51. ### Latest release - [x] I reproduced this on"
         }
       ]
     },
     {
-      "id": "solo-crm-connector-ecosystem-roadmap-tracking-120-connect",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Connector Ecosystem Roadmap: tracking 120+ connector targets across databases, cloud, IoT, and…",
-      "score": 25,
+      "id": "support-transcripts-telegram-bot-token-is-written-to-the-log-when-a-",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Telegram bot token is written to the log when a Telegram call fails",
+      "score": 29,
       "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
-        "recency": 14.5,
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
-      "mentions": 2,
+      "mentions": 1,
       "sources": [
         "github"
       ],
-      "signals": [],
+      "signals": [
+        "broken"
+      ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-10T16:50:51.000Z",
+      "lastSeen": "2026-11-11T21:46:42.000Z",
       "evidence": [
         {
-          "title": "Connector Ecosystem Roadmap: tracking 120+ connector targets across databases, cloud, IoT, and observability",
-          "url": "https://github.com/apache/iggy-connectors/issues/6",
+          "title": "Telegram bot token is written to the log when a Telegram call fails",
+          "url": "https://github.com/agigante80/VPNSentinel/issues/141",
           "source": "github",
-          "createdAt": "2026-11-10T16:50:51.000Z",
-          "excerpt": "> Moved from apache/iggy#2753, which @amuldotexe opened on 2026-02-17. Its 12 comments stay there. > Paths in this text use the apache/iggy layout. `core/connectors/ ` is ` ` in this repository. The tests from `core/inte"
-        },
-        {
-          "title": "Connector Ecosystem Roadmap: tracking 120+ connector targets across databases, cloud, IoT, and observability",
-          "url": "https://github.com/apache/iggy-connectors/issues/6",
-          "source": "github",
-          "createdAt": "2026-11-10T16:50:51.000Z",
-          "excerpt": "> Moved from apache/iggy#2753, which @amuldotexe opened on 2026-02-17. Its 12 comments stay there. > Paths in this text use the apache/iggy layout. `core/connectors/ ` is ` ` in this repository. The tests from `core/inte"
+          "createdAt": "2026-11-11T21:46:42.000Z",
+          "excerpt": "### Gate verdict (round 3) **Verdict:** PASS - advisory: happy E2E spec fails on a reused stack because unhappy 1 leaves its line in the log file; remove the line afterwards or assert a known startup line instead - advis"
         }
       ]
     },
@@ -259,7 +309,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -281,15 +331,525 @@
       ]
     },
     {
-      "id": "invoice-export-a-docker-only-install-has-no-working-step-to-cre",
+      "id": "invoice-export-compare-coding-agent-configurations-on-windows",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
-      "title": "A Docker-only install has no working step to create the first admin, so the new club cannot…",
+      "title": "Compare coding-agent configurations on Windows",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.6,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T21:36:38.000Z",
+      "evidence": [
+        {
+          "title": "Compare coding-agent configurations on Windows",
+          "url": "https://github.com/sifiadlene/compareModels/issues/1",
+          "source": "github",
+          "createdAt": "2026-11-11T21:36:38.000Z",
+          "excerpt": "## Problem Statement A developer wants to compare the coding capabilities of the model strategies available through their GitHub Copilot account. Comparing chat responses alone does not establish whether an agent can com"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-feature-on-demand-batch-inference-provider-modal",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Feature: on-demand/batch inference provider (Modal + vLLM), with GPU-second accounting",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T21:33:19.000Z",
+      "evidence": [
+        {
+          "title": "Feature: on-demand/batch inference provider (Modal + vLLM), with GPU-second accounting",
+          "url": "https://github.com/RobertoTornel/Manarouter/issues/4",
+          "source": "github",
+          "createdAt": "2026-11-11T21:33:19.000Z",
+          "excerpt": "## What I want A provider class for **on-demand / batch inference servers**: endpoints that exist only while there is work to do, are priced by wall-clock rather than by token, and are used to push a *batch* of requests "
+        }
+      ]
+    },
+    {
+      "id": "scheduling-lead-status-current-state-of-the-v1-work-and-how",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Lead status: current state of the v1 work and how to take over",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T19:25:48.000Z",
+      "evidence": [
+        {
+          "title": "Lead status: current state of the v1 work and how to take over",
+          "url": "https://github.com/margelo/typescript-art/issues/568",
+          "source": "github",
+          "createdAt": "2026-11-11T19:25:48.000Z",
+          "excerpt": "This issue is the live state of the implementation lead. The guide `docs/lead/README.md` on main says how the work is run; this issue says where the work stands. To take over, read `AGENTS.md`, the guide and this issue w"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-public-v1-4-specification-and-release-acceptance",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Public v1.4 specification and release acceptance index",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T20:55:51.000Z",
+      "evidence": [
+        {
+          "title": "Public v1.4 specification and release acceptance index",
+          "url": "https://github.com/CSUwangj/cryptography-learning/issues/166",
+          "source": "github",
+          "createdAt": "2026-11-11T20:55:51.000Z",
+          "excerpt": "## Problem Statement Students need to correct an answer before submitting it, save the terminal text still available for a report, and move between Labs without retaining a terminal connected to the previous Lab. Histori"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-restore-one-container-database-test-architecture",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Restore one-container database test architecture and parallelize Basis CI",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:04:16.000Z",
+      "evidence": [
+        {
+          "title": "Restore one-container database test architecture and parallelize Basis CI",
+          "url": "https://github.com/TroyAlford/basis/issues/309",
+          "source": "github",
+          "createdAt": "2026-11-11T23:04:16.000Z",
+          "excerpt": "## Operator mandate **This is an architectural correction, not a generic “speed up CI” ticket. Implement the specified design rather than choosing an alternative.** The ordinary database test suite must run against **ONE"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-windows-mark-sub-agent-and-background-work-as-ba",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Windows: mark sub-agent and background work as background (Job CPU weight, priority, EcoQoS) so…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T20:02:44.000Z",
+      "evidence": [
+        {
+          "title": "Windows: mark sub-agent and background work as background (Job CPU weight, priority, EcoQoS) so the turn the user is watching gets the CPU first",
+          "url": "https://github.com/kirodotdev/KiroCrew/issues/35537",
+          "source": "github",
+          "createdAt": "2026-11-11T20:02:44.000Z",
+          "excerpt": "Searched: \"E-core\", \"efficiency core\", \"P-core\", \"hybrid\", \"EcoQoS\", \"power throttling\", \"Thread Director\", \"CPU sets\", \"process priority Windows\". No existing request. ### Problem **The ask:** on Windows, KiroCrew shoul"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-100x-developers",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "100x Developers",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T17:55:13.000Z",
+      "evidence": [
+        {
+          "title": "100x Developers",
+          "url": "https://jcarreras.es/posts/100x-developers/",
+          "source": "hn",
+          "createdAt": "2026-11-11T17:55:13.000Z",
+          "excerpt": "In case some contrarian climbs out of the woodwork to yell \"umm aktually it&#x27;s just a metaphor! nobody would actually think that\", let me introduce you to Garry Tan and his 100x AI dev [0]. | Task type | Human team |"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-ai-terminal-rendering-breaks-intermittently-unti",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "AI Terminal: rendering breaks intermittently until a panel is resized",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T22:28:46.000Z",
+      "evidence": [
+        {
+          "title": "AI Terminal: rendering breaks intermittently until a panel is resized",
+          "url": "https://github.com/mubeda/BibCode/issues/348",
+          "source": "github",
+          "createdAt": "2026-11-11T22:28:46.000Z",
+          "excerpt": "## Problem (measured: reporter statement, not an independent reproduction) The repository owner reports intermittent rendering problems in AI terminals that disappear after resizing the right panel, for example, with Web"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-annotate-pdfs-in-the-files-panel-and-send-all-th",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Annotate PDFs in the Files panel and send all the comments to the agent at once",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T21:09:24.000Z",
+      "evidence": [
+        {
+          "title": "Annotate PDFs in the Files panel and send all the comments to the agent at once",
+          "url": "https://github.com/tannerpolley/t3code/issues/369",
+          "source": "github",
+          "createdAt": "2026-11-11T21:09:24.000Z",
+          "excerpt": "## Request (owner, 2026-11-11) > i am often wanting to annoate or leave comments for ai agents to make edits of pdfs (slide decks or manuscripts) while I read them in the side panel in t3code and would like a way to nati"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-cloud-image-workflow-loops-on-preview-only-uploa",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Cloud image workflow loops on 'preview only' uploads instead of reusing the attached image",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T21:12:43.000Z",
+      "evidence": [
+        {
+          "title": "Cloud image workflow loops on 'preview only' uploads instead of reusing the attached image",
+          "url": "https://github.com/openai/codex/issues/60858",
+          "source": "github",
+          "createdAt": "2026-11-11T21:12:43.000Z",
+          "excerpt": "### What version of the Codex App are you using (From “About Codex” dialog)? Not collected. This report concerns a retained Codex desktop/cloud task incident; no exact app build is inferred. ### What subscription do you "
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-compare-coding-agent-configurations-on-windows",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Compare coding-agent configurations on Windows",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T21:36:38.000Z",
+      "evidence": [
+        {
+          "title": "Compare coding-agent configurations on Windows",
+          "url": "https://github.com/sifiadlene/compareModels/issues/1",
+          "source": "github",
+          "createdAt": "2026-11-11T21:36:38.000Z",
+          "excerpt": "## Problem Statement A developer wants to compare the coding capabilities of the model strategies available through their GitHub Copilot account. Comparing chat responses alone does not establish whether an agent can com"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-dev-personal-wiki-memory-consent-safe-pkm-projec",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Dev: personal wiki memory, consent-safe PKM projections, and ADK recall",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:09:31.000Z",
+      "evidence": [
+        {
+          "title": "Dev: personal wiki memory, consent-safe PKM projections, and ADK recall",
+          "url": "https://github.com/hushh-labs/hushh-research/issues/9370",
+          "source": "github",
+          "createdAt": "2026-11-11T23:09:31.000Z",
+          "excerpt": "**Dev only · owner @RGlodAkshat · lead Kushal · full staged delivery** Build one coherent personal knowledge system: **Authorized sources → versioned personal wiki → derived graph/search, ADK recall, and PKM scope projec"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-obeya-room-a-read-only-opt-in-lens-over-the-fact",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Obeya room: a read-only, opt-in lens over the factory and the project",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:30:23.000Z",
+      "evidence": [
+        {
+          "title": "Obeya room: a read-only, opt-in lens over the factory and the project",
+          "url": "https://github.com/WimSuenens/agent-plugins/issues/121",
+          "source": "github",
+          "createdAt": "2026-11-11T13:30:23.000Z",
+          "excerpt": "## Problem Statement The factory produces a lot of state: tickets, decision cards, ADRs, andon, ledgers, intake outcomes. All of it is spread over the tracker, the repo and in-flight worktrees. A person who owns a projec"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-perf-cut-agents-md-to-what-a-manager-needs-every",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "perf: cut AGENTS.md to what a manager needs every session and budget its token cost",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T16:28:33.000Z",
+      "evidence": [
+        {
+          "title": "perf: cut AGENTS.md to what a manager needs every session and budget its token cost",
+          "url": "https://github.com/nickderobertis/ai-orchestrator/issues/2471",
+          "source": "github",
+          "createdAt": "2026-11-11T16:28:33.000Z",
+          "excerpt": "## What Cut the root `AGENTS.md` down by the cut list below, which the user approved in this plan's design document, and register the budget `agents-md-instruction-tokens` in the root `budgets.yaml`, so a push that grows"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-public-v1-4-specification-and-release-acceptance",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Public v1.4 specification and release acceptance index",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T20:55:51.000Z",
+      "evidence": [
+        {
+          "title": "Public v1.4 specification and release acceptance index",
+          "url": "https://github.com/CSUwangj/cryptography-learning/issues/166",
+          "source": "github",
+          "createdAt": "2026-11-11T20:55:51.000Z",
+          "excerpt": "## Problem Statement Students need to correct an answer before submitting it, save the terminal text still available for a report, and move between Labs without retaining a terminal connected to the previous Lab. Histori"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-read-secrets-from-files-support-the-docker-file-",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Read secrets from files: support the Docker _FILE convention for API key and Telegram…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T21:38:26.000Z",
+      "evidence": [
+        {
+          "title": "Read secrets from files: support the Docker _FILE convention for API key and Telegram credentials",
+          "url": "https://github.com/agigante80/VPNSentinel/issues/139",
+          "source": "github",
+          "createdAt": "2026-11-11T21:38:26.000Z",
+          "excerpt": "### Gate verdict (round 2) **Verdict:** PASS - advisory: client startup test asserts absence of a nonexistent \"Sending keepalive\" line; assert on \"Keepalive sent successfully\" / \"Failed to send keepalive\" / \"Error sendin"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-say-what-each-contact-block-contains-title-compa",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Say what each contact block contains (Title Company includes the address), add the 3 missing…",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T13:48:15.000Z",
+      "evidence": [
+        {
+          "title": "Say what each contact block contains (Title Company includes the address), add the 3 missing block tokens, and document images and links in email templates",
+          "url": "https://github.com/caseyspaulding/docjacket-help/issues/202",
+          "source": "github",
+          "createdAt": "2026-11-11T13:48:15.000Z",
+          "excerpt": "# Say what each contact block contains (the Title Company block includes the address), add the 3 missing block tokens, and document images and links in email templates **Premise verified against docjacket-help origin/mai"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-a-docker-only-install-has-no-working-step-to-cre",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "A Docker-only install has no working step to create the first admin, so the new club cannot…",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -315,11 +875,11 @@
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
       "title": "A first install that follows the deployment guide comes up marked as a test copy, emails no one…",
-      "score": 23,
+      "score": 22,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.6,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -341,45 +901,15 @@
       ]
     },
     {
-      "id": "invoice-export-a-great-old-timey-game-programming-hack-2013",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "A great old-timey game-programming hack (2013)",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:42:43.000Z",
-      "evidence": [
-        {
-          "title": "A great old-timey game-programming hack (2013)",
-          "url": "https://blog.moertel.com/posts/2013-12-14-great-old-timey-game-programming-hack.html",
-          "source": "hn",
-          "createdAt": "2026-11-11T16:42:43.000Z",
-          "excerpt": "> to learn a trick like this, you&#x27;d either have to talk to someone who knew it, or figure it out again. Yes, personal computers were a new thing and before the internet, people doing it were pretty much isolated. Wh"
-        }
-      ]
-    },
-    {
       "id": "invoice-export-a-merge-to-main-cancels-the-previous-merge-s-ci-",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
       "title": "A merge to main cancels the previous merge's CI run, so a release tag can point at a commit…",
-      "score": 23,
+      "score": 22,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.6,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -401,1148 +931,6 @@
       ]
     },
     {
-      "id": "invoice-export-club-emails-from-communications-and-notices-reac",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Club emails from Communications and notices reach only members who ticked \"Club…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:38:04.000Z",
-      "evidence": [
-        {
-          "title": "Club emails from Communications and notices reach only members who ticked \"Club Communications\", which starts off",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4987",
-          "source": "github",
-          "createdAt": "2026-11-10T21:38:04.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — option A: a separate \"Club notices\" preference that starts on.** Club bu"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-money-core-modules-import-each-other-in-loops-an",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Money-core modules import each other in loops, and nothing stops new loops or new uses of the…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:34:49.000Z",
-      "evidence": [
-        {
-          "title": "Money-core modules import each other in loops, and nothing stops new loops or new uses of the old Xero facade",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4930",
-          "source": "github",
-          "createdAt": "2026-11-10T21:34:49.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Nothing goes wrong for members or officers today. This is abou"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-running-reports-over-several-years-can-freeze-th",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Running Reports over several years can freeze the booking site for everyone for a few seconds",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:35:15.000Z",
-      "evidence": [
-        {
-          "title": "Running Reports over several years can freeze the booking site for everyone for a few seconds",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4937",
-          "source": "github",
-          "createdAt": "2026-11-10T21:35:15.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Admin → Finance → Reports shows how full the lodge was on each"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-sign-in-and-sign-out-share-a-10-per-15-minutes-b",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Sign-in and sign-out share a 10-per-15-minutes budget per internet address, so lodge wifi can…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:34:06.000Z",
-      "evidence": [
-        {
-          "title": "Sign-in and sign-out share a 10-per-15-minutes budget per internet address, so lodge wifi can lock members out",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4917",
-          "source": "github",
-          "createdAt": "2026-11-10T21:34:06.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app caps how many sign-in actions can come from one intern"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-the-xero-health-check-gets-slower-every-season-i",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "The Xero health check gets slower every season: it re-checks every refunded card payment ever…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:35:12.000Z",
-      "evidence": [
-        {
-          "title": "The Xero health check gets slower every season: it re-checks every refunded card payment ever, one by one",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4936",
-          "source": "github",
-          "createdAt": "2026-11-10T21:35:12.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The Xero page under Admin, Finance has a health check. One of "
-        }
-      ]
-    },
-    {
-      "id": "scheduling-engine-cd-audio-shutdown-destroys-worker-resourc",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "[engine] CD audio shutdown destroys worker resources after bounded polling without joining the…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:09:15.000Z",
-      "evidence": [
-        {
-          "title": "[engine] CD audio shutdown destroys worker resources after bounded polling without joining the thread",
-          "url": "https://github.com/hzqst/GoldSrc-SDK/issues/101",
-          "source": "github",
-          "createdAt": "2026-11-11T15:09:15.000Z",
-          "excerpt": "## 核对范围与来源 目标为 GoldSrc-SDK `d6f1317dcd4471bbac65134c6aae759e3bc1c1b5`（2026-11-11 核对时本地 HEAD 与远端 main 一致）。 来源为 [MetaHookSv/ThreadGuard](https://github.com/MetaHookSv/ThreadGuard) 对“引擎模块卸载前必须等待后台线程实际退出”的修复与防护，尤其是 [Engine_W"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-event-that-lists-every-job-in-the-dag-before-exe",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Event that lists every job in the DAG before execution, including up-to-date jobs",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:50:26.000Z",
-      "evidence": [
-        {
-          "title": "Event that lists every job in the DAG before execution, including up-to-date jobs",
-          "url": "https://github.com/snakemake/snakemake-interface-logger-plugins/issues/55",
-          "source": "github",
-          "createdAt": "2026-11-11T14:50:26.000Z",
-          "excerpt": "## Problem A logger plugin that mirrors a run into an external view (a job table, a graph, a workflow manager's UI) can only show the jobs Snakemake executes. It cannot show the whole run: - `JOB_INFO`, `JOB_FINISHED` an"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-extended-task-statuses-status-cycling-shortcut-c",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Extended Task Statuses & Status-Cycling Shortcut (Ctrl-L / Cmd-L Workflow)",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:31:48.000Z",
-      "evidence": [
-        {
-          "title": "Extended Task Statuses & Status-Cycling Shortcut (Ctrl-L / Cmd-L Workflow)",
-          "url": "https://github.com/yannicschuller/flowplan/issues/201",
-          "source": "github",
-          "createdAt": "2026-11-11T16:31:48.000Z",
-          "excerpt": "### Before you start - [x] I searched the [existing issues](https://github.com/yannicschuller/flowplan/issues?q=is%3Aissue) (open and closed) and the [documentation](https://docs.flowplan.org/en), and this does not exist"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-mcpa-guard-claude-oauth-refresh-connections",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "mcpa: guard Claude OAuth refresh connections",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:42:52.000Z",
-      "evidence": [
-        {
-          "title": "mcpa: guard Claude OAuth refresh connections",
-          "url": "https://github.com/delinoio/apps/issues/1142",
-          "source": "github",
-          "createdAt": "2026-11-11T15:42:52.000Z",
-          "excerpt": "## Summary Claude OAuth background refresh bypasses Managed CPA's provider destination guard. `resourceExecutor.Refresh` passes the registered auth unchanged, so the pinned SDK constructs a separate OAuth uTLS client wit"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-refresh-claims-without-signing-out-and-drop-allo",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Refresh claims without signing out, and drop allow_any_sign_out_redirect_uri",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:20:00.000Z",
-      "evidence": [
-        {
-          "title": "Refresh claims without signing out, and drop allow_any_sign_out_redirect_uri",
-          "url": "https://github.com/nickytonline/pomerium-quest/issues/20",
-          "source": "github",
-          "createdAt": "2026-11-11T15:20:00.000Z",
-          "excerpt": "**Is your feature request related to a problem? Please describe.** To refresh claims after the Oracle awarded one, the game signed the player out and back in. Landing back in the game needs Pomerium's `allow_any_sign_out"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-s11-13-a-seat-the-table-waits-for-is-asked-again",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "S11.13 A seat the table waits for is asked again after a pause, without moving the table's…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:16:06.000Z",
-      "evidence": [
-        {
-          "title": "S11.13 A seat the table waits for is asked again after a pause, without moving the table's version",
-          "url": "https://github.com/overnightworks/skat/issues/355",
-          "source": "github",
-          "createdAt": "2026-11-11T14:16:06.000Z",
-          "excerpt": "Part of #140 (an agent with its own account plays at a table), the follow-up of #306 (an agent is woken at its table and reads its own view). It keeps #1's invariants (2: a view holds exactly what the seat may see; 3: a "
-        }
-      ]
-    },
-    {
-      "id": "scheduling-v4-enhanced-play-epic-python-plugin-framework-co",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "V4 Enhanced Play Epic: Python plugin framework, community modding and V5 federation…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:09:07.000Z",
-      "evidence": [
-        {
-          "title": "V4 Enhanced Play Epic: Python plugin framework, community modding and V5 federation compatibility",
-          "url": "https://github.com/rdearman/twclone/issues/534",
-          "source": "github",
-          "createdAt": "2026-11-11T16:09:07.000Z",
-          "excerpt": "## Goal Provide a **V4 community plugin framework** for extending twclone with data-driven content and Python-scripted gameplay, without recompiling the authoritative C server. Establish a compatibility contract for **V5"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-2026-11-11",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "2026-11-11",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T00:16:58.000Z",
-      "evidence": [
-        {
-          "title": "2026-11-11",
-          "url": "https://github.com/drewvuduris-oss/job-watcher/issues/2",
-          "source": "github",
-          "createdAt": "2026-11-11T00:16:58.000Z",
-          "excerpt": "Job Watcher report for **2026-11-11** (UTC). - Open postings: **17513** - New today: **337** - Removed today: **244** - Dallas/Fort Worth: **25** new, **20** removed - Sources OK: **36 / 36** - Site: https://drewvuduris-"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-a-compendium-of-abandoned-greenhouses",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "A Compendium of Abandoned Greenhouses",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T12:03:36.000Z",
-      "evidence": [
-        {
-          "title": "A Compendium of Abandoned Greenhouses",
-          "url": "https://www.messynessychic.com/2015/01/15/a-compendium-of-abandoned-greenhouses/",
-          "source": "hn",
-          "createdAt": "2026-11-11T12:03:36.000Z",
-          "excerpt": "> “The Steampunk Greenhouse”, photographed by Nicola Berlotti. The location has been kept quiet but seems to be a popular spot for urbex photographers, more incredible shots of the interior can be found here. My pet peev"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-a-great-old-timey-game-programming-hack-2013",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "A great old-timey game-programming hack (2013)",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:42:43.000Z",
-      "evidence": [
-        {
-          "title": "A great old-timey game-programming hack (2013)",
-          "url": "https://blog.moertel.com/posts/2013-12-14-great-old-timey-game-programming-hack.html",
-          "source": "hn",
-          "createdAt": "2026-11-11T16:42:43.000Z",
-          "excerpt": "> to learn a trick like this, you&#x27;d either have to talk to someone who knew it, or figure it out again. Yes, personal computers were a new thing and before the internet, people doing it were pretty much isolated. Wh"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-ai-users-have-workdays-up-to-90-min-longer-than-",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "AI Users have workdays up to 90 min longer than non-users",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:16:34.000Z",
-      "evidence": [
-        {
-          "title": "AI Users have workdays up to 90 min longer than non-users",
-          "url": "https://www.activtrak.com/news/productivity-lab-ai-users-longer-workdays/",
-          "source": "hn",
-          "createdAt": "2026-11-11T15:16:34.000Z",
-          "excerpt": "well, I spent a few months wandering the desert of offerings. Once Qwen3.8-Flash-Next demonstrated it could consistently implement Test Driven Development, I decided to hard fork the \"best\" work flow that made sense to m"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-anthropic-derangement-syndrome-on-hn",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Anthropic Derangement Syndrome on HN",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:37:50.000Z",
-      "evidence": [
-        {
-          "title": "Anthropic Derangement Syndrome on HN",
-          "url": "https://news.ycombinator.com/item?id=50455384",
-          "source": "hn",
-          "createdAt": "2026-11-11T16:37:50.000Z",
-          "excerpt": "While I&#x27;ve never commented on Anthropic here, I have never used Claude, and I have no plans to use Claude in the future. I do however use other LLMs. Here are some reasons why I don&#x27;t use Claude: - My introduct"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-in-defense-of-giving-a-shit",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "In Defense of Giving a Shit",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:22:35.000Z",
-      "evidence": [
-        {
-          "title": "In Defense of Giving a Shit",
-          "url": "https://www.possibilityspace.org/blog/posts/in-defence-of-giving-a-shit/",
-          "source": "hn",
-          "createdAt": "2026-11-11T16:22:35.000Z",
-          "excerpt": "My personal opinions on AI and AI usage in software development have fluctuated in the past year, especially as I&#x27;ve used it more in my professional work. As AI becomes more deeply embedded in the tools that I use, "
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-ukraine-pivots-to-israeli-italian-satellite-tech",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Ukraine Pivots to Israeli-Italian Satellite Tech to Bypass Starlink Restrictions",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:58:40.000Z",
-      "evidence": [
-        {
-          "title": "Ukraine Pivots to Israeli-Italian Satellite Tech to Bypass Starlink Restrictions",
-          "url": "https://policy-wire.com/ukraine-pivots-to-israeli-italian-satellite-tech-to-bypass-starlink-restrictions/",
-          "source": "hn",
-          "createdAt": "2026-11-11T13:58:40.000Z",
-          "excerpt": "Interesting - Iranians leaders were recently in Moscow, and so Israel&#x27;s increased military support to Ukraine in this manner suggests that Iranians have perhaps managed to strike some military &#x2F; security deal w"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-architectural-eliminate-latex-typesetting-whack-",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Architectural: eliminate LaTeX typesetting whack-a-mole with typed math IR, secure Tectonic and…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T06:59:40.000Z",
-      "evidence": [
-        {
-          "title": "Architectural: eliminate LaTeX typesetting whack-a-mole with typed math IR, secure Tectonic and PDF quality gate",
-          "url": "https://github.com/bkramerext/sigma/issues/756",
-          "source": "github",
-          "createdAt": "2026-11-11T06:59:40.000Z",
-          "excerpt": "## Objective Eliminate SIGMA's recurring **LaTeX typesetting whack-a-mole** by fixing the **architecture at the authoring → LaTeX boundary**, rather than perpetually adding individual commands to a homegrown TeX math all"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-consumer-zoo-p1-ship-an-expressive-tiger-asset-a",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "[Consumer/Zoo/P1] Ship an expressive tiger asset as the seventh Zoo 1.0 species",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T10:45:03.000Z",
-      "evidence": [
-        {
-          "title": "[Consumer/Zoo/P1] Ship an expressive tiger asset as the seventh Zoo 1.0 species",
-          "url": "https://github.com/moritzbrantner/asset-tooling/issues/590",
-          "source": "github",
-          "createdAt": "2026-11-11T10:45:03.000Z",
-          "excerpt": "Consumer: [moenarch-games/zoo#138](https://github.com/moenarch-games/zoo/issues/138) (playable tigers), [#119](https://github.com/moenarch-games/zoo/issues/119) (7–8-species focused launch) and [#112](https://github.com/"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-critical-issue-helpdesk-app-overrides-login-rout",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Critical Issue: Helpdesk App Overrides Login Routes and Ignores Portal Settings",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 9.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-31T08:12:04.000Z",
-      "evidence": [
-        {
-          "title": "Critical Issue: Helpdesk App Overrides Login Routes and Ignores Portal Settings",
-          "url": "https://github.com/frappe/helpdesk/issues/3954",
-          "source": "github",
-          "createdAt": "2026-10-31T08:12:04.000Z",
-          "excerpt": "### Information about bug The Helpdesk app is aggressively overriding the application's login routes and causing serious routing issues. Even when the Portal Settings are explicitly configured to prevent the Helpdesk app"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-encrypted-storage-backup-and-recovery-kit-prove-",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Encrypted storage, backup and Recovery Kit: prove recovery after device loss",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:49:15.000Z",
-      "evidence": [
-        {
-          "title": "Encrypted storage, backup and Recovery Kit: prove recovery after device loss",
-          "url": "https://github.com/elastos/elastos-runtime/issues/567",
-          "source": "github",
-          "createdAt": "2026-11-11T14:49:15.000Z",
-          "excerpt": "## Problem and scope People need to recover their identity and private data after losing a device, replacing the desktop app or changing storage provider. Encryption, retained data and usable recovery keys are separate r"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-extract-identity-guarded-project-configuration-a",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Extract identity-guarded project configuration access into native adapters",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T09:12:43.000Z",
-      "evidence": [
-        {
-          "title": "Extract identity-guarded project configuration access into native adapters",
-          "url": "https://github.com/igmrrf/bitbid/issues/70",
-          "source": "github",
-          "createdAt": "2026-11-11T09:12:43.000Z",
-          "excerpt": "## Outcome and ownership **Ownership:** dedicated native project-file guarded adapter plus ProjectConfig native schema/wrappers/selector interface and direct API fixtures. **Depends:** final canonical-only47 baseline for"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-follow-up-to-429-non-blocking-review-findings-cu",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Follow-up to #429: non-blocking review findings (Customer to store chat (a))",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:22:46.000Z",
-      "evidence": [
-        {
-          "title": "Follow-up to #429: non-blocking review findings (Customer to store chat (a))",
-          "url": "https://github.com/hislordshipprof/african-market-AI-Ecommerce/issues/463",
-          "source": "github",
-          "createdAt": "2026-11-11T16:22:46.000Z",
-          "excerpt": "Non-blocking findings from the final review of #429 (PR #436, merged). None blocked the merge. Copied from `.builder/review-429.md`; check each against main before fixing, because later merges may have touched the same c"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-hdb-s3-8329-follow-up-residual-review-findings-6",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "HDB S3 #8329 follow-up: residual review findings (6)",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T08:47:17.000Z",
-      "evidence": [
-        {
-          "title": "HDB S3 #8329 follow-up: residual review findings (6)",
-          "url": "https://github.com/sounditsolutions/soundit-psa/issues/8338",
-          "source": "github",
-          "createdAt": "2026-11-11T08:47:17.000Z",
-          "excerpt": "6 residual ticket-class findings from this run, filed as one roll-up rather than 6 issues. Split any row into its own issue when it is picked up. | finding | seat | category | title | |---|---|---|---| | `diff:2` | diff "
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-hdb-sprite-frames-8339-residual-review-findings-",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "HDB sprite frames (#8339): residual review findings (18)",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:31:45.000Z",
-      "evidence": [
-        {
-          "title": "HDB sprite frames (#8339): residual review findings (18)",
-          "url": "https://github.com/sounditsolutions/soundit-psa/issues/8340",
-          "source": "github",
-          "createdAt": "2026-11-11T16:31:45.000Z",
-          "excerpt": "18 residual ticket-class findings from this run, filed as one roll-up rather than 18 issues. Split any row into its own issue when it is picked up. | finding | seat | category | title | |---|---|---|---| | `diff:2` | dif"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-obeya-room-a-read-only-opt-in-lens-over-the-fact",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Obeya room: a read-only, opt-in lens over the factory and the project",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:30:23.000Z",
-      "evidence": [
-        {
-          "title": "Obeya room: a read-only, opt-in lens over the factory and the project",
-          "url": "https://github.com/WimSuenens/agent-plugins/issues/121",
-          "source": "github",
-          "createdAt": "2026-11-11T13:30:23.000Z",
-          "excerpt": "## Problem Statement The factory produces a lot of state: tickets, decision cards, ADRs, andon, ledgers, intake outcomes. All of it is spread over the tracker, the repo and in-flight worktrees. A person who owns a projec"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-post-training-does-opd-cause-less-drift-and-inte",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "[post-training] Does OPD cause less drift and interference than SFT on Snowball?",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:00:49.000Z",
-      "evidence": [
-        {
-          "title": "[post-training] Does OPD cause less drift and interference than SFT on Snowball?",
-          "url": "https://github.com/marin-community/marin/issues/11207",
-          "source": "github",
-          "createdAt": "2026-11-11T15:00:49.000Z",
-          "excerpt": "Final write-up: https://public.applets.marina.oa.dev/a/75757ac8-fc52-432d-83a5-b2d6be662547/v/1/ ## Overview **What this is.** This is a Marin ablation which tests a simple hypothesis: on-policy distillation (OPD) teache"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-prd-grapevine-for-ubuntu",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "PRD: Grapevine for Ubuntu",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T16:12:51.000Z",
-      "evidence": [
-        {
-          "title": "PRD: Grapevine for Ubuntu",
-          "url": "https://github.com/khiet/grapevine/issues/77",
-          "source": "github",
-          "createdAt": "2026-11-11T16:12:51.000Z",
-          "excerpt": "## Problem Statement Grapevine only runs on macOS. Someone who works on Ubuntu has no way to keep an eye on their pull requests from the system tray: there is no Linux build to download, and the code does not compile for"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-program-elsa-4-multi-tenancy-provider-agnostic-c",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Program: Elsa 4 multi-tenancy (provider-agnostic, contract-level)",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:09:26.000Z",
-      "evidence": [
-        {
-          "title": "Program: Elsa 4 multi-tenancy (provider-agnostic, contract-level)",
-          "url": "https://github.com/elsa-workflows/elsa-foundation/issues/4131",
-          "source": "github",
-          "createdAt": "2026-11-11T15:09:26.000Z",
-          "excerpt": "[Elsa 4 Lead] On behalf of @sfmskywalker. 🔥 # Elsa 4 multi-tenancy program Status: **In progress, Phase 0 starting (11 Nov 2026).** Assessment: [#4123](https://github.com/elsa-workflows/elsa-foundation/issues/4123) (rea"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-say-what-each-contact-block-contains-title-compa",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Say what each contact block contains (Title Company includes the address), add the 3 missing…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:48:15.000Z",
-      "evidence": [
-        {
-          "title": "Say what each contact block contains (Title Company includes the address), add the 3 missing block tokens, and document images and links in email templates",
-          "url": "https://github.com/caseyspaulding/docjacket-help/issues/202",
-          "source": "github",
-          "createdAt": "2026-11-11T13:48:15.000Z",
-          "excerpt": "# Say what each contact block contains (the Title Company block includes the address), add the 3 missing block tokens, and document images and links in email templates **Premise verified against docjacket-help origin/mai"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-story-003-010-conversation-view",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "STORY-003-010: Conversation view",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:00:47.000Z",
-      "evidence": [
-        {
-          "title": "STORY-003-010: Conversation view",
-          "url": "https://github.com/ohtia/ohtia/issues/212",
-          "source": "github",
-          "createdAt": "2026-11-11T15:00:47.000Z",
-          "excerpt": "# STORY-003-010 — Conversation view ## Description Show one conversation in the chat panel with attributed plain-text messages, streamed replies, reading-position rules, paging by 50, panel states and the shared timeline"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-story-003-015-new-project-flow",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "STORY-003-015: New project flow",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:01:12.000Z",
-      "evidence": [
-        {
-          "title": "STORY-003-015: New project flow",
-          "url": "https://github.com/ohtia/ohtia/issues/217",
-          "source": "github",
-          "createdAt": "2026-11-11T15:01:12.000Z",
-          "excerpt": "# STORY-003-015 — New project flow ## Description Add \"New project\" to the welcome, context bar, menu, palette and Ctrl/Cmd+N, the no-connection dialog, idempotent creation, the setup texts, the new `ActionProposalCard` "
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-story-003-034-late-usage-and-diagnostics",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "STORY-003-034: Late usage and diagnostics",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:02:44.000Z",
-      "evidence": [
-        {
-          "title": "STORY-003-034: Late usage and diagnostics",
-          "url": "https://github.com/ohtia/ohtia/issues/236",
-          "source": "github",
-          "createdAt": "2026-11-11T15:02:44.000Z",
-          "excerpt": "# STORY-003-034 — Late usage and diagnostics ## Description Add `usage_reports` with the 15-minute late-report window, the \"Details\" view for agent replies, the end-to-end diagnostic marker sweep and the applicable scena"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-story-003-036-anthropic-api-key",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "STORY-003-036: Anthropic API key",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:02:55.000Z",
-      "evidence": [
-        {
-          "title": "STORY-003-036: Anthropic API key",
-          "url": "https://github.com/ohtia/ohtia/issues/238",
-          "source": "github",
-          "createdAt": "2026-11-11T15:02:55.000Z",
-          "excerpt": "# STORY-003-036 — Anthropic API key ## Description Add the Anthropic API-key connection, model listing with effort levels, Messages requests through `@anthropic-ai/sdk` in the main process with mapped tools and text hist"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-taiga-tui-mvp-spec",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Taiga TUI: MVP spec",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:24:24.000Z",
-      "evidence": [
-        {
-          "title": "Taiga TUI: MVP spec",
-          "url": "https://github.com/zeckitoz/taiga-tui/issues/18",
-          "source": "github",
-          "createdAt": "2026-11-11T13:24:24.000Z",
-          "excerpt": "Spec for the map #1 (Taiga TUI: MVP spec). Every decision below comes from the resolved tickets #2 to #16 and ADR 0001. ## Problem Statement Team Members of a university team work on their Taiga projects on the Ostfalia "
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-175-concierge-the-empathetic-reply-does-not-incl",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "[$175] Concierge - The empathetic reply does not include a clickable link \"talk to a human\" link",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T15:54:58.000Z",
-      "evidence": [
-        {
-          "title": "[$175] Concierge - The empathetic reply does not include a clickable link \"talk to a human\" link",
-          "url": "https://github.com/Expensify/App/issues/106517",
-          "source": "github",
-          "createdAt": "2026-11-10T15:54:58.000Z",
-          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
-        }
-      ]
-    },
-    {
       "id": "invoice-export-app-subscriptions-sdk-pricing-definitions-per-ac",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -1551,7 +939,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.1,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1581,7 +969,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.3,
+        "recency": 14.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1603,15 +991,15 @@
       ]
     },
     {
-      "id": "invoice-export-fin-04-add-custom-csv-mapping-through-the-existi",
+      "id": "invoice-export-club-emails-from-communications-and-notices-reac",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
-      "title": "FIN-04: Add custom CSV mapping through the existing encrypted import plan and Undo",
+      "title": "Club emails from Communications and notices reach only members who ticked \"Club…",
       "score": 22,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.7,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1621,14 +1009,44 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-09T01:15:50.000Z",
+      "lastSeen": "2026-11-10T21:38:04.000Z",
       "evidence": [
         {
-          "title": "FIN-04: Add custom CSV mapping through the existing encrypted import plan and Undo",
-          "url": "https://github.com/Vivekpsps3/vivek-monorepo/issues/223",
+          "title": "Club emails from Communications and notices reach only members who ticked \"Club Communications\", which starts off",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4987",
           "source": "github",
-          "createdAt": "2026-11-09T01:15:50.000Z",
-          "excerpt": "# FIN-04 — Add custom CSV mapping through the existing encrypted import plan and Undo - Stable key: `FIN-04` - GitHub leaf: [#223](https://github.com/Vivekpsps3/vivek-monorepo/issues/223) - Parents: [#65](https://github."
+          "createdAt": "2026-11-10T21:38:04.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — option A: a separate \"Club notices\" preference that starts on.** Club bu"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-money-core-modules-import-each-other-in-loops-an",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Money-core modules import each other in loops, and nothing stops new loops or new uses of the…",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:34:49.000Z",
+      "evidence": [
+        {
+          "title": "Money-core modules import each other in loops, and nothing stops new loops or new uses of the old Xero facade",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4930",
+          "source": "github",
+          "createdAt": "2026-11-10T21:34:49.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Nothing goes wrong for members or officers today. This is abou"
         }
       ]
     },
@@ -1641,7 +1059,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1663,15 +1081,15 @@
       ]
     },
     {
-      "id": "invoice-export-new-accounting-module",
+      "id": "invoice-export-running-reports-over-several-years-can-freeze-th",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
-      "title": "New accounting module",
+      "title": "Running Reports over several years can freeze the booking site for everyone for a few seconds",
       "score": 22,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1681,27 +1099,27 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-10T10:02:13.000Z",
+      "lastSeen": "2026-11-10T21:35:15.000Z",
       "evidence": [
         {
-          "title": "New accounting module",
-          "url": "https://github.com/DorinOctavianPopa/Novavex.frontend/issues/9",
+          "title": "Running Reports over several years can freeze the booking site for everyone for a few seconds",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4937",
           "source": "github",
-          "createdAt": "2026-11-10T10:02:13.000Z",
-          "excerpt": "Please create a new accounting frontend module witch operates as an integrated ecosystem where data flows fluidly between modules. To ensure correct, secure, and legally compliant operation, the three main screens and th"
+          "createdAt": "2026-11-10T21:35:15.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Admin → Finance → Reports shows how full the lodge was on each"
         }
       ]
     },
     {
-      "id": "solo-crm-design-radar-2026-11-09",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Design radar 2026-11-09",
+      "id": "invoice-export-sign-in-and-sign-out-share-a-10-per-15-minutes-b",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Sign-in and sign-out share a 10-per-15-minutes budget per internet address, so lodge wifi can…",
       "score": 22,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1711,27 +1129,27 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-09T17:34:19.000Z",
+      "lastSeen": "2026-11-10T21:34:06.000Z",
       "evidence": [
         {
-          "title": "Design radar 2026-11-09",
-          "url": "https://github.com/fergo5002/design-director/issues/9",
+          "title": "Sign-in and sign-out share a 10-per-15-minutes budget per internet address, so lodge wifi can lock members out",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4917",
           "source": "github",
-          "createdAt": "2026-11-09T17:34:19.000Z",
-          "excerpt": "# Design radar, 2026-11-09 936 sources in the catalogue. Every lead below needs a human or agent to verify it before it goes in. ## Changed since last run - **8bitcn**: fix(seo): repair login-form docs link and expand me"
+          "createdAt": "2026-11-10T21:34:06.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app caps how many sign-in actions can come from one intern"
         }
       ]
     },
     {
-      "id": "invoice-export-configuration-organize-setup-and-options-into-sh",
+      "id": "invoice-export-the-xero-health-check-gets-slower-every-season-i",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
-      "title": "Configuration: organize setup and options into shared sections",
-      "score": 21,
+      "title": "The Xero health check gets slower every season: it re-checks every refunded card payment ever…",
+      "score": 22,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.8,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1741,44 +1159,14 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-07T06:07:25.000Z",
+      "lastSeen": "2026-11-10T21:35:12.000Z",
       "evidence": [
         {
-          "title": "Configuration: organize setup and options into shared sections",
-          "url": "https://github.com/guslund-jpg/electricity-pro/issues/373",
+          "title": "The Xero health check gets slower every season: it re-checks every refunded card payment ever, one by one",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4936",
           "source": "github",
-          "createdAt": "2026-11-07T06:07:25.000Z",
-          "excerpt": "The Custom setup and options forms combine meter sources, price declarations, tariffs and insights. Tibber has a shorter parallel flow. Organize both paths into shared sections, using supported provider metadata to prefi"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-release-complete-encrypted-backup-restore-and-cl",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "release: complete encrypted backup, restore and clinical acceptance gates",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-07T08:09:10.000Z",
-      "evidence": [
-        {
-          "title": "release: complete encrypted backup, restore and clinical acceptance gates",
-          "url": "https://github.com/crauch2088-source/roshan-health-hub/issues/199",
-          "source": "github",
-          "createdAt": "2026-11-07T08:09:10.000Z",
-          "excerpt": "## Purpose Track the remaining evidence-based release gates. This issue supersedes no feature PR and does not imply that the clinic is ready for live clinical use. ## Verified on 2026-11-07 - Production app root responds"
+          "createdAt": "2026-11-10T21:35:12.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The Xero page under Admin, Finance has a health check. One of "
         }
       ]
     },
@@ -1791,7 +1179,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.5,
+        "recency": 13.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1821,7 +1209,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 11.7,
+        "recency": 11.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1843,15 +1231,15 @@
       ]
     },
     {
-      "id": "invoice-export-research-round-3-what-users-love-hate-across-90-",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "[Research] Round 3: what users love & hate across ~90 SSH, terminal & remote-desktop tools…",
+      "id": "scheduling-lampos-queue-2-the-builders-coordination-after-4",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "lampOS Queue (2): the builders' coordination, after #4710 filled up",
       "score": 20,
       "breakdown": {
         "frequency": 3,
-        "intensity": 6,
-        "recency": 6,
+        "intensity": 0,
+        "recency": 11.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1859,18 +1247,46 @@
       "sources": [
         "github"
       ],
-      "signals": [
-        "frustration"
-      ],
+      "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-10-24T16:42:27.000Z",
+      "lastSeen": "2026-11-05T04:12:59.000Z",
       "evidence": [
         {
-          "title": "[Research] Round 3: what users love & hate across ~90 SSH, terminal & remote-desktop tools (2026-10)",
-          "url": "https://github.com/konraddzbik/termdesk/issues/148",
+          "title": "lampOS Queue (2): the builders' coordination, after #4710 filled up",
+          "url": "https://github.com/autonomous-ai/lampOS/issues/5385",
           "source": "github",
-          "createdAt": "2026-10-24T16:42:27.000Z",
-          "excerpt": "> Round-3 competitive research, 2026-10-24. Earlier rounds: #43–#69 (round 1, 2026-08-28) and #86–#104 (round 2, 2026-09-09). **This round asks what users actually love and hate**, not which features each product lists. "
+          "createdAt": "2026-11-05T04:12:59.000Z",
+          "excerpt": "Opened by Faye (PM), 5 Nov 11:12 GMT+7. **#4710 is full**: GitHub allows no more comments past 2,500, so the builders' coordination moves here from now on. **What goes here, as on #4710:** READ ASKs addressed to a person"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-textedit-vs-pages",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "TextEdit vs. Pages",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 11.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-05T20:44:38.000Z",
+      "evidence": [
+        {
+          "title": "TextEdit vs. Pages",
+          "url": "https://leancrew.com/all-this/2026/10/textedit-vs-pages/",
+          "source": "hn",
+          "createdAt": "2026-11-05T20:44:38.000Z",
+          "excerpt": "Back when Apple put in cloud in TextEdit I had to stop using it because it was too many steps to start writing, you had to choose a file path and name before you could start typing. I&#x27;ve always used it to quickly jo"
         }
       ]
     }

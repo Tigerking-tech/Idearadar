@@ -71,12 +71,16 @@ export function GuestScan({
   signals,
   live = false,
   generatedAt = null,
+  historySeeded = false,
+  trendReady = true,
 }: {
   d?: Dict;
   locale?: Locale;
   signals: Signal[];
   live?: boolean;
   generatedAt?: string | null;
+  historySeeded?: boolean;
+  trendReady?: boolean;
 }) {
   const t = d.tryPage;
   const zh = locale === "zh";
@@ -263,6 +267,9 @@ export function GuestScan({
                   {live && generatedAt && (
                     <p className="rr-feed-live-note">{t.feedLiveNote} {new Date(generatedAt).toLocaleDateString(zh ? "zh-CN" : "en-US")}</p>
                   )}
+                  {/* 诚实标注：引导历史 / 样本不足时不把演示趋势冒充真实趋势 */}
+                  {live && historySeeded && <p className="rr-feed-seed-note">{t.feedSeedNote}</p>}
+                  {live && !historySeeded && !trendReady && <p className="rr-feed-seed-note">{t.feedTrendPending}</p>}
                 </section>
 
               {/* 方向浏览：没想法时直接点（解决冷启动），结果出现后仍常驻 */}

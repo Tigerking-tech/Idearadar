@@ -11,6 +11,9 @@ import {
   isNoiseTitle,
   truncateAtWord,
   noiseTitleReasons,
+  aggregateByNiche,
+  appendHistory,
+  classifyTrend,
 } from "./ingest-lib.mjs";
 
 test("clamp 边界与异常值", () => {
@@ -152,4 +155,64 @@ test("truncateAtWord 不产生半个单词，短文本原样返回", () => {
   assert.ok(!/\s\w{1}$/.test(cut.replace("…", "")), "不应留下半截词尾");
   assert.equal(truncateAtWord("Short title", 96), "Short title");
   assert.equal(truncateAtWord("  a   b  ", 96), "a b");
+});
+
+/* ---------------- 多时间点趋势追踪 ---------------- */
+
+test("aggregateByNiche 按赛道聚合平均分、总提及、条目数", () => {
+  const out = aggregateByNiche([
+    { nicheId: "a", score: 20, mentions: 2 },
+    { nicheId: "a", score: 30, mentions: 3 },
+    { nicheId: "b", score: 40, mentions: 1 },
+  ]);
+  assert.deepEqual(out, {
+    a: { score: 25, mentions: 5, items: 2 },
+    b: { score: 40, mentions: 1, items: 1 },
+  });
+  assert.deepEqual(aggregateByNiche([]), {});
+});
+
+test("appendHistory 追加、按时间排序、同时间戳幂等、滚动窗口裁剪", () => {
+  const mk = (t, m) => ({ t: `2026-01-${t}T00:00:00Z`, byNiche: { a: { score: 20, mentions: m, items: 1 } } });
+  let h = appendHistory(null, mk("03", 3), 3);
+  h = appendHistory(h, mk("01", 1), 3);
+  h = appendHistory(h, mk("02", 2), 3);
+  assert.deepEqual(h.snapshots.map((s) => s.t.slice(8, 10)), ["01", "02", "03"], "应按时间升序");
+  h = appendHistory(h, mk("04", 4), 3);
+  assert.equal(h.snapshots.length, 3, "应裁剪到 maxSnapshots");
+  assert.equal(h.snapshots[0].t.slice(8, 10), "02", "应丢弃最旧的");
+  const len = h.snapshots.length;
+  h = appendHistory(h, mk("03", 99), 3);
+  assert.equal(h.snapshots.length, len, "同一时间戳应替换而非新增");
+  assert.equal(h.snapshots.find((s) => s.t.includes("-03")).byNiche.a.mentions, 99);
+});
+
+test("appendHistory 损坏输入安全回退，且真实快照攒够 12 个后自动剔除引导数据", () => {
+  const h0 = appendHistory("not-json", { t: "2026-01-01T00:00:00Z", byNiche: {} }, 120);
+  assert.equal(h0.snapshots.length, 1);
+  let h = { schemaVersion: 1, seeded: true, maxSnapshots: 120, snapshots: [] };
+  for (let i = 1; i <= 10; i++) {
+    h = appendHistory(h, { t: `2026-01-${String(i).padStart(2, "0")}T00:00:00Z`, seeded: true, byNiche: { a: { score: 20, mentions: 5, items: 1 } } }, 120);
+  }
+  assert.equal(h.seeded, true, "真实快照不足时应保留引导数据标记");
+  for (let i = 1; i <= 12; i++) {
+    h = appendHistory(h, { t: `2026-02-${String(i).padStart(2, "0")}T00:00:00Z`, byNiche: { a: { score: 20, mentions: 5, items: 1 } } }, 120);
+  }
+  assert.equal(h.seeded, false, "攒够 12 个真实快照后 seeded 应翻转为 false");
+  assert.ok(h.snapshots.every((s) => !s.seeded), "引导快照应被全部剔除");
+  assert.equal(h.snapshots.length, 12);
+});
+
+test("classifyTrend 正确判定 rising / steady / peaked 与样本不足", () => {
+  const mk = (arr) => arr.map((mentions) => ({ score: 20, mentions }));
+  assert.equal(classifyTrend(mk([3, 4])), "steady", "少于 3 个快照应诚实返回平稳");
+  assert.equal(classifyTrend(mk([3, 4, 5, 6, 7, 8, 9, 10, 11, 12])), "rising", "持续上升");
+  assert.equal(classifyTrend(mk([10, 10, 10, 10, 10, 10, 10, 10, 10, 10])), "steady", "完全持平");
+  assert.equal(classifyTrend(mk([5, 8, 12, 20, 25, 22, 16, 12, 9, 6])), "peaked", "冲高后回落");
+});
+
+test("classifyTrend 峰值只看近 12 点，久远历史不永久影响当前判定", () => {
+  const old = Array.from({ length: 20 }, () => ({ score: 20, mentions: 100 }));
+  const recent = Array.from({ length: 12 }, () => ({ score: 20, mentions: 10 }));
+  assert.equal(classifyTrend([...old, ...recent]), "steady", "久远峰值不应让近期平稳序列被判为已过峰");
 });

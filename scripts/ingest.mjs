@@ -20,6 +20,8 @@ import {
   normalizeText,
   isNoiseTitle,
   truncateAtWord,
+  aggregateByNiche,
+  appendHistory,
 } from "./ingest-lib.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -336,6 +338,21 @@ await fs.mkdir(path.join(ROOT, "public"), { recursive: true });
 const json = `${JSON.stringify(output, null, 2)}\n`;
 await fs.writeFile(path.join(ROOT, "data", "opportunities.json"), json);
 await fs.writeFile(path.join(ROOT, "public", "opportunities.json"), json);
+
+// 趋势追踪：把本次运行的「按 niche 聚合快照」追加进历史，供发现流计算上升/平稳/过峰。
+const historyPath = path.join(ROOT, "data", "history.json");
+const publicHistoryPath = path.join(ROOT, "public", "history.json");
+let prevHistory = null;
+try {
+  prevHistory = await fs.readFile(historyPath, "utf8");
+} catch {
+  prevHistory = null;
+}
+const snapshot = { t: output.generatedAt, byNiche: aggregateByNiche(items) };
+const history = appendHistory(prevHistory, snapshot, 120);
+const historyJson = `${JSON.stringify(history, null, 2)}\n`;
+await fs.writeFile(historyPath, historyJson);
+await fs.writeFile(publicHistoryPath, historyJson);
 
 if (process.env.INGEST_WEBHOOK_URL) {
   try {

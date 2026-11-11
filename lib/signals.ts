@@ -9,6 +9,7 @@
  */
 
 import { GUEST_ITEMS_EN, GUEST_ITEMS_ZH } from "./guest-scan-data";
+import { classifyTrend } from "../scripts/ingest-lib.mjs";
 
 export type TrendKind = "rising" | "steady" | "peaked";
 
@@ -50,6 +51,18 @@ export const SOURCE_LABELS: Record<string, string> = {
   firstParty: "First-party",
   reddit: "Reddit",
 };
+
+/** 真实采集的 nicheLabel 是英文配置；中文页本地化为中文类目，避免中文页混入英文句子。 */
+const NICHE_LABEL_ZH: Record<string, string> = {
+  "solo-crm": "独立创业者 CRM",
+  "invoice-export": "发票与报销导出",
+  "support-transcripts": "客服记录导出",
+  scheduling: "预约排期",
+};
+function categoryFor(rawNicheId: string | undefined, fallback: string, locale: "en" | "zh"): string {
+  if (locale === "zh" && rawNicheId && NICHE_LABEL_ZH[rawNicheId]) return NICHE_LABEL_ZH[rawNicheId];
+  return fallback;
+}
 
 export type Signal = {
   id: string;
@@ -126,6 +139,63 @@ function trendFromScore(score: number): TrendKind {
   return "peaked";
 }
 
+/* ----------------------- 多时间点趋势（真实时序） ----------------------- */
+
+/** 由采集管线累积的 history.json：每次运行一个按 niche 聚合的快照。 */
+export type SignalHistory = {
+  schemaVersion?: number;
+  seeded?: boolean;
+  maxSnapshots?: number;
+  snapshots: {
+    t: string;
+    byNiche: Record<string, { score: number; mentions: number; items: number }>;
+  }[];
+};
+
+/**
+ * 基于某 niche 的历史序列判断趋势（取代单快照的 recency/frequency 瞎猜）：
+ * - 历史不足 3 个快照 → "steady"（样本不足，诚实标注为平稳，不谎报上升）
+ * - 近期提及量相对其历史峰值回落 ≥15% → "peaked"（已过峰）
+ * - 近期提及量相对窗口起点上升 ≥15% → "rising"
+ * - 其余 → "steady"
+ * 主信号用「提及量」而非分数：提及量是需求强度更直接的代理，分数更多反映信号质量。
+ */
+export function nicheSeries(nicheId: string, history: SignalHistory | null): { score: number; mentions: number }[] {
+  if (!history || !Array.isArray(history.snapshots)) return [];
+  return history.snapshots
+    .map((s) => s.byNiche?.[nicheId])
+    .filter((x): x is { score: number; mentions: number; items: number } => Boolean(x))
+    .map((x) => ({ score: x.score, mentions: x.mentions }));
+}
+
+/** 判定逻辑复用采集库的 classifyTrend（单一真源，可被 node --test 覆盖）。 */
+export function trendForNiche(nicheId: string, history: SignalHistory | null): TrendKind {
+  return classifyTrend(nicheSeries(nicheId, history)) as TrendKind;
+}
+
+/**
+ * sparkline 直接画该 niche 的真实历史提及量序列（与趋势芯片同源，曲线不说谎）。
+ * 无足够历史时返回 null，调用方回退到按趋势形状生成的曲线。
+ */
+export function sparkFromHistory(nicheId: string, history: SignalHistory | null): number[] | null {
+  if (!history || !Array.isArray(history.snapshots) || history.snapshots.length < 3) return null;
+  const series = nicheSeries(nicheId, history).slice(-12).map((s) => s.mentions);
+  if (series.length < 3) return null;
+  const max = Math.max(...series);
+  const min = Math.min(...series);
+  const span = max - min || 1;
+  return series.map((v) => Number((0.12 + ((v - min) / span) * 0.8).toFixed(3)));
+}
+
+/** 单快照兜底（仅用于没有 nicheId 的条目）：沿用原 recency/frequency 启发式。 */
+function trendFromBreakdown(score: number, b: RawOpportunity["breakdown"]): TrendKind {
+  const bd = b ?? {};
+  let trend: TrendKind = "steady";
+  if (norm(bd.recency) >= 0.5 && norm(bd.frequency) >= 0.1) trend = "rising";
+  else if (score < 30) trend = "peaked";
+  return trend;
+}
+
 /* ----------------------------- 演示数据映射 ----------------------------- */
 
 function demoSignals(locale: "en" | "zh"): Signal[] {
@@ -149,6 +219,7 @@ function demoSignals(locale: "en" | "zh"): Signal[] {
 
 type RawOpportunity = {
   id?: string;
+  nicheId?: string;
   nicheLabel?: string;
   title?: string;
   score?: number;
@@ -164,7 +235,7 @@ function norm(n: number | undefined, max = 20): number {
   return Math.max(0, Math.min(1, x / max));
 }
 
-function mapOpportunity(raw: RawOpportunity): Signal | null {
+function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, locale: "en" | "zh"): Signal | null {
   const id = raw.id ?? raw.title ?? "";
   if (!id || typeof raw.title !== "string" || raw.title.length < 6) return null;
   const b = raw.breakdown ?? {};
@@ -176,19 +247,19 @@ function mapOpportunity(raw: RawOpportunity): Signal | null {
     Array.isArray(raw.signals) && raw.signals.length
       ? raw.signals.join("；")
       : raw.nicheLabel || "现有产品在该方向持续栽跟头，尚无人完整接住。";
-  const spark = [0.12, norm(b.frequency), norm(b.intensity), norm(b.recency), norm(b.corroboration), norm(b.willingnessToPay, 10)].map((x) =>
-    Number(x.toFixed(3)),
-  );
-  let trend: TrendKind = "steady";
-  if (norm(b.recency) >= 0.5 && norm(b.frequency) >= 0.1) trend = "rising";
-  else if (score < 30) trend = "peaked";
+  // 趋势：优先基于该 niche 的历史时序（多快照）；无 niche / 无历史时退回单快照启发式。
+  const trend: TrendKind = raw.nicheId
+    ? trendForNiche(raw.nicheId, history)
+    : trendFromBreakdown(score, b);
+  // sparkline 优先画真实历史序列，无历史时按趋势形状生成（保证曲线语义与芯片一致）。
+  const spark = (raw.nicheId ? sparkFromHistory(raw.nicheId, history) : null) ?? sparkForTrend(id, trend);
   return {
     id,
     title: raw.title.replace(/\s*…\s*$/, "").slice(0, 160),
     score,
     mentions: typeof raw.mentions === "number" ? raw.mentions : 0,
     sources,
-    category: raw.nicheLabel || (sources[0] ?? "Signal"),
+    category: categoryFor(raw.nicheId, raw.nicheLabel || (sources[0] ?? "Signal"), locale),
     trend,
     spark,
     quote,
@@ -197,13 +268,13 @@ function mapOpportunity(raw: RawOpportunity): Signal | null {
 }
 
 /** 健壮性：任何解析异常都返回 null，让调用方安全回退到演示数据。 */
-export function tryParseLiveSignals(json: unknown): Signal[] | null {
+export function tryParseLiveSignals(json: unknown, history: SignalHistory | null = null, locale: "en" | "zh" = "en"): Signal[] | null {
   try {
     if (!json || typeof json !== "object") return null;
     const items = (json as { items?: unknown }).items;
     if (!Array.isArray(items) || items.length === 0) return null;
     const mapped = (items as RawOpportunity[])
-      .map(mapOpportunity)
+      .map((raw) => mapOpportunity(raw, history, locale))
       .filter((x): x is Signal => x !== null)
       .filter((s) => s.score >= 20 && s.mentions >= 1);
     return mapped.length >= 3 ? mapped : null;
@@ -219,6 +290,12 @@ export type ResolvedFeed = {
   live: boolean;
   generatedAt: string | null;
   sourceCount: number;
+  /** 历史快照数量（真实趋势的样本量），0 表示完全没有历史。 */
+  historyCount: number;
+  /** 趋势是否仍含冷启动引导数据（会随真实采集自动退役）。UI 需诚实标注。 */
+  historySeeded: boolean;
+  /** 趋势样本是否足够（>=3 个快照）。不足时全部显示「平稳（样本不足）」。 */
+  trendReady: boolean;
 };
 
 /**
@@ -226,29 +303,40 @@ export type ResolvedFeed = {
  * - 开启 `IDEARADAR_LIVE_FEED` 且能解析出 >=3 条有效实时信号 → 走实时数据；
  * - 否则回退到本地化演示数据。
  * 两条路径返回完全相同的 `Signal[]` 形状，UI 无需感知差异。
+ * 实时路径额外读取 data/history.json，用多快照时序驱动趋势与 sparkline。
  */
 export function resolveSignals(locale: "en" | "zh"): ResolvedFeed {
   const liveOn = process.env.IDEARADAR_LIVE_FEED === "1" || process.env.IDEARADAR_LIVE_FEED === "true";
   let live: Signal[] | null = null;
   let generatedAt: string | null = null;
+  let history: SignalHistory | null = null;
   if (liveOn) {
     try {
       // 运行时读取最新管线输出（try 页为 force-dynamic）
       const fs = require("fs") as typeof import("fs");
       const path = require("path") as typeof import("path");
-      const file = path.join(process.cwd(), "data", "opportunities.json");
-      const raw = JSON.parse(fs.readFileSync(file, "utf8"));
-      live = tryParseLiveSignals(raw);
+      const raw = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "opportunities.json"), "utf8"));
+      let hist: SignalHistory | null = null;
+      try {
+        const parsed = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "history.json"), "utf8"));
+        if (parsed && Array.isArray(parsed.snapshots)) hist = parsed as SignalHistory;
+      } catch {
+        hist = null; // 历史文件缺失/损坏时安全回退到单快照启发式
+      }
+      history = hist;
+      live = tryParseLiveSignals(raw, hist, locale);
       generatedAt = raw?.generatedAt ?? null;
     } catch {
       live = null;
     }
   }
+  const historyCount = history?.snapshots?.length ?? 0;
+  const historySeeded = Boolean(history?.seeded);
   if (live) {
-    return { signals: live, live: true, generatedAt, sourceCount: live.length };
+    return { signals: live, live: true, generatedAt, sourceCount: live.length, historyCount, historySeeded, trendReady: historyCount >= 3 };
   }
   const demo = demoSignals(locale);
-  return { signals: demo, live: false, generatedAt: null, sourceCount: demo.length };
+  return { signals: demo, live: false, generatedAt: null, sourceCount: demo.length, historyCount: 0, historySeeded: false, trendReady: true };
 }
 
 /* ----------------------------- 关键词检索 ----------------------------- */
@@ -281,7 +369,29 @@ export function pinnedSignals(ids: string[], signals: Signal[]): Signal[] {
     .sort((a, b) => b.score - a.score);
 }
 
-/** 零输入发现流：按信号分取 Top N。 */
+/**
+ * 零输入发现流：按分数取 Top N，但保证赛道（category / niche）多样性。
+ * 第一轮每个赛道取最高分 1 条，第二轮按分数补齐。
+ * 动机：真实采集里某些赛道分数普遍偏高，纯按分数取会让 6 张卡全来自同一赛道，
+ * 既不像 Exploding Topics 的 curated 信息流，也会让趋势芯片退化成「全一样」。
+ */
 export function topSignals(signals: Signal[], n = 6): Signal[] {
-  return [...signals].sort((a, b) => b.score - a.score).slice(0, n);
+  const sorted = [...signals].sort((a, b) => b.score - a.score || b.mentions - a.mentions);
+  const picked: Signal[] = [];
+  const seenCat = new Set<string>();
+  const seenId = new Set<string>();
+  for (const s of sorted) {
+    if (picked.length >= n) break;
+    if (seenCat.has(s.category)) continue;
+    picked.push(s);
+    seenCat.add(s.category);
+    seenId.add(s.id);
+  }
+  for (const s of sorted) {
+    if (picked.length >= n) break;
+    if (seenId.has(s.id)) continue;
+    picked.push(s);
+    seenId.add(s.id);
+  }
+  return picked.sort((a, b) => b.score - a.score || b.mentions - a.mentions);
 }

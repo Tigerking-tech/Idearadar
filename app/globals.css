@@ -420,7 +420,7 @@ body {
 .rr-try-result:last-child { border-bottom: 0; }
 .rr-try-result-top { display: flex; align-items: baseline; gap: 12px; }
 .rr-try-rank { font-size: 12px; font-weight: 750; color: var(--rr-muted); font-variant-numeric: tabular-nums; }
-.rr-try-result-top h4 { flex: 1; font-size: 15px; font-weight: 700; line-height: 1.45; }
+.rr-try-result-top h4 { flex: 1; min-width: 0; font-size: 15px; font-weight: 700; line-height: 1.45; overflow-wrap: anywhere; word-break: break-word; }
 .rr-try-score { font-size: 19px; font-weight: 800; color: var(--rr-indigo); font-variant-numeric: tabular-nums; }
 .rr-try-score small { font-size: 11px; font-weight: 600; color: var(--rr-muted); }
 .rr-try-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 11.5px; color: var(--rr-muted); margin-top: 9px; }
@@ -475,16 +475,16 @@ body {
 .rr-feed-title { font-size: 19px; font-weight: 800; color: var(--rr-ink); margin: 6px 0 4px; }
 .rr-feed-text { font-size: 13px; line-height: 1.6; color: var(--rr-muted); max-width: 480px; margin: 0 auto; }
 .rr-feed-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;
 }
 .rr-feed-item {
-  display: flex; flex-direction: column; gap: 8px; text-align: left;
+  display: flex; flex-direction: column; gap: 8px; text-align: left; min-width: 0;
   padding: 14px; border: 1px solid #e6e7f0; border-radius: 13px; background: #fff;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 .rr-feed-item:hover { border-color: transparent; box-shadow: 0 0 0 1.5px var(--rr-indigo), 0 8px 22px rgba(91, 75, 245, 0.1); }
 .rr-feed-item-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.rr-feed-item-title { font-size: 13.5px; font-weight: 700; line-height: 1.4; color: var(--rr-ink); }
+.rr-feed-item-title { font-size: 13.5px; font-weight: 700; line-height: 1.4; color: var(--rr-ink); overflow-wrap: anywhere; word-break: break-word; }
 .rr-feed-item-mid { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 2px; }
 .rr-feed-item-score { text-align: right; line-height: 1.1; white-space: nowrap; }
 .rr-feed-item-score strong { font-size: 18px; font-weight: 800; color: var(--rr-indigo); font-variant-numeric: tabular-nums; }
@@ -497,6 +497,7 @@ body {
 .rr-feed-explore:hover:not(:disabled) { text-decoration: underline; text-underline-offset: 2px; }
 .rr-feed-explore:disabled { color: #aeb1bf; cursor: not-allowed; }
 .rr-feed-live-note { font-size: 11.5px; color: var(--rr-muted); text-align: center; margin-top: 12px; }
+.rr-feed-seed-note { font-size: 11px; line-height: 1.5; color: #8a8f9e; text-align: center; margin-top: 5px; padding: 0 8px; font-style: italic; }
 
 /* 类目标签 + 趋势芯片 */
 .rr-cat-badge {
@@ -524,6 +525,6 @@ body {
 .rr-try-result-sources { font-size: 11px; color: var(--rr-muted); }
 
 @media (max-width: 520px) {
-  .rr-feed-grid { grid-template-columns: 1fr; }
+  .rr-feed-grid { grid-template-columns: minmax(0, 1fr); }
   .rr-try-result-spark { gap: 8px; }
 }

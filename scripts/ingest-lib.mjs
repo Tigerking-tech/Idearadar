@@ -190,3 +190,93 @@ export function daysBetween(isoDate, now = new Date()) {
   if (!Number.isFinite(t)) return 999;
   return Math.max(0, (now.getTime() - t) / 86_400_000);
 }
+
+/**
+ * 把一批机会信号按 niche 聚合为单点快照：每个 niche 取「平均分 / 总提及 / 条目数」。
+ * 这是趋势追踪的最小单元 —— 每次采集追加一个这样的快照到 history.json，
+ * 时间序列积累后就能算出上升 / 平稳 / 过峰。
+ */
+export function aggregateByNiche(items = []) {
+  const acc = {};
+  for (const it of items) {
+    const id = it?.nicheId || "unknown";
+    if (!acc[id]) acc[id] = { scoreSum: 0, count: 0, mentions: 0 };
+    acc[id].scoreSum += Number(it?.score) || 0;
+    acc[id].count += 1;
+    acc[id].mentions += Number(it?.mentions) || 0;
+  }
+  const out = {};
+  for (const [id, v] of Object.entries(acc)) {
+    out[id] = {
+      score: Math.round(v.scoreSum / Math.max(1, v.count)),
+      mentions: v.mentions,
+      items: v.count,
+    };
+  }
+  return out;
+}
+
+/** 解析历史 JSON，容忍空值 / 损坏内容，统一回退到空结构。 */
+function parseHistory(prev) {
+  if (!prev) return { schemaVersion: 1, seeded: false, maxSnapshots: 120, snapshots: [] };
+  const obj = typeof prev === "string" ? safeParse(prev) : prev;
+  if (!obj || !Array.isArray(obj.snapshots)) return { schemaVersion: 1, seeded: false, maxSnapshots: 120, snapshots: [] };
+  return obj;
+}
+function safeParse(s) {
+  try {
+    return JSON.parse(s);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 把本次快照追加进历史，按时间排序并只保留最近 maxSnapshots 条（滚动窗口）。
+ * 同一时间戳的快照会被替换（幂等，便于重跑）。返回新的 history 对象（不修改入参）。
+ */
+export function appendHistory(prev, snapshot, maxSnapshots = 120) {
+  const history = parseHistory(prev);
+  const trimmed = Math.max(1, Number(maxSnapshots) || 120);
+  let kept = history.snapshots.filter((s) => s?.t !== snapshot?.t);
+  kept.push(snapshot);
+  // 冷启动引导数据（snapshot.seeded=true）在真实快照攒够一个观察窗口后自动退役，
+  // 保证趋势最终完全由真实采集驱动，且 seeded 标记随数据状态自动翻转。
+  const realCount = kept.filter((s) => !s.seeded).length;
+  if (realCount >= 12) kept = kept.filter((s) => !s.seeded);
+  kept.sort((a, b) => new Date(a.t).getTime() - new Date(b.t).getTime());
+  return {
+    ...history,
+    schemaVersion: 1,
+    seeded: kept.some((s) => s.seeded),
+    maxSnapshots: trimmed,
+    snapshots: kept.slice(-trimmed),
+  };
+}
+
+/**
+ * 趋势判定（趋势语义的单一真源，前端 signals.ts 直接复用，保证判定与单测一致）。
+ * @param {{score:number, mentions:number}[]} series 按时间从早到晚排列的聚合序列
+ * @returns {"rising"|"steady"|"peaked"}
+ *
+ * 规则：
+ * - 少于 3 个快照 → "steady"（样本不足，诚实标注，不谎报上升）
+ * - 近期提及量相对「近 12 点峰值」回落 ≥15% → "peaked"（已过峰）
+ * - 近 6 点窗口内提及量相对起点上升 ≥15% → "rising"
+ * - 其余 → "steady"
+ * 峰值只看近 12 点，避免久远历史永久影响当前判定。
+ */
+export function classifyTrend(series = []) {
+  if (!Array.isArray(series) || series.length < 3) return "steady";
+  const window = series.slice(-Math.min(series.length, 6));
+  const recent = series.slice(-12);
+  const first = window[0];
+  const last = window[window.length - 1];
+  const peak = Math.max(...recent.map((s) => Number(s?.mentions) || 0));
+  const firstM = Number(first?.mentions) || 0;
+  const lastM = Number(last?.mentions) || 0;
+  const dM = (lastM - firstM) / Math.max(1, firstM);
+  if (peak >= 3 && lastM < peak * 0.85) return "peaked";
+  if (dM > 0.15) return "rising";
+  return "steady";
+}

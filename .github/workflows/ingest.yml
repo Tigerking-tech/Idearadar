@@ -56,13 +56,15 @@ jobs:
           path: |
             data/opportunities.json
             public/opportunities.json
+            data/history.json
+            public/history.json
           retention-days: 14
 
       - name: Commit refreshed data
         run: |
           git config user.name "rantradar-bot"
           git config user.email "bot@rantradar.app"
-          git add data/opportunities.json public/opportunities.json
+          git add data/opportunities.json public/opportunities.json data/history.json public/history.json
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else

@@ -50,7 +50,7 @@ export default function TryPage() {
 
       <section className="rr-section-tight">
         <div className="rr-container max-w-[900px]">
-          <GuestScan d={d} locale="en" signals={feed.signals} live={feed.live} generatedAt={feed.generatedAt} />
+          <GuestScan d={d} locale="en" signals={feed.signals} live={feed.live} generatedAt={feed.generatedAt} historySeeded={feed.historySeeded} trendReady={feed.trendReady} />
         </div>
       </section>
 

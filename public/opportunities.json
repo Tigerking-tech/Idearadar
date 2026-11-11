@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T15:27:55.294Z",
+  "generatedAt": "2026-11-11T16:58:48.472Z",
   "lookbackDays": 30,
   "minScore": 20,
   "connectors": [
@@ -49,49 +49,10 @@
   "errors": [],
   "items": [
     {
-      "id": "solo-crm-announcing-net-11",
+      "id": "solo-crm-scion-is-back-and-is-going-to-sell-a-kei-truck-i",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "Announcing .NET 11",
-      "score": 31,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 5,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "wish"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:44:57.000Z",
-      "evidence": [
-        {
-          "title": "Announcing .NET 11",
-          "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
-          "source": "hn",
-          "createdAt": "2026-11-11T14:14:33.000Z",
-          "excerpt": "You are right about the pattern matching, so it&#x27;s on me that I didn&#x27;t write clearly enough, what I meant is that I wish C# had Rust&#x27;s compiler enforced exhaustive pattern matching over enums and the abilit"
-        },
-        {
-          "title": "Announcing .NET 11",
-          "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
-          "source": "hn",
-          "createdAt": "2026-11-11T14:44:57.000Z",
-          "excerpt": "when I realised I didn&#x27;t have time to actually finish my own programming language (there was a big change needed in the type checker and it would have taken months with how much I can use a computer atm), I let clau"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-apple-is-killing-its-support-community-forum-nex",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Apple is killing its Support Community forum next week",
+      "title": "Scion is back and is going to sell a kei truck in America",
       "score": 29,
       "breakdown": {
         "frequency": 3,
@@ -105,17 +66,17 @@
         "hn"
       ],
       "signals": [
-        "frustration"
+        "broken"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:51:30.000Z",
+      "lastSeen": "2026-11-11T16:00:12.000Z",
       "evidence": [
         {
-          "title": "Apple is killing its Support Community forum next week",
-          "url": "https://www.theverge.com/tech/1031507/apple-community-support-forum-shutting-down",
+          "title": "Scion is back and is going to sell a kei truck in America",
+          "url": "https://www.theautopian.com/scion-is-back-and-its-going-to-sell-a-freaking-kei-truck-in-america/",
           "source": "hn",
-          "createdAt": "2026-11-11T14:51:30.000Z",
-          "excerpt": "There&#x27;s also a ton of \"fixes\" which don&#x27;t work. My most annoying long-term peeve with macOS is how long it takes to switch spaces with the touchpad gesture. It takes like 1.5 seconds from the gesture starts unt"
+          "createdAt": "2026-11-11T16:00:12.000Z",
+          "excerpt": "Great answer. Excited to hear about the crumple zones. I&#x27;m going to watch some crash tests. Thanks for the Smart Fortwo comparison, a good reminder about that vehicle. I accept it as safe enough to sell and have pro"
         }
       ]
     },
@@ -128,7 +89,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -152,10 +113,42 @@
       ]
     },
     {
-      "id": "solo-crm-scion-is-back-and-is-going-to-sell-a-kei-truck-i",
+      "id": "solo-crm-announcing-net-11",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "Scion is back and is going to sell a kei truck in America",
+      "title": "Announcing .NET 11",
+      "score": 28,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 5,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "wish"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T14:14:33.000Z",
+      "evidence": [
+        {
+          "title": "Announcing .NET 11",
+          "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
+          "source": "hn",
+          "createdAt": "2026-11-11T14:14:33.000Z",
+          "excerpt": "You are right about the pattern matching, so it&#x27;s on me that I didn&#x27;t write clearly enough, what I meant is that I wish C# had Rust&#x27;s compiler enforced exhaustive pattern matching over enums and the abilit"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-to-deter-bioterrorism-u-s-imposes-new-rules-on-o",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "To deter bioterrorism, U.S. imposes new rules on ordering synthetic DNA",
       "score": 28,
       "breakdown": {
         "frequency": 3,
@@ -172,22 +165,22 @@
         "wish"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:12:24.000Z",
+      "lastSeen": "2026-11-11T16:38:39.000Z",
       "evidence": [
         {
-          "title": "Scion is back and is going to sell a kei truck in America",
-          "url": "https://www.theautopian.com/scion-is-back-and-its-going-to-sell-a-freaking-kei-truck-in-america/",
+          "title": "To deter bioterrorism, U.S. imposes new rules on ordering synthetic DNA",
+          "url": "https://www.science.org/content/article/deter-bioterrorism-u-s-imposes-new-rules-ordering-synthetic-dna",
           "source": "hn",
-          "createdAt": "2026-11-11T15:12:24.000Z",
-          "excerpt": "The towing&#x2F;payload capacity I wish was a little higher. My family Odyssey actually has a 1500lb greater towing capacity. The times I wish I had a truck are occasionally for oversized material, but more often a situa"
+          "createdAt": "2026-11-11T16:38:39.000Z",
+          "excerpt": "> You&#x27;ve all received memetic inoculations to that though. Unlikely, anyone will ever be able to write a book that does the same again. I wish it were so, but even the memorial stones and constitutional bans on the "
         }
       ]
     },
     {
-      "id": "solo-crm-ai-users-have-workdays-up-to-90-min-longer-than-",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "AI Users have workdays up to 90 min longer than non-users",
+      "id": "support-transcripts-idea-run-b-u-n-n-y-on-the-mac-and-the-pc-with-sh",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Idea: run B.U.N.N.Y. on the Mac and the PC with shared state and a Mac-preferred lead",
       "score": 26,
       "breakdown": {
         "frequency": 6,
@@ -198,25 +191,25 @@
       },
       "mentions": 2,
       "sources": [
-        "hn"
+        "github"
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:16:34.000Z",
+      "lastSeen": "2026-11-11T16:00:35.000Z",
       "evidence": [
         {
-          "title": "AI Users have workdays up to 90 min longer than non-users",
-          "url": "https://www.activtrak.com/news/productivity-lab-ai-users-longer-workdays/",
-          "source": "hn",
-          "createdAt": "2026-11-11T15:16:34.000Z",
-          "excerpt": "well, I spent a few months wandering the desert of offerings. Once Qwen3.8-Flash-Next demonstrated it could consistently implement Test Driven Development, I decided to hard fork the \"best\" work flow that made sense to m"
+          "title": "Idea: run B.U.N.N.Y. on the Mac and the PC with shared state and a Mac-preferred lead",
+          "url": "https://github.com/jimmie-potts/agent-device-hub/issues/1723",
+          "source": "github",
+          "createdAt": "2026-11-11T16:00:35.000Z",
+          "excerpt": "Design record for an idea: B.U.N.N.Y. runs on both the Mac and the PC with shared state, so that either can keep full function if the other goes down. This issue records the direction and the decisions so far. It authori"
         },
         {
-          "title": "AI Users have workdays up to 90 min longer than non-users",
-          "url": "https://www.activtrak.com/news/productivity-lab-ai-users-longer-workdays/",
-          "source": "hn",
-          "createdAt": "2026-11-11T15:16:34.000Z",
-          "excerpt": "well, I spent a few months wandering the desert of offerings. Once Qwen3.8-Flash-Next demonstrated it could consistently implement Test Driven Development, I decided to hard fork the \"best\" work flow that made sense to m"
+          "title": "Idea: run B.U.N.N.Y. on the Mac and the PC with shared state and a Mac-preferred lead",
+          "url": "https://github.com/jimmie-potts/agent-device-hub/issues/1723",
+          "source": "github",
+          "createdAt": "2026-11-11T16:00:35.000Z",
+          "excerpt": "Design record for an idea: B.U.N.N.Y. runs on both the Mac and the PC with shared state, so that either can keep full function if the other goes down. This issue records the direction and the decisions so far. It authori"
         }
       ]
     },
@@ -225,7 +218,7 @@
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
       "title": "Connector Ecosystem Roadmap: tracking 120+ connector targets across databases, cloud, IoT, and…",
-      "score": 26,
+      "score": 25,
       "breakdown": {
         "frequency": 6,
         "intensity": 0,
@@ -258,36 +251,6 @@
       ]
     },
     {
-      "id": "invoice-export-175-concierge-the-empathetic-reply-does-not-incl",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "[$175] Concierge - The empathetic reply does not include a clickable link \"talk to a human\" link",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T15:54:58.000Z",
-      "evidence": [
-        {
-          "title": "[$175] Concierge - The empathetic reply does not include a clickable link \"talk to a human\" link",
-          "url": "https://github.com/Expensify/App/issues/106517",
-          "source": "github",
-          "createdAt": "2026-11-10T15:54:58.000Z",
-          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
-        }
-      ]
-    },
-    {
       "id": "invoice-export-a-club-moving-in-cannot-bring-across-future-book",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -296,7 +259,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -374,6 +337,36 @@
           "source": "github",
           "createdAt": "2026-11-10T21:37:40.000Z",
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English A volunteer installing the booking system for a new club follo"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-a-great-old-timey-game-programming-hack-2013",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "A great old-timey game-programming hack (2013)",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T16:42:43.000Z",
+      "evidence": [
+        {
+          "title": "A great old-timey game-programming hack (2013)",
+          "url": "https://blog.moertel.com/posts/2013-12-14-great-old-timey-game-programming-hack.html",
+          "source": "hn",
+          "createdAt": "2026-11-11T16:42:43.000Z",
+          "excerpt": "> to learn a trick like this, you&#x27;d either have to talk to someone who knew it, or figure it out again. Yes, personal computers were a new thing and before the internet, people doing it were pretty much isolated. Wh"
         }
       ]
     },
@@ -464,36 +457,6 @@
           "source": "github",
           "createdAt": "2026-11-10T21:34:49.000Z",
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Nothing goes wrong for members or officers today. This is abou"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-more-whitelisted-endpoints-scripts-test-a-boolea",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "More whitelisted endpoints/scripts test a boolean flag bare (force, force_enable…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T16:35:54.000Z",
-      "evidence": [
-        {
-          "title": "More whitelisted endpoints/scripts test a boolean flag bare (force, force_enable, confirm_nuclear_truncate, dry_run): string \"0\" is truthy over HTTP",
-          "url": "https://github.com/nlvegan/verenigingen/issues/2385",
-          "source": "github",
-          "createdAt": "2026-11-10T16:35:54.000Z",
-          "excerpt": "Follow-up to #2377 (its fix covers the six sites it names plus `include_payment_link` on `send_overdue_payment_reminders`). ## Established AST sweep (2026-11-10, develop + the #2377 branch) of whitelisted functions in `v"
         }
       ]
     },
@@ -648,10 +611,10 @@
       ]
     },
     {
-      "id": "scheduling-prd-android-application-shared-ui-vehicle-pairin",
+      "id": "scheduling-extended-task-statuses-status-cycling-shortcut-c",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
-      "title": "[PRD] Android application: shared UI, vehicle pairing and standard MDM deployment",
+      "title": "Extended Task Statuses & Status-Cycling Shortcut (Ctrl-L / Cmd-L Workflow)",
       "score": 23,
       "breakdown": {
         "frequency": 3,
@@ -666,14 +629,44 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:28:18.000Z",
+      "lastSeen": "2026-11-11T16:31:48.000Z",
       "evidence": [
         {
-          "title": "[PRD] Android application: shared UI, vehicle pairing and standard MDM deployment",
-          "url": "https://github.com/open-triage/open-triage-epcr/issues/798",
+          "title": "Extended Task Statuses & Status-Cycling Shortcut (Ctrl-L / Cmd-L Workflow)",
+          "url": "https://github.com/yannicschuller/flowplan/issues/201",
           "source": "github",
-          "createdAt": "2026-11-11T13:28:18.000Z",
-          "excerpt": "# Android application: shared UI, vehicle pairing and standard MDM deployment Status: Published; approved for implementation. Repository: `open-triage/open-triage-epcr` Implementation branch: `feature/android_app` Source"
+          "createdAt": "2026-11-11T16:31:48.000Z",
+          "excerpt": "### Before you start - [x] I searched the [existing issues](https://github.com/yannicschuller/flowplan/issues?q=is%3Aissue) (open and closed) and the [documentation](https://docs.flowplan.org/en), and this does not exist"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-mcpa-guard-claude-oauth-refresh-connections",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "mcpa: guard Claude OAuth refresh connections",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:42:52.000Z",
+      "evidence": [
+        {
+          "title": "mcpa: guard Claude OAuth refresh connections",
+          "url": "https://github.com/delinoio/apps/issues/1142",
+          "source": "github",
+          "createdAt": "2026-11-11T15:42:52.000Z",
+          "excerpt": "## Summary Claude OAuth background refresh bypasses Managed CPA's provider destination guard. `resourceExecutor.Refresh` passes the registered auth unchanged, so the pinned SDK constructs a separate OAuth uTLS client wit"
         }
       ]
     },
@@ -716,7 +709,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -738,15 +731,15 @@
       ]
     },
     {
-      "id": "scheduling-stage-2b2b-plan-only-complete-17-store-restore-r",
+      "id": "scheduling-v4-enhanced-play-epic-python-plugin-framework-co",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
-      "title": "Stage 2B2b PLAN ONLY: Complete 17-store restore R1, immutable origin, bounded history and…",
+      "title": "V4 Enhanced Play Epic: Python plugin framework, community modding and V5 federation…",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -756,14 +749,14 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T12:43:27.000Z",
+      "lastSeen": "2026-11-11T16:09:07.000Z",
       "evidence": [
         {
-          "title": "Stage 2B2b PLAN ONLY: Complete 17-store restore R1, immutable origin, bounded history and verification architecture",
-          "url": "https://github.com/jsnwilmot/BudgetApp/issues/25",
+          "title": "V4 Enhanced Play Epic: Python plugin framework, community modding and V5 federation compatibility",
+          "url": "https://github.com/rdearman/twclone/issues/534",
           "source": "github",
-          "createdAt": "2026-11-11T12:43:27.000Z",
-          "excerpt": "## OWNER AUTHORIZATION: Stage 2B2b / R1 PLANNING AND CONTRACT REFINEMENT ONLY **Date:** 2026-11-11. Owner has explicitly **ACCEPTED Stage 2B2a** at exact commit `2c2a7d0f7ee26b26019559d1b119592d788a5eaa` in draft [PR #24"
+          "createdAt": "2026-11-11T16:09:07.000Z",
+          "excerpt": "## Goal Provide a **V4 community plugin framework** for extending twclone with data-driven content and Python-scripted gameplay, without recompiling the authoritative C server. Establish a compatibility contract for **V5"
         }
       ]
     },
@@ -828,10 +821,10 @@
       ]
     },
     {
-      "id": "solo-crm-anthropic-envy-on-hn",
+      "id": "solo-crm-a-great-old-timey-game-programming-hack-2013",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "Anthropic Envy on HN",
+      "title": "A great old-timey game-programming hack (2013)",
       "score": 23,
       "breakdown": {
         "frequency": 3,
@@ -846,14 +839,104 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:00:54.000Z",
+      "lastSeen": "2026-11-11T16:42:43.000Z",
       "evidence": [
         {
-          "title": "Anthropic Envy on HN",
-          "url": "https://news.ycombinator.com/item?id=50454277",
+          "title": "A great old-timey game-programming hack (2013)",
+          "url": "https://blog.moertel.com/posts/2013-12-14-great-old-timey-game-programming-hack.html",
           "source": "hn",
-          "createdAt": "2026-11-11T15:00:54.000Z",
-          "excerpt": "I have a few reasons I&#x27;m worried about companies like Anthropic. The first is that our current power grid isn&#x27;t sufficient for the projected needs of AI. Forget water- most of the water used by the AI is used b"
+          "createdAt": "2026-11-11T16:42:43.000Z",
+          "excerpt": "> to learn a trick like this, you&#x27;d either have to talk to someone who knew it, or figure it out again. Yes, personal computers were a new thing and before the internet, people doing it were pretty much isolated. Wh"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-ai-users-have-workdays-up-to-90-min-longer-than-",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "AI Users have workdays up to 90 min longer than non-users",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:16:34.000Z",
+      "evidence": [
+        {
+          "title": "AI Users have workdays up to 90 min longer than non-users",
+          "url": "https://www.activtrak.com/news/productivity-lab-ai-users-longer-workdays/",
+          "source": "hn",
+          "createdAt": "2026-11-11T15:16:34.000Z",
+          "excerpt": "well, I spent a few months wandering the desert of offerings. Once Qwen3.8-Flash-Next demonstrated it could consistently implement Test Driven Development, I decided to hard fork the \"best\" work flow that made sense to m"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-anthropic-derangement-syndrome-on-hn",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Anthropic Derangement Syndrome on HN",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T16:37:50.000Z",
+      "evidence": [
+        {
+          "title": "Anthropic Derangement Syndrome on HN",
+          "url": "https://news.ycombinator.com/item?id=50455384",
+          "source": "hn",
+          "createdAt": "2026-11-11T16:37:50.000Z",
+          "excerpt": "While I&#x27;ve never commented on Anthropic here, I have never used Claude, and I have no plans to use Claude in the future. I do however use other LLMs. Here are some reasons why I don&#x27;t use Claude: - My introduct"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-in-defense-of-giving-a-shit",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "In Defense of Giving a Shit",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T16:22:35.000Z",
+      "evidence": [
+        {
+          "title": "In Defense of Giving a Shit",
+          "url": "https://www.possibilityspace.org/blog/posts/in-defence-of-giving-a-shit/",
+          "source": "hn",
+          "createdAt": "2026-11-11T16:22:35.000Z",
+          "excerpt": "My personal opinions on AI and AI usage in software development have fluctuated in the past year, especially as I&#x27;ve used it more in my professional work. As AI becomes more deeply embedded in the tools that I use, "
         }
       ]
     },
@@ -866,7 +949,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -884,66 +967,6 @@
           "source": "hn",
           "createdAt": "2026-11-11T13:58:40.000Z",
           "excerpt": "Interesting - Iranians leaders were recently in Moscow, and so Israel&#x27;s increased military support to Ukraine in this manner suggests that Iranians have perhaps managed to strike some military &#x2F; security deal w"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-what-constant-surveillance-is-doing-to-children-",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "What constant surveillance is doing to children and parents",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:56:33.000Z",
-      "evidence": [
-        {
-          "title": "What constant surveillance is doing to children and parents",
-          "url": "https://www.theatlantic.com/magazine/2026/12/location-tracking-apps-parental-surveillance/689031/",
-          "source": "hn",
-          "createdAt": "2026-11-11T14:56:33.000Z",
-          "excerpt": "I&#x27;m really curious why these traits specifically. I suppose I get why women feel threatened just existing outside of locked doors and walls, but you rattled off a very long list of otherwise not true things. I&#x27;"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-a-local-quality-check-does-not-download-220-mb-o",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "A local quality check does not download 220 MB of advisory data on every run",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:41:36.000Z",
-      "evidence": [
-        {
-          "title": "A local quality check does not download 220 MB of advisory data on every run",
-          "url": "https://github.com/overnightworks/quality/issues/768",
-          "source": "github",
-          "createdAt": "2026-11-11T13:41:36.000Z",
-          "excerpt": "# A verified local copy of the advisory databases is reused Marking: the ruled contract is quoted word for word with its source. Every other sentence is a proposal (mine) for the independent plan review the contract asks"
         }
       ]
     },
@@ -974,36 +997,6 @@
           "source": "github",
           "createdAt": "2026-11-11T06:59:40.000Z",
           "excerpt": "## Objective Eliminate SIGMA's recurring **LaTeX typesetting whack-a-mole** by fixing the **architecture at the authoring → LaTeX boundary**, rather than perpetually adding individual commands to a homegrown TeX math all"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-choose-the-theming-approach-for-the-mermaid-comp",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Choose the theming approach for the Mermaid component",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:37:49.000Z",
-      "evidence": [
-        {
-          "title": "Choose the theming approach for the Mermaid component",
-          "url": "https://github.com/carbon-design-system/carbon-ai-chat/issues/2852",
-          "source": "github",
-          "createdAt": "2026-11-11T14:37:49.000Z",
-          "excerpt": "Parent epic: #2834 Decide how the Lit Mermaid component applies colors from CSS custom properties, then add implementation child issues to #2834. ### Constraint Mermaid's `themeVariables` only accept hex (https://mermaid"
         }
       ]
     },
@@ -1108,7 +1101,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1130,10 +1123,10 @@
       ]
     },
     {
-      "id": "support-transcripts-extract-store-item-download-presentation-state",
+      "id": "support-transcripts-follow-up-to-429-non-blocking-review-findings-cu",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
-      "title": "Extract Store item download presentation state",
+      "title": "Follow-up to #429: non-blocking review findings (Customer to store chat (a))",
       "score": 23,
       "breakdown": {
         "frequency": 3,
@@ -1148,44 +1141,14 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:37:27.000Z",
+      "lastSeen": "2026-11-11T16:22:46.000Z",
       "evidence": [
         {
-          "title": "Extract Store item download presentation state",
-          "url": "https://github.com/lumenpearson/cdpiui/issues/225",
+          "title": "Follow-up to #429: non-blocking review findings (Customer to store chat (a))",
+          "url": "https://github.com/hislordshipprof/african-market-AI-Ecommerce/issues/463",
           "source": "github",
-          "createdAt": "2026-11-11T14:37:27.000Z",
-          "excerpt": "## Context and expected result The remaining GUI inventory at `12ef689e0968bd7ff4b27cee0fe7af02091286da` includes ItemViewPageViewModel: 562 lines in its main source and 122 in Queue.cs, total 684. Eleven download/status"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-grandpa-english-only-authentic-conversation-engi",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "GRANDPA: English-only authentic conversation engine + 3-minute Core Trust demo",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:17:36.000Z",
-      "evidence": [
-        {
-          "title": "GRANDPA: English-only authentic conversation engine + 3-minute Core Trust demo",
-          "url": "https://github.com/vhusev2020-ai/Stage-9/issues/7",
-          "source": "github",
-          "createdAt": "2026-11-11T14:17:36.000Z",
-          "excerpt": "## Mission — GRANDPA English-only authentic conversation engine (demo priority: Nov 11, 2026) **Owner:** Freebuff implementation agent. **Project:** VCorp Universe / Core Trust AI. **Status:** requested; no implementatio"
+          "createdAt": "2026-11-11T16:22:46.000Z",
+          "excerpt": "Non-blocking findings from the final review of #429 (PR #436, merged). None blocked the merge. Copied from `.builder/review-429.md`; check each against main before fixing, because later merges may have touched the same c"
         }
       ]
     },
@@ -1198,7 +1161,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1220,15 +1183,15 @@
       ]
     },
     {
-      "id": "support-transcripts-map-agent-factory-and-skills-to-a-full-aruvii-ru",
+      "id": "support-transcripts-hdb-sprite-frames-8339-residual-review-findings-",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
-      "title": "Map: agent-factory and skills to a full aruvii run: principles, findings, build, pilot, cutover",
+      "title": "HDB sprite frames (#8339): residual review findings (18)",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.7,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1238,14 +1201,14 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T02:52:45.000Z",
+      "lastSeen": "2026-11-11T16:31:45.000Z",
       "evidence": [
         {
-          "title": "Map: agent-factory and skills to a full aruvii run: principles, findings, build, pilot, cutover",
-          "url": "https://github.com/chiyanram/agent-factory/issues/460",
+          "title": "HDB sprite frames (#8339): residual review findings (18)",
+          "url": "https://github.com/sounditsolutions/soundit-psa/issues/8340",
           "source": "github",
-          "createdAt": "2026-11-11T02:52:45.000Z",
-          "excerpt": "The one map for agent-factory and chiyanram/skills (operator, 2026-11-11). It continues #30, which closes into it. Destination: **both repos ready for a full run on aruvii**, the old agent setup retired, with nothing in "
+          "createdAt": "2026-11-11T16:31:45.000Z",
+          "excerpt": "18 residual ticket-class findings from this run, filed as one roll-up rather than 18 issues. Split any row into its own issue when it is picked up. | finding | seat | category | title | |---|---|---|---| | `diff:2` | dif"
         }
       ]
     },
@@ -1258,7 +1221,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1276,36 +1239,6 @@
           "source": "github",
           "createdAt": "2026-11-11T13:30:23.000Z",
           "excerpt": "## Problem Statement The factory produces a lot of state: tickets, decision cards, ADRs, andon, ledgers, intake outcomes. All of it is spread over the tracker, the repo and in-flight worktrees. A person who owns a projec"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-p1-as-12-stall-watchdog-say-what-the-run-is-wait",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "[P1] [AS-12] Stall watchdog: say what the run is waiting on",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:06:46.000Z",
-      "evidence": [
-        {
-          "title": "[P1] [AS-12] Stall watchdog: say what the run is waiting on",
-          "url": "https://github.com/EricServices-Repo/Eris/issues/524",
-          "source": "github",
-          "createdAt": "2026-11-11T14:06:46.000Z",
-          "excerpt": "> From a source review of the chat → agent → local-model path (commit `2e856a1`, v0.6.19). **Not reproduced at runtime** unless stated below. Line numbers are from `2e856a1`; `main` has moved, so search for the quoted co"
         }
       ]
     },
@@ -1340,6 +1273,36 @@
       ]
     },
     {
+      "id": "support-transcripts-prd-grapevine-for-ubuntu",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "PRD: Grapevine for Ubuntu",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T16:12:51.000Z",
+      "evidence": [
+        {
+          "title": "PRD: Grapevine for Ubuntu",
+          "url": "https://github.com/khiet/grapevine/issues/77",
+          "source": "github",
+          "createdAt": "2026-11-11T16:12:51.000Z",
+          "excerpt": "## Problem Statement Grapevine only runs on macOS. Someone who works on Ubuntu has no way to keep an eye on their pull requests from the system tray: there is no Linux build to download, and the code does not compile for"
+        }
+      ]
+    },
+    {
       "id": "support-transcripts-program-elsa-4-multi-tenancy-provider-agnostic-c",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -1370,36 +1333,6 @@
       ]
     },
     {
-      "id": "support-transcripts-s16-1-the-generator-writes-sentences-with-named-",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "S16.1 The generator writes sentences with named gaps and plurals; the closed table's heading…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:43:42.000Z",
-      "evidence": [
-        {
-          "title": "S16.1 The generator writes sentences with named gaps and plurals; the closed table's heading uses it",
-          "url": "https://github.com/overnightworks/skat/issues/351",
-          "source": "github",
-          "createdAt": "2026-11-11T13:43:42.000Z",
-          "excerpt": "Slice S16.1 of S16 (under #1). It keeps #1's invariants and #23's invariants 1, 2, 5 and 6. Caller: overnightworks/marketplace#542 line 1 A, 11.11.2026: \"Fleet standard for user-facing text: one gettext catalog per langu"
-        }
-      ]
-    },
-    {
       "id": "support-transcripts-say-what-each-contact-block-contains-title-compa",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -1408,7 +1341,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1550,36 +1483,6 @@
       ]
     },
     {
-      "id": "support-transcripts-swallowed-and-unobserved-errors-leave-no-trace-w",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Swallowed and unobserved errors leave no trace without CRASH_DSN",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T14:46:43.000Z",
-      "evidence": [
-        {
-          "title": "Swallowed and unobserved errors leave no trace without CRASH_DSN",
-          "url": "https://github.com/mguttmann/bothy/issues/1259",
-          "source": "github",
-          "createdAt": "2026-11-11T14:46:43.000Z",
-          "excerpt": "Finding `client-chat-11` of the full audit of 2026-11-11 at commit 70f776ab3 (lens: Client app: sidebar, forum, thread, composer, search). ## Problem In the reviewed folders, ten places discard the error entirely (`on Ob"
-        }
-      ]
-    },
-    {
       "id": "support-transcripts-taiga-tui-mvp-spec",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -1588,7 +1491,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1606,6 +1509,36 @@
           "source": "github",
           "createdAt": "2026-11-11T13:24:24.000Z",
           "excerpt": "Spec for the map #1 (Taiga TUI: MVP spec). Every decision below comes from the resolved tickets #2 to #16 and ADR 0001. ## Problem Statement Team Members of a university team work on their Taiga projects on the Ostfalia "
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-175-concierge-the-empathetic-reply-does-not-incl",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "[$175] Concierge - The empathetic reply does not include a clickable link \"talk to a human\" link",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T15:54:58.000Z",
+      "evidence": [
+        {
+          "title": "[$175] Concierge - The empathetic reply does not include a clickable link \"talk to a human\" link",
+          "url": "https://github.com/Expensify/App/issues/106517",
+          "source": "github",
+          "createdAt": "2026-11-10T15:54:58.000Z",
+          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
         }
       ]
     },
@@ -1700,6 +1633,36 @@
       ]
     },
     {
+      "id": "invoice-export-more-whitelisted-endpoints-scripts-test-a-boolea",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "More whitelisted endpoints/scripts test a boolean flag bare (force, force_enable…",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T16:35:54.000Z",
+      "evidence": [
+        {
+          "title": "More whitelisted endpoints/scripts test a boolean flag bare (force, force_enable, confirm_nuclear_truncate, dry_run): string \"0\" is truthy over HTTP",
+          "url": "https://github.com/nlvegan/verenigingen/issues/2385",
+          "source": "github",
+          "createdAt": "2026-11-10T16:35:54.000Z",
+          "excerpt": "Follow-up to #2377 (its fix covers the six sites it names plus `include_payment_link` on `send_overdue_payment_reminders`). ## Established AST sweep (2026-11-10, develop + the #2377 branch) of whitelisted functions in `v"
+        }
+      ]
+    },
+    {
       "id": "invoice-export-new-accounting-module",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -1756,6 +1719,36 @@
           "source": "github",
           "createdAt": "2026-11-09T17:34:19.000Z",
           "excerpt": "# Design radar, 2026-11-09 936 sources in the catalogue. Every lead below needs a human or agent to verify it before it goes in. ## Changed since last run - **8bitcn**: fix(seo): repair login-form docs link and expand me"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-configuration-organize-setup-and-options-into-sh",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Configuration: organize setup and options into shared sections",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-07T06:07:25.000Z",
+      "evidence": [
+        {
+          "title": "Configuration: organize setup and options into shared sections",
+          "url": "https://github.com/guslund-jpg/electricity-pro/issues/373",
+          "source": "github",
+          "createdAt": "2026-11-07T06:07:25.000Z",
+          "excerpt": "The Custom setup and options forms combine meter sources, price declarations, tariffs and insights. Tibber has a shorter parallel flow. Organize both paths into shared sections, using supported provider metadata to prefi"
         }
       ]
     },

@@ -315,6 +315,31 @@
           "items": 24
         }
       }
+    },
+    {
+      "t": "2026-11-11T16:58:48.472Z",
+      "byNiche": {
+        "solo-crm": {
+          "score": 25,
+          "mentions": 14,
+          "items": 13
+        },
+        "support-transcripts": {
+          "score": 23,
+          "mentions": 21,
+          "items": 20
+        },
+        "invoice-export": {
+          "score": 22,
+          "mentions": 20,
+          "items": 20
+        },
+        "scheduling": {
+          "score": 23,
+          "mentions": 7,
+          "items": 7
+        }
+      }
     }
   ]
 }

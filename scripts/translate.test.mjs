@@ -249,3 +249,46 @@ test("translateBatch 直接调用也能做严格校验", async () => {
   assert.equal(hasChinese(res.get("a").titleZh), true);
   assert.equal(hasChinese(res.get("a").quoteZh), true);
 });
+
+test("端点返回 text/plain 占位时判为端点级故障，快速跳过剩余批次", async () => {
+  const items = Array.from({ length: 25 }, (_, i) => makeItem(i));
+  let calls = 0;
+  const fetchImpl = async () => {
+    calls += 1;
+    return {
+      ok: true, status: 200,
+      headers: { get: () => "text/plain" },
+      json: async () => { throw new SyntaxError("Unexpected token 'O'"); },
+    };
+  };
+  const { items: out, stats } = await translateItems(items, { ...baseOpts, batchSize: 10, fetchImpl });
+  assert.equal(stats.requests, 0);
+  assert.equal(stats.translated, 0);
+  assert.equal(stats.failed, 25, "全部待翻条目都记为跳过");
+  assert.match(stats.skippedReason, /非 JSON|网络出口|text\/plain/);
+  assert.equal(calls, 2, "首批重试 2 次后立即停止，后续 2 批不再发起");
+  assert.equal(out[0].titleZh, undefined);
+});
+
+test("响应体不是 JSON 时给出明确的端点级错误", async () => {
+  const fetchImpl = async () => ({
+    ok: true, status: 200,
+    json: async () => { throw new SyntaxError("Unexpected token 'O', \"OK\" is not valid JSON"); },
+  });
+  const { stats } = await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
+  assert.match(stats.skippedReason, /非 JSON 响应/);
+  assert.match(stats.errors[0], /非 JSON 响应/);
+  assert.equal(stats.failed, 1);
+});
+
+test("IDEARADAR_TRANSLATE_TOKEN 可覆盖 GITHUB_TOKEN（BYOK 切换）", async () => {
+  process.env.IDEARADAR_TRANSLATE_TOKEN = "byok-key";
+  try {
+    const fetchImpl = modelFetch();
+    const { stats } = await translateItems([makeItem(1)], { ...baseOpts, token: undefined, fetchImpl });
+    assert.equal(stats.translated, 1);
+    assert.equal(fetchImpl.calls[0].init.headers.Authorization, "Bearer byok-key");
+  } finally {
+    delete process.env.IDEARADAR_TRANSLATE_TOKEN;
+  }
+});

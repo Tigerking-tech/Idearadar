@@ -11,7 +11,9 @@
  *    OpenAI 兼容端点 models.github.ai/inference，无新增 Secret、无新增依赖。
  * 3. 非阻塞：无 token / 429 / 端点不可达 / 响应异常一律跳过并 warn，保留英文
  *    原文，进程 exit 0。采集与提交照常进行，翻译只是「有则更好」的增强层。
- * 4. 可插拔：endpoint / model 均可由环境变量覆盖，将来换自有 key 只改配置。
+ * 4. 可插拔（BYOK）：endpoint / model / token 均可由环境变量覆盖。若托管环境的
+ *    出口把 models.github.ai 拦成占位响应，填 IDEARADAR_TRANSLATE_TOKEN +
+ *    IDEARADAR_TRANSLATE_ENDPOINT（任意 OpenAI 兼容端点）即可零改码启用。
  * 5. 可测：核心逻辑导出为纯函数 translateItems()，fetch 可注入 mock。
  *
  * 用法：node scripts/translate.mjs
@@ -52,6 +54,9 @@ const USER_PREFIX = "Translate the following JSON array. For each element, retur
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+/** 端点级故障（被出口拦截 / 未启用 / 认证整体失效）：重试和后续批次都无意义。 */
+export class EndpointUnavailable extends Error {}
 
 /** 中文译文才算有效，避免把英文原文或空串误当译文缓存下来。 */
 export function hasChinese(s) {
@@ -105,7 +110,18 @@ async function callModel(batch, ctx, signal) {
   });
   if (!res || typeof res.ok === "undefined") throw new Error("fetch returned no Response-like object");
   if (!res.ok) throw new Error(`HTTP ${res.status}${res.status === 429 ? " (rate limited)" : ""}`);
-  const data = await res.json();
+  // 实测某些托管出口会把 models.github.ai 劫持成 200 text/plain "OK"。
+  // 明确识别这类响应，别把「端点根本没通」误记成 38 次业务翻译失败。
+  const ctype = String(res.headers?.get?.("content-type") || "");
+  if (ctype && !/json/i.test(ctype)) {
+    throw new EndpointUnavailable(`推理端点返回 ${ctype} 而非 JSON（疑似被网络出口拦截或 GitHub Models 未启用）`);
+  }
+  let data;
+  try {
+    data = await res.json();
+  } catch (err) {
+    throw new EndpointUnavailable(`推理端点返回非 JSON 响应：${String(err?.message || err).slice(0, 80)}`);
+  }
   const content = data?.choices?.[0]?.message?.content;
   if (typeof content !== "string" || !content.trim()) throw new Error("missing choices[0].message.content");
   return parseModelJson(content);
@@ -157,7 +173,7 @@ export async function translateItems(items = [], opts = {}) {
   const ctx = {
     endpoint: opts.endpoint || process.env.IDEARADAR_TRANSLATE_ENDPOINT || DEFAULT_ENDPOINT,
     model: opts.model || process.env.IDEARADAR_TRANSLATE_MODEL || DEFAULT_MODEL,
-    token: opts.token ?? process.env.GITHUB_TOKEN ?? "",
+    token: opts.token ?? process.env.IDEARADAR_TRANSLATE_TOKEN ?? process.env.GITHUB_TOKEN ?? "",
     fetchImpl: opts.fetchImpl || fetch,
     sleepImpl: opts.sleepImpl || sleep,
     batchSize: Math.max(1, Number(opts.batchSize || process.env.IDEARADAR_TRANSLATE_BATCH || DEFAULT_BATCH_SIZE)),
@@ -205,6 +221,12 @@ export async function translateItems(items = [], opts = {}) {
     } catch (err) {
       stats.failed += idxs.length;
       stats.errors.push(String(err?.message || err));
+      // 端点整体不可用时立刻收手：剩余批次必然同样失败，别刷屏也别白等超时。
+      if (err instanceof EndpointUnavailable) {
+        stats.skippedReason = String(err?.message || err);
+        stats.failed += pendingIdx.length - (start + idxs.length);
+        break;
+      }
     }
   }
   return { items: out, stats };
@@ -230,6 +252,8 @@ async function main() {
       model: stats.model,
       at: new Date().toISOString(),
       status: stats.failed === 0 ? "ok" : stats.translated === 0 ? "skipped" : "partial",
+      skippedReason: stats.skippedReason,
+      errors: stats.errors.slice(0, 3),
       total: stats.total,
       cached: stats.cached,
       translated: stats.translated,
@@ -241,7 +265,8 @@ async function main() {
   await fs.writeFile(DATA_PATH, json);
   await fs.writeFile(PUBLIC_PATH, json);
   console.log(
-    `[translate] total=${stats.total} cached=${stats.cached} pending=${stats.pending} translated=${stats.translated} failed=${stats.failed} requests=${stats.requests}`,
+    `[translate] total=${stats.total} cached=${stats.cached} pending=${stats.pending} translated=${stats.translated} failed=${stats.failed} requests=${stats.requests}` +
+      (stats.skippedReason ? ` | 端点级跳过：${stats.skippedReason}` : ""),
   );
 }
 

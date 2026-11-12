@@ -148,7 +148,8 @@
         }
       ],
       "titleZh": "预约登记",
-      "translationKey": "o0xygl"
+      "translationKey": "o0xygl",
+      "quoteZh": "患者可查看可预约的医生与时段；可预约空闲时段；可改期或取消预约；已被预约的时段不能被其他患者重复预约。"
     },
     {
       "id": "invoice-export-wish-import-expense-report-and-invoice-lines-fro",
@@ -183,7 +184,8 @@
         }
       ],
       "titleZh": "希望支持从 CSV 导入费用报表（及发票）明细",
-      "translationKey": "wtcmtu"
+      "translationKey": "wtcmtu",
+      "quoteZh": "功能请求：希望创建业务对象后能直接从 CSV 文件导入费用报表（及发票）明细。使用场景：志愿者常有多笔费用，会直接发来一份电子表格。"
     },
     {
       "id": "solo-crm-issues-in-crm",
@@ -217,7 +219,8 @@
         }
       ],
       "titleZh": "CRM 中的问题汇总",
-      "translationKey": "1romyta"
+      "translationKey": "1romyta",
+      "quoteZh": "手动补全联系人接口 POST /api/v1/leads/{id}/enrich 在使用标准 lead UUID（如 b0000001-0000-0000-0000-000000000001）调用时立即失败，返回 HTTP 422 Unprocessable Entity。此外……"
     },
     {
       "id": "solo-crm-salesforce-sync-log-and-failure-alert",
@@ -251,7 +254,8 @@
         }
       ],
       "titleZh": "Salesforce：同步日志与失败告警",
-      "translationKey": "2b252w"
+      "translationKey": "2b252w",
+      "quoteZh": "计划：2026 年 11 月（每周日执行同步）。要做什么：记录每次同步运行，失败时告警管理员。为什么：静默失败会让不可邮寄的联系人重新混入导出。步骤：记录……"
     },
     {
       "id": "solo-crm-running-a-law-firm-on-free-software",
@@ -285,7 +289,8 @@
         }
       ],
       "titleZh": "用自由软件运营律所",
-      "translationKey": "1q1cx2n"
+      "translationKey": "1q1cx2n",
+      "quoteZh": "真羡慕，我也想这么做。我只是大型律所里的一颗小螺丝钉，技术栈完全由所里指定：Outlook + Word，外加一堆极其反直觉、缓慢又满是缺陷的……"
     },
     {
       "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
@@ -319,7 +324,8 @@
         }
       ],
       "titleZh": "管理后台·客服聊天：工单收件箱与结果报告",
-      "translationKey": "19lcdkv"
+      "translationKey": "19lcdkv",
+      "quoteZh": "隶属于 FORHU/ilovelawyer-client#120，泳道 ADM-2，复用 BE-3 的管理端接口。问题：管理员需要一个统一入口，来回复机器人处理不了的客服工单，并查看哪些流程在失败，以便……"
     },
     {
       "id": "invoice-export-csv-export-for-timesheets-and-invoices",
@@ -353,7 +359,8 @@
         }
       ],
       "titleZh": "工时表与发票的 CSV 导出",
-      "translationKey": "1pahlgq"
+      "translationKey": "1pahlgq",
+      "quoteZh": "摘要：财务与管理者经常需要表格数据，请为工时表与发票明细增加 CSV 导出。待办：新增 GET /api/timesheets/export.csv 与 GET /api/invoices/:id/export.csv；复用……"
     },
     {
       "id": "scheduling-feature-appointment-rescheduling",
@@ -387,7 +394,8 @@
         }
       ],
       "titleZh": "功能需求：预约改期",
-      "translationKey": "1lgqcw8"
+      "translationKey": "1lgqcw8",
+      "quoteZh": "类型：功能。位置：我的预约模块。描述：增加预约改期功能，让客户无需先取消订单再重新下单，就能修改已有预约的日期与时间，而不必……"
     },
     {
       "id": "scheduling-appointment-vehicle-management",
@@ -421,7 +429,8 @@
         }
       ],
       "titleZh": "预约与车辆管理",
-      "translationKey": "lhy25o"
+      "translationKey": "lhy25o",
+      "quoteZh": "开发功能，让 CleanRide 客户管理自己的车辆与洗车预约。用户故事：添加车辆、查看已保存车辆、预约、取消预约。"
     },
     {
       "id": "invoice-export-banking-app-transaction-multi-currency",
@@ -455,7 +464,8 @@
         }
       ],
       "titleZh": "银行应用交易：多币种支持",
-      "translationKey": "4lp5nm"
+      "translationKey": "4lp5nm",
+      "quoteZh": "缺陷信息：在新银行应用中创建日记账分录时，若科目使用公司本位币以外的币种，系统不允许提交。通常日记账分录……"
     },
     {
       "id": "scheduling-appointment-cancellation",
@@ -489,7 +499,8 @@
         }
       ],
       "titleZh": "预约取消",
-      "translationKey": "c9813y"
+      "translationKey": "c9813y",
+      "quoteZh": "需求：FR-06 预约取消与 FR-07 保留历史。AppointmentService.cancel_appointment 目前只是抛出 NotImplementedError 的占位实现，预约根本无法取消。任务：实现……"
     },
     {
       "id": "scheduling-endpoint-delete-bookings-booking-id",
@@ -523,7 +534,8 @@
         }
       ],
       "titleZh": "接口：DELETE /bookings/{booking_id}",
-      "translationKey": "1o3ijf0"
+      "translationKey": "1o3ijf0",
+      "quoteZh": "待办：取消预订、释放所有航班座位、全额退款（收入下降）；返回 status 为 cancelled 的预订；重复取消返回同一结果而非报错；未知 id 返回 404。"
     },
     {
       "id": "scheduling-endpoint-get-bookings-booking-id",
@@ -557,7 +569,8 @@
         }
       ],
       "titleZh": "接口：GET /bookings/{booking_id}",
-      "translationKey": "zeg1zq"
+      "translationKey": "zeg1zq",
+      "quoteZh": "待办：返回 status 为 confirmed 或 cancelled 的预订；未知 id 返回 404。"
     },
     {
       "id": "scheduling-nurses-sound-alarm-as-uber-for-nursing-apps-push",
@@ -591,7 +604,8 @@
         }
       ],
       "titleZh": "护士警示「护理界 Uber」类应用推动医疗去监管化",
-      "translationKey": "ti9css"
+      "translationKey": "ti9css",
+      "quoteZh": "除非计价器坏了，或者司机故意绕远路。我患有痴呆症的祖母去就医的行程经常被收取两三倍车费，直到我们发现问题出在……"
     },
     {
       "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
@@ -625,7 +639,8 @@
         }
       ],
       "titleZh": "批量处理、平衡转账、暂挂与多币种",
-      "translationKey": "1p5th3o"
+      "translationKey": "1p5th3o",
+      "quoteZh": "第 3 周（共 52 周）· 2026-11-16 至 2026-11-22。为什么：市场平台结算需要多笔转账同时完成，余额不足会导致归集失败，暂挂金额不能增长，而一次币种兑换要拆成两笔分录……"
     },
     {
       "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
@@ -657,7 +672,8 @@
         }
       ],
       "titleZh": "将每笔 Stripe 手续费记为 Xero 支出、每次结算记为银行转账（临时过账方案…",
-      "translationKey": "17raob9"
+      "translationKey": "17raob9",
+      "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11），工作顺序见该处。2026-11-11 已决策采用方案 (a)：先按设计实现 M8，再单独做一个临时的 Xero 过账……"
     },
     {
       "id": "invoice-export-quickbooks",
@@ -689,7 +705,8 @@
         }
       ],
       "titleZh": "QuickBooks 相关问题",
-      "translationKey": "1hriesl"
+      "translationKey": "1hriesl",
+      "quoteZh": "SaaS（软件即服务）模式把软件从买断拥有变成了持续租用。QuickBooks Online 正是这一模式的典型代表，它……"
     },
     {
       "id": "scheduling-activity-links-one-shared-sign-up-host-matcher-f",
@@ -721,7 +738,8 @@
         }
       ],
       "titleZh": "活动链接：为类型标签与标题抓取共用报名域名匹配器",
-      "translationKey": "znqbr"
+      "translationKey": "znqbr",
+      "quoteZh": "由 Paul（pdcarlson）在 #4187 的 /next 会话中提出（/diff-review 延期发现，2026-11-11），所属史诗 #4185。智能体简述：depth:standard · model:any · ultracode:no。问题：报名主机列表……"
     },
     {
       "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
@@ -751,7 +769,10 @@
           "createdAt": "2026-11-12T03:46:02.000Z",
           "excerpt": "## Description Add a Calendly Link textbox to the Admin Profile page, allowing admins to easily update the Calendly URL through the UI without needing to modify the codebase. Store the link in the database and overwrite "
         }
-      ]
+      ],
+      "titleZh": "在管理员资料页增加 Calendly 链接输入框，并修复气泡首页缺陷",
+      "quoteZh": "描述：在管理员资料页增加 Calendly 链接输入框，让管理员无需改代码即可通过界面更新 Calendly URL。链接存入数据库并覆盖……",
+      "translationKey": "bfqf7a"
     },
     {
       "id": "scheduling-appointment-management",
@@ -785,7 +806,8 @@
         }
       ],
       "titleZh": "预约管理",
-      "translationKey": "1oxufvs"
+      "translationKey": "1oxufvs",
+      "quoteZh": "作为主管，我希望能点管理预约按钮进入一个页面，以日历视图查看已排定的预约，并能取消……"
     },
     {
       "id": "scheduling-united-airlines-bans-ai-agents-from-booking-flig",
@@ -817,7 +839,8 @@
         }
       ],
       "titleZh": "美联航禁止 AI 代理代旅客预订机票",
-      "translationKey": "vfrexq"
+      "translationKey": "vfrexq",
+      "quoteZh": "说真的挺奇怪：我 70 岁的老母亲买机票、订酒店都毫无障碍，可某些自称十倍程序员的人却搞不定一个网站，还觉得该让 AI 代理……"
     },
     {
       "id": "solo-crm-crm",
@@ -849,7 +872,8 @@
         }
       ],
       "titleZh": "CRM 客户关系管理",
-      "translationKey": "22yq12"
+      "translationKey": "22yq12",
+      "quoteZh": "代码片段：从 react 导入 useState、useEffect、useMemo，并引入 Users、MessageSquare、FileText、ShieldCheck、TrendingUp 等图标组件……"
     },
     {
       "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
@@ -881,7 +905,8 @@
         }
       ],
       "titleZh": "Python Flask webhook 收到 Meta Lead Ads 测试事件并返回 HTTP 200，却没有 POST 请求…",
-      "translationKey": "1rlcx53"
+      "translationKey": "1rlcx53",
+      "quoteZh": "我在用 Python Flask 后端 + Meta Graph API 把 Meta（Facebook）Lead Ads 接入自研 CRM，目标是线索表单提交后自动收到 webhook 通知……"
     },
     {
       "id": "scheduling-appointment-booking-tasks",
@@ -922,7 +947,8 @@
         }
       ],
       "titleZh": "预约登记任务",
-      "translationKey": "10aehgh"
+      "translationKey": "10aehgh",
+      "quoteZh": "创建预约登记；展示可预约医生；展示可用时段；实现预约；实现改期；实现取消；测试预约流程。"
     },
     {
       "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
@@ -954,7 +980,8 @@
         }
       ],
       "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…",
-      "translationKey": "y1k1ed"
+      "translationKey": "y1k1ed",
+      "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11）。一、用大白话说明问题：应用的两个入站通知通道可能丢消息……"
     },
     {
       "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
@@ -988,7 +1015,8 @@
         }
       ],
       "titleZh": "每次暂挂或拒付都标明规则并关联命中项（修复已开具发票页面…",
-      "translationKey": "2tp4ne"
+      "translationKey": "2tp4ne",
+      "quoteZh": "缺陷类型：行为缺陷（不崩溃但输出或状态错误）。摘要：被 Xero 拒绝的已开具发票停留在待处理页签，页面只显示待处理、尚未同步到 Xero，却不给原因；当原因……"
     },
     {
       "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
@@ -1020,7 +1048,8 @@
         }
       ],
       "titleZh": "订阅页面让未接 Xero 的俱乐部走进死胡同，还可能把发票排队发出…",
-      "translationKey": "1x6lmz6"
+      "translationKey": "1x6lmz6",
+      "quoteZh": "隶属于项目 #4898。一、用大白话说明问题：应用会发送会员订阅发票和入会费……"
     },
     {
       "id": "invoice-export-xero-webhook-kicks-a-full-inbound-sync-that-igno",
@@ -1052,7 +1081,8 @@
         }
       ],
       "titleZh": "Xero webhook 触发全量入站同步，无视「同步正在进行」的判断…",
-      "translationKey": "15thzz0"
+      "translationKey": "15thzz0",
+      "quoteZh": "隶属于项目 #4898。一、用大白话说明问题：当 Xero 通知应用有数据变更时，应用会保存……"
     },
     {
       "id": "scheduling-public-booking-phone-validation-and-booking-mana",
@@ -1084,7 +1114,8 @@
         }
       ],
       "titleZh": "公开预约的手机号校验与预约管理",
-      "translationKey": "4mo5pg"
+      "translationKey": "4mo5pg",
+      "quoteZh": "合并自 #335 与 #365：公开预约校验与客户管理。电话校验（#335）：公开预约目前接受任意非空、长度不超过 40 字符的电话（QA 中 abc 也被接受），需约定统一格式……"
     },
     {
       "id": "solo-crm-salesforce-bulk-a-remembered-job-salesforce-has-",
@@ -1116,7 +1147,8 @@
         }
       ],
       "titleZh": "Salesforce Bulk：被 Salesforce 删除却仍被记住的任务永远无法恢复",
-      "translationKey": "1r9pth0"
+      "translationKey": "1r9pth0",
+      "quoteZh": "发现于 #760（PR #777）。Salesforce 生产者用 envelope id 记住一个 Bulk API 任务，以便重试时续跑而非重复提交。若 Salesforce 已删除该任务，状态读取会返回 404，之后每次……"
     },
     {
       "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
@@ -1148,7 +1180,8 @@
         }
       ],
       "titleZh": "汇总：Zendesk 动作流连接的 HTTP + OAuth 支持",
-      "translationKey": "1fpeatb"
+      "translationKey": "1fpeatb",
+      "quoteZh": "Zendesk 可以在动作流中调用 MCP 工具，但仅支持基于 HTTP 的连接（官方文档：在动作流中连接 MCP 服务器并使用 MCP 工具）……"
     },
     {
       "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
@@ -1180,7 +1213,8 @@
         }
       ],
       "titleZh": "Claude Code 的「不再询问」致 1,122 个公开 GitHub 文件泄露密码",
-      "translationKey": "toluil"
+      "translationKey": "toluil",
+      "quoteZh": "我有点怀疑你说的超级谨慎到底有多谨慎，这听起来并不算。比如说：暴露面也太大了吧。是你让 AI 代理自己判断哪个端点具有破坏性，还是……"
     },
     {
       "id": "scheduling-running-a-law-firm-on-free-software",
@@ -1212,7 +1246,8 @@
         }
       ],
       "titleZh": "用自由软件运营律所",
-      "translationKey": "18zgbi"
+      "translationKey": "18zgbi",
+      "quoteZh": "这个博客点子挺有意思，我打算借用。过去 5 年我一直用纯自托管和 FOSS 软件运营一家软件工程合作社（邮件服务器和 Discord 除外），大部分……"
     },
     {
       "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
@@ -1244,7 +1279,8 @@
         }
       ],
       "titleZh": "排期模块（1/9）：存储与配置",
-      "translationKey": "p22tqt"
+      "translationKey": "p22tqt",
+      "quoteZh": "属于请求排期史诗（队列、优先级与 KV-cache 亲和性）的一部分。新增 scheduling: 配置块与一个小型 store 模块，供后续条目扩展。配置块按史诗定义，带默认值与……"
     },
     {
       "id": "invoice-export-programme-xero-operation-row-claim-fencing",
@@ -1278,7 +1314,8 @@
         }
       ],
       "titleZh": "项目：Xero 操作行认领隔离",
-      "translationKey": "18tdgf2"
+      "translationKey": "18tdgf2",
+      "quoteZh": "隶属于项目 #4898，工作顺序见该处。2026-11-11 已决策并发布：此前搁置的 Xero 与支付类缺陷现在均可修复，按危害程度排序，优先于总账步骤……"
     },
     {
       "id": "scheduling-booking-rules",
@@ -1310,7 +1347,8 @@
         }
       ],
       "titleZh": "预约规则",
-      "translationKey": "fjq8su"
+      "translationKey": "fjq8su",
+      "quoteZh": "用户故事：作为组织，我希望有清晰的预约规则，让会议室被公平使用。描述：所有预约必须遵循以下规则，时间均为本地时间（Europe/Helsinki）。R1：预约必须落在……"
     },
     {
       "id": "scheduling-how-can-i-make-a-bigdecimal-parallel-reduction-d",
@@ -1344,7 +1382,8 @@
         }
       ],
       "titleZh": "在有限 MathContext 下如何让 BigDecimal 并行归约结果确定…",
-      "translationKey": "85vlx6"
+      "translationKey": "85vlx6",
+      "quoteZh": "我在研究如何用 Java 8 Stream 聚合带符号的金额调整。需求：正负调整可相互抵消；计算使用有限精度的 MathContext；结果应当……"
     },
     {
       "id": "support-transcripts-i-wish-tech-companies-knew-more-about-me",
@@ -1376,17 +1415,20 @@
         }
       ],
       "titleZh": "希望科技公司能更了解我",
-      "translationKey": "1we1xob"
+      "translationKey": "1we1xob",
+      "quoteZh": "语言这事真把我气哭了。我在德国住过多年但不会德语。我给 Spotify 提了工单，请他们别再给我发德语邮件——他们明明知道我只说英语……"
     }
   ],
   "translation": {
     "model": "openai/gpt-4o-mini",
-    "at": "2026-11-12T07:52:19.066Z",
-    "status": "skipped",
+    "at": "2026-11-12T08:09:07.979Z",
+    "status": "seeded",
+    "skippedReason": "models.github.ai 在当前托管出口返回 200 text/plain 占位响应（非 JSON），自动推理不可用；本批中文标题与引语为预置译文，端点恢复或配置 BYOK 后脚本会自动增量翻译新增条目。",
+    "errors": [],
     "total": 38,
-    "cached": 0,
+    "cached": 38,
     "translated": 0,
-    "failed": 38,
+    "failed": 0,
     "requests": 0
   }
 }

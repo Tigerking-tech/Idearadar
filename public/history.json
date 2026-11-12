@@ -354,6 +354,32 @@
         }
       },
       "methodVersion": 2
+    },
+    {
+      "t": "2026-11-12T07:51:26.750Z",
+      "byNiche": {
+        "scheduling": {
+          "score": 24,
+          "mentions": 24,
+          "items": 17
+        },
+        "invoice-export": {
+          "score": 23,
+          "mentions": 12,
+          "items": 12
+        },
+        "solo-crm": {
+          "score": 25,
+          "mentions": 6,
+          "items": 6
+        },
+        "support-transcripts": {
+          "score": 23,
+          "mentions": 3,
+          "items": 3
+        }
+      },
+      "methodVersion": 2
     }
   ]
 }

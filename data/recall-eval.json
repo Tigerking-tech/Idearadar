@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-12T03:28:58.097Z",
+  "evaluatedAt": "2026-11-12T07:48:43.433Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 979,
-      "itemCount": 37,
-      "recallHits": 493,
-      "finalHits": 27,
-      "recallTitleRate": 0.5035750766087844,
-      "finalTitleRate": 0.7297297297297297
+      "raw": 976,
+      "itemCount": 38,
+      "recallHits": 496,
+      "finalHits": 28,
+      "recallTitleRate": 0.5081967213114754,
+      "finalTitleRate": 0.7368421052631579
     },
     "legacy": {
-      "raw": 962,
+      "raw": 960,
       "itemCount": 60,
-      "recallHits": 108,
-      "finalHits": 10,
-      "recallTitleRate": 0.11226611226611227,
-      "finalTitleRate": 0.16666666666666666
+      "recallHits": 89,
+      "finalHits": 13,
+      "recallTitleRate": 0.09270833333333334,
+      "finalTitleRate": 0.21666666666666667
     }
   },
   "perNiche": {
@@ -49,7 +49,7 @@
         "niche": "invoice-export",
         "raw": 226,
         "itemCount": 12,
-        "recallTitleRate": 0.48672566371681414,
+        "recallTitleRate": 0.5,
         "finalTitleRate": 0.75,
         "stats": {
           "raw": 226,
@@ -59,12 +59,12 @@
       },
       {
         "niche": "support-transcripts",
-        "raw": 237,
+        "raw": 234,
         "itemCount": 3,
-        "recallTitleRate": 0.45569620253164556,
+        "recallTitleRate": 0.46153846153846156,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 237,
+          "raw": 234,
           "complaintRecords": 6,
           "items": 3
         }
@@ -72,63 +72,63 @@
       {
         "niche": "scheduling",
         "raw": 264,
-        "itemCount": 16,
+        "itemCount": 17,
         "recallTitleRate": 0.5909090909090909,
-        "finalTitleRate": 0.75,
+        "finalTitleRate": 0.7647058823529411,
         "stats": {
           "raw": 264,
-          "complaintRecords": 28,
-          "items": 16
+          "complaintRecords": 29,
+          "items": 17
         }
       }
     ],
     "legacy": [
       {
         "niche": "solo-crm",
-        "raw": 248,
+        "raw": 252,
         "itemCount": 6,
-        "recallTitleRate": 0.13306451612903225,
+        "recallTitleRate": 0.04365079365079365,
         "finalTitleRate": 0.3333333333333333,
         "stats": {
-          "raw": 248,
+          "raw": 252,
           "complaintRecords": 6,
           "items": 6
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 221,
+        "raw": 210,
         "itemCount": 20,
-        "recallTitleRate": 0.11312217194570136,
+        "recallTitleRate": 0.12380952380952381,
         "finalTitleRate": 0.15,
         "stats": {
-          "raw": 221,
+          "raw": 210,
           "complaintRecords": 21,
           "items": 20
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 237,
-        "itemCount": 26,
-        "recallTitleRate": 0.06751054852320675,
-        "finalTitleRate": 0.07692307692307693,
+        "raw": 234,
+        "itemCount": 18,
+        "recallTitleRate": 0.06837606837606838,
+        "finalTitleRate": 0.1111111111111111,
         "stats": {
-          "raw": 237,
-          "complaintRecords": 26,
-          "items": 26
+          "raw": 234,
+          "complaintRecords": 18,
+          "items": 18
         }
       },
       {
         "niche": "scheduling",
-        "raw": 256,
-        "itemCount": 20,
-        "recallTitleRate": 0.1328125,
-        "finalTitleRate": 0.25,
+        "raw": 264,
+        "itemCount": 24,
+        "recallTitleRate": 0.13636363636363635,
+        "finalTitleRate": 0.2916666666666667,
         "stats": {
-          "raw": 256,
-          "complaintRecords": 22,
-          "items": 20
+          "raw": 264,
+          "complaintRecords": 28,
+          "items": 24
         }
       }
     ]
@@ -143,11 +143,6 @@
       {
         "title": "WISH: import Expense Report (and invoice) lines from CSV",
         "niche": "invoice-export",
-        "titleHit": true
-      },
-      {
-        "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-        "niche": "scheduling",
         "titleHit": true
       },
       {
@@ -174,16 +169,26 @@
         "title": "CSV export for timesheets and invoices",
         "niche": "invoice-export",
         "titleHit": false
+      },
+      {
+        "title": "FEATURE: Appointment Rescheduling",
+        "niche": "scheduling",
+        "titleHit": true
       }
     ],
     "legacy": [
       {
-        "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+        "title": "Bound authenticated request bodies and validation responses",
         "niche": "scheduling",
-        "titleHit": true
+        "titleHit": false
       },
       {
-        "title": "successful oauth in salesforce, nothing in claude (token refresh loop)",
+        "title": "Merge queue pre-check results (Claude 1 cloud sessions, 12/11/2026)",
+        "niche": "solo-crm",
+        "titleHit": false
+      },
+      {
+        "title": "Salesforce Data 360 Pipeline: Lineage/Usage agents crash, lineage runs fail, Test Connection…",
         "niche": "solo-crm",
         "titleHit": true
       },
@@ -198,6 +203,11 @@
         "titleHit": false
       },
       {
+        "title": "tsc fails passing a Sender's identity.dmarc to a DmarcVerdict parameter",
+        "niche": "support-transcripts",
+        "titleHit": false
+      },
+      {
         "title": "Virtual cluster (mesh): a consumer subscribed to topics on two backends never joins when a…",
         "niche": "support-transcripts",
         "titleHit": false
@@ -205,16 +215,6 @@
       {
         "title": "AZ-PUNK.com Website for local artists and fans from across the country",
         "niche": "scheduling",
-        "titleHit": false
-      },
-      {
-        "title": "Amazon saves millions by replacing Sonnet 4.6 with Strands Decider",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "Recovery Code factor's selection rule is never evaluated",
-        "niche": "support-transcripts",
         "titleHit": false
       }
     ]

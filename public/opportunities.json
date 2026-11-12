@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T03:32:02.425Z",
+  "generatedAt": "2026-11-12T07:51:26.750Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -22,24 +22,24 @@
         "method": "relevance",
         "raw": 225,
         "itemCount": 12,
-        "recallTitleRate": 0.4888888888888889,
+        "recallTitleRate": 0.5022222222222222,
         "finalTitleRate": 0.75
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 237,
+        "raw": 235,
         "itemCount": 3,
-        "recallTitleRate": 0.45569620253164556,
+        "recallTitleRate": 0.4595744680851064,
         "finalTitleRate": 0.6666666666666666
       },
       {
         "niche": "scheduling",
         "method": "relevance",
         "raw": 264,
-        "itemCount": 16,
-        "recallTitleRate": 0.6515151515151515,
-        "finalTitleRate": 0.75
+        "itemCount": 17,
+        "recallTitleRate": 0.5909090909090909,
+        "finalTitleRate": 0.7647058823529411
       }
     ]
   },
@@ -48,7 +48,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 443
+      "rows": 442
     },
     {
       "id": "so",
@@ -66,7 +66,7 @@
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 2
+      "rows": 1
     },
     {
       "id": "firstParty",
@@ -82,9 +82,9 @@
     }
   ],
   "totals": {
-    "rawRecords": 978,
-    "complaintRecords": 56,
-    "opportunities": 37
+    "rawRecords": 976,
+    "complaintRecords": 57,
+    "opportunities": 38
   },
   "errors": [],
   "items": [
@@ -97,7 +97,7 @@
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -147,18 +147,19 @@
           "excerpt": "Allow patients to book, view, and cancel doctor appointments. Tasks: - [ ] Display available dates and time slots - [ ] Add an appointment booking form - [ ] Prevent duplicate bookings - [ ] Display booking confirmation "
         }
       ],
-      "titleZh": "预约登记"
+      "titleZh": "预约登记",
+      "translationKey": "o0xygl"
     },
     {
       "id": "invoice-export-wish-import-expense-report-and-invoice-lines-fro",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
       "title": "WISH: import Expense Report (and invoice) lines from CSV",
-      "score": 31,
+      "score": 30,
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
-        "recency": 13.6,
+        "recency": 13.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -181,18 +182,19 @@
           "excerpt": "### Feature Request I wish that I could import Expense Report (and invoice) lines from a CSV file right after I've created the business object. ### Use case Often volunteers with multiple expenses sends us a spreadsheet "
         }
       ],
-      "titleZh": "希望支持从 CSV 导入费用报表（及发票）明细"
+      "titleZh": "希望支持从 CSV 导入费用报表（及发票）明细",
+      "translationKey": "wtcmtu"
     },
     {
       "id": "solo-crm-issues-in-crm",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
       "title": "ISSUES in CRM",
-      "score": 29,
+      "score": 28,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.6,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -214,40 +216,8 @@
           "excerpt": "The manual contact enrichment endpoint POST /api/v1/leads/{id}/enrich fails immediately with HTTP 422 Unprocessable Entity when called with standard lead UUIDs (such as b0000001-0000-0000-0000-000000000001). Furthermore,"
         }
       ],
-      "titleZh": "CRM 中的问题汇总"
-    },
-    {
-      "id": "scheduling-united-airlines-bans-ai-agents-from-booking-flig",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-      "score": 28,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 5,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "pain"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T03:31:03.000Z",
-      "evidence": [
-        {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-          "source": "hn",
-          "createdAt": "2026-11-12T03:31:03.000Z",
-          "excerpt": "i mean for most people, there&#x27;s a real pain point. having to sit down and spend an hour or more booking flights, accoms, etc for a trip is a pain in the ass"
-        }
-      ],
-      "titleZh": "美联航禁止 AI 代理代旅客预订机票"
+      "titleZh": "CRM 中的问题汇总",
+      "translationKey": "1romyta"
     },
     {
       "id": "solo-crm-salesforce-sync-log-and-failure-alert",
@@ -258,7 +228,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.2,
+        "recency": 14.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -280,7 +250,8 @@
           "excerpt": "📅 **Planned:** November 2026 (weekly sync runs every Sunday) ### What Record each sync run and alert the admins if it fails. ### Why A silent failure would let unmailable contacts back into exports. ### Steps - [ ] Log "
         }
       ],
-      "titleZh": "Salesforce：同步日志与失败告警"
+      "titleZh": "Salesforce：同步日志与失败告警",
+      "translationKey": "2b252w"
     },
     {
       "id": "solo-crm-running-a-law-firm-on-free-software",
@@ -291,7 +262,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 12.8,
+        "recency": 12.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -313,7 +284,8 @@
           "excerpt": "I&#x27;m jealous, I&#x27;d love to be able to do this. I am a small cog in a big legal machine so I am stuck with whatever tech stack my firm mandates. Outlook + Word + a bunch of incredibly unintuitive, slow, buggy and "
         }
       ],
-      "titleZh": "用自由软件运营律所"
+      "titleZh": "用自由软件运营律所",
+      "translationKey": "1q1cx2n"
     },
     {
       "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
@@ -324,7 +296,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.5,
+        "recency": 13.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -346,7 +318,8 @@
           "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
         }
       ],
-      "titleZh": "管理后台·客服聊天：工单收件箱与结果报告"
+      "titleZh": "管理后台·客服聊天：工单收件箱与结果报告",
+      "translationKey": "19lcdkv"
     },
     {
       "id": "invoice-export-csv-export-for-timesheets-and-invoices",
@@ -357,7 +330,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 13.7,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -379,40 +352,8 @@
           "excerpt": "## Summary Finance and managers often need data in a spreadsheet. Add CSV export for timesheets and invoice lines. ## What to do - Add `GET /api/timesheets/export.csv` and `GET /api/invoices/:id/export.csv`. - **Reuse th"
         }
       ],
-      "titleZh": "工时表与发票的 CSV 导出"
-    },
-    {
-      "id": "scheduling-appointment-vehicle-management",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment & Vehicle Management",
-      "score": 26,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 13.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T03:51:57.000Z",
-      "evidence": [
-        {
-          "title": "Appointment & Vehicle Management",
-          "url": "https://github.com/ShaneW12/Group3-CarWash/issues/11",
-          "source": "github",
-          "createdAt": "2026-11-09T03:51:57.000Z",
-          "excerpt": "Develop functionality that allows CleanRide customers to manage their vehicles and car wash appointments. User stories - Add a vehicle - View saved vehicles - Book an appointment - Cancel an appointment"
-        }
-      ],
-      "titleZh": "预约与车辆管理"
+      "titleZh": "工时表与发票的 CSV 导出",
+      "translationKey": "1pahlgq"
     },
     {
       "id": "scheduling-feature-appointment-rescheduling",
@@ -423,7 +364,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 13.7,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -445,7 +386,42 @@
           "excerpt": "Type: Feature Where: My Appointments Module Description: Add a Reschedule Appointment feature that allows customers to change their existing appointment date and time without having to cancel their booking and create a n"
         }
       ],
-      "titleZh": "功能需求：预约改期"
+      "titleZh": "功能需求：预约改期",
+      "translationKey": "1lgqcw8"
+    },
+    {
+      "id": "scheduling-appointment-vehicle-management",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Appointment & Vehicle Management",
+      "score": 25,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 13.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T03:51:57.000Z",
+      "evidence": [
+        {
+          "title": "Appointment & Vehicle Management",
+          "url": "https://github.com/ShaneW12/Group3-CarWash/issues/11",
+          "source": "github",
+          "createdAt": "2026-11-09T03:51:57.000Z",
+          "excerpt": "Develop functionality that allows CleanRide customers to manage their vehicles and car wash appointments. User stories - Add a vehicle - View saved vehicles - Book an appointment - Cancel an appointment"
+        }
+      ],
+      "titleZh": "预约与车辆管理",
+      "translationKey": "lhy25o"
     },
     {
       "id": "invoice-export-banking-app-transaction-multi-currency",
@@ -456,7 +432,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 10.4,
+        "recency": 10.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -478,7 +454,8 @@
           "excerpt": "### Information about bug When trying to create a journal entry in the new banking app, it does not allow you to submit a Journal Entry with an account outside of the company currency. Normally, on a Journal Entry, there"
         }
       ],
-      "titleZh": "银行应用交易：多币种支持"
+      "titleZh": "银行应用交易：多币种支持",
+      "translationKey": "4lp5nm"
     },
     {
       "id": "scheduling-appointment-cancellation",
@@ -489,7 +466,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 12.2,
+        "recency": 12.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -511,7 +488,8 @@
           "excerpt": "Requirement : FR-06 Appointment Cancellation with FR-07 Retained History AppointmentService.cancel_appointment is currently a stub that raises NotImplementedError. The appointments **cannot** be cancelled. Task - to Impl"
         }
       ],
-      "titleZh": "预约取消"
+      "titleZh": "预约取消",
+      "translationKey": "c9813y"
     },
     {
       "id": "scheduling-endpoint-delete-bookings-booking-id",
@@ -522,7 +500,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.8,
+        "recency": 11.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -544,7 +522,8 @@
           "excerpt": "- [ ] Cancels the booking, returns its seats on every flight, refunds in full (revenue drops). - [ ] Returns the booking with `status` `cancelled`. - [ ] Cancelling twice returns the same thing, not an error. - [ ] `404`"
         }
       ],
-      "titleZh": "接口：DELETE /bookings/{booking_id}"
+      "titleZh": "接口：DELETE /bookings/{booking_id}",
+      "translationKey": "1o3ijf0"
     },
     {
       "id": "scheduling-endpoint-get-bookings-booking-id",
@@ -555,7 +534,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.8,
+        "recency": 11.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -577,7 +556,8 @@
           "excerpt": "- [ ] Returns the booking with `status` `confirmed` or `cancelled`. - [ ] `404` if unknown."
         }
       ],
-      "titleZh": "接口：GET /bookings/{booking_id}"
+      "titleZh": "接口：GET /bookings/{booking_id}",
+      "translationKey": "zeg1zq"
     },
     {
       "id": "scheduling-nurses-sound-alarm-as-uber-for-nursing-apps-push",
@@ -588,7 +568,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.9,
+        "recency": 9.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -610,7 +590,8 @@
           "excerpt": "Except when the \"meter is broken\" or they take the scenic route. My grandmother with dementia routinely got charged double or triple the expected rate for trips to medical appointments, until we figured out what was goin"
         }
       ],
-      "titleZh": "护士警示「护理界 Uber」类应用推动医疗去监管化"
+      "titleZh": "护士警示「护理界 Uber」类应用推动医疗去监管化",
+      "translationKey": "ti9css"
     },
     {
       "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
@@ -621,7 +602,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.1,
+        "recency": 9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -643,40 +624,8 @@
           "excerpt": "**Week 3 of 52** · Mon 16 Nov 2026 to Sun 22 Nov 2026 ## Why Marketplace payouts need several transfers to happen together, sweeps fail on short balances, holds cannot grow, and a currency conversion is two separate entr"
         }
       ],
-      "titleZh": "批量处理、平衡转账、暂挂与多币种"
-    },
-    {
-      "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 8.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-30T06:12:02.000Z",
-      "evidence": [
-        {
-          "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page, then audit the app)",
-          "url": "https://github.com/arcforgelabs/flow/issues/441",
-          "source": "github",
-          "createdAt": "2026-10-30T06:12:02.000Z",
-          "excerpt": "### Bug type Behavior bug (incorrect output/state without crash) ### Summary An issued invoice that Xero refused sits on the Pending tab. Its page shows \"Pending\" and \"Not in Xero yet\", but not the reason. When the reaso"
-        }
-      ],
-      "titleZh": "每次暂挂或拒付都标明规则并关联命中项（修复已开具发票页面…"
+      "titleZh": "批量处理、平衡转账、暂挂与多币种",
+      "translationKey": "1p5th3o"
     },
     {
       "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
@@ -687,7 +636,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.6,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -707,7 +656,8 @@
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — option (a): build M8 as designed, then a separate small interim Xero pos"
         }
       ],
-      "titleZh": "将每笔 Stripe 手续费记为 Xero 支出、每次结算记为银行转账（临时过账方案…"
+      "titleZh": "将每笔 Stripe 手续费记为 Xero 支出、每次结算记为银行转账（临时过账方案…",
+      "translationKey": "17raob9"
     },
     {
       "id": "invoice-export-quickbooks",
@@ -718,7 +668,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.7,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -738,7 +688,8 @@
           "excerpt": "The Software-as-a-Service (SaaS) model has transformed software from something businesses could purchase and own into something they must continuously rent. QuickBooks Online is a perfect example of how this model can be"
         }
       ],
-      "titleZh": "QuickBooks 相关问题"
+      "titleZh": "QuickBooks 相关问题",
+      "translationKey": "1hriesl"
     },
     {
       "id": "scheduling-activity-links-one-shared-sign-up-host-matcher-f",
@@ -749,7 +700,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -769,7 +720,38 @@
           "excerpt": "Asked by: Paul (`pdcarlson`), via the `/next` session for #4187 (deferred `/diff-review` finding), 2026-11-11. Epic: #4185. ### Agent brief `depth:standard` · `model:any` · `ultracode:no` ## Problem The list of sign-up h"
         }
       ],
-      "titleZh": "活动链接：为类型标签与标题抓取共用报名域名匹配器"
+      "titleZh": "活动链接：为类型标签与标题抓取共用报名域名匹配器",
+      "translationKey": "znqbr"
+    },
+    {
+      "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T03:46:02.000Z",
+      "evidence": [
+        {
+          "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
+          "url": "https://github.com/UTDallasEPICS/the-samaritan-inn/issues/145",
+          "source": "github",
+          "createdAt": "2026-11-12T03:46:02.000Z",
+          "excerpt": "## Description Add a Calendly Link textbox to the Admin Profile page, allowing admins to easily update the Calendly URL through the UI without needing to modify the codebase. Store the link in the database and overwrite "
+        }
+      ]
     },
     {
       "id": "scheduling-appointment-management",
@@ -802,7 +784,40 @@
           "excerpt": "As a supervisor, I want to be able to manage appointments by pressing a \"manage appointments\" button and thereby being taken to a page where I can see a calendar view of scheduled appointments, with the ability to cancel"
         }
       ],
-      "titleZh": "预约管理"
+      "titleZh": "预约管理",
+      "translationKey": "1oxufvs"
+    },
+    {
+      "id": "scheduling-united-airlines-bans-ai-agents-from-booking-flig",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T06:47:27.000Z",
+      "evidence": [
+        {
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-12T06:47:27.000Z",
+          "excerpt": "> It&#x27;s truly weird that my 70yo mother can buy plane tickets or book a hotel without a hassle but someone claiming to be 10x programmer can&#x27;t figure out how to use a website to do this and thinks that an agent "
+        }
+      ],
+      "titleZh": "美联航禁止 AI 代理代旅客预订机票",
+      "translationKey": "vfrexq"
     },
     {
       "id": "solo-crm-crm",
@@ -813,7 +828,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -833,7 +848,8 @@
           "excerpt": "import React, { useState, useEffect, useMemo } from 'react'; import { Users, MessageSquare, FileText, ShieldCheck, TrendingUp, Plus, Search, Send, Edit3, Trash2, CheckCircle, Clock, Car, User, LogOut, Lock, History, Info"
         }
       ],
-      "titleZh": "CRM 客户关系管理"
+      "titleZh": "CRM 客户关系管理",
+      "translationKey": "22yq12"
     },
     {
       "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
@@ -844,7 +860,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -864,7 +880,8 @@
           "excerpt": "I'm integrating Meta (Facebook) Lead Ads with a custom CRM application using a Python Flask backend and Meta Graph API. The goal is to receive webhook notifications automatically whenever a lead is submitted through an I"
         }
       ],
-      "titleZh": "Python Flask webhook 收到 Meta Lead Ads 测试事件并返回 HTTP 200，却没有 POST 请求…"
+      "titleZh": "Python Flask webhook 收到 Meta Lead Ads 测试事件并返回 HTTP 200，却没有 POST 请求…",
+      "translationKey": "1rlcx53"
     },
     {
       "id": "scheduling-appointment-booking-tasks",
@@ -875,7 +892,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 4,
-        "recency": 7.2,
+        "recency": 7.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -904,7 +921,8 @@
           "excerpt": "Create appointment booking item Display available docters Display available time slots Implement book appointments Implement re-schedule appointmnets Implement cancel appointments Test appointment booking"
         }
       ],
-      "titleZh": "预约登记任务"
+      "titleZh": "预约登记任务",
+      "translationKey": "10aehgh"
     },
     {
       "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
@@ -915,7 +933,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -935,7 +953,42 @@
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Two of the app's incoming notification feeds can lose a messag"
         }
       ],
-      "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…"
+      "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…",
+      "translationKey": "y1k1ed"
+    },
+    {
+      "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page…",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 8.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-10-30T06:12:02.000Z",
+      "evidence": [
+        {
+          "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page, then audit the app)",
+          "url": "https://github.com/arcforgelabs/flow/issues/441",
+          "source": "github",
+          "createdAt": "2026-10-30T06:12:02.000Z",
+          "excerpt": "### Bug type Behavior bug (incorrect output/state without crash) ### Summary An issued invoice that Xero refused sits on the Pending tab. Its page shows \"Pending\" and \"Not in Xero yet\", but not the reason. When the reaso"
+        }
+      ],
+      "titleZh": "每次暂挂或拒付都标明规则并关联命中项（修复已开具发票页面…",
+      "translationKey": "2tp4ne"
     },
     {
       "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
@@ -946,7 +999,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -966,7 +1019,8 @@
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app sends membership subscription invoices and joining-fee"
         }
       ],
-      "titleZh": "订阅页面让未接 Xero 的俱乐部走进死胡同，还可能把发票排队发出…"
+      "titleZh": "订阅页面让未接 Xero 的俱乐部走进死胡同，还可能把发票排队发出…",
+      "translationKey": "1x6lmz6"
     },
     {
       "id": "invoice-export-xero-webhook-kicks-a-full-inbound-sync-that-igno",
@@ -977,7 +1031,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -997,7 +1051,8 @@
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English When Xero tells the app that something changed, the app saves "
         }
       ],
-      "titleZh": "Xero webhook 触发全量入站同步，无视「同步正在进行」的判断…"
+      "titleZh": "Xero webhook 触发全量入站同步，无视「同步正在进行」的判断…",
+      "translationKey": "15thzz0"
     },
     {
       "id": "scheduling-public-booking-phone-validation-and-booking-mana",
@@ -1008,7 +1063,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.7,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1028,38 +1083,8 @@
           "excerpt": "Merged from #335 and #365. Public booking validation and customer management. - **Phone validation (#335):** public bookings accept any non-empty phone up to 40 characters (\"abc\" was accepted in QA). Agree accepted forma"
         }
       ],
-      "titleZh": "公开预约的手机号校验与预约管理"
-    },
-    {
-      "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Scheduling (1/9): Scheduling store and config",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T03:45:56.000Z",
-      "evidence": [
-        {
-          "title": "Scheduling (1/9): Scheduling store and config",
-          "url": "https://github.com/ncsa/lumen/issues/480",
-          "source": "github",
-          "createdAt": "2026-11-09T03:45:56.000Z",
-          "excerpt": "Part of the request scheduling epic (queues, priorities and KV-cache affinity). Add the `scheduling:` config block and a small store module that later items build on. - Config block as in the epic, with defaults and per-"
-        }
-      ],
-      "titleZh": "排期模块（1/9）：存储与配置"
+      "titleZh": "公开预约的手机号校验与预约管理",
+      "translationKey": "4mo5pg"
     },
     {
       "id": "solo-crm-salesforce-bulk-a-remembered-job-salesforce-has-",
@@ -1070,7 +1095,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.6,
+        "recency": 13.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1090,7 +1115,8 @@
           "excerpt": "Found in #760 (PR #777). The Salesforce producer remembers a Bulk API job by envelope id so that a retry resumes it rather than submitting it twice. If Salesforce has deleted that job, the state read answers 404. Every a"
         }
       ],
-      "titleZh": "Salesforce Bulk：被 Salesforce 删除却仍被记住的任务永远无法恢复"
+      "titleZh": "Salesforce Bulk：被 Salesforce 删除却仍被记住的任务永远无法恢复",
+      "translationKey": "1r9pth0"
     },
     {
       "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
@@ -1101,7 +1127,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.2,
+        "recency": 14.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1121,7 +1147,8 @@
           "excerpt": "Zendesk can call MCP tools from action flows ([Connecting to MCP servers](https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows)), but only over HTTP w"
         }
       ],
-      "titleZh": "汇总：Zendesk 动作流连接的 HTTP + OAuth 支持"
+      "titleZh": "汇总：Zendesk 动作流连接的 HTTP + OAuth 支持",
+      "translationKey": "1fpeatb"
     },
     {
       "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
@@ -1152,7 +1179,8 @@
           "excerpt": "I&#x27;m skeptical of how \"super paranoid\" you actually are. This doesn&#x27;t sound super paranoid. For instance: that&#x27;s a ton of surface area. Did you have your AI agent decide which endpoint is destructive or did"
         }
       ],
-      "titleZh": "Claude Code 的「不再询问」致 1,122 个公开 GitHub 文件泄露密码"
+      "titleZh": "Claude Code 的「不再询问」致 1,122 个公开 GitHub 文件泄露密码",
+      "translationKey": "toluil"
     },
     {
       "id": "scheduling-running-a-law-firm-on-free-software",
@@ -1163,7 +1191,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.8,
+        "recency": 12.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1183,7 +1211,40 @@
           "excerpt": "This is a fun blog idea, I&#x27;m going to steal it. I&#x27;ve been running a software engineering co-op for the last 5 years using only self hosted and FOSS software (outside of our email server and discord). The bulk o"
         }
       ],
-      "titleZh": "用自由软件运营律所"
+      "titleZh": "用自由软件运营律所",
+      "translationKey": "18zgbi"
+    },
+    {
+      "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Scheduling (1/9): Scheduling store and config",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T03:45:56.000Z",
+      "evidence": [
+        {
+          "title": "Scheduling (1/9): Scheduling store and config",
+          "url": "https://github.com/ncsa/lumen/issues/480",
+          "source": "github",
+          "createdAt": "2026-11-09T03:45:56.000Z",
+          "excerpt": "Part of the request scheduling epic (queues, priorities and KV-cache affinity). Add the `scheduling:` config block and a small store module that later items build on. - Config block as in the epic, with defaults and per-"
+        }
+      ],
+      "titleZh": "排期模块（1/9）：存储与配置",
+      "translationKey": "p22tqt"
     },
     {
       "id": "invoice-export-programme-xero-operation-row-claim-fencing",
@@ -1194,7 +1255,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 6.4,
+        "recency": 6.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1216,7 +1277,8 @@
           "excerpt": "Part of programme #4898. Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — Released: every formerly parked Xero and payment bug may be fixed now, ordered by harm, ahead of the ledger steps; this r"
         }
       ],
-      "titleZh": "项目：Xero 操作行认领隔离"
+      "titleZh": "项目：Xero 操作行认领隔离",
+      "translationKey": "18tdgf2"
     },
     {
       "id": "scheduling-booking-rules",
@@ -1227,7 +1289,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 11.7,
+        "recency": 11.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1247,7 +1309,8 @@
           "excerpt": "## User story As the organization, I want clear booking rules so that rooms are used fairly. ## Description All bookings must follow these rules. All times are local time (Europe/Helsinki). - R1: A booking must lie withi"
         }
       ],
-      "titleZh": "预约规则"
+      "titleZh": "预约规则",
+      "translationKey": "fjq8su"
     },
     {
       "id": "scheduling-how-can-i-make-a-bigdecimal-parallel-reduction-d",
@@ -1258,7 +1321,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 8.1,
+        "recency": 8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1280,7 +1343,8 @@
           "excerpt": "I’m investigating how to aggregate signed monetary adjustments using Java 8 streams. My requirements are: Positive and negative adjustments can cancel each other. Calculations use a finite MathContext . The result should"
         }
       ],
-      "titleZh": "在有限 MathContext 下如何让 BigDecimal 并行归约结果确定…"
+      "titleZh": "在有限 MathContext 下如何让 BigDecimal 并行归约结果确定…",
+      "translationKey": "85vlx6"
     },
     {
       "id": "support-transcripts-i-wish-tech-companies-knew-more-about-me",
@@ -1291,7 +1355,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12,
+        "recency": 11.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1311,7 +1375,18 @@
           "excerpt": "The language thing shits me to tears. I lived in Germany for years but don&#x27;t speak German. I raised a support ticket with Spotify to ask that they stop sending me emails in German, as they full-well know I speak Eng"
         }
       ],
-      "titleZh": "希望科技公司能更了解我"
+      "titleZh": "希望科技公司能更了解我",
+      "translationKey": "1we1xob"
     }
-  ]
+  ],
+  "translation": {
+    "model": "openai/gpt-4o-mini",
+    "at": "2026-11-12T07:52:19.066Z",
+    "status": "skipped",
+    "total": 38,
+    "cached": 0,
+    "translated": 0,
+    "failed": 38,
+    "requests": 0
+  }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-12T07:48:43.433Z",
+  "evaluatedAt": "2026-11-12T15:06:45.587Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 976,
+      "raw": 981,
       "itemCount": 38,
-      "recallHits": 496,
+      "recallHits": 511,
       "finalHits": 28,
-      "recallTitleRate": 0.5081967213114754,
+      "recallTitleRate": 0.5208970438328236,
       "finalTitleRate": 0.7368421052631579
     },
     "legacy": {
-      "raw": 960,
+      "raw": 976,
       "itemCount": 60,
-      "recallHits": 89,
-      "finalHits": 13,
-      "recallTitleRate": 0.09270833333333334,
-      "finalTitleRate": 0.21666666666666667
+      "recallHits": 98,
+      "finalHits": 16,
+      "recallTitleRate": 0.10040983606557377,
+      "finalTitleRate": 0.26666666666666666
     }
   },
   "perNiche": {
@@ -47,24 +47,24 @@
       },
       {
         "niche": "invoice-export",
-        "raw": 226,
-        "itemCount": 12,
-        "recallTitleRate": 0.5,
-        "finalTitleRate": 0.75,
+        "raw": 225,
+        "itemCount": 14,
+        "recallTitleRate": 0.49777777777777776,
+        "finalTitleRate": 0.7857142857142857,
         "stats": {
-          "raw": 226,
-          "complaintRecords": 16,
-          "items": 12
+          "raw": 225,
+          "complaintRecords": 18,
+          "items": 14
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 234,
+        "raw": 240,
         "itemCount": 3,
-        "recallTitleRate": 0.46153846153846156,
+        "recallTitleRate": 0.4583333333333333,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 234,
+          "raw": 240,
           "complaintRecords": 6,
           "items": 3
         }
@@ -72,13 +72,13 @@
       {
         "niche": "scheduling",
         "raw": 264,
-        "itemCount": 17,
-        "recallTitleRate": 0.5909090909090909,
-        "finalTitleRate": 0.7647058823529411,
+        "itemCount": 15,
+        "recallTitleRate": 0.6439393939393939,
+        "finalTitleRate": 0.7333333333333333,
         "stats": {
           "raw": 264,
-          "complaintRecords": 29,
-          "items": 17
+          "complaintRecords": 28,
+          "items": 15
         }
       }
     ],
@@ -86,48 +86,48 @@
       {
         "niche": "solo-crm",
         "raw": 252,
-        "itemCount": 6,
-        "recallTitleRate": 0.04365079365079365,
-        "finalTitleRate": 0.3333333333333333,
+        "itemCount": 10,
+        "recallTitleRate": 0.07142857142857142,
+        "finalTitleRate": 0.4,
         "stats": {
           "raw": 252,
-          "complaintRecords": 6,
-          "items": 6
+          "complaintRecords": 12,
+          "items": 10
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 210,
-        "itemCount": 20,
-        "recallTitleRate": 0.12380952380952381,
-        "finalTitleRate": 0.15,
+        "raw": 222,
+        "itemCount": 27,
+        "recallTitleRate": 0.12612612612612611,
+        "finalTitleRate": 0.25925925925925924,
         "stats": {
-          "raw": 210,
-          "complaintRecords": 21,
-          "items": 20
+          "raw": 222,
+          "complaintRecords": 29,
+          "items": 27
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 234,
-        "itemCount": 18,
-        "recallTitleRate": 0.06837606837606838,
-        "finalTitleRate": 0.1111111111111111,
+        "raw": 240,
+        "itemCount": 23,
+        "recallTitleRate": 0.08333333333333333,
+        "finalTitleRate": 0.08695652173913043,
         "stats": {
-          "raw": 234,
-          "complaintRecords": 18,
-          "items": 18
+          "raw": 240,
+          "complaintRecords": 23,
+          "items": 23
         }
       },
       {
         "niche": "scheduling",
-        "raw": 264,
+        "raw": 262,
         "itemCount": 24,
-        "recallTitleRate": 0.13636363636363635,
-        "finalTitleRate": 0.2916666666666667,
+        "recallTitleRate": 0.12213740458015267,
+        "finalTitleRate": 0.25,
         "stats": {
-          "raw": 264,
-          "complaintRecords": 28,
+          "raw": 262,
+          "complaintRecords": 25,
           "items": 24
         }
       }
@@ -171,31 +171,41 @@
         "titleHit": false
       },
       {
-        "title": "FEATURE: Appointment Rescheduling",
+        "title": "Appointment & Vehicle Management",
         "niche": "scheduling",
         "titleHit": true
       }
     ],
     "legacy": [
       {
-        "title": "Bound authenticated request bodies and validation responses",
+        "title": "Several rubric matchers reject correct answers (Slack channel-name lookup, numeric suffix…",
+        "niche": "solo-crm",
+        "titleHit": false
+      },
+      {
+        "title": "Purchase Invoice with Is Paid fills Paid Amount from the outstanding, in the wrong currency",
+        "niche": "invoice-export",
+        "titleHit": true
+      },
+      {
+        "title": "Several rubric matchers reject correct answers (Slack channel-name lookup, numeric suffix…",
+        "niche": "invoice-export",
+        "titleHit": false
+      },
+      {
+        "title": "Wait for initial fixture identity before refusing reuse",
         "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "Merge queue pre-check results (Claude 1 cloud sessions, 12/11/2026)",
+        "title": "Channels: second approval in one Mattermost run fails on resume with ModelRequestRejectedError…",
         "niche": "solo-crm",
         "titleHit": false
       },
       {
-        "title": "Salesforce Data 360 Pipeline: Lineage/Usage agents crash, lineage runs fail, Test Connection…",
+        "title": "HubSpot node: stage and ticket-pipeline lists still call Pipelines API V1 (/crm-pipelines/v1)…",
         "niche": "solo-crm",
         "titleHit": true
-      },
-      {
-        "title": "Browser test failures repeatedly remove dependency refresh PR from merge queue",
-        "niche": "support-transcripts",
-        "titleHit": false
       },
       {
         "title": "CRD export lowercases plan keys, causing GKO to replace existing plans and close their…",
@@ -203,18 +213,8 @@
         "titleHit": false
       },
       {
-        "title": "tsc fails passing a Sender's identity.dmarc to a DmarcVerdict parameter",
+        "title": "Customer cannot open their own ticket when owner/raised_by differs from the login email only by…",
         "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "Virtual cluster (mesh): a consumer subscribed to topics on two backends never joins when a…",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "AZ-PUNK.com Website for local artists and fans from across the country",
-        "niche": "scheduling",
         "titleHit": false
       }
     ]

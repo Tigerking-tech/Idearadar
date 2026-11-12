@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T01:34:08.093Z",
+  "generatedAt": "2026-11-12T03:32:02.425Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -13,24 +13,24 @@
         "niche": "solo-crm",
         "method": "relevance",
         "raw": 252,
-        "itemCount": 5,
+        "itemCount": 6,
         "recallTitleRate": 0.4722222222222222,
-        "finalTitleRate": 0.6
+        "finalTitleRate": 0.6666666666666666
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
         "raw": 225,
-        "itemCount": 11,
+        "itemCount": 12,
         "recallTitleRate": 0.4888888888888889,
-        "finalTitleRate": 0.7272727272727273
+        "finalTitleRate": 0.75
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 234,
+        "raw": 237,
         "itemCount": 3,
-        "recallTitleRate": 0.46153846153846156,
+        "recallTitleRate": 0.45569620253164556,
         "finalTitleRate": 0.6666666666666666
       },
       {
@@ -38,7 +38,7 @@
         "method": "relevance",
         "raw": 264,
         "itemCount": 16,
-        "recallTitleRate": 0.5871212121212122,
+        "recallTitleRate": 0.6515151515151515,
         "finalTitleRate": 0.75
       }
     ]
@@ -48,13 +48,13 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 441
+      "rows": 443
     },
     {
       "id": "so",
       "label": "Stack Exchange (official API)",
       "enabled": true,
-      "rows": 34
+      "rows": 33
     },
     {
       "id": "github",
@@ -66,7 +66,7 @@
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 0
+      "rows": 2
     },
     {
       "id": "firstParty",
@@ -82,17 +82,11 @@
     }
   ],
   "totals": {
-    "rawRecords": 975,
-    "complaintRecords": 54,
-    "opportunities": 35
+    "rawRecords": 978,
+    "complaintRecords": 56,
+    "opportunities": 37
   },
-  "errors": [
-    {
-      "source": "rss",
-      "feed": "https://news.ycombinator.com/rss",
-      "message": "fetch failed"
-    }
-  ],
+  "errors": [],
   "items": [
     {
       "id": "scheduling-appointment-booking",
@@ -220,6 +214,38 @@
       ]
     },
     {
+      "id": "scheduling-united-airlines-bans-ai-agents-from-booking-flig",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "score": 28,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 5,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "pain"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T03:31:03.000Z",
+      "evidence": [
+        {
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-12T03:31:03.000Z",
+          "excerpt": "i mean for most people, there&#x27;s a real pain point. having to sit down and spend an hour or more booking flights, accoms, etc for a trip is a pain in the ass"
+        }
+      ]
+    },
+    {
       "id": "solo-crm-salesforce-sync-log-and-failure-alert",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
@@ -248,38 +274,6 @@
           "source": "github",
           "createdAt": "2026-11-10T13:16:18.000Z",
           "excerpt": "📅 **Planned:** November 2026 (weekly sync runs every Sunday) ### What Record each sync run and alert the admins if it fails. ### Why A silent failure would let unmailable contacts back into exports. ### Steps - [ ] Log "
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-      "score": 28,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 13.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T02:59:24.000Z",
-      "evidence": [
-        {
-          "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-          "url": "https://github.com/FORHU/ilovelawyer-admin/issues/38",
-          "source": "github",
-          "createdAt": "2026-11-09T02:59:24.000Z",
-          "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
         }
       ]
     },
@@ -316,6 +310,38 @@
       ]
     },
     {
+      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
+      "score": 27,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 13.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T02:59:24.000Z",
+      "evidence": [
+        {
+          "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
+          "url": "https://github.com/FORHU/ilovelawyer-admin/issues/38",
+          "source": "github",
+          "createdAt": "2026-11-09T02:59:24.000Z",
+          "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
+        }
+      ]
+    },
+    {
       "id": "invoice-export-csv-export-for-timesheets-and-invoices",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -324,7 +350,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 13.8,
+        "recency": 13.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -572,6 +598,38 @@
       ]
     },
     {
+      "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Batches, balancing transfers, holds and multi-currency",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 9.1,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-10-31T06:39:41.000Z",
+      "evidence": [
+        {
+          "title": "Batches, balancing transfers, holds and multi-currency",
+          "url": "https://github.com/laiwf94/ledgerd/issues/26",
+          "source": "github",
+          "createdAt": "2026-10-31T06:39:41.000Z",
+          "excerpt": "**Week 3 of 52** · Mon 16 Nov 2026 to Sun 22 Nov 2026 ## Why Marketplace payouts need several transfers to happen together, sweeps fail on short balances, holds cannot grow, and a currency conversion is two separate entr"
+        }
+      ]
+    },
+    {
       "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -672,7 +730,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -702,7 +760,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 10.8,
+        "recency": 10.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -726,10 +784,10 @@
       ]
     },
     {
-      "id": "scheduling-united-airlines-bans-ai-agents-from-booking-flig",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "id": "solo-crm-crm",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "CRM",
       "score": 23,
       "breakdown": {
         "frequency": 3,
@@ -740,18 +798,18 @@
       },
       "mentions": 1,
       "sources": [
-        "hn"
+        "github"
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-12T01:30:43.000Z",
+      "lastSeen": "2026-11-12T01:48:33.000Z",
       "evidence": [
         {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-          "source": "hn",
-          "createdAt": "2026-11-12T01:30:43.000Z",
-          "excerpt": "I&#x27;ve canceled United bookings in the 24h window many times. In all but one case it was as easy as clicking a button. The other case I had to call them, I think because it was around 23h after booking and there was s"
+          "title": "CRM",
+          "url": "https://github.com/crmtdmpangkalanbalai-spec/vitejs-vite-skn1cv3a/issues/1",
+          "source": "github",
+          "createdAt": "2026-11-12T01:48:33.000Z",
+          "excerpt": "import React, { useState, useEffect, useMemo } from 'react'; import { Users, MessageSquare, FileText, ShieldCheck, TrendingUp, Plus, Search, Send, Edit3, Trash2, CheckCircle, Clock, Car, User, LogOut, Lock, History, Info"
         }
       ]
     },
@@ -794,7 +852,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 4,
-        "recency": 7.3,
+        "recency": 7.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -983,7 +1041,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.7,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1013,7 +1071,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.3,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1043,7 +1101,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.3,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1135,7 +1193,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 11.8,
+        "recency": 11.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1197,7 +1255,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.1,
+        "recency": 12,
         "corroboration": 5,
         "willingnessToPay": 0
       },

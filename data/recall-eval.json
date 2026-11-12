@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-12T00:34:36.633Z",
+  "evaluatedAt": "2026-11-12T03:28:58.097Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 961,
-      "itemCount": 36,
-      "recallHits": 492,
-      "finalHits": 26,
-      "recallTitleRate": 0.5119667013527576,
-      "finalTitleRate": 0.7222222222222222
+      "raw": 979,
+      "itemCount": 37,
+      "recallHits": 493,
+      "finalHits": 27,
+      "recallTitleRate": 0.5035750766087844,
+      "finalTitleRate": 0.7297297297297297
     },
     "legacy": {
-      "raw": 975,
+      "raw": 962,
       "itemCount": 60,
-      "recallHits": 97,
-      "finalHits": 14,
-      "recallTitleRate": 0.09948717948717949,
-      "finalTitleRate": 0.23333333333333334
+      "recallHits": 108,
+      "finalHits": 10,
+      "recallTitleRate": 0.11226611226611227,
+      "finalTitleRate": 0.16666666666666666
     }
   },
   "perNiche": {
@@ -36,99 +36,99 @@
       {
         "niche": "solo-crm",
         "raw": 252,
-        "itemCount": 5,
+        "itemCount": 6,
         "recallTitleRate": 0.4722222222222222,
-        "finalTitleRate": 0.6,
+        "finalTitleRate": 0.6666666666666666,
         "stats": {
           "raw": 252,
-          "complaintRecords": 5,
-          "items": 5
+          "complaintRecords": 6,
+          "items": 6
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 211,
-        "itemCount": 11,
-        "recallTitleRate": 0.5213270142180095,
-        "finalTitleRate": 0.7272727272727273,
+        "raw": 226,
+        "itemCount": 12,
+        "recallTitleRate": 0.48672566371681414,
+        "finalTitleRate": 0.75,
         "stats": {
-          "raw": 211,
+          "raw": 226,
           "complaintRecords": 16,
-          "items": 11
+          "items": 12
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 234,
+        "raw": 237,
         "itemCount": 3,
-        "recallTitleRate": 0.46153846153846156,
+        "recallTitleRate": 0.45569620253164556,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 234,
-          "complaintRecords": 7,
+          "raw": 237,
+          "complaintRecords": 6,
           "items": 3
         }
       },
       {
         "niche": "scheduling",
         "raw": 264,
-        "itemCount": 17,
-        "recallTitleRate": 0.5871212121212122,
-        "finalTitleRate": 0.7647058823529411,
+        "itemCount": 16,
+        "recallTitleRate": 0.5909090909090909,
+        "finalTitleRate": 0.75,
         "stats": {
           "raw": 264,
-          "complaintRecords": 26,
-          "items": 17
+          "complaintRecords": 28,
+          "items": 16
         }
       }
     ],
     "legacy": [
       {
         "niche": "solo-crm",
-        "raw": 252,
-        "itemCount": 11,
-        "recallTitleRate": 0.05555555555555555,
-        "finalTitleRate": 0.18181818181818182,
+        "raw": 248,
+        "itemCount": 6,
+        "recallTitleRate": 0.13306451612903225,
+        "finalTitleRate": 0.3333333333333333,
         "stats": {
-          "raw": 252,
-          "complaintRecords": 11,
-          "items": 11
+          "raw": 248,
+          "complaintRecords": 6,
+          "items": 6
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 225,
-        "itemCount": 35,
-        "recallTitleRate": 0.10666666666666667,
-        "finalTitleRate": 0.2,
+        "raw": 221,
+        "itemCount": 20,
+        "recallTitleRate": 0.11312217194570136,
+        "finalTitleRate": 0.15,
         "stats": {
-          "raw": 225,
-          "complaintRecords": 37,
-          "items": 35
+          "raw": 221,
+          "complaintRecords": 21,
+          "items": 20
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 235,
-        "itemCount": 21,
-        "recallTitleRate": 0.059574468085106386,
-        "finalTitleRate": 0.047619047619047616,
+        "raw": 237,
+        "itemCount": 26,
+        "recallTitleRate": 0.06751054852320675,
+        "finalTitleRate": 0.07692307692307693,
         "stats": {
-          "raw": 235,
-          "complaintRecords": 22,
-          "items": 21
+          "raw": 237,
+          "complaintRecords": 26,
+          "items": 26
         }
       },
       {
         "niche": "scheduling",
-        "raw": 263,
-        "itemCount": 24,
-        "recallTitleRate": 0.17110266159695817,
-        "finalTitleRate": 0.2916666666666667,
+        "raw": 256,
+        "itemCount": 20,
+        "recallTitleRate": 0.1328125,
+        "finalTitleRate": 0.25,
         "stats": {
-          "raw": 263,
-          "complaintRecords": 28,
-          "items": 24
+          "raw": 256,
+          "complaintRecords": 22,
+          "items": 20
         }
       }
     ]
@@ -136,8 +136,18 @@
   "samples": {
     "relevance": [
       {
+        "title": "Appointment Booking",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
         "title": "WISH: import Expense Report (and invoice) lines from CSV",
         "niche": "invoice-export",
+        "titleHit": true
+      },
+      {
+        "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+        "niche": "scheduling",
         "titleHit": true
       },
       {
@@ -146,18 +156,8 @@
         "titleHit": true
       },
       {
-        "title": "Appointment Booking",
-        "niche": "scheduling",
-        "titleHit": true
-      },
-      {
         "title": "Salesforce: sync log and failure alert",
         "niche": "solo-crm",
-        "titleHit": true
-      },
-      {
-        "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-        "niche": "support-transcripts",
         "titleHit": true
       },
       {
@@ -166,64 +166,58 @@
         "titleHit": false
       },
       {
+        "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
+        "niche": "support-transcripts",
+        "titleHit": true
+      },
+      {
         "title": "CSV export for timesheets and invoices",
         "niche": "invoice-export",
         "titleHit": false
-      },
-      {
-        "title": "Appointment & Vehicle Management",
-        "niche": "scheduling",
-        "titleHit": true
       }
     ],
     "legacy": [
-      {
-        "title": "P3: a stale Cancel tab or the WhatsApp agent can cancel a lapsed unpaid hold before the release…",
-        "niche": "scheduling",
-        "titleHit": false
-      },
-      {
-        "title": "Research programme: Pi durability, provider uncertainty, six-day E2E evidence and publication…",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
       {
         "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
         "niche": "scheduling",
         "titleHit": true
       },
       {
-        "title": "BUG REGRESI: pulihkan batas checkout Booking sesuai aturan bisnis lama Owner",
-        "niche": "scheduling",
+        "title": "successful oauth in salesforce, nothing in claude (token refresh loop)",
+        "niche": "solo-crm",
         "titleHit": true
       },
       {
-        "title": "Export scheduling fails for large tenants",
-        "niche": "scheduling",
-        "titleHit": true
+        "title": "Browser test failures repeatedly remove dependency refresh PR from merge queue",
+        "niche": "support-transcripts",
+        "titleHit": false
       },
       {
-        "title": "Latency scorer gives the top score to an endpoint without a latency prediction",
+        "title": "CRD export lowercases plan keys, causing GKO to replace existing plans and close their…",
+        "niche": "support-transcripts",
+        "titleHit": false
+      },
+      {
+        "title": "Virtual cluster (mesh): a consumer subscribed to topics on two backends never joins when a…",
+        "niche": "support-transcripts",
+        "titleHit": false
+      },
+      {
+        "title": "AZ-PUNK.com Website for local artists and fans from across the country",
         "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "Outside-transaction subscription-renewal checks leave a committed subscription on the fixture…",
-        "niche": "scheduling",
+        "title": "Amazon saves millions by replacing Sonnet 4.6 with Strands Decider",
+        "niche": "support-transcripts",
         "titleHit": false
       },
       {
-        "title": "P3: the IBAN-masking pass misses IBANs typed with double spaces or glued to Arabic text…",
-        "niche": "scheduling",
+        "title": "Recovery Code factor's selection rule is never evaluated",
+        "niche": "support-transcripts",
         "titleHit": false
       }
     ]
   },
-  "errors": [
-    {
-      "source": "rss",
-      "feed": "https://news.ycombinator.com/rss",
-      "message": "fetch failed"
-    }
-  ]
+  "errors": []
 }

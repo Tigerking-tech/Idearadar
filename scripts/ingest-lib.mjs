@@ -524,12 +524,14 @@ export function inheritTranslations(prevItems = [], nextItems = []) {
     const old = prev.get(it.id);
     if (!old || old.title !== it.title) return it;
     const key = translationKey(it);
-    // 旧数据带 key 且与新原文不一致 → 原文变了，绝不继承过期译文。
-    if (old.translationKey && old.translationKey !== key) return it;
+    // 采集每 6 小时重写一次 evidence，excerpt 常因截断位置略有浮动。
+    // 标题是首屏主展示，只绑定「同 id + 同英文标题」，绝不让引语缓存键抖动冲掉中文；
+    // 引语是证据链，绑定完整原文，原文变了就留给翻译步骤重翻（失败时诚实回退英文）。
+    const quoteUnchanged = !old.translationKey || old.translationKey === key;
     const out = { ...it };
     // 新条目若已自带译文（例如人工修订过）优先保留，绝不被上一批覆盖。
     if (!out.titleZh && typeof old.titleZh === "string" && old.titleZh.trim()) out.titleZh = old.titleZh;
-    if (!out.quoteZh && typeof old.quoteZh === "string" && old.quoteZh.trim()) out.quoteZh = old.quoteZh;
+    if (quoteUnchanged && !out.quoteZh && typeof old.quoteZh === "string" && old.quoteZh.trim()) out.quoteZh = old.quoteZh;
     if (out.titleZh || out.quoteZh) out.translationKey = key;
     return out;
   });

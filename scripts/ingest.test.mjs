@@ -462,10 +462,10 @@ test("inheritTranslations 同 id 同原文时继承译文并写入缓存键", ()
   assert.equal(next[0].titleZh, undefined, "不改动入参");
 });
 
-test("inheritTranslations 不继承改过标题的条目，也不继承过期缓存键", () => {
+test("inheritTranslations 标题变了不继承；缓存键过期时保留标题但丢弃引语", () => {
   const prev = [
     { id: "niche-a", title: "Import CSV", titleZh: "导入 CSV" },
-    { id: "niche-b", title: "Export CSV", titleZh: "导出 CSV", translationKey: "stale-key" },
+    { id: "niche-b", title: "Export CSV", titleZh: "导出 CSV", quoteZh: "旧引语译文", translationKey: "stale-key" },
   ];
   const next = [
     { id: "niche-a", title: "Import XLSX" },
@@ -474,7 +474,8 @@ test("inheritTranslations 不继承改过标题的条目，也不继承过期缓
   ];
   const out = inheritTranslations(prev, next);
   assert.equal(out[0].titleZh, undefined, "标题变了绝不沿用旧译文");
-  assert.equal(out[1].titleZh, undefined, "旧缓存键与新原文不符时拒绝继承");
+  assert.equal(out[1].titleZh, "导出 CSV", "标题译文只绑定 id + 英文标题，不受引语截断浮动影响");
+  assert.equal(out[1].quoteZh, undefined, "引语原文变了必须留给翻译步骤重翻");
   assert.equal(out[2].titleZh, undefined);
 });
 

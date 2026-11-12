@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T00:38:38.815Z",
+  "generatedAt": "2026-11-12T01:16:34.821Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -12,34 +12,34 @@
       {
         "niche": "solo-crm",
         "method": "relevance",
-        "raw": 252,
-        "itemCount": 5,
-        "recallTitleRate": 0.4722222222222222,
-        "finalTitleRate": 0.6
+        "raw": 127,
+        "itemCount": 2,
+        "recallTitleRate": 0.2125984251968504,
+        "finalTitleRate": 0
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 226,
-        "itemCount": 11,
-        "recallTitleRate": 0.48672566371681414,
-        "finalTitleRate": 0.7272727272727273
+        "raw": 97,
+        "itemCount": 1,
+        "recallTitleRate": 0.041237113402061855,
+        "finalTitleRate": 0
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 234,
-        "itemCount": 3,
-        "recallTitleRate": 0.46153846153846156,
-        "finalTitleRate": 0.6666666666666666
+        "raw": 112,
+        "itemCount": 1,
+        "recallTitleRate": 0.0625,
+        "finalTitleRate": 0
       },
       {
         "niche": "scheduling",
         "method": "relevance",
-        "raw": 260,
-        "itemCount": 17,
-        "recallTitleRate": 0.5923076923076923,
-        "finalTitleRate": 0.7647058823529411
+        "raw": 140,
+        "itemCount": 3,
+        "recallTitleRate": 0.36428571428571427,
+        "finalTitleRate": 0
       }
     ]
   },
@@ -48,7 +48,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 438
+      "rows": 440
     },
     {
       "id": "so",
@@ -60,13 +60,13 @@
       "id": "github",
       "label": "GitHub Issues (public REST API)",
       "enabled": true,
-      "rows": 500
+      "rows": 0
     },
     {
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 0
+      "rows": 2
     },
     {
       "id": "firstParty",
@@ -82,200 +82,133 @@
     }
   ],
   "totals": {
-    "rawRecords": 972,
-    "complaintRecords": 55,
-    "opportunities": 36
+    "rawRecords": 476,
+    "complaintRecords": 12,
+    "opportunities": 7
   },
   "errors": [
     {
-      "source": "rss",
-      "feed": "https://news.ycombinator.com/rss",
-      "message": "fetch failed"
+      "source": "github",
+      "niche": "solo-crm",
+      "query": "CRM",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "solo-crm",
+      "query": "sales pipeline",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "solo-crm",
+      "query": "contact management",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "solo-crm",
+      "query": "salesforce",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "solo-crm",
+      "query": "hubspot",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "invoice-export",
+      "query": "invoice export",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "invoice-export",
+      "query": "expense report",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "invoice-export",
+      "query": "multi-currency",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "invoice-export",
+      "query": "quickbooks",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "invoice-export",
+      "query": "xero",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "support-transcripts",
+      "query": "support ticket",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "support-transcripts",
+      "query": "helpdesk",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "support-transcripts",
+      "query": "chat transcript",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "support-transcripts",
+      "query": "zendesk",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "support-transcripts",
+      "query": "intercom",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "scheduling",
+      "query": "booking",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "scheduling",
+      "query": "appointment",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "scheduling",
+      "query": "scheduling",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "scheduling",
+      "query": "calendly",
+      "message": "HTTP 403 for api.github.com"
+    },
+    {
+      "source": "github",
+      "niche": "scheduling",
+      "query": "appointment booking",
+      "message": "HTTP 403 for api.github.com"
     }
   ],
   "items": [
-    {
-      "id": "invoice-export-wish-import-expense-report-and-invoice-lines-fro",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "WISH: import Expense Report (and invoice) lines from CSV",
-      "score": 31,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 9,
-        "recency": 13.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "wish",
-        "manual"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T07:38:45.000Z",
-      "evidence": [
-        {
-          "title": "WISH: import Expense Report (and invoice) lines from CSV",
-          "url": "https://github.com/Dolibarr/dolibarr/issues/42829",
-          "source": "github",
-          "createdAt": "2026-11-09T07:38:45.000Z",
-          "excerpt": "### Feature Request I wish that I could import Expense Report (and invoice) lines from a CSV file right after I've created the business object. ### Use case Often volunteers with multiple expenses sends us a spreadsheet "
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-issues-in-crm",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "ISSUES in CRM",
-      "score": 29,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T06:45:50.000Z",
-      "evidence": [
-        {
-          "title": "ISSUES in CRM",
-          "url": "https://github.com/rehanraza0063-sudo/BDSP_Project/issues/2",
-          "source": "github",
-          "createdAt": "2026-11-11T06:45:50.000Z",
-          "excerpt": "The manual contact enrichment endpoint POST /api/v1/leads/{id}/enrich fails immediately with HTTP 422 Unprocessable Entity when called with standard lead UUIDs (such as b0000001-0000-0000-0000-000000000001). Furthermore,"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-appointment-booking",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment Booking",
-      "score": 28,
-      "breakdown": {
-        "frequency": 12,
-        "intensity": 4,
-        "recency": 7.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 4,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-27T14:16:59.000Z",
-      "evidence": [
-        {
-          "title": "Appointment Booking",
-          "url": "https://github.com/2403a52361-ux/hospital-appointment-schedule/issues/6",
-          "source": "github",
-          "createdAt": "2026-10-27T08:50:19.000Z",
-          "excerpt": "Patient can view available doctors and slots Patient can book an available slot Patient can re-schedule or cancel an appointment Booked appointments cannot be booked by another patient"
-        },
-        {
-          "title": "Appointment booking",
-          "url": "https://github.com/2403a52388/hospital-appointment-schedule/issues/6",
-          "source": "github",
-          "createdAt": "2026-10-27T14:15:47.000Z",
-          "excerpt": "Patient can view available doctors and slots Patient can book an available slots Patient re-schedule or cancel an appointment Booked appointments cannot be looked by another patient"
-        },
-        {
-          "title": "Appointment Booking",
-          "url": "https://github.com/2403a52378-AJ/hospital-appointment-schedule/issues/6",
-          "source": "github",
-          "createdAt": "2026-10-27T14:16:58.000Z",
-          "excerpt": "Patient can view available doctors and slots patient can book an available slots Patient can re-schedule or cancel an appointment Booked appointments cannot be booked by another patient"
-        },
-        {
-          "title": "Appointment Booking",
-          "url": "https://github.com/NalubolaSaicharan/hospital-appointment-schedule/issues/6",
-          "source": "github",
-          "createdAt": "2026-10-27T14:16:59.000Z",
-          "excerpt": "Patient can view available docters and slots Patient can book an available slot Patient can re - schedule or cancel an appointment Booked appointments cannot be booked by another patient"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-salesforce-sync-log-and-failure-alert",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Salesforce: sync log and failure alert",
-      "score": 28,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 14.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T13:16:18.000Z",
-      "evidence": [
-        {
-          "title": "Salesforce: sync log and failure alert",
-          "url": "https://github.com/nexoradev-stack/Marketing-DataLake-Agent/issues/61",
-          "source": "github",
-          "createdAt": "2026-11-10T13:16:18.000Z",
-          "excerpt": "📅 **Planned:** November 2026 (weekly sync runs every Sunday) ### What Record each sync run and alert the admins if it fails. ### Why A silent failure would let unmailable contacts back into exports. ### Steps - [ ] Log "
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-      "score": 28,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 13.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T02:59:24.000Z",
-      "evidence": [
-        {
-          "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-          "url": "https://github.com/FORHU/ilovelawyer-admin/issues/38",
-          "source": "github",
-          "createdAt": "2026-11-09T02:59:24.000Z",
-          "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
-        }
-      ]
-    },
     {
       "id": "solo-crm-running-a-law-firm-on-free-software",
       "nicheId": "solo-crm",
@@ -285,7 +218,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 12.9,
+        "recency": 12.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -305,262 +238,6 @@
           "source": "hn",
           "createdAt": "2026-11-07T17:28:51.000Z",
           "excerpt": "I&#x27;m jealous, I&#x27;d love to be able to do this. I am a small cog in a big legal machine so I am stuck with whatever tech stack my firm mandates. Outlook + Word + a bunch of incredibly unintuitive, slow, buggy and "
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-csv-export-for-timesheets-and-invoices",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "CSV export for timesheets and invoices",
-      "score": 26,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 13.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "manual"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T13:56:57.000Z",
-      "evidence": [
-        {
-          "title": "CSV export for timesheets and invoices",
-          "url": "https://github.com/Santhosh-zeta/InternalXDropwing/issues/38",
-          "source": "github",
-          "createdAt": "2026-11-09T13:56:57.000Z",
-          "excerpt": "## Summary Finance and managers often need data in a spreadsheet. Add CSV export for timesheets and invoice lines. ## What to do - Add `GET /api/timesheets/export.csv` and `GET /api/invoices/:id/export.csv`. - **Reuse th"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-appointment-vehicle-management",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment & Vehicle Management",
-      "score": 26,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 13.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T03:51:57.000Z",
-      "evidence": [
-        {
-          "title": "Appointment & Vehicle Management",
-          "url": "https://github.com/ShaneW12/Group3-CarWash/issues/11",
-          "source": "github",
-          "createdAt": "2026-11-09T03:51:57.000Z",
-          "excerpt": "Develop functionality that allows CleanRide customers to manage their vehicles and car wash appointments. User stories - Add a vehicle - View saved vehicles - Book an appointment - Cancel an appointment"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-feature-appointment-rescheduling",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "FEATURE: Appointment Rescheduling",
-      "score": 26,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 13.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T13:33:12.000Z",
-      "evidence": [
-        {
-          "title": "FEATURE: Appointment Rescheduling",
-          "url": "https://github.com/Lorenzo0315/directorscut-client/issues/10",
-          "source": "github",
-          "createdAt": "2026-11-09T13:33:12.000Z",
-          "excerpt": "Type: Feature Where: My Appointments Module Description: Add a Reschedule Appointment feature that allows customers to change their existing appointment date and time without having to cancel their booking and create a n"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-banking-app-transaction-multi-currency",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Banking App Transaction: Multi Currency",
-      "score": 24,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 10.4,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-02T21:30:55.000Z",
-      "evidence": [
-        {
-          "title": "Banking App Transaction: Multi Currency",
-          "url": "https://github.com/frappe/erpnext/issues/63717",
-          "source": "github",
-          "createdAt": "2026-11-02T21:30:55.000Z",
-          "excerpt": "### Information about bug When trying to create a journal entry in the new banking app, it does not allow you to submit a Journal Entry with an account outside of the company currency. Normally, on a Journal Entry, there"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-appointment-cancellation",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment Cancellation",
-      "score": 24,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 12.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-06T12:55:02.000Z",
-      "evidence": [
-        {
-          "title": "Appointment Cancellation",
-          "url": "https://github.com/BenP64/st1-assignment-3/issues/3",
-          "source": "github",
-          "createdAt": "2026-11-06T12:55:02.000Z",
-          "excerpt": "Requirement : FR-06 Appointment Cancellation with FR-07 Retained History AppointmentService.cancel_appointment is currently a stub that raises NotImplementedError. The appointments **cannot** be cancelled. Task - to Impl"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-booking-notifications",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Booking notifications",
-      "score": 24,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 11.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-05T14:18:21.000Z",
-      "evidence": [
-        {
-          "title": "Booking notifications",
-          "url": "https://github.com/lapptomi/requirements-engineering/issues/10",
-          "source": "github",
-          "createdAt": "2026-11-05T14:18:21.000Z",
-          "excerpt": "## User story As a user, I want to be informed about my bookings so that I always know their status. ## Description The user receives an email when a booking is confirmed and when it is cancelled. In the prototype, email"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-endpoint-delete-bookings-booking-id",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Endpoint: DELETE /bookings/{booking_id}",
-      "score": 24,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 11.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-05T17:50:32.000Z",
-      "evidence": [
-        {
-          "title": "Endpoint: DELETE /bookings/{booking_id}",
-          "url": "https://github.com/dragontamer09/flight-control/issues/10",
-          "source": "github",
-          "createdAt": "2026-11-05T17:50:32.000Z",
-          "excerpt": "- [ ] Cancels the booking, returns its seats on every flight, refunds in full (revenue drops). - [ ] Returns the booking with `status` `cancelled`. - [ ] Cancelling twice returns the same thing, not an error. - [ ] `404`"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-endpoint-get-bookings-booking-id",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Endpoint: GET /bookings/{booking_id}",
-      "score": 24,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 11.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-05T17:50:30.000Z",
-      "evidence": [
-        {
-          "title": "Endpoint: GET /bookings/{booking_id}",
-          "url": "https://github.com/dragontamer09/flight-control/issues/9",
-          "source": "github",
-          "createdAt": "2026-11-05T17:50:30.000Z",
-          "excerpt": "- [ ] Returns the booking with `status` `confirmed` or `cancelled`. - [ ] `404` if unknown."
         }
       ]
     },
@@ -597,190 +274,6 @@
       ]
     },
     {
-      "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 8.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-30T06:12:02.000Z",
-      "evidence": [
-        {
-          "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page, then audit the app)",
-          "url": "https://github.com/arcforgelabs/flow/issues/441",
-          "source": "github",
-          "createdAt": "2026-10-30T06:12:02.000Z",
-          "excerpt": "### Bug type Behavior bug (incorrect output/state without crash) ### Summary An issued invoice that Xero refused sits on the Pending tab. Its page shows \"Pending\" and \"Not in Xero yet\", but not the reason. When the reaso"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Post each Stripe fee to Xero as Spend Money and each payout as a bank transfer (interim poster…",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T08:28:50.000Z",
-      "evidence": [
-        {
-          "title": "Post each Stripe fee to Xero as Spend Money and each payout as a bank transfer (interim poster after Ledger M8)",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4997",
-          "source": "github",
-          "createdAt": "2026-11-11T08:28:50.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — option (a): build M8 as designed, then a separate small interim Xero pos"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-quickbooks",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Quickbooks",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:16:35.000Z",
-      "evidence": [
-        {
-          "title": "Quickbooks",
-          "url": "https://github.com/occupysaas/website/issues/74",
-          "source": "github",
-          "createdAt": "2026-11-11T13:16:35.000Z",
-          "excerpt": "The Software-as-a-Service (SaaS) model has transformed software from something businesses could purchase and own into something they must continuously rent. QuickBooks Online is a perfect example of how this model can be"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-activity-links-one-shared-sign-up-host-matcher-f",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Activity links: one shared sign-up host matcher for the kind label and the title fetch",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T19:30:31.000Z",
-      "evidence": [
-        {
-          "title": "Activity links: one shared sign-up host matcher for the kind label and the title fetch",
-          "url": "https://github.com/pdcarlson/Frapp/issues/4215",
-          "source": "github",
-          "createdAt": "2026-11-11T19:30:31.000Z",
-          "excerpt": "Asked by: Paul (`pdcarlson`), via the `/next` session for #4187 (deferred `/diff-review` finding), 2026-11-11. Epic: #4185. ### Agent brief `depth:standard` · `model:any` · `ultracode:no` ## Problem The list of sign-up h"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-appointment-management",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment management",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 10.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-03T15:26:39.000Z",
-      "evidence": [
-        {
-          "title": "Appointment management",
-          "url": "https://github.com/NicolasDubray/NPJL/issues/84",
-          "source": "github",
-          "createdAt": "2026-11-03T15:26:39.000Z",
-          "excerpt": "As a supervisor, I want to be able to manage appointments by pressing a \"manage appointments\" button and thereby being taken to a page where I can see a calendar view of scheduled appointments, with the ability to cancel"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-united-airlines-bans-ai-agents-from-booking-flig",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T00:23:01.000Z",
-      "evidence": [
-        {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-          "source": "hn",
-          "createdAt": "2026-11-12T00:23:01.000Z",
-          "excerpt": "How about I&#x27;ll stop using AI bots to book flights if United stops using chatbots for customer \"support\"? I&#x27;m bearing on the impacts of AI in general but maybe, just maybe, it might be the death blow to the dema"
-        }
-      ]
-    },
-    {
       "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
@@ -807,255 +300,6 @@
           "source": "so",
           "createdAt": "2026-11-11T15:50:49.000Z",
           "excerpt": "I'm integrating Meta (Facebook) Lead Ads with a custom CRM application using a Python Flask backend and Meta Graph API. The goal is to receive webhook notifications automatically whenever a lead is submitted through an I"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-appointment-booking-tasks",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment booking tasks",
-      "score": 22,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 4,
-        "recency": 7.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-27T14:12:30.000Z",
-      "evidence": [
-        {
-          "title": "Appointment booking tasks",
-          "url": "https://github.com/2403a52388/hospital-appointment-schedule/issues/5",
-          "source": "github",
-          "createdAt": "2026-10-27T14:11:15.000Z",
-          "excerpt": "Create appointment booking Display available doctors Display available time slots Implement book appointments Implement re-schedule appointments Implement cancel appointments Test appointment booking"
-        },
-        {
-          "title": "Appointment booking tasks",
-          "url": "https://github.com/NalubolaSaicharan/hospital-appointment-schedule/issues/5",
-          "source": "github",
-          "createdAt": "2026-10-27T14:12:30.000Z",
-          "excerpt": "Create appointment booking item Display available docters Display available time slots Implement book appointments Implement re-schedule appointmnets Implement cancel appointments Test appointment booking"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce…",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.4,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:34:20.000Z",
-      "evidence": [
-        {
-          "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce unrecorded, until someone notices",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4921",
-          "source": "github",
-          "createdAt": "2026-11-10T21:34:20.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Two of the app's incoming notification feeds can lose a messag"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out…",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.4,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:38:00.000Z",
-      "evidence": [
-        {
-          "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out late",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4986",
-          "source": "github",
-          "createdAt": "2026-11-10T21:38:00.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app sends membership subscription invoices and joining-fee"
-        }
-      ]
-    },
-    {
-      "id": "invoice-export-xero-webhook-kicks-a-full-inbound-sync-that-igno",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Xero webhook kicks a full inbound sync that ignores the \"a sync is already running\" claim…",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.4,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:34:23.000Z",
-      "evidence": [
-        {
-          "title": "Xero webhook kicks a full inbound sync that ignores the \"a sync is already running\" claim, doubling Xero calls",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4922",
-          "source": "github",
-          "createdAt": "2026-11-10T21:34:23.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English When Xero tells the app that something changed, the app saves "
-        }
-      ]
-    },
-    {
-      "id": "scheduling-public-booking-phone-validation-and-booking-mana",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Public booking phone validation and booking management",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T13:04:54.000Z",
-      "evidence": [
-        {
-          "title": "Public booking phone validation and booking management",
-          "url": "https://github.com/MaleeshaKumarage/readysetsiivous/issues/379",
-          "source": "github",
-          "createdAt": "2026-11-09T13:04:54.000Z",
-          "excerpt": "Merged from #335 and #365. Public booking validation and customer management. - **Phone validation (#335):** public bookings accept any non-empty phone up to 40 characters (\"abc\" was accepted in QA). Agree accepted forma"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Scheduling (1/9): Scheduling store and config",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T03:45:56.000Z",
-      "evidence": [
-        {
-          "title": "Scheduling (1/9): Scheduling store and config",
-          "url": "https://github.com/ncsa/lumen/issues/480",
-          "source": "github",
-          "createdAt": "2026-11-09T03:45:56.000Z",
-          "excerpt": "Part of the request scheduling epic (queues, priorities and KV-cache affinity). Add the `scheduling:` config block and a small store module that later items build on. - Config block as in the epic, with defaults and per-"
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-salesforce-bulk-a-remembered-job-salesforce-has-",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Salesforce Bulk: a remembered job Salesforce has deleted is never recovered",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T09:49:25.000Z",
-      "evidence": [
-        {
-          "title": "Salesforce Bulk: a remembered job Salesforce has deleted is never recovered",
-          "url": "https://github.com/ValueRetail/vrsky/issues/779",
-          "source": "github",
-          "createdAt": "2026-11-09T09:49:25.000Z",
-          "excerpt": "Found in #760 (PR #777). The Salesforce producer remembers a Bulk API job by envelope id so that a retry resumes it rather than submitting it twice. If Salesforce has deleted that job, the state read answers 404. Every a"
-        }
-      ]
-    },
-    {
-      "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T14:26:06.000Z",
-      "evidence": [
-        {
-          "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
-          "url": "https://github.com/Feathr/zendesk-mcp/issues/35",
-          "source": "github",
-          "createdAt": "2026-11-10T14:26:06.000Z",
-          "excerpt": "Zendesk can call MCP tools from action flows ([Connecting to MCP servers](https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows)), but only over HTTP w"
         }
       ]
     },
@@ -1120,68 +364,6 @@
       ]
     },
     {
-      "id": "invoice-export-programme-xero-operation-row-claim-fencing",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Programme: Xero operation-row claim fencing",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 6.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-25T22:18:56.000Z",
-      "evidence": [
-        {
-          "title": "Programme: Xero operation-row claim fencing",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4400",
-          "source": "github",
-          "createdAt": "2026-10-25T22:18:56.000Z",
-          "excerpt": "Part of programme #4898. Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — Released: every formerly parked Xero and payment bug may be fixed now, ordered by harm, ahead of the ledger steps; this r"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-booking-rules",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Booking rules",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 11.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-05T14:18:08.000Z",
-      "evidence": [
-        {
-          "title": "Booking rules",
-          "url": "https://github.com/lapptomi/requirements-engineering/issues/8",
-          "source": "github",
-          "createdAt": "2026-11-05T14:18:08.000Z",
-          "excerpt": "## User story As the organization, I want clear booking rules so that rooms are used fairly. ## Description All bookings must follow these rules. All times are local time (Europe/Helsinki). - R1: A booking must lie withi"
-        }
-      ]
-    },
-    {
       "id": "scheduling-how-can-i-make-a-bigdecimal-parallel-reduction-d",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1190,7 +372,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 8.2,
+        "recency": 8.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },

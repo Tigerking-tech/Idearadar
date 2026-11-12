@@ -328,6 +328,32 @@
           "items": 3
         }
       }
+    },
+    {
+      "t": "2026-11-12T01:16:34.821Z",
+      "byNiche": {
+        "solo-crm": {
+          "score": 25,
+          "mentions": 2,
+          "items": 2
+        },
+        "scheduling": {
+          "score": 22,
+          "mentions": 3,
+          "items": 3
+        },
+        "invoice-export": {
+          "score": 21,
+          "mentions": 1,
+          "items": 1
+        },
+        "support-transcripts": {
+          "score": 20,
+          "mentions": 1,
+          "items": 1
+        }
+      },
+      "methodVersion": 2
     }
   ]
 }

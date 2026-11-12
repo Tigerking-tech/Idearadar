@@ -442,3 +442,25 @@ export function evaluateRecall({ relevance = {}, legacy = null, minFinalTitleRat
   const verdict = reasons.length ? "fallback" : "adopt";
   return { verdict, method: verdict === "adopt" ? "relevance" : "legacy", reasons };
 }
+
+/**
+ * 产物健全性判定（写文件前的最后一道闸，纯函数）。
+ * 门禁+采集同轮连跑时若被限流，items 会塌到个位数；残缺数据一旦提交，
+ * 还会追加畸形快照污染趋势历史。命中任一条件即拒绝写入。
+ * @param {object} p
+ * @param {number} p.itemCount 本次 items 数
+ * @param {number} p.minHealthyItems 下限（<=0 表示跳过数量检查）
+ * @param {{source:string,count:number}[]} p.sourceStats 各源行数
+ * @param {{source:string,message:string}[]} p.errors 采集错误
+ * @returns {string[]} 拒绝理由；空数组表示健康
+ */
+export function healthCheck({ itemCount = 0, minHealthyItems = 16, sourceStats = [], errors = [] } = {}) {
+  const rows = (id) => sourceStats.filter((s) => s.source === id).reduce((sum, s) => sum + s.count, 0);
+  const rateLimited = errors.some((e) => /HTTP (403|429)/.test(e?.message || ""));
+  const reasons = [];
+  if (minHealthyItems > 0 && itemCount < minHealthyItems) reasons.push(`items ${itemCount} < ${minHealthyItems}`);
+  if (rateLimited && (rows("github") === 0 || rows("hn") === 0)) {
+    reasons.push(`主源被限流且 0 行 (github=${rows("github")}, hn=${rows("hn")})`);
+  }
+  return reasons;
+}

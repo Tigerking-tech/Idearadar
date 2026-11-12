@@ -7,7 +7,8 @@
     "method": "relevance",
     "topicScope": "any",
     "minFinalTitleRate": 0.6,
-    "minItems": 24
+    "minItems": 24,
+    "minHealthyItems": 16
   },
   "niches": [
     {

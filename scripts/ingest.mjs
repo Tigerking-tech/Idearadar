@@ -12,7 +12,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { aggregateByNiche, appendHistory, buildOpportunities } from "./ingest-lib.mjs";
+import { aggregateByNiche, appendHistory, buildOpportunities, healthCheck } from "./ingest-lib.mjs";
 import { createCollector } from "./connectors.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -100,6 +100,23 @@ const output = {
   errors,
   items,
 };
+
+/**
+ * 产物健全性下限（务必在任何写文件之前）：
+ * 门禁+采集同轮跑 3 次全量召回，若 GitHub 被限流，items 会塌到个位数。
+ * 这种残缺数据若被提交，还会追加一个畸形快照污染趋势历史。因此检测：
+ *  - items 低于 minHealthyItems（默认 16，约为 4 赛道各 4 条）
+ *  - 或某个主网络源（github/hn）本轮 0 行且有 403/429 错误
+ * 命中即 fail，让 Actions 报错并保持仓库里上一份完整数据不变。
+ * 可用 INGEST_MIN_ITEMS=0 显式跳过（仅用于本地诊断）。
+ */
+const minHealthy = Number(process.env.INGEST_MIN_ITEMS ?? recallCfg.minHealthyItems ?? 16);
+const unhealthyReasons = healthCheck({ itemCount: items.length, minHealthyItems: minHealthy, sourceStats, errors });
+if (unhealthyReasons.length) {
+  console.error(`[ingest] 产物不健全，拒绝写入: ${unhealthyReasons.join("; ")}`);
+  console.error(`[ingest] errors=${errors.length} | 前几项: ${errors.slice(0, 5).map((e) => `${e.source}:${e.message}`).join(" | ")}`);
+  process.exit(1);
+}
 
 await fs.mkdir(path.join(ROOT, "data"), { recursive: true });
 await fs.mkdir(path.join(ROOT, "public"), { recursive: true });

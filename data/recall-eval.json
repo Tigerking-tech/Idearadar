@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-12T01:15:50.226Z",
+  "evaluatedAt": "2026-11-12T00:34:36.633Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 971,
-      "itemCount": 34,
-      "recallHits": 507,
-      "finalHits": 24,
-      "recallTitleRate": 0.5221421215242018,
-      "finalTitleRate": 0.7058823529411765
+      "raw": 961,
+      "itemCount": 36,
+      "recallHits": 492,
+      "finalHits": 26,
+      "recallTitleRate": 0.5119667013527576,
+      "finalTitleRate": 0.7222222222222222
     },
     "legacy": {
-      "raw": 721,
-      "itemCount": 52,
-      "recallHits": 53,
-      "finalHits": 9,
-      "recallTitleRate": 0.07350901525658807,
-      "finalTitleRate": 0.17307692307692307
+      "raw": 975,
+      "itemCount": 60,
+      "recallHits": 97,
+      "finalHits": 14,
+      "recallTitleRate": 0.09948717948717949,
+      "finalTitleRate": 0.23333333333333334
     }
   },
   "perNiche": {
@@ -47,99 +47,94 @@
       },
       {
         "niche": "invoice-export",
-        "raw": 217,
+        "raw": 211,
         "itemCount": 11,
-        "recallTitleRate": 0.5069124423963134,
+        "recallTitleRate": 0.5213270142180095,
         "finalTitleRate": 0.7272727272727273,
         "stats": {
-          "raw": 217,
-          "complaintRecords": 14,
+          "raw": 211,
+          "complaintRecords": 16,
           "items": 11
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 237,
+        "raw": 234,
         "itemCount": 3,
-        "recallTitleRate": 0.45569620253164556,
+        "recallTitleRate": 0.46153846153846156,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 237,
-          "complaintRecords": 6,
+          "raw": 234,
+          "complaintRecords": 7,
           "items": 3
         }
       },
       {
         "niche": "scheduling",
-        "raw": 265,
-        "itemCount": 15,
-        "recallTitleRate": 0.6415094339622641,
-        "finalTitleRate": 0.7333333333333333,
+        "raw": 264,
+        "itemCount": 17,
+        "recallTitleRate": 0.5871212121212122,
+        "finalTitleRate": 0.7647058823529411,
         "stats": {
-          "raw": 265,
-          "complaintRecords": 27,
-          "items": 15
+          "raw": 264,
+          "complaintRecords": 26,
+          "items": 17
         }
       }
     ],
     "legacy": [
       {
         "niche": "solo-crm",
-        "raw": 251,
-        "itemCount": 12,
-        "recallTitleRate": 0.04780876494023904,
-        "finalTitleRate": 0.16666666666666666,
+        "raw": 252,
+        "itemCount": 11,
+        "recallTitleRate": 0.05555555555555555,
+        "finalTitleRate": 0.18181818181818182,
         "stats": {
-          "raw": 251,
-          "complaintRecords": 12,
-          "items": 12
+          "raw": 252,
+          "complaintRecords": 11,
+          "items": 11
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 222,
-        "itemCount": 32,
-        "recallTitleRate": 0.11711711711711711,
-        "finalTitleRate": 0.1875,
+        "raw": 225,
+        "itemCount": 35,
+        "recallTitleRate": 0.10666666666666667,
+        "finalTitleRate": 0.2,
         "stats": {
-          "raw": 222,
-          "complaintRecords": 34,
-          "items": 32
+          "raw": 225,
+          "complaintRecords": 37,
+          "items": 35
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 112,
-        "itemCount": 3,
-        "recallTitleRate": 0.026785714285714284,
-        "finalTitleRate": 0,
+        "raw": 235,
+        "itemCount": 21,
+        "recallTitleRate": 0.059574468085106386,
+        "finalTitleRate": 0.047619047619047616,
         "stats": {
-          "raw": 112,
-          "complaintRecords": 3,
-          "items": 3
+          "raw": 235,
+          "complaintRecords": 22,
+          "items": 21
         }
       },
       {
         "niche": "scheduling",
-        "raw": 136,
-        "itemCount": 5,
-        "recallTitleRate": 0.08823529411764706,
-        "finalTitleRate": 0.2,
+        "raw": 263,
+        "itemCount": 24,
+        "recallTitleRate": 0.17110266159695817,
+        "finalTitleRate": 0.2916666666666667,
         "stats": {
-          "raw": 136,
-          "complaintRecords": 7,
-          "items": 5
+          "raw": 263,
+          "complaintRecords": 28,
+          "items": 24
         }
       }
     ]
   },
   "samples": {
     "relevance": [
-      {
-        "title": "Appointment Booking",
-        "niche": "scheduling",
-        "titleHit": true
-      },
       {
         "title": "WISH: import Expense Report (and invoice) lines from CSV",
         "niche": "invoice-export",
@@ -148,6 +143,11 @@
       {
         "title": "ISSUES in CRM",
         "niche": "solo-crm",
+        "titleHit": true
+      },
+      {
+        "title": "Appointment Booking",
+        "niche": "scheduling",
         "titleHit": true
       },
       {
@@ -178,107 +178,52 @@
     ],
     "legacy": [
       {
-        "title": "successful oauth in salesforce, nothing in claude (token refresh loop)",
-        "niche": "solo-crm",
-        "titleHit": true
-      },
-      {
-        "title": "Specification: bounded local Rust/Python invoice-review developer preview",
-        "niche": "invoice-export",
-        "titleHit": true
-      },
-      {
-        "title": "Amazon saves millions by replacing Sonnet 4.6 with Strands Decider",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "Running a law firm on Free software",
-        "niche": "solo-crm",
-        "titleHit": false
-      },
-      {
-        "title": "Phase CORE-BRIEFS Step 74: Publish Treasurer Notes with the core report set",
-        "niche": "invoice-export",
-        "titleHit": false
-      },
-      {
-        "title": "Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregulate Healthcare",
+        "title": "P3: a stale Cancel tab or the WhatsApp agent can cancel a lapsed unpaid hold before the release…",
         "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "A booking cannot be part-paid: let a booking hold its beds on a deposit, with a dated balance…",
-        "niche": "invoice-export",
+        "title": "Research programme: Pi durability, provider uncertainty, six-day E2E evidence and publication…",
+        "niche": "support-transcripts",
         "titleHit": false
       },
       {
-        "title": "A club moving in cannot bring across future bookings that are already paid: add a previewed…",
-        "niche": "invoice-export",
+        "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
+        "title": "BUG REGRESI: pulihkan batas checkout Booking sesuai aturan bisnis lama Owner",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
+        "title": "Export scheduling fails for large tenants",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
+        "title": "Latency scorer gives the top score to an endpoint without a latency prediction",
+        "niche": "scheduling",
+        "titleHit": false
+      },
+      {
+        "title": "Outside-transaction subscription-renewal checks leave a committed subscription on the fixture…",
+        "niche": "scheduling",
+        "titleHit": false
+      },
+      {
+        "title": "P3: the IBAN-masking pass misses IBANs typed with double spaces or glued to Arabic text…",
+        "niche": "scheduling",
         "titleHit": false
       }
     ]
   },
   "errors": [
     {
-      "source": "github",
-      "niche": "support-transcripts",
-      "query": "support ticket",
-      "message": "HTTP 403 for api.github.com"
-    },
-    {
-      "source": "github",
-      "niche": "support-transcripts",
-      "query": "helpdesk",
-      "message": "HTTP 403 for api.github.com"
-    },
-    {
-      "source": "github",
-      "niche": "support-transcripts",
-      "query": "chat transcript",
-      "message": "HTTP 403 for api.github.com"
-    },
-    {
-      "source": "github",
-      "niche": "support-transcripts",
-      "query": "zendesk",
-      "message": "HTTP 403 for api.github.com"
-    },
-    {
-      "source": "github",
-      "niche": "support-transcripts",
-      "query": "intercom",
-      "message": "HTTP 403 for api.github.com"
-    },
-    {
-      "source": "github",
-      "niche": "scheduling",
-      "query": "booking",
-      "message": "HTTP 403 for api.github.com"
-    },
-    {
-      "source": "github",
-      "niche": "scheduling",
-      "query": "appointment",
-      "message": "HTTP 403 for api.github.com"
-    },
-    {
-      "source": "github",
-      "niche": "scheduling",
-      "query": "scheduling",
-      "message": "HTTP 403 for api.github.com"
-    },
-    {
-      "source": "github",
-      "niche": "scheduling",
-      "query": "calendly",
-      "message": "HTTP 403 for api.github.com"
-    },
-    {
-      "source": "github",
-      "niche": "scheduling",
-      "query": "appointment booking",
-      "message": "HTTP 403 for api.github.com"
+      "source": "rss",
+      "feed": "https://news.ycombinator.com/rss",
+      "message": "fetch failed"
     }
   ]
 }

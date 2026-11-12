@@ -6,10 +6,15 @@
   "maxSnapshots": 120,
   "snapshots": [
     {
-      "t": "2026-11-09T06:38:38.815Z",
+      "t": "2026-11-09T07:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 19,
+          "mentions": 10,
+          "items": 7
+        },
         "invoice-export": {
           "score": 23,
           "mentions": 11,
@@ -20,11 +25,6 @@
           "mentions": 2,
           "items": 2
         },
-        "scheduling": {
-          "score": 18,
-          "mentions": 9,
-          "items": 7
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -33,10 +33,15 @@
       }
     },
     {
-      "t": "2026-11-09T12:38:38.815Z",
+      "t": "2026-11-09T13:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 19,
+          "mentions": 10,
+          "items": 7
+        },
         "invoice-export": {
           "score": 23,
           "mentions": 12,
@@ -47,11 +52,6 @@
           "mentions": 2,
           "items": 2
         },
-        "scheduling": {
-          "score": 19,
-          "mentions": 9,
-          "items": 8
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -60,10 +60,15 @@
       }
     },
     {
-      "t": "2026-11-09T18:38:38.815Z",
+      "t": "2026-11-09T19:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 20,
+          "mentions": 11,
+          "items": 8
+        },
         "invoice-export": {
           "score": 24,
           "mentions": 13,
@@ -74,11 +79,6 @@
           "mentions": 3,
           "items": 3
         },
-        "scheduling": {
-          "score": 19,
-          "mentions": 10,
-          "items": 8
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -87,10 +87,15 @@
       }
     },
     {
-      "t": "2026-11-10T00:38:38.815Z",
+      "t": "2026-11-10T01:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 20,
+          "mentions": 13,
+          "items": 9
+        },
         "invoice-export": {
           "score": 26,
           "mentions": 15,
@@ -101,11 +106,6 @@
           "mentions": 3,
           "items": 3
         },
-        "scheduling": {
-          "score": 19,
-          "mentions": 12,
-          "items": 9
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -114,10 +114,15 @@
       }
     },
     {
-      "t": "2026-11-10T06:38:38.815Z",
+      "t": "2026-11-10T07:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 21,
+          "mentions": 13,
+          "items": 9
+        },
         "invoice-export": {
           "score": 28,
           "mentions": 18,
@@ -128,11 +133,6 @@
           "mentions": 3,
           "items": 3
         },
-        "scheduling": {
-          "score": 20,
-          "mentions": 12,
-          "items": 10
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -141,10 +141,15 @@
       }
     },
     {
-      "t": "2026-11-10T12:38:38.815Z",
+      "t": "2026-11-10T13:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 21,
+          "mentions": 15,
+          "items": 11
+        },
         "invoice-export": {
           "score": 30,
           "mentions": 20,
@@ -155,11 +160,6 @@
           "mentions": 3,
           "items": 3
         },
-        "scheduling": {
-          "score": 20,
-          "mentions": 14,
-          "items": 11
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -168,10 +168,15 @@
       }
     },
     {
-      "t": "2026-11-10T18:38:38.815Z",
+      "t": "2026-11-10T19:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 22,
+          "mentions": 17,
+          "items": 12
+        },
         "invoice-export": {
           "score": 29,
           "mentions": 20,
@@ -182,11 +187,6 @@
           "mentions": 4,
           "items": 4
         },
-        "scheduling": {
-          "score": 21,
-          "mentions": 15,
-          "items": 12
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -195,10 +195,15 @@
       }
     },
     {
-      "t": "2026-11-11T00:38:38.815Z",
+      "t": "2026-11-11T01:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 22,
+          "mentions": 17,
+          "items": 12
+        },
         "invoice-export": {
           "score": 28,
           "mentions": 18,
@@ -209,11 +214,6 @@
           "mentions": 4,
           "items": 4
         },
-        "scheduling": {
-          "score": 21,
-          "mentions": 16,
-          "items": 13
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -222,10 +222,15 @@
       }
     },
     {
-      "t": "2026-11-11T06:38:38.815Z",
+      "t": "2026-11-11T07:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 22,
+          "mentions": 19,
+          "items": 13
+        },
         "invoice-export": {
           "score": 26,
           "mentions": 16,
@@ -236,11 +241,6 @@
           "mentions": 4,
           "items": 4
         },
-        "scheduling": {
-          "score": 22,
-          "mentions": 17,
-          "items": 14
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -249,10 +249,15 @@
       }
     },
     {
-      "t": "2026-11-11T12:38:38.815Z",
+      "t": "2026-11-11T13:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 23,
+          "mentions": 21,
+          "items": 14
+        },
         "invoice-export": {
           "score": 24,
           "mentions": 13,
@@ -263,11 +268,6 @@
           "mentions": 4,
           "items": 4
         },
-        "scheduling": {
-          "score": 22,
-          "mentions": 19,
-          "items": 15
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -276,10 +276,15 @@
       }
     },
     {
-      "t": "2026-11-11T18:38:38.815Z",
+      "t": "2026-11-11T19:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 23,
+          "mentions": 21,
+          "items": 15
+        },
         "invoice-export": {
           "score": 24,
           "mentions": 12,
@@ -290,11 +295,6 @@
           "mentions": 5,
           "items": 5
         },
-        "scheduling": {
-          "score": 22,
-          "mentions": 19,
-          "items": 16
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
@@ -303,10 +303,15 @@
       }
     },
     {
-      "t": "2026-11-12T00:38:38.815Z",
+      "t": "2026-11-12T01:34:08.093Z",
       "seeded": true,
       "methodVersion": 2,
       "byNiche": {
+        "scheduling": {
+          "score": 24,
+          "mentions": 23,
+          "items": 16
+        },
         "invoice-export": {
           "score": 23,
           "mentions": 11,
@@ -317,43 +322,12 @@
           "mentions": 5,
           "items": 5
         },
-        "scheduling": {
-          "score": 23,
-          "mentions": 21,
-          "items": 17
-        },
         "support-transcripts": {
           "score": 23,
           "mentions": 3,
           "items": 3
         }
       }
-    },
-    {
-      "t": "2026-11-12T01:16:34.821Z",
-      "byNiche": {
-        "solo-crm": {
-          "score": 25,
-          "mentions": 2,
-          "items": 2
-        },
-        "scheduling": {
-          "score": 22,
-          "mentions": 3,
-          "items": 3
-        },
-        "invoice-export": {
-          "score": 21,
-          "mentions": 1,
-          "items": 1
-        },
-        "support-transcripts": {
-          "score": 20,
-          "mentions": 1,
-          "items": 1
-        }
-      },
-      "methodVersion": 2
     }
   ]
 }

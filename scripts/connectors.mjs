@@ -12,18 +12,52 @@ import path from "node:path";
 import { normalizeText } from "./ingest-lib.mjs";
 
 const TIMEOUT_MS = 15_000;
+// GitHub Search API 认证限额 30 次/分、匿名 10 次/分；且门禁+采集会在同一
+// workflow 连续跑 3 轮全量召回。默认把每个 GitHub 请求间隔拉到 2.3s
+// （≈26 次/分），留出安全余量，避免 403 把正式采集打空。
+const GITHUB_MIN_INTERVAL_MS = Number(process.env.GITHUB_MIN_INTERVAL_MS ?? 2300);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export function createCollector({ cfg, now, root, errors = [] }) {
   const since = new Date(now.getTime() - cfg.lookbackDays * 86_400_000);
   const sinceEpoch = Math.floor(since.getTime() / 1000);
+  let lastGithubCall = 0;
 
-  async function getJson(url, headers = {}) {
-    const res = await fetch(url, {
-      headers: { "User-Agent": "IdeaRadar-Ingest/1.0 (+https://idearadar.app/methodology)", ...headers },
-      signal: AbortSignal.timeout(TIMEOUT_MS),
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${new URL(url).host}`);
-    return res.json();
+  async function throttleGithub() {
+    if (!GITHUB_MIN_INTERVAL_MS) return;
+    const wait = lastGithubCall + GITHUB_MIN_INTERVAL_MS - Date.now();
+    if (wait > 0) await sleep(wait);
+    lastGithubCall = Date.now();
+  }
+
+  /**
+   * 通用 GET JSON，带 403/429/5xx 指数退避重试（尊重 Retry-After）。
+   * 节流保证正常情况下不会触发限流；重试是网络抖动/secondary limit 的兜底。
+   */
+  async function getJson(url, headers = {}, opts = {}) {
+    const retries = opts.retries ?? 3;
+    const host = new URL(url).host;
+    for (let attempt = 0; attempt <= retries; attempt++) {
+      let res;
+      try {
+        res = await fetch(url, {
+          headers: { "User-Agent": "IdeaRadar-Ingest/1.0 (+https://idearadar.app/methodology)", ...headers },
+          signal: AbortSignal.timeout(TIMEOUT_MS),
+        });
+      } catch (err) {
+        if (attempt === retries) throw err; // 网络层错误，重试耗尽
+        await sleep(Math.min(30_000, 2000 * 2 ** attempt));
+        continue;
+      }
+      if (res.ok) return await res.json();
+      const status = res.status;
+      const retryable = status === 403 || status === 429 || status >= 500;
+      if (!retryable || attempt === retries) throw new Error(`HTTP ${status} for ${host}`);
+      const ra = Number(res.headers.get("retry-after"));
+      const backoff = Number.isFinite(ra) && ra > 0 ? ra * 1000 : Math.min(30_000, 3000 * 2 ** attempt);
+      await sleep(backoff);
+    }
+    throw new Error(`HTTP request failed for ${host}`);
   }
 
   async function getText(url, headers = {}) {
@@ -103,6 +137,7 @@ export function createCollector({ cfg, now, root, errors = [] }) {
       params.set("sort", "created");
       params.set("order", "desc");
     }
+    await throttleGithub();
     const data = await getJson(`https://api.github.com/search/issues?${params}`, headers);
     return (data.items || []).map((i) => ({
       title: normalizeText(i.title || "GitHub issue"),

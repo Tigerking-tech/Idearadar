@@ -18,6 +18,7 @@ import {
   buildOpportunities,
   recallMetrics,
   evaluateRecall,
+  healthCheck,
 } from "./ingest-lib.mjs";
 
 test("clamp 边界与异常值", () => {
@@ -381,4 +382,41 @@ test("evaluateRecall 达标 adopt，数量/质量/退化任一不达标 fallback
   const d = evaluateRecall({ relevance: mk(30, 0.8), legacy: mk(40, 0.3), minItems: 24, minFinalTitleRate: 0.6 });
   assert.equal(d.method, "relevance", "adopt 时 method 给采集端");
   assert.equal(evaluateRecall({ relevance: mk(5, 0.2), legacy: mk(40, 0.3), minItems: 24, minFinalTitleRate: 0.6 }).method, "legacy");
+});
+
+/* ---------------- 产物健全性闸门（防限流残缺数据入库） ---------------- */
+
+test("healthCheck 正常数据放行", () => {
+  assert.deepEqual(healthCheck({
+    itemCount: 36, minHealthyItems: 16,
+    sourceStats: [{ source: "github", count: 200 }, { source: "hn", count: 100 }],
+    errors: [{ source: "rss", message: "fetch failed" }],
+  }), []);
+});
+
+test("healthCheck items 塌到个位数时拒绝", () => {
+  const r = healthCheck({ itemCount: 7, minHealthyItems: 16, sourceStats: [], errors: [] });
+  assert.equal(r.length, 1);
+  assert.match(r[0], /items 7 < 16/);
+});
+
+test("healthCheck 主源被 403 限流且 0 行时拒绝", () => {
+  const r = healthCheck({
+    itemCount: 30, minHealthyItems: 16,
+    sourceStats: [{ source: "github", count: 0 }, { source: "hn", count: 440 }],
+    errors: [{ source: "github", message: "HTTP 403 for api.github.com" }],
+  });
+  assert.ok(r.some((x) => /限流/.test(x)), "403 + github 0 行应触发");
+});
+
+test("healthCheck 有 403 但主源仍有数据时不误杀", () => {
+  assert.deepEqual(healthCheck({
+    itemCount: 36, minHealthyItems: 16,
+    sourceStats: [{ source: "github", count: 120 }, { source: "hn", count: 100 }],
+    errors: [{ source: "github", message: "HTTP 403 for api.github.com" }],
+  }), [], "偶发单次 403 但整体数据完整，应放行");
+});
+
+test("healthCheck minHealthyItems<=0 可显式跳过数量检查（本地诊断）", () => {
+  assert.deepEqual(healthCheck({ itemCount: 2, minHealthyItems: 0, sourceStats: [], errors: [] }), []);
 });

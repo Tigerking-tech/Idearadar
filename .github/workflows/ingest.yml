@@ -44,6 +44,12 @@ jobs:
           EVAL_DELAY_MS: "500"
         run: node scripts/eval-recall.mjs
 
+      # 门禁跑 2 轮、采集跑 1 轮，共用同一个 GITHUB_TOKEN 的 Search 限额（30/min）。
+      # connectors.mjs 内部已有 2.3s/请求节流，但两个进程的节流状态不共享，
+      # 因此在两步之间冷却一个完整的限额窗口，避免跨进程叠加触发 403。
+      - name: Cool down rate-limit window
+        run: sleep 65
+
       - name: Run multi-source ingestion
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

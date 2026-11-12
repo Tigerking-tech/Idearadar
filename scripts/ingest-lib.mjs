@@ -464,3 +464,73 @@ export function healthCheck({ itemCount = 0, minHealthyItems = 16, sourceStats =
   }
   return reasons;
 }
+
+/* ----------------------- 内容层本地化（中文译文） ----------------------- */
+
+/**
+ * signals 是固定枚举标签（churn / broken / manual ...），不该交给翻译模型：
+ * 用词典本地化即可让「竞品空白」在中文页不冒英文单词，且完全可单测。
+ * 未知标签原样保留，避免静默丢信息。
+ */
+export const SIGNAL_LABELS_ZH = Object.freeze({
+  churn: "客户流失",
+  wish: "功能愿望",
+  manual: "手工操作",
+  broken: "功能故障",
+  pain: "使用痛点",
+  frustration: "使用挫败",
+  feature_request: "功能请求",
+  complexity: "过于复杂",
+  missing: "能力缺失",
+  integration: "集成困难",
+  delay: "响应迟缓",
+  pricing: "定价不满",
+  data_loss: "数据丢失",
+  performance: "性能问题",
+  security: "安全顾虑",
+});
+
+export function localizeSignalLabels(signals = []) {
+  return (Array.isArray(signals) ? signals : []).map((s) => SIGNAL_LABELS_ZH[s] ?? s);
+}
+
+/** 引语来自 evidence[0].excerpt（采集端已截到 220 字符），与前端 quote 同源。 */
+export function quoteOf(item = {}) {
+  const excerpt = item?.evidence?.[0]?.excerpt;
+  return String(typeof excerpt === "string" ? excerpt.trim() : item?.title || "").slice(0, 240);
+}
+
+/**
+ * 译文缓存键：id + 英文标题 + 引语前 160 字。
+ * 原文没变就复用上一批译文，避免每 6 小时把 37 条重翻一遍。
+ */
+export function translationKey(item = {}) {
+  const s = `${item?.id || ""}\u0000${item?.title || ""}\u0000${quoteOf(item).slice(0, 160)}`;
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0).toString(36);
+}
+
+/**
+ * 采集会重写 opportunities.json；把上一批译文继承到「同 id、同原文」的新 item 上，
+ * 让译文缓存随产物文件走 —— 零新增数据文件，也不会在 rebase 时多出冲突源。
+ */
+export function inheritTranslations(prevItems = [], nextItems = []) {
+  const prev = new Map((Array.isArray(prevItems) ? prevItems : []).filter((x) => x && x.id).map((x) => [x.id, x]));
+  return (Array.isArray(nextItems) ? nextItems : []).map((it) => {
+    const old = prev.get(it.id);
+    if (!old || old.title !== it.title) return it;
+    const key = translationKey(it);
+    // 旧数据带 key 且与新原文不一致 → 原文变了，绝不继承过期译文。
+    if (old.translationKey && old.translationKey !== key) return it;
+    const out = { ...it };
+    // 新条目若已自带译文（例如人工修订过）优先保留，绝不被上一批覆盖。
+    if (!out.titleZh && typeof old.titleZh === "string" && old.titleZh.trim()) out.titleZh = old.titleZh;
+    if (!out.quoteZh && typeof old.quoteZh === "string" && old.quoteZh.trim()) out.quoteZh = old.quoteZh;
+    if (out.titleZh || out.quoteZh) out.translationKey = key;
+    return out;
+  });
+}

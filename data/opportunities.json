@@ -146,7 +146,8 @@
           "createdAt": "2026-11-12T01:08:44.000Z",
           "excerpt": "Allow patients to book, view, and cancel doctor appointments. Tasks: - [ ] Display available dates and time slots - [ ] Add an appointment booking form - [ ] Prevent duplicate bookings - [ ] Display booking confirmation "
         }
-      ]
+      ],
+      "titleZh": "预约登记"
     },
     {
       "id": "invoice-export-wish-import-expense-report-and-invoice-lines-fro",
@@ -179,7 +180,8 @@
           "createdAt": "2026-11-09T07:38:45.000Z",
           "excerpt": "### Feature Request I wish that I could import Expense Report (and invoice) lines from a CSV file right after I've created the business object. ### Use case Often volunteers with multiple expenses sends us a spreadsheet "
         }
-      ]
+      ],
+      "titleZh": "希望支持从 CSV 导入费用报表（及发票）明细"
     },
     {
       "id": "solo-crm-issues-in-crm",
@@ -211,7 +213,8 @@
           "createdAt": "2026-11-11T06:45:50.000Z",
           "excerpt": "The manual contact enrichment endpoint POST /api/v1/leads/{id}/enrich fails immediately with HTTP 422 Unprocessable Entity when called with standard lead UUIDs (such as b0000001-0000-0000-0000-000000000001). Furthermore,"
         }
-      ]
+      ],
+      "titleZh": "CRM 中的问题汇总"
     },
     {
       "id": "scheduling-united-airlines-bans-ai-agents-from-booking-flig",
@@ -243,7 +246,8 @@
           "createdAt": "2026-11-12T03:31:03.000Z",
           "excerpt": "i mean for most people, there&#x27;s a real pain point. having to sit down and spend an hour or more booking flights, accoms, etc for a trip is a pain in the ass"
         }
-      ]
+      ],
+      "titleZh": "美联航禁止 AI 代理代旅客预订机票"
     },
     {
       "id": "solo-crm-salesforce-sync-log-and-failure-alert",
@@ -275,7 +279,8 @@
           "createdAt": "2026-11-10T13:16:18.000Z",
           "excerpt": "📅 **Planned:** November 2026 (weekly sync runs every Sunday) ### What Record each sync run and alert the admins if it fails. ### Why A silent failure would let unmailable contacts back into exports. ### Steps - [ ] Log "
         }
-      ]
+      ],
+      "titleZh": "Salesforce：同步日志与失败告警"
     },
     {
       "id": "solo-crm-running-a-law-firm-on-free-software",
@@ -307,7 +312,8 @@
           "createdAt": "2026-11-07T17:28:51.000Z",
           "excerpt": "I&#x27;m jealous, I&#x27;d love to be able to do this. I am a small cog in a big legal machine so I am stuck with whatever tech stack my firm mandates. Outlook + Word + a bunch of incredibly unintuitive, slow, buggy and "
         }
-      ]
+      ],
+      "titleZh": "用自由软件运营律所"
     },
     {
       "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
@@ -339,7 +345,8 @@
           "createdAt": "2026-11-09T02:59:24.000Z",
           "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
         }
-      ]
+      ],
+      "titleZh": "管理后台·客服聊天：工单收件箱与结果报告"
     },
     {
       "id": "invoice-export-csv-export-for-timesheets-and-invoices",
@@ -371,7 +378,8 @@
           "createdAt": "2026-11-09T13:56:57.000Z",
           "excerpt": "## Summary Finance and managers often need data in a spreadsheet. Add CSV export for timesheets and invoice lines. ## What to do - Add `GET /api/timesheets/export.csv` and `GET /api/invoices/:id/export.csv`. - **Reuse th"
         }
-      ]
+      ],
+      "titleZh": "工时表与发票的 CSV 导出"
     },
     {
       "id": "scheduling-appointment-vehicle-management",
@@ -403,7 +411,8 @@
           "createdAt": "2026-11-09T03:51:57.000Z",
           "excerpt": "Develop functionality that allows CleanRide customers to manage their vehicles and car wash appointments. User stories - Add a vehicle - View saved vehicles - Book an appointment - Cancel an appointment"
         }
-      ]
+      ],
+      "titleZh": "预约与车辆管理"
     },
     {
       "id": "scheduling-feature-appointment-rescheduling",
@@ -435,7 +444,8 @@
           "createdAt": "2026-11-09T13:33:12.000Z",
           "excerpt": "Type: Feature Where: My Appointments Module Description: Add a Reschedule Appointment feature that allows customers to change their existing appointment date and time without having to cancel their booking and create a n"
         }
-      ]
+      ],
+      "titleZh": "功能需求：预约改期"
     },
     {
       "id": "invoice-export-banking-app-transaction-multi-currency",
@@ -467,7 +477,8 @@
           "createdAt": "2026-11-02T21:30:55.000Z",
           "excerpt": "### Information about bug When trying to create a journal entry in the new banking app, it does not allow you to submit a Journal Entry with an account outside of the company currency. Normally, on a Journal Entry, there"
         }
-      ]
+      ],
+      "titleZh": "银行应用交易：多币种支持"
     },
     {
       "id": "scheduling-appointment-cancellation",
@@ -499,7 +510,8 @@
           "createdAt": "2026-11-06T12:55:02.000Z",
           "excerpt": "Requirement : FR-06 Appointment Cancellation with FR-07 Retained History AppointmentService.cancel_appointment is currently a stub that raises NotImplementedError. The appointments **cannot** be cancelled. Task - to Impl"
         }
-      ]
+      ],
+      "titleZh": "预约取消"
     },
     {
       "id": "scheduling-endpoint-delete-bookings-booking-id",
@@ -531,7 +543,8 @@
           "createdAt": "2026-11-05T17:50:32.000Z",
           "excerpt": "- [ ] Cancels the booking, returns its seats on every flight, refunds in full (revenue drops). - [ ] Returns the booking with `status` `cancelled`. - [ ] Cancelling twice returns the same thing, not an error. - [ ] `404`"
         }
-      ]
+      ],
+      "titleZh": "接口：DELETE /bookings/{booking_id}"
     },
     {
       "id": "scheduling-endpoint-get-bookings-booking-id",
@@ -563,7 +576,8 @@
           "createdAt": "2026-11-05T17:50:30.000Z",
           "excerpt": "- [ ] Returns the booking with `status` `confirmed` or `cancelled`. - [ ] `404` if unknown."
         }
-      ]
+      ],
+      "titleZh": "接口：GET /bookings/{booking_id}"
     },
     {
       "id": "scheduling-nurses-sound-alarm-as-uber-for-nursing-apps-push",
@@ -595,7 +609,8 @@
           "createdAt": "2026-11-01T20:56:30.000Z",
           "excerpt": "Except when the \"meter is broken\" or they take the scenic route. My grandmother with dementia routinely got charged double or triple the expected rate for trips to medical appointments, until we figured out what was goin"
         }
-      ]
+      ],
+      "titleZh": "护士警示「护理界 Uber」类应用推动医疗去监管化"
     },
     {
       "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
@@ -627,7 +642,8 @@
           "createdAt": "2026-10-31T06:39:41.000Z",
           "excerpt": "**Week 3 of 52** · Mon 16 Nov 2026 to Sun 22 Nov 2026 ## Why Marketplace payouts need several transfers to happen together, sweeps fail on short balances, holds cannot grow, and a currency conversion is two separate entr"
         }
-      ]
+      ],
+      "titleZh": "批量处理、平衡转账、暂挂与多币种"
     },
     {
       "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
@@ -659,7 +675,8 @@
           "createdAt": "2026-10-30T06:12:02.000Z",
           "excerpt": "### Bug type Behavior bug (incorrect output/state without crash) ### Summary An issued invoice that Xero refused sits on the Pending tab. Its page shows \"Pending\" and \"Not in Xero yet\", but not the reason. When the reaso"
         }
-      ]
+      ],
+      "titleZh": "每次暂挂或拒付都标明规则并关联命中项（修复已开具发票页面…"
     },
     {
       "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
@@ -689,7 +706,8 @@
           "createdAt": "2026-11-11T08:28:50.000Z",
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — option (a): build M8 as designed, then a separate small interim Xero pos"
         }
-      ]
+      ],
+      "titleZh": "将每笔 Stripe 手续费记为 Xero 支出、每次结算记为银行转账（临时过账方案…"
     },
     {
       "id": "invoice-export-quickbooks",
@@ -719,7 +737,8 @@
           "createdAt": "2026-11-11T13:16:35.000Z",
           "excerpt": "The Software-as-a-Service (SaaS) model has transformed software from something businesses could purchase and own into something they must continuously rent. QuickBooks Online is a perfect example of how this model can be"
         }
-      ]
+      ],
+      "titleZh": "QuickBooks 相关问题"
     },
     {
       "id": "scheduling-activity-links-one-shared-sign-up-host-matcher-f",
@@ -749,7 +768,8 @@
           "createdAt": "2026-11-11T19:30:31.000Z",
           "excerpt": "Asked by: Paul (`pdcarlson`), via the `/next` session for #4187 (deferred `/diff-review` finding), 2026-11-11. Epic: #4185. ### Agent brief `depth:standard` · `model:any` · `ultracode:no` ## Problem The list of sign-up h"
         }
-      ]
+      ],
+      "titleZh": "活动链接：为类型标签与标题抓取共用报名域名匹配器"
     },
     {
       "id": "scheduling-appointment-management",
@@ -781,7 +801,8 @@
           "createdAt": "2026-11-03T15:26:39.000Z",
           "excerpt": "As a supervisor, I want to be able to manage appointments by pressing a \"manage appointments\" button and thereby being taken to a page where I can see a calendar view of scheduled appointments, with the ability to cancel"
         }
-      ]
+      ],
+      "titleZh": "预约管理"
     },
     {
       "id": "solo-crm-crm",
@@ -811,7 +832,8 @@
           "createdAt": "2026-11-12T01:48:33.000Z",
           "excerpt": "import React, { useState, useEffect, useMemo } from 'react'; import { Users, MessageSquare, FileText, ShieldCheck, TrendingUp, Plus, Search, Send, Edit3, Trash2, CheckCircle, Clock, Car, User, LogOut, Lock, History, Info"
         }
-      ]
+      ],
+      "titleZh": "CRM 客户关系管理"
     },
     {
       "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
@@ -841,7 +863,8 @@
           "createdAt": "2026-11-11T15:50:49.000Z",
           "excerpt": "I'm integrating Meta (Facebook) Lead Ads with a custom CRM application using a Python Flask backend and Meta Graph API. The goal is to receive webhook notifications automatically whenever a lead is submitted through an I"
         }
-      ]
+      ],
+      "titleZh": "Python Flask webhook 收到 Meta Lead Ads 测试事件并返回 HTTP 200，却没有 POST 请求…"
     },
     {
       "id": "scheduling-appointment-booking-tasks",
@@ -880,7 +903,8 @@
           "createdAt": "2026-10-27T14:12:30.000Z",
           "excerpt": "Create appointment booking item Display available docters Display available time slots Implement book appointments Implement re-schedule appointmnets Implement cancel appointments Test appointment booking"
         }
-      ]
+      ],
+      "titleZh": "预约登记任务"
     },
     {
       "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
@@ -910,7 +934,8 @@
           "createdAt": "2026-11-10T21:34:20.000Z",
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Two of the app's incoming notification feeds can lose a messag"
         }
-      ]
+      ],
+      "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…"
     },
     {
       "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
@@ -940,7 +965,8 @@
           "createdAt": "2026-11-10T21:38:00.000Z",
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app sends membership subscription invoices and joining-fee"
         }
-      ]
+      ],
+      "titleZh": "订阅页面让未接 Xero 的俱乐部走进死胡同，还可能把发票排队发出…"
     },
     {
       "id": "invoice-export-xero-webhook-kicks-a-full-inbound-sync-that-igno",
@@ -970,7 +996,8 @@
           "createdAt": "2026-11-10T21:34:23.000Z",
           "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English When Xero tells the app that something changed, the app saves "
         }
-      ]
+      ],
+      "titleZh": "Xero webhook 触发全量入站同步，无视「同步正在进行」的判断…"
     },
     {
       "id": "scheduling-public-booking-phone-validation-and-booking-mana",
@@ -1000,7 +1027,8 @@
           "createdAt": "2026-11-09T13:04:54.000Z",
           "excerpt": "Merged from #335 and #365. Public booking validation and customer management. - **Phone validation (#335):** public bookings accept any non-empty phone up to 40 characters (\"abc\" was accepted in QA). Agree accepted forma"
         }
-      ]
+      ],
+      "titleZh": "公开预约的手机号校验与预约管理"
     },
     {
       "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
@@ -1030,7 +1058,8 @@
           "createdAt": "2026-11-09T03:45:56.000Z",
           "excerpt": "Part of the request scheduling epic (queues, priorities and KV-cache affinity). Add the `scheduling:` config block and a small store module that later items build on. - Config block as in the epic, with defaults and per-"
         }
-      ]
+      ],
+      "titleZh": "排期模块（1/9）：存储与配置"
     },
     {
       "id": "solo-crm-salesforce-bulk-a-remembered-job-salesforce-has-",
@@ -1060,7 +1089,8 @@
           "createdAt": "2026-11-09T09:49:25.000Z",
           "excerpt": "Found in #760 (PR #777). The Salesforce producer remembers a Bulk API job by envelope id so that a retry resumes it rather than submitting it twice. If Salesforce has deleted that job, the state read answers 404. Every a"
         }
-      ]
+      ],
+      "titleZh": "Salesforce Bulk：被 Salesforce 删除却仍被记住的任务永远无法恢复"
     },
     {
       "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
@@ -1090,7 +1120,8 @@
           "createdAt": "2026-11-10T14:26:06.000Z",
           "excerpt": "Zendesk can call MCP tools from action flows ([Connecting to MCP servers](https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows)), but only over HTTP w"
         }
-      ]
+      ],
+      "titleZh": "汇总：Zendesk 动作流连接的 HTTP + OAuth 支持"
     },
     {
       "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
@@ -1120,7 +1151,8 @@
           "createdAt": "2026-11-08T15:14:12.000Z",
           "excerpt": "I&#x27;m skeptical of how \"super paranoid\" you actually are. This doesn&#x27;t sound super paranoid. For instance: that&#x27;s a ton of surface area. Did you have your AI agent decide which endpoint is destructive or did"
         }
-      ]
+      ],
+      "titleZh": "Claude Code 的「不再询问」致 1,122 个公开 GitHub 文件泄露密码"
     },
     {
       "id": "scheduling-running-a-law-firm-on-free-software",
@@ -1150,7 +1182,8 @@
           "createdAt": "2026-11-07T15:47:58.000Z",
           "excerpt": "This is a fun blog idea, I&#x27;m going to steal it. I&#x27;ve been running a software engineering co-op for the last 5 years using only self hosted and FOSS software (outside of our email server and discord). The bulk o"
         }
-      ]
+      ],
+      "titleZh": "用自由软件运营律所"
     },
     {
       "id": "invoice-export-programme-xero-operation-row-claim-fencing",
@@ -1182,7 +1215,8 @@
           "createdAt": "2026-10-25T22:18:56.000Z",
           "excerpt": "Part of programme #4898. Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — Released: every formerly parked Xero and payment bug may be fixed now, ordered by harm, ahead of the ledger steps; this r"
         }
-      ]
+      ],
+      "titleZh": "项目：Xero 操作行认领隔离"
     },
     {
       "id": "scheduling-booking-rules",
@@ -1212,7 +1246,8 @@
           "createdAt": "2026-11-05T14:18:08.000Z",
           "excerpt": "## User story As the organization, I want clear booking rules so that rooms are used fairly. ## Description All bookings must follow these rules. All times are local time (Europe/Helsinki). - R1: A booking must lie withi"
         }
-      ]
+      ],
+      "titleZh": "预约规则"
     },
     {
       "id": "scheduling-how-can-i-make-a-bigdecimal-parallel-reduction-d",
@@ -1244,7 +1279,8 @@
           "createdAt": "2026-10-29T08:15:51.000Z",
           "excerpt": "I’m investigating how to aggregate signed monetary adjustments using Java 8 streams. My requirements are: Positive and negative adjustments can cancel each other. Calculations use a finite MathContext . The result should"
         }
-      ]
+      ],
+      "titleZh": "在有限 MathContext 下如何让 BigDecimal 并行归约结果确定…"
     },
     {
       "id": "support-transcripts-i-wish-tech-companies-knew-more-about-me",
@@ -1274,7 +1310,8 @@
           "createdAt": "2026-11-06T04:20:07.000Z",
           "excerpt": "The language thing shits me to tears. I lived in Germany for years but don&#x27;t speak German. I raised a support ticket with Spotify to ask that they stop sending me emails in German, as they full-well know I speak Eng"
         }
-      ]
+      ],
+      "titleZh": "希望科技公司能更了解我"
     }
   ]
 }

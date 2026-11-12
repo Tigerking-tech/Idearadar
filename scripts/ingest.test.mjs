@@ -19,6 +19,11 @@ import {
   recallMetrics,
   evaluateRecall,
   healthCheck,
+  SIGNAL_LABELS_ZH,
+  localizeSignalLabels,
+  quoteOf,
+  translationKey,
+  inheritTranslations,
 } from "./ingest-lib.mjs";
 
 test("clamp 边界与异常值", () => {
@@ -419,4 +424,62 @@ test("healthCheck 有 403 但主源仍有数据时不误杀", () => {
 
 test("healthCheck minHealthyItems<=0 可显式跳过数量检查（本地诊断）", () => {
   assert.deepEqual(healthCheck({ itemCount: 2, minHealthyItems: 0, sourceStats: [], errors: [] }), []);
+});
+
+/* ---------------- 内容层本地化：标签词典与译文缓存 ---------------- */
+
+test("localizeSignalLabels 映射已知枚举、保留未知标签、容忍非数组", () => {
+  assert.deepEqual(localizeSignalLabels(["manual", "broken", "integration"]), ["手工操作", "功能故障", "集成困难"]);
+  assert.deepEqual(localizeSignalLabels(["manual", "some_new_tag"]), ["手工操作", "some_new_tag"]);
+  assert.deepEqual(localizeSignalLabels(null), []);
+  assert.equal(Object.isFrozen(SIGNAL_LABELS_ZH), true);
+});
+
+test("quoteOf 取 evidence 首条摘要并截断，缺失时回退标题", () => {
+  const it = { title: "Fallback title", evidence: [{ excerpt: "  ### Feature Request I wish I could import CSV  " }] };
+  assert.equal(quoteOf(it), "### Feature Request I wish I could import CSV");
+  assert.equal(quoteOf({ title: "Fallback title", evidence: [] }), "Fallback title");
+  assert.equal(quoteOf({ title: "Fallback title" }), "Fallback title");
+  assert.equal(quoteOf({ title: "x".repeat(400) }).length, 240);
+});
+
+test("translationKey 稳定，且随 id / 标题 / 引语变化", () => {
+  const it = { id: "niche-a", title: "Import CSV", evidence: [{ excerpt: "I wish I could import CSV" }] };
+  const k = translationKey(it);
+  assert.equal(translationKey({ ...it }), k);
+  assert.notEqual(translationKey({ ...it, id: "niche-b" }), k);
+  assert.notEqual(translationKey({ ...it, title: "Export CSV" }), k);
+  assert.notEqual(translationKey({ ...it, evidence: [{ excerpt: "different quote" }] }), k);
+});
+
+test("inheritTranslations 同 id 同原文时继承译文并写入缓存键", () => {
+  const prev = [{ id: "niche-a", title: "Import CSV", titleZh: "导入 CSV", quoteZh: "希望能导入 CSV" }];
+  const next = [{ id: "niche-a", title: "Import CSV" }];
+  const out = inheritTranslations(prev, next);
+  assert.equal(out[0].titleZh, "导入 CSV");
+  assert.equal(out[0].quoteZh, "希望能导入 CSV");
+  assert.equal(out[0].translationKey, translationKey(next[0]));
+  assert.equal(next[0].titleZh, undefined, "不改动入参");
+});
+
+test("inheritTranslations 不继承改过标题的条目，也不继承过期缓存键", () => {
+  const prev = [
+    { id: "niche-a", title: "Import CSV", titleZh: "导入 CSV" },
+    { id: "niche-b", title: "Export CSV", titleZh: "导出 CSV", translationKey: "stale-key" },
+  ];
+  const next = [
+    { id: "niche-a", title: "Import XLSX" },
+    { id: "niche-b", title: "Export CSV" },
+    { id: "niche-c", title: "Sync CRM" },
+  ];
+  const out = inheritTranslations(prev, next);
+  assert.equal(out[0].titleZh, undefined, "标题变了绝不沿用旧译文");
+  assert.equal(out[1].titleZh, undefined, "旧缓存键与新原文不符时拒绝继承");
+  assert.equal(out[2].titleZh, undefined);
+});
+
+test("inheritTranslations 新条目自带译文时不被上一批覆盖", () => {
+  const prev = [{ id: "niche-a", title: "Import CSV", titleZh: "旧译文" }];
+  const next = [{ id: "niche-a", title: "Import CSV", titleZh: "人工修订译文" }];
+  assert.equal(inheritTranslations(prev, next)[0].titleZh, "人工修订译文");
 });

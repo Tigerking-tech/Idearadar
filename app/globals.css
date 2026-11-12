@@ -498,6 +498,19 @@ body {
 .rr-feed-explore:disabled { color: #aeb1bf; cursor: not-allowed; }
 .rr-feed-live-note { font-size: 11.5px; color: var(--rr-muted); text-align: center; margin-top: 12px; }
 .rr-feed-seed-note { font-size: 11px; line-height: 1.5; color: #8a8f9e; text-align: center; margin-top: 5px; padding: 0 8px; font-style: italic; }
+/* AI 译文标注 + 「查看原文 / 查看译文」切换（中文页实时数据专用） */
+.rr-feed-translate-note {
+  font-size: 11px; line-height: 1.6; color: #8a8f9e; text-align: center;
+  margin-top: 9px; padding: 0 8px; font-style: italic;
+}
+.rr-translate-toggle {
+  display: inline-block; margin-left: 4px; padding: 3px 10px;
+  border: 1px solid #d9dbeb; border-radius: 999px; background: #fff;
+  color: var(--rr-indigo); font-size: 11px; font-weight: 650; font-style: normal;
+  white-space: nowrap; cursor: pointer;
+}
+.rr-translate-toggle:hover { border-color: var(--rr-indigo); background: #f5f4ff; }
+.rr-translate-toggle[aria-pressed="true"] { background: #f0efff; border-color: var(--rr-indigo); }
 
 /* 类目标签 + 趋势芯片 */
 .rr-cat-badge {

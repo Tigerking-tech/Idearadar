@@ -14,6 +14,8 @@ on:
 
 permissions:
   contents: write
+  # 内容层本地化：用现成 GITHUB_TOKEN 调 GitHub Models，无新增 Secret。
+  models: read
 
 concurrency:
   group: ingest-opportunities
@@ -32,8 +34,8 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Unit-test scoring rules
-        run: node --test scripts/ingest.test.mjs
+      - name: Unit-test ingest and translation
+        run: node --test scripts/ingest.test.mjs scripts/translate.test.mjs
 
       # B2 门禁：用同一份 connector 跑「相关度 vs 时间」两种召回并写出 verdict。
       # 若相关度口径不达标，verdict=fallback，采集脚本会自动保留旧的时间排序，
@@ -62,6 +64,14 @@ jobs:
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           REDDIT_USER_AGENT: ${{ vars.REDDIT_USER_AGENT }}
         run: node scripts/ingest.mjs
+
+      # 方案 B：采集后把英文 title / quote 批量翻成中文写回产物。
+      # 增量翻译（按原文哈希缓存），失败/限流/端点不可用时只 warn 并保留英文，
+      # 绝不让翻译阻塞采集与数据提交。产物仍是原本那 6 个文件。
+      - name: Translate content to Chinese
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/translate.mjs
 
       - name: Upload structured output
         if: always()

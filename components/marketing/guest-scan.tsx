@@ -87,6 +87,10 @@ export function GuestScan({
   const t = d.tryPage;
   const zh = locale === "zh";
   const qMark: [string, string] = zh ? ["「", "」"] : ["“", "”"];
+  // 只有中文页且确实存在 AI 译文时才出现切换；英文页展示的本就是原文。
+  const hasTranslations = zh && signals.some((s) => s.translated);
+  const displayTitle = (s: Signal) => (showOriginal ? s.titleOriginal : s.title);
+  const displayQuote = (s: Signal) => (showOriginal ? s.quoteOriginal : s.quote);
 
   const [used, setUsed] = useState(0);
   const [ready, setReady] = useState(false);
@@ -96,6 +100,8 @@ export function GuestScan({
   const [step, setStep] = useState(0);
   const [results, setResults] = useState<Signal[] | null>(null);
   const [noMatch, setNoMatch] = useState(false);
+  /** 中文页「查看原文」开关：一键把所有 AI 译文切回英文证据原文。 */
+  const [showOriginal, setShowOriginal] = useState(false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
@@ -243,7 +249,7 @@ export function GuestScan({
                             {trendLabel(s.trend, d)}
                           </span>
                         </div>
-                        <h4 className="rr-feed-item-title">{s.title}</h4>
+                        <h4 className="rr-feed-item-title">{displayTitle(s)}</h4>
                         <div className="rr-feed-item-mid">
                           <Sparkline points={s.spark} trend={s.trend} />
                           <div className="rr-feed-item-score">
@@ -259,7 +265,7 @@ export function GuestScan({
                           type="button"
                           className="rr-feed-explore"
                           disabled={!ready || isRunning}
-                          onClick={() => runScan(s.title)}
+                          onClick={() => runScan(displayTitle(s))}
                         >
                           {t.exploreLabel} →
                         </button>
@@ -273,6 +279,20 @@ export function GuestScan({
                   {live && historySeeded && <p className="rr-feed-seed-note">{t.feedSeedNote}</p>}
                   {live && !historySeeded && !trendReady && <p className="rr-feed-seed-note">{t.feedTrendPending}</p>}
                   {live && recallSwitch && <p className="rr-feed-seed-note">{t.feedRecallSwitch}</p>}
+                  {/* AI 译文标注与「查看原文」切换：引语是证据链，必须能一键回看英文原文 */}
+                  {hasTranslations && (
+                    <p className="rr-feed-translate-note">
+                      {t.translatedNote}{" "}
+                      <button
+                        type="button"
+                        className="rr-translate-toggle"
+                        aria-pressed={showOriginal}
+                        onClick={() => setShowOriginal((v) => !v)}
+                      >
+                        {showOriginal ? t.viewTranslation : t.viewOriginal}
+                      </button>
+                    </p>
+                  )}
                 </section>
 
               {/* 方向浏览：没想法时直接点（解决冷启动），结果出现后仍常驻 */}
@@ -385,6 +405,16 @@ export function GuestScan({
                   <span className={`rr-chip ${live ? "rr-chip-green" : "rr-chip-blue"}`}>
                     {live ? t.liveTag : t.demoTag}
                   </span>
+                  {hasTranslations && (
+                    <button
+                      type="button"
+                      className="rr-translate-toggle"
+                      aria-pressed={showOriginal}
+                      onClick={() => setShowOriginal((v) => !v)}
+                    >
+                      {showOriginal ? t.viewTranslation : t.viewOriginal}
+                    </button>
+                  )}
                 </div>
                 <p className="rr-try-order-note">{t.resultOrderNote}</p>
                 {noMatch && <p className="rr-try-nomatch">{t.noMatch}</p>}
@@ -392,7 +422,7 @@ export function GuestScan({
                   <article className="rr-try-result" key={it.id}>
                     <div className="rr-try-result-top">
                       <span className="rr-try-rank">{String(i + 1).padStart(2, "0")}</span>
-                      <h4>{it.title}</h4>
+                      <h4>{displayTitle(it)}</h4>
                       <span className="rr-try-score" aria-label={`${t.scoreLabel} ${it.score}`}>
                         {it.score}<small>/100</small>
                       </span>
@@ -411,7 +441,7 @@ export function GuestScan({
                     </div>
                     <div className="rr-try-quote">
                       <span className="rr-try-label">{t.quoteLabel}</span>
-                      <p>{qMark[0]}{it.quote}{qMark[1]}</p>
+                      <p>{qMark[0]}{displayQuote(it)}{qMark[1]}</p>
                     </div>
                     <div className="rr-try-gap">
                       <span className="rr-try-label">{t.gapLabel}</span>

@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "ingest": "node scripts/ingest.mjs",
-    "test:ingest": "node --test scripts/ingest.test.mjs"
+    "test:ingest": "node --test scripts/ingest.test.mjs scripts/translate.test.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.3",

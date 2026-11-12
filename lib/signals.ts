@@ -9,7 +9,7 @@
  */
 
 import { GUEST_ITEMS_EN, GUEST_ITEMS_ZH } from "./guest-scan-data";
-import { classifyTrend } from "../scripts/ingest-lib.mjs";
+import { classifyTrend, localizeSignalLabels } from "../scripts/ingest-lib.mjs";
 
 export type TrendKind = "rising" | "steady" | "peaked";
 
@@ -77,11 +77,21 @@ export type Signal = {
   trend: TrendKind;
   /** 迷你曲线：0–1 归一化的 12 个点，用于 sparkline */
   spark: number[];
-  /** 逐字原话 / 证据摘要 */
+  /** 逐字原话 / 证据摘要（中文页可能是 AI 译文） */
   quote: string;
   /** 竞品空白 / 值得构建的机会 */
   gap: string;
+  /** 英文原文，供「查看原文」切换；演示数据下与 title/quote 相同 */
+  titleOriginal: string;
+  quoteOriginal: string;
+  /** 当前展示是否为 AI 译文（决定是否显示翻译标注与切换按钮） */
+  translated: boolean;
 };
+
+/** 只有真正含汉字的字符串才算有效译文，避免把英文/空串当译文缓存下来。 */
+function hasZhText(s: unknown): s is string {
+  return typeof s === "string" && /[\u3400-\u9fff]/.test(s);
+}
 
 /** 由字符串派生稳定的伪随机种子，保证同一 id 的曲线每次一致。 */
 function hashSeed(s: string): number {
@@ -215,6 +225,9 @@ function demoSignals(locale: "en" | "zh"): Signal[] {
     spark: sparkForTrend(it.id, trendFromScore(it.score)),
     quote: it.quote,
     gap: it.gap,
+    titleOriginal: it.title,
+    quoteOriginal: it.quote,
+    translated: false,
   }));
 }
 
@@ -231,6 +244,10 @@ type RawOpportunity = {
   breakdown?: { frequency?: number; intensity?: number; recency?: number; corroboration?: number; willingnessToPay?: number };
   evidence?: { excerpt?: string; url?: string; source?: string }[];
   signals?: string[];
+  /** 采集端翻译步骤写入的简体中文字段（方案 B）。缺失时中文页回退英文原文。 */
+  titleZh?: string;
+  quoteZh?: string;
+  translationKey?: string;
 };
 
 function norm(n: number | undefined, max = 20): number {
@@ -245,11 +262,26 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
   const score = typeof raw.score === "number" ? raw.score : 0;
   const sources = Array.isArray(raw.sources) ? raw.sources.map((s) => SOURCE_LABELS[s] ?? s) : [];
   const evidence = Array.isArray(raw.evidence) ? raw.evidence : [];
-  const quote = evidence[0]?.excerpt?.trim() || raw.title;
-  const gap =
+  const quoteEn = evidence[0]?.excerpt?.trim() || raw.title;
+  const titleEn = raw.title.replace(/\s*…\s*$/, "").slice(0, 160);
+  // 内容层本地化：优先取采集端写好的中文字段；缺失/无效时诚实回退英文，
+  // 并始终带上英文原文，供「查看原文」切换（证据链必须可回溯）。
+  const titleZh = hasZhText(raw.titleZh) ? raw.titleZh.trim().slice(0, 200) : null;
+  const quoteZh = hasZhText(raw.quoteZh) ? raw.quoteZh.trim().slice(0, 400) : null;
+  const useZh = locale === "zh" && Boolean(titleZh || quoteZh);
+  // signals 是固定枚举标签，用词典中文化即可，不交给翻译模型、不依赖网络。
+  const signalLabels =
     Array.isArray(raw.signals) && raw.signals.length
-      ? raw.signals.join("；")
-      : raw.nicheLabel || "现有产品在该方向持续栽跟头，尚无人完整接住。";
+      ? locale === "zh"
+        ? localizeSignalLabels(raw.signals)
+        : raw.signals
+      : [];
+  const gap = signalLabels.length
+    ? signalLabels.join("；")
+    : raw.nicheLabel ||
+      (locale === "zh"
+        ? "现有产品在该方向持续栽跟头，尚无人完整接住。"
+        : "Existing tools keep falling short here — nobody has fully solved it yet.");
   // 趋势：优先基于该 niche 的历史时序（多快照）；无 niche / 无历史时退回单快照启发式。
   const trend: TrendKind = raw.nicheId
     ? trendForNiche(raw.nicheId, history)
@@ -258,15 +290,18 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
   const spark = (raw.nicheId ? sparkFromHistory(raw.nicheId, history) : null) ?? sparkForTrend(id, trend);
   return {
     id,
-    title: raw.title.replace(/\s*…\s*$/, "").slice(0, 160),
+    title: useZh && titleZh ? titleZh : titleEn,
+    titleOriginal: titleEn,
     score,
     mentions: typeof raw.mentions === "number" ? raw.mentions : 0,
     sources,
     category: categoryFor(raw.nicheId, raw.nicheLabel || (sources[0] ?? "Signal"), locale),
     trend,
     spark,
-    quote,
+    quote: useZh && quoteZh ? quoteZh : quoteEn,
+    quoteOriginal: quoteEn,
     gap,
+    translated: useZh,
   };
 }
 
@@ -357,7 +392,8 @@ export function searchSignals(query: string, signals: Signal[], limit = 4) {
   const q = query.trim().toLowerCase();
   const tokens = q.split(/[\s,，、/|]+/).filter((t) => t.length >= 2);
   const scored = signals.map((it, idx) => {
-    const hay = `${it.title} ${it.category} ${it.gap} ${it.quote}`.toLowerCase();
+    // 中文页也能用中文词搜索；同时保留英文原文，中英混合查询都能命中。
+    const hay = `${it.title} ${it.titleOriginal} ${it.category} ${it.gap} ${it.quote} ${it.quoteOriginal}`.toLowerCase();
     let hits = 0;
     for (const t of tokens) if (hay.includes(t)) hits += 1;
     if (q.length >= 2 && hay.includes(q)) hits += 2;

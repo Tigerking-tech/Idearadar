@@ -12,7 +12,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { aggregateByNiche, appendHistory, buildOpportunities, healthCheck } from "./ingest-lib.mjs";
+import { aggregateByNiche, appendHistory, buildOpportunities, healthCheck, inheritTranslations } from "./ingest-lib.mjs";
 import { createCollector } from "./connectors.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -75,7 +75,20 @@ for (const niche of cfg.niches) {
 }
 
 opportunities.sort((a, b) => b.score - a.score || b.mentions - a.mentions || a.id.localeCompare(b.id));
-const items = opportunities.slice(0, cfg.maxItems);
+
+/**
+ * 译文缓存随产物文件走：本轮会整体重写 opportunities.json，先从上一批把
+ * 「同 id、同英文原文」的 titleZh/quoteZh 继承过来，避免每 6 小时全量重翻，
+ * 也避免翻译步骤偶发失败时把已有中文冲掉。零新增数据文件 = 不制造 rebase 冲突源。
+ */
+let prevItems = [];
+try {
+  const prev = JSON.parse(await fs.readFile(path.join(ROOT, "data", "opportunities.json"), "utf8"));
+  if (prev && Array.isArray(prev.items)) prevItems = prev.items;
+} catch {
+  prevItems = []; // 首次运行 / 产物损坏时按全新翻译处理
+}
+const items = inheritTranslations(prevItems, opportunities.slice(0, cfg.maxItems));
 
 const output = {
   schemaVersion: 1,

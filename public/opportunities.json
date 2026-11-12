@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T15:09:33.429Z",
+  "generatedAt": "2026-11-12T23:37:30.301Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -14,32 +14,32 @@
         "method": "relevance",
         "raw": 252,
         "itemCount": 6,
-        "recallTitleRate": 0.4722222222222222,
+        "recallTitleRate": 0.4801587301587302,
         "finalTitleRate": 0.6666666666666666
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 222,
-        "itemCount": 14,
-        "recallTitleRate": 0.5045045045045045,
-        "finalTitleRate": 0.7857142857142857
+        "raw": 223,
+        "itemCount": 13,
+        "recallTitleRate": 0.5022421524663677,
+        "finalTitleRate": 0.7692307692307693
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 240,
-        "itemCount": 3,
-        "recallTitleRate": 0.4583333333333333,
-        "finalTitleRate": 0.6666666666666666
+        "raw": 239,
+        "itemCount": 4,
+        "recallTitleRate": 0.4560669456066946,
+        "finalTitleRate": 0.75
       },
       {
         "niche": "scheduling",
         "method": "relevance",
-        "raw": 256,
-        "itemCount": 15,
-        "recallTitleRate": 0.625,
-        "finalTitleRate": 0.7333333333333333
+        "raw": 260,
+        "itemCount": 16,
+        "recallTitleRate": 0.5807692307692308,
+        "finalTitleRate": 0.6875
       }
     ]
   },
@@ -48,25 +48,25 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 432
+      "rows": 440
     },
     {
       "id": "so",
       "label": "Stack Exchange (official API)",
       "enabled": true,
-      "rows": 37
+      "rows": 36
     },
     {
       "id": "github",
       "label": "GitHub Issues (public REST API)",
       "enabled": true,
-      "rows": 500
+      "rows": 498
     },
     {
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 1
+      "rows": 0
     },
     {
       "id": "firstParty",
@@ -82,9 +82,9 @@
     }
   ],
   "totals": {
-    "rawRecords": 970,
+    "rawRecords": 974,
     "complaintRecords": 57,
-    "opportunities": 38
+    "opportunities": 39
   },
   "errors": [],
   "items": [
@@ -97,7 +97,7 @@
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 14.7,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -160,7 +160,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
-        "recency": 13.3,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -196,7 +196,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.3,
+        "recency": 14.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -231,7 +231,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -258,41 +258,6 @@
       "translationKey": "2b252w"
     },
     {
-      "id": "solo-crm-running-a-law-firm-on-free-software",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Running a law firm on Free software",
-      "score": 27,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 12.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-07T17:28:51.000Z",
-      "evidence": [
-        {
-          "title": "Running a law firm on Free software",
-          "url": "https://decoded.legal/blog/2026/11/running-a-law-firm-on-free-software-2026-edition/",
-          "source": "hn",
-          "createdAt": "2026-11-07T17:28:51.000Z",
-          "excerpt": "I&#x27;m jealous, I&#x27;d love to be able to do this. I am a small cog in a big legal machine so I am stuck with whatever tech stack my firm mandates. Outlook + Word + a bunch of incredibly unintuitive, slow, buggy and "
-        }
-      ],
-      "titleZh": "用自由软件运营律所",
-      "quoteZh": "真羡慕，我也想这么做。我只是大型律所里的一颗小螺丝钉，技术栈完全由所里指定：Outlook + Word，外加一堆极其反直觉、缓慢又满是缺陷的……",
-      "translationKey": "1q1cx2n"
-    },
-    {
       "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -301,7 +266,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.2,
+        "recency": 13.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -328,6 +293,41 @@
       "translationKey": "19lcdkv"
     },
     {
+      "id": "solo-crm-running-a-law-firm-on-free-software",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Running a law firm on Free software",
+      "score": 26,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 12.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-07T17:28:51.000Z",
+      "evidence": [
+        {
+          "title": "Running a law firm on Free software",
+          "url": "https://decoded.legal/blog/2026/11/running-a-law-firm-on-free-software-2026-edition/",
+          "source": "hn",
+          "createdAt": "2026-11-07T17:28:51.000Z",
+          "excerpt": "I&#x27;m jealous, I&#x27;d love to be able to do this. I am a small cog in a big legal machine so I am stuck with whatever tech stack my firm mandates. Outlook + Word + a bunch of incredibly unintuitive, slow, buggy and "
+        }
+      ],
+      "titleZh": "用自由软件运营律所",
+      "quoteZh": "真羡慕，我也想这么做。我只是大型律所里的一颗小螺丝钉，技术栈完全由所里指定：Outlook + Word，外加一堆极其反直觉、缓慢又满是缺陷的……",
+      "translationKey": "1q1cx2n"
+    },
+    {
       "id": "invoice-export-csv-export-for-timesheets-and-invoices",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -336,7 +336,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 13.5,
+        "recency": 13.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -371,7 +371,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 13.3,
+        "recency": 13.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -398,41 +398,6 @@
       "translationKey": "lhy25o"
     },
     {
-      "id": "scheduling-feature-appointment-rescheduling",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "FEATURE: Appointment Rescheduling",
-      "score": 25,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 13.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T13:33:12.000Z",
-      "evidence": [
-        {
-          "title": "FEATURE: Appointment Rescheduling",
-          "url": "https://github.com/Lorenzo0315/directorscut-client/issues/10",
-          "source": "github",
-          "createdAt": "2026-11-09T13:33:12.000Z",
-          "excerpt": "Type: Feature Where: My Appointments Module Description: Add a Reschedule Appointment feature that allows customers to change their existing appointment date and time without having to cancel their booking and create a n"
-        }
-      ],
-      "titleZh": "功能需求：预约改期",
-      "quoteZh": "类型：功能。位置：我的预约模块。描述：增加预约改期功能，让客户无需先取消订单再重新下单，就能修改已有预约的日期与时间，而不必……",
-      "translationKey": "1lgqcw8"
-    },
-    {
       "id": "invoice-export-banking-app-transaction-multi-currency",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -441,7 +406,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 10.1,
+        "recency": 10,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -476,7 +441,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 12,
+        "recency": 11.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -503,15 +468,108 @@
       "translationKey": "c9813y"
     },
     {
+      "id": "invoice-export-expense-inconsistent-behavior-on-ws-and-self-dm-",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Expense - Inconsistent behavior on WS and Self DM expense creation if editing report field.",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T11:19:58.000Z",
+      "evidence": [
+        {
+          "title": "Expense - Inconsistent behavior on WS and Self DM expense creation if editing report field.",
+          "url": "https://github.com/Expensify/App/issues/106701",
+          "source": "github",
+          "createdAt": "2026-11-12T11:19:58.000Z",
+          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
+        }
+      ]
+    },
+    {
+      "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Expense - Report list cannot be navigated via keyboard",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T11:29:02.000Z",
+      "evidence": [
+        {
+          "title": "Expense - Report list cannot be navigated via keyboard",
+          "url": "https://github.com/Expensify/App/issues/106702",
+          "source": "github",
+          "createdAt": "2026-11-12T11:29:02.000Z",
+          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T03:46:02.000Z",
+      "evidence": [
+        {
+          "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
+          "url": "https://github.com/UTDallasEPICS/the-samaritan-inn/issues/145",
+          "source": "github",
+          "createdAt": "2026-11-12T03:46:02.000Z",
+          "excerpt": "## Description Add a Calendly Link textbox to the Admin Profile page, allowing admins to easily update the Calendly URL through the UI without needing to modify the codebase. Store the link in the database and overwrite "
+        }
+      ],
+      "titleZh": "在管理员资料页增加 Calendly 链接输入框，并修复气泡首页缺陷",
+      "quoteZh": "描述：在管理员资料页增加 Calendly 链接输入框，让管理员无需改代码即可通过界面更新 Calendly URL。链接存入数据库并覆盖……",
+      "translationKey": "bfqf7a"
+    },
+    {
       "id": "scheduling-endpoint-delete-bookings-booking-id",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
       "title": "Endpoint: DELETE /bookings/{booking_id}",
-      "score": 24,
+      "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.6,
+        "recency": 11.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -542,11 +600,11 @@
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
       "title": "Endpoint: GET /bookings/{booking_id}",
-      "score": 24,
+      "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.6,
+        "recency": 11.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -577,11 +635,11 @@
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
       "title": "Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregulate Healthcare",
-      "score": 24,
+      "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.6,
+        "recency": 9.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -608,200 +666,34 @@
       "translationKey": "ti9css"
     },
     {
-      "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Batches, balancing transfers, holds and multi-currency",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 8.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-31T06:39:41.000Z",
-      "evidence": [
-        {
-          "title": "Batches, balancing transfers, holds and multi-currency",
-          "url": "https://github.com/laiwf94/ledgerd/issues/26",
-          "source": "github",
-          "createdAt": "2026-10-31T06:39:41.000Z",
-          "excerpt": "**Week 3 of 52** · Mon 16 Nov 2026 to Sun 22 Nov 2026 ## Why Marketplace payouts need several transfers to happen together, sweeps fail on short balances, holds cannot grow, and a currency conversion is two separate entr"
-        }
-      ],
-      "titleZh": "批量处理、平衡转账、暂挂与多币种",
-      "quoteZh": "第 3 周（共 52 周）· 2026-11-16 至 2026-11-22。为什么：市场平台结算需要多笔转账同时完成，余额不足会导致归集失败，暂挂金额不能增长，而一次币种兑换要拆成两笔分录……",
-      "translationKey": "1p5th3o"
-    },
-    {
-      "id": "invoice-export-expense-inconsistent-behavior-on-ws-and-self-dm-",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Expense - Inconsistent behavior on WS and Self DM expense creation if editing report field.",
+      "id": "scheduling-openai-structured-outputs-model-returns-null-or-",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "OpenAI structured outputs: model returns null or skips values that exist in the source text…",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
       "mentions": 1,
       "sources": [
-        "github"
+        "so"
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-12T11:19:58.000Z",
+      "lastSeen": "2026-11-12T22:34:28.000Z",
       "evidence": [
         {
-          "title": "Expense - Inconsistent behavior on WS and Self DM expense creation if editing report field.",
-          "url": "https://github.com/Expensify/App/issues/106701",
-          "source": "github",
-          "createdAt": "2026-11-12T11:19:58.000Z",
-          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
+          "title": "OpenAI structured outputs: model returns null or skips values that exist in the source text during email data extraction",
+          "url": "https://stackoverflow.com/questions/80016369/openai-structured-outputs-model-returns-null-or-skips-values-that-exist-in-the",
+          "source": "so",
+          "createdAt": "2026-11-12T22:34:28.000Z",
+          "excerpt": "I am currently working on an application where we get an email, and after identification, we process that email with AI, where a response is required in JSON format for the values. Initially, I used a strict JSON schema "
         }
       ]
-    },
-    {
-      "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Expense - Report list cannot be navigated via keyboard",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T11:29:02.000Z",
-      "evidence": [
-        {
-          "title": "Expense - Report list cannot be navigated via keyboard",
-          "url": "https://github.com/Expensify/App/issues/106702",
-          "source": "github",
-          "createdAt": "2026-11-12T11:29:02.000Z",
-          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
-        }
-      ]
-    },
-    {
-      "id": "scheduling-activity-links-one-shared-sign-up-host-matcher-f",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Activity links: one shared sign-up host matcher for the kind label and the title fetch",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T19:30:31.000Z",
-      "evidence": [
-        {
-          "title": "Activity links: one shared sign-up host matcher for the kind label and the title fetch",
-          "url": "https://github.com/pdcarlson/Frapp/issues/4215",
-          "source": "github",
-          "createdAt": "2026-11-11T19:30:31.000Z",
-          "excerpt": "Asked by: Paul (`pdcarlson`), via the `/next` session for #4187 (deferred `/diff-review` finding), 2026-11-11. Epic: #4185. ### Agent brief `depth:standard` · `model:any` · `ultracode:no` ## Problem The list of sign-up h"
-        }
-      ],
-      "titleZh": "活动链接：为类型标签与标题抓取共用报名域名匹配器",
-      "quoteZh": "由 Paul（pdcarlson）在 #4187 的 /next 会话中提出（/diff-review 延期发现，2026-11-11），所属史诗 #4185。智能体简述：depth:standard · model:any · ultracode:no。问题：报名主机列表……",
-      "translationKey": "znqbr"
-    },
-    {
-      "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T03:46:02.000Z",
-      "evidence": [
-        {
-          "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
-          "url": "https://github.com/UTDallasEPICS/the-samaritan-inn/issues/145",
-          "source": "github",
-          "createdAt": "2026-11-12T03:46:02.000Z",
-          "excerpt": "## Description Add a Calendly Link textbox to the Admin Profile page, allowing admins to easily update the Calendly URL through the UI without needing to modify the codebase. Store the link in the database and overwrite "
-        }
-      ],
-      "titleZh": "在管理员资料页增加 Calendly 链接输入框，并修复气泡首页缺陷",
-      "quoteZh": "描述：在管理员资料页增加 Calendly 链接输入框，让管理员无需改代码即可通过界面更新 Calendly URL。链接存入数据库并覆盖……",
-      "translationKey": "bfqf7a"
-    },
-    {
-      "id": "scheduling-appointment-management",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment management",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 10.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-03T15:26:39.000Z",
-      "evidence": [
-        {
-          "title": "Appointment management",
-          "url": "https://github.com/NicolasDubray/NPJL/issues/84",
-          "source": "github",
-          "createdAt": "2026-11-03T15:26:39.000Z",
-          "excerpt": "As a supervisor, I want to be able to manage appointments by pressing a \"manage appointments\" button and thereby being taken to a page where I can see a calendar view of scheduled appointments, with the ability to cancel"
-        }
-      ],
-      "titleZh": "预约管理",
-      "quoteZh": "作为主管，我希望能点管理预约按钮进入一个页面，以日历视图查看已排定的预约，并能取消……",
-      "translationKey": "1oxufvs"
     },
     {
       "id": "solo-crm-crm",
@@ -812,7 +704,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.7,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -837,37 +729,34 @@
       "translationKey": "22yq12"
     },
     {
-      "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request…",
+      "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Split chat-runtime's transcript and commands",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
       "mentions": 1,
       "sources": [
-        "so"
+        "github"
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:50:49.000Z",
+      "lastSeen": "2026-11-12T22:31:08.000Z",
       "evidence": [
         {
-          "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request arrives for generated test leads",
-          "url": "https://stackoverflow.com/questions/80016032/python-flask-webhook-receives-meta-lead-ads-test-event-with-http-200-but-no-pos",
-          "source": "so",
-          "createdAt": "2026-11-11T15:50:49.000Z",
-          "excerpt": "I'm integrating Meta (Facebook) Lead Ads with a custom CRM application using a Python Flask backend and Meta Graph API. The goal is to receive webhook notifications automatically whenever a lead is submitted through an I"
+          "title": "Split chat-runtime's transcript and commands",
+          "url": "https://github.com/ejjsharpe/moonbase/issues/281",
+          "source": "github",
+          "createdAt": "2026-11-12T22:31:08.000Z",
+          "excerpt": "Parent epic: #273. Planning ticket **CL-08**. Track A. ## Dependencies CL-07 #280. ## Problem and outcome `chat-runtime/src/transcript.ts` (1,136 lines) and `commands.ts` (917) are over the 600-line limit and mix concern"
         }
-      ],
-      "titleZh": "Python Flask webhook 收到 Meta Lead Ads 测试事件并返回 HTTP 200，却没有 POST 请求…",
-      "quoteZh": "我在用 Python Flask 后端 + Meta Graph API 把 Meta（Facebook）Lead Ads 接入自研 CRM，目标是线索表单提交后自动收到 webhook 通知……",
-      "translationKey": "1rlcx53"
+      ]
     },
     {
       "id": "scheduling-appointment-booking-tasks",
@@ -878,7 +767,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 4,
-        "recency": 7,
+        "recency": 6.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -920,7 +809,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.1,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -953,7 +842,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 8.3,
+        "recency": 8.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -988,7 +877,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1021,7 +910,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1054,7 +943,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.1,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1087,7 +976,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.1,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1112,6 +1001,137 @@
       "translationKey": "15thzz0"
     },
     {
+      "id": "scheduling-61-docs-document-the-scheduling-context-in-docs-",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T19:35:03.000Z",
+      "evidence": [
+        {
+          "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
+          "url": "https://github.com/polaeskandar/khmh-koeln-app-frontend/issues/297",
+          "source": "github",
+          "createdAt": "2026-11-10T19:35:03.000Z",
+          "excerpt": "Document the Meetings context in `docs/features/meetings.md`, so its features, rules and code can be found and understood without reading the whole codebase. It covers the agenda, schedules (create, edit, pause), session"
+        }
+      ]
+    },
+    {
+      "id": "scheduling-activity-links-one-shared-sign-up-host-matcher-f",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Activity links: one shared sign-up host matcher for the kind label and the title fetch",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T19:30:31.000Z",
+      "evidence": [
+        {
+          "title": "Activity links: one shared sign-up host matcher for the kind label and the title fetch",
+          "url": "https://github.com/pdcarlson/Frapp/issues/4215",
+          "source": "github",
+          "createdAt": "2026-11-11T19:30:31.000Z",
+          "excerpt": "Asked by: Paul (`pdcarlson`), via the `/next` session for #4187 (deferred `/diff-review` finding), 2026-11-11. Epic: #4185. ### Agent brief `depth:standard` · `model:any` · `ultracode:no` ## Problem The list of sign-up h"
+        }
+      ],
+      "titleZh": "活动链接：为类型标签与标题抓取共用报名域名匹配器",
+      "quoteZh": "由 Paul（pdcarlson）在 #4187 的 /next 会话中提出（/diff-review 延期发现，2026-11-11），所属史诗 #4185。智能体简述：depth:standard · model:any · ultracode:no。问题：报名主机列表……",
+      "translationKey": "znqbr"
+    },
+    {
+      "id": "scheduling-appointment-management",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Appointment management",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 10.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-03T15:26:39.000Z",
+      "evidence": [
+        {
+          "title": "Appointment management",
+          "url": "https://github.com/NicolasDubray/NPJL/issues/84",
+          "source": "github",
+          "createdAt": "2026-11-03T15:26:39.000Z",
+          "excerpt": "As a supervisor, I want to be able to manage appointments by pressing a \"manage appointments\" button and thereby being taken to a page where I can see a calendar view of scheduled appointments, with the ability to cancel"
+        }
+      ],
+      "titleZh": "预约管理",
+      "quoteZh": "作为主管，我希望能点管理预约按钮进入一个页面，以日历视图查看已排定的预约，并能取消……",
+      "translationKey": "1oxufvs"
+    },
+    {
+      "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request…",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "so"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T15:50:49.000Z",
+      "evidence": [
+        {
+          "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request arrives for generated test leads",
+          "url": "https://stackoverflow.com/questions/80016032/python-flask-webhook-receives-meta-lead-ads-test-event-with-http-200-but-no-pos",
+          "source": "so",
+          "createdAt": "2026-11-11T15:50:49.000Z",
+          "excerpt": "I'm integrating Meta (Facebook) Lead Ads with a custom CRM application using a Python Flask backend and Meta Graph API. The goal is to receive webhook notifications automatically whenever a lead is submitted through an I"
+        }
+      ],
+      "titleZh": "Python Flask webhook 收到 Meta Lead Ads 测试事件并返回 HTTP 200，却没有 POST 请求…",
+      "quoteZh": "我在用 Python Flask 后端 + Meta Graph API 把 Meta（Facebook）Lead Ads 接入自研 CRM，目标是线索表单提交后自动收到 webhook 通知……",
+      "translationKey": "1rlcx53"
+    },
+    {
       "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -1120,7 +1140,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1153,7 +1173,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13,
+        "recency": 12.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1186,7 +1206,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.5,
+        "recency": 13.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1211,39 +1231,6 @@
       "translationKey": "4mo5pg"
     },
     {
-      "id": "scheduling-running-a-law-firm-on-free-software",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Running a law firm on Free software",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-07T15:47:58.000Z",
-      "evidence": [
-        {
-          "title": "Running a law firm on Free software",
-          "url": "https://decoded.legal/blog/2026/11/running-a-law-firm-on-free-software-2026-edition/",
-          "source": "hn",
-          "createdAt": "2026-11-07T15:47:58.000Z",
-          "excerpt": "This is a fun blog idea, I&#x27;m going to steal it. I&#x27;ve been running a software engineering co-op for the last 5 years using only self hosted and FOSS software (outside of our email server and discord). The bulk o"
-        }
-      ],
-      "titleZh": "用自由软件运营律所",
-      "quoteZh": "这个博客点子挺有意思，我打算借用。过去 5 年我一直用纯自托管和 FOSS 软件运营一家软件工程合作社（邮件服务器和 Discord 除外），大部分……",
-      "translationKey": "18zgbi"
-    },
-    {
       "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1252,7 +1239,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.3,
+        "recency": 13.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1285,7 +1272,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.4,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1318,7 +1305,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 6.1,
+        "recency": 6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1353,7 +1340,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 7.9,
+        "recency": 7.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1380,6 +1367,39 @@
       "translationKey": "85vlx6"
     },
     {
+      "id": "scheduling-running-a-law-firm-on-free-software",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Running a law firm on Free software",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-07T15:47:58.000Z",
+      "evidence": [
+        {
+          "title": "Running a law firm on Free software",
+          "url": "https://decoded.legal/blog/2026/11/running-a-law-firm-on-free-software-2026-edition/",
+          "source": "hn",
+          "createdAt": "2026-11-07T15:47:58.000Z",
+          "excerpt": "This is a fun blog idea, I&#x27;m going to steal it. I&#x27;ve been running a software engineering co-op for the last 5 years using only self hosted and FOSS software (outside of our email server and discord). The bulk o"
+        }
+      ],
+      "titleZh": "用自由软件运营律所",
+      "quoteZh": "这个博客点子挺有意思，我打算借用。过去 5 年我一直用纯自托管和 FOSS 软件运营一家软件工程合作社（邮件服务器和 Discord 除外），大部分……",
+      "translationKey": "18zgbi"
+    },
+    {
       "id": "support-transcripts-i-wish-tech-companies-knew-more-about-me",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -1388,7 +1408,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 11.8,
+        "recency": 11.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1415,16 +1435,16 @@
   ],
   "translation": {
     "model": "openai/gpt-4o-mini",
-    "at": "2026-11-12T15:10:26.111Z",
+    "at": "2026-11-12T23:38:20.141Z",
     "status": "skipped",
     "skippedReason": "推理端点返回 text/plain 而非 JSON（疑似被网络出口拦截或 GitHub Models 未启用）",
     "errors": [
       "推理端点返回 text/plain 而非 JSON（疑似被网络出口拦截或 GitHub Models 未启用）"
     ],
-    "total": 38,
-    "cached": 36,
+    "total": 39,
+    "cached": 34,
     "translated": 0,
-    "failed": 2,
+    "failed": 5,
     "requests": 0
   }
 }

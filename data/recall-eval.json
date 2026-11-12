@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-12T15:06:45.587Z",
+  "evaluatedAt": "2026-11-12T23:34:42.743Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 981,
-      "itemCount": 38,
-      "recallHits": 511,
+      "raw": 976,
+      "itemCount": 39,
+      "recallHits": 505,
       "finalHits": 28,
-      "recallTitleRate": 0.5208970438328236,
-      "finalTitleRate": 0.7368421052631579
+      "recallTitleRate": 0.5174180327868853,
+      "finalTitleRate": 0.717948717948718
     },
     "legacy": {
-      "raw": 976,
+      "raw": 962,
       "itemCount": 60,
-      "recallHits": 98,
-      "finalHits": 16,
-      "recallTitleRate": 0.10040983606557377,
-      "finalTitleRate": 0.26666666666666666
+      "recallHits": 108,
+      "finalHits": 9,
+      "recallTitleRate": 0.11226611226611227,
+      "finalTitleRate": 0.15
     }
   },
   "perNiche": {
@@ -37,7 +37,7 @@
         "niche": "solo-crm",
         "raw": 252,
         "itemCount": 6,
-        "recallTitleRate": 0.4722222222222222,
+        "recallTitleRate": 0.4801587301587302,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
           "raw": 252,
@@ -47,88 +47,88 @@
       },
       {
         "niche": "invoice-export",
-        "raw": 225,
-        "itemCount": 14,
-        "recallTitleRate": 0.49777777777777776,
-        "finalTitleRate": 0.7857142857142857,
+        "raw": 222,
+        "itemCount": 13,
+        "recallTitleRate": 0.5045045045045045,
+        "finalTitleRate": 0.7692307692307693,
         "stats": {
-          "raw": 225,
-          "complaintRecords": 18,
-          "items": 14
+          "raw": 222,
+          "complaintRecords": 17,
+          "items": 13
         }
       },
       {
         "niche": "support-transcripts",
         "raw": 240,
-        "itemCount": 3,
-        "recallTitleRate": 0.4583333333333333,
-        "finalTitleRate": 0.6666666666666666,
+        "itemCount": 4,
+        "recallTitleRate": 0.45416666666666666,
+        "finalTitleRate": 0.75,
         "stats": {
           "raw": 240,
-          "complaintRecords": 6,
-          "items": 3
+          "complaintRecords": 5,
+          "items": 4
         }
       },
       {
         "niche": "scheduling",
-        "raw": 264,
-        "itemCount": 15,
-        "recallTitleRate": 0.6439393939393939,
-        "finalTitleRate": 0.7333333333333333,
+        "raw": 262,
+        "itemCount": 16,
+        "recallTitleRate": 0.6221374045801527,
+        "finalTitleRate": 0.6875,
         "stats": {
-          "raw": 264,
-          "complaintRecords": 28,
-          "items": 15
+          "raw": 262,
+          "complaintRecords": 29,
+          "items": 16
         }
       }
     ],
     "legacy": [
       {
         "niche": "solo-crm",
-        "raw": 252,
-        "itemCount": 10,
-        "recallTitleRate": 0.07142857142857142,
-        "finalTitleRate": 0.4,
+        "raw": 239,
+        "itemCount": 9,
+        "recallTitleRate": 0.10460251046025104,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 252,
-          "complaintRecords": 12,
-          "items": 10
+          "raw": 239,
+          "complaintRecords": 9,
+          "items": 9
         }
       },
       {
         "niche": "invoice-export",
         "raw": 222,
-        "itemCount": 27,
-        "recallTitleRate": 0.12612612612612611,
-        "finalTitleRate": 0.25925925925925924,
+        "itemCount": 18,
+        "recallTitleRate": 0.11711711711711711,
+        "finalTitleRate": 0.16666666666666666,
         "stats": {
           "raw": 222,
-          "complaintRecords": 29,
-          "items": 27
+          "complaintRecords": 19,
+          "items": 18
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 240,
-        "itemCount": 23,
-        "recallTitleRate": 0.08333333333333333,
-        "finalTitleRate": 0.08695652173913043,
+        "raw": 241,
+        "itemCount": 16,
+        "recallTitleRate": 0.1037344398340249,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 240,
-          "complaintRecords": 23,
-          "items": 23
+          "raw": 241,
+          "complaintRecords": 16,
+          "items": 16
         }
       },
       {
         "niche": "scheduling",
-        "raw": 262,
-        "itemCount": 24,
-        "recallTitleRate": 0.12213740458015267,
-        "finalTitleRate": 0.25,
+        "raw": 260,
+        "itemCount": 28,
+        "recallTitleRate": 0.12307692307692308,
+        "finalTitleRate": 0.21428571428571427,
         "stats": {
-          "raw": 262,
-          "complaintRecords": 25,
-          "items": 24
+          "raw": 260,
+          "complaintRecords": 33,
+          "items": 28
         }
       }
     ]
@@ -156,14 +156,14 @@
         "titleHit": true
       },
       {
-        "title": "Running a law firm on Free software",
-        "niche": "solo-crm",
-        "titleHit": false
-      },
-      {
         "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
         "niche": "support-transcripts",
         "titleHit": true
+      },
+      {
+        "title": "Running a law firm on Free software",
+        "niche": "solo-crm",
+        "titleHit": false
       },
       {
         "title": "CSV export for timesheets and invoices",
@@ -178,14 +178,9 @@
     ],
     "legacy": [
       {
-        "title": "Several rubric matchers reject correct answers (Slack channel-name lookup, numeric suffix…",
-        "niche": "solo-crm",
-        "titleHit": false
-      },
-      {
-        "title": "Purchase Invoice with Is Paid fills Paid Amount from the outstanding, in the wrong currency",
+        "title": "Done-bar passes: owner, driver and customer on production at iPhone size",
         "niche": "invoice-export",
-        "titleHit": true
+        "titleHit": false
       },
       {
         "title": "Several rubric matchers reject correct answers (Slack channel-name lookup, numeric suffix…",
@@ -193,27 +188,32 @@
         "titleHit": false
       },
       {
-        "title": "Wait for initial fixture identity before refusing reuse",
+        "title": "Reconciliation job for bookings whose email was never sent",
         "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "Channels: second approval in one Mattermost run fails on resume with ModelRequestRejectedError…",
+        "title": "bug: VIN demo template no longer matches search placeholder",
         "niche": "solo-crm",
         "titleHit": false
       },
       {
-        "title": "HubSpot node: stage and ticket-pipeline lists still call Pipelines API V1 (/crm-pipelines/v1)…",
+        "title": "Get Many Objects fails after the first page when Order By is empty",
         "niche": "solo-crm",
-        "titleHit": true
+        "titleHit": false
       },
       {
-        "title": "CRD export lowercases plan keys, causing GKO to replace existing plans and close their…",
+        "title": "Deleting an application fails with HTTP 500 when one of its subscriptions has no API reference",
         "niche": "support-transcripts",
         "titleHit": false
       },
       {
-        "title": "Customer cannot open their own ticket when owner/raised_by differs from the login email only by…",
+        "title": "GKO 4.13] CORS configuration of HTTP listeners is dropped when syncing an ApiV4Definition to…",
+        "niche": "support-transcripts",
+        "titleHit": false
+      },
+      {
+        "title": "LLM Proxy VERTEX_AI: valid responseJsonSchema with a type list is converted into an invalid…",
         "niche": "support-transcripts",
         "titleHit": false
       }

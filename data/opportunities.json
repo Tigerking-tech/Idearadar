@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T23:30:14.079Z",
+  "generatedAt": "2026-11-12T00:37:53.746Z",
   "lookbackDays": 30,
   "minScore": 20,
   "connectors": [
@@ -8,7 +8,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 107
+      "rows": 105
     },
     {
       "id": "so",
@@ -42,9 +42,9 @@
     }
   ],
   "totals": {
-    "rawRecords": 342,
+    "rawRecords": 340,
     "complaintRecords": 63,
-    "opportunities": 37
+    "opportunities": 42
   },
   "errors": [],
   "items": [
@@ -81,93 +81,41 @@
       ]
     },
     {
-      "id": "solo-crm-united-airlines-bans-ai-agents-from-booking-flig",
+      "id": "solo-crm-nvidia-is-preparing-to-oust-jensen-huang",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-      "score": 40,
+      "title": "Nvidia is preparing to oust Jensen Huang",
+      "score": 32,
       "breakdown": {
-        "frequency": 9,
-        "intensity": 11,
+        "frequency": 6,
+        "intensity": 6,
         "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
-      "mentions": 3,
+      "mentions": 2,
       "sources": [
         "hn"
       ],
       "signals": [
-        "frustration",
-        "wish"
+        "frustration"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T23:00:17.000Z",
+      "lastSeen": "2026-11-12T00:32:58.000Z",
       "evidence": [
         {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "title": "Nvidia is preparing to oust Jensen Huang",
+          "url": "https://www.wsj.com/business/nvidia-is-preparing-to-oust-nvidia-ceo-jensen-huang-30f421ad",
           "source": "hn",
-          "createdAt": "2026-11-11T22:29:41.000Z",
-          "excerpt": "> I wish the simple “you have a product, I have money” relationship was possible It is still but you&#x27;re not shopping around prices based off \"you have a product, I have money\". You&#x27;re shopping around because \"y"
+          "createdAt": "2026-11-11T23:50:42.000Z",
+          "excerpt": "I still recall, as a young engineer (1999) working in a high-flying startup outside of Boston -- bright-eyed and bushy-tailed and full of naive optimism -- I flew to Houston in late &#x27;99 to demo a fabulous optical ne"
         },
         {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "title": "Nvidia is preparing to oust Jensen Huang",
+          "url": "https://www.wsj.com/business/nvidia-is-preparing-to-oust-nvidia-ceo-jensen-huang-30f421ad",
           "source": "hn",
-          "createdAt": "2026-11-11T22:36:16.000Z",
-          "excerpt": "Some of us have an adversarial problem with AI. I create things for humans. I don&#x27;t want your AI on my website or reading my documents. How do they plan to stop you? I don&#x27;t know but the punishment would be can"
-        },
-        {
-          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
-          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-          "source": "hn",
-          "createdAt": "2026-11-11T23:00:17.000Z",
-          "excerpt": "Good, I hate this world where planning and micro optimizing my life has so much advantage over living in the moment, I want my AI to deal with all that (and restaurant reservations, credit card churning, etc) I can live "
-        }
-      ]
-    },
-    {
-      "id": "solo-crm-100x-developers",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "100x Developers",
-      "score": 29,
-      "breakdown": {
-        "frequency": 9,
-        "intensity": 0,
-        "recency": 15,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 3,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T23:29:25.000Z",
-      "evidence": [
-        {
-          "title": "100x Developers",
-          "url": "https://jcarreras.es/posts/100x-developers/",
-          "source": "hn",
-          "createdAt": "2026-11-11T17:55:13.000Z",
-          "excerpt": "In case some contrarian climbs out of the woodwork to yell \"umm aktually it&#x27;s just a metaphor! nobody would actually think that\", let me introduce you to Garry Tan and his 100x AI dev [0]. | Task type | Human team |"
-        },
-        {
-          "title": "100x Developers",
-          "url": "https://jcarreras.es/posts/100x-developers/",
-          "source": "hn",
-          "createdAt": "2026-11-11T23:29:25.000Z",
-          "excerpt": "I&#x27;ll list two. These projects are hyper-niche and were developed to satisfy my own needs. They have a user base of 1 (me). Print gallery transform: https:&#x2F;&#x2F;github.com&#x2F;abetusk&#x2F;CursedLogic&#x2F;tre"
-        },
-        {
-          "title": "100x Developers",
-          "url": "https://jcarreras.es/posts/100x-developers/",
-          "source": "hn",
-          "createdAt": "2026-11-11T23:29:25.000Z",
-          "excerpt": "I&#x27;ll list two. These projects are hyper-niche and were developed to satisfy my own needs. They have a user base of 1 (me). Print gallery transform: https:&#x2F;&#x2F;github.com&#x2F;abetusk&#x2F;CursedLogic&#x2F;tre"
+          "createdAt": "2026-11-12T00:32:58.000Z",
+          "excerpt": "Thanks. I have my popcorn in hand but... so far it looks mostly terrible for the commerce department. Huang? I don&#x27;t know. Maybe the board knows more, and that&#x27;s why they are \"preparing to oust\" him. Or maybe i"
         }
       ]
     },
@@ -212,7 +160,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -244,7 +192,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -268,10 +216,10 @@
       ]
     },
     {
-      "id": "support-transcripts-public-assistant-messages-are-missing-from-the-a",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Public assistant messages are missing from the app history while visible in ChatGPT Web",
+      "id": "solo-crm-united-airlines-bans-ai-agents-from-booking-flig",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
       "score": 29,
       "breakdown": {
         "frequency": 3,
@@ -282,32 +230,32 @@
       },
       "mentions": 1,
       "sources": [
-        "github"
+        "hn"
       ],
       "signals": [
-        "broken"
+        "frustration"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T21:56:57.000Z",
+      "lastSeen": "2026-11-11T23:00:17.000Z",
       "evidence": [
         {
-          "title": "Public assistant messages are missing from the app history while visible in ChatGPT Web",
-          "url": "https://github.com/totec448-spec/chat-on-steroids/issues/2157",
-          "source": "github",
-          "createdAt": "2026-11-11T21:56:57.000Z",
-          "excerpt": "### A bug, not a feature - [x] This is a bug in something the app already does ### App version 2.1.52, with companion extension 2.1.52. Also observed on app/extension 2.1.51. ### Latest release - [x] I reproduced this on"
+          "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+          "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+          "source": "hn",
+          "createdAt": "2026-11-11T23:00:17.000Z",
+          "excerpt": "Good, I hate this world where planning and micro optimizing my life has so much advantage over living in the moment, I want my AI to deal with all that (and restaurant reservations, credit card churning, etc) I can live "
         }
       ]
     },
     {
-      "id": "support-transcripts-telegram-bot-token-is-written-to-the-log-when-a-",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Telegram bot token is written to the log when a Telegram call fails",
-      "score": 29,
+      "id": "scheduling-exec-server-cancelled-process-start-strands-a-st",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "exec-server: cancelled process start strands a Starting reservation and rejects retries",
+      "score": 27,
       "breakdown": {
         "frequency": 3,
-        "intensity": 6,
+        "intensity": 4,
         "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
@@ -317,17 +265,54 @@
         "github"
       ],
       "signals": [
-        "broken"
+        "churn"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T21:46:42.000Z",
+      "lastSeen": "2026-11-11T23:57:52.000Z",
       "evidence": [
         {
-          "title": "Telegram bot token is written to the log when a Telegram call fails",
-          "url": "https://github.com/agigante80/VPNSentinel/issues/141",
+          "title": "exec-server: cancelled process start strands a Starting reservation and rejects retries",
+          "url": "https://github.com/openai/codex/issues/60922",
           "source": "github",
-          "createdAt": "2026-11-11T21:46:42.000Z",
-          "excerpt": "### Gate verdict (round 3) **Verdict:** PASS - advisory: happy E2E spec fails on a reused stack because unhappy 1 leaves its line in the log file; remove the line afterwards or assert a known startup line instead - advis"
+          "createdAt": "2026-11-11T23:57:52.000Z",
+          "excerpt": "### What issue are you seeing? Cancelling `LocalProcess::start_process` after it inserts `ProcessEntry::Starting` can leave that entry indefinitely. Its explicit error and success branches clean up/replace the reservatio"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-100x-developers",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "100x Developers",
+      "score": 26,
+      "breakdown": {
+        "frequency": 6,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 2,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:29:25.000Z",
+      "evidence": [
+        {
+          "title": "100x Developers",
+          "url": "https://jcarreras.es/posts/100x-developers/",
+          "source": "hn",
+          "createdAt": "2026-11-11T23:29:25.000Z",
+          "excerpt": "I&#x27;ll list two. These projects are hyper-niche and were developed to satisfy my own needs. They have a user base of 1 (me). Print gallery transform: https:&#x2F;&#x2F;github.com&#x2F;abetusk&#x2F;CursedLogic&#x2F;tre"
+        },
+        {
+          "title": "100x Developers",
+          "url": "https://jcarreras.es/posts/100x-developers/",
+          "source": "hn",
+          "createdAt": "2026-11-11T23:29:25.000Z",
+          "excerpt": "I&#x27;ll list two. These projects are hyper-niche and were developed to satisfy my own needs. They have a user base of 1 (me). Print gallery transform: https:&#x2F;&#x2F;github.com&#x2F;abetusk&#x2F;CursedLogic&#x2F;tre"
         }
       ]
     },
@@ -370,7 +355,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -400,7 +385,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -418,36 +403,6 @@
           "source": "github",
           "createdAt": "2026-11-11T21:33:19.000Z",
           "excerpt": "## What I want A provider class for **on-demand / batch inference servers**: endpoints that exist only while there is work to do, are priced by wall-clock rather than by token, and are used to push a *batch* of requests "
-        }
-      ]
-    },
-    {
-      "id": "scheduling-lead-status-current-state-of-the-v1-work-and-how",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Lead status: current state of the v1 work and how to take over",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T19:25:48.000Z",
-      "evidence": [
-        {
-          "title": "Lead status: current state of the v1 work and how to take over",
-          "url": "https://github.com/margelo/typescript-art/issues/568",
-          "source": "github",
-          "createdAt": "2026-11-11T19:25:48.000Z",
-          "excerpt": "This issue is the live state of the implementation lead. The guide `docs/lead/README.md` on main says how the work is run; this issue says where the work stands. To take over, read `AGENTS.md`, the guide and this issue w"
         }
       ]
     },
@@ -542,10 +497,100 @@
       ]
     },
     {
-      "id": "support-transcripts-ai-terminal-rendering-breaks-intermittently-unti",
+      "id": "solo-crm-a-false-smoke-alarm-almost-drowned-jane-street-s",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "A false smoke alarm almost drowned Jane Street's only NYC datacenter",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T00:01:04.000Z",
+      "evidence": [
+        {
+          "title": "A false smoke alarm almost drowned Jane Street's only NYC datacenter",
+          "url": "https://michael.bacarella.com/2026/11/10/false-smoke-alarm-jane-street-datacenter/",
+          "source": "hn",
+          "createdAt": "2026-11-12T00:01:04.000Z",
+          "excerpt": "Oh, hi Gecko! Wild to see you in writing again. Anyway, I was the first Fog Creek employee on site at 55 broadway (one of our founders got their first, and two peer1 employees were also on site) and also part of the firs"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-nvidia-prepares-to-fire-ceo-jensen-huang-wsj-rep",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Nvidia prepares to fire CEO Jensen Huang, WSJ reports",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:45:01.000Z",
+      "evidence": [
+        {
+          "title": "Nvidia prepares to fire CEO Jensen Huang, WSJ reports",
+          "url": "https://twitter.com/watcherguru/status/2120645607866188008",
+          "source": "hn",
+          "createdAt": "2026-11-11T23:45:01.000Z",
+          "excerpt": "I recently recalled Nvidia&#x27;s rather strange reaction to the Gamers Nexus investigation into GPU smuggling [0]. Found it somewhat strange at the time how incredibly agitated the reaction seemed to have been, given Nv"
+        }
+      ]
+    },
+    {
+      "id": "solo-crm-the-apple-support-community-will-permanently-clo",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "The Apple Support Community will permanently close on November 20, 2026",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T00:17:25.000Z",
+      "evidence": [
+        {
+          "title": "The Apple Support Community will permanently close on November 20, 2026",
+          "url": "https://discussions.apple.com/welcome",
+          "source": "hn",
+          "createdAt": "2026-11-12T00:17:25.000Z",
+          "excerpt": "It&#x27;s been useless for its entire lifetime. It&#x27;s slightly better than the Windows support forum only because it doesn&#x27;t hijack your browser navigation, and because most answers don&#x27;t start with \"Hello "
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-dev-personal-wiki-memory-consent-safe-pkm-projec",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
-      "title": "AI Terminal: rendering breaks intermittently until a panel is resized",
+      "title": "Dev: personal wiki memory, consent-safe PKM projections, and ADK recall",
       "score": 23,
       "breakdown": {
         "frequency": 3,
@@ -560,14 +605,44 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T22:28:46.000Z",
+      "lastSeen": "2026-11-11T23:09:31.000Z",
       "evidence": [
         {
-          "title": "AI Terminal: rendering breaks intermittently until a panel is resized",
-          "url": "https://github.com/mubeda/BibCode/issues/348",
+          "title": "Dev: personal wiki memory, consent-safe PKM projections, and ADK recall",
+          "url": "https://github.com/hushh-labs/hushh-research/issues/9370",
           "source": "github",
-          "createdAt": "2026-11-11T22:28:46.000Z",
-          "excerpt": "## Problem (measured: reporter statement, not an independent reproduction) The repository owner reports intermittent rendering problems in AI terminals that disappear after resizing the right panel, for example, with Web"
+          "createdAt": "2026-11-11T23:09:31.000Z",
+          "excerpt": "## For humans **Owner:** @RGlodAkshat · **Lead:** Kushal · **Branch / environment:** `dev` / Dev Address this task to the T, and raise important findings before changing the agreed direction. The goal is to bridge Files/"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-investigate-explicit-update-org-skill-discovery",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Investigate explicit /update-org skill discovery",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:40:22.000Z",
+      "evidence": [
+        {
+          "title": "Investigate explicit /update-org skill discovery",
+          "url": "https://github.com/geevensingh/org-explorer/issues/50",
+          "source": "github",
+          "createdAt": "2026-11-11T23:40:22.000Z",
+          "excerpt": "## What to build Investigate why an explicit `/update-org` request did not load the locally present user-invoked skill. Deliver a minimal reproduction, establish repository versus host ownership, and provide an actionabl"
         }
       ]
     },
@@ -610,7 +685,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -662,10 +737,10 @@
       ]
     },
     {
-      "id": "support-transcripts-read-secrets-from-files-support-the-docker-file-",
+      "id": "support-transcripts-quality-gap-diagnosis-measure-rushcut-vs-resolve",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
-      "title": "Read secrets from files: support the Docker _FILE convention for API key and Telegram…",
+      "title": "Quality gap diagnosis: measure RushCut vs Resolve stage by stage on real footage (source to…",
       "score": 23,
       "breakdown": {
         "frequency": 3,
@@ -680,14 +755,14 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T21:38:26.000Z",
+      "lastSeen": "2026-11-11T23:24:34.000Z",
       "evidence": [
         {
-          "title": "Read secrets from files: support the Docker _FILE convention for API key and Telegram credentials",
-          "url": "https://github.com/agigante80/VPNSentinel/issues/139",
+          "title": "Quality gap diagnosis: measure RushCut vs Resolve stage by stage on real footage (source to YouTube on the TV)",
+          "url": "https://github.com/bondybondbond/rushcut/issues/228",
           "source": "github",
-          "createdAt": "2026-11-11T21:38:26.000Z",
-          "excerpt": "### Gate verdict (round 2) **Verdict:** PASS - advisory: client startup test asserts absence of a nonexistent \"Sending keepalive\" line; assert on \"Keepalive sent successfully\" / \"Failed to send keepalive\" / \"Error sendin"
+          "createdAt": "2026-11-11T23:24:34.000Z",
+          "excerpt": "## Problem RushCut's finished film looks visibly worse than a DaVinci Resolve export of the same footage, and we do not know which stage causes the gap. Past quality work tested one hypothesis at a time (#116, #118, #124"
         }
       ]
     },
@@ -752,6 +827,66 @@
       ]
     },
     {
+      "id": "support-transcripts-systemverilog-language-server-slang-server-throu",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "SystemVerilog language server: slang-server through the existing client (#117 part 2)",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-11T23:32:57.000Z",
+      "evidence": [
+        {
+          "title": "SystemVerilog language server: slang-server through the existing client (#117 part 2)",
+          "url": "https://github.com/ddrcode/unei/issues/118",
+          "source": "github",
+          "createdAt": "2026-11-11T23:32:57.000Z",
+          "excerpt": "Part 2 of SystemVerilog support. #117 lands the grammar (highlighting, symbols, text objects); this ticket is the server side — diagnostics as you type, hover, `gd`, references, rename, completion in `.sv`/`.v` files — t"
+        }
+      ]
+    },
+    {
+      "id": "support-transcripts-windows-created-chatgpt-chats-missing-from-web-a",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Windows-created ChatGPT chats missing from web and iPhone",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T00:22:42.000Z",
+      "evidence": [
+        {
+          "title": "Windows-created ChatGPT chats missing from web and iPhone",
+          "url": "https://github.com/openai/codex/issues/60941",
+          "source": "github",
+          "createdAt": "2026-11-12T00:22:42.000Z",
+          "excerpt": "### What version of the Codex App are you using (From “About Codex” dialog)? 26.1103.32239 ### What subscription do you have? Free ### What platform is your computer? Microsoft Windows NT 10.0.19045.0 x64 ### What issue "
+        }
+      ]
+    },
+    {
       "id": "invoice-export-a-docker-only-install-has-no-working-step-to-cre",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -760,7 +895,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -790,7 +925,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -820,7 +955,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -850,7 +985,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14,
+        "recency": 13.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -910,7 +1045,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -940,7 +1075,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -970,7 +1105,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1000,7 +1135,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1030,7 +1165,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1060,7 +1195,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },

@@ -45,7 +45,7 @@ export default function ZhTryPage() {
 
       <section className="rr-section-tight">
         <div className="rr-container max-w-[900px]">
-          <GuestScan d={d} locale="zh" signals={feed.signals} live={feed.live} generatedAt={feed.generatedAt} historySeeded={feed.historySeeded} trendReady={feed.trendReady} />
+          <GuestScan d={d} locale="zh" signals={feed.signals} live={feed.live} generatedAt={feed.generatedAt} historySeeded={feed.historySeeded} trendReady={feed.trendReady} recallSwitch={feed.recallSwitch} />
         </div>
       </section>
 

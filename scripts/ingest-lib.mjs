@@ -309,3 +309,136 @@ export function classifyTrend(series = []) {
   if (dM > 0.15) return "rising";
   return "steady";
 }
+
+/* -------------------- B2：源头相关度（召回质量） -------------------- */
+
+/**
+ * 文本是否命中任一主题词（大小写不敏感，按非字母数字做边界，避免 "crm" 命中 "scrm"）。
+ * terms 为空 / 未配置时返回 true —— 即「不设主题门槛」，兼容旧配置。
+ * 纯函数、确定性，可被单测覆盖。
+ */
+export function matchTopic(text = "", terms = []) {
+  if (!Array.isArray(terms) || terms.length === 0) return true;
+  const t = normalizeText(text).toLowerCase();
+  if (!t) return false;
+  return terms.some((term) => {
+    const w = String(term).toLowerCase().trim();
+    if (!w) return false;
+    const escaped = w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return new RegExp(`(?:^|[^a-z0-9])${escaped}(?:$|[^a-z0-9])`, "i").test(t);
+  });
+}
+
+/**
+ * 从「召回的原始记录」构建机会信号 —— 采集脚本与离线评估脚本共用的单一真源。
+ *
+ * 判定链（与线上完全一致）：噪音标题 → 正文非空 → 正文抱怨信号 → 主题门槛
+ * → 去重分组 → 评分 → 过滤低分 → 排序。评估脚本复用它，门禁判定才可信。
+ *
+ * @param {object[]} raw 召回记录 { title, text, url, createdAt, source }
+ * @param {object} ctx
+ * @param {object} ctx.niche 含 id / label / topicTerms
+ * @param {object} ctx.cfg 含 minScore / lookbackDays
+ * @param {Date} ctx.now 评估时间（注入以保证可复现）
+ * @param {"any"|"title"} ctx.topicScope 主题门槛作用域：标题+正文 / 仅标题
+ * @returns {{items:object[], stats:object, metrics:object}}
+ */
+export function buildOpportunities(raw = [], ctx = {}) {
+  const { niche = {}, cfg = {}, now = new Date(), topicScope = "any" } = ctx;
+  const terms = Array.isArray(niche.topicTerms) ? niche.topicTerms : [];
+  const eligible = raw.filter((r) => !isNoiseTitle(r.title));
+  const signaled = eligible
+    .filter((r) => normalizeText(r.text).length > 0)
+    .map((r) => {
+      const sig = extractSignals(r.text);
+      return {
+        ...r,
+        signals: sig.signals,
+        intensityRaw: sig.intensityRaw,
+        wtpSignals: sig.wtpSignals,
+        hasComplaint: sig.hasComplaint,
+      };
+    })
+    .filter((r) => r.hasComplaint)
+    .filter((r) => {
+      if (terms.length === 0) return true;
+      const scope = topicScope === "title" ? r.title : `${r.title} ${r.text}`;
+      return matchTopic(scope, terms);
+    });
+
+  const groups = dedupe(signaled);
+  const items = [];
+  for (const g of groups) {
+    const excerpts = g.evidence.map((e) => e.excerpt).join(" ");
+    const agg = extractSignals(excerpts);
+    const latest = g.evidence.reduce(
+      (max, e) => (e.createdAt > max ? e.createdAt : max),
+      g.evidence[0]?.createdAt || now.toISOString(),
+    );
+    const { score, breakdown } = scorePainPoint({
+      mentions: g.mentions,
+      sources: g.sources,
+      intensityRaw: agg.intensityRaw,
+      daysSinceLatest: daysBetween(latest, now),
+      lookbackDays: cfg.lookbackDays ?? 30,
+      hasWtp: agg.wtpSignals.length > 0,
+    });
+    if (score < (cfg.minScore ?? 20)) continue;
+    items.push({
+      id: `${niche.id || "unknown"}-${g.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 48)}`,
+      nicheId: niche.id,
+      nicheLabel: niche.label,
+      title: truncateAtWord(g.title, 96),
+      score,
+      breakdown,
+      mentions: g.mentions,
+      sources: [...g.sources].sort(),
+      signals: [...new Set(agg.signals)],
+      willingnessToPay: agg.wtpSignals.length > 0,
+      lastSeen: latest,
+      evidence: g.evidence,
+    });
+  }
+  items.sort((a, b) => b.score - a.score || b.mentions - a.mentions || a.id.localeCompare(b.id));
+  return {
+    items,
+    stats: { raw: raw.length, complaintRecords: signaled.length, items: items.length },
+    metrics: recallMetrics(raw, items, terms),
+  };
+}
+
+/**
+ * 召回质量指标。
+ * - recallTitleRate：召回层「标题含主题词」比例（源头相关度，B2 真正改善的对象）；
+ * - finalTitleRate：最终入选 items 里「标题含主题词」比例（用户实际看到的相关度）。
+ */
+export function recallMetrics(raw = [], items = [], terms = []) {
+  const hit = (t) => matchTopic(t, terms);
+  return {
+    raw: raw.length,
+    itemCount: items.length,
+    recallTitleRate: raw.length ? raw.filter((r) => hit(r.title)).length / raw.length : 0,
+    finalTitleRate: items.length ? items.filter((it) => hit(it.title)).length / items.length : 0,
+  };
+}
+
+/**
+ * 门禁判定（纯函数）。达标 adopt，否则 fallback（保留旧的时间排序），并给出理由。
+ * - 数量底线：最终 items >= minItems；
+ * - 质量底线：最终相关率 >= minFinalTitleRate；
+ * - 不退化：新法相关率不得低于旧法超过 5 个百分点。
+ */
+export function evaluateRecall({ relevance = {}, legacy = null, minFinalTitleRate = 0.6, minItems = 24 } = {}) {
+  const rel = relevance.metrics || relevance;
+  const leg = legacy ? legacy.metrics || legacy : null;
+  const reasons = [];
+  const itemCount = Number(rel.itemCount) || 0;
+  const rate = Number(rel.finalTitleRate) || 0;
+  if (itemCount < minItems) reasons.push(`items ${itemCount} < ${minItems}`);
+  if (rate < minFinalTitleRate) reasons.push(`finalTitleRate ${(rate * 100).toFixed(0)}% < ${(minFinalTitleRate * 100).toFixed(0)}%`);
+  if (leg && rate < (Number(leg.finalTitleRate) || 0) - 0.05) {
+    reasons.push(`regression vs legacy ${(rate * 100).toFixed(0)}% < ${((Number(leg.finalTitleRate) || 0) * 100).toFixed(0)}%`);
+  }
+  const verdict = reasons.length ? "fallback" : "adopt";
+  return { verdict, method: verdict === "adopt" ? "relevance" : "legacy", reasons };
+}

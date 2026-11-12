@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-11-12T00:34:36.633Z",
+  "verdict": "adopt",
+  "method": "relevance",
+  "reasons": [],
+  "thresholds": {
+    "minFinalTitleRate": 0.6,
+    "minItems": 24
+  },
+  "config": {
+    "queryLimit": 5,
+    "topicScope": "any",
+    "maxItems": 60
+  },
+  "global": {
+    "relevance": {
+      "raw": 961,
+      "itemCount": 36,
+      "recallHits": 492,
+      "finalHits": 26,
+      "recallTitleRate": 0.5119667013527576,
+      "finalTitleRate": 0.7222222222222222
+    },
+    "legacy": {
+      "raw": 975,
+      "itemCount": 60,
+      "recallHits": 97,
+      "finalHits": 14,
+      "recallTitleRate": 0.09948717948717949,
+      "finalTitleRate": 0.23333333333333334
+    }
+  },
+  "perNiche": {
+    "relevance": [
+      {
+        "niche": "solo-crm",
+        "raw": 252,
+        "itemCount": 5,
+        "recallTitleRate": 0.4722222222222222,
+        "finalTitleRate": 0.6,
+        "stats": {
+          "raw": 252,
+          "complaintRecords": 5,
+          "items": 5
+        }
+      },
+      {
+        "niche": "invoice-export",
+        "raw": 211,
+        "itemCount": 11,
+        "recallTitleRate": 0.5213270142180095,
+        "finalTitleRate": 0.7272727272727273,
+        "stats": {
+          "raw": 211,
+          "complaintRecords": 16,
+          "items": 11
+        }
+      },
+      {
+        "niche": "support-transcripts",
+        "raw": 234,
+        "itemCount": 3,
+        "recallTitleRate": 0.46153846153846156,
+        "finalTitleRate": 0.6666666666666666,
+        "stats": {
+          "raw": 234,
+          "complaintRecords": 7,
+          "items": 3
+        }
+      },
+      {
+        "niche": "scheduling",
+        "raw": 264,
+        "itemCount": 17,
+        "recallTitleRate": 0.5871212121212122,
+        "finalTitleRate": 0.7647058823529411,
+        "stats": {
+          "raw": 264,
+          "complaintRecords": 26,
+          "items": 17
+        }
+      }
+    ],
+    "legacy": [
+      {
+        "niche": "solo-crm",
+        "raw": 252,
+        "itemCount": 11,
+        "recallTitleRate": 0.05555555555555555,
+        "finalTitleRate": 0.18181818181818182,
+        "stats": {
+          "raw": 252,
+          "complaintRecords": 11,
+          "items": 11
+        }
+      },
+      {
+        "niche": "invoice-export",
+        "raw": 225,
+        "itemCount": 35,
+        "recallTitleRate": 0.10666666666666667,
+        "finalTitleRate": 0.2,
+        "stats": {
+          "raw": 225,
+          "complaintRecords": 37,
+          "items": 35
+        }
+      },
+      {
+        "niche": "support-transcripts",
+        "raw": 235,
+        "itemCount": 21,
+        "recallTitleRate": 0.059574468085106386,
+        "finalTitleRate": 0.047619047619047616,
+        "stats": {
+          "raw": 235,
+          "complaintRecords": 22,
+          "items": 21
+        }
+      },
+      {
+        "niche": "scheduling",
+        "raw": 263,
+        "itemCount": 24,
+        "recallTitleRate": 0.17110266159695817,
+        "finalTitleRate": 0.2916666666666667,
+        "stats": {
+          "raw": 263,
+          "complaintRecords": 28,
+          "items": 24
+        }
+      }
+    ]
+  },
+  "samples": {
+    "relevance": [
+      {
+        "title": "WISH: import Expense Report (and invoice) lines from CSV",
+        "niche": "invoice-export",
+        "titleHit": true
+      },
+      {
+        "title": "ISSUES in CRM",
+        "niche": "solo-crm",
+        "titleHit": true
+      },
+      {
+        "title": "Appointment Booking",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
+        "title": "Salesforce: sync log and failure alert",
+        "niche": "solo-crm",
+        "titleHit": true
+      },
+      {
+        "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
+        "niche": "support-transcripts",
+        "titleHit": true
+      },
+      {
+        "title": "Running a law firm on Free software",
+        "niche": "solo-crm",
+        "titleHit": false
+      },
+      {
+        "title": "CSV export for timesheets and invoices",
+        "niche": "invoice-export",
+        "titleHit": false
+      },
+      {
+        "title": "Appointment & Vehicle Management",
+        "niche": "scheduling",
+        "titleHit": true
+      }
+    ],
+    "legacy": [
+      {
+        "title": "P3: a stale Cancel tab or the WhatsApp agent can cancel a lapsed unpaid hold before the release…",
+        "niche": "scheduling",
+        "titleHit": false
+      },
+      {
+        "title": "Research programme: Pi durability, provider uncertainty, six-day E2E evidence and publication…",
+        "niche": "support-transcripts",
+        "titleHit": false
+      },
+      {
+        "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
+        "title": "BUG REGRESI: pulihkan batas checkout Booking sesuai aturan bisnis lama Owner",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
+        "title": "Export scheduling fails for large tenants",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
+        "title": "Latency scorer gives the top score to an endpoint without a latency prediction",
+        "niche": "scheduling",
+        "titleHit": false
+      },
+      {
+        "title": "Outside-transaction subscription-renewal checks leave a committed subscription on the fixture…",
+        "niche": "scheduling",
+        "titleHit": false
+      },
+      {
+        "title": "P3: the IBAN-masking pass misses IBANs typed with double spaces or glued to Arabic text…",
+        "niche": "scheduling",
+        "titleHit": false
+      }
+    ]
+  },
+  "errors": [
+    {
+      "source": "rss",
+      "feed": "https://news.ycombinator.com/rss",
+      "message": "fetch failed"
+    }
+  ]
+}

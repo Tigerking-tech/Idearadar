@@ -35,6 +35,15 @@ jobs:
       - name: Unit-test scoring rules
         run: node --test scripts/ingest.test.mjs
 
+      # B2 门禁：用同一份 connector 跑「相关度 vs 时间」两种召回并写出 verdict。
+      # 若相关度口径不达标，verdict=fallback，采集脚本会自动保留旧的时间排序，
+      # 同时本步骤输出 ::warning:: 与 step summary，避免静默退化。
+      - name: Evaluate recall quality (gate)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVAL_DELAY_MS: "500"
+        run: node scripts/eval-recall.mjs
+
       - name: Run multi-source ingestion
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -58,13 +67,15 @@ jobs:
             public/opportunities.json
             data/history.json
             public/history.json
+            data/recall-eval.json
+            public/recall-eval.json
           retention-days: 14
 
       - name: Commit refreshed data
         run: |
           git config user.name "rantradar-bot"
           git config user.email "bot@rantradar.app"
-          git add data/opportunities.json public/opportunities.json data/history.json public/history.json
+          git add data/opportunities.json public/opportunities.json data/history.json public/history.json data/recall-eval.json public/recall-eval.json
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else

@@ -91,6 +91,7 @@ for (let i = 0; i < N; i++) {
   snapshots.push({
     t: new Date(endT - (N - 1 - i) * STEP_MS).toISOString(),
     seeded: true,
+    methodVersion: 2, // B2 相关度召回口径；整段序列口径一致，不产生趋势断点
     byNiche,
   });
 }
@@ -98,6 +99,7 @@ for (let i = 0; i < N; i++) {
 const history = {
   schemaVersion: 1,
   seeded: true,
+  methodVersion: 2,
   note:
     "冷启动引导历史：各赛道最后一个快照为真实采集聚合值，其余为按目标形态确定性生成的演示序列。真实采集每 6 小时追加一个真实快照，攒够 12 个后 appendHistory 会自动剔除全部引导快照并把 seeded 置为 false。",
   maxSnapshots: 120,

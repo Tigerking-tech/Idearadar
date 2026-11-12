@@ -3,26 +3,36 @@
   "minScore": 20,
   "maxItems": 60,
   "maxPerSource": 25,
+  "recall": {
+    "method": "relevance",
+    "topicScope": "any",
+    "minFinalTitleRate": 0.6,
+    "minItems": 24
+  },
   "niches": [
     {
       "id": "solo-crm",
       "label": "CRM complexity for solo founders",
-      "queries": ["CRM too complex", "hate my CRM", "simple CRM alternative"]
+      "topicTerms": ["crm", "customer relationship", "sales pipeline", "lead tracking", "contact management", "solo founder", "freelancer", "salesforce", "hubspot"],
+      "queries": ["CRM", "sales pipeline", "contact management", "salesforce", "hubspot"]
     },
     {
       "id": "invoice-export",
       "label": "Invoicing and expense export failures",
-      "queries": ["invoice export broken", "multi-currency accounting", "expense tool frustration"]
+      "topicTerms": ["invoice", "expense report", "expense", "billing", "accounting", "receipt", "bookkeeping", "quickbooks", "xero", "multi-currency", "reimbursement"],
+      "queries": ["invoice export", "expense report", "multi-currency", "quickbooks", "xero"]
     },
     {
       "id": "support-transcripts",
       "label": "Support tooling and transcript exports",
-      "queries": ["export support chat", "helpdesk frustrating", "support ticket tool broken"]
+      "topicTerms": ["helpdesk", "support ticket", "transcript", "chat log", "conversation history", "customer support", "zendesk", "intercom", "support chat", "ticket export"],
+      "queries": ["support ticket", "helpdesk", "chat transcript", "zendesk", "intercom"]
     },
     {
       "id": "scheduling",
       "label": "Scheduling and booking workflows",
-      "queries": ["booking tool annoying", "recurring appointments broken", "scheduling alternative"]
+      "topicTerms": ["scheduling", "booking", "appointment", "calendar", "calendly", "recurring appointment", "availability", "reservation", "time slot"],
+      "queries": ["booking", "appointment", "scheduling", "calendly", "appointment booking"]
     }
   ],
   "feeds": ["https://news.ycombinator.com/rss"]

@@ -146,9 +146,12 @@ export type SignalHistory = {
   schemaVersion?: number;
   seeded?: boolean;
   maxSnapshots?: number;
+  /** B2：召回口径版本（2=相关度召回）。序列里版本不一致意味着趋势存在口径断点。 */
+  methodVersion?: number;
   snapshots: {
     t: string;
     byNiche: Record<string, { score: number; mentions: number; items: number }>;
+    methodVersion?: number;
   }[];
 };
 
@@ -296,6 +299,8 @@ export type ResolvedFeed = {
   historySeeded: boolean;
   /** 趋势样本是否足够（>=3 个快照）。不足时全部显示「平稳（样本不足）」。 */
   trendReady: boolean;
+  /** 历史序列里是否出现召回口径切换（趋势存在断点，需诚实标注）。 */
+  recallSwitch: boolean;
 };
 
 /**
@@ -332,11 +337,14 @@ export function resolveSignals(locale: "en" | "zh"): ResolvedFeed {
   }
   const historyCount = history?.snapshots?.length ?? 0;
   const historySeeded = Boolean(history?.seeded);
+  // 未标注版本的旧快照视为 v1；序列里出现两个及以上版本即认为存在口径断点。
+  const versions = new Set((history?.snapshots ?? []).map((s) => s.methodVersion ?? 1));
+  const recallSwitch = versions.size > 1;
   if (live) {
-    return { signals: live, live: true, generatedAt, sourceCount: live.length, historyCount, historySeeded, trendReady: historyCount >= 3 };
+    return { signals: live, live: true, generatedAt, sourceCount: live.length, historyCount, historySeeded, trendReady: historyCount >= 3, recallSwitch };
   }
   const demo = demoSignals(locale);
-  return { signals: demo, live: false, generatedAt: null, sourceCount: demo.length, historyCount: 0, historySeeded: false, trendReady: true };
+  return { signals: demo, live: false, generatedAt: null, sourceCount: demo.length, historyCount: 0, historySeeded: false, trendReady: true, recallSwitch: false };
 }
 
 /* ----------------------------- 关键词检索 ----------------------------- */

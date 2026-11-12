@@ -14,6 +14,10 @@ import {
   aggregateByNiche,
   appendHistory,
   classifyTrend,
+  matchTopic,
+  buildOpportunities,
+  recallMetrics,
+  evaluateRecall,
 } from "./ingest-lib.mjs";
 
 test("clamp 边界与异常值", () => {
@@ -307,4 +311,74 @@ test("isNoiseTitle 不误杀真实抱怨标题（含祈使动词开头但带抱�
     "Create flow keeps losing data",
   ];
   for (const t of keep) assert.equal(isNoiseTitle(t), false, `不应误杀: ${t}`);
+});
+
+/* ---------------- B2：源头相关度与评估门禁 ---------------- */
+
+test("matchTopic 词边界、短语、大小写与空配置", () => {
+  const terms = ["crm", "invoice", "expense report", "multi-currency"];
+  assert.equal(matchTopic("Our CRM keeps crashing", terms), true, "大小写不敏感");
+  assert.equal(matchTopic("scrm internal tool", terms), false, "crm 不能命中 scrm（词边界）");
+  assert.equal(matchTopic("The expense report is broken", terms), true, "支持短语");
+  assert.equal(matchTopic("multi-currency billing fails", terms), true, "支持带连字符短语");
+  assert.equal(matchTopic("Totally unrelated headline", terms), false);
+  assert.equal(matchTopic("", terms), false, "空文本不命中");
+  assert.equal(matchTopic("anything", []), true, "未配置主题词时不设门槛（兼容旧配置）");
+  assert.equal(matchTopic("anything", undefined), true);
+});
+
+test("buildOpportunities 主题门槛只放行与赛道相关的抱怨", () => {
+  const niche = { id: "solo-crm", label: "CRM", topicTerms: ["crm", "sales pipeline"] };
+  const cfg = { minScore: 0, lookbackDays: 30 };
+  const mk = (title, text, url) => ({ title, text, url, createdAt: "2026-11-01T00:00:00Z", source: "hn" });
+  const raw = [
+    mk("Our CRM keeps losing contacts", "This CRM is broken and frustrating to use every day", "u1"),
+    mk("United Airlines bans AI agents", "Our booking flow is broken and frustrating", "u2"), // 正文有抱怨、标题无主题词
+    mk("Announcing .NET 11", "The CRM export is broken", "u3"), // 噪音标题
+    mk("Simple CRM alternative", "no complaint words here at all", "u4"), // 无抱怨
+    mk("CRM import is empty", "", "u5"), // 正文空
+  ];
+  const any = buildOpportunities(raw, { niche, cfg, now: new Date("2026-11-02T00:00:00Z"), topicScope: "any" });
+  assert.equal(any.stats.raw, 5);
+  assert.equal(any.stats.complaintRecords, 1, "any 作用域下标题无主题词也应放行（正文抱怨+正文含 crm 才行）");
+  assert.equal(any.items[0].title, "Our CRM keeps losing contacts");
+  assert.equal(any.metrics.finalTitleRate, 1, "唯一入选项标题含主题词");
+
+  const titleOnly = buildOpportunities(raw, { niche, cfg, now: new Date("2026-11-02T00:00:00Z"), topicScope: "title" });
+  assert.equal(titleOnly.stats.complaintRecords, 1, "title 作用域仍保留标题含 crm 的那条");
+});
+
+test("buildOpportunities 无主题词配置时行为与旧管线一致（不误杀）", () => {
+  const niche = { id: "x", label: "X" }; // 无 topicTerms
+  const cfg = { minScore: 0, lookbackDays: 30 };
+  const raw = [
+    { title: "A generic tool is broken", text: "It keeps crashing, very frustrating", url: "u1", createdAt: "2026-11-01T00:00:00Z", source: "hn" },
+  ];
+  const out = buildOpportunities(raw, { niche, cfg, now: new Date("2026-11-02T00:00:00Z") });
+  assert.equal(out.items.length, 1, "未配置主题词不应过滤掉任何真实抱怨");
+});
+
+test("recallMetrics 区分召回层与最终层相关率", () => {
+  const terms = ["crm"];
+  const raw = [{ title: "CRM is broken" }, { title: "Random headline" }, { title: "Another thing" }, { title: "CRM pricing" }];
+  const items = [{ title: "CRM is broken" }, { title: "Random headline" }];
+  const m = recallMetrics(raw, items, terms);
+  assert.equal(m.raw, 4);
+  assert.equal(m.itemCount, 2);
+  assert.equal(m.recallTitleRate, 0.5);
+  assert.equal(m.finalTitleRate, 0.5);
+  assert.deepEqual(recallMetrics([], [], terms), { raw: 0, itemCount: 0, recallTitleRate: 0, finalTitleRate: 0 });
+});
+
+test("evaluateRecall 达标 adopt，数量/质量/退化任一不达标 fallback", () => {
+  const mk = (itemCount, finalTitleRate) => ({ metrics: { itemCount, finalTitleRate } });
+  assert.equal(evaluateRecall({ relevance: mk(30, 0.8), legacy: mk(40, 0.3), minItems: 24, minFinalTitleRate: 0.6 }).verdict, "adopt");
+  assert.equal(evaluateRecall({ relevance: mk(10, 0.9), legacy: mk(40, 0.3), minItems: 24, minFinalTitleRate: 0.6 }).verdict, "fallback", "数量不足");
+  assert.match(evaluateRecall({ relevance: mk(10, 0.9), legacy: mk(40, 0.3), minItems: 24, minFinalTitleRate: 0.6 }).reasons.join(), /items 10 < 24/);
+  assert.equal(evaluateRecall({ relevance: mk(30, 0.4), legacy: mk(40, 0.3), minItems: 24, minFinalTitleRate: 0.6 }).verdict, "fallback", "质量不足");
+  assert.equal(evaluateRecall({ relevance: mk(30, 0.7), legacy: mk(40, 0.9), minItems: 24, minFinalTitleRate: 0.6 }).verdict, "fallback", "相对退化");
+  assert.equal(evaluateRecall({ relevance: mk(30, 0.85), legacy: null, minItems: 24, minFinalTitleRate: 0.6 }).verdict, "adopt", "无基线时不阻塞");
+  const d = evaluateRecall({ relevance: mk(30, 0.8), legacy: mk(40, 0.3), minItems: 24, minFinalTitleRate: 0.6 });
+  assert.equal(d.method, "relevance", "adopt 时 method 给采集端");
+  assert.equal(evaluateRecall({ relevance: mk(5, 0.2), legacy: mk(40, 0.3), minItems: 24, minFinalTitleRate: 0.6 }).method, "legacy");
 });

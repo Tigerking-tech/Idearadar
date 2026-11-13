@@ -539,7 +539,30 @@ body {
 }
 .rr-try-result-sources { font-size: 11px; color: var(--rr-muted); }
 
+/* 实时检索结果标注与诚实空态（弱命中不再兜底伪装成「相关痛点」） */
+.rr-live-mode {
+  font-size: 11px; font-weight: 650; color: var(--rr-muted);
+  padding: 3px 9px; border: 1px solid var(--rr-line); border-radius: 999px; white-space: nowrap;
+}
+.rr-try-empty {
+  margin-top: 18px; padding: 22px 20px; text-align: center;
+  background: #fbfbff; border: 1px solid var(--rr-line); border-radius: 12px;
+}
+.rr-try-empty-title { font-size: 16px; font-weight: 700; color: var(--rr-ink); }
+.rr-try-empty-text {
+  font-size: 13px; line-height: 1.7; color: var(--rr-muted);
+  max-width: 560px; margin: 10px auto 0; overflow-wrap: anywhere;
+}
+.rr-try-empty .rr-btn { margin-top: 16px; }
+.rr-try-empty-dirs { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rr-line); }
+.rr-try-empty-dirs-label {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  color: var(--rr-muted); margin-bottom: 10px;
+}
+.rr-try-empty-dirs-btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+
 @media (max-width: 520px) {
   .rr-feed-grid { grid-template-columns: minmax(0, 1fr); }
   .rr-try-result-spark { gap: 8px; }
+  .rr-try-empty { padding: 18px 14px; }
 }

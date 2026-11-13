@@ -34,8 +34,8 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Unit-test ingest and translation
-        run: node --test scripts/ingest.test.mjs scripts/translate.test.mjs
+      - name: Unit-test ingest, translation and live scan
+        run: node --test scripts/ingest.test.mjs scripts/translate.test.mjs scripts/live-scan.test.mjs scripts/promote-niches.test.mjs
 
       # B2 门禁：用同一份 connector 跑「相关度 vs 时间」两种召回并写出 verdict。
       # 若相关度口径不达标，verdict=fallback，采集脚本会自动保留旧的时间排序，
@@ -81,6 +81,13 @@ jobs:
           IDEARADAR_TRANSLATE_MODEL: hy-mt2-plus
         run: node scripts/translate.mjs
 
+      # 第 3 步「沉淀」：把用户按需扫描过的高频方向提升为定时采集赛道，
+      # 下一轮采集就会覆盖这些方向，固定索引自然变宽。脚本幂等，无新增时不改文件。
+      # 注意：只有文件系统可写的环境（本地 / 自托管 / Actions 里已提交上来的记录）
+      # 才有 query-scans.json；Vercel 函数不可写，正式部署需外部存储才能闭环。
+      - name: Promote frequent live-scan directions
+        run: node scripts/promote-niches.mjs
+
       - name: Upload structured output
         if: always()
         uses: actions/upload-artifact@v4
@@ -99,7 +106,8 @@ jobs:
         run: |
           git config user.name "rantradar-bot"
           git config user.email "bot@rantradar.app"
-          git add data/opportunities.json public/opportunities.json data/history.json public/history.json data/recall-eval.json public/recall-eval.json
+          git add data/opportunities.json public/opportunities.json data/history.json public/history.json data/recall-eval.json public/recall-eval.json scripts/ingest.config.json
+          if [ -f data/query-scans.json ]; then git add data/query-scans.json; fi
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else

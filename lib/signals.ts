@@ -408,13 +408,30 @@ export function searchSignals(query: string, signals: Signal[], limit = 4) {
     // 中文页也能用中文词搜索；同时保留英文原文，中英混合查询都能命中。
     const hay = `${it.title} ${it.titleOriginal} ${it.category} ${it.gap} ${it.quote} ${it.quoteOriginal}`.toLowerCase();
     let hits = 0;
-    for (const t of terms) if (hay.includes(t)) hits += 1;
+    for (const t of terms) {
+      // 纯英文短词按词边界匹配：否则 "app" 会命中 "appointment"、
+      // "ci" 会命中 "city"，把完全不相关的记录凑成「强命中」，
+      // 用户输入库外方向时就不再触发实时检索（英文页实测复现）。
+      if (t.length <= 3 && /^[a-z]+$/.test(t)) {
+        if (new RegExp(`\\b${t}\\b`).test(hay)) hits += 1;
+      } else if (hay.includes(t)) {
+        hits += 1;
+      }
+    }
     if (q.length >= 2 && hay.includes(q)) hits += 2;
     return { it, hits, idx };
   });
-  const noMatch = !scored.some((s) => s.hits > 0);
+  const maxHits = scored.reduce((m, s) => Math.max(m, s.hits), 0);
+  const hitCount = scored.filter((s) => s.hits > 0).length;
+  const noMatch = maxHits === 0;
+  /**
+   * 匹配质量：字面命中很弱时（例如「创意需求」只因库里两条含「需求」二字而命中），
+   * 不能再把按分数兜底的结果标成「相关痛点」。客户端据此改走实时检索 + 诚实空态。
+   */
+  const quality: "strong" | "weak" | "none" =
+    maxHits >= 2 && hitCount >= 2 ? "strong" : maxHits >= 1 ? "weak" : "none";
   const sorted = [...scored].sort((a, b) => b.hits - a.hits || b.it.score - a.it.score || a.idx - b.idx);
-  return { list: sorted.slice(0, limit).map((s) => s.it), noMatch };
+  return { list: sorted.slice(0, limit).map((s) => s.it), noMatch, quality, maxHits };
 }
 
 /** 按指定 id 顺序取信号。仅适用于 id 稳定的固定数据集；方向卡片已改为内容检索，不再依赖此函数。 */

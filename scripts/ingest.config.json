@@ -14,27 +14,122 @@
     {
       "id": "solo-crm",
       "label": "CRM complexity for solo founders",
-      "topicTerms": ["crm", "customer relationship", "sales pipeline", "lead tracking", "contact management", "solo founder", "freelancer", "salesforce", "hubspot"],
-      "queries": ["CRM", "sales pipeline", "contact management", "salesforce", "hubspot"]
+      "topicTerms": [
+        "crm",
+        "customer relationship",
+        "sales pipeline",
+        "lead tracking",
+        "contact management",
+        "solo founder",
+        "freelancer",
+        "salesforce",
+        "hubspot"
+      ],
+      "queries": [
+        "CRM",
+        "sales pipeline",
+        "contact management",
+        "salesforce",
+        "hubspot"
+      ]
     },
     {
       "id": "invoice-export",
       "label": "Invoicing and expense export failures",
-      "topicTerms": ["invoice", "expense report", "expense", "billing", "accounting", "receipt", "bookkeeping", "quickbooks", "xero", "multi-currency", "reimbursement"],
-      "queries": ["invoice export", "expense report", "multi-currency", "quickbooks", "xero"]
+      "topicTerms": [
+        "invoice",
+        "expense report",
+        "expense",
+        "billing",
+        "accounting",
+        "receipt",
+        "bookkeeping",
+        "quickbooks",
+        "xero",
+        "multi-currency",
+        "reimbursement"
+      ],
+      "queries": [
+        "invoice export",
+        "expense report",
+        "multi-currency",
+        "quickbooks",
+        "xero"
+      ]
     },
     {
       "id": "support-transcripts",
       "label": "Support tooling and transcript exports",
-      "topicTerms": ["helpdesk", "support ticket", "transcript", "chat log", "conversation history", "customer support", "zendesk", "intercom", "support chat", "ticket export"],
-      "queries": ["support ticket", "helpdesk", "chat transcript", "zendesk", "intercom"]
+      "topicTerms": [
+        "helpdesk",
+        "support ticket",
+        "transcript",
+        "chat log",
+        "conversation history",
+        "customer support",
+        "zendesk",
+        "intercom",
+        "support chat",
+        "ticket export"
+      ],
+      "queries": [
+        "support ticket",
+        "helpdesk",
+        "chat transcript",
+        "zendesk",
+        "intercom"
+      ]
     },
     {
       "id": "scheduling",
       "label": "Scheduling and booking workflows",
-      "topicTerms": ["scheduling", "booking", "appointment", "calendar", "calendly", "recurring appointment", "availability", "reservation", "time slot"],
-      "queries": ["booking", "appointment", "scheduling", "calendly", "appointment booking"]
+      "topicTerms": [
+        "scheduling",
+        "booking",
+        "appointment",
+        "calendar",
+        "calendly",
+        "recurring appointment",
+        "availability",
+        "reservation",
+        "time slot"
+      ],
+      "queries": [
+        "booking",
+        "appointment",
+        "scheduling",
+        "calendly",
+        "appointment booking"
+      ]
+    },
+    {
+      "id": "auto-pet-app-booking",
+      "label": "pet app booking",
+      "auto": true,
+      "topicTerms": [
+        "pet app booking"
+      ],
+      "queries": [
+        "pet app booking"
+      ]
+    },
+    {
+      "id": "auto-6c3c0d95be",
+      "label": "宠物寄养",
+      "auto": true,
+      "topicTerms": [
+        "宠物寄养",
+        "pet app",
+        "pet care"
+      ],
+      "queries": [
+        "宠物寄养",
+        "pet app",
+        "pet care"
+      ]
     }
   ],
-  "feeds": ["https://news.ycombinator.com/rss"]
+  "feeds": [
+    "https://news.ycombinator.com/rss"
+  ]
 }

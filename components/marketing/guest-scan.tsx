@@ -86,8 +86,6 @@ export function GuestScan({
   const t = d.tryPage;
   const zh = locale === "zh";
   const qMark: [string, string] = zh ? ["「", "」"] : ["“", "”"];
-  // 只有中文页且确实存在 AI 译文时才出现切换；英文页展示的本就是原文。
-  const hasTranslations = zh && signals.some((s) => s.translated);
   const displayTitle = (s: Signal) => (showOriginal ? s.titleOriginal : s.title);
   const displayQuote = (s: Signal) => (showOriginal ? s.quoteOriginal : s.quote);
 
@@ -101,7 +99,14 @@ export function GuestScan({
   const [noMatch, setNoMatch] = useState(false);
   /** 中文页「查看原文」开关：一键把所有 AI 译文切回英文证据原文。 */
   const [showOriginal, setShowOriginal] = useState(false);
+  /** 本次结果来自固定索引还是现场实时检索（决定来源标注与说明文案）。 */
+  const [scanMode, setScanMode] = useState<"local" | "live" | null>(null);
+  /** 实时检索状态机：失败 / 无证据 / 元词都需要诚实空态，不能再兜底伪装成相关结果。 */
+  const [liveState, setLiveState] = useState<null | "searching" | "done" | "empty" | "vague" | "failed">(null);
+  const [liveMeta, setLiveMeta] = useState<{ mode: string; sources: string[]; elapsedMs: number } | null>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  /** 在途请求编号：resetDemo 或新扫描会让旧响应失效，避免结果串台。 */
+  const requestIdRef = useRef(0);
 
   useEffect(() => {
     try {
@@ -123,12 +128,23 @@ export function GuestScan({
 
   /**
    * 统一的扫描入口：输入框、快捷词、发现流卡片、方向卡片都走这里。
-   * raw 是送进 searchSignals 的检索词；display 是人可读的标题（方向卡片用方向名，
-   * 而不是把一串关键词暴露给用户）。
+   *
+   * 两条路径：
+   * - 本地索引强命中 → 秒出结果（0.3s 读文件级别，无网络）。
+   * - 弱命中 / 无命中 → 调 /api/scan 现场检索公开讨论。旧版在这里把按分数兜底的
+   *   4 条标成「相关痛点」，是「创意需求」返回「预约取消」的直接原因，现已移除。
+   *
+   * forceLocal 用于方向卡片 / 随机方向：它们本来就是固定索引覆盖的方向，
+   * 传入的是一组关键词，不适合拿去现场检索。
    */
-  function runScan(raw?: string, display?: string) {
+  function runScan(raw?: string, display?: string, opts?: { forceLocal?: boolean }) {
     const q = (raw ?? query).trim();
     if (!q || !ready || exhausted || phase === "running") return;
+
+    const ranked = searchSignals(q, signals);
+    const useLive = !opts?.forceLocal && ranked.quality !== "strong";
+    const label = display ?? q;
+    const requestId = (requestIdRef.current += 1);
 
     const next = used + 1;
     try {
@@ -137,26 +153,84 @@ export function GuestScan({
       /* 隐私模式下 localStorage 不可用时，本次会话内仍可计数 */
     }
     setUsed(next);
-    setQuery(display ?? q);
-    setLastQuery(display ?? q);
+    setQuery(label);
+    setLastQuery(label);
     setPhase("running");
     setStep(0);
     setResults(null);
     setNoMatch(false);
+    setScanMode(useLive ? "live" : "local");
+    setLiveState(useLive ? "searching" : null);
+    setLiveMeta(null);
 
-    const ranked = searchSignals(q, signals);
     timers.current.forEach(clearTimeout);
     timers.current = [];
-    t.runningSteps.forEach((_, i) => {
-      timers.current.push(setTimeout(() => setStep(i + 1), (i + 1) * 300));
+    const steps = useLive ? t.liveRunningSteps : t.runningSteps;
+    steps.forEach((_, i) => {
+      timers.current.push(setTimeout(() => setStep(i + 1), (i + 1) * (useLive ? 600 : 300)));
     });
-    timers.current.push(
-      setTimeout(() => {
-        setResults(ranked.list);
-        setNoMatch(ranked.noMatch);
+
+    if (!useLive) {
+      timers.current.push(
+        setTimeout(() => {
+          if (requestIdRef.current !== requestId) return;
+          setResults(ranked.list);
+          setNoMatch(ranked.noMatch);
+          setPhase("done");
+        }, 1050),
+      );
+      return;
+    }
+
+    void (async () => {
+      const started = Date.now();
+      try {
+        const res = await fetch("/api/scan", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: q, locale }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(String(data?.error || res.status));
+        // 至少给 1.2s 进度反馈，避免结果秒回时界面闪一下就跳到结果。
+        const wait = Math.max(0, 1200 - (Date.now() - started));
+        if (wait) await new Promise((r) => setTimeout(r, wait));
+        if (requestIdRef.current !== requestId) return;
+
+        const items = (Array.isArray(data.items) ? data.items : []) as Signal[];
+        setLiveMeta({
+          mode: String(data.mode || "rules"),
+          sources: Array.isArray(data.sources) ? data.sources : [],
+          elapsedMs: Number(data.elapsedMs) || 0,
+        });
+        setResults(items);
+        setNoMatch(false);
+        // 没给出任何结果（元词 / 证据不足）时同样不占用免费次数：
+        // 用户期待的是「3 次有效扫描」，不是 3 次尝试。
+        if (!items.length) {
+          try {
+            window.localStorage.setItem(STORAGE_KEY, String(used));
+          } catch {
+            /* noop */
+          }
+          setUsed(used);
+        }
+        setLiveState(items.length ? "done" : data.mode === "vague" ? "vague" : "empty");
         setPhase("done");
-      }, 1050),
-    );
+      } catch {
+        if (requestIdRef.current !== requestId) return;
+        // 实时检索失败不能让用户白扣一次：回滚本机额度与会话计数。
+        try {
+          window.localStorage.setItem(STORAGE_KEY, String(used));
+        } catch {
+          /* noop */
+        }
+        setUsed(used);
+        setResults(null);
+        setLiveState("failed");
+        setPhase("done");
+      }
+    })();
   }
 
   /**
@@ -168,7 +242,7 @@ export function GuestScan({
    * 演示数据与实时数据都能出结果，且不需要随采集条目变化维护 id 清单。
    */
   function runSuggestion(s: Suggestion) {
-    runScan(s.query.join(" "), s.label);
+    runScan(s.query.join(" "), s.label, { forceLocal: true });
   }
 
   function runSurprise() {
@@ -180,6 +254,7 @@ export function GuestScan({
   function resetDemo() {
     timers.current.forEach(clearTimeout);
     timers.current = [];
+    requestIdRef.current += 1; // 让在途的实时检索响应失效
     try {
       window.localStorage.removeItem(STORAGE_KEY);
     } catch {
@@ -192,9 +267,17 @@ export function GuestScan({
     setStep(0);
     setResults(null);
     setNoMatch(false);
+    setScanMode(null);
+    setLiveState(null);
+    setLiveMeta(null);
   }
 
+  // 只有中文页且确实存在 AI 译文时才出现切换；英文页展示的本就是原文。
+  // 实时检索的大模型结果也带译文，必须一并计入，否则「查看原文」不会出现在实时结果上。
+  // 必须放在所有 state 声明之后：立即求值的表达式引用 state 会落进暂时性死区。
+  const hasTranslations = zh && (signals.some((s) => s.translated) || (results ?? []).some((s) => s.translated));
   const feedItems = topSignals(signals, 6);
+  const runningSteps = scanMode === "live" ? t.liveRunningSteps : t.runningSteps;
 
   return (
     <>
@@ -249,7 +332,7 @@ export function GuestScan({
                           type="button"
                           className="rr-feed-explore"
                           disabled={!ready || isRunning}
-                          onClick={() => runScan(displayTitle(s))}
+                          onClick={() => runScan(displayTitle(s), undefined, { forceLocal: true })}
                         >
                           {t.exploreLabel} →
                         </button>
@@ -346,7 +429,7 @@ export function GuestScan({
                         type="button"
                         className="rr-try-example"
                         disabled={!ready || phase === "running"}
-                        onClick={() => runScan(ex)}
+                        onClick={() => runScan(ex, undefined, { forceLocal: true })}
                       >
                         {ex}
                       </button>
@@ -373,22 +456,28 @@ export function GuestScan({
           {phase === "running" && (
             <div className="rr-try-progress" role="status" aria-live="polite">
               <div className="rr-try-progress-bar">
-                <span style={{ width: `${Math.min(100, (step + 1) * 30)}%` }} />
+                {/* 实时检索未返回前不走到 100%，避免进度条假完成 */}
+                <span style={{ width: `${Math.min(scanMode === "live" ? 92 : 100, (step + 1) * 30)}%` }} />
               </div>
-              <p>{t.runningSteps[Math.min(step, t.runningSteps.length - 1)]}</p>
+              <p>{runningSteps[Math.min(step, runningSteps.length - 1)]}</p>
             </div>
           )}
 
           <div className="rr-try-results" aria-live="polite">
-            {results && phase === "done" && (
+            {phase === "done" && results && results.length > 0 && (
               <>
                 <div className="rr-try-results-head">
                   <h3>
                     {t.resultTitle} <span className="rr-gradient-text">{qMark[0]}{lastQuery}{qMark[1]}</span>
                   </h3>
-                  <span className={`rr-chip ${live ? "rr-chip-green" : "rr-chip-blue"}`}>
-                    {live ? t.liveTag : t.demoTag}
+                  <span className={`rr-chip ${live || scanMode === "live" ? "rr-chip-green" : "rr-chip-blue"}`}>
+                    {scanMode === "live" ? t.liveSearchTag : live ? t.liveTag : t.demoTag}
                   </span>
+                  {scanMode === "live" && liveMeta && (
+                    <span className="rr-live-mode">
+                      {liveMeta.mode === "llm" ? t.liveModeLlm : t.liveModeRules}
+                    </span>
+                  )}
                   {hasTranslations && (
                     <button
                       type="button"
@@ -400,7 +489,16 @@ export function GuestScan({
                     </button>
                   )}
                 </div>
-                <p className="rr-try-order-note">{t.resultOrderNote}</p>
+                {scanMode === "live" ? (
+                  <p className="rr-try-order-note">
+                    {t.liveNote}
+                    {liveMeta && liveMeta.sources.length > 0
+                      ? ` ${t.liveSourcesLabel}${zh ? "：" : ": "}${liveMeta.sources.join(zh ? "、" : " · ")}`
+                      : ""}
+                  </p>
+                ) : (
+                  <p className="rr-try-order-note">{t.resultOrderNote}</p>
+                )}
                 {noMatch && <p className="rr-try-nomatch">{live ? t.noMatchLive : t.noMatch}</p>}
                 {results.map((it, i) => (
                   <article className="rr-try-result" key={it.id}>
@@ -434,6 +532,59 @@ export function GuestScan({
                   </article>
                 ))}
               </>
+            )}
+
+            {/* 诚实空态：弱命中、元词、无证据、实时检索失败时都不再兜底伪装成「相关痛点」 */}
+            {phase === "done" && (!results || results.length === 0) && (
+              <div className="rr-try-empty" role="status">
+                <h3 className="rr-try-empty-title">
+                  {liveState === "vague"
+                    ? t.vagueTitle
+                    : liveState === "failed"
+                      ? t.liveFailedTitle
+                      : liveState === "empty"
+                        ? t.liveEmptyTitle
+                        : t.weakTitle}
+                </h3>
+                <p className="rr-try-empty-text">
+                  {liveState === "vague"
+                    ? t.vagueText
+                    : liveState === "failed"
+                      ? t.liveFailedText
+                      : liveState === "empty"
+                        ? t.liveEmptyText
+                        : t.weakText}
+                </p>
+                {(liveState === "vague" || liveState === "empty" || liveState === "failed") && (
+                  <p className="rr-note mt-2">{t.liveFailedText}</p>
+                )}
+                {liveState === "failed" && (
+                  <button
+                    type="button"
+                    className="rr-btn rr-btn-outline rr-btn-sm"
+                    disabled={!ready || exhausted || isRunning}
+                    onClick={() => runScan(lastQuery)}
+                  >
+                    {t.liveRetry}
+                  </button>
+                )}
+                <div className="rr-try-empty-dirs">
+                  <span className="rr-try-empty-dirs-label">{t.coveredTitle}</span>
+                  <div className="rr-try-empty-dirs-btns">
+                    {t.suggestions.map((s) => (
+                      <button
+                        key={s.label}
+                        type="button"
+                        className="rr-try-example"
+                        disabled={!ready || exhausted || isRunning}
+                        onClick={() => runSuggestion(s)}
+                      >
+                        {s.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
             )}
           </div>
 

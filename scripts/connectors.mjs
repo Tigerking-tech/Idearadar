@@ -11,21 +11,36 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { normalizeText } from "./ingest-lib.mjs";
 
-const TIMEOUT_MS = 15_000;
+const DEFAULT_TIMEOUT_MS = 15_000;
 // GitHub Search API 认证限额 30 次/分、匿名 10 次/分；且门禁+采集会在同一
 // workflow 连续跑 3 轮全量召回。默认把每个 GitHub 请求间隔拉到 2.3s
 // （≈26 次/分），留出安全余量，避免 403 把正式采集打空。
-const GITHUB_MIN_INTERVAL_MS = Number(process.env.GITHUB_MIN_INTERVAL_MS ?? 2300);
+const DEFAULT_GITHUB_MIN_INTERVAL_MS = Number(process.env.GITHUB_MIN_INTERVAL_MS ?? 2300);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export function createCollector({ cfg, now, root, errors = [] }) {
+/**
+ * 定时批量采集与按需实时检索共用同一份连接器，保证「同一条召回口径」。
+ * 差异只在下面 4 个可注入参数：定时管线用默认（高重试、带节流）；
+ * 按需接口传 timeoutMs=7000 / retries=1 / githubMinIntervalMs=0 / maxBackoffMs=2000，
+ * 让单次用户请求在数秒内返回，而不是被指数退避拖到几十秒。
+ */
+export function createCollector({
+  cfg,
+  now,
+  root,
+  errors = [],
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+  retries: defaultRetries = 3,
+  githubMinIntervalMs = DEFAULT_GITHUB_MIN_INTERVAL_MS,
+  maxBackoffMs = 30_000,
+}) {
   const since = new Date(now.getTime() - cfg.lookbackDays * 86_400_000);
   const sinceEpoch = Math.floor(since.getTime() / 1000);
   let lastGithubCall = 0;
 
   async function throttleGithub() {
-    if (!GITHUB_MIN_INTERVAL_MS) return;
-    const wait = lastGithubCall + GITHUB_MIN_INTERVAL_MS - Date.now();
+    if (!githubMinIntervalMs) return;
+    const wait = lastGithubCall + githubMinIntervalMs - Date.now();
     if (wait > 0) await sleep(wait);
     lastGithubCall = Date.now();
   }
@@ -35,18 +50,18 @@ export function createCollector({ cfg, now, root, errors = [] }) {
    * 节流保证正常情况下不会触发限流；重试是网络抖动/secondary limit 的兜底。
    */
   async function getJson(url, headers = {}, opts = {}) {
-    const retries = opts.retries ?? 3;
+    const retries = opts.retries ?? defaultRetries;
     const host = new URL(url).host;
     for (let attempt = 0; attempt <= retries; attempt++) {
       let res;
       try {
         res = await fetch(url, {
           headers: { "User-Agent": "IdeaRadar-Ingest/1.0 (+https://idearadar.app/methodology)", ...headers },
-          signal: AbortSignal.timeout(TIMEOUT_MS),
+          signal: AbortSignal.timeout(timeoutMs),
         });
       } catch (err) {
         if (attempt === retries) throw err; // 网络层错误，重试耗尽
-        await sleep(Math.min(30_000, 2000 * 2 ** attempt));
+        await sleep(Math.min(maxBackoffMs, 2000 * 2 ** attempt));
         continue;
       }
       if (res.ok) return await res.json();
@@ -54,7 +69,9 @@ export function createCollector({ cfg, now, root, errors = [] }) {
       const retryable = status === 403 || status === 429 || status >= 500;
       if (!retryable || attempt === retries) throw new Error(`HTTP ${status} for ${host}`);
       const ra = Number(res.headers.get("retry-after"));
-      const backoff = Number.isFinite(ra) && ra > 0 ? ra * 1000 : Math.min(30_000, 3000 * 2 ** attempt);
+      const backoff = Number.isFinite(ra) && ra > 0
+        ? Math.min(maxBackoffMs, ra * 1000)
+        : Math.min(maxBackoffMs, 3000 * 2 ** attempt);
       await sleep(backoff);
     }
     throw new Error(`HTTP request failed for ${host}`);
@@ -63,7 +80,7 @@ export function createCollector({ cfg, now, root, errors = [] }) {
   async function getText(url, headers = {}) {
     const res = await fetch(url, {
       headers: { "User-Agent": "IdeaRadar-Ingest/1.0 (+https://idearadar.app/methodology)", ...headers },
-      signal: AbortSignal.timeout(TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeoutMs),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${new URL(url).host}`);
     return res.text();
@@ -239,7 +256,7 @@ export function createCollector({ cfg, now, root, errors = [] }) {
         "User-Agent": process.env.REDDIT_USER_AGENT || "IdeaRadar/1.0 (licensed)",
       },
       body: "grant_type=client_credentials",
-      signal: AbortSignal.timeout(TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeoutMs),
     });
     if (!tokenRes.ok) throw new Error(`Reddit OAuth HTTP ${tokenRes.status}`);
     const { access_token } = await tokenRes.json();
@@ -286,5 +303,30 @@ export function createCollector({ cfg, now, root, errors = [] }) {
     return { rows, sourceStats };
   }
 
-  return { collectNiche, connectorIds: CONNECTORS.filter((c) => c.enabled).map((c) => c.id), labels: CONNECTORS };
+  /**
+   * 按需实时检索专用：一个检索词，所有合规平台并发跑，任一平台失败不影响其他平台。
+   * 与 collectNiche 的串行批量语义不同——用户在线等待，最坏耗时必须等于
+   * 单个请求超时，而不是各平台超时之和。排除 rss/firstParty（前者是定时订阅、
+   * 后者是本地导入文件，都不属于「按方向现场搜公开讨论」）。
+   */
+  async function collectQuery(query, limit = 12) {
+    const connectors = CONNECTORS.filter(
+      (c) => c.enabled && c.id !== "rss" && c.id !== "firstParty",
+    );
+    const settled = await Promise.allSettled(
+      connectors.map((c) => c.run({ query, limit, method: "relevance" })),
+    );
+    const rows = [];
+    settled.forEach((res, idx) => {
+      const source = connectors[idx].id;
+      if (res.status === "fulfilled") {
+        rows.push(...res.value.map((r) => ({ ...r, source })));
+      } else {
+        errors.push({ source, query, message: String(res.reason?.message || res.reason) });
+      }
+    });
+    return rows;
+  }
+
+  return { collectNiche, collectQuery, connectorIds: CONNECTORS.filter((c) => c.enabled).map((c) => c.id), labels: CONNECTORS };
 }

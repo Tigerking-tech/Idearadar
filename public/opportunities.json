@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-13T15:19:19.647Z",
+  "generatedAt": "2026-11-13T19:40:43.380Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -12,9 +12,9 @@
       {
         "niche": "solo-crm",
         "method": "relevance",
-        "raw": 251,
+        "raw": 252,
         "itemCount": 7,
-        "recallTitleRate": 0.4820717131474104,
+        "recallTitleRate": 0.4880952380952381,
         "finalTitleRate": 0.5714285714285714
       },
       {
@@ -22,24 +22,24 @@
         "method": "relevance",
         "raw": 219,
         "itemCount": 13,
-        "recallTitleRate": 0.5068493150684932,
+        "recallTitleRate": 0.5114155251141552,
         "finalTitleRate": 0.7692307692307693
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 239,
+        "raw": 241,
         "itemCount": 3,
-        "recallTitleRate": 0.4686192468619247,
+        "recallTitleRate": 0.46473029045643155,
         "finalTitleRate": 1
       },
       {
         "niche": "scheduling",
         "method": "relevance",
-        "raw": 260,
-        "itemCount": 18,
-        "recallTitleRate": 0.5846153846153846,
-        "finalTitleRate": 0.6666666666666666
+        "raw": 258,
+        "itemCount": 17,
+        "recallTitleRate": 0.6356589147286822,
+        "finalTitleRate": 0.6470588235294118
       },
       {
         "niche": "auto-pet-app-booking",
@@ -54,7 +54,7 @@
         "method": "relevance",
         "raw": 114,
         "itemCount": 0,
-        "recallTitleRate": 0.043859649122807015,
+        "recallTitleRate": 0.05263157894736842,
         "finalTitleRate": 0
       }
     ]
@@ -70,7 +70,7 @@
       "id": "so",
       "label": "Stack Exchange (official API)",
       "enabled": true,
-      "rows": 32
+      "rows": 33
     },
     {
       "id": "github",
@@ -98,9 +98,9 @@
     }
   ],
   "totals": {
-    "rawRecords": 1133,
-    "complaintRecords": 65,
-    "opportunities": 41
+    "rawRecords": 1134,
+    "complaintRecords": 61,
+    "opportunities": 40
   },
   "errors": [],
   "items": [
@@ -113,7 +113,7 @@
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 14.2,
+        "recency": 14.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -168,60 +168,6 @@
       "translationKey": "o0xygl"
     },
     {
-      "id": "scheduling-service-degradation-on-microsoft-365",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Service degradation on Microsoft 365",
-      "score": 32,
-      "breakdown": {
-        "frequency": 12,
-        "intensity": 0,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 4,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T08:05:07.000Z",
-      "evidence": [
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-12T23:15:56.000Z",
-          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
-        },
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-12T23:15:56.000Z",
-          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
-        },
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-13T08:05:07.000Z",
-          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
-        },
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-13T08:05:07.000Z",
-          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
-        }
-      ],
-      "titleZh": "Microsoft 365 服务降级",
-      "quoteZh": "此处按逆时间顺序工作：从 UTC 凌晨 1:06:17 更新：当前状态：我们的调查发现，受影响服务器上负责建立安全连接的过程变得 over",
-      "translationKey": "k0xfgs"
-    },
-    {
       "id": "invoice-export-wish-import-expense-report-and-invoice-lines-fro",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -230,7 +176,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
-        "recency": 12.8,
+        "recency": 12.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -258,15 +204,15 @@
       "translationKey": "wtcmtu"
     },
     {
-      "id": "scheduling-global-microsoft-outage",
+      "id": "scheduling-libreoffice-actually-works-365-days-a-year",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
-      "title": "Global Microsoft Outage",
+      "title": "LibreOffice actually works 365 days a year",
       "score": 29,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.9,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -275,22 +221,22 @@
         "hn"
       ],
       "signals": [
-        "broken"
+        "frustration"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-13T10:21:41.000Z",
+      "lastSeen": "2026-11-13T19:04:59.000Z",
       "evidence": [
         {
-          "title": "Global Microsoft Outage",
-          "url": "https://www.cnn.com/2026/11/12/business/live-news/microsoft-global-outage-intl-hnk",
+          "title": "LibreOffice actually works 365 days a year",
+          "url": "https://twitter.com/LibreOffice/status/2121205272479998268",
           "source": "hn",
-          "createdAt": "2026-11-13T10:21:41.000Z",
-          "excerpt": "Unfortunally, this outage broke my entire work: - No emails, calendar, file sharing, etc. - Claude Code broke as well because I cannot login back. - Multiple services I use with 365 are also broken."
+          "createdAt": "2026-11-13T19:04:59.000Z",
+          "excerpt": "I hate all things MS (Windows, Office, AD, O365, Teams, Entra, InTune, Azure, VSCode, OutBreak, Exchange). But LibreOffice doesn&#x27;t even begin to cover what I&#x27;m forced to use at work. When LibreOffice has a mail"
         }
       ],
-      "titleZh": "微软全球服务中断",
-      "quoteZh": "不幸的是，这次服务中断彻底毁了我的工作：无法发送邮件、使用日历、共享文件等等。Claude Code也坏了，因为我无法重新登录。我使用的其他多个365相关服务也都出故障了。",
-      "translationKey": "11tn18c"
+      "titleZh": "LibreOffice 全年365天均可正常使用",
+      "quoteZh": "我讨厌所有MS相关的产品（Windows、Office、AD、O365、Teams、Entra、InTune、Azure、VSCode、OutBreak、Exchange）。但LibreOffice甚至无法满足我在工作中被迫使用的需求。当LibreOffice的邮件功能出问题时",
+      "translationKey": "1iaz7w3"
     },
     {
       "id": "solo-crm-service-degradation-on-microsoft-365",
@@ -301,7 +247,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -336,7 +282,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.8,
+        "recency": 13.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -371,7 +317,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 14.7,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -406,7 +352,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.5,
+        "recency": 13.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -476,7 +422,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -506,6 +452,46 @@
       "titleZh": "AI正在让苹果的应用审核流程成为合成器开发者的噩梦",
       "quoteZh": "如果你成立有限责任公司就能避开12名测试用户，这确实是个简单的办法。但在我的所在地区，法律文件公证的费用就要500欧元以上，而且现在还得提交双栏记账记录。",
       "translationKey": "1k0af9r"
+    },
+    {
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Service degradation on Microsoft 365",
+      "score": 26,
+      "breakdown": {
+        "frequency": 6,
+        "intensity": 0,
+        "recency": 14.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 2,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T08:05:07.000Z",
+      "evidence": [
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-12T23:15:56.000Z",
+          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
+        },
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-13T08:05:07.000Z",
+          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
+        }
+      ],
+      "titleZh": "Microsoft 365 服务降级",
+      "quoteZh": "此处按逆时间顺序工作：从 UTC 凌晨 1:06:17 更新：当前状态：我们的调查发现，受影响服务器上负责建立安全连接的过程变得 over",
+      "translationKey": "k0xfgs"
     },
     {
       "id": "solo-crm-running-a-law-firm-on-free-software",
@@ -551,7 +537,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 13,
+        "recency": 12.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -586,7 +572,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 12.8,
+        "recency": 12.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -621,7 +607,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.6,
+        "recency": 9.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -656,7 +642,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -724,7 +710,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.1,
+        "recency": 11,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -759,7 +745,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.1,
+        "recency": 11,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -794,7 +780,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.1,
+        "recency": 9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -829,7 +815,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -895,7 +881,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.6,
+        "recency": 13.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -928,7 +914,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 8.3,
+        "recency": 8.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -963,7 +949,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 7.8,
+        "recency": 7.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -998,7 +984,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1031,7 +1017,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.9,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1064,7 +1050,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14,
+        "recency": 13.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1097,7 +1083,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.6,
+        "recency": 13.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1122,39 +1108,6 @@
       "translationKey": "1x6lmz6"
     },
     {
-      "id": "scheduling-61-docs-document-the-scheduling-context-in-docs-",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T19:35:03.000Z",
-      "evidence": [
-        {
-          "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
-          "url": "https://github.com/polaeskandar/khmh-koeln-app-frontend/issues/297",
-          "source": "github",
-          "createdAt": "2026-11-10T19:35:03.000Z",
-          "excerpt": "Document the Meetings context in `docs/features/meetings.md`, so its features, rules and code can be found and understood without reading the whole codebase. It covers the agenda, schedules (create, edit, pause), session"
-        }
-      ],
-      "titleZh": "61 [文档] 在 docs/features/scheduling.md 中记录调度上下文",
-      "quoteZh": "在 `docs/features/meetings.md` 中记录会议上下文，以便无需阅读整个代码库即可找到并理解其功能、规则和代码。它涵盖议程、日程（创建、编辑、暂停）、会话",
-      "translationKey": "1xbk369"
-    },
-    {
       "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1163,7 +1116,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.3,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1196,7 +1149,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 10,
+        "recency": 9.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1231,7 +1184,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.2,
+        "recency": 14.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1264,7 +1217,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14,
+        "recency": 13.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1297,7 +1250,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 4,
-        "recency": 6.5,
+        "recency": 6.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1339,7 +1292,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13,
+        "recency": 12.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1372,7 +1325,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.8,
+        "recency": 12.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1405,7 +1358,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.9,
+        "recency": 12.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1438,7 +1391,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.5,
+        "recency": 13.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1471,7 +1424,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.5,
+        "recency": 12.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1539,7 +1492,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12,
+        "recency": 11.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1566,13 +1519,13 @@
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-13T15:20:21.797Z",
+    "at": "2026-11-13T19:41:49.077Z",
     "status": "ok",
     "skippedReason": null,
     "errors": [],
-    "total": 41,
-    "cached": 37,
-    "translated": 4,
+    "total": 40,
+    "cached": 39,
+    "translated": 1,
     "failed": 0,
     "requests": 1
   }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-13T15:16:13.948Z",
+  "evaluatedAt": "2026-11-13T19:37:40.136Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,69 +15,69 @@
   },
   "global": {
     "relevance": {
-      "raw": 1126,
+      "raw": 1138,
       "itemCount": 40,
-      "recallHits": 514,
-      "finalHits": 29,
-      "recallTitleRate": 0.4564831261101243,
-      "finalTitleRate": 0.725
+      "recallHits": 517,
+      "finalHits": 28,
+      "recallTitleRate": 0.45430579964850615,
+      "finalTitleRate": 0.7
     },
     "legacy": {
-      "raw": 1119,
+      "raw": 1128,
       "itemCount": 60,
-      "recallHits": 107,
-      "finalHits": 10,
-      "recallTitleRate": 0.09562109025915996,
-      "finalTitleRate": 0.16666666666666666
+      "recallHits": 101,
+      "finalHits": 9,
+      "recallTitleRate": 0.08953900709219859,
+      "finalTitleRate": 0.15
     }
   },
   "perNiche": {
     "relevance": [
       {
         "niche": "solo-crm",
-        "raw": 251,
+        "raw": 252,
         "itemCount": 7,
-        "recallTitleRate": 0.4820717131474104,
+        "recallTitleRate": 0.4880952380952381,
         "finalTitleRate": 0.5714285714285714,
         "stats": {
-          "raw": 251,
+          "raw": 252,
           "complaintRecords": 7,
           "items": 7
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 211,
+        "raw": 223,
         "itemCount": 13,
-        "recallTitleRate": 0.5260663507109005,
+        "recallTitleRate": 0.5022421524663677,
         "finalTitleRate": 0.7692307692307693,
         "stats": {
-          "raw": 211,
-          "complaintRecords": 16,
+          "raw": 223,
+          "complaintRecords": 17,
           "items": 13
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 240,
+        "raw": 241,
         "itemCount": 3,
-        "recallTitleRate": 0.4666666666666667,
+        "recallTitleRate": 0.46473029045643155,
         "finalTitleRate": 1,
         "stats": {
-          "raw": 240,
+          "raw": 241,
           "complaintRecords": 5,
           "items": 3
         }
       },
       {
         "niche": "scheduling",
-        "raw": 260,
+        "raw": 258,
         "itemCount": 17,
-        "recallTitleRate": 0.6346153846153846,
-        "finalTitleRate": 0.7058823529411765,
+        "recallTitleRate": 0.6356589147286822,
+        "finalTitleRate": 0.6470588235294118,
         "stats": {
-          "raw": 260,
-          "complaintRecords": 33,
+          "raw": 258,
+          "complaintRecords": 32,
           "items": 17
         }
       },
@@ -97,7 +97,7 @@
         "niche": "auto-6c3c0d95be",
         "raw": 114,
         "itemCount": 0,
-        "recallTitleRate": 0.043859649122807015,
+        "recallTitleRate": 0.05263157894736842,
         "finalTitleRate": 0,
         "stats": {
           "raw": 114,
@@ -109,50 +109,50 @@
     "legacy": [
       {
         "niche": "solo-crm",
-        "raw": 252,
-        "itemCount": 11,
-        "recallTitleRate": 0.09126984126984126,
-        "finalTitleRate": 0.2727272727272727,
+        "raw": 241,
+        "itemCount": 15,
+        "recallTitleRate": 0.0995850622406639,
+        "finalTitleRate": 0.13333333333333333,
         "stats": {
-          "raw": 252,
-          "complaintRecords": 13,
-          "items": 11
+          "raw": 241,
+          "complaintRecords": 15,
+          "items": 15
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 202,
-        "itemCount": 11,
-        "recallTitleRate": 0.13861386138613863,
-        "finalTitleRate": 0.2727272727272727,
+        "raw": 223,
+        "itemCount": 12,
+        "recallTitleRate": 0.08968609865470852,
+        "finalTitleRate": 0.08333333333333333,
         "stats": {
-          "raw": 202,
-          "complaintRecords": 11,
-          "items": 11
+          "raw": 223,
+          "complaintRecords": 13,
+          "items": 12
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 241,
-        "itemCount": 20,
-        "recallTitleRate": 0.1037344398340249,
-        "finalTitleRate": 0,
+        "raw": 242,
+        "itemCount": 13,
+        "recallTitleRate": 0.10743801652892562,
+        "finalTitleRate": 0.07692307692307693,
         "stats": {
-          "raw": 241,
-          "complaintRecords": 20,
-          "items": 20
+          "raw": 242,
+          "complaintRecords": 13,
+          "items": 13
         }
       },
       {
         "niche": "scheduling",
-        "raw": 260,
-        "itemCount": 23,
-        "recallTitleRate": 0.11923076923076924,
-        "finalTitleRate": 0.21739130434782608,
+        "raw": 258,
+        "itemCount": 33,
+        "recallTitleRate": 0.11627906976744186,
+        "finalTitleRate": 0.21212121212121213,
         "stats": {
-          "raw": 260,
-          "complaintRecords": 32,
-          "items": 23
+          "raw": 258,
+          "complaintRecords": 40,
+          "items": 33
         }
       },
       {
@@ -171,7 +171,7 @@
         "niche": "auto-6c3c0d95be",
         "raw": 114,
         "itemCount": 0,
-        "recallTitleRate": 0,
+        "recallTitleRate": 0.008771929824561403,
         "finalTitleRate": 0,
         "stats": {
           "raw": 114,
@@ -192,6 +192,11 @@
         "title": "WISH: import Expense Report (and invoice) lines from CSV",
         "niche": "invoice-export",
         "titleHit": true
+      },
+      {
+        "title": "LibreOffice actually works 365 days a year",
+        "niche": "scheduling",
+        "titleHit": false
       },
       {
         "title": "Service degradation on Microsoft 365",
@@ -217,11 +222,6 @@
         "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
         "niche": "support-transcripts",
         "titleHit": true
-      },
-      {
-        "title": "AI is turning Apple's app review process into a nightmare for synth developers",
-        "niche": "scheduling",
-        "titleHit": false
       }
     ],
     "legacy": [
@@ -231,12 +231,17 @@
         "titleHit": false
       },
       {
-        "title": "Done-bar passes: owner, driver and customer on production at iPhone size",
+        "title": "flow press steps fail with 'Element is not attached to the DOM' when the form re-renders after…",
         "niche": "invoice-export",
         "titleHit": false
       },
       {
-        "title": "Energy history: PV slots exceed inverter max power when the meter's energy total updates only…",
+        "title": "Wayfinder map: Budgeting and spend (from #551)",
+        "niche": "invoice-export",
+        "titleHit": false
+      },
+      {
+        "title": "core: flaky batch_io::tests::test_recv_stress_no_stall on macOS CI (50 ms stall bound)",
         "niche": "scheduling",
         "titleHit": false
       },
@@ -246,23 +251,18 @@
         "titleHit": false
       },
       {
-        "title": "journal: TestTwoFailedWindowsReappendedIntoOneNearFullSegmentEachLandWhole refused by the spare…",
+        "title": "Handle malformed Event availability safely",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
+        "title": "LibreOffice actually works 365 days a year",
         "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "Linked filter values query may join every card's source table, multiplying rows until it times…",
-        "niche": "solo-crm",
-        "titleHit": false
-      },
-      {
-        "title": "Service degradation on Microsoft 365",
-        "niche": "solo-crm",
-        "titleHit": false
-      },
-      {
-        "title": "Deleting an application fails with HTTP 500 when one of its subscriptions has no API reference",
-        "niche": "support-transcripts",
+        "title": "Sub-steps on a task",
+        "niche": "scheduling",
         "titleHit": false
       }
     ]

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T23:37:30.301Z",
+  "generatedAt": "2026-11-13T04:52:51.183Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -12,34 +12,34 @@
       {
         "niche": "solo-crm",
         "method": "relevance",
-        "raw": 252,
+        "raw": 238,
         "itemCount": 6,
-        "recallTitleRate": 0.4801587301587302,
+        "recallTitleRate": 0.5042016806722689,
         "finalTitleRate": 0.6666666666666666
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 223,
-        "itemCount": 13,
-        "recallTitleRate": 0.5022421524663677,
-        "finalTitleRate": 0.7692307692307693
+        "raw": 203,
+        "itemCount": 14,
+        "recallTitleRate": 0.5467980295566502,
+        "finalTitleRate": 0.7857142857142857
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
         "raw": 239,
-        "itemCount": 4,
+        "itemCount": 3,
         "recallTitleRate": 0.4560669456066946,
-        "finalTitleRate": 0.75
+        "finalTitleRate": 1
       },
       {
         "niche": "scheduling",
         "method": "relevance",
-        "raw": 260,
-        "itemCount": 16,
-        "recallTitleRate": 0.5807692307692308,
-        "finalTitleRate": 0.6875
+        "raw": 262,
+        "itemCount": 18,
+        "recallTitleRate": 0.6374045801526718,
+        "finalTitleRate": 0.6666666666666666
       }
     ]
   },
@@ -48,13 +48,13 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 440
+      "rows": 409
     },
     {
       "id": "so",
       "label": "Stack Exchange (official API)",
       "enabled": true,
-      "rows": 36
+      "rows": 35
     },
     {
       "id": "github",
@@ -82,9 +82,9 @@
     }
   ],
   "totals": {
-    "rawRecords": 974,
-    "complaintRecords": 57,
-    "opportunities": 39
+    "rawRecords": 942,
+    "complaintRecords": 59,
+    "opportunities": 41
   },
   "errors": [],
   "items": [
@@ -93,11 +93,11 @@
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
       "title": "Appointment Booking",
-      "score": 45,
+      "score": 44,
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -160,7 +160,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
-        "recency": 13.2,
+        "recency": 13.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -196,7 +196,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.1,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -231,7 +231,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.8,
+        "recency": 13.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -258,6 +258,41 @@
       "translationKey": "2b252w"
     },
     {
+      "id": "scheduling-booking-improvements",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Booking improvements",
+      "score": 27,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T00:12:52.000Z",
+      "evidence": [
+        {
+          "title": "Booking improvements",
+          "url": "https://github.com/Pogut/nikolai-demo-red/issues/3",
+          "source": "github",
+          "createdAt": "2026-11-13T00:12:52.000Z",
+          "excerpt": "As a student, I want booking to work well and be fast, so that I can get a room quickly. - booking should be easy - it should be user friendly - cancel works"
+        }
+      ],
+      "titleZh": "预订改进",
+      "quoteZh": "作为一名学生，我希望预订运行良好且快速，以便我能快速获得房间。 - 预订应简单 - 应用户友好 - 取消可用",
+      "translationKey": "q1kin6"
+    },
+    {
       "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -266,7 +301,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.1,
+        "recency": 13,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -301,7 +336,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 12.4,
+        "recency": 12.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -336,7 +371,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 13.3,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -371,7 +406,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 13.1,
+        "recency": 13,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -406,7 +441,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 10,
+        "recency": 9.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -441,7 +476,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.8,
+        "recency": 11.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -468,6 +503,41 @@
       "translationKey": "c9813y"
     },
     {
+      "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Batches, balancing transfers, holds and multi-currency",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 8.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-10-31T06:39:41.000Z",
+      "evidence": [
+        {
+          "title": "Batches, balancing transfers, holds and multi-currency",
+          "url": "https://github.com/laiwf94/ledgerd/issues/26",
+          "source": "github",
+          "createdAt": "2026-10-31T06:39:41.000Z",
+          "excerpt": "**Week 3 of 52** · Mon 16 Nov 2026 to Sun 22 Nov 2026 ## Why Marketplace payouts need several transfers to happen together, sweeps fail on short balances, holds cannot grow, and a currency conversion is two separate entr"
+        }
+      ],
+      "titleZh": "批次、平衡转账、保留与多币种",
+      "quoteZh": "**第 3 周（共 52 周）** · 2026年11月16日周一 至 2026年11月22日周日 ## 为什么 Marketplace 付款需要多笔转账一起发生，清扫在余额不足时失败，保留不能增长，且货币转换是两个单独的 entr",
+      "translationKey": "1p5th3o"
+    },
+    {
       "id": "invoice-export-expense-inconsistent-behavior-on-ws-and-self-dm-",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -476,7 +546,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.7,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -495,7 +565,10 @@
           "createdAt": "2026-11-12T11:19:58.000Z",
           "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
         }
-      ]
+      ],
+      "titleZh": "费用 - WS与Self DM费用创建编辑报告字段行为不一致",
+      "quoteZh": "如果您还没有，请查看我们的 [贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) 以进行入职。要加入我们的 Slack 频道，请填写 [此表单](h",
+      "translationKey": "1txvk4y"
     },
     {
       "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
@@ -506,7 +579,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.7,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -525,40 +598,10 @@
           "createdAt": "2026-11-12T11:29:02.000Z",
           "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
         }
-      ]
-    },
-    {
-      "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
       ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T03:46:02.000Z",
-      "evidence": [
-        {
-          "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
-          "url": "https://github.com/UTDallasEPICS/the-samaritan-inn/issues/145",
-          "source": "github",
-          "createdAt": "2026-11-12T03:46:02.000Z",
-          "excerpt": "## Description Add a Calendly Link textbox to the Admin Profile page, allowing admins to easily update the Calendly URL through the UI without needing to modify the codebase. Store the link in the database and overwrite "
-        }
-      ],
-      "titleZh": "在管理员资料页增加 Calendly 链接输入框，并修复气泡首页缺陷",
-      "quoteZh": "描述：在管理员资料页增加 Calendly 链接输入框，让管理员无需改代码即可通过界面更新 Calendly URL。链接存入数据库并覆盖……",
-      "translationKey": "bfqf7a"
+      "titleZh": "费用 - 报告列表无法通过键盘导航",
+      "quoteZh": "如果您还没有，请查看我们的 [贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) 以进行入职。要加入我们的 Slack 频道，请填写 [此表单](h",
+      "translationKey": "11xch1z"
     },
     {
       "id": "scheduling-endpoint-delete-bookings-booking-id",
@@ -569,7 +612,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.4,
+        "recency": 11.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -604,7 +647,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.4,
+        "recency": 11.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -639,7 +682,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.4,
+        "recency": 9.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -674,7 +717,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -684,49 +727,52 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-12T22:34:28.000Z",
+      "lastSeen": "2026-11-13T00:31:44.000Z",
       "evidence": [
         {
           "title": "OpenAI structured outputs: model returns null or skips values that exist in the source text during email data extraction",
           "url": "https://stackoverflow.com/questions/80016369/openai-structured-outputs-model-returns-null-or-skips-values-that-exist-in-the",
           "source": "so",
-          "createdAt": "2026-11-12T22:34:28.000Z",
+          "createdAt": "2026-11-13T00:31:44.000Z",
           "excerpt": "I am currently working on an application where we get an email, and after identification, we process that email with AI, where a response is required in JSON format for the values. Initially, I used a strict JSON schema "
         }
-      ]
+      ],
+      "titleZh": "OpenAI 结构化输出：模型返回 null 或跳过源文本中存在的值…",
+      "quoteZh": "我目前正在开发一个应用程序，我们收到电子邮件，识别后使用 AI 处理该邮件，需要以 JSON 格式对值进行响应。最初，我使用了严格的 JSON schema",
+      "translationKey": "1uib3xg"
     },
     {
-      "id": "solo-crm-crm",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "CRM",
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Service degradation on Microsoft 365",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
       "mentions": 1,
       "sources": [
-        "github"
+        "hn"
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-12T01:48:33.000Z",
+      "lastSeen": "2026-11-12T23:15:56.000Z",
       "evidence": [
         {
-          "title": "CRM",
-          "url": "https://github.com/crmtdmpangkalanbalai-spec/vitejs-vite-skn1cv3a/issues/1",
-          "source": "github",
-          "createdAt": "2026-11-12T01:48:33.000Z",
-          "excerpt": "import React, { useState, useEffect, useMemo } from 'react'; import { Users, MessageSquare, FileText, ShieldCheck, TrendingUp, Plus, Search, Send, Edit3, Trash2, CheckCircle, Clock, Car, User, LogOut, Lock, History, Info"
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-12T23:15:56.000Z",
+          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
         }
       ],
-      "titleZh": "CRM 客户关系管理",
-      "quoteZh": "代码片段：从 react 导入 useState、useEffect、useMemo，并引入 Users、MessageSquare、FileText、ShieldCheck、TrendingUp 等图标组件……",
-      "translationKey": "22yq12"
+      "titleZh": "Microsoft 365 服务降级",
+      "quoteZh": "此处按逆时间顺序工作：从 UTC 凌晨 1:06:17 更新：当前状态：我们的调查发现，受影响服务器上负责建立安全连接的过程变得 over",
+      "translationKey": "k0xfgs"
     },
     {
       "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
@@ -737,7 +783,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 15,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -756,7 +802,10 @@
           "createdAt": "2026-11-12T22:31:08.000Z",
           "excerpt": "Parent epic: #273. Planning ticket **CL-08**. Track A. ## Dependencies CL-07 #280. ## Problem and outcome `chat-runtime/src/transcript.ts` (1,136 lines) and `commands.ts` (917) are over the 600-line limit and mix concern"
         }
-      ]
+      ],
+      "titleZh": "拆分 chat-runtime 的 transcript 与 commands",
+      "quoteZh": "父史诗：#273。规划工单 **CL-08**。轨道 A。 ## 依赖 CL-07 #280。 ## 问题与结果 `chat-runtime/src/transcript.ts`（1,136 行）和 `commands.ts`（917）超过 600 行限制且混淆了关注点",
+      "translationKey": "1agg45t"
     },
     {
       "id": "scheduling-appointment-booking-tasks",
@@ -767,7 +816,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 4,
-        "recency": 6.8,
+        "recency": 6.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -809,7 +858,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -842,7 +891,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 8.1,
+        "recency": 8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -877,7 +926,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.2,
+        "recency": 14.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -910,7 +959,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.3,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -943,7 +992,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -976,7 +1025,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1009,7 +1058,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.9,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1028,7 +1077,10 @@
           "createdAt": "2026-11-10T19:35:03.000Z",
           "excerpt": "Document the Meetings context in `docs/features/meetings.md`, so its features, rules and code can be found and understood without reading the whole codebase. It covers the agenda, schedules (create, edit, pause), session"
         }
-      ]
+      ],
+      "titleZh": "61 [文档] 在 docs/features/scheduling.md 中记录调度上下文",
+      "quoteZh": "在 `docs/features/meetings.md` 中记录会议上下文，以便无需阅读整个代码库即可找到并理解其功能、规则和代码。它涵盖议程、日程（创建、编辑、暂停）、会话",
+      "translationKey": "1xbk369"
     },
     {
       "id": "scheduling-activity-links-one-shared-sign-up-host-matcher-f",
@@ -1039,7 +1091,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1064,6 +1116,39 @@
       "translationKey": "znqbr"
     },
     {
+      "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T03:46:02.000Z",
+      "evidence": [
+        {
+          "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
+          "url": "https://github.com/UTDallasEPICS/the-samaritan-inn/issues/145",
+          "source": "github",
+          "createdAt": "2026-11-12T03:46:02.000Z",
+          "excerpt": "## Description Add a Calendly Link textbox to the Admin Profile page, allowing admins to easily update the Calendly URL through the UI without needing to modify the codebase. Store the link in the database and overwrite "
+        }
+      ],
+      "titleZh": "在管理员资料页增加 Calendly 链接输入框，并修复气泡首页缺陷",
+      "quoteZh": "描述：在管理员资料页增加 Calendly 链接输入框，让管理员无需改代码即可通过界面更新 Calendly URL。链接存入数据库并覆盖……",
+      "translationKey": "bfqf7a"
+    },
+    {
       "id": "scheduling-appointment-management",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1072,7 +1157,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 10.3,
+        "recency": 10.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1099,6 +1184,39 @@
       "translationKey": "1oxufvs"
     },
     {
+      "id": "solo-crm-crm",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "CRM",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T01:48:33.000Z",
+      "evidence": [
+        {
+          "title": "CRM",
+          "url": "https://github.com/crmtdmpangkalanbalai-spec/vitejs-vite-skn1cv3a/issues/1",
+          "source": "github",
+          "createdAt": "2026-11-12T01:48:33.000Z",
+          "excerpt": "import React, { useState, useEffect, useMemo } from 'react'; import { Users, MessageSquare, FileText, ShieldCheck, TrendingUp, Plus, Search, Send, Edit3, Trash2, CheckCircle, Clock, Car, User, LogOut, Lock, History, Info"
+        }
+      ],
+      "titleZh": "CRM 客户关系管理",
+      "quoteZh": "代码片段：从 react 导入 useState、useEffect、useMemo，并引入 Users、MessageSquare、FileText、ShieldCheck、TrendingUp 等图标组件……",
+      "translationKey": "22yq12"
+    },
+    {
       "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
@@ -1107,7 +1225,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.3,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1140,7 +1258,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.8,
+        "recency": 13.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1173,7 +1291,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.8,
+        "recency": 12.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1206,7 +1324,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.3,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1239,7 +1357,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.1,
+        "recency": 13,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1272,7 +1390,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.2,
+        "recency": 13.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1305,7 +1423,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 6,
+        "recency": 5.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1340,7 +1458,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 7.7,
+        "recency": 7.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1375,7 +1493,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.3,
+        "recency": 12.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1398,53 +1516,18 @@
       "titleZh": "用自由软件运营律所",
       "quoteZh": "这个博客点子挺有意思，我打算借用。过去 5 年我一直用纯自托管和 FOSS 软件运营一家软件工程合作社（邮件服务器和 Discord 除外），大部分……",
       "translationKey": "18zgbi"
-    },
-    {
-      "id": "support-transcripts-i-wish-tech-companies-knew-more-about-me",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "I wish tech companies knew more about me",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 11.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-06T04:20:07.000Z",
-      "evidence": [
-        {
-          "title": "I wish tech companies knew more about me",
-          "url": "https://rakhim.exotext.com/i-wish-tech-companies-knew-more-about-me",
-          "source": "hn",
-          "createdAt": "2026-11-06T04:20:07.000Z",
-          "excerpt": "The language thing shits me to tears. I lived in Germany for years but don&#x27;t speak German. I raised a support ticket with Spotify to ask that they stop sending me emails in German, as they full-well know I speak Eng"
-        }
-      ],
-      "titleZh": "希望科技公司能更了解我",
-      "quoteZh": "语言这事真把我气哭了。我在德国住过多年但不会德语。我给 Spotify 提了工单，请他们别再给我发德语邮件——他们明明知道我只说英语……",
-      "translationKey": "1we1xob"
     }
   ],
   "translation": {
-    "model": "openai/gpt-4o-mini",
-    "at": "2026-11-12T23:38:20.141Z",
-    "status": "skipped",
-    "skippedReason": "推理端点返回 text/plain 而非 JSON（疑似被网络出口拦截或 GitHub Models 未启用）",
-    "errors": [
-      "推理端点返回 text/plain 而非 JSON（疑似被网络出口拦截或 GitHub Models 未启用）"
-    ],
-    "total": 39,
-    "cached": 34,
-    "translated": 0,
-    "failed": 5,
-    "requests": 0
+    "model": "hy3",
+    "at": "2026-11-13T04:54:27.930Z",
+    "status": "ok",
+    "skippedReason": null,
+    "errors": [],
+    "total": 41,
+    "cached": 33,
+    "translated": 8,
+    "failed": 0,
+    "requests": 1
   }
 }

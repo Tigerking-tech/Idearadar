@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-12T23:34:42.743Z",
+  "evaluatedAt": "2026-11-13T04:50:05.608Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,120 +15,120 @@
   },
   "global": {
     "relevance": {
-      "raw": 976,
-      "itemCount": 39,
-      "recallHits": 505,
-      "finalHits": 28,
-      "recallTitleRate": 0.5174180327868853,
-      "finalTitleRate": 0.717948717948718
+      "raw": 978,
+      "itemCount": 41,
+      "recallHits": 507,
+      "finalHits": 30,
+      "recallTitleRate": 0.5184049079754601,
+      "finalTitleRate": 0.7317073170731707
     },
     "legacy": {
-      "raw": 962,
-      "itemCount": 60,
-      "recallHits": 108,
-      "finalHits": 9,
-      "recallTitleRate": 0.11226611226611227,
-      "finalTitleRate": 0.15
+      "raw": 971,
+      "itemCount": 48,
+      "recallHits": 120,
+      "finalHits": 6,
+      "recallTitleRate": 0.12358393408856849,
+      "finalTitleRate": 0.125
     }
   },
   "perNiche": {
     "relevance": [
       {
         "niche": "solo-crm",
-        "raw": 252,
+        "raw": 251,
         "itemCount": 6,
-        "recallTitleRate": 0.4801587301587302,
+        "recallTitleRate": 0.47808764940239046,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 252,
+          "raw": 251,
           "complaintRecords": 6,
           "items": 6
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 222,
-        "itemCount": 13,
-        "recallTitleRate": 0.5045045045045045,
-        "finalTitleRate": 0.7692307692307693,
+        "raw": 226,
+        "itemCount": 14,
+        "recallTitleRate": 0.4911504424778761,
+        "finalTitleRate": 0.7857142857142857,
         "stats": {
-          "raw": 222,
-          "complaintRecords": 17,
-          "items": 13
+          "raw": 226,
+          "complaintRecords": 18,
+          "items": 14
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 240,
-        "itemCount": 4,
-        "recallTitleRate": 0.45416666666666666,
-        "finalTitleRate": 0.75,
+        "raw": 239,
+        "itemCount": 3,
+        "recallTitleRate": 0.4560669456066946,
+        "finalTitleRate": 1,
         "stats": {
-          "raw": 240,
+          "raw": 239,
           "complaintRecords": 5,
-          "items": 4
+          "items": 3
         }
       },
       {
         "niche": "scheduling",
         "raw": 262,
-        "itemCount": 16,
-        "recallTitleRate": 0.6221374045801527,
-        "finalTitleRate": 0.6875,
+        "itemCount": 18,
+        "recallTitleRate": 0.6374045801526718,
+        "finalTitleRate": 0.6666666666666666,
         "stats": {
           "raw": 262,
-          "complaintRecords": 29,
-          "items": 16
+          "complaintRecords": 31,
+          "items": 18
         }
       }
     ],
     "legacy": [
       {
         "niche": "solo-crm",
-        "raw": 239,
-        "itemCount": 9,
-        "recallTitleRate": 0.10460251046025104,
+        "raw": 252,
+        "itemCount": 4,
+        "recallTitleRate": 0.10317460317460317,
         "finalTitleRate": 0,
         "stats": {
-          "raw": 239,
-          "complaintRecords": 9,
-          "items": 9
+          "raw": 252,
+          "complaintRecords": 4,
+          "items": 4
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 222,
-        "itemCount": 18,
-        "recallTitleRate": 0.11711711711711711,
-        "finalTitleRate": 0.16666666666666666,
+        "raw": 220,
+        "itemCount": 11,
+        "recallTitleRate": 0.13636363636363635,
+        "finalTitleRate": 0.18181818181818182,
         "stats": {
-          "raw": 222,
-          "complaintRecords": 19,
-          "items": 18
+          "raw": 220,
+          "complaintRecords": 12,
+          "items": 11
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 241,
-        "itemCount": 16,
-        "recallTitleRate": 0.1037344398340249,
+        "raw": 238,
+        "itemCount": 17,
+        "recallTitleRate": 0.10084033613445378,
         "finalTitleRate": 0,
         "stats": {
-          "raw": 241,
-          "complaintRecords": 16,
-          "items": 16
+          "raw": 238,
+          "complaintRecords": 18,
+          "items": 17
         }
       },
       {
         "niche": "scheduling",
-        "raw": 260,
-        "itemCount": 28,
-        "recallTitleRate": 0.12307692307692308,
-        "finalTitleRate": 0.21428571428571427,
+        "raw": 261,
+        "itemCount": 16,
+        "recallTitleRate": 0.1532567049808429,
+        "finalTitleRate": 0.25,
         "stats": {
-          "raw": 260,
-          "complaintRecords": 33,
-          "items": 28
+          "raw": 261,
+          "complaintRecords": 37,
+          "items": 16
         }
       }
     ]
@@ -156,6 +156,11 @@
         "titleHit": true
       },
       {
+        "title": "Booking improvements",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
         "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
         "niche": "support-transcripts",
         "titleHit": true
@@ -169,14 +174,14 @@
         "title": "CSV export for timesheets and invoices",
         "niche": "invoice-export",
         "titleHit": false
-      },
-      {
-        "title": "Appointment & Vehicle Management",
-        "niche": "scheduling",
-        "titleHit": true
       }
     ],
     "legacy": [
+      {
+        "title": "Crypto Logger: Crypto Logger | Main cancelled (stage unavailable)",
+        "niche": "scheduling",
+        "titleHit": false
+      },
       {
         "title": "Done-bar passes: owner, driver and customer on production at iPhone size",
         "niche": "invoice-export",
@@ -188,19 +193,14 @@
         "titleHit": false
       },
       {
-        "title": "Reconciliation job for bookings whose email was never sent",
+        "title": "Specs for Collapsed groups",
+        "niche": "invoice-export",
+        "titleHit": false
+      },
+      {
+        "title": "Assistant eval: misses left after the #288 rerun (reception handoff open, new-appointment…",
         "niche": "scheduling",
-        "titleHit": false
-      },
-      {
-        "title": "bug: VIN demo template no longer matches search placeholder",
-        "niche": "solo-crm",
-        "titleHit": false
-      },
-      {
-        "title": "Get Many Objects fails after the first page when Order By is empty",
-        "niche": "solo-crm",
-        "titleHit": false
+        "titleHit": true
       },
       {
         "title": "Deleting an application fails with HTTP 500 when one of its subscriptions has no API reference",
@@ -208,12 +208,12 @@
         "titleHit": false
       },
       {
-        "title": "GKO 4.13] CORS configuration of HTTP listeners is dropped when syncing an ApiV4Definition to…",
+        "title": "Genlock redeploy at the same obs pin fails at [stage]: rsync --delete hits the box's root-owned…",
         "niche": "support-transcripts",
         "titleHit": false
       },
       {
-        "title": "LLM Proxy VERTEX_AI: valid responseJsonSchema with a type list is converted into an invalid…",
+        "title": "GKO 4.13] CORS configuration of HTTP listeners is dropped when syncing an ApiV4Definition to…",
         "niche": "support-transcripts",
         "titleHit": false
       }

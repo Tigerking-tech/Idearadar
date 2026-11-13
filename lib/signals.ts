@@ -390,12 +390,25 @@ export function resolveSignals(locale: "en" | "zh"): ResolvedFeed {
  */
 export function searchSignals(query: string, signals: Signal[], limit = 4) {
   const q = query.trim().toLowerCase();
-  const tokens = q.split(/[\s,，、/|]+/).filter((t) => t.length >= 2);
+  const rawTokens = q.split(/[\s,，、/|]+/).filter((t) => t.length >= 2);
+  // 中文连写词（「发票导出」「预约工具」）中间没有分隔符，按整串匹配会一条都命中不到，
+  // 导致页面自带的示范词反而被判成「没有完全匹配」。对纯中文长词补 2 字片段，
+  // 让「发票导出」也能命中含「发票 / 导出」的条目；英文与中英混合查询不受影响。
+  const terms: string[] = [];
+  const addTerm = (t: string) => {
+    if (!terms.includes(t)) terms.push(t);
+  };
+  rawTokens.forEach(addTerm);
+  for (const tok of rawTokens) {
+    if (/^[\u3400-\u9fff]{3,}$/.test(tok)) {
+      for (let i = 0; i < tok.length - 1; i += 1) addTerm(tok.slice(i, i + 2));
+    }
+  }
   const scored = signals.map((it, idx) => {
     // 中文页也能用中文词搜索；同时保留英文原文，中英混合查询都能命中。
     const hay = `${it.title} ${it.titleOriginal} ${it.category} ${it.gap} ${it.quote} ${it.quoteOriginal}`.toLowerCase();
     let hits = 0;
-    for (const t of tokens) if (hay.includes(t)) hits += 1;
+    for (const t of terms) if (hay.includes(t)) hits += 1;
     if (q.length >= 2 && hay.includes(q)) hits += 2;
     return { it, hits, idx };
   });
@@ -404,7 +417,7 @@ export function searchSignals(query: string, signals: Signal[], limit = 4) {
   return { list: sorted.slice(0, limit).map((s) => s.it), noMatch };
 }
 
-/** 按指定 id 顺序取信号（用于方向 tile / 随机 / Explore）。 */
+/** 按指定 id 顺序取信号。仅适用于 id 稳定的固定数据集；方向卡片已改为内容检索，不再依赖此函数。 */
 export function pinnedSignals(ids: string[], signals: Signal[]): Signal[] {
   const map = new Map(signals.map((s) => [s.id, s]));
   return ids

@@ -483,7 +483,9 @@ body {
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 .rr-feed-item:hover { border-color: transparent; box-shadow: 0 0 0 1.5px var(--rr-indigo), 0 8px 22px rgba(91, 75, 245, 0.1); }
-.rr-feed-item-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+/* 英文 nicheLabel 很长（如 "Invoicing and expense export failures"），
+   320px 窄屏会把趋势芯片挤出卡片；允许换行后两者都完整保留。 */
+.rr-feed-item-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
 .rr-feed-item-title { font-size: 13.5px; font-weight: 700; line-height: 1.4; color: var(--rr-ink); overflow-wrap: anywhere; word-break: break-word; }
 .rr-feed-item-mid { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 2px; }
 .rr-feed-item-score { text-align: right; line-height: 1.1; white-space: nowrap; }

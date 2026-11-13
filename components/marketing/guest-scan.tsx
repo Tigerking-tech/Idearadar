@@ -5,12 +5,11 @@ import Link from "next/link";
 import { EN_DICT, type Dict, type Locale } from "@/lib/i18n";
 import {
   searchSignals,
-  pinnedSignals,
   topSignals,
   type Signal,
 } from "@/lib/signals";
 
-type Suggestion = { label: string; sub: string; pinned: string[] };
+type Suggestion = { label: string; sub: string; query: string[] };
 
 type TrendKey = Signal["trend"];
 
@@ -122,7 +121,12 @@ export function GuestScan({
   const left = Math.max(0, MAX_FREE - used);
   const isRunning = phase === "running";
 
-  function runScan(raw?: string) {
+  /**
+   * 统一的扫描入口：输入框、快捷词、发现流卡片、方向卡片都走这里。
+   * raw 是送进 searchSignals 的检索词；display 是人可读的标题（方向卡片用方向名，
+   * 而不是把一串关键词暴露给用户）。
+   */
+  function runScan(raw?: string, display?: string) {
     const q = (raw ?? query).trim();
     if (!q || !ready || exhausted || phase === "running") return;
 
@@ -133,8 +137,8 @@ export function GuestScan({
       /* 隐私模式下 localStorage 不可用时，本次会话内仍可计数 */
     }
     setUsed(next);
-    setQuery(q);
-    setLastQuery(q);
+    setQuery(display ?? q);
+    setLastQuery(display ?? q);
     setPhase("running");
     setStep(0);
     setResults(null);
@@ -155,36 +159,16 @@ export function GuestScan({
     );
   }
 
+  /**
+   * 方向卡片 / 随机方向：按该方向的检索词走统一内容检索。
+   *
+   * 历史实现用 pinnedSignals(s.pinned, signals) 按演示数据的短 id 取条目；
+   * 切到真实采集管线后 id 变成 "solo-crm-issues-in-crm" 这类长名，一个都匹配不上，
+   * 函数里的 `if (!list.length) return` 会让点击静默无反应。改为内容检索后，
+   * 演示数据与实时数据都能出结果，且不需要随采集条目变化维护 id 清单。
+   */
   function runSuggestion(s: Suggestion) {
-    if (!ready || exhausted || phase === "running") return;
-    const list = pinnedSignals(s.pinned, signals);
-    if (!list.length) return;
-    const next = used + 1;
-    try {
-      window.localStorage.setItem(STORAGE_KEY, String(next));
-    } catch {
-      /* 隐私模式不可用时的会话内计数 */
-    }
-    setUsed(next);
-    setQuery(s.label);
-    setLastQuery(s.label);
-    setPhase("running");
-    setStep(0);
-    setResults(null);
-    setNoMatch(false);
-
-    timers.current.forEach(clearTimeout);
-    timers.current = [];
-    t.runningSteps.forEach((_, i) => {
-      timers.current.push(setTimeout(() => setStep(i + 1), (i + 1) * 300));
-    });
-    timers.current.push(
-      setTimeout(() => {
-        setResults(list);
-        setNoMatch(false);
-        setPhase("done");
-      }, 1050),
-    );
+    runScan(s.query.join(" "), s.label);
   }
 
   function runSurprise() {
@@ -417,7 +401,7 @@ export function GuestScan({
                   )}
                 </div>
                 <p className="rr-try-order-note">{t.resultOrderNote}</p>
-                {noMatch && <p className="rr-try-nomatch">{t.noMatch}</p>}
+                {noMatch && <p className="rr-try-nomatch">{live ? t.noMatchLive : t.noMatch}</p>}
                 {results.map((it, i) => (
                   <article className="rr-try-result" key={it.id}>
                     <div className="rr-try-result-top">

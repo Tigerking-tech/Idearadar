@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-13T06:40:08.560Z",
+  "generatedAt": "2026-11-13T15:19:19.647Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -13,33 +13,49 @@
         "niche": "solo-crm",
         "method": "relevance",
         "raw": 251,
-        "itemCount": 6,
-        "recallTitleRate": 0.47808764940239046,
-        "finalTitleRate": 0.6666666666666666
+        "itemCount": 7,
+        "recallTitleRate": 0.4820717131474104,
+        "finalTitleRate": 0.5714285714285714
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 210,
-        "itemCount": 14,
-        "recallTitleRate": 0.5285714285714286,
-        "finalTitleRate": 0.7857142857142857
+        "raw": 219,
+        "itemCount": 13,
+        "recallTitleRate": 0.5068493150684932,
+        "finalTitleRate": 0.7692307692307693
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 237,
+        "raw": 239,
         "itemCount": 3,
-        "recallTitleRate": 0.459915611814346,
+        "recallTitleRate": 0.4686192468619247,
         "finalTitleRate": 1
       },
       {
         "niche": "scheduling",
         "method": "relevance",
-        "raw": 262,
+        "raw": 260,
         "itemCount": 18,
-        "recallTitleRate": 0.6412213740458015,
+        "recallTitleRate": 0.5846153846153846,
         "finalTitleRate": 0.6666666666666666
+      },
+      {
+        "niche": "auto-pet-app-booking",
+        "method": "relevance",
+        "raw": 50,
+        "itemCount": 0,
+        "recallTitleRate": 0,
+        "finalTitleRate": 0
+      },
+      {
+        "niche": "auto-6c3c0d95be",
+        "method": "relevance",
+        "raw": 114,
+        "itemCount": 0,
+        "recallTitleRate": 0.043859649122807015,
+        "finalTitleRate": 0
       }
     ]
   },
@@ -48,19 +64,19 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 427
+      "rows": 514
     },
     {
       "id": "so",
       "label": "Stack Exchange (official API)",
       "enabled": true,
-      "rows": 35
+      "rows": 32
     },
     {
       "id": "github",
       "label": "GitHub Issues (public REST API)",
       "enabled": true,
-      "rows": 498
+      "rows": 587
     },
     {
       "id": "rss",
@@ -82,8 +98,8 @@
     }
   ],
   "totals": {
-    "rawRecords": 960,
-    "complaintRecords": 59,
+    "rawRecords": 1133,
+    "complaintRecords": 65,
     "opportunities": 41
   },
   "errors": [],
@@ -97,7 +113,7 @@
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 14.4,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -152,6 +168,60 @@
       "translationKey": "o0xygl"
     },
     {
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Service degradation on Microsoft 365",
+      "score": 32,
+      "breakdown": {
+        "frequency": 12,
+        "intensity": 0,
+        "recency": 14.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 4,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T08:05:07.000Z",
+      "evidence": [
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-12T23:15:56.000Z",
+          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
+        },
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-12T23:15:56.000Z",
+          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
+        },
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-13T08:05:07.000Z",
+          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
+        },
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-13T08:05:07.000Z",
+          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
+        }
+      ],
+      "titleZh": "Microsoft 365 服务降级",
+      "quoteZh": "此处按逆时间顺序工作：从 UTC 凌晨 1:06:17 更新：当前状态：我们的调查发现，受影响服务器上负责建立安全连接的过程变得 over",
+      "translationKey": "k0xfgs"
+    },
+    {
       "id": "invoice-export-wish-import-expense-report-and-invoice-lines-fro",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -160,7 +230,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
-        "recency": 13,
+        "recency": 12.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -188,6 +258,76 @@
       "translationKey": "wtcmtu"
     },
     {
+      "id": "scheduling-global-microsoft-outage",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Global Microsoft Outage",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T10:21:41.000Z",
+      "evidence": [
+        {
+          "title": "Global Microsoft Outage",
+          "url": "https://www.cnn.com/2026/11/12/business/live-news/microsoft-global-outage-intl-hnk",
+          "source": "hn",
+          "createdAt": "2026-11-13T10:21:41.000Z",
+          "excerpt": "Unfortunally, this outage broke my entire work: - No emails, calendar, file sharing, etc. - Claude Code broke as well because I cannot login back. - Multiple services I use with 365 are also broken."
+        }
+      ],
+      "titleZh": "微软全球服务中断",
+      "quoteZh": "不幸的是，这次服务中断彻底毁了我的工作：无法发送邮件、使用日历、共享文件等等。Claude Code也坏了，因为我无法重新登录。我使用的其他多个365相关服务也都出故障了。",
+      "translationKey": "11tn18c"
+    },
+    {
+      "id": "solo-crm-service-degradation-on-microsoft-365",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Service degradation on Microsoft 365",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "frustration"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T09:50:40.000Z",
+      "evidence": [
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-13T09:50:40.000Z",
+          "excerpt": "This year has been terrible for outages, the European Google power outage earlier this year, the PHP stuff (although that&#x27;s only tangentially related),the AWS outage in May, Cloudflare a couple times around this tim"
+        }
+      ],
+      "titleZh": "Microsoft 365服务性能下降",
+      "quoteZh": "今年的服务中断情况十分糟糕，先是年初的欧洲谷歌停电，还有PHP相关的问题（虽然那只是间接相关），五月又有AWS停电，这段时间Cloudflare也出现过几次故障。",
+      "translationKey": "cel4x8"
+    },
+    {
       "id": "solo-crm-issues-in-crm",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
@@ -196,7 +336,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -223,41 +363,6 @@
       "translationKey": "1romyta"
     },
     {
-      "id": "solo-crm-salesforce-sync-log-and-failure-alert",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Salesforce: sync log and failure alert",
-      "score": 28,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 13.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T13:16:18.000Z",
-      "evidence": [
-        {
-          "title": "Salesforce: sync log and failure alert",
-          "url": "https://github.com/nexoradev-stack/Marketing-DataLake-Agent/issues/61",
-          "source": "github",
-          "createdAt": "2026-11-10T13:16:18.000Z",
-          "excerpt": "📅 **Planned:** November 2026 (weekly sync runs every Sunday) ### What Record each sync run and alert the admins if it fails. ### Why A silent failure would let unmailable contacts back into exports. ### Steps - [ ] Log "
-        }
-      ],
-      "titleZh": "Salesforce：同步日志与失败告警",
-      "quoteZh": "计划：2026 年 11 月（每周日执行同步）。要做什么：记录每次同步运行，失败时告警管理员。为什么：静默失败会让不可邮寄的联系人重新混入导出。步骤：记录……",
-      "translationKey": "2b252w"
-    },
-    {
       "id": "scheduling-booking-improvements",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -266,7 +371,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 14.9,
+        "recency": 14.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -293,6 +398,41 @@
       "translationKey": "q1kin6"
     },
     {
+      "id": "solo-crm-salesforce-sync-log-and-failure-alert",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Salesforce: sync log and failure alert",
+      "score": 27,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 13.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T13:16:18.000Z",
+      "evidence": [
+        {
+          "title": "Salesforce: sync log and failure alert",
+          "url": "https://github.com/nexoradev-stack/Marketing-DataLake-Agent/issues/61",
+          "source": "github",
+          "createdAt": "2026-11-10T13:16:18.000Z",
+          "excerpt": "📅 **Planned:** November 2026 (weekly sync runs every Sunday) ### What Record each sync run and alert the admins if it fails. ### Why A silent failure would let unmailable contacts back into exports. ### Steps - [ ] Log "
+        }
+      ],
+      "titleZh": "Salesforce：同步日志与失败告警",
+      "quoteZh": "计划：2026 年 11 月（每周日执行同步）。要做什么：记录每次同步运行，失败时告警管理员。为什么：静默失败会让不可邮寄的联系人重新混入导出。步骤：记录……",
+      "translationKey": "2b252w"
+    },
+    {
       "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -301,7 +441,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 12.9,
+        "recency": 12.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -328,6 +468,46 @@
       "translationKey": "19lcdkv"
     },
     {
+      "id": "scheduling-ai-is-turning-apple-s-app-review-process-into-a-",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+      "score": 26,
+      "breakdown": {
+        "frequency": 6,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 2,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T11:11:43.000Z",
+      "evidence": [
+        {
+          "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+          "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
+          "source": "hn",
+          "createdAt": "2026-11-13T11:11:43.000Z",
+          "excerpt": "> You can avoid the 12 beta testers if you create an LLC Yeah that is an easy option. In my jurisdiction that costs above 500€ for legal paperwork (notarized stuff) and now you have to submit double-entry bookeping recor"
+        },
+        {
+          "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+          "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
+          "source": "hn",
+          "createdAt": "2026-11-13T11:11:43.000Z",
+          "excerpt": "> You can avoid the 12 beta testers if you create an LLC Yeah that is an easy option. In my jurisdiction that costs above 500€ for legal paperwork (notarized stuff) and now you have to submit double-entry bookeping recor"
+        }
+      ],
+      "titleZh": "AI正在让苹果的应用审核流程成为合成器开发者的噩梦",
+      "quoteZh": "如果你成立有限责任公司就能避开12名测试用户，这确实是个简单的办法。但在我的所在地区，法律文件公证的费用就要500欧元以上，而且现在还得提交双栏记账记录。",
+      "translationKey": "1k0af9r"
+    },
+    {
       "id": "solo-crm-running-a-law-firm-on-free-software",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
@@ -336,7 +516,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 12.2,
+        "recency": 12,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -371,7 +551,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 13.2,
+        "recency": 13,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -406,7 +586,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 12.9,
+        "recency": 12.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -441,7 +621,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.8,
+        "recency": 9.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -468,15 +648,48 @@
       "translationKey": "4lp5nm"
     },
     {
+      "id": "invoice-export-expense-not-here-page-opens-after-deleting-expen",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Expense - Not here page opens after deleting expense on single expense table view",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T08:26:57.000Z",
+      "evidence": [
+        {
+          "title": "Expense - Not here page opens after deleting expense on single expense table view",
+          "url": "https://github.com/Expensify/App/issues/106817",
+          "source": "github",
+          "createdAt": "2026-11-13T08:26:57.000Z",
+          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
+        }
+      ],
+      "titleZh": "删除单笔费用后出现“费用不在此处”页面",
+      "quoteZh": "如果您还未了解，可查看我们的[贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md)以了解入门流程。要加入我们的Slack频道，请填写[此表格](h)",
+      "translationKey": "tihhkf"
+    },
+    {
       "id": "scheduling-appointment-cancellation",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
       "title": "Appointment Cancellation",
-      "score": 24,
+      "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.6,
+        "recency": 11.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -503,72 +716,6 @@
       "translationKey": "c9813y"
     },
     {
-      "id": "invoice-export-expense-inconsistent-behavior-on-ws-and-self-dm-",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Expense - Inconsistent behavior on WS and Self DM expense creation if editing report field.",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T11:19:58.000Z",
-      "evidence": [
-        {
-          "title": "Expense - Inconsistent behavior on WS and Self DM expense creation if editing report field.",
-          "url": "https://github.com/Expensify/App/issues/106701",
-          "source": "github",
-          "createdAt": "2026-11-12T11:19:58.000Z",
-          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
-        }
-      ],
-      "titleZh": "费用 - WS与Self DM费用创建编辑报告字段行为不一致",
-      "quoteZh": "如果您还没有，请查看我们的 [贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) 以进行入职。要加入我们的 Slack 频道，请填写 [此表单](h",
-      "translationKey": "1txvk4y"
-    },
-    {
-      "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Expense - Report list cannot be navigated via keyboard",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T11:29:02.000Z",
-      "evidence": [
-        {
-          "title": "Expense - Report list cannot be navigated via keyboard",
-          "url": "https://github.com/Expensify/App/issues/106702",
-          "source": "github",
-          "createdAt": "2026-11-12T11:29:02.000Z",
-          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
-        }
-      ],
-      "titleZh": "费用 - 报告列表无法通过键盘导航",
-      "quoteZh": "如果您还没有，请查看我们的 [贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) 以进行入职。要加入我们的 Slack 频道，请填写 [此表单](h",
-      "translationKey": "11xch1z"
-    },
-    {
       "id": "scheduling-endpoint-delete-bookings-booking-id",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -577,7 +724,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.2,
+        "recency": 11.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -612,7 +759,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.2,
+        "recency": 11.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -647,7 +794,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.3,
+        "recency": 9.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -682,7 +829,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -692,52 +839,19 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-13T00:31:44.000Z",
+      "lastSeen": "2026-11-13T06:41:24.000Z",
       "evidence": [
         {
           "title": "OpenAI structured outputs: model returns null or skips values that exist in the source text during email data extraction",
           "url": "https://stackoverflow.com/questions/80016369/openai-structured-outputs-model-returns-null-or-skips-values-that-exist-in-the",
           "source": "so",
-          "createdAt": "2026-11-13T00:31:44.000Z",
+          "createdAt": "2026-11-13T06:41:24.000Z",
           "excerpt": "I am currently working on an application where we get an email, and after identification, we process that email with AI, where a response is required in JSON format for the values. Initially, I used a strict JSON schema "
         }
       ],
       "titleZh": "OpenAI 结构化输出：模型返回 null 或跳过源文本中存在的值…",
       "quoteZh": "我目前正在开发一个应用程序，我们收到电子邮件，识别后使用 AI 处理该邮件，需要以 JSON 格式对值进行响应。最初，我使用了严格的 JSON schema",
       "translationKey": "1uib3xg"
-    },
-    {
-      "id": "scheduling-service-degradation-on-microsoft-365",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Service degradation on Microsoft 365",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T23:15:56.000Z",
-      "evidence": [
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-12T23:15:56.000Z",
-          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
-        }
-      ],
-      "titleZh": "Microsoft 365 服务降级",
-      "quoteZh": "此处按逆时间顺序工作：从 UTC 凌晨 1:06:17 更新：当前状态：我们的调查发现，受影响服务器上负责建立安全连接的过程变得 over",
-      "translationKey": "k0xfgs"
     },
     {
       "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
@@ -748,7 +862,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -773,48 +887,6 @@
       "translationKey": "1agg45t"
     },
     {
-      "id": "scheduling-appointment-booking-tasks",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment booking tasks",
-      "score": 22,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 4,
-        "recency": 6.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-27T14:12:30.000Z",
-      "evidence": [
-        {
-          "title": "Appointment booking tasks",
-          "url": "https://github.com/2403a52388/hospital-appointment-schedule/issues/5",
-          "source": "github",
-          "createdAt": "2026-10-27T14:11:15.000Z",
-          "excerpt": "Create appointment booking Display available doctors Display available time slots Implement book appointments Implement re-schedule appointments Implement cancel appointments Test appointment booking"
-        },
-        {
-          "title": "Appointment booking tasks",
-          "url": "https://github.com/NalubolaSaicharan/hospital-appointment-schedule/issues/5",
-          "source": "github",
-          "createdAt": "2026-10-27T14:12:30.000Z",
-          "excerpt": "Create appointment booking item Display available docters Display available time slots Implement book appointments Implement re-schedule appointmnets Implement cancel appointments Test appointment booking"
-        }
-      ],
-      "titleZh": "预约登记任务",
-      "quoteZh": "创建预约登记；展示可预约医生；展示可用时段；实现预约；实现改期；实现取消；测试预约流程。",
-      "translationKey": "10aehgh"
-    },
-    {
       "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -823,7 +895,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.8,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -856,7 +928,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 8.5,
+        "recency": 8.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -891,7 +963,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 8,
+        "recency": 7.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -918,6 +990,39 @@
       "translationKey": "2tp4ne"
     },
     {
+      "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Expense - Report list cannot be navigated via keyboard",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T11:29:02.000Z",
+      "evidence": [
+        {
+          "title": "Expense - Report list cannot be navigated via keyboard",
+          "url": "https://github.com/Expensify/App/issues/106702",
+          "source": "github",
+          "createdAt": "2026-11-12T11:29:02.000Z",
+          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
+        }
+      ],
+      "titleZh": "费用 - 报告列表无法通过键盘导航",
+      "quoteZh": "如果您还没有，请查看我们的 [贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) 以进行入职。要加入我们的 Slack 频道，请填写 [此表单](h",
+      "translationKey": "11xch1z"
+    },
+    {
       "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -926,7 +1031,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14,
+        "recency": 13.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -959,7 +1064,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.1,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -992,7 +1097,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.8,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1017,39 +1122,6 @@
       "translationKey": "1x6lmz6"
     },
     {
-      "id": "invoice-export-xero-webhook-kicks-a-full-inbound-sync-that-igno",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Xero webhook kicks a full inbound sync that ignores the \"a sync is already running\" claim…",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:34:23.000Z",
-      "evidence": [
-        {
-          "title": "Xero webhook kicks a full inbound sync that ignores the \"a sync is already running\" claim, doubling Xero calls",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4922",
-          "source": "github",
-          "createdAt": "2026-11-10T21:34:23.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English When Xero tells the app that something changed, the app saves "
-        }
-      ],
-      "titleZh": "Xero webhook 触发全量入站同步，无视「同步正在进行」的判断…",
-      "quoteZh": "隶属于项目 #4898。一、用大白话说明问题：当 Xero 通知应用有数据变更时，应用会保存……",
-      "translationKey": "15thzz0"
-    },
-    {
       "id": "scheduling-61-docs-document-the-scheduling-context-in-docs-",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1058,7 +1130,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.8,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1083,39 +1155,6 @@
       "translationKey": "1xbk369"
     },
     {
-      "id": "scheduling-activity-links-one-shared-sign-up-host-matcher-f",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Activity links: one shared sign-up host matcher for the kind label and the title fetch",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T19:30:31.000Z",
-      "evidence": [
-        {
-          "title": "Activity links: one shared sign-up host matcher for the kind label and the title fetch",
-          "url": "https://github.com/pdcarlson/Frapp/issues/4215",
-          "source": "github",
-          "createdAt": "2026-11-11T19:30:31.000Z",
-          "excerpt": "Asked by: Paul (`pdcarlson`), via the `/next` session for #4187 (deferred `/diff-review` finding), 2026-11-11. Epic: #4185. ### Agent brief `depth:standard` · `model:any` · `ultracode:no` ## Problem The list of sign-up h"
-        }
-      ],
-      "titleZh": "活动链接：为类型标签与标题抓取共用报名域名匹配器",
-      "quoteZh": "由 Paul（pdcarlson）在 #4187 的 /next 会话中提出（/diff-review 延期发现，2026-11-11），所属史诗 #4185。智能体简述：depth:standard · model:any · ultracode:no。问题：报名主机列表……",
-      "translationKey": "znqbr"
-    },
-    {
       "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1124,7 +1163,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1157,7 +1196,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 10.2,
+        "recency": 10,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1192,7 +1231,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1225,7 +1264,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.2,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1250,70 +1289,46 @@
       "translationKey": "1rlcx53"
     },
     {
-      "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
-      "score": 22,
+      "id": "scheduling-appointment-booking-tasks",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Appointment booking tasks",
+      "score": 21,
       "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.7,
+        "frequency": 6,
+        "intensity": 4,
+        "recency": 6.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
-      "mentions": 1,
+      "mentions": 2,
       "sources": [
         "github"
       ],
-      "signals": [],
+      "signals": [
+        "churn"
+      ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-10T14:26:06.000Z",
+      "lastSeen": "2026-10-27T14:12:30.000Z",
       "evidence": [
         {
-          "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
-          "url": "https://github.com/Feathr/zendesk-mcp/issues/35",
+          "title": "Appointment booking tasks",
+          "url": "https://github.com/2403a52388/hospital-appointment-schedule/issues/5",
           "source": "github",
-          "createdAt": "2026-11-10T14:26:06.000Z",
-          "excerpt": "Zendesk can call MCP tools from action flows ([Connecting to MCP servers](https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows)), but only over HTTP w"
-        }
-      ],
-      "titleZh": "汇总：Zendesk 动作流连接的 HTTP + OAuth 支持",
-      "quoteZh": "Zendesk 可以在动作流中调用 MCP 工具，但仅支持基于 HTTP 的连接（官方文档：在动作流中连接 MCP 服务器并使用 MCP 工具）……",
-      "translationKey": "1fpeatb"
-    },
-    {
-      "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-08T15:14:12.000Z",
-      "evidence": [
+          "createdAt": "2026-10-27T14:11:15.000Z",
+          "excerpt": "Create appointment booking Display available doctors Display available time slots Implement book appointments Implement re-schedule appointments Implement cancel appointments Test appointment booking"
+        },
         {
-          "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
-          "source": "hn",
-          "createdAt": "2026-11-08T15:14:12.000Z",
-          "excerpt": "I&#x27;m skeptical of how \"super paranoid\" you actually are. This doesn&#x27;t sound super paranoid. For instance: that&#x27;s a ton of surface area. Did you have your AI agent decide which endpoint is destructive or did"
+          "title": "Appointment booking tasks",
+          "url": "https://github.com/NalubolaSaicharan/hospital-appointment-schedule/issues/5",
+          "source": "github",
+          "createdAt": "2026-10-27T14:12:30.000Z",
+          "excerpt": "Create appointment booking item Display available docters Display available time slots Implement book appointments Implement re-schedule appointmnets Implement cancel appointments Test appointment booking"
         }
       ],
-      "titleZh": "Claude Code 的「不再询问」致 1,122 个公开 GitHub 文件泄露密码",
-      "quoteZh": "我有点怀疑你说的超级谨慎到底有多谨慎，这听起来并不算。比如说：暴露面也太大了吧。是你让 AI 代理自己判断哪个端点具有破坏性，还是……",
-      "translationKey": "toluil"
+      "titleZh": "预约登记任务",
+      "quoteZh": "创建预约登记；展示可预约医生；展示可用时段；实现预约；实现改期；实现取消；测试预约流程。",
+      "translationKey": "10aehgh"
     },
     {
       "id": "scheduling-public-booking-phone-validation-and-booking-mana",
@@ -1324,7 +1339,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.1,
+        "recency": 13,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1357,7 +1372,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.9,
+        "recency": 12.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1390,7 +1405,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.1,
+        "recency": 12.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1415,6 +1430,72 @@
       "translationKey": "1r9pth0"
     },
     {
+      "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T14:26:06.000Z",
+      "evidence": [
+        {
+          "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
+          "url": "https://github.com/Feathr/zendesk-mcp/issues/35",
+          "source": "github",
+          "createdAt": "2026-11-10T14:26:06.000Z",
+          "excerpt": "Zendesk can call MCP tools from action flows ([Connecting to MCP servers](https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows)), but only over HTTP w"
+        }
+      ],
+      "titleZh": "汇总：Zendesk 动作流连接的 HTTP + OAuth 支持",
+      "quoteZh": "Zendesk 可以在动作流中调用 MCP 工具，但仅支持基于 HTTP 的连接（官方文档：在动作流中连接 MCP 服务器并使用 MCP 工具）……",
+      "translationKey": "1fpeatb"
+    },
+    {
+      "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-08T15:14:12.000Z",
+      "evidence": [
+        {
+          "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+          "source": "hn",
+          "createdAt": "2026-11-08T15:14:12.000Z",
+          "excerpt": "I&#x27;m skeptical of how \"super paranoid\" you actually are. This doesn&#x27;t sound super paranoid. For instance: that&#x27;s a ton of surface area. Did you have your AI agent decide which endpoint is destructive or did"
+        }
+      ],
+      "titleZh": "Claude Code 的「不再询问」致 1,122 个公开 GitHub 文件泄露密码",
+      "quoteZh": "我有点怀疑你说的超级谨慎到底有多谨慎，这听起来并不算。比如说：暴露面也太大了吧。是你让 AI 代理自己判断哪个端点具有破坏性，还是……",
+      "translationKey": "toluil"
+    },
+    {
       "id": "invoice-export-programme-xero-operation-row-claim-fencing",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -1423,7 +1504,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 5.8,
+        "recency": 5.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1450,41 +1531,6 @@
       "translationKey": "18tdgf2"
     },
     {
-      "id": "scheduling-how-can-i-make-a-bigdecimal-parallel-reduction-d",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "How can I make a BigDecimal parallel reduction deterministic when a finite MathContext is…",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 7.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "so"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-29T08:15:51.000Z",
-      "evidence": [
-        {
-          "title": "How can I make a BigDecimal parallel reduction deterministic when a finite MathContext is required?",
-          "url": "https://stackoverflow.com/questions/80013211/how-can-i-make-a-bigdecimal-parallel-reduction-deterministic-when-a-finite-mathc",
-          "source": "so",
-          "createdAt": "2026-10-29T08:15:51.000Z",
-          "excerpt": "I’m investigating how to aggregate signed monetary adjustments using Java 8 streams. My requirements are: Positive and negative adjustments can cancel each other. Calculations use a finite MathContext . The result should"
-        }
-      ],
-      "titleZh": "在有限 MathContext 下如何让 BigDecimal 并行归约结果确定…",
-      "quoteZh": "我在研究如何用 Java 8 Stream 聚合带符号的金额调整。需求：正负调整可相互抵消；计算使用有限精度的 MathContext；结果应当……",
-      "translationKey": "85vlx6"
-    },
-    {
       "id": "scheduling-running-a-law-firm-on-free-software",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1493,7 +1539,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.2,
+        "recency": 12,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1520,14 +1566,14 @@
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-13T06:40:57.906Z",
+    "at": "2026-11-13T15:20:21.797Z",
     "status": "ok",
     "skippedReason": null,
     "errors": [],
     "total": 41,
-    "cached": 41,
-    "translated": 0,
+    "cached": 37,
+    "translated": 4,
     "failed": 0,
-    "requests": 0
+    "requests": 1
   }
 }

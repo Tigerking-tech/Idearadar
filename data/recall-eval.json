@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-13T06:37:17.010Z",
+  "evaluatedAt": "2026-11-13T15:16:13.948Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 975,
-      "itemCount": 41,
-      "recallHits": 508,
-      "finalHits": 30,
-      "recallTitleRate": 0.521025641025641,
-      "finalTitleRate": 0.7317073170731707
+      "raw": 1126,
+      "itemCount": 40,
+      "recallHits": 514,
+      "finalHits": 29,
+      "recallTitleRate": 0.4564831261101243,
+      "finalTitleRate": 0.725
     },
     "legacy": {
-      "raw": 952,
-      "itemCount": 58,
-      "recallHits": 111,
-      "finalHits": 7,
-      "recallTitleRate": 0.11659663865546219,
-      "finalTitleRate": 0.1206896551724138
+      "raw": 1119,
+      "itemCount": 60,
+      "recallHits": 107,
+      "finalHits": 10,
+      "recallTitleRate": 0.09562109025915996,
+      "finalTitleRate": 0.16666666666666666
     }
   },
   "perNiche": {
@@ -36,49 +36,73 @@
       {
         "niche": "solo-crm",
         "raw": 251,
-        "itemCount": 6,
-        "recallTitleRate": 0.47808764940239046,
-        "finalTitleRate": 0.6666666666666666,
+        "itemCount": 7,
+        "recallTitleRate": 0.4820717131474104,
+        "finalTitleRate": 0.5714285714285714,
         "stats": {
           "raw": 251,
-          "complaintRecords": 6,
-          "items": 6
+          "complaintRecords": 7,
+          "items": 7
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 223,
-        "itemCount": 14,
-        "recallTitleRate": 0.4977578475336323,
-        "finalTitleRate": 0.7857142857142857,
+        "raw": 211,
+        "itemCount": 13,
+        "recallTitleRate": 0.5260663507109005,
+        "finalTitleRate": 0.7692307692307693,
         "stats": {
-          "raw": 223,
-          "complaintRecords": 18,
-          "items": 14
+          "raw": 211,
+          "complaintRecords": 16,
+          "items": 13
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 239,
+        "raw": 240,
         "itemCount": 3,
-        "recallTitleRate": 0.4560669456066946,
+        "recallTitleRate": 0.4666666666666667,
         "finalTitleRate": 1,
         "stats": {
-          "raw": 239,
+          "raw": 240,
           "complaintRecords": 5,
           "items": 3
         }
       },
       {
         "niche": "scheduling",
-        "raw": 262,
-        "itemCount": 18,
-        "recallTitleRate": 0.6412213740458015,
-        "finalTitleRate": 0.6666666666666666,
+        "raw": 260,
+        "itemCount": 17,
+        "recallTitleRate": 0.6346153846153846,
+        "finalTitleRate": 0.7058823529411765,
         "stats": {
-          "raw": 262,
-          "complaintRecords": 31,
-          "items": 18
+          "raw": 260,
+          "complaintRecords": 33,
+          "items": 17
+        }
+      },
+      {
+        "niche": "auto-pet-app-booking",
+        "raw": 50,
+        "itemCount": 0,
+        "recallTitleRate": 0,
+        "finalTitleRate": 0,
+        "stats": {
+          "raw": 50,
+          "complaintRecords": 0,
+          "items": 0
+        }
+      },
+      {
+        "niche": "auto-6c3c0d95be",
+        "raw": 114,
+        "itemCount": 0,
+        "recallTitleRate": 0.043859649122807015,
+        "finalTitleRate": 0,
+        "stats": {
+          "raw": 114,
+          "complaintRecords": 0,
+          "items": 0
         }
       }
     ],
@@ -86,49 +110,73 @@
       {
         "niche": "solo-crm",
         "raw": 252,
-        "itemCount": 10,
-        "recallTitleRate": 0.0873015873015873,
-        "finalTitleRate": 0,
+        "itemCount": 11,
+        "recallTitleRate": 0.09126984126984126,
+        "finalTitleRate": 0.2727272727272727,
         "stats": {
           "raw": 252,
-          "complaintRecords": 10,
-          "items": 10
+          "complaintRecords": 13,
+          "items": 11
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 209,
-        "itemCount": 12,
-        "recallTitleRate": 0.12440191387559808,
-        "finalTitleRate": 0.16666666666666666,
+        "raw": 202,
+        "itemCount": 11,
+        "recallTitleRate": 0.13861386138613863,
+        "finalTitleRate": 0.2727272727272727,
         "stats": {
-          "raw": 209,
-          "complaintRecords": 12,
-          "items": 12
+          "raw": 202,
+          "complaintRecords": 11,
+          "items": 11
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 238,
-        "itemCount": 18,
-        "recallTitleRate": 0.08823529411764706,
+        "raw": 241,
+        "itemCount": 20,
+        "recallTitleRate": 0.1037344398340249,
         "finalTitleRate": 0,
         "stats": {
-          "raw": 238,
-          "complaintRecords": 19,
-          "items": 18
+          "raw": 241,
+          "complaintRecords": 20,
+          "items": 20
         }
       },
       {
         "niche": "scheduling",
-        "raw": 253,
-        "itemCount": 18,
-        "recallTitleRate": 0.16600790513833993,
-        "finalTitleRate": 0.2777777777777778,
+        "raw": 260,
+        "itemCount": 23,
+        "recallTitleRate": 0.11923076923076924,
+        "finalTitleRate": 0.21739130434782608,
         "stats": {
-          "raw": 253,
-          "complaintRecords": 22,
-          "items": 18
+          "raw": 260,
+          "complaintRecords": 32,
+          "items": 23
+        }
+      },
+      {
+        "niche": "auto-pet-app-booking",
+        "raw": 50,
+        "itemCount": 0,
+        "recallTitleRate": 0,
+        "finalTitleRate": 0,
+        "stats": {
+          "raw": 50,
+          "complaintRecords": 0,
+          "items": 0
+        }
+      },
+      {
+        "niche": "auto-6c3c0d95be",
+        "raw": 114,
+        "itemCount": 0,
+        "recallTitleRate": 0,
+        "finalTitleRate": 0,
+        "stats": {
+          "raw": 114,
+          "complaintRecords": 0,
+          "items": 0
         }
       }
     ]
@@ -146,12 +194,12 @@
         "titleHit": true
       },
       {
-        "title": "ISSUES in CRM",
+        "title": "Service degradation on Microsoft 365",
         "niche": "solo-crm",
-        "titleHit": true
+        "titleHit": false
       },
       {
-        "title": "Salesforce: sync log and failure alert",
+        "title": "ISSUES in CRM",
         "niche": "solo-crm",
         "titleHit": true
       },
@@ -161,26 +209,26 @@
         "titleHit": true
       },
       {
+        "title": "Salesforce: sync log and failure alert",
+        "niche": "solo-crm",
+        "titleHit": true
+      },
+      {
         "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
         "niche": "support-transcripts",
         "titleHit": true
       },
       {
-        "title": "Running a law firm on Free software",
-        "niche": "solo-crm",
-        "titleHit": false
-      },
-      {
-        "title": "CSV export for timesheets and invoices",
-        "niche": "invoice-export",
+        "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+        "niche": "scheduling",
         "titleHit": false
       }
     ],
     "legacy": [
       {
-        "title": "Staff cancellation of clinic bookings and appointment status tabs",
+        "title": "Service degradation on Microsoft 365",
         "niche": "scheduling",
-        "titleHit": true
+        "titleHit": false
       },
       {
         "title": "Done-bar passes: owner, driver and customer on production at iPhone size",
@@ -188,32 +236,32 @@
         "titleHit": false
       },
       {
-        "title": "Several rubric matchers reject correct answers (Slack channel-name lookup, numeric suffix…",
-        "niche": "invoice-export",
+        "title": "Energy history: PV slots exceed inverter max power when the meter's energy total updates only…",
+        "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "Specs for Collapsed groups",
-        "niche": "invoice-export",
+        "title": "Global Microsoft Outage",
+        "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "Assistant eval: misses left after the #288 rerun (reception handoff open, new-appointment…",
+        "title": "journal: TestTwoFailedWindowsReappendedIntoOneNearFullSegmentEachLandWhole refused by the spare…",
         "niche": "scheduling",
-        "titleHit": true
+        "titleHit": false
       },
       {
-        "title": "Make same-UID verifier attack fixture deterministic",
-        "niche": "scheduling",
+        "title": "Linked filter values query may join every card's source table, multiplying rows until it times…",
+        "niche": "solo-crm",
+        "titleHit": false
+      },
+      {
+        "title": "Service degradation on Microsoft 365",
+        "niche": "solo-crm",
         "titleHit": false
       },
       {
         "title": "Deleting an application fails with HTTP 500 when one of its subscriptions has no API reference",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "Genlock redeploy at the same obs pin fails at [stage]: rsync --delete hits the box's root-owned…",
         "niche": "support-transcripts",
         "titleHit": false
       }

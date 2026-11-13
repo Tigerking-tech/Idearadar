@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-13T04:50:05.608Z",
+  "evaluatedAt": "2026-11-13T06:14:34.018Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 978,
+      "raw": 975,
       "itemCount": 41,
-      "recallHits": 507,
+      "recallHits": 492,
       "finalHits": 30,
-      "recallTitleRate": 0.5184049079754601,
+      "recallTitleRate": 0.5046153846153846,
       "finalTitleRate": 0.7317073170731707
     },
     "legacy": {
-      "raw": 971,
-      "itemCount": 48,
-      "recallHits": 120,
-      "finalHits": 6,
-      "recallTitleRate": 0.12358393408856849,
-      "finalTitleRate": 0.125
+      "raw": 955,
+      "itemCount": 57,
+      "recallHits": 111,
+      "finalHits": 7,
+      "recallTitleRate": 0.1162303664921466,
+      "finalTitleRate": 0.12280701754385964
     }
   },
   "perNiche": {
@@ -47,12 +47,12 @@
       },
       {
         "niche": "invoice-export",
-        "raw": 226,
+        "raw": 223,
         "itemCount": 14,
-        "recallTitleRate": 0.4911504424778761,
+        "recallTitleRate": 0.4977578475336323,
         "finalTitleRate": 0.7857142857142857,
         "stats": {
-          "raw": 226,
+          "raw": 223,
           "complaintRecords": 18,
           "items": 14
         }
@@ -73,11 +73,11 @@
         "niche": "scheduling",
         "raw": 262,
         "itemCount": 18,
-        "recallTitleRate": 0.6374045801526718,
+        "recallTitleRate": 0.5801526717557252,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
           "raw": 262,
-          "complaintRecords": 31,
+          "complaintRecords": 32,
           "items": 18
         }
       }
@@ -85,33 +85,33 @@
     "legacy": [
       {
         "niche": "solo-crm",
-        "raw": 252,
-        "itemCount": 4,
-        "recallTitleRate": 0.10317460317460317,
+        "raw": 245,
+        "itemCount": 11,
+        "recallTitleRate": 0.08571428571428572,
         "finalTitleRate": 0,
         "stats": {
-          "raw": 252,
-          "complaintRecords": 4,
-          "items": 4
+          "raw": 245,
+          "complaintRecords": 11,
+          "items": 11
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 220,
-        "itemCount": 11,
-        "recallTitleRate": 0.13636363636363635,
-        "finalTitleRate": 0.18181818181818182,
+        "raw": 211,
+        "itemCount": 12,
+        "recallTitleRate": 0.13744075829383887,
+        "finalTitleRate": 0.16666666666666666,
         "stats": {
-          "raw": 220,
+          "raw": 211,
           "complaintRecords": 12,
-          "items": 11
+          "items": 12
         }
       },
       {
         "niche": "support-transcripts",
         "raw": 238,
         "itemCount": 17,
-        "recallTitleRate": 0.10084033613445378,
+        "recallTitleRate": 0.09243697478991597,
         "finalTitleRate": 0,
         "stats": {
           "raw": 238,
@@ -122,13 +122,13 @@
       {
         "niche": "scheduling",
         "raw": 261,
-        "itemCount": 16,
-        "recallTitleRate": 0.1532567049808429,
-        "finalTitleRate": 0.25,
+        "itemCount": 17,
+        "recallTitleRate": 0.14942528735632185,
+        "finalTitleRate": 0.29411764705882354,
         "stats": {
           "raw": 261,
-          "complaintRecords": 37,
-          "items": 16
+          "complaintRecords": 20,
+          "items": 17
         }
       }
     ]
@@ -166,19 +166,19 @@
         "titleHit": true
       },
       {
-        "title": "Running a law firm on Free software",
-        "niche": "solo-crm",
+        "title": "Service degradation on Microsoft 365",
+        "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "CSV export for timesheets and invoices",
-        "niche": "invoice-export",
+        "title": "Running a law firm on Free software",
+        "niche": "solo-crm",
         "titleHit": false
       }
     ],
     "legacy": [
       {
-        "title": "Crypto Logger: Crypto Logger | Main cancelled (stage unavailable)",
+        "title": "GitSyncWorker should honor enabled and KnownScopes",
         "niche": "scheduling",
         "titleHit": false
       },
@@ -203,17 +203,17 @@
         "titleHit": true
       },
       {
+        "title": "Daily search-engine crawl health check, with an Axiom monitor",
+        "niche": "solo-crm",
+        "titleHit": false
+      },
+      {
         "title": "Deleting an application fails with HTTP 500 when one of its subscriptions has no API reference",
         "niche": "support-transcripts",
         "titleHit": false
       },
       {
         "title": "Genlock redeploy at the same obs pin fails at [stage]: rsync --delete hits the box's root-owned…",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "GKO 4.13] CORS configuration of HTTP listeners is dropped when syncing an ApiV4Definition to…",
         "niche": "support-transcripts",
         "titleHit": false
       }

@@ -1,19 +1,25 @@
 /**
- * IdeaRadar 内容层本地化（方案 B：GitHub Models 批量翻译）
+ * IdeaRadar 内容层本地化（采集时批量翻译 → 译文进产物）
  *
  * 为什么不是「实时翻译」：采集产物每 6 小时一批、内容静态。把译文在采集时
  * 一次性写进 opportunities.json，前端 SSR 直接吐中文 HTML —— 零运行时调用、
  * 零首屏延迟、零前端密钥，爬虫看到的也是中文 DOM（SEO/GEO 不退化）。
  *
+ * 架构约定：只走 OpenAI Chat Completions 兼容协议，禁止引入任何厂商专有 SDK
+ * 或签名方案。GitHub Models 于 2026-07-30 退役、腾讯老混元控制台也已迁移到
+ * TokenHub，都印证了「服务会变、协议不变」。换厂商只需改下面三个环境变量，
+ * 业务逻辑一行不动：
+ *   IDEARADAR_TRANSLATE_ENDPOINT / _MODEL / _TOKEN
+ *
  * 设计原则：
  * 1. 增量：按 id + 英文原文哈希（translationKey）复用上一批译文，不重翻。
- * 2. 免密钥：GitHub Actions 里用现成 GITHUB_TOKEN + permissions.models: read，
- *    OpenAI 兼容端点 models.github.ai/inference，无新增 Secret、无新增依赖。
- * 3. 非阻塞：无 token / 429 / 端点不可达 / 响应异常一律跳过并 warn，保留英文
+ * 2. 非阻塞：无 token / 429 / 端点不可达 / 响应异常一律跳过并 warn，保留英文
  *    原文，进程 exit 0。采集与提交照常进行，翻译只是「有则更好」的增强层。
- * 4. 可插拔（BYOK）：endpoint / model / token 均可由环境变量覆盖。若托管环境的
- *    出口把 models.github.ai 拦成占位响应，填 IDEARADAR_TRANSLATE_TOKEN +
- *    IDEARADAR_TRANSLATE_ENDPOINT（任意 OpenAI 兼容端点）即可零改码启用。
+ * 3. 可插拔（BYOK）：endpoint / model / token 均可由环境变量覆盖；密钥只从
+ *    GitHub Actions Secret 注入，绝不写进仓库或 .env.local。
+ * 4. 推理模型适配：hy3/hy4 这类模型会先输出 reasoning_content，可通过
+ *    IDEARADAR_TRANSLATE_REASONING_EFFORT=low 降低思考量；max_tokens 不足时
+ *    会给出明确诊断，而不是把空 content 误判成译文失败。
  * 5. 可测：核心逻辑导出为纯函数 translateItems()，fetch 可注入 mock。
  *
  * 用法：node scripts/translate.mjs
@@ -29,11 +35,15 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "data", "opportunities.json");
 const PUBLIC_PATH = path.join(ROOT, "public", "opportunities.json");
 
-const DEFAULT_ENDPOINT = "https://models.github.ai/inference/chat/completions";
-const DEFAULT_MODEL = "openai/gpt-4o-mini";
-const DEFAULT_BATCH_SIZE = 10;
+// 腾讯云 TokenHub（OpenAI 兼容）。境内地址；境外为 tokenhub-intl.tencentmaas.com。
+// 注意：老混元平台 api.hunyuan.cloud.tencent.com 是另一套密钥体系，此端点不通用。
+const DEFAULT_ENDPOINT = "https://tokenhub.tencentmaas.com/v1/chat/completions";
+const DEFAULT_MODEL = "hy3";
+const DEFAULT_BATCH_SIZE = 8;
 const MAX_ATTEMPTS = 2;
-const TIMEOUT_MS = 45_000;
+// hy3 是推理模型，会先输出 reasoning_content，批量 8 条实测需 ~15s / 数千 tokens。
+const TIMEOUT_MS = 120_000;
+const MAX_TOKENS = 8000;
 
 const SYSTEM_PROMPT = `You are a professional localisation engine for "IdeaRadar", a product that surfaces software pain points from public developer forums and issue trackers.
 
@@ -89,32 +99,42 @@ export function parseModelJson(raw) {
 }
 
 async function callModel(batch, ctx, signal) {
+  const body = {
+    model: ctx.model,
+    temperature: 0.2,
+    max_tokens: ctx.maxTokens,
+    messages: [
+      { role: "system", content: SYSTEM_PROMPT },
+      { role: "user", content: USER_PREFIX + JSON.stringify(batch) },
+    ],
+  };
+  // 推理模型（hy3/hy4）默认会先吐一大段思考链，可能吃光 max_tokens 导致
+  // content 为空。设 low 可显著缩短；非推理模型不设置，保持纯净 OpenAI 兼容。
+  if (ctx.reasoningEffort) body.reasoning_effort = ctx.reasoningEffort;
+
   const res = await ctx.fetchImpl(ctx.endpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
       Authorization: `Bearer ${ctx.token}`,
-      "X-GitHub-Api-Version": "2022-11-28",
     },
-    body: JSON.stringify({
-      model: ctx.model,
-      temperature: 0.2,
-      max_tokens: 3000,
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: USER_PREFIX + JSON.stringify(batch) },
-      ],
-    }),
+    body: JSON.stringify(body),
     signal,
   });
   if (!res || typeof res.ok === "undefined") throw new Error("fetch returned no Response-like object");
-  if (!res.ok) throw new Error(`HTTP ${res.status}${res.status === 429 ? " (rate limited)" : ""}`);
-  // 实测某些托管出口会把 models.github.ai 劫持成 200 text/plain "OK"。
-  // 明确识别这类响应，别把「端点根本没通」误记成 38 次业务翻译失败。
+  if (!res.ok) {
+    // 401/403 是密钥或权限问题，重试与后续批次必然同样失败 → 端点级故障。
+    if (res.status === 401 || res.status === 403) {
+      throw new EndpointUnavailable(`HTTP ${res.status}：API Key 无效、未开通该模型或端点所属平台不匹配`);
+    }
+    throw new Error(`HTTP ${res.status}${res.status === 429 ? " (rate limited)" : ""}`);
+  }
+  // 实测曾有托管出口把推理域名劫持成 200 text/plain "OK"。明确识别这类响应，
+  // 别把「端点根本没通」误记成 38 次业务翻译失败。
   const ctype = String(res.headers?.get?.("content-type") || "");
   if (ctype && !/json/i.test(ctype)) {
-    throw new EndpointUnavailable(`推理端点返回 ${ctype} 而非 JSON（疑似被网络出口拦截或 GitHub Models 未启用）`);
+    throw new EndpointUnavailable(`推理端点返回 ${ctype} 而非 JSON（疑似被网络出口拦截或服务已下线）`);
   }
   let data;
   try {
@@ -122,8 +142,22 @@ async function callModel(batch, ctx, signal) {
   } catch (err) {
     throw new EndpointUnavailable(`推理端点返回非 JSON 响应：${String(err?.message || err).slice(0, 80)}`);
   }
-  const content = data?.choices?.[0]?.message?.content;
-  if (typeof content !== "string" || !content.trim()) throw new Error("missing choices[0].message.content");
+  if (data?.error) {
+    throw new EndpointUnavailable(`推理端点返回错误：${String(data.error.message || JSON.stringify(data.error)).slice(0, 140)}`);
+  }
+  const message = data?.choices?.[0]?.message || {};
+  const content = message.content;
+  if (typeof content !== "string" || !content.trim()) {
+    const reasoning = String(message.reasoning_content || "");
+    const finish = data?.choices?.[0]?.finish_reason;
+    if (reasoning || finish === "length") {
+      throw new Error(
+        `模型只返回了思考链 / content 为空（finish_reason=${finish}, reasoning chars=${reasoning.length}）；` +
+          `请提高 IDEARADAR_TRANSLATE_MAX_TOKENS 或设 IDEARADAR_TRANSLATE_REASONING_EFFORT=low`,
+      );
+    }
+    throw new Error("missing choices[0].message.content");
+  }
   return parseModelJson(content);
 }
 
@@ -173,10 +207,13 @@ export async function translateItems(items = [], opts = {}) {
   const ctx = {
     endpoint: opts.endpoint || process.env.IDEARADAR_TRANSLATE_ENDPOINT || DEFAULT_ENDPOINT,
     model: opts.model || process.env.IDEARADAR_TRANSLATE_MODEL || DEFAULT_MODEL,
-    token: opts.token ?? process.env.IDEARADAR_TRANSLATE_TOKEN ?? process.env.GITHUB_TOKEN ?? "",
+    // 不再回退 GITHUB_TOKEN：GitHub Models 已退役，拿它去调第三方端点只会 401。
+    token: opts.token ?? process.env.IDEARADAR_TRANSLATE_TOKEN ?? "",
     fetchImpl: opts.fetchImpl || fetch,
     sleepImpl: opts.sleepImpl || sleep,
     batchSize: Math.max(1, Number(opts.batchSize || process.env.IDEARADAR_TRANSLATE_BATCH || DEFAULT_BATCH_SIZE)),
+    maxTokens: Math.max(1, Number(opts.maxTokens || process.env.IDEARADAR_TRANSLATE_MAX_TOKENS || MAX_TOKENS)),
+    reasoningEffort: opts.reasoningEffort ?? process.env.IDEARADAR_TRANSLATE_REASONING_EFFORT ?? "",
     timeoutMs: opts.timeoutMs ?? TIMEOUT_MS,
   };
   const stats = {
@@ -191,7 +228,7 @@ export async function translateItems(items = [], opts = {}) {
     skippedReason: null,
   };
   if (!ctx.token) {
-    stats.skippedReason = "GITHUB_TOKEN 未设置";
+    stats.skippedReason = "IDEARADAR_TRANSLATE_TOKEN 未设置（请在 Actions Secret 中配置）";
     return { items, stats };
   }
 

@@ -14,8 +14,8 @@ on:
 
 permissions:
   contents: write
-  # 内容层本地化：用现成 GITHUB_TOKEN 调 GitHub Models，无新增 Secret。
-  models: read
+  # 翻译走 OpenAI 兼容端点，密钥从 Actions Secret 注入。
+  # GitHub Models 已于 2026-07-30 退役，不再需要 models: read 权限。
 
 concurrency:
   group: ingest-opportunities
@@ -65,12 +65,16 @@ jobs:
           REDDIT_USER_AGENT: ${{ vars.REDDIT_USER_AGENT }}
         run: node scripts/ingest.mjs
 
-      # 方案 B：采集后把英文 title / quote 批量翻成中文写回产物。
+      # 采集后把英文 title / quote 批量翻成中文写回产物。
+      # 只走 OpenAI Chat Completions 兼容协议，换厂商只需改下面 3 个变量。
       # 增量翻译（按原文哈希缓存），失败/限流/端点不可用时只 warn 并保留英文，
       # 绝不让翻译阻塞采集与数据提交。产物仍是原本那 6 个文件。
       - name: Translate content to Chinese
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IDEARADAR_TRANSLATE_TOKEN: ${{ secrets.IDEARADAR_TRANSLATE_TOKEN }}
+          IDEARADAR_TRANSLATE_ENDPOINT: https://tokenhub.tencentmaas.com/v1/chat/completions
+          IDEARADAR_TRANSLATE_MODEL: hy3
+          IDEARADAR_TRANSLATE_REASONING_EFFORT: low
         run: node scripts/translate.mjs
 
       - name: Upload structured output

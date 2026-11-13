@@ -103,11 +103,11 @@ test("parseModelJson 兼容裸数组 / markdown fence / 前后夹带说明", () 
   assert.throws(() => parseModelJson("[not valid json]"));
 });
 
-test("无 GITHUB_TOKEN 时跳过翻译且原样返回，不发起请求", async () => {
+test("无 IDEARADAR_TRANSLATE_TOKEN 时跳过翻译且原样返回，不发起请求", async () => {
   const items = [makeItem(1), makeItem(2)];
   const fetchImpl = modelFetch();
   const { items: out, stats } = await translateItems(items, { ...baseOpts, token: "", fetchImpl });
-  assert.match(stats.skippedReason, /GITHUB_TOKEN/);
+  assert.match(stats.skippedReason, /IDEARADAR_TRANSLATE_TOKEN/);
   assert.equal(stats.requests, 0);
   assert.equal(out, items, "跳过时应返回原数组引用");
   assert.equal(fetchImpl.calls.length, 0);
@@ -141,10 +141,10 @@ test("正常批量翻译：写回中文字段与缓存键，且不改动入参�
     assert.equal(it.translationKey, translationKey(it));
   }
   assert.equal(items[0].titleZh, undefined, "translateItems 必须是纯函数");
-  // 请求确实打到了 GitHub Models 端点并带上 Bearer token
-  assert.equal(fetchImpl.calls[0].url, "https://models.github.ai/inference/chat/completions");
+  // 请求带上 Bearer token，且不绑定任何具体厂商（换端点只需改环境变量）
+  assert.match(fetchImpl.calls[0].url, /^https:\/\/.*\/chat\/completions$/);
   assert.equal(fetchImpl.calls[0].init.headers.Authorization, "Bearer test-token");
-  assert.equal(JSON.parse(fetchImpl.calls[0].init.body).model, "openai/gpt-4o-mini");
+  assert.equal(typeof JSON.parse(fetchImpl.calls[0].init.body).model, "string");
 });
 
 test("标题已有译文时只请求引语，回填不覆盖已有中文标题", async () => {
@@ -281,8 +281,9 @@ test("响应体不是 JSON 时给出明确的端点级错误", async () => {
   assert.equal(stats.failed, 1);
 });
 
-test("IDEARADAR_TRANSLATE_TOKEN 可覆盖 GITHUB_TOKEN（BYOK 切换）", async () => {
+test("IDEARADAR_TRANSLATE_TOKEN 环境变量可注入密钥（BYOK 切换）", async () => {
   process.env.IDEARADAR_TRANSLATE_TOKEN = "byok-key";
+  process.env.GITHUB_TOKEN = "github-token-should-not-be-used";
   try {
     const fetchImpl = modelFetch();
     const { stats } = await translateItems([makeItem(1)], { ...baseOpts, token: undefined, fetchImpl });
@@ -290,5 +291,72 @@ test("IDEARADAR_TRANSLATE_TOKEN 可覆盖 GITHUB_TOKEN（BYOK 切换）", async 
     assert.equal(fetchImpl.calls[0].init.headers.Authorization, "Bearer byok-key");
   } finally {
     delete process.env.IDEARADAR_TRANSLATE_TOKEN;
+    delete process.env.GITHUB_TOKEN;
   }
+});
+
+/* ---------------- TokenHub / 推理模型适配 ---------------- */
+
+test("推理模型只吐思考链、content 为空时给出可操作的诊断", async () => {
+  const fetchImpl = async () => ({
+    ok: true, status: 200,
+    json: async () => ({
+      choices: [{ finish_reason: "length", message: { content: "", reasoning_content: "我需要把标题翻译成中文……" } }],
+    }),
+  });
+  const { stats } = await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
+  assert.equal(stats.translated, 0);
+  assert.match(stats.errors[0], /思考链|reasoning/);
+  assert.match(stats.errors[0], /MAX_TOKENS|REASONING_EFFORT/);
+});
+
+test("reasoning_effort 配置会随请求下发，且默认不带（保持纯净 OpenAI 兼容）", async () => {
+  const withEffort = modelFetch();
+  const plain = modelFetch();
+  await translateItems([makeItem(1)], { ...baseOpts, fetchImpl: withEffort });
+  await translateItems([makeItem(2)], { ...baseOpts, fetchImpl: plain, reasoningEffort: "low" });
+  assert.equal(withEffort.calls[0].init.body.includes("reasoning_effort"), false);
+  assert.equal(JSON.parse(plain.calls[0].init.body).reasoning_effort, "low");
+});
+
+test("max_tokens 可配置且默认提升到 8000（容纳推理模型思考链）", async () => {
+  const fetchImpl = modelFetch();
+  await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
+  assert.equal(JSON.parse(fetchImpl.calls[0].init.body).max_tokens, 8000);
+  const custom = modelFetch();
+  await translateItems([makeItem(2)], { ...baseOpts, fetchImpl: custom, maxTokens: 12000 });
+  assert.equal(JSON.parse(custom.calls[0].init.body).max_tokens, 12000);
+});
+
+test("401/403 视为端点级故障：首批重试后立即跳过剩余批次", async () => {
+  const items = Array.from({ length: 20 }, (_, i) => makeItem(i));
+  let calls = 0;
+  const fetchImpl = async () => {
+    calls += 1;
+    return { ok: false, status: 401, json: async () => ({ error: { message: "Invalid API key" } }) };
+  };
+  const { stats } = await translateItems(items, { ...baseOpts, batchSize: 5, fetchImpl });
+  assert.match(stats.skippedReason, /HTTP 401|API Key/);
+  assert.equal(calls, 2, "重试 2 次即收手，不刷满 4 批");
+  assert.equal(stats.failed, 20);
+  assert.equal(stats.requests, 0);
+});
+
+test("响应体带 error 字段时归为端点级故障", async () => {
+  const fetchImpl = async () => ({
+    ok: true, status: 200,
+    json: async () => ({ error: { message: "model not subscribed" } }),
+  });
+  const { stats } = await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
+  assert.match(stats.skippedReason, /model not subscribed/);
+  assert.equal(stats.translated, 0);
+});
+
+test("默认端点/模型指向 TokenHub，且不再发送 GitHub 专用 header", async () => {
+  const fetchImpl = modelFetch();
+  await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
+  const { url, init } = fetchImpl.calls[0];
+  assert.match(url, /tokenhub\.tencentmaas\.com\/v1\/chat\/completions/);
+  assert.equal(JSON.parse(init.body).model, "hy3");
+  assert.equal(init.headers["X-GitHub-Api-Version"], undefined);
 });

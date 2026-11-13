@@ -67,14 +67,18 @@ jobs:
 
       # 采集后把英文 title / quote 批量翻成中文写回产物。
       # 只走 OpenAI Chat Completions 兼容协议，换厂商只需改下面 3 个变量。
+      # 默认用翻译专用模型 hy-mt2-plus（快、省 token），因此不下发 reasoning_effort：
+      # 部分兼容端点不认识该字段会直接 400。若 BYOK 切回 hy3/hy4 等推理模型，
+      # 再补 IDEARADAR_TRANSLATE_REASONING_EFFORT: low。
+      # 脚本默认带 response_format=json_object 强制合法 JSON（翻译模型否则会吐
+      # 畸形数组）；端点不支持时自动降级，无需在此配置。
       # 增量翻译（按原文哈希缓存），失败/限流/端点不可用时只 warn 并保留英文，
       # 绝不让翻译阻塞采集与数据提交。产物仍是原本那 6 个文件。
       - name: Translate content to Chinese
         env:
           IDEARADAR_TRANSLATE_TOKEN: ${{ secrets.IDEARADAR_TRANSLATE_TOKEN }}
           IDEARADAR_TRANSLATE_ENDPOINT: https://tokenhub.tencentmaas.com/v1/chat/completions
-          IDEARADAR_TRANSLATE_MODEL: hy3
-          IDEARADAR_TRANSLATE_REASONING_EFFORT: low
+          IDEARADAR_TRANSLATE_MODEL: hy-mt2-plus
         run: node scripts/translate.mjs
 
       - name: Upload structured output

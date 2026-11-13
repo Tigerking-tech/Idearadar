@@ -103,6 +103,13 @@ test("parseModelJson 兼容裸数组 / markdown fence / 前后夹带说明", () 
   assert.throws(() => parseModelJson("[not valid json]"));
 });
 
+test("parseModelJson 兼容 response_format=json_object 的 {\"items\":[...]} 包装", () => {
+  const wrapped = '{"items":[{"id":"a","t":"中文标题","q":"中文引语"}]}';
+  assert.deepEqual(parseModelJson(wrapped), [{ id: "a", t: "中文标题", q: "中文引语" }]);
+  assert.deepEqual(parseModelJson(`Here:\n${wrapped}\nDone.`), [{ id: "a", t: "中文标题", q: "中文引语" }]);
+  assert.deepEqual(parseModelJson("```json\n" + wrapped + "\n```"), [{ id: "a", t: "中文标题", q: "中文引语" }]);
+});
+
 test("无 IDEARADAR_TRANSLATE_TOKEN 时跳过翻译且原样返回，不发起请求", async () => {
   const items = [makeItem(1), makeItem(2)];
   const fetchImpl = modelFetch();
@@ -295,7 +302,7 @@ test("IDEARADAR_TRANSLATE_TOKEN 环境变量可注入密钥（BYOK 切换）", a
   }
 });
 
-/* ---------------- TokenHub / 推理模型适配 ---------------- */
+/* ---------------- TokenHub / 推理模型兼容（BYOK 回退） ---------------- */
 
 test("推理模型只吐思考链、content 为空时给出可操作的诊断", async () => {
   const fetchImpl = async () => ({
@@ -319,7 +326,7 @@ test("reasoning_effort 配置会随请求下发，且默认不带（保持纯净
   assert.equal(JSON.parse(plain.calls[0].init.body).reasoning_effort, "low");
 });
 
-test("max_tokens 可配置且默认提升到 8000（容纳推理模型思考链）", async () => {
+test("max_tokens 可配置，默认 8000 上限（兼容 BYOK 推理模型，不影响翻译模型实际消耗）", async () => {
   const fetchImpl = modelFetch();
   await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
   assert.equal(JSON.parse(fetchImpl.calls[0].init.body).max_tokens, 8000);
@@ -352,11 +359,67 @@ test("响应体带 error 字段时归为端点级故障", async () => {
   assert.equal(stats.translated, 0);
 });
 
-test("默认端点/模型指向 TokenHub，且不再发送 GitHub 专用 header", async () => {
+test("默认端点/模型指向 TokenHub 的翻译专用模型，且不下发推理/厂商专用字段", async () => {
   const fetchImpl = modelFetch();
   await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
   const { url, init } = fetchImpl.calls[0];
   assert.match(url, /tokenhub\.tencentmaas\.com\/v1\/chat\/completions/);
-  assert.equal(JSON.parse(init.body).model, "hy3");
+  const body = JSON.parse(init.body);
+  assert.equal(body.model, "hy-mt2-plus");
+  assert.equal(body.reasoning_effort, undefined, "翻译专用模型不能带推理参数");
+  assert.deepEqual(body.response_format, { type: "json_object" }, "强制合法 JSON，避免畸形数组");
   assert.equal(init.headers["X-GitHub-Api-Version"], undefined);
+});
+
+/* ---------------- 结构化输出（response_format） ---------------- */
+
+test("默认下发 response_format=json_object，可用 jsonMode:false 关闭", async () => {
+  const on = modelFetch();
+  await translateItems([makeItem(1)], { ...baseOpts, fetchImpl: on });
+  assert.deepEqual(JSON.parse(on.calls[0].init.body).response_format, { type: "json_object" });
+
+  const off = modelFetch();
+  await translateItems([makeItem(2)], { ...baseOpts, fetchImpl: off, jsonMode: false });
+  assert.equal(JSON.parse(off.calls[0].init.body).response_format, undefined);
+});
+
+test("IDEARADAR_TRANSLATE_JSON_MODE=0 可由环境变量关闭结构化输出", async () => {
+  process.env.IDEARADAR_TRANSLATE_JSON_MODE = "0";
+  try {
+    const fetchImpl = modelFetch();
+    await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
+    assert.equal(JSON.parse(fetchImpl.calls[0].init.body).response_format, undefined);
+  } finally {
+    delete process.env.IDEARADAR_TRANSLATE_JSON_MODE;
+  }
+});
+
+test("端点不认识 response_format 返回 400 时自动去掉参数重试一次并成功", async () => {
+  const bodies = [];
+  let n = 0;
+  const fetchImpl = async (url, init) => {
+    n += 1;
+    bodies.push(JSON.parse(init.body));
+    if (n === 1) return { ok: false, status: 400, json: async () => ({}) };
+    return {
+      ok: true, status: 200,
+      json: async () => ({ choices: [{ message: { content: defaultResponder(batchOf(init)) } }] }),
+    };
+  };
+  const { stats } = await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
+  assert.equal(n, 2, "降级只发一次，不占用 translateBatch 的重试次数");
+  assert.deepEqual(bodies[0].response_format, { type: "json_object" });
+  assert.equal(bodies[1].response_format, undefined);
+  assert.equal(stats.translated, 1);
+  assert.equal(stats.failed, 0);
+  assert.equal(stats.requests, 1);
+});
+
+test("降级后端点仍返回 400 时整批失败、保留英文原文", async () => {
+  let n = 0;
+  const fetchImpl = async () => { n += 1; return { ok: false, status: 400, json: async () => ({}) }; };
+  const { items: out, stats } = await translateItems([makeItem(1)], { ...baseOpts, fetchImpl });
+  assert.equal(n, 4, "2 次降级 × 2 次 translateBatch 重试");
+  assert.equal(stats.failed, 1);
+  assert.equal(out[0].titleZh, undefined);
 });

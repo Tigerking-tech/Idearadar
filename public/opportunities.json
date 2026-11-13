@@ -1519,15 +1519,15 @@
     }
   ],
   "translation": {
-    "model": "hy3",
-    "at": "2026-11-13T04:54:27.930Z",
+    "model": "hy-mt2-plus",
+    "at": "2026-11-13T06:09:45.300Z",
     "status": "ok",
     "skippedReason": null,
     "errors": [],
     "total": 41,
-    "cached": 33,
-    "translated": 8,
+    "cached": 41,
+    "translated": 0,
     "failed": 0,
-    "requests": 1
+    "requests": 0
   }
 }

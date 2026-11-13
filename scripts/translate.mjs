@@ -17,10 +17,15 @@
  *    原文，进程 exit 0。采集与提交照常进行，翻译只是「有则更好」的增强层。
  * 3. 可插拔（BYOK）：endpoint / model / token 均可由环境变量覆盖；密钥只从
  *    GitHub Actions Secret 注入，绝不写进仓库或 .env.local。
- * 4. 推理模型适配：hy3/hy4 这类模型会先输出 reasoning_content，可通过
- *    IDEARADAR_TRANSLATE_REASONING_EFFORT=low 降低思考量；max_tokens 不足时
- *    会给出明确诊断，而不是把空 content 误判成译文失败。
- * 5. 可测：核心逻辑导出为纯函数 translateItems()，fetch 可注入 mock。
+ * 4. 默认模型是翻译专用模型 hy-mt2-plus（快、省 token）。仍兼容推理模型
+ *    （hy3/hy4 等）：设 IDEARADAR_TRANSLATE_REASONING_EFFORT=low 可降低思考量；
+ *    max_tokens 不足导致 content 为空时会给出明确诊断。
+ * 5. 结构化输出：默认带 OpenAI 兼容的 response_format=json_object。翻译专用
+ *    模型不加此约束时约 1/3 批次会吐出畸形 JSON 数组（元素被包成字符串、
+ *    数组与对象混写），且重试常复现同一错误。端点不认识该字段返回 400 时会
+ *    自动去掉参数重试一次，BYOK 换厂商无需改代码；也可设
+ *    IDEARADAR_TRANSLATE_JSON_MODE=0 主动关闭。
+ * 6. 可测：核心逻辑导出为纯函数 translateItems()，fetch 可注入 mock。
  *
  * 用法：node scripts/translate.mjs
  * 输出：就地更新 data/opportunities.json 与 public/opportunities.json 的
@@ -38,10 +43,12 @@ const PUBLIC_PATH = path.join(ROOT, "public", "opportunities.json");
 // 腾讯云 TokenHub（OpenAI 兼容）。境内地址；境外为 tokenhub-intl.tencentmaas.com。
 // 注意：老混元平台 api.hunyuan.cloud.tencent.com 是另一套密钥体系，此端点不通用。
 const DEFAULT_ENDPOINT = "https://tokenhub.tencentmaas.com/v1/chat/completions";
-const DEFAULT_MODEL = "hy3";
+// 翻译专用模型：8 条批量实测约 2s、数百 tokens（hy3 这类推理模型需 ~60s）。
+const DEFAULT_MODEL = "hy-mt2-plus";
 const DEFAULT_BATCH_SIZE = 8;
 const MAX_ATTEMPTS = 2;
-// hy3 是推理模型，会先输出 reasoning_content，批量 8 条实测需 ~15s / 数千 tokens。
+// 上限值而非预分配：翻译专用模型实际消耗远低于此；BYOK 换回推理模型时
+// 需给思考链留空间，故保持宽松，二者都不改代码。
 const TIMEOUT_MS = 120_000;
 const MAX_TOKENS = 8000;
 
@@ -50,14 +57,14 @@ const SYSTEM_PROMPT = `You are a professional localisation engine for "IdeaRadar
 Translate the supplied English strings into natural, concise Simplified Chinese for a Chinese product manager audience.
 
 Rules:
-- Output ONLY a JSON array. No markdown fences, no prose, no commentary.
-- Each output element must be an object with the same "id" as the input element, plus only the translated fields requested ("t" and/or "q").
+- Output ONLY a JSON object with a single key "items" whose value is an array. No markdown fences, no prose, no commentary.
+- Each element of "items" must be an object with the same "id" as the input element, plus only the translated fields requested ("t" and/or "q").
 - "t" is a short issue/feature title. Use a compact noun phrase, no trailing punctuation, no quotation marks.
 - "q" is a verbatim user quote. Keep it faithful; never summarise, never add claims.
 - Preserve technical and product tokens exactly as written: CSV, CRM, API, SDK, OAuth, webhook, Xero, QuickBooks, Stripe, Salesforce, Zendesk, Meta Lead Ads, Flask, BigDecimal, MathContext, HTTP, GitHub, AI, endpoint paths such as /bookings/{booking_id}, and code identifiers.
 - Convey ALL-CAPS markers like WISH, ISSUES, FEATURE by meaning (e.g. 希望、问题、功能), not by transliteration.
 - Every translated string MUST contain Chinese characters. Never echo the English input back unchanged.
-- Never merge, drop, reorder or invent elements. The output array length must exactly match the input.`;
+- Never merge, drop, reorder or invent elements. The "items" array length must exactly match the input.`;
 
 const USER_PREFIX = "Translate the following JSON array. For each element, return ONLY the fields present on that element:\n\n";
 
@@ -85,7 +92,11 @@ export function needsTranslation(item = {}) {
   return !hasChinese(item.titleZh) || !hasChinese(item.quoteZh);
 }
 
-/** 模型偶尔会包 markdown fence 或前后加一句话，用首个 [ 到最后一个 ] 兜住。 */
+/**
+ * 模型偶尔会包 markdown fence 或前后加一句话，用首个 [ 到最后一个 ] 兜住。
+ * 这同时兼容 response_format=json_object 的 {"items":[...]} 包装（取其中数组部分），
+ * 以及 BYOK 端点降级后可能直接返回的裸数组。
+ */
 export function parseModelJson(raw) {
   let s = String(raw || "").trim();
   const fence = s.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/i);
@@ -108,20 +119,34 @@ async function callModel(batch, ctx, signal) {
       { role: "user", content: USER_PREFIX + JSON.stringify(batch) },
     ],
   };
-  // 推理模型（hy3/hy4）默认会先吐一大段思考链，可能吃光 max_tokens 导致
-  // content 为空。设 low 可显著缩短；非推理模型不设置，保持纯净 OpenAI 兼容。
+  // 默认模型 hy-mt2-plus 不是推理模型，绝不下发 reasoning_effort（部分兼容
+  // 端点会因不认识该字段直接 400）。仅当 BYOK 显式切回 hy3/hy4 等推理模型
+  // 并配置了该环境变量时才附带，保持纯净 OpenAI 兼容。
   if (ctx.reasoningEffort) body.reasoning_effort = ctx.reasoningEffort;
+  // 强制合法 JSON：不加约束时翻译专用模型约 1/3 批次会输出畸形数组，且重试
+  // 常复现同一错误；json_object 是 OpenAI 兼容标准字段，实测 TokenHub 5/5 稳定。
+  if (ctx.jsonMode) body.response_format = { type: "json_object" };
 
-  const res = await ctx.fetchImpl(ctx.endpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      Authorization: `Bearer ${ctx.token}`,
-    },
-    body: JSON.stringify(body),
-    signal,
-  });
+  const post = (payload) =>
+    ctx.fetchImpl(ctx.endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${ctx.token}`,
+      },
+      body: JSON.stringify(payload),
+      signal,
+    });
+
+  let res = await post(body);
+  // 少数兼容端点不认识 response_format 会直接 400：去掉该字段再试一次。
+  // 这次降级不占用 translateBatch 的重试次数，也不改变「只换 3 个环境变量」的约定。
+  if (ctx.jsonMode && res && res.ok === false && res.status === 400) {
+    const fallback = { ...body };
+    delete fallback.response_format;
+    res = await post(fallback);
+  }
   if (!res || typeof res.ok === "undefined") throw new Error("fetch returned no Response-like object");
   if (!res.ok) {
     // 401/403 是密钥或权限问题，重试与后续批次必然同样失败 → 端点级故障。
@@ -214,6 +239,8 @@ export async function translateItems(items = [], opts = {}) {
     batchSize: Math.max(1, Number(opts.batchSize || process.env.IDEARADAR_TRANSLATE_BATCH || DEFAULT_BATCH_SIZE)),
     maxTokens: Math.max(1, Number(opts.maxTokens || process.env.IDEARADAR_TRANSLATE_MAX_TOKENS || MAX_TOKENS)),
     reasoningEffort: opts.reasoningEffort ?? process.env.IDEARADAR_TRANSLATE_REASONING_EFFORT ?? "",
+    // 默认开启强制 JSON；BYOK 到不支持该字段的端点时会自动降级，也可显式关掉。
+    jsonMode: opts.jsonMode ?? (process.env.IDEARADAR_TRANSLATE_JSON_MODE !== "0"),
     timeoutMs: opts.timeoutMs ?? TIMEOUT_MS,
   };
   const stats = {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-13T06:17:21.308Z",
+  "generatedAt": "2026-11-13T06:40:08.560Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -12,25 +12,25 @@
       {
         "niche": "solo-crm",
         "method": "relevance",
-        "raw": 244,
+        "raw": 251,
         "itemCount": 6,
-        "recallTitleRate": 0.4918032786885246,
+        "recallTitleRate": 0.47808764940239046,
         "finalTitleRate": 0.6666666666666666
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 223,
+        "raw": 210,
         "itemCount": 14,
-        "recallTitleRate": 0.4977578475336323,
+        "recallTitleRate": 0.5285714285714286,
         "finalTitleRate": 0.7857142857142857
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 239,
+        "raw": 237,
         "itemCount": 3,
-        "recallTitleRate": 0.4560669456066946,
+        "recallTitleRate": 0.459915611814346,
         "finalTitleRate": 1
       },
       {
@@ -38,7 +38,7 @@
         "method": "relevance",
         "raw": 262,
         "itemCount": 18,
-        "recallTitleRate": 0.6374045801526718,
+        "recallTitleRate": 0.6412213740458015,
         "finalTitleRate": 0.6666666666666666
       }
     ]
@@ -48,7 +48,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 435
+      "rows": 427
     },
     {
       "id": "so",
@@ -82,8 +82,8 @@
     }
   ],
   "totals": {
-    "rawRecords": 968,
-    "complaintRecords": 60,
+    "rawRecords": 960,
+    "complaintRecords": 59,
     "opportunities": 41
   },
   "errors": [],
@@ -503,41 +503,6 @@
       "translationKey": "c9813y"
     },
     {
-      "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Batches, balancing transfers, holds and multi-currency",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 8.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-31T06:39:41.000Z",
-      "evidence": [
-        {
-          "title": "Batches, balancing transfers, holds and multi-currency",
-          "url": "https://github.com/laiwf94/ledgerd/issues/26",
-          "source": "github",
-          "createdAt": "2026-10-31T06:39:41.000Z",
-          "excerpt": "**Week 3 of 52** · Mon 16 Nov 2026 to Sun 22 Nov 2026 ## Why Marketplace payouts need several transfers to happen together, sweeps fail on short balances, holds cannot grow, and a currency conversion is two separate entr"
-        }
-      ],
-      "titleZh": "批次、平衡转账、保留与多币种",
-      "quoteZh": "**第 3 周（共 52 周）** · 2026年11月16日周一 至 2026年11月22日周日 ## 为什么 Marketplace 付款需要多笔转账一起发生，清扫在余额不足时失败，保留不能增长，且货币转换是两个单独的 entr",
-      "translationKey": "1p5th3o"
-    },
-    {
       "id": "invoice-export-expense-inconsistent-behavior-on-ws-and-self-dm-",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -750,7 +715,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -881,6 +846,41 @@
       "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…",
       "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11）。一、用大白话说明问题：应用的两个入站通知通道可能丢消息……",
       "translationKey": "y1k1ed"
+    },
+    {
+      "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Batches, balancing transfers, holds and multi-currency",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 8.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-10-31T06:39:41.000Z",
+      "evidence": [
+        {
+          "title": "Batches, balancing transfers, holds and multi-currency",
+          "url": "https://github.com/laiwf94/ledgerd/issues/26",
+          "source": "github",
+          "createdAt": "2026-10-31T06:39:41.000Z",
+          "excerpt": "**Week 3 of 52** · Mon 16 Nov 2026 to Sun 22 Nov 2026 ## Why Marketplace payouts need several transfers to happen together, sweeps fail on short balances, holds cannot grow, and a currency conversion is two separate entr"
+        }
+      ],
+      "titleZh": "批次、平衡转账、保留与多币种",
+      "quoteZh": "**第 3 周（共 52 周）** · 2026年11月16日周一 至 2026年11月22日周日 ## 为什么 Marketplace 付款需要多笔转账一起发生，清扫在余额不足时失败，保留不能增长，且货币转换是两个单独的 entr",
+      "translationKey": "1p5th3o"
     },
     {
       "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
@@ -1520,7 +1520,7 @@
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-13T06:18:08.866Z",
+    "at": "2026-11-13T06:40:57.906Z",
     "status": "ok",
     "skippedReason": null,
     "errors": [],

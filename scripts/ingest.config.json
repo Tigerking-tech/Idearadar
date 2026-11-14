@@ -124,6 +124,17 @@
         "oauth",
         "api integration"
       ]
+    },
+    {
+      "id": "auto-pet-app-booking",
+      "label": "pet app booking",
+      "auto": true,
+      "topicTerms": [
+        "pet app booking"
+      ],
+      "queries": [
+        "pet app booking"
+      ]
     }
   ],
   "_feedsNote": "新增源一律 enabled:false（默认关）。这些是资讯/发布型源，与「用户抱怨」相关性低，贸然开启会用新闻标题稀释召回相关率。每个源产出的记录仍要经过 buildOpportunities 的噪音链与 curation.json 策展闸门；按需把 enabled 改为 true 即可生效，无需改代码。",

@@ -588,6 +588,37 @@
         }
       },
       "methodVersion": 2
+    },
+    {
+      "t": "2026-11-14T06:56:47.367Z",
+      "byNiche": {
+        "scheduling": {
+          "score": 24,
+          "mentions": 26,
+          "items": 18
+        },
+        "dev-workflow": {
+          "score": 25,
+          "mentions": 8,
+          "items": 6
+        },
+        "invoice-export": {
+          "score": 23,
+          "mentions": 12,
+          "items": 12
+        },
+        "solo-crm": {
+          "score": 25,
+          "mentions": 7,
+          "items": 7
+        },
+        "support-transcripts": {
+          "score": 23,
+          "mentions": 3,
+          "items": 3
+        }
+      },
+      "methodVersion": 2
     }
   ]
 }

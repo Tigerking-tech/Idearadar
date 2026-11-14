@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-13T19:37:40.136Z",
+  "evaluatedAt": "2026-11-14T06:14:27.259Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,19 +15,19 @@
   },
   "global": {
     "relevance": {
-      "raw": 1138,
-      "itemCount": 40,
+      "raw": 1141,
+      "itemCount": 41,
       "recallHits": 517,
       "finalHits": 28,
-      "recallTitleRate": 0.45430579964850615,
-      "finalTitleRate": 0.7
+      "recallTitleRate": 0.45311130587204207,
+      "finalTitleRate": 0.6829268292682927
     },
     "legacy": {
-      "raw": 1128,
+      "raw": 1123,
       "itemCount": 60,
-      "recallHits": 101,
+      "recallHits": 106,
       "finalHits": 9,
-      "recallTitleRate": 0.08953900709219859,
+      "recallTitleRate": 0.0943900267141585,
       "finalTitleRate": 0.15
     }
   },
@@ -35,12 +35,12 @@
     "relevance": [
       {
         "niche": "solo-crm",
-        "raw": 252,
+        "raw": 253,
         "itemCount": 7,
-        "recallTitleRate": 0.4880952380952381,
+        "recallTitleRate": 0.4901185770750988,
         "finalTitleRate": 0.5714285714285714,
         "stats": {
-          "raw": 252,
+          "raw": 253,
           "complaintRecords": 7,
           "items": 7
         }
@@ -48,23 +48,23 @@
       {
         "niche": "invoice-export",
         "raw": 223,
-        "itemCount": 13,
+        "itemCount": 12,
         "recallTitleRate": 0.5022421524663677,
-        "finalTitleRate": 0.7692307692307693,
+        "finalTitleRate": 0.75,
         "stats": {
           "raw": 223,
           "complaintRecords": 17,
-          "items": 13
+          "items": 12
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 241,
+        "raw": 243,
         "itemCount": 3,
-        "recallTitleRate": 0.46473029045643155,
+        "recallTitleRate": 0.4609053497942387,
         "finalTitleRate": 1,
         "stats": {
-          "raw": 241,
+          "raw": 243,
           "complaintRecords": 5,
           "items": 3
         }
@@ -72,13 +72,13 @@
       {
         "niche": "scheduling",
         "raw": 258,
-        "itemCount": 17,
-        "recallTitleRate": 0.6356589147286822,
-        "finalTitleRate": 0.6470588235294118,
+        "itemCount": 19,
+        "recallTitleRate": 0.6317829457364341,
+        "finalTitleRate": 0.631578947368421,
         "stats": {
           "raw": 258,
-          "complaintRecords": 32,
-          "items": 17
+          "complaintRecords": 33,
+          "items": 19
         }
       },
       {
@@ -109,50 +109,50 @@
     "legacy": [
       {
         "niche": "solo-crm",
-        "raw": 241,
-        "itemCount": 15,
-        "recallTitleRate": 0.0995850622406639,
-        "finalTitleRate": 0.13333333333333333,
+        "raw": 252,
+        "itemCount": 14,
+        "recallTitleRate": 0.07142857142857142,
+        "finalTitleRate": 0.07142857142857142,
         "stats": {
-          "raw": 241,
-          "complaintRecords": 15,
-          "items": 15
+          "raw": 252,
+          "complaintRecords": 14,
+          "items": 14
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 223,
-        "itemCount": 12,
-        "recallTitleRate": 0.08968609865470852,
-        "finalTitleRate": 0.08333333333333333,
-        "stats": {
-          "raw": 223,
-          "complaintRecords": 13,
-          "items": 12
-        }
-      },
-      {
-        "niche": "support-transcripts",
-        "raw": 242,
+        "raw": 205,
         "itemCount": 13,
-        "recallTitleRate": 0.10743801652892562,
+        "recallTitleRate": 0.1073170731707317,
         "finalTitleRate": 0.07692307692307693,
         "stats": {
-          "raw": 242,
+          "raw": 205,
           "complaintRecords": 13,
           "items": 13
         }
       },
       {
+        "niche": "support-transcripts",
+        "raw": 244,
+        "itemCount": 19,
+        "recallTitleRate": 0.11065573770491803,
+        "finalTitleRate": 0.21052631578947367,
+        "stats": {
+          "raw": 244,
+          "complaintRecords": 19,
+          "items": 19
+        }
+      },
+      {
         "niche": "scheduling",
         "raw": 258,
-        "itemCount": 33,
-        "recallTitleRate": 0.11627906976744186,
-        "finalTitleRate": 0.21212121212121213,
+        "itemCount": 19,
+        "recallTitleRate": 0.14728682170542637,
+        "finalTitleRate": 0.21052631578947367,
         "stats": {
           "raw": 258,
-          "complaintRecords": 40,
-          "items": 33
+          "complaintRecords": 27,
+          "items": 19
         }
       },
       {
@@ -194,6 +194,11 @@
         "titleHit": true
       },
       {
+        "title": "FAA issues national ground stop",
+        "niche": "scheduling",
+        "titleHit": false
+      },
+      {
         "title": "LibreOffice actually works 365 days a year",
         "niche": "scheduling",
         "titleHit": false
@@ -209,19 +214,14 @@
         "titleHit": true
       },
       {
-        "title": "Booking improvements",
-        "niche": "scheduling",
-        "titleHit": true
-      },
-      {
         "title": "Salesforce: sync log and failure alert",
         "niche": "solo-crm",
         "titleHit": true
       },
       {
-        "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-        "niche": "support-transcripts",
-        "titleHit": true
+        "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+        "niche": "scheduling",
+        "titleHit": false
       }
     ],
     "legacy": [
@@ -231,17 +231,12 @@
         "titleHit": false
       },
       {
-        "title": "flow press steps fail with 'Element is not attached to the DOM' when the form re-renders after…",
+        "title": "AFP: export_to_doctags() raises ZeroDivisionError because every page has size 0x0",
         "niche": "invoice-export",
         "titleHit": false
       },
       {
-        "title": "Wayfinder map: Budgeting and spend (from #551)",
-        "niche": "invoice-export",
-        "titleHit": false
-      },
-      {
-        "title": "core: flaky batch_io::tests::test_recv_stress_no_stall on macOS CI (50 ms stall bound)",
+        "title": "FAA issues national ground stop",
         "niche": "scheduling",
         "titleHit": false
       },
@@ -251,18 +246,23 @@
         "titleHit": false
       },
       {
-        "title": "Handle malformed Event availability safely",
-        "niche": "scheduling",
-        "titleHit": true
-      },
-      {
         "title": "LibreOffice actually works 365 days a year",
         "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "Sub-steps on a task",
+        "title": "Mobile mode: \"Prendre rendez-vous\" button missing for logged-out users",
         "niche": "scheduling",
+        "titleHit": false
+      },
+      {
+        "title": "Inserting a manual share for a user on the plain Customer Community license succeeds instead of…",
+        "niche": "solo-crm",
+        "titleHit": false
+      },
+      {
+        "title": "Inserting a user with a standard external profile succeeds when the org doesn't allow standard…",
+        "niche": "solo-crm",
         "titleHit": false
       }
     ]

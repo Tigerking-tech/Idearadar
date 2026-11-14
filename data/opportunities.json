@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-13T19:40:43.380Z",
+  "generatedAt": "2026-11-14T06:17:32.657Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -12,34 +12,34 @@
       {
         "niche": "solo-crm",
         "method": "relevance",
-        "raw": 252,
+        "raw": 246,
         "itemCount": 7,
-        "recallTitleRate": 0.4880952380952381,
+        "recallTitleRate": 0.5040650406504065,
         "finalTitleRate": 0.5714285714285714
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 219,
-        "itemCount": 13,
-        "recallTitleRate": 0.5114155251141552,
-        "finalTitleRate": 0.7692307692307693
+        "raw": 208,
+        "itemCount": 12,
+        "recallTitleRate": 0.5384615384615384,
+        "finalTitleRate": 0.75
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 241,
+        "raw": 243,
         "itemCount": 3,
-        "recallTitleRate": 0.46473029045643155,
+        "recallTitleRate": 0.4609053497942387,
         "finalTitleRate": 1
       },
       {
         "niche": "scheduling",
         "method": "relevance",
         "raw": 258,
-        "itemCount": 17,
-        "recallTitleRate": 0.6356589147286822,
-        "finalTitleRate": 0.6470588235294118
+        "itemCount": 19,
+        "recallTitleRate": 0.5930232558139535,
+        "finalTitleRate": 0.631578947368421
       },
       {
         "niche": "auto-pet-app-booking",
@@ -64,7 +64,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 514
+      "rows": 497
     },
     {
       "id": "so",
@@ -82,7 +82,7 @@
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 0
+      "rows": 2
     },
     {
       "id": "firstParty",
@@ -98,9 +98,9 @@
     }
   ],
   "totals": {
-    "rawRecords": 1134,
+    "rawRecords": 1119,
     "complaintRecords": 61,
-    "opportunities": 40
+    "opportunities": 41
   },
   "errors": [],
   "items": [
@@ -113,7 +113,7 @@
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 14.1,
+        "recency": 13.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -176,7 +176,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
-        "recency": 12.7,
+        "recency": 12.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -204,6 +204,41 @@
       "translationKey": "wtcmtu"
     },
     {
+      "id": "scheduling-faa-issues-national-ground-stop",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "FAA issues national ground stop",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 14.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "frustration"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T22:27:53.000Z",
+      "evidence": [
+        {
+          "title": "FAA issues national ground stop",
+          "url": "https://www.nbcnews.com/news/us-news/faa-orders-nationwide-ground-stop-departing-flights-reasons-safety-rcna609247",
+          "source": "hn",
+          "createdAt": "2026-11-13T22:27:53.000Z",
+          "excerpt": "Hate that for all involved. Was flying out of ATL when the Crowdstrike clusterfuck imploded Delta&#x27;s antiquated crew scheduling backends. Not a fun night. Godspeed for everyone getting to where they need to be, someh"
+        }
+      ],
+      "titleZh": "FAA发布的全国地面停飞指令",
+      "quoteZh": "这会让所有相关人员都很头疼。当时我正从亚特兰大机场起飞，Crowdstrike系统崩溃导致达美航空过时的机组排班后端彻底失灵，那真是个糟糕的夜晚。祝所有需要赶路的人一切顺利。",
+      "translationKey": "10ijzhj"
+    },
+    {
       "id": "scheduling-libreoffice-actually-works-365-days-a-year",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -212,7 +247,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 15,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -247,7 +282,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.8,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -282,7 +317,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.7,
+        "recency": 13.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -309,41 +344,6 @@
       "translationKey": "1romyta"
     },
     {
-      "id": "scheduling-booking-improvements",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Booking improvements",
-      "score": 27,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T00:12:52.000Z",
-      "evidence": [
-        {
-          "title": "Booking improvements",
-          "url": "https://github.com/Pogut/nikolai-demo-red/issues/3",
-          "source": "github",
-          "createdAt": "2026-11-13T00:12:52.000Z",
-          "excerpt": "As a student, I want booking to work well and be fast, so that I can get a room quickly. - booking should be easy - it should be user friendly - cancel works"
-        }
-      ],
-      "titleZh": "预订改进",
-      "quoteZh": "作为一名学生，我希望预订运行良好且快速，以便我能快速获得房间。 - 预订应简单 - 应用户友好 - 取消可用",
-      "translationKey": "q1kin6"
-    },
-    {
       "id": "solo-crm-salesforce-sync-log-and-failure-alert",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
@@ -352,7 +352,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.4,
+        "recency": 13.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -379,41 +379,6 @@
       "translationKey": "2b252w"
     },
     {
-      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-      "score": 27,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 12.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T02:59:24.000Z",
-      "evidence": [
-        {
-          "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-          "url": "https://github.com/FORHU/ilovelawyer-admin/issues/38",
-          "source": "github",
-          "createdAt": "2026-11-09T02:59:24.000Z",
-          "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
-        }
-      ],
-      "titleZh": "管理后台·客服聊天：工单收件箱与结果报告",
-      "quoteZh": "隶属于 FORHU/ilovelawyer-client#120，泳道 ADM-2，复用 BE-3 的管理端接口。问题：管理员需要一个统一入口，来回复机器人处理不了的客服工单，并查看哪些流程在失败，以便……",
-      "translationKey": "19lcdkv"
-    },
-    {
       "id": "scheduling-ai-is-turning-apple-s-app-review-process-into-a-",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -422,7 +387,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -454,44 +419,39 @@
       "translationKey": "1k0af9r"
     },
     {
-      "id": "scheduling-service-degradation-on-microsoft-365",
+      "id": "scheduling-booking-improvements",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
-      "title": "Service degradation on Microsoft 365",
+      "title": "Booking improvements",
       "score": 26,
       "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
-        "recency": 14.8,
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
-      "mentions": 2,
+      "mentions": 1,
       "sources": [
-        "hn"
+        "github"
       ],
-      "signals": [],
+      "signals": [
+        "churn"
+      ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-13T08:05:07.000Z",
+      "lastSeen": "2026-11-13T00:12:52.000Z",
       "evidence": [
         {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-12T23:15:56.000Z",
-          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
-        },
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-13T08:05:07.000Z",
-          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
+          "title": "Booking improvements",
+          "url": "https://github.com/Pogut/nikolai-demo-red/issues/3",
+          "source": "github",
+          "createdAt": "2026-11-13T00:12:52.000Z",
+          "excerpt": "As a student, I want booking to work well and be fast, so that I can get a room quickly. - booking should be easy - it should be user friendly - cancel works"
         }
       ],
-      "titleZh": "Microsoft 365 服务降级",
-      "quoteZh": "此处按逆时间顺序工作：从 UTC 凌晨 1:06:17 更新：当前状态：我们的调查发现，受影响服务器上负责建立安全连接的过程变得 over",
-      "translationKey": "k0xfgs"
+      "titleZh": "预订改进",
+      "quoteZh": "作为一名学生，我希望预订运行良好且快速，以便我能快速获得房间。 - 预订应简单 - 应用户友好 - 取消可用",
+      "translationKey": "q1kin6"
     },
     {
       "id": "solo-crm-running-a-law-firm-on-free-software",
@@ -502,7 +462,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 12,
+        "recency": 11.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -529,6 +489,41 @@
       "translationKey": "1q1cx2n"
     },
     {
+      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
+      "score": 26,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 12.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T02:59:24.000Z",
+      "evidence": [
+        {
+          "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
+          "url": "https://github.com/FORHU/ilovelawyer-admin/issues/38",
+          "source": "github",
+          "createdAt": "2026-11-09T02:59:24.000Z",
+          "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
+        }
+      ],
+      "titleZh": "管理后台·客服聊天：工单收件箱与结果报告",
+      "quoteZh": "隶属于 FORHU/ilovelawyer-client#120，泳道 ADM-2，复用 BE-3 的管理端接口。问题：管理员需要一个统一入口，来回复机器人处理不了的客服工单，并查看哪些流程在失败，以便……",
+      "translationKey": "19lcdkv"
+    },
+    {
       "id": "invoice-export-csv-export-for-timesheets-and-invoices",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
@@ -537,7 +532,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 12.9,
+        "recency": 12.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -564,50 +559,15 @@
       "translationKey": "1pahlgq"
     },
     {
-      "id": "scheduling-appointment-vehicle-management",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment & Vehicle Management",
-      "score": 25,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 12.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T03:51:57.000Z",
-      "evidence": [
-        {
-          "title": "Appointment & Vehicle Management",
-          "url": "https://github.com/ShaneW12/Group3-CarWash/issues/11",
-          "source": "github",
-          "createdAt": "2026-11-09T03:51:57.000Z",
-          "excerpt": "Develop functionality that allows CleanRide customers to manage their vehicles and car wash appointments. User stories - Add a vehicle - View saved vehicles - Book an appointment - Cancel an appointment"
-        }
-      ],
-      "titleZh": "预约与车辆管理",
-      "quoteZh": "开发功能，让 CleanRide 客户管理自己的车辆与洗车预约。用户故事：添加车辆、查看已保存车辆、预约、取消预约。",
-      "translationKey": "lhy25o"
-    },
-    {
       "id": "invoice-export-banking-app-transaction-multi-currency",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
       "title": "Banking App Transaction: Multi Currency",
-      "score": 24,
+      "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.5,
+        "recency": 9.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -642,7 +602,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -675,7 +635,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.4,
+        "recency": 11.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -710,7 +670,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11,
+        "recency": 10.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -745,7 +705,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11,
+        "recency": 10.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -780,7 +740,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9,
+        "recency": 8.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -815,7 +775,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.7,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -840,15 +800,15 @@
       "translationKey": "1uib3xg"
     },
     {
-      "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Split chat-runtime's transcript and commands",
+      "id": "scheduling-patient-appointment-requests",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Patient appointment requests",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.6,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -858,122 +818,52 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-12T22:31:08.000Z",
+      "lastSeen": "2026-11-14T01:10:17.000Z",
       "evidence": [
         {
-          "title": "Split chat-runtime's transcript and commands",
-          "url": "https://github.com/ejjsharpe/moonbase/issues/281",
+          "title": "Patient appointment requests",
+          "url": "https://github.com/zacharyelston/WeHelp/issues/68",
           "source": "github",
-          "createdAt": "2026-11-12T22:31:08.000Z",
-          "excerpt": "Parent epic: #273. Planning ticket **CL-08**. Track A. ## Dependencies CL-07 #280. ## Problem and outcome `chat-runtime/src/transcript.ts` (1,136 lines) and `commands.ts` (917) are over the 600-line limit and mix concern"
+          "createdAt": "2026-11-14T01:10:17.000Z",
+          "excerpt": "## Goal Patients can ask for an appointment in the app, and staff confirm or decline it. ## Context - Found while building #39 (PR #66): create and PATCH are provider-only (patients get 403) and there is no `requested` s"
         }
       ],
-      "titleZh": "拆分 chat-runtime 的 transcript 与 commands",
-      "quoteZh": "父史诗：#273。规划工单 **CL-08**。轨道 A。 ## 依赖 CL-07 #280。 ## 问题与结果 `chat-runtime/src/transcript.ts`（1,136 行）和 `commands.ts`（917）超过 600 行限制且混淆了关注点",
-      "translationKey": "1agg45t"
+      "titleZh": "患者预约请求处理",
+      "quoteZh": "## 目标：患者可通过应用提交预约申请，工作人员可确认或拒绝。## 背景：在开发#39（PR #66）时发现，创建和PATCH操作仅开放给医疗服务提供方（患者会收到403错误），且不存在`requested`字段。",
+      "translationKey": "1y6wo84"
     },
     {
-      "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce…",
-      "score": 22,
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Service degradation on Microsoft 365",
+      "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.5,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
       "mentions": 1,
       "sources": [
-        "github"
+        "hn"
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:34:20.000Z",
+      "lastSeen": "2026-11-13T08:05:07.000Z",
       "evidence": [
         {
-          "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce unrecorded, until someone notices",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4921",
-          "source": "github",
-          "createdAt": "2026-11-10T21:34:20.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Two of the app's incoming notification feeds can lose a messag"
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-13T08:05:07.000Z",
+          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
         }
       ],
-      "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…",
-      "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11）。一、用大白话说明问题：应用的两个入站通知通道可能丢消息……",
-      "translationKey": "y1k1ed"
-    },
-    {
-      "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Batches, balancing transfers, holds and multi-currency",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 8.2,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-31T06:39:41.000Z",
-      "evidence": [
-        {
-          "title": "Batches, balancing transfers, holds and multi-currency",
-          "url": "https://github.com/laiwf94/ledgerd/issues/26",
-          "source": "github",
-          "createdAt": "2026-10-31T06:39:41.000Z",
-          "excerpt": "**Week 3 of 52** · Mon 16 Nov 2026 to Sun 22 Nov 2026 ## Why Marketplace payouts need several transfers to happen together, sweeps fail on short balances, holds cannot grow, and a currency conversion is two separate entr"
-        }
-      ],
-      "titleZh": "批次、平衡转账、保留与多币种",
-      "quoteZh": "**第 3 周（共 52 周）** · 2026年11月16日周一 至 2026年11月22日周日 ## 为什么 Marketplace 付款需要多笔转账一起发生，清扫在余额不足时失败，保留不能增长，且货币转换是两个单独的 entr",
-      "translationKey": "1p5th3o"
-    },
-    {
-      "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page…",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 7.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-30T06:12:02.000Z",
-      "evidence": [
-        {
-          "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page, then audit the app)",
-          "url": "https://github.com/arcforgelabs/flow/issues/441",
-          "source": "github",
-          "createdAt": "2026-10-30T06:12:02.000Z",
-          "excerpt": "### Bug type Behavior bug (incorrect output/state without crash) ### Summary An issued invoice that Xero refused sits on the Pending tab. Its page shows \"Pending\" and \"Not in Xero yet\", but not the reason. When the reaso"
-        }
-      ],
-      "titleZh": "每次暂挂或拒付都标明规则并关联命中项（修复已开具发票页面…",
-      "quoteZh": "缺陷类型：行为缺陷（不崩溃但输出或状态错误）。摘要：被 Xero 拒绝的已开具发票停留在待处理页签，页面只显示待处理、尚未同步到 Xero，却不给原因；当原因……",
-      "translationKey": "2tp4ne"
+      "titleZh": "Microsoft 365 服务降级",
+      "translationKey": "gmvdio",
+      "quoteZh": "来自健康状态页面的内容：\"Microsoft Teams：包括加入通话、会议、群组聊天以及频道消息在内的大部分核心功能均未受影响。但依赖Exchange Online的场景，比如日历功能，则会受到影响。\""
     },
     {
       "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
@@ -984,7 +874,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.3,
+        "recency": 14.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1017,7 +907,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.8,
+        "recency": 13.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1050,7 +940,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.9,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1075,39 +965,6 @@
       "translationKey": "1hriesl"
     },
     {
-      "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out…",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:38:00.000Z",
-      "evidence": [
-        {
-          "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out late",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4986",
-          "source": "github",
-          "createdAt": "2026-11-10T21:38:00.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app sends membership subscription invoices and joining-fee"
-        }
-      ],
-      "titleZh": "订阅页面让未接 Xero 的俱乐部走进死胡同，还可能把发票排队发出…",
-      "quoteZh": "隶属于项目 #4898。一、用大白话说明问题：应用会发送会员订阅发票和入会费……",
-      "translationKey": "1x6lmz6"
-    },
-    {
       "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1116,7 +973,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.2,
+        "recency": 13.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1149,7 +1006,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 9.9,
+        "recency": 9.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1184,7 +1041,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.1,
+        "recency": 13.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1217,7 +1074,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.9,
+        "recency": 13.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1242,6 +1099,39 @@
       "translationKey": "1rlcx53"
     },
     {
+      "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Split chat-runtime's transcript and commands",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-12T22:31:08.000Z",
+      "evidence": [
+        {
+          "title": "Split chat-runtime's transcript and commands",
+          "url": "https://github.com/ejjsharpe/moonbase/issues/281",
+          "source": "github",
+          "createdAt": "2026-11-12T22:31:08.000Z",
+          "excerpt": "Parent epic: #273. Planning ticket **CL-08**. Track A. ## Dependencies CL-07 #280. ## Problem and outcome `chat-runtime/src/transcript.ts` (1,136 lines) and `commands.ts` (917) are over the 600-line limit and mix concern"
+        }
+      ],
+      "titleZh": "拆分 chat-runtime 的 transcript 与 commands",
+      "quoteZh": "父史诗：#273。规划工单 **CL-08**。轨道 A。 ## 依赖 CL-07 #280。 ## 问题与结果 `chat-runtime/src/transcript.ts`（1,136 行）和 `commands.ts`（917）超过 600 行限制且混淆了关注点",
+      "translationKey": "1agg45t"
+    },
+    {
       "id": "scheduling-appointment-booking-tasks",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1250,7 +1140,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 4,
-        "recency": 6.4,
+        "recency": 6.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1284,6 +1174,175 @@
       "translationKey": "10aehgh"
     },
     {
+      "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce…",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:34:20.000Z",
+      "evidence": [
+        {
+          "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce unrecorded, until someone notices",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4921",
+          "source": "github",
+          "createdAt": "2026-11-10T21:34:20.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Two of the app's incoming notification feeds can lose a messag"
+        }
+      ],
+      "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…",
+      "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11）。一、用大白话说明问题：应用的两个入站通知通道可能丢消息……",
+      "translationKey": "y1k1ed"
+    },
+    {
+      "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page…",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 7.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-10-30T06:12:02.000Z",
+      "evidence": [
+        {
+          "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page, then audit the app)",
+          "url": "https://github.com/arcforgelabs/flow/issues/441",
+          "source": "github",
+          "createdAt": "2026-10-30T06:12:02.000Z",
+          "excerpt": "### Bug type Behavior bug (incorrect output/state without crash) ### Summary An issued invoice that Xero refused sits on the Pending tab. Its page shows \"Pending\" and \"Not in Xero yet\", but not the reason. When the reaso"
+        }
+      ],
+      "titleZh": "每次暂挂或拒付都标明规则并关联命中项（修复已开具发票页面…",
+      "quoteZh": "缺陷类型：行为缺陷（不崩溃但输出或状态错误）。摘要：被 Xero 拒绝的已开具发票停留在待处理页签，页面只显示待处理、尚未同步到 Xero，却不给原因；当原因……",
+      "translationKey": "2tp4ne"
+    },
+    {
+      "id": "invoice-export-multi-currency-expenses-deposits-settlement-engi",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Multi-currency expenses, deposits & settlement engine",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 8.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "manual"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-01T14:40:44.000Z",
+      "evidence": [
+        {
+          "title": "Multi-currency expenses, deposits & settlement engine",
+          "url": "https://github.com/StanSiska/sailing-trip-planner-app/issues/8",
+          "source": "github",
+          "createdAt": "2026-11-01T14:40:44.000Z",
+          "excerpt": "Full expense tracking and settlement (inspired by the real expedition spreadsheet). ### Acceptance Criteria - Shared vs Personal expenses - Multi-currency + exchange rate - Who paid, categories, receipts - Live balances "
+        }
+      ],
+      "titleZh": "多币种费用、预付款及结算引擎",
+      "quoteZh": "完整的费用追踪与结算功能（灵感来源于真实的探险项目电子表格）。### 需求标准：区分个人费用与团队费用；支持多币种及汇率转换；记录支付方、费用类别及收据信息；实时显示账户余额。",
+      "translationKey": "1v71lo3"
+    },
+    {
+      "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out…",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:38:00.000Z",
+      "evidence": [
+        {
+          "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out late",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4986",
+          "source": "github",
+          "createdAt": "2026-11-10T21:38:00.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app sends membership subscription invoices and joining-fee"
+        }
+      ],
+      "titleZh": "订阅页面让未接 Xero 的俱乐部走进死胡同，还可能把发票排队发出…",
+      "quoteZh": "隶属于项目 #4898。一、用大白话说明问题：应用会发送会员订阅发票和入会费……",
+      "translationKey": "1x6lmz6"
+    },
+    {
+      "id": "scheduling-61-docs-document-the-scheduling-context-in-docs-",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T19:35:03.000Z",
+      "evidence": [
+        {
+          "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
+          "url": "https://github.com/polaeskandar/khmh-koeln-app-frontend/issues/297",
+          "source": "github",
+          "createdAt": "2026-11-10T19:35:03.000Z",
+          "excerpt": "Document the Meetings context in `docs/features/meetings.md`, so its features, rules and code can be found and understood without reading the whole codebase. It covers the agenda, schedules (create, edit, pause), session"
+        }
+      ],
+      "titleZh": "在文档中记录调度相关内容",
+      "quoteZh": "在`docs/features/meetings.md`文件中详细记录会议相关的功能、规则及代码逻辑，这样无需浏览整个代码库就能了解相关内容。该文档涵盖会议议程、日程安排（创建、编辑、暂停）、会议环节等信息。",
+      "translationKey": "1xbk369"
+    },
+    {
       "id": "scheduling-public-booking-phone-validation-and-booking-mana",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1292,7 +1351,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.9,
+        "recency": 12.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1317,39 +1376,6 @@
       "translationKey": "4mo5pg"
     },
     {
-      "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Scheduling (1/9): Scheduling store and config",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T03:45:56.000Z",
-      "evidence": [
-        {
-          "title": "Scheduling (1/9): Scheduling store and config",
-          "url": "https://github.com/ncsa/lumen/issues/480",
-          "source": "github",
-          "createdAt": "2026-11-09T03:45:56.000Z",
-          "excerpt": "Part of the request scheduling epic (queues, priorities and KV-cache affinity). Add the `scheduling:` config block and a small store module that later items build on. - Config block as in the epic, with defaults and per-"
-        }
-      ],
-      "titleZh": "排期模块（1/9）：存储与配置",
-      "quoteZh": "属于请求排期史诗（队列、优先级与 KV-cache 亲和性）的一部分。新增 scheduling: 配置块与一个小型 store 模块，供后续条目扩展。配置块按史诗定义，带默认值与……",
-      "translationKey": "p22tqt"
-    },
-    {
       "id": "solo-crm-salesforce-bulk-a-remembered-job-salesforce-has-",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
@@ -1358,7 +1384,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.8,
+        "recency": 12.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1391,7 +1417,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.4,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1424,7 +1450,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.4,
+        "recency": 12.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1449,41 +1475,6 @@
       "translationKey": "toluil"
     },
     {
-      "id": "invoice-export-programme-xero-operation-row-claim-fencing",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Programme: Xero operation-row claim fencing",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 5.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-25T22:18:56.000Z",
-      "evidence": [
-        {
-          "title": "Programme: Xero operation-row claim fencing",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4400",
-          "source": "github",
-          "createdAt": "2026-10-25T22:18:56.000Z",
-          "excerpt": "Part of programme #4898. Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — Released: every formerly parked Xero and payment bug may be fixed now, ordered by harm, ahead of the ledger steps; this r"
-        }
-      ],
-      "titleZh": "项目：Xero 操作行认领隔离",
-      "quoteZh": "隶属于项目 #4898，工作顺序见该处。2026-11-11 已决策并发布：此前搁置的 Xero 与支付类缺陷现在均可修复，按危害程度排序，优先于总账步骤……",
-      "translationKey": "18tdgf2"
-    },
-    {
       "id": "scheduling-running-a-law-firm-on-free-software",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1492,7 +1483,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 11.9,
+        "recency": 11.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1515,17 +1506,50 @@
       "titleZh": "用自由软件运营律所",
       "quoteZh": "这个博客点子挺有意思，我打算借用。过去 5 年我一直用纯自托管和 FOSS 软件运营一家软件工程合作社（邮件服务器和 Discord 除外），大部分……",
       "translationKey": "18zgbi"
+    },
+    {
+      "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Scheduling (1/9): Scheduling store and config",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12.4,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T03:45:56.000Z",
+      "evidence": [
+        {
+          "title": "Scheduling (1/9): Scheduling store and config",
+          "url": "https://github.com/ncsa/lumen/issues/480",
+          "source": "github",
+          "createdAt": "2026-11-09T03:45:56.000Z",
+          "excerpt": "Part of the request scheduling epic (queues, priorities and KV-cache affinity). Add the `scheduling:` config block and a small store module that later items build on. - Config block as in the epic, with defaults and per-"
+        }
+      ],
+      "titleZh": "排期模块（1/9）：存储与配置",
+      "quoteZh": "属于请求排期史诗（队列、优先级与 KV-cache 亲和性）的一部分。新增 scheduling: 配置块与一个小型 store 模块，供后续条目扩展。配置块按史诗定义，带默认值与……",
+      "translationKey": "p22tqt"
     }
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-13T19:41:49.077Z",
+    "at": "2026-11-14T06:18:50.681Z",
     "status": "ok",
     "skippedReason": null,
     "errors": [],
-    "total": 40,
-    "cached": 39,
-    "translated": 1,
+    "total": 41,
+    "cached": 36,
+    "translated": 5,
     "failed": 0,
     "requests": 1
   }

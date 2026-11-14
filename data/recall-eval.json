@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-14T06:53:44.810Z",
+  "evaluatedAt": "2026-11-14T13:38:30.431Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -9,150 +9,246 @@
     "minItems": 24
   },
   "config": {
-    "queryLimit": 5,
+    "queryLimit": 3,
     "topicScope": "any",
     "maxItems": 60
   },
   "global": {
     "relevance": {
-      "raw": 1207,
-      "itemCount": 46,
-      "recallHits": 644,
-      "finalHits": 33,
-      "recallTitleRate": 0.5335542667771334,
-      "finalTitleRate": 0.717391304347826
+      "raw": 917,
+      "itemCount": 60,
+      "recallHits": 458,
+      "finalHits": 38,
+      "recallTitleRate": 0.4994547437295529,
+      "finalTitleRate": 0.6333333333333333
     },
     "legacy": {
-      "raw": 1191,
+      "raw": 912,
       "itemCount": 60,
-      "recallHits": 130,
-      "finalHits": 8,
-      "recallTitleRate": 0.109151973131822,
-      "finalTitleRate": 0.13333333333333333
+      "recallHits": 158,
+      "finalHits": 27,
+      "recallTitleRate": 0.17324561403508773,
+      "finalTitleRate": 0.45
     }
   },
   "perNiche": {
     "relevance": [
       {
-        "niche": "solo-crm",
-        "raw": 253,
-        "itemCount": 7,
-        "recallTitleRate": 0.4901185770750988,
-        "finalTitleRate": 0.5714285714285714,
+        "niche": "everyday-money",
+        "raw": 40,
+        "itemCount": 36,
+        "recallTitleRate": 0.25,
+        "finalTitleRate": 0.2222222222222222,
         "stats": {
-          "raw": 253,
-          "complaintRecords": 7,
-          "items": 7
+          "raw": 40,
+          "complaintRecords": 36,
+          "items": 36
+        }
+      },
+      {
+        "niche": "pet-and-home-care",
+        "raw": 26,
+        "itemCount": 22,
+        "recallTitleRate": 0.34615384615384615,
+        "finalTitleRate": 0.3181818181818182,
+        "stats": {
+          "raw": 26,
+          "complaintRecords": 24,
+          "items": 22
+        }
+      },
+      {
+        "niche": "local-service-booking",
+        "raw": 41,
+        "itemCount": 33,
+        "recallTitleRate": 0.6341463414634146,
+        "finalTitleRate": 0.696969696969697,
+        "stats": {
+          "raw": 41,
+          "complaintRecords": 33,
+          "items": 33
+        }
+      },
+      {
+        "niche": "personal-admin",
+        "raw": 41,
+        "itemCount": 32,
+        "recallTitleRate": 0.7560975609756098,
+        "finalTitleRate": 0.90625,
+        "stats": {
+          "raw": 41,
+          "complaintRecords": 32,
+          "items": 32
+        }
+      },
+      {
+        "niche": "solo-crm",
+        "raw": 152,
+        "itemCount": 5,
+        "recallTitleRate": 0.39473684210526316,
+        "finalTitleRate": 0.6,
+        "stats": {
+          "raw": 152,
+          "complaintRecords": 5,
+          "items": 5
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 223,
-        "itemCount": 12,
-        "recallTitleRate": 0.5022421524663677,
-        "finalTitleRate": 0.75,
+        "raw": 123,
+        "itemCount": 6,
+        "recallTitleRate": 0.4878048780487805,
+        "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 223,
+          "raw": 123,
+          "complaintRecords": 8,
+          "items": 6
+        }
+      },
+      {
+        "niche": "support-transcripts",
+        "raw": 156,
+        "itemCount": 1,
+        "recallTitleRate": 0.38461538461538464,
+        "finalTitleRate": 1,
+        "stats": {
+          "raw": 156,
+          "complaintRecords": 2,
+          "items": 1
+        }
+      },
+      {
+        "niche": "scheduling",
+        "raw": 168,
+        "itemCount": 14,
+        "recallTitleRate": 0.6309523809523809,
+        "finalTitleRate": 0.7142857142857143,
+        "stats": {
+          "raw": 168,
+          "complaintRecords": 19,
+          "items": 14
+        }
+      },
+      {
+        "niche": "dev-workflow",
+        "raw": 170,
+        "itemCount": 5,
+        "recallTitleRate": 0.5647058823529412,
+        "finalTitleRate": 0.8,
+        "stats": {
+          "raw": 170,
+          "complaintRecords": 8,
+          "items": 5
+        }
+      }
+    ],
+    "legacy": [
+      {
+        "niche": "everyday-money",
+        "raw": 40,
+        "itemCount": 36,
+        "recallTitleRate": 0.25,
+        "finalTitleRate": 0.2222222222222222,
+        "stats": {
+          "raw": 40,
+          "complaintRecords": 36,
+          "items": 36
+        }
+      },
+      {
+        "niche": "pet-and-home-care",
+        "raw": 26,
+        "itemCount": 22,
+        "recallTitleRate": 0.34615384615384615,
+        "finalTitleRate": 0.3181818181818182,
+        "stats": {
+          "raw": 26,
+          "complaintRecords": 24,
+          "items": 22
+        }
+      },
+      {
+        "niche": "local-service-booking",
+        "raw": 41,
+        "itemCount": 33,
+        "recallTitleRate": 0.6341463414634146,
+        "finalTitleRate": 0.696969696969697,
+        "stats": {
+          "raw": 41,
+          "complaintRecords": 33,
+          "items": 33
+        }
+      },
+      {
+        "niche": "personal-admin",
+        "raw": 41,
+        "itemCount": 32,
+        "recallTitleRate": 0.7560975609756098,
+        "finalTitleRate": 0.90625,
+        "stats": {
+          "raw": 41,
+          "complaintRecords": 32,
+          "items": 32
+        }
+      },
+      {
+        "niche": "solo-crm",
+        "raw": 152,
+        "itemCount": 8,
+        "recallTitleRate": 0.05921052631578947,
+        "finalTitleRate": 0.125,
+        "stats": {
+          "raw": 152,
+          "complaintRecords": 8,
+          "items": 8
+        }
+      },
+      {
+        "niche": "invoice-export",
+        "raw": 123,
+        "itemCount": 12,
+        "recallTitleRate": 0.13821138211382114,
+        "finalTitleRate": 0.16666666666666666,
+        "stats": {
+          "raw": 123,
           "complaintRecords": 17,
           "items": 12
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 241,
-        "itemCount": 3,
-        "recallTitleRate": 0.46887966804979253,
-        "finalTitleRate": 1,
+        "raw": 151,
+        "itemCount": 11,
+        "recallTitleRate": 0.06622516556291391,
+        "finalTitleRate": 0.09090909090909091,
         "stats": {
-          "raw": 241,
-          "complaintRecords": 5,
-          "items": 3
+          "raw": 151,
+          "complaintRecords": 11,
+          "items": 11
         }
       },
       {
         "niche": "scheduling",
-        "raw": 258,
-        "itemCount": 18,
-        "recallTitleRate": 0.6434108527131783,
-        "finalTitleRate": 0.6666666666666666,
+        "raw": 168,
+        "itemCount": 14,
+        "recallTitleRate": 0.13095238095238096,
+        "finalTitleRate": 0.14285714285714285,
         "stats": {
-          "raw": 258,
-          "complaintRecords": 32,
-          "items": 18
+          "raw": 168,
+          "complaintRecords": 17,
+          "items": 14
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 232,
-        "itemCount": 6,
-        "recallTitleRate": 0.5560344827586207,
-        "finalTitleRate": 0.8333333333333334,
+        "raw": 170,
+        "itemCount": 10,
+        "recallTitleRate": 0.1411764705882353,
+        "finalTitleRate": 0.3,
         "stats": {
-          "raw": 232,
-          "complaintRecords": 12,
-          "items": 6
-        }
-      }
-    ],
-    "legacy": [
-      {
-        "niche": "solo-crm",
-        "raw": 252,
-        "itemCount": 19,
-        "recallTitleRate": 0.06746031746031746,
-        "finalTitleRate": 0.05263157894736842,
-        "stats": {
-          "raw": 252,
-          "complaintRecords": 19,
-          "items": 19
-        }
-      },
-      {
-        "niche": "invoice-export",
-        "raw": 205,
-        "itemCount": 13,
-        "recallTitleRate": 0.11219512195121951,
-        "finalTitleRate": 0.07692307692307693,
-        "stats": {
-          "raw": 205,
+          "raw": 170,
           "complaintRecords": 13,
-          "items": 13
-        }
-      },
-      {
-        "niche": "support-transcripts",
-        "raw": 244,
-        "itemCount": 19,
-        "recallTitleRate": 0.11885245901639344,
-        "finalTitleRate": 0.21052631578947367,
-        "stats": {
-          "raw": 244,
-          "complaintRecords": 19,
-          "items": 19
-        }
-      },
-      {
-        "niche": "scheduling",
-        "raw": 258,
-        "itemCount": 19,
-        "recallTitleRate": 0.12790697674418605,
-        "finalTitleRate": 0.15789473684210525,
-        "stats": {
-          "raw": 258,
-          "complaintRecords": 27,
-          "items": 19
-        }
-      },
-      {
-        "niche": "dev-workflow",
-        "raw": 232,
-        "itemCount": 20,
-        "recallTitleRate": 0.1206896551724138,
-        "finalTitleRate": 0.25,
-        "stats": {
-          "raw": 232,
-          "complaintRecords": 26,
-          "items": 20
+          "items": 10
         }
       }
     ]
@@ -160,13 +256,23 @@
   "samples": {
     "relevance": [
       {
-        "title": "Appointment Booking",
-        "niche": "scheduling",
+        "title": "Does an expenses-paid interview cover meals as well?",
+        "niche": "everyday-money",
+        "titleHit": false
+      },
+      {
+        "title": "how do you verify your household budget?",
+        "niche": "everyday-money",
         "titleHit": true
       },
       {
-        "title": "Claude OAuth Failures",
-        "niche": "dev-workflow",
+        "title": "What functions can I use to track subscriptions?",
+        "niche": "everyday-money",
+        "titleHit": false
+      },
+      {
+        "title": "Appointment Booking",
+        "niche": "scheduling",
         "titleHit": true
       },
       {
@@ -175,51 +281,41 @@
         "titleHit": true
       },
       {
-        "title": "LibreOffice actually works 365 days a year",
-        "niche": "scheduling",
-        "titleHit": false
+        "title": "Export personal Outlook 2016 contacts, excluding the global address list",
+        "niche": "personal-admin",
+        "titleHit": true
       },
       {
-        "title": "Service degradation on Microsoft 365",
-        "niche": "solo-crm",
+        "title": "LibreOffice actually works 365 days a year",
+        "niche": "scheduling",
         "titleHit": false
       },
       {
         "title": "Yahoo Oauth",
         "niche": "dev-workflow",
         "titleHit": true
-      },
-      {
-        "title": "ISSUES in CRM",
-        "niche": "solo-crm",
-        "titleHit": true
-      },
-      {
-        "title": "Salesforce: sync log and failure alert",
-        "niche": "solo-crm",
-        "titleHit": true
       }
     ],
     "legacy": [
       {
-        "title": "Service degradation on Microsoft 365",
-        "niche": "scheduling",
+        "title": "Does an expenses-paid interview cover meals as well?",
+        "niche": "everyday-money",
         "titleHit": false
       },
       {
-        "title": "Bitbucket Pipelines: run/trigger, latest-failure, tail, grep, test reports; deployments &…",
-        "niche": "dev-workflow",
+        "title": "how do you verify your household budget?",
+        "niche": "everyday-money",
+        "titleHit": true
+      },
+      {
+        "title": "What functions can I use to track subscriptions?",
+        "niche": "everyday-money",
         "titleHit": false
       },
       {
-        "title": "AFP: export_to_doctags() raises ZeroDivisionError because every page has size 0x0",
-        "niche": "invoice-export",
-        "titleHit": false
-      },
-      {
-        "title": "Global Microsoft Outage",
-        "niche": "scheduling",
-        "titleHit": false
+        "title": "Export personal Outlook 2016 contacts, excluding the global address list",
+        "niche": "personal-admin",
+        "titleHit": true
       },
       {
         "title": "LibreOffice actually works 365 days a year",
@@ -227,18 +323,18 @@
         "titleHit": false
       },
       {
-        "title": "Mobile mode: \"Prendre rendez-vous\" button missing for logged-out users",
+        "title": "Type debt: voice-agent-runtime and number-marketplace typecheck (non-blocking since #1187)",
         "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "Inserting a manual share for a user on the plain Customer Community license succeeds instead of…",
+        "title": "smoke:worker aborts at 25b: bootstrapD1 needs CONTROL_DB for better-auth since CORE283",
         "niche": "solo-crm",
         "titleHit": false
       },
       {
-        "title": "Inserting a user with a standard external profile succeeds when the org doesn't allow standard…",
-        "niche": "solo-crm",
+        "title": "catena-templates workflows run Python in the locked uv project",
+        "niche": "support-transcripts",
         "titleHit": false
       }
     ]

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14T10:38:28.981Z",
+  "updatedAt": "2026-11-14T13:41:59.105Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 86,
+  "totalVerdicts": 89,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -691,6 +691,30 @@
       "id": "pet-and-home-care-how-do-i-get-dynamic-images-to-show-up-on-each-m",
       "title": "How do I get Dynamic Images to show up on each Microsoft Access 2007 database for reporting?",
       "at": "2026-11-14T10:38:11.269Z"
+    },
+    "lhy25o": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为产品功能需求，非问题反馈。",
+      "id": "scheduling-appointment-vehicle-management",
+      "title": "Appointment & Vehicle Management",
+      "at": "2026-11-14T13:41:54.724Z"
+    },
+    "mgbaiy": {
+      "keep": false,
+      "code": "issue-template",
+      "reason": "内容为代码骨架，属于空模板。",
+      "id": "solo-crm-contact-management-system",
+      "title": "contact management system",
+      "at": "2026-11-14T13:41:54.724Z"
+    },
+    "kcwdiz": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为项目开发计划，非问题反馈。",
+      "id": "support-transcripts-intercom-data-model-and-migrations",
+      "title": "Intercom: data model and migrations",
+      "at": "2026-11-14T13:41:54.724Z"
     }
   }
 }

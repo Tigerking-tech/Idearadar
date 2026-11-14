@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T10:38:28.981Z",
+  "generatedAt": "2026-11-14T13:41:59.105Z",
   "curationVersion": 2,
-  "count": 2,
+  "count": 1,
   "items": [
     {
       "id": "pet-and-home-care-how-does-one-get-past-hr-gatekeepers",
@@ -11,16 +11,8 @@
         "excludeTerm:lottery"
       ],
       "niche": "pet-and-home-care"
-    },
-    {
-      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
-      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-      "reasons": [
-        "rejectId:support-transcripts-admin-support-chat-support-tickets-inbox-and-out"
-      ],
-      "niche": "support-transcripts"
     }
   ],
-  "curationCount": 2,
+  "curationCount": 1,
   "denoiseCount": 0
 }

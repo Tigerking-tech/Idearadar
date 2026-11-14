@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "version": 2,
-  "generatedAt": "2026-11-14T11:30:06.400Z",
+  "generatedAt": "2026-11-14T13:42:08.891Z",
   "totalVerdicts": 60,
   "verdicts": {
     "idea-2-o0xygl": {
@@ -65,27 +65,6 @@
       "step": {
         "zh": "做一个可导入收据图片自动识别金额的简单工具，找2人试用。",
         "en": "Create a simple tool that can import receipt images to automatically identify amounts and test it with 2 people."
-      }
-    },
-    "idea-2-1l86ra8": {
-      "version": 2,
-      "origin": "llm",
-      "persona": "indie-dev",
-      "headline": {
-        "zh": "给开发者做一个自动修复OAuth登录失败的小工具",
-        "en": "A small tool for developers to automatically fix OAuth login failures."
-      },
-      "who": {
-        "zh": "开发者",
-        "en": "Developers"
-      },
-      "why": {
-        "zh": "点击取消会重新进入错误会话，流程受阻。",
-        "en": "Clicking cancel restarts the error session, blocking progress."
-      },
-      "step": {
-        "zh": "做一个自动重试登录的简单脚本，找2位开发者测试。",
-        "en": "Create a simple script that auto-retries login and get tested by 2 devs."
       }
     },
     "idea-2-6wy4be": {
@@ -422,27 +401,6 @@
       "step": {
         "zh": "做一个简单输入姓名和诊所名的验证工具，找2位主人试用",
         "en": "Build a minimal version that solves only this one thing, then try it with 3 pet owners juggling care schedules."
-      }
-    },
-    "idea-2-1k0af9r": {
-      "version": 2,
-      "origin": "llm",
-      "persona": "solo-founder",
-      "headline": {
-        "zh": "给合成器开发者做一个自动申请LLC的辅助工具",
-        "en": "A small tool for synth developers to automate LLC application processes"
-      },
-      "who": {
-        "zh": "合成器开发者",
-        "en": "synth developers"
-      },
-      "why": {
-        "zh": "申请LLC的法律手续费用高昂且流程复杂",
-        "en": "Legal paperwork for LLC applications is expensive and cumbersome"
-      },
-      "step": {
-        "zh": "做一个简单的表单收集必要信息，发送给当地律师获取报价",
-        "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
       }
     },
     "idea-2-q1kin6": {
@@ -1243,25 +1201,67 @@
         "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
       }
     },
-    "idea-2-1y6wo84": {
+    "idea-2-lhy25o": {
       "version": 2,
       "origin": "llm",
-      "persona": "general",
+      "persona": "service-owner",
       "headline": {
-        "zh": "给医疗服务人员做一个确认或拒绝预约请求的小工具",
-        "en": "A small tool for medical staff to confirm or reject appointment requests."
+        "zh": "给CleanRide车主做一个车辆与预约管理小工具",
+        "en": "A small tool for CleanRide car owners to manage their vehicles and appointments."
       },
       "who": {
-        "zh": "医疗服务人员",
-        "en": "Medical staff."
+        "zh": "CleanRide车主",
+        "en": "Car owners using CleanRide services."
       },
       "why": {
-        "zh": "当前仅服务方能创建和修改预约，患者无法直接发起请求。",
-        "en": "Currently only providers can create and modify appointments, preventing patients from submitting requests directly."
+        "zh": "无法便捷查看和管理车辆及洗车预约信息",
+        "en": "They struggle to view saved vehicles and book appointments easily."
       },
       "step": {
-        "zh": "做一个简单页面让患者填写预约信息，服务人员可直接查看并回复。",
+        "zh": "做一个基础车辆列表和预约表单的简单页面供3位车主试用",
         "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+      }
+    },
+    "idea-2-mgbaiy": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "solo-founder",
+      "headline": {
+        "zh": "给「solo-founder」做一个「导出联系人文本」的小工具",
+        "en": "A small tool for solo-founders to export contacts as text"
+      },
+      "who": {
+        "zh": "solo-founder",
+        "en": "solo-founder"
+      },
+      "why": {
+        "zh": "需要把联系人信息导出为文本文件",
+        "en": "needs to export contact info as a text file"
+      },
+      "step": {
+        "zh": "做一个能读取联系人列表并输出文本的简单工具，找1人测试",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 solo founders doing everything themselves."
+      }
+    },
+    "idea-2-kcwdiz": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "indie-dev",
+      "headline": {
+        "zh": "给独立开发者做一个Intercom数据模型迁移工具",
+        "en": "A small tool for independent developers to migrate Intercom data models"
+      },
+      "who": {
+        "zh": "独立开发者",
+        "en": "independent developers"
+      },
+      "why": {
+        "zh": "需要手动执行数据库迁移操作",
+        "en": "they need to manually perform database migration operations"
+      },
+      "step": {
+        "zh": "做一个能导入relay.db并生成迁移脚本的简单工具，找1位开发者试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 support teams."
       }
     }
   }

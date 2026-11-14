@@ -1,10 +1,30 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T08:30:54.696Z",
+  "generatedAt": "2026-11-14T13:42:09.166Z",
   "source": "https://trends.google.com/trending/rss?geo=US",
   "status": "ok",
   "trendCount": 10,
   "byNiche": {
+    "everyday-money": {
+      "matched": false,
+      "term": null,
+      "traffic": null
+    },
+    "pet-and-home-care": {
+      "matched": false,
+      "term": null,
+      "traffic": null
+    },
+    "local-service-booking": {
+      "matched": false,
+      "term": null,
+      "traffic": null
+    },
+    "personal-admin": {
+      "matched": false,
+      "term": null,
+      "traffic": null
+    },
     "solo-crm": {
       "matched": false,
       "term": null,
@@ -26,11 +46,6 @@
       "traffic": null
     },
     "dev-workflow": {
-      "matched": false,
-      "term": null,
-      "traffic": null
-    },
-    "auto-pet-app-booking": {
       "matched": false,
       "term": null,
       "traffic": null

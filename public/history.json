@@ -1,334 +1,10 @@
 {
   "schemaVersion": 1,
-  "seeded": true,
+  "seeded": false,
   "methodVersion": 2,
   "note": "冷启动引导历史：各赛道最后一个快照为真实采集聚合值，其余为按目标形态确定性生成的演示序列。真实采集每 6 小时追加一个真实快照，攒够 12 个后 appendHistory 会自动剔除全部引导快照并把 seeded 置为 false。",
   "maxSnapshots": 120,
   "snapshots": [
-    {
-      "t": "2026-11-09T07:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 19,
-          "mentions": 10,
-          "items": 7
-        },
-        "invoice-export": {
-          "score": 23,
-          "mentions": 11,
-          "items": 11
-        },
-        "solo-crm": {
-          "score": 21,
-          "mentions": 2,
-          "items": 2
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-09T13:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 19,
-          "mentions": 10,
-          "items": 7
-        },
-        "invoice-export": {
-          "score": 23,
-          "mentions": 12,
-          "items": 12
-        },
-        "solo-crm": {
-          "score": 21,
-          "mentions": 2,
-          "items": 2
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-09T19:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 20,
-          "mentions": 11,
-          "items": 8
-        },
-        "invoice-export": {
-          "score": 24,
-          "mentions": 13,
-          "items": 13
-        },
-        "solo-crm": {
-          "score": 22,
-          "mentions": 3,
-          "items": 3
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-10T01:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 20,
-          "mentions": 13,
-          "items": 9
-        },
-        "invoice-export": {
-          "score": 26,
-          "mentions": 15,
-          "items": 15
-        },
-        "solo-crm": {
-          "score": 22,
-          "mentions": 3,
-          "items": 3
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-10T07:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 21,
-          "mentions": 13,
-          "items": 9
-        },
-        "invoice-export": {
-          "score": 28,
-          "mentions": 18,
-          "items": 18
-        },
-        "solo-crm": {
-          "score": 22,
-          "mentions": 3,
-          "items": 3
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-10T13:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 21,
-          "mentions": 15,
-          "items": 11
-        },
-        "invoice-export": {
-          "score": 30,
-          "mentions": 20,
-          "items": 20
-        },
-        "solo-crm": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-10T19:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 22,
-          "mentions": 17,
-          "items": 12
-        },
-        "invoice-export": {
-          "score": 29,
-          "mentions": 20,
-          "items": 20
-        },
-        "solo-crm": {
-          "score": 23,
-          "mentions": 4,
-          "items": 4
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-11T01:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 22,
-          "mentions": 17,
-          "items": 12
-        },
-        "invoice-export": {
-          "score": 28,
-          "mentions": 18,
-          "items": 18
-        },
-        "solo-crm": {
-          "score": 24,
-          "mentions": 4,
-          "items": 4
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-11T07:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 22,
-          "mentions": 19,
-          "items": 13
-        },
-        "invoice-export": {
-          "score": 26,
-          "mentions": 16,
-          "items": 16
-        },
-        "solo-crm": {
-          "score": 24,
-          "mentions": 4,
-          "items": 4
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-11T13:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 23,
-          "mentions": 21,
-          "items": 14
-        },
-        "invoice-export": {
-          "score": 24,
-          "mentions": 13,
-          "items": 13
-        },
-        "solo-crm": {
-          "score": 25,
-          "mentions": 4,
-          "items": 4
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-11T19:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 23,
-          "mentions": 21,
-          "items": 15
-        },
-        "invoice-export": {
-          "score": 24,
-          "mentions": 12,
-          "items": 12
-        },
-        "solo-crm": {
-          "score": 25,
-          "mentions": 5,
-          "items": 5
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
-    {
-      "t": "2026-11-12T01:34:08.093Z",
-      "seeded": true,
-      "methodVersion": 2,
-      "byNiche": {
-        "scheduling": {
-          "score": 24,
-          "mentions": 23,
-          "items": 16
-        },
-        "invoice-export": {
-          "score": 23,
-          "mentions": 11,
-          "items": 11
-        },
-        "solo-crm": {
-          "score": 26,
-          "mentions": 5,
-          "items": 5
-        },
-        "support-transcripts": {
-          "score": 23,
-          "mentions": 3,
-          "items": 3
-        }
-      }
-    },
     {
       "t": "2026-11-12T03:32:02.425Z",
       "byNiche": {
@@ -616,6 +292,57 @@
           "score": 23,
           "mentions": 3,
           "items": 3
+        }
+      },
+      "methodVersion": 2
+    },
+    {
+      "t": "2026-11-14T13:40:53.236Z",
+      "byNiche": {
+        "scheduling": {
+          "score": 27,
+          "mentions": 14,
+          "items": 8
+        },
+        "everyday-money": {
+          "score": 28,
+          "mentions": 9,
+          "items": 9
+        },
+        "invoice-export": {
+          "score": 26,
+          "mentions": 3,
+          "items": 3
+        },
+        "personal-admin": {
+          "score": 26,
+          "mentions": 15,
+          "items": 15
+        },
+        "dev-workflow": {
+          "score": 26,
+          "mentions": 4,
+          "items": 3
+        },
+        "local-service-booking": {
+          "score": 26,
+          "mentions": 12,
+          "items": 12
+        },
+        "solo-crm": {
+          "score": 26,
+          "mentions": 4,
+          "items": 4
+        },
+        "pet-and-home-care": {
+          "score": 25,
+          "mentions": 7,
+          "items": 5
+        },
+        "support-transcripts": {
+          "score": 23,
+          "mentions": 1,
+          "items": 1
         }
       },
       "methodVersion": 2

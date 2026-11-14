@@ -11,39 +11,117 @@
     "minHealthyItems": 16
   },
   "_consumerNote": "治本：consumerSites 是 Stack Exchange 官方 2.3 API 的非技术站点（webapps 网页应用 / money 个人财务 / workplace 职场 / travel 出行），收录普通人生活与工作里的真实抱怨，全部公开合规、无需授权。标记 consumer:true 的赛道走宽松噪音判定 + 求助句式/中文抱怨规则，并用 sources 白名单只跑 consumerQa+hn，避免给技术召回口径引入噪声、也控制 SE 匿名配额。电商/本地生活评论无合规公开接口，明确不接。",
-  "consumerSites": ["webapps", "money", "workplace", "travel", "superuser", "pets"],
+  "consumerSites": [
+    "webapps",
+    "money",
+    "workplace",
+    "travel",
+    "superuser",
+    "pets"
+  ],
   "niches": [
     {
       "id": "everyday-money",
       "label": "Everyday money: subscriptions, expenses and reimbursements",
       "consumer": true,
-      "sources": ["consumerQa"],
-      "topicTerms": ["subscription", "expense", "reimbursement", "receipt", "budget", "refund", "invoice", "recurring charge", "spreadsheet", "bank", "tax"],
-      "queries": ["subscription tracking", "expense reimbursement", "receipt spreadsheet"]
+      "sources": [
+        "consumerQa"
+      ],
+      "topicTerms": [
+        "subscription",
+        "expense",
+        "reimbursement",
+        "receipt",
+        "budget",
+        "refund",
+        "invoice",
+        "recurring charge",
+        "spreadsheet",
+        "bank",
+        "tax"
+      ],
+      "queries": [
+        "subscription tracking",
+        "expense reimbursement",
+        "receipt spreadsheet"
+      ]
     },
     {
       "id": "pet-and-home-care",
       "label": "Pet and home care: records, reminders and care schedules",
       "consumer": true,
-      "sources": ["consumerQa"],
-      "topicTerms": ["pet", "dog", "cat", "vet", "sitting", "booking", "reminder", "schedule", "record", "grooming", "vaccination", "medication"],
-      "queries": ["pet care records", "pet records", "vaccination schedule"]
+      "sources": [
+        "consumerQa"
+      ],
+      "topicTerms": [
+        "pet",
+        "dog",
+        "cat",
+        "vet",
+        "sitting",
+        "booking",
+        "reminder",
+        "schedule",
+        "record",
+        "grooming",
+        "vaccination",
+        "medication"
+      ],
+      "queries": [
+        "pet care records",
+        "pet records",
+        "vaccination schedule"
+      ]
     },
     {
       "id": "local-service-booking",
       "label": "Local services: appointments, cancellations and refunds",
       "consumer": true,
-      "sources": ["consumerQa"],
-      "topicTerms": ["appointment", "booking", "cancel", "reschedule", "refund", "reminder", "no-show", "calendar", "waitlist", "reservation"],
-      "queries": ["appointment cancellation", "booking refund", "appointment reminder"]
+      "sources": [
+        "consumerQa"
+      ],
+      "topicTerms": [
+        "appointment",
+        "booking",
+        "cancel",
+        "reschedule",
+        "refund",
+        "reminder",
+        "no-show",
+        "calendar",
+        "waitlist",
+        "reservation"
+      ],
+      "queries": [
+        "appointment cancellation",
+        "booking refund",
+        "appointment reminder"
+      ]
     },
     {
       "id": "personal-admin",
       "label": "Personal admin: documents, photos and contacts",
       "consumer": true,
-      "sources": ["consumerQa"],
-      "topicTerms": ["export contacts", "backup photos", "merge duplicates", "documents", "scan", "organize", "contacts", "photos", "files", "duplicate"],
-      "queries": ["export contacts", "backup photos", "merge duplicate contacts"]
+      "sources": [
+        "consumerQa"
+      ],
+      "topicTerms": [
+        "export contacts",
+        "backup photos",
+        "merge duplicates",
+        "documents",
+        "scan",
+        "organize",
+        "contacts",
+        "photos",
+        "files",
+        "duplicate"
+      ],
+      "queries": [
+        "export contacts",
+        "backup photos",
+        "merge duplicate contacts"
+      ]
     },
     {
       "id": "solo-crm",
@@ -157,6 +235,17 @@
         "ci pipeline",
         "oauth",
         "api integration"
+      ]
+    },
+    {
+      "id": "auto-pet-app-booking",
+      "label": "pet app booking",
+      "auto": true,
+      "topicTerms": [
+        "pet app booking"
+      ],
+      "queries": [
+        "pet app booking"
       ]
     }
   ],

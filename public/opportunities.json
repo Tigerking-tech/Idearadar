@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T10:06:40.532Z",
+  "generatedAt": "2026-11-14T13:40:53.236Z",
   "lookbackDays": 30,
   "minScore": 20,
   "curation": {
     "version": 2,
-    "rejected": 2,
+    "rejected": 1,
     "pinned": 0,
     "cards": 60,
     "activeNiches": 9
@@ -51,41 +51,41 @@
       {
         "niche": "solo-crm",
         "method": "relevance",
-        "raw": 253,
-        "itemCount": 7,
-        "recallTitleRate": 0.4901185770750988,
-        "finalTitleRate": 0.5714285714285714
+        "raw": 239,
+        "itemCount": 8,
+        "recallTitleRate": 0.5188284518828452,
+        "finalTitleRate": 0.625
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 222,
+        "raw": 216,
         "itemCount": 12,
-        "recallTitleRate": 0.4954954954954955,
+        "recallTitleRate": 0.5092592592592593,
         "finalTitleRate": 0.75
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
         "raw": 242,
-        "itemCount": 2,
+        "itemCount": 4,
         "recallTitleRate": 0.4669421487603306,
         "finalTitleRate": 1
       },
       {
         "niche": "scheduling",
         "method": "relevance",
-        "raw": 252,
-        "itemCount": 18,
-        "recallTitleRate": 0.6507936507936508,
-        "finalTitleRate": 0.6666666666666666
+        "raw": 241,
+        "itemCount": 17,
+        "recallTitleRate": 0.6224066390041494,
+        "finalTitleRate": 0.7058823529411765
       },
       {
         "niche": "dev-workflow",
         "method": "relevance",
-        "raw": 226,
+        "raw": 230,
         "itemCount": 6,
-        "recallTitleRate": 0.5707964601769911,
+        "recallTitleRate": 0.5478260869565217,
         "finalTitleRate": 0.8333333333333334
       }
     ]
@@ -95,13 +95,13 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 538
+      "rows": 506
     },
     {
       "id": "so",
       "label": "Stack Exchange / Stack Overflow (official API)",
       "enabled": true,
-      "rows": 59
+      "rows": 57
     },
     {
       "id": "github",
@@ -119,7 +119,7 @@
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 0
+      "rows": 7
     },
     {
       "id": "firstParty",
@@ -135,17 +135,11 @@
     }
   ],
   "totals": {
-    "rawRecords": 1343,
-    "complaintRecords": 197,
+    "rawRecords": 1316,
+    "complaintRecords": 194,
     "opportunities": 60
   },
-  "errors": [
-    {
-      "source": "rss",
-      "feed": "https://news.ycombinator.com/rss",
-      "message": "fetch failed"
-    }
-  ],
+  "errors": [],
   "items": [
     {
       "id": "scheduling-appointment-booking",
@@ -156,7 +150,7 @@
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 13.8,
+        "recency": 13.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -207,6 +201,7 @@
         }
       ],
       "titleZh": "预约登记",
+      "quoteZh": "患者可查看可用医生及时段，可预订可用时段，可重新安排或取消预约，已预订的预约不可被其他患者预订。",
       "translationKey": "o0xygl",
       "opportunityCard": {
         "version": 1,
@@ -232,7 +227,6 @@
         ]
       },
       "cardKey": "o0xygl:v1",
-      "quoteZh": "患者可查看可用医生及时段，可预订可用时段，可重新安排或取消预约，已预订的预约不可被其他患者预订。",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -284,6 +278,9 @@
           "excerpt": "This is for a position in the US. The company is paying for the flight, cab, hotel expenses. The domestic flight is over 4 hours each way. Can I also claim the food expense during my travel and stay. The company provides"
         }
       ],
+      "titleZh": "费用报销面试是否包含餐费？",
+      "quoteZh": "这是美国的一个职位，公司会承担机票、出租车和酒店费用，单程国内航班飞行时间超过4小时，我在旅行和住宿期间能否申请餐费报销？公司提供了。",
+      "translationKey": "4kivcq",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -309,9 +306,6 @@
         ]
       },
       "cardKey": "4kivcq:v1",
-      "titleZh": "费用报销面试是否包含餐费？",
-      "quoteZh": "这是美国的一个职位，公司会承担机票、出租车和酒店费用，单程国内航班飞行时间超过4小时，我在旅行和住宿期间能否申请餐费报销？公司提供了。",
-      "translationKey": "4kivcq",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -366,6 +360,9 @@
           "excerpt": "I have a monthly household budget where I track income and expenses broken down by category. It's just an Excel spreadsheet where I enter the amounts from all receipts into the appropriate category. It's quite easy to ma"
         }
       ],
+      "titleZh": "如何核实家庭预算？",
+      "quoteZh": "我有一个按月记录的家庭预算表，按类别划分收入和支出，就是一份Excel表格，我把所有收据上的金额填入对应类别，操作起来相当简单。",
+      "translationKey": "tl2dfw",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -392,9 +389,6 @@
         ]
       },
       "cardKey": "tl2dfw:v1",
-      "titleZh": "如何核实家庭预算？",
-      "quoteZh": "我有一个按月记录的家庭预算表，按类别划分收入和支出，就是一份Excel表格，我把所有收据上的金额填入对应类别，操作起来相当简单。",
-      "translationKey": "tl2dfw",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -414,94 +408,6 @@
         "step": {
           "zh": "做一个可导入收据图片自动识别金额的简单工具，找2人试用。",
           "en": "Create a simple tool that can import receipt images to automatically identify amounts and test it with 2 people."
-        }
-      }
-    },
-    {
-      "id": "dev-workflow-claude-oauth-failures",
-      "nicheId": "dev-workflow",
-      "nicheLabel": "Developer workflow and integration friction",
-      "title": "Claude OAuth Failures",
-      "score": 30,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 4,
-        "recency": 14.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T10:28:33.000Z",
-      "evidence": [
-        {
-          "title": "Claude OAuth Failures",
-          "url": "https://news.ycombinator.com/item?id=50481257",
-          "source": "hn",
-          "createdAt": "2026-11-13T10:22:27.000Z",
-          "excerpt": "Same issue here, thrown out, oauth login failed. Clicking on cancel in Claude Code will throw you back into the session for another couple of turns."
-        },
-        {
-          "title": "Claude OAuth Failures",
-          "url": "https://news.ycombinator.com/item?id=50481351",
-          "source": "hn",
-          "createdAt": "2026-11-13T10:28:33.000Z",
-          "excerpt": "Same here. Straight Claude Code with sub ● Please run &#x2F;login · API Error: 403 Attention Required! | Cloudflare Worked for 20s · done 11:15 &#x2F;login ⎿ Login successful ● Please run &#x2F;login · API Error: 403 Att"
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 4,
-          "urgency": 6,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 32,
-        "audience": "unknown",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1l86ra8:v1",
-      "titleZh": "Claude OAuth登录失败",
-      "quoteZh": "这里也是同样的问题，被拒绝登录，OAuth登录失败，在Claude Code中点击取消会让你重新进入会话，还要再尝试几次。",
-      "translationKey": "1l86ra8",
-      "idea": {
-        "version": 2,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "headline": {
-          "zh": "给开发者做一个自动修复OAuth登录失败的小工具",
-          "en": "A small tool for developers to automatically fix OAuth login failures."
-        },
-        "who": {
-          "zh": "开发者",
-          "en": "Developers"
-        },
-        "why": {
-          "zh": "点击取消会重新进入错误会话，流程受阻。",
-          "en": "Clicking cancel restarts the error session, blocking progress."
-        },
-        "step": {
-          "zh": "做一个自动重试登录的简单脚本，找2位开发者测试。",
-          "en": "Create a simple script that auto-retries login and get tested by 2 devs."
         }
       }
     },
@@ -537,6 +443,9 @@
           "excerpt": "I am struggling to make a spreadsheet which will help me take control of member's subscription fees. Fees are paid per month. The spreadsheet has 12 horizontal cells, each one for a different month of the year. I created"
         }
       ],
+      "titleZh": "有哪些功能可用于追踪订阅费用？",
+      "quoteZh": "我正在努力制作一个电子表格，以便管控会员的订阅费用，费用是按月支付的，表格有12列横排单元格，每列对应一年中的不同月份，我已经创建了。",
+      "translationKey": "6wy4be",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -563,9 +472,6 @@
         ]
       },
       "cardKey": "6wy4be:v1",
-      "titleZh": "有哪些功能可用于追踪订阅费用？",
-      "quoteZh": "我正在努力制作一个电子表格，以便管控会员的订阅费用，费用是按月支付的，表格有12列横排单元格，每列对应一年中的不同月份，我已经创建了。",
-      "translationKey": "6wy4be",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -702,6 +608,9 @@
           "excerpt": "In Outlook 2016, how do I export contacts from an outlook profile, while excluding contacts that appear on the global address list? I'm trying to include only contacts that have been added manually. I have access to exch"
         }
       ],
+      "titleZh": "导出Outlook 2016个人联系人，排除全局地址列表中的联系人",
+      "quoteZh": "在Outlook 2016中，如何从某个Outlook配置文件导出联系人，同时排除出现在全局地址列表中的联系人？我只想包含手动添加的联系人，我有访问Exchange的权限。",
+      "translationKey": "1rl6xus",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -728,9 +637,6 @@
         ]
       },
       "cardKey": "1rl6xus:v1",
-      "titleZh": "导出Outlook 2016个人联系人，排除全局地址列表中的联系人",
-      "quoteZh": "在Outlook 2016中，如何从某个Outlook配置文件导出联系人，同时排除出现在全局地址列表中的联系人？我只想包含手动添加的联系人，我有访问Exchange的权限。",
-      "translationKey": "1rl6xus",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -762,7 +668,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.7,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -784,6 +690,9 @@
           "excerpt": "I hate all things MS (Windows, Office, AD, O365, Teams, Entra, InTune, Azure, VSCode, OutBreak, Exchange). But LibreOffice doesn&#x27;t even begin to cover what I&#x27;m forced to use at work. When LibreOffice has a mail"
         }
       ],
+      "titleZh": "LibreOffice全年365天均可使用",
+      "quoteZh": "我讨厌所有微软相关的产品（Windows、Office、AD、O365、Teams、Entra、InTune、Azure、VSCode、OutBreak、Exchange），但LibreOffice甚至远无法满足我工作中被迫使用的需求，当LibreOffice有邮件功能时。",
+      "translationKey": "1iaz7w3",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -809,9 +718,6 @@
         ]
       },
       "cardKey": "1iaz7w3:v1",
-      "titleZh": "LibreOffice全年365天均可使用",
-      "quoteZh": "我讨厌所有微软相关的产品（Windows、Office、AD、O365、Teams、Entra、InTune、Azure、VSCode、OutBreak、Exchange），但LibreOffice甚至远无法满足我工作中被迫使用的需求，当LibreOffice有邮件功能时。",
-      "translationKey": "1iaz7w3",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -843,7 +749,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.7,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -865,6 +771,9 @@
           "excerpt": "### What kind of problem? Something else doesn't work ### MailCraft version 0.11.1 (f1781cbe) ### Platform windows x86_64 ### Account Other (IMAP) ### What happened, and what did you expect? Can we please add support for"
         }
       ],
+      "titleZh": "Yahoo OAuth问题",
+      "quoteZh": "### 是什么类型的问题？还有其他功能无法使用 ### MailCraft版本0.11.1（f1781cbe）### 平台windows x86_64### 账户类型其他（IMAP）### 发生了什么，你原本期望怎样？我们能否为它添加支持？",
+      "translationKey": "10q6ur",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -890,9 +799,6 @@
         ]
       },
       "cardKey": "10q6ur:v1",
-      "titleZh": "Yahoo OAuth问题",
-      "quoteZh": "### 是什么类型的问题？还有其他功能无法使用 ### MailCraft版本0.11.1（f1781cbe）### 平台windows x86_64### 账户类型其他（IMAP）### 发生了什么，你原本期望怎样？我们能否为它添加支持？",
-      "translationKey": "10q6ur",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -947,6 +853,9 @@
           "excerpt": "What is the best way to get receipts of the actual trips when filing expense reports during business travel in the Netherlands? The specificity is the use of the OV-chipkaart with preloaded balance to pay for the trips. "
         }
       ],
+      "titleZh": "荷兰公共交通费用报销方式",
+      "quoteZh": "在荷兰出差时填写费用报销单，获取实际出行凭证的最佳方法是什么？具体是指使用预充值余额的OV-chipkaart支付行程费用。",
+      "translationKey": "16yz8hb",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -973,9 +882,6 @@
         ]
       },
       "cardKey": "16yz8hb:v1",
-      "titleZh": "荷兰公共交通费用报销方式",
-      "quoteZh": "在荷兰出差时填写费用报销单，获取实际出行凭证的最佳方法是什么？具体是指使用预充值余额的OV-chipkaart支付行程费用。",
-      "translationKey": "16yz8hb",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1030,6 +936,9 @@
           "excerpt": "I have taken appointment for my UK travel visa one week from now. But I want to cancel my UK trip. Can I claim refund for appointment fees paid on appointment cancellation?"
         }
       ],
+      "titleZh": "英国签证预约费退款问题",
+      "quoteZh": "我已预约一周后的英国旅游签证办理，但现在想取消行程，能否申请退还已支付的预约费？",
+      "translationKey": "h48wuj",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -1056,9 +965,6 @@
         ]
       },
       "cardKey": "h48wuj:v1",
-      "titleZh": "英国签证预约费退款问题",
-      "quoteZh": "我已预约一周后的英国旅游签证办理，但现在想取消行程，能否申请退还已支付的预约费？",
-      "translationKey": "h48wuj",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1113,6 +1019,9 @@
           "excerpt": "How to set a specific reminder time, say Oct 21 2013 11:33 AM, for an appointment in MS Outlook 2010, which is scheduled for some different / arbitrary date? Certainly, I could just schedule the appointment to 11:43 AM a"
         }
       ],
+      "titleZh": "Outlook中设置特定日期时间的日程提醒",
+      "quoteZh": "如何在MS Outlook 2010中为安排在非固定日期的日程设置特定提醒时间，比如2013年10月21日上午11:33？当然也可以直接将日程安排在上午11:43。",
+      "translationKey": "1l86vk0",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -1139,9 +1048,6 @@
         ]
       },
       "cardKey": "1l86vk0:v1",
-      "titleZh": "Outlook中设置特定日期时间的日程提醒",
-      "quoteZh": "如何在MS Outlook 2010中为安排在非固定日期的日程设置特定提醒时间，比如2013年10月21日上午11:33？当然也可以直接将日程安排在上午11:43。",
-      "translationKey": "1l86vk0",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1196,6 +1102,9 @@
           "excerpt": "What are the charges of cancelling the UK visa application? I haven't done the biometrics yet in fact not even booked the appointment, just submitted the application on gov.uk website and done the payment. So - Will I ge"
         }
       ],
+      "titleZh": "英国签证申请取消费用",
+      "quoteZh": "取消英国签证申请需要支付哪些费用？我尚未进行生物特征采集，甚至没有预约，只是在gov.uk网站提交了申请并完成了付款，这种情况下会收取费用吗？",
+      "translationKey": "fu3oiv",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -1222,9 +1131,6 @@
         ]
       },
       "cardKey": "fu3oiv:v1",
-      "titleZh": "英国签证申请取消费用",
-      "quoteZh": "取消英国签证申请需要支付哪些费用？我尚未进行生物特征采集，甚至没有预约，只是在gov.uk网站提交了申请并完成了付款，这种情况下会收取费用吗？",
-      "translationKey": "fu3oiv",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1279,6 +1185,9 @@
           "excerpt": "How do I export the contacts backed up in iTunes from a MacBook to a Google account?"
         }
       ],
+      "titleZh": "从iTunes导出联系人至Google",
+      "quoteZh": "如何将MacBook上存储在iTunes中的联系人导出到Google账户？",
+      "translationKey": "1k43m2p",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -1305,9 +1214,6 @@
         ]
       },
       "cardKey": "1k43m2p:v1",
-      "titleZh": "从iTunes导出联系人至Google",
-      "quoteZh": "如何将MacBook上存储在iTunes中的联系人导出到Google账户？",
-      "translationKey": "1k43m2p",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1362,6 +1268,9 @@
           "excerpt": "How can I export my contact lists in Yahoo! and Hotmail accounts to Outlook 2007? If you have done that before, was it easy and %100 percent successful (i.e. no missing or duplicate entries)?"
         }
       ],
+      "titleZh": "从Yahoo!和Hotmail导出联系人至Outlook 2007",
+      "quoteZh": "如何将Yahoo!和Hotmail账户中的联系人列表导出到Outlook 2007？如果您之前做过，操作是否简单且能100%成功（即没有遗漏或重复的条目）？",
+      "translationKey": "x31fc3",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -1388,9 +1297,6 @@
         ]
       },
       "cardKey": "x31fc3:v1",
-      "titleZh": "从Yahoo!和Hotmail导出联系人至Outlook 2007",
-      "quoteZh": "如何将Yahoo!和Hotmail账户中的联系人列表导出到Outlook 2007？如果您之前做过，操作是否简单且能100%成功（即没有遗漏或重复的条目）？",
-      "translationKey": "x31fc3",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1445,6 +1351,9 @@
           "excerpt": "How can duplicate contacts be merged? Ideally by the merged contact not losing any information contained in any of the duplicates, possibly with manual review of the changes beforehand? Thunderbird 115.10.2. Some contact"
         }
       ],
+      "titleZh": "在Thunderbird中管理重复联系人",
+      "quoteZh": "如何合并重复联系人？理想情况下合并后的联系人不应丢失任何重复项中的信息，或许可以先手动审核变更内容。当前使用的是Thunderbird 115.10.2版本，有些联系人存在重复情况。",
+      "translationKey": "19twsya",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -1471,9 +1380,6 @@
         ]
       },
       "cardKey": "19twsya:v1",
-      "titleZh": "在Thunderbird中管理重复联系人",
-      "quoteZh": "如何合并重复联系人？理想情况下合并后的联系人不应丢失任何重复项中的信息，或许可以先手动审核变更内容。当前使用的是Thunderbird 115.10.2版本，有些联系人存在重复情况。",
-      "translationKey": "19twsya",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1505,7 +1411,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.5,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1527,6 +1433,9 @@
           "excerpt": "This year has been terrible for outages, the European Google power outage earlier this year, the PHP stuff (although that&#x27;s only tangentially related),the AWS outage in May, Cloudflare a couple times around this tim"
         }
       ],
+      "titleZh": "Microsoft 365服务性能下降问题",
+      "quoteZh": "今年的服务中断情况十分严重，先是年初欧洲地区的Google停电，还有PHP相关问题（虽然关联度较低），5月又出现AWS停电，近期Cloudflare也多次出现故障。",
+      "translationKey": "cel4x8",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -1552,9 +1461,6 @@
         ]
       },
       "cardKey": "cel4x8:v1",
-      "titleZh": "Microsoft 365服务性能下降问题",
-      "quoteZh": "今年的服务中断情况十分严重，先是年初欧洲地区的Google停电，还有PHP相关问题（虽然关联度较低），5月又出现AWS停电，近期Cloudflare也多次出现故障。",
-      "translationKey": "cel4x8",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1694,6 +1600,9 @@
           "excerpt": "I have applied for standard UK visitor visa's for me and my wife and children. I have elderly parents staying behind, but they do not live with me and are not dependants, nor did I list them as such in the application. W"
         }
       ],
+      "titleZh": "能否将宠物视为家人仍居国内的证明",
+      "quoteZh": "我已为我和妻子孩子申请了英国普通访客签证。我有年迈的父母留在国内，但他们不与我同住，也不是我的受养人，我在申请中也未将他们列为受养人。",
+      "translationKey": "3srtq8",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -1720,9 +1629,6 @@
         ]
       },
       "cardKey": "3srtq8:v1",
-      "titleZh": "能否将宠物视为家人仍居国内的证明",
-      "quoteZh": "我已为我和妻子孩子申请了英国普通访客签证。我有年迈的父母留在国内，但他们不与我同住，也不是我的受养人，我在申请中也未将他们列为受养人。",
-      "translationKey": "3srtq8",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1781,6 +1687,9 @@
           "excerpt": "I've been using the same vet clinic for 5 years and have never changed my address on file. My pets have had all of their appointments on time, every time, every year. Suddenly, the vet clinic claims they need a valid pro"
         }
       ],
+      "titleZh": "兽医要求我提供驾照号码是否正常",
+      "quoteZh": "我一直在同一家兽医诊所就诊五年，档案中的地址从未更改。我的宠物每年都会按时赴约就诊，但突然间这家诊所称需要有效的驾照号码。",
+      "translationKey": "sfd8g1",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -1807,9 +1716,6 @@
         ]
       },
       "cardKey": "sfd8g1:v1",
-      "titleZh": "兽医要求我提供驾照号码是否正常",
-      "quoteZh": "我一直在同一家兽医诊所就诊五年，档案中的地址从未更改。我的宠物每年都会按时赴约就诊，但突然间这家诊所称需要有效的驾照号码。",
-      "translationKey": "sfd8g1",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -1833,92 +1739,6 @@
       }
     },
     {
-      "id": "scheduling-ai-is-turning-apple-s-app-review-process-into-a-",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
-      "score": 26,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
-        "recency": 14.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T11:11:43.000Z",
-      "evidence": [
-        {
-          "title": "AI is turning Apple's app review process into a nightmare for synth developers",
-          "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
-          "source": "hn",
-          "createdAt": "2026-11-13T11:11:43.000Z",
-          "excerpt": "> You can avoid the 12 beta testers if you create an LLC Yeah that is an easy option. In my jurisdiction that costs above 500€ for legal paperwork (notarized stuff) and now you have to submit double-entry bookeping recor"
-        },
-        {
-          "title": "AI is turning Apple's app review process into a nightmare for synth developers",
-          "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
-          "source": "hn",
-          "createdAt": "2026-11-13T11:11:43.000Z",
-          "excerpt": "> You can avoid the 12 beta testers if you create an LLC Yeah that is an easy option. In my jurisdiction that costs above 500€ for legal paperwork (notarized stuff) and now you have to submit double-entry bookeping recor"
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 2,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 22,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1k0af9r:v1",
-      "titleZh": "AI正在让苹果的应用审核流程成为合成器开发者的噩梦",
-      "quoteZh": "如果你成立有限责任公司就能避开12名测试用户，这确实是个简单办法。但在我所在的地区，法律文件公证的费用就超过500欧元，而且现在还得提交双式记账凭证。",
-      "translationKey": "1k0af9r",
-      "idea": {
-        "version": 2,
-        "origin": "llm",
-        "persona": "solo-founder",
-        "headline": {
-          "zh": "给合成器开发者做一个自动申请LLC的辅助工具",
-          "en": "A small tool for synth developers to automate LLC application processes"
-        },
-        "who": {
-          "zh": "合成器开发者",
-          "en": "synth developers"
-        },
-        "why": {
-          "zh": "申请LLC的法律手续费用高昂且流程复杂",
-          "en": "Legal paperwork for LLC applications is expensive and cumbersome"
-        },
-        "step": {
-          "zh": "做一个简单的表单收集必要信息，发送给当地律师获取报价",
-          "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
-        }
-      }
-    },
-    {
       "id": "scheduling-booking-improvements",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1927,7 +1747,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 14.3,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2008,7 +1828,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 11.7,
+        "recency": 11.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2030,6 +1850,9 @@
           "excerpt": "I&#x27;m jealous, I&#x27;d love to be able to do this. I am a small cog in a big legal machine so I am stuck with whatever tech stack my firm mandates. Outlook + Word + a bunch of incredibly unintuitive, slow, buggy and "
         }
       ],
+      "titleZh": "用免费软件运营律师事务所",
+      "quoteZh": "我好羡慕，真希望自己也能这么做。我只是大型法律机构里的小角色，只能使用公司规定的技术栈，也就是Outlook、Word，再加上一堆极其不直观、运行缓慢且漏洞频出的工具。",
+      "translationKey": "1q1cx2n",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2055,9 +1878,6 @@
         ]
       },
       "cardKey": "1q1cx2n:v1",
-      "titleZh": "用免费软件运营律师事务所",
-      "quoteZh": "我好羡慕，真希望自己也能这么做。我只是大型法律机构里的小角色，只能使用公司规定的技术栈，也就是Outlook、Word，再加上一堆极其不直观、运行缓慢且漏洞频出的工具。",
-      "translationKey": "1q1cx2n",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2089,7 +1909,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 0,
-        "recency": 13.6,
+        "recency": 13.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2116,6 +1936,9 @@
           "excerpt": "I'm integrating Meta (Facebook) Lead Ads with a custom CRM application using a Python Flask backend and Meta Graph API. The goal is to receive webhook notifications automatically whenever a lead is submitted through an I"
         }
       ],
+      "titleZh": "Python Flask webhook收到HTTP 200状态的Meta Lead Ads测试事件但无POST请求",
+      "quoteZh": "我正在使用Python Flask后端和Meta Graph API，将Meta（脸书）的Lead Ads功能集成到自定义CRM应用中，目的是在有潜在客户通过相关渠道提交信息时自动收到webhook通知。",
+      "translationKey": "x996j0",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2141,9 +1964,6 @@
         ]
       },
       "cardKey": "x996j0:v1",
-      "titleZh": "Python Flask webhook收到HTTP 200状态的Meta Lead Ads测试事件但无POST请求",
-      "quoteZh": "我正在使用Python Flask后端和Meta Graph API，将Meta（脸书）的Lead Ads功能集成到自定义CRM应用中，目的是在有潜在客户通过相关渠道提交信息时自动收到webhook通知。",
-      "translationKey": "x996j0",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2197,6 +2017,9 @@
           "excerpt": "I see. But then I have to debug some failing CI pipeline and the agent is quite good at going through the logs, so I give in and `gh auth login` anyway..."
         }
       ],
+      "titleZh": "Devvm.dev：每个项目对应一台虚拟机",
+      "quoteZh": "我明白这个思路。但后来我需要调试出故障的CI流水线，而自动化工具很擅长分析日志，所以我还是选择了登录账号继续处理问题。",
+      "translationKey": "14qo93j",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2222,9 +2045,6 @@
         ]
       },
       "cardKey": "14qo93j:v1",
-      "titleZh": "Devvm.dev：每个项目对应一台虚拟机",
-      "quoteZh": "我明白这个思路。但后来我需要调试出故障的CI流水线，而自动化工具很擅长分析日志，所以我还是选择了登录账号继续处理问题。",
-      "translationKey": "14qo93j",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2278,6 +2098,9 @@
           "excerpt": "I'm starting a small non-profit, that accepts donations from \"members\" in the form of monthly dues. Is there any web app that will help me track their payments? Something easier than keeping a spreadsheet in Excel. Integ"
         }
       ],
+      "titleZh": "适合追踪会员订阅的好应用？",
+      "quoteZh": "我正在创办一家小型非营利组织，接受会员每月缴纳的捐款。有没有比Excel表格更便捷的网页应用可以帮助我记录这些付款信息？",
+      "translationKey": "1wns13r",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2304,9 +2127,6 @@
         ]
       },
       "cardKey": "1wns13r:v1",
-      "titleZh": "适合追踪会员订阅的好应用？",
-      "quoteZh": "我正在创办一家小型非营利组织，接受会员每月缴纳的捐款。有没有比Excel表格更便捷的网页应用可以帮助我记录这些付款信息？",
-      "translationKey": "1wns13r",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2360,6 +2180,9 @@
           "excerpt": "I have a Google Play Music 'Unlimited' subscription. How do I make the songs in my playlist available offline, as you can do on Spotify and the Mobile Apps? I am not talking about just the 'Free and Purchased' songs, but"
         }
       ],
+      "titleZh": "如何合法下载Google Play音乐播放列表中的歌曲？",
+      "quoteZh": "我拥有Google Play音乐的“无限”订阅套餐。我想像在Spotify和手机应用那样，将播放列表里的歌曲下载到离线设备上查看，我不是指仅下载“免费歌曲”和“已购买歌曲”，而是全部歌曲。",
+      "translationKey": "1oi3aoe",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2386,9 +2209,6 @@
         ]
       },
       "cardKey": "1oi3aoe:v1",
-      "titleZh": "如何合法下载Google Play音乐播放列表中的歌曲？",
-      "quoteZh": "我拥有Google Play音乐的“无限”订阅套餐。我想像在Spotify和手机应用那样，将播放列表里的歌曲下载到离线设备上查看，我不是指仅下载“免费歌曲”和“已购买歌曲”，而是全部歌曲。",
-      "translationKey": "1oi3aoe",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2442,6 +2262,9 @@
           "excerpt": "I am using \"The Old Reader\" to keep track of my responses on Stack Exchange. How can I merge this with another link to also show \"votes\" or \"featured\", etc. in the same subscription without having to move from one to ano"
         }
       ],
+      "titleZh": "如何在The Old Reader中合并RSS源？",
+      "quoteZh": "我使用The Old Reader来记录在Stack Exchange上的回复。如何将其与另一个链接合并，以便在同一订阅中查看投票数或精选内容，而无需在两者之间切换？",
+      "translationKey": "yg1ci3",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2468,9 +2291,6 @@
         ]
       },
       "cardKey": "yg1ci3:v1",
-      "titleZh": "如何在The Old Reader中合并RSS源？",
-      "quoteZh": "我使用The Old Reader来记录在Stack Exchange上的回复。如何将其与另一个链接合并，以便在同一订阅中查看投票数或精选内容，而无需在两者之间切换？",
-      "translationKey": "yg1ci3",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2524,6 +2344,9 @@
           "excerpt": "New to Google sheets, so feel like I'm falling down somewhat of a rabbit hole trying to figure this out... I have a spreadsheet 'sheet 1' where we keep the details of our sales - Name, address, design, size, tracking. Th"
         }
       ],
+      "titleZh": "在多个工作表中使用OFFSET函数",
+      "quoteZh": "我是Google Sheets新手，感觉在弄懂这个功能时像掉进了迷宫……我有一个名为‘sheet 1’的电子表格，用于记录销售详情——名称、地址、设计、尺寸、追踪信息。",
+      "translationKey": "q0gj23",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2550,9 +2373,6 @@
         ]
       },
       "cardKey": "q0gj23:v1",
-      "titleZh": "在多个工作表中使用OFFSET函数",
-      "quoteZh": "我是Google Sheets新手，感觉在弄懂这个功能时像掉进了迷宫……我有一个名为‘sheet 1’的电子表格，用于记录销售详情——名称、地址、设计、尺寸、追踪信息。",
-      "translationKey": "q0gj23",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2606,6 +2426,9 @@
           "excerpt": "We've rented our old place. So we've got obligations now under landlord and tenants act 1936 and residential tenancies act 1995 to keep proper records. A new thing for us. Getting by with a spreadsheet and using Word for"
         }
       ],
+      "titleZh": "记录租赁业务该用什么工具？",
+      "quoteZh": "我们租出了原来的住所，现在需要根据1936年房东与租户法案以及1995年住宅租赁法案保留完整记录。这对我们来说是新事务，目前只能靠电子表格和Word应付。",
+      "translationKey": "fict93",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2632,9 +2455,6 @@
         ]
       },
       "cardKey": "fict93:v1",
-      "titleZh": "记录租赁业务该用什么工具？",
-      "quoteZh": "我们租出了原来的住所，现在需要根据1936年房东与租户法案以及1995年住宅租赁法案保留完整记录。这对我们来说是新事务，目前只能靠电子表格和Word应付。",
-      "translationKey": "fict93",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2666,7 +2486,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 12.6,
+        "recency": 12.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2769,6 +2589,9 @@
           "excerpt": "I have booked flight from broker, flight is from Riga RIX to Goa GOI, now part of my trip has changed. 3 9W2354H 24APR MAA GOI 1035 1315 (cancelled flight) 4 9W2305H 24APR MAA BLR 0820 0910 (new flight) 5 9W 498H 24APR B"
         }
       ],
+      "titleZh": "预订网站更改了我的航班部分信息，我能要求全额退款吗？",
+      "quoteZh": "我通过代理商预订了从里加RIX飞往果阿GOI的航班，现在行程有一部分发生了变化。3 9W2354H 24APR MAA GOI 1035 1315（已取消的航班）4 9W2305H 24APR MAA BLR 0820 0910（新的航班）5 9W 498H 24APR B",
+      "translationKey": "10t311i",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2795,9 +2618,6 @@
         ]
       },
       "cardKey": "10t311i:v1",
-      "titleZh": "预订网站更改了我的航班部分信息，我能要求全额退款吗？",
-      "quoteZh": "我通过代理商预订了从里加RIX飞往果阿GOI的航班，现在行程有一部分发生了变化。3 9W2354H 24APR MAA GOI 1035 1315（已取消的航班）4 9W2305H 24APR MAA BLR 0820 0910（新的航班）5 9W 498H 24APR B",
-      "translationKey": "10t311i",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2851,6 +2671,9 @@
           "excerpt": "On 19.01. 2020, I have made a reservation at UK (Scotland) hotel. Booking made at that hotel could be cancelled any time (at least 1 day prior to check-in) with full refund. On 25.03. 2020 I have sent an email asking for"
         }
       ],
+      "titleZh": "酒店退款相关的拒付申请",
+      "quoteZh": "2020年1月19日，我在英国（苏格兰）的一家酒店做了预订。该酒店允许在入住前至少一天取消预订并获得全额退款。2020年3月25日，我发送邮件请求退款。",
+      "translationKey": "1ajkdyw",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2877,9 +2700,6 @@
         ]
       },
       "cardKey": "1ajkdyw:v1",
-      "titleZh": "酒店退款相关的拒付申请",
-      "quoteZh": "2020年1月19日，我在英国（苏格兰）的一家酒店做了预订。该酒店允许在入住前至少一天取消预订并获得全额退款。2020年3月25日，我发送邮件请求退款。",
-      "translationKey": "1ajkdyw",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2933,6 +2753,9 @@
           "excerpt": "My credit card account is maintained in AED (United Arab Emirates Dirham). I have made a payment of 2,760 GBP to a hotel in London, which is equivalent to 13,037 AED . I later had to cancel the booking and was surprised "
         }
       ],
+      "titleZh": "信用卡退款产生的汇率收益",
+      "quoteZh": "我的信用卡账户以阿联酋迪拉姆计价。我向伦敦的一家酒店支付了2,760英镑，相当于13,037阿联酋迪拉姆。后来我不得不取消预订，对此感到十分意外。",
+      "translationKey": "db44ps",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2959,9 +2782,6 @@
         ]
       },
       "cardKey": "db44ps:v1",
-      "titleZh": "信用卡退款产生的汇率收益",
-      "quoteZh": "我的信用卡账户以阿联酋迪拉姆计价。我向伦敦的一家酒店支付了2,760英镑，相当于13,037阿联酋迪拉姆。后来我不得不取消预订，对此感到十分意外。",
-      "translationKey": "db44ps",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3015,6 +2835,9 @@
           "excerpt": "The German embassy in Cairo cancelled my visa interview after I sent an email asking for an earlier appointment. No reason has been provided for the cancellation and they don't respond to my emails anymore. What can I do"
         }
       ],
+      "titleZh": "德国：签证面试被取消后该怎么办？",
+      "quoteZh": "在我发送邮件请求提前安排面试后，开罗的德国大使馆取消了我的签证面试。他们没有给出取消原因，也不再回复我的邮件。我该怎么做？",
+      "translationKey": "h6goq1",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3041,9 +2864,6 @@
         ]
       },
       "cardKey": "h6goq1:v1",
-      "titleZh": "德国：签证面试被取消后该怎么办？",
-      "quoteZh": "在我发送邮件请求提前安排面试后，开罗的德国大使馆取消了我的签证面试。他们没有给出取消原因，也不再回复我的邮件。我该怎么做？",
-      "translationKey": "h6goq1",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3097,6 +2917,9 @@
           "excerpt": "TL;DR cancelled a long-planned trip due to a delay in project deadlines and my backup person quitting, and received most of the cost back from the company. Turns out in retrospect it wasn't necessary as the deadlines the"
         }
       ],
+      "titleZh": "因项目截止日期问题，我同意取消一场精心准备的度假行程（含差旅费），但……",
+      "quoteZh": "简而言之，由于项目截止日期推迟且备用人员离职，我取消了一场精心准备的旅行，并从公司拿回了大部分费用。事后看来，其实没必要这么做，因为那些截止日期本身并不那么紧迫。",
+      "translationKey": "11otogi",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3123,9 +2946,6 @@
         ]
       },
       "cardKey": "11otogi:v1",
-      "titleZh": "因项目截止日期问题，我同意取消一场精心准备的度假行程（含差旅费），但……",
-      "quoteZh": "简而言之，由于项目截止日期推迟且备用人员离职，我取消了一场精心准备的旅行，并从公司拿回了大部分费用。事后看来，其实没必要这么做，因为那些截止日期本身并不那么紧迫。",
-      "translationKey": "11otogi",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3179,6 +2999,9 @@
           "excerpt": "I had booked a flight with an airline through my chase credit card. It was a connecting flight and the airline canceled one of the connecting flights but didn't cancel and refund my trip. So I tried to cancel my entire t"
         }
       ],
+      "titleZh": "收到纠纷补偿与退款",
+      "quoteZh": "我通过Chase信用卡向一家航空公司预订了航班。这是中转航班，航空公司取消了其中一段中转航程，却没有取消我的行程并给予退款。所以我尝试取消整个行程。",
+      "translationKey": "1lrj0p",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3205,9 +3028,6 @@
         ]
       },
       "cardKey": "1lrj0p:v1",
-      "titleZh": "收到纠纷补偿与退款",
-      "quoteZh": "我通过Chase信用卡向一家航空公司预订了航班。这是中转航班，航空公司取消了其中一段中转航程，却没有取消我的行程并给予退款。所以我尝试取消整个行程。",
-      "translationKey": "1lrj0p",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3261,6 +3081,9 @@
           "excerpt": "My sister is selling her old dirt bike through Gumtree. She got an email this morning saying the following: Cheers for the prompt responses! please consider it sold and cancel every other appointment regarding it, I am b"
         }
       ],
+      "titleZh": "出售自行车，对方提出通过快递购买，这是何种骗局？",
+      "quoteZh": "我姐姐正在Gumtree上出售她的旧越野摩托车。今天早上她收到一封邮件，内容如下：感谢您的快速回复！请视为已售出，并取消所有相关的预约。",
+      "translationKey": "1xkrkn1",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3287,9 +3110,6 @@
         ]
       },
       "cardKey": "1xkrkn1:v1",
-      "titleZh": "出售自行车，对方提出通过快递购买，这是何种骗局？",
-      "quoteZh": "我姐姐正在Gumtree上出售她的旧越野摩托车。今天早上她收到一封邮件，内容如下：感谢您的快速回复！请视为已售出，并取消所有相关的预约。",
-      "translationKey": "1xkrkn1",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3343,6 +3163,9 @@
           "excerpt": "I am using the app download from https://photos.google.com/apps ( for Windows ) My question, how do I make sure that when I delete uploaded photos/videos from the local folder it won't be deleted in Google Photos? So for"
         }
       ],
+      "titleZh": "将照片和视频备份到Google Photos",
+      "quoteZh": "我使用从https://photos.google.com/apps下载的（Windows版）应用。我的问题是，如何确保当我从本地文件夹删除已上传的照片/视频时，它们不会在Google Photos中被删除？",
+      "translationKey": "nwv0kd",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3369,9 +3192,6 @@
         ]
       },
       "cardKey": "nwv0kd:v1",
-      "titleZh": "将照片和视频备份到Google Photos",
-      "quoteZh": "我使用从https://photos.google.com/apps下载的（Windows版）应用。我的问题是，如何确保当我从本地文件夹删除已上传的照片/视频时，它们不会在Google Photos中被删除？",
-      "translationKey": "nwv0kd",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3425,6 +3245,9 @@
           "excerpt": "I'm going to travel around China for 3 weeks and I'm thinking how to backup my photo to the cloud (any storage provider is ok) taken with my old Canon 500D. Since I love to take time lapse, I will take several GBs of RAW"
         }
       ],
+      "titleZh": "旅行时将照片备份到云端？",
+      "quoteZh": "我打算在中国旅行三周，想了解如何将用旧款佳能500D拍摄的照片备份到云端（任何存储服务都可以）。因为我喜欢拍摄延时摄影，所以会产生数GB的RAW格式文件。",
+      "translationKey": "1v4j8ur",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3451,9 +3274,6 @@
         ]
       },
       "cardKey": "1v4j8ur:v1",
-      "titleZh": "旅行时将照片备份到云端？",
-      "quoteZh": "我打算在中国旅行三周，想了解如何将用旧款佳能500D拍摄的照片备份到云端（任何存储服务都可以）。因为我喜欢拍摄延时摄影，所以会产生数GB的RAW格式文件。",
-      "translationKey": "1v4j8ur",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3507,6 +3327,9 @@
           "excerpt": "I have 4 different folders for Outlook contacts, three personal folders and one suggested contact folder. How do I merge these into one because I have to search all three in order to find one. Thanks."
         }
       ],
+      "titleZh": "合并Outlook 2010联系人中的重复文件夹",
+      "quoteZh": "我在Outlook联系人中有4个不同的文件夹，三个是个人文件夹，一个是系统推荐的联系人文件夹。我该如何将它们合并为一个，因为我现在需要查看这三个文件夹才能找到某位联系人。谢谢。",
+      "translationKey": "14is1mm",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3533,9 +3356,6 @@
         ]
       },
       "cardKey": "14is1mm:v1",
-      "titleZh": "合并Outlook 2010联系人中的重复文件夹",
-      "quoteZh": "我在Outlook联系人中有4个不同的文件夹，三个是个人文件夹，一个是系统推荐的联系人文件夹。我该如何将它们合并为一个，因为我现在需要查看这三个文件夹才能找到某位联系人。谢谢。",
-      "translationKey": "14is1mm",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3589,6 +3409,9 @@
           "excerpt": "I don't see a way to export the contacts in Google Apps four Education directory via Google's older/newer layout of contacts.google.com. If there is no such option, Is there any way to extract all contacts displayed in t"
         }
       ],
+      "titleZh": "从Google Apps for Education目录导出联系人",
+      "quoteZh": "通过contacts.google.com的旧版或新版界面，我找不到从Google Apps for Education目录导出联系人的方法。如果没有这样的选项，是否有其他方式可以提取所有显示的联系人？",
+      "translationKey": "1y5yfgb",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3615,9 +3438,6 @@
         ]
       },
       "cardKey": "1y5yfgb:v1",
-      "titleZh": "从Google Apps for Education目录导出联系人",
-      "quoteZh": "通过contacts.google.com的旧版或新版界面，我找不到从Google Apps for Education目录导出联系人的方法。如果没有这样的选项，是否有其他方式可以提取所有显示的联系人？",
-      "translationKey": "1y5yfgb",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3671,6 +3491,9 @@
           "excerpt": "I know how to export contacts from Exchange/Outlook via the .csv route (e.g. export as CSV, import into Gmail, export as vCard, then import into iCloud). But that method loses all the photos that are attached my contacts"
         }
       ],
+      "titleZh": "如何将Exchange/Outlook联系人连同照片一起导出到iCloud？",
+      "quoteZh": "我知道可以通过.csv格式导出Exchange/Outlook的联系人（例如先导出为CSV，再导入Gmail，然后导出为vCard并导入iCloud），但这种方法会丢失联系人附带的全部照片。",
+      "translationKey": "183nfrf",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3697,9 +3520,6 @@
         ]
       },
       "cardKey": "183nfrf:v1",
-      "titleZh": "如何将Exchange/Outlook联系人连同照片一起导出到iCloud？",
-      "quoteZh": "我知道可以通过.csv格式导出Exchange/Outlook的联系人（例如先导出为CSV，再导入Gmail，然后导出为vCard并导入iCloud），但这种方法会丢失联系人附带的全部照片。",
-      "translationKey": "183nfrf",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3753,6 +3573,9 @@
           "excerpt": "Google Contacts automatically identifies potential duplicates and supports merging these candidates, but I can't figure out how to force or suggest candidates for merging."
         }
       ],
+      "titleZh": "如何强制合并Google联系人中的重复项？",
+      "quoteZh": "Google联系人会自动识别潜在的重复联系人并支持合并这些候选项，但我不知道如何强制合并或手动推荐需要合并的候选项。",
+      "translationKey": "1osdnfj",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3779,9 +3602,6 @@
         ]
       },
       "cardKey": "1osdnfj:v1",
-      "titleZh": "如何强制合并Google联系人中的重复项？",
-      "quoteZh": "Google联系人会自动识别潜在的重复联系人并支持合并这些候选项，但我不知道如何强制合并或手动推荐需要合并的候选项。",
-      "translationKey": "1osdnfj",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3835,6 +3655,9 @@
           "excerpt": "In SugarCRM, my company has been using it for 10+ years. For some ex employees, it was easier to create new contacts then search for existing contacts, and we have many, many duplicates. Is there a way to merge the dupli"
         }
       ],
+      "titleZh": "SugarCRM联系人合并方法",
+      "quoteZh": "我们在SugarCRM已使用超过10年。对于部分前员工而言，创建新联系人比查找现有联系人更便捷，因此出现了大量重复联系人。是否有办法合并这些重复项？",
+      "translationKey": "ea3lbj",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3861,9 +3684,6 @@
         ]
       },
       "cardKey": "ea3lbj:v1",
-      "titleZh": "SugarCRM联系人合并方法",
-      "quoteZh": "我们在SugarCRM已使用超过10年。对于部分前员工而言，创建新联系人比查找现有联系人更便捷，因此出现了大量重复联系人。是否有办法合并这些重复项？",
-      "translationKey": "ea3lbj",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3917,6 +3737,9 @@
           "excerpt": "I am back from the ER, the rabbit seems okay right now; but I'm still concerned that there might be something wrong with her. Here is a video of her in hyperventilating and unable to get comfortable . My presence makes h"
         }
       ],
+      "titleZh": "兔子呼吸急促且无法安静",
+      "quoteZh": "我刚从急诊室回来，兔子目前看起来状况尚可，但我仍担心它可能存在问题。这是它呼吸急促且无法安静的视频，我的出现会让它更加不安。",
+      "translationKey": "yn4qkf",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3943,9 +3766,6 @@
         ]
       },
       "cardKey": "yn4qkf:v1",
-      "titleZh": "兔子呼吸急促且无法安静",
-      "quoteZh": "我刚从急诊室回来，兔子目前看起来状况尚可，但我仍担心它可能存在问题。这是它呼吸急促且无法安静的视频，我的出现会让它更加不安。",
-      "translationKey": "yn4qkf",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3999,6 +3819,9 @@
           "excerpt": "My shift schedule just changed and I accidentally left work 30 minutes early. Where I work monitors us very carefully on the computer and they are very strict about these sorts of things. I'm wondering what I should do? "
         }
       ],
+      "titleZh": "因意外提前下班如何补救",
+      "quoteZh": "我的排班刚有变动，我不小心提前30分钟离开了工作地点。我工作的单位会通过电脑严格监控我们，对这类情况要求极为严格，我不知道该怎么办？",
+      "translationKey": "1jz8n1t",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4025,9 +3848,6 @@
         ]
       },
       "cardKey": "1jz8n1t:v1",
-      "titleZh": "因意外提前下班如何补救",
-      "quoteZh": "我的排班刚有变动，我不小心提前30分钟离开了工作地点。我工作的单位会通过电脑严格监控我们，对这类情况要求极为严格，我不知道该怎么办？",
-      "translationKey": "1jz8n1t",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4081,6 +3901,9 @@
           "excerpt": "When I send a calendar appointment using Outlook 10 to my boss and set the reminder to NONE, does the reminder stay at NONE on my boss's calendar or does it change to my boss's default reminder setting on her calendar? ("
         }
       ],
+      "titleZh": "日历提醒由谁控制",
+      "quoteZh": "我用Outlook 10给上司发送日程安排并将提醒设置为无时，这个提醒会一直保持为无时在上司的日历上，还是会变成上司日历的默认提醒设置？",
+      "translationKey": "qf2lb4",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4107,9 +3930,6 @@
         ]
       },
       "cardKey": "qf2lb4:v1",
-      "titleZh": "日历提醒由谁控制",
-      "quoteZh": "我用Outlook 10给上司发送日程安排并将提醒设置为无时，这个提醒会一直保持为无时在上司的日历上，还是会变成上司日历的默认提醒设置？",
-      "translationKey": "qf2lb4",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4163,6 +3983,9 @@
           "excerpt": "I frequently use the function Find & Merge duplicates in Gmail Contacts. Can this function somehow be automatised to be run periodically without manual user execution?"
         }
       ],
+      "titleZh": "Gmail联系人自动查找合并重复项",
+      "quoteZh": "我经常使用Gmail联系人中的查找并合并重复项功能，能否让该功能定期自动运行，无需用户手动操作？",
+      "translationKey": "1rchuwc",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4189,9 +4012,6 @@
         ]
       },
       "cardKey": "1rchuwc:v1",
-      "titleZh": "Gmail联系人自动查找合并重复项",
-      "quoteZh": "我经常使用Gmail联系人中的查找并合并重复项功能，能否让该功能定期自动运行，无需用户手动操作？",
-      "translationKey": "1rchuwc",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4245,6 +4065,9 @@
           "excerpt": "I tried to export contacts from Google Contacts Preview but was told to go to old contacts to do so but there was no \"export\" contacts on the toolbar just import contacts. what should I do?"
         }
       ],
+      "titleZh": "Google联系人预览导出问题",
+      "quoteZh": "我尝试从Google联系人预览中导出联系人，却被告知要去旧联系人那里操作，但工具栏上没有导出联系人的选项，只有导入联系人，我该怎么做？",
+      "translationKey": "ok4kae",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4271,9 +4094,6 @@
         ]
       },
       "cardKey": "ok4kae:v1",
-      "titleZh": "Google联系人预览导出问题",
-      "quoteZh": "我尝试从Google联系人预览中导出联系人，却被告知要去旧联系人那里操作，但工具栏上没有导出联系人的选项，只有导入联系人，我该怎么做？",
-      "translationKey": "ok4kae",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4327,6 +4147,9 @@
           "excerpt": "Can anyone recommend a sturdy external hard drive specifically designed for travelling that I can back up photos and videos on?"
         }
       ],
+      "titleZh": "适合旅行使用的照片备份外置硬盘",
+      "quoteZh": "有人能推荐一款专为旅行设计的坚固外置硬盘，用于备份照片和视频吗？",
+      "translationKey": "l26e63",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4353,9 +4176,6 @@
         ]
       },
       "cardKey": "l26e63:v1",
-      "titleZh": "适合旅行使用的照片备份外置硬盘",
-      "quoteZh": "有人能推荐一款专为旅行设计的坚固外置硬盘，用于备份照片和视频吗？",
-      "translationKey": "l26e63",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4409,6 +4229,9 @@
           "excerpt": "Is there a facility in OUTLOOK 2003 that will find and merge duplicate contacts? OS is Windows XP SP3."
         }
       ],
+      "titleZh": "OUTLOOK 2003是否有查找合并重复联系人的功能",
+      "quoteZh": "OUTLOOK 2003是否有查找并合并重复联系人的功能？操作系统为Windows XP SP3。",
+      "translationKey": "1g9tf5t",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4435,9 +4258,6 @@
         ]
       },
       "cardKey": "1g9tf5t:v1",
-      "titleZh": "OUTLOOK 2003是否有查找合并重复联系人的功能",
-      "quoteZh": "OUTLOOK 2003是否有查找并合并重复联系人的功能？操作系统为Windows XP SP3。",
-      "translationKey": "1g9tf5t",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4491,6 +4311,9 @@
           "excerpt": "Do you have to meet any COVID-related requirements if you are arriving at Hong Kong International Airport and intend to take the high-speed train into mainland China? Non-Hong Kong residents aged 12 or above on the day o"
         }
       ],
+      "titleZh": "疫苗记录与检测工具包能否满足入境香港的要求",
+      "quoteZh": "若从香港国际机场抵达并打算乘高铁前往中国内地，是否需要满足任何与新冠相关的要求？12岁及以上的非香港居民在当日",
+      "translationKey": "gifeir",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4517,9 +4340,6 @@
         ]
       },
       "cardKey": "gifeir:v1",
-      "titleZh": "疫苗记录与检测工具包能否满足入境香港的要求",
-      "quoteZh": "若从香港国际机场抵达并打算乘高铁前往中国内地，是否需要满足任何与新冠相关的要求？12岁及以上的非香港居民在当日",
-      "translationKey": "gifeir",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4571,6 +4391,9 @@
           "excerpt": "I'm finding it difficult to get MS reporting working to what I'd like to show. What I'm trying to do is: a) In my database store a URL file (HTTP external file), that is a .jpeg. I'd like to use that URL to call the imag"
         }
       ],
+      "titleZh": "如何让动态图片显示在每个Microsoft Access 2007数据库的报表中",
+      "quoteZh": "我很难让MS报表呈现我想要的内容。我的操作是：a）在数据库中存储一个URL文件（HTTP外部文件），即.jpeg格式，我想用该URL来调用图片",
+      "translationKey": "izbpgr",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4597,9 +4420,6 @@
         ]
       },
       "cardKey": "izbpgr:v1",
-      "titleZh": "如何让动态图片显示在每个Microsoft Access 2007数据库的报表中",
-      "quoteZh": "我很难让MS报表呈现我想要的内容。我的操作是：a）在数据库中存储一个URL文件（HTTP外部文件），即.jpeg格式，我想用该URL来调用图片",
-      "translationKey": "izbpgr",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4619,6 +4439,87 @@
         "step": {
           "zh": "做一个能上传图片并直接嵌入报表的单页工具，找1人试用",
           "en": "Build a minimal version that solves only this one thing, then try it with 3 pet owners juggling care schedules."
+        }
+      }
+    },
+    {
+      "id": "scheduling-appointment-vehicle-management",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Appointment & Vehicle Management",
+      "score": 24,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 12.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T03:51:57.000Z",
+      "evidence": [
+        {
+          "title": "Appointment & Vehicle Management",
+          "url": "https://github.com/ShaneW12/Group3-CarWash/issues/11",
+          "source": "github",
+          "createdAt": "2026-11-09T03:51:57.000Z",
+          "excerpt": "Develop functionality that allows CleanRide customers to manage their vehicles and car wash appointments. User stories - Add a vehicle - View saved vehicles - Book an appointment - Cancel an appointment"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "lhy25o:v1",
+      "titleZh": "预约与车辆管理",
+      "quoteZh": "开发让CleanRide用户可管理车辆及洗车预约的功能。用户故事 - 添加车辆 - 查看已保存车辆 - 预约服务 - 取消预约",
+      "translationKey": "lhy25o",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "service-owner",
+        "headline": {
+          "zh": "给CleanRide车主做一个车辆与预约管理小工具",
+          "en": "A small tool for CleanRide car owners to manage their vehicles and appointments."
+        },
+        "who": {
+          "zh": "CleanRide车主",
+          "en": "Car owners using CleanRide services."
+        },
+        "why": {
+          "zh": "无法便捷查看和管理车辆及洗车预约信息",
+          "en": "They struggle to view saved vehicles and book appointments easily."
+        },
+        "step": {
+          "zh": "做一个基础车辆列表和预约表单的简单页面供3位车主试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
         }
       }
     },
@@ -4653,6 +4554,9 @@
           "excerpt": "### Information about bug When trying to create a journal entry in the new banking app, it does not allow you to submit a Journal Entry with an account outside of the company currency. Normally, on a Journal Entry, there"
         }
       ],
+      "titleZh": "银行应用交易：多货币",
+      "quoteZh": "### 错误信息 在新银行应用中创建日记账分录时，不允许使用公司货币之外的账户提交日记账分录。通常情况下，日记账分录上",
+      "translationKey": "4lp5nm",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4678,9 +4582,6 @@
         ]
       },
       "cardKey": "4lp5nm:v1",
-      "titleZh": "银行应用交易：多货币",
-      "quoteZh": "### 错误信息 在新银行应用中创建日记账分录时，不允许使用公司货币之外的账户提交日记账分录。通常情况下，日记账分录上",
-      "translationKey": "4lp5nm",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4712,7 +4613,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.1,
+        "recency": 11,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -4793,7 +4694,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 10.7,
+        "recency": 10.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -4815,6 +4716,9 @@
           "excerpt": "- [ ] Cancels the booking, returns its seats on every flight, refunds in full (revenue drops). - [ ] Returns the booking with `status` `cancelled`. - [ ] Cancelling twice returns the same thing, not an error. - [ ] `404`"
         }
       ],
+      "titleZh": "端点：DELETE /bookings/{booking_id}",
+      "quoteZh": "- [ ] 取消预订，释放所有航班的座位，全额退款（收入减少）。- [ ] 返回状态为cancelled的预订。- [ ] 取消两次仍无异常，不会报错。- [ ] 返回404错误",
+      "translationKey": "1o3ijf0",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4840,9 +4744,6 @@
         ]
       },
       "cardKey": "1o3ijf0:v1",
-      "titleZh": "端点：DELETE /bookings/{booking_id}",
-      "quoteZh": "- [ ] 取消预订，释放所有航班的座位，全额退款（收入减少）。- [ ] 返回状态为cancelled的预订。- [ ] 取消两次仍无异常，不会报错。- [ ] 返回404错误",
-      "translationKey": "1o3ijf0",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4874,7 +4775,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 10.7,
+        "recency": 10.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -4896,6 +4797,9 @@
           "excerpt": "- [ ] Returns the booking with `status` `confirmed` or `cancelled`. - [ ] `404` if unknown."
         }
       ],
+      "titleZh": "端点：GET /bookings/{booking_id}",
+      "quoteZh": "- [ ] 返回状态为confirmed或cancelled的预订。- [ ] 若预订不存在则返回404错误。",
+      "translationKey": "zeg1zq",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -4921,9 +4825,6 @@
         ]
       },
       "cardKey": "zeg1zq:v1",
-      "titleZh": "端点：GET /bookings/{booking_id}",
-      "quoteZh": "- [ ] 返回状态为confirmed或cancelled的预订。- [ ] 若预订不存在则返回404错误。",
-      "translationKey": "zeg1zq",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -4977,6 +4878,9 @@
           "excerpt": "Except when the \"meter is broken\" or they take the scenic route. My grandmother with dementia routinely got charged double or triple the expected rate for trips to medical appointments, until we figured out what was goin"
         }
       ],
+      "titleZh": "护士声音警报作为‘护理行业优步’应用的推送功能以优化医疗资源分配",
+      "quoteZh": "除非计价器出故障或他们选择绕路，否则患有痴呆症的祖母去就医时常常要支付预期费用的两倍甚至三倍，直到我们弄清楚问题所在",
+      "translationKey": "ti9css",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -5002,9 +4906,6 @@
         ]
       },
       "cardKey": "ti9css:v1",
-      "titleZh": "护士声音警报作为‘护理行业优步’应用的推送功能以优化医疗资源分配",
-      "quoteZh": "除非计价器出故障或他们选择绕路，否则患有痴呆症的祖母去就医时常常要支付预期费用的两倍甚至三倍，直到我们弄清楚问题所在",
-      "translationKey": "ti9css",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -5028,15 +4929,15 @@
       }
     },
     {
-      "id": "scheduling-patient-appointment-requests",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Patient appointment requests",
+      "id": "solo-crm-contact-management-system",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "contact management system",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -5046,14 +4947,14 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-14T01:10:17.000Z",
+      "lastSeen": "2026-11-14T12:48:16.000Z",
       "evidence": [
         {
-          "title": "Patient appointment requests",
-          "url": "https://github.com/zacharyelston/WeHelp/issues/68",
+          "title": "contact management system",
+          "url": "https://github.com/nikhilchandel083-hue/Contact-management-system/issues/1",
           "source": "github",
-          "createdAt": "2026-11-14T01:10:17.000Z",
-          "excerpt": "## Goal Patients can ask for an appointment in the app, and staff confirm or decline it. ## Context - Found while building #39 (PR #66): create and PATCH are provider-only (patients get 403) and there is no `requested` s"
+          "createdAt": "2026-11-14T12:48:16.000Z",
+          "excerpt": "#include #include #include #define FILE_NAME \"contacts.txt\" struct Contact { char name[50]; char phone[20]; char email[100]; }; // Function to remove newline void removeNewline(char str[]) { str[strcspn(str, \"\\n\")] = '\\0"
         }
       ],
       "opportunityCard": {
@@ -5071,7 +4972,7 @@
         "evaluatedDimensions": 5,
         "totalDimensions": 8,
         "total": 20,
-        "audience": "ops",
+        "audience": "solo",
         "validation": "interview",
         "riskFlags": [
           "single-source",
@@ -5080,42 +4981,121 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "1y6wo84:v1",
-      "titleZh": "患者预约请求",
-      "quoteZh": "## 目标 患者可在应用中申请预约，工作人员可确认或拒绝。## 背景 - 在开发#39（PR #66）时发现：创建和PATCH操作仅供服务提供者使用（患者会收到403错误），且没有requested字段",
-      "translationKey": "1y6wo84",
+      "cardKey": "mgbaiy:v1",
+      "titleZh": "联系人管理系统",
+      "quoteZh": "#include #include #include #define FILE_NAME \"contacts.txt\" struct Contact { char name[50]; char phone[20]; char email[100]; }; // 函数用于移除换行符 void removeNewline(char str[]) { str[strcspn(str, \"\\n\")] = '\\0';",
+      "translationKey": "mgbaiy",
       "idea": {
         "version": 2,
         "origin": "llm",
-        "persona": "general",
+        "persona": "solo-founder",
         "headline": {
-          "zh": "给医疗服务人员做一个确认或拒绝预约请求的小工具",
-          "en": "A small tool for medical staff to confirm or reject appointment requests."
+          "zh": "给「solo-founder」做一个「导出联系人文本」的小工具",
+          "en": "A small tool for solo-founders to export contacts as text"
         },
         "who": {
-          "zh": "医疗服务人员",
-          "en": "Medical staff."
+          "zh": "solo-founder",
+          "en": "solo-founder"
         },
         "why": {
-          "zh": "当前仅服务方能创建和修改预约，患者无法直接发起请求。",
-          "en": "Currently only providers can create and modify appointments, preventing patients from submitting requests directly."
+          "zh": "需要把联系人信息导出为文本文件",
+          "en": "needs to export contact info as a text file"
         },
         "step": {
-          "zh": "做一个简单页面让患者填写预约信息，服务人员可直接查看并回复。",
-          "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+          "zh": "做一个能读取联系人列表并输出文本的简单工具，找1人测试",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 solo founders doing everything themselves."
+        }
+      }
+    },
+    {
+      "id": "support-transcripts-intercom-data-model-and-migrations",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Intercom: data model and migrations",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-14T11:28:11.000Z",
+      "evidence": [
+        {
+          "title": "Intercom: data model and migrations",
+          "url": "https://github.com/justin-small/Relay/issues/272",
+          "source": "github",
+          "createdAt": "2026-11-14T11:28:11.000Z",
+          "excerpt": "Part of #237 **Epic: Intercom over a local LiveKit server**. ## What The intercom module's own tables in `relay.db`, created with `db.migrate(\"intercom\", /migrations)` (`NNNN_name.sql`, namespaced so they never collide w"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "support",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "kcwdiz:v1",
+      "titleZh": "Intercom：数据模型与迁移",
+      "quoteZh": "属于#237 **大型任务：通过本地LiveKit服务器使用Intercom**。## 内容 Intercom模块自身的表存储在`relay.db`中，这些表是通过`db.migrate(\"intercom\", /migrations)`（如`NNNN_name.sql`）创建的，其命名空间设置可避免冲突",
+      "translationKey": "kcwdiz",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "headline": {
+          "zh": "给独立开发者做一个Intercom数据模型迁移工具",
+          "en": "A small tool for independent developers to migrate Intercom data models"
+        },
+        "who": {
+          "zh": "独立开发者",
+          "en": "independent developers"
+        },
+        "why": {
+          "zh": "需要手动执行数据库迁移操作",
+          "en": "they need to manually perform database migration operations"
+        },
+        "step": {
+          "zh": "做一个能导入relay.db并生成迁移脚本的简单工具，找1位开发者试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 support teams."
         }
       }
     }
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-14T10:38:11.236Z",
+    "at": "2026-11-14T13:41:54.666Z",
     "status": "ok",
     "skippedReason": null,
     "errors": [],
     "total": 60,
-    "cached": 52,
-    "translated": 8,
+    "cached": 57,
+    "translated": 3,
     "failed": 0,
     "requests": 1
   },
@@ -5128,17 +5108,17 @@
   },
   "denoise": {
     "version": 1,
-    "at": "2026-11-14T10:38:28.981Z",
+    "at": "2026-11-14T13:41:59.105Z",
     "model": "hy-mt2-plus",
     "status": "suspicious",
     "enabled": true,
     "total": 60,
-    "cached": 19,
-    "pending": 41,
-    "judged": 41,
+    "cached": 57,
+    "pending": 3,
+    "judged": 3,
     "kept": 60,
     "rejected": 0,
-    "requests": 9,
+    "requests": 1,
     "ratioGuard": true,
     "forceKeepIds": 2,
     "forceKept": 1,
@@ -5148,14 +5128,14 @@
   "ideaSummary": {
     "version": 2,
     "model": "hy-mt2-plus",
-    "at": "2026-11-14T11:30:06.396Z",
+    "at": "2026-11-14T13:42:08.886Z",
     "enabled": true,
     "status": "ok",
     "total": 60,
-    "cached": 59,
-    "generated": 1,
+    "cached": 57,
+    "generated": 3,
     "templated": 0,
-    "requests": 1,
+    "requests": 3,
     "errors": []
   }
 }

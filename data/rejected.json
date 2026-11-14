@@ -1,7 +1,116 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T06:56:47.367Z",
-  "curationVersion": 1,
-  "count": 0,
-  "items": []
+  "generatedAt": "2026-11-14T08:09:01.528Z",
+  "curationVersion": 2,
+  "count": 12,
+  "curationCount": 1,
+  "denoiseCount": 11,
+  "items": [
+    {
+      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
+      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
+      "reasons": [
+        "rejectId:support-transcripts-admin-support-chat-support-tickets-inbox-and-out"
+      ]
+    },
+    {
+      "id": "solo-crm-service-degradation-on-microsoft-365",
+      "title": "Service degradation on Microsoft 365",
+      "layer": "denoise",
+      "reasons": [
+        "llm:status-news"
+      ],
+      "note": "标题为微软365服务性能下降的官方公告"
+    },
+    {
+      "id": "scheduling-ai-is-turning-apple-s-app-review-process-into-a-",
+      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+      "layer": "denoise",
+      "reasons": [
+        "llm:off-topic"
+      ],
+      "note": "内容为苹果应用审核相关的行业新闻"
+    },
+    {
+      "id": "scheduling-endpoint-delete-bookings-booking-id",
+      "title": "Endpoint: DELETE /bookings/{booking_id}",
+      "layer": "denoise",
+      "reasons": [
+        "llm:status-news"
+      ],
+      "note": "提到接口是空实现，属于官方状态说明。"
+    },
+    {
+      "id": "scheduling-endpoint-get-bookings-booking-id",
+      "title": "Endpoint: GET /bookings/{booking_id}",
+      "layer": "denoise",
+      "reasons": [
+        "llm:status-news"
+      ],
+      "note": "提到接口是空实现，属于官方状态说明。"
+    },
+    {
+      "id": "scheduling-nurses-sound-alarm-as-uber-for-nursing-apps-push",
+      "title": "Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregulate Healthcare",
+      "layer": "denoise",
+      "reasons": [
+        "llm:off-topic"
+      ],
+      "note": "内容为医疗行业新闻，与软件无关。"
+    },
+    {
+      "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
+      "title": "Post each Stripe fee to Xero as Spend Money and each payout as a bank transfer (interim poster…",
+      "layer": "denoise",
+      "reasons": [
+        "llm:issue-template"
+      ],
+      "note": "是空的GitHub任务列表模板。"
+    },
+    {
+      "id": "invoice-export-quickbooks",
+      "title": "Quickbooks",
+      "layer": "denoise",
+      "reasons": [
+        "llm:announcement"
+      ],
+      "note": "是QuickBooks相关的宣传内容。"
+    },
+    {
+      "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
+      "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
+      "layer": "denoise",
+      "reasons": [
+        "llm:issue-template"
+      ],
+      "note": "是带标题和描述的GitHub任务模板。"
+    },
+    {
+      "id": "scheduling-appointment-management",
+      "title": "Appointment management",
+      "layer": "denoise",
+      "reasons": [
+        "llm:issue-template"
+      ],
+      "note": "是关于预约管理的空任务列表。"
+    },
+    {
+      "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
+      "title": "Split chat-runtime's transcript and commands",
+      "layer": "denoise",
+      "reasons": [
+        "llm:issue-template"
+      ],
+      "note": "是Jira计划任务模板，无用户投诉"
+    },
+    {
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "title": "Service degradation on Microsoft 365",
+      "layer": "denoise",
+      "reasons": [
+        "llm:status-news"
+      ],
+      "note": "标题提及Microsoft 365服务降级官方公告。"
+    }
+  ]
 }

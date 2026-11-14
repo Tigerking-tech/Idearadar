@@ -87,8 +87,8 @@ pnpm ingest:promote     # 把高频扫描方向提升为 auto 赛道（带召回
 文件：`.github/workflows/ingest.yml` + `scripts/ingest.mjs` + `scripts/ingest-lib.mjs` + `scripts/ingest.config.json`。
 
 - 定时：每 6 小时在 GitHub 托管 runner 上运行；也支持 `workflow_dispatch` 手动触发。
-- 流程：`node --test scripts/*.test.mjs` 全量单测 → recall 评估 → cooldown → 多源采集 → TokenHub `hy-mt2-plus` 批量翻译 → Google Trends 外部热度 → 高频扫描方向提升（带准入闸门）→ 上传 artifact → 有变化时把数据产物提交回仓库（bot 提交带 `[skip ci]`，不会触发递归构建）。
-- 有则提交的数据产物：`data/opportunities.json`、`public/opportunities.json`、`data/history.json`、`data/recall-eval.json`、`data/rejected.json`、`data/external-heat.json`、`public/external-heat.json`、`data/query-scans.json`、`data/scan-candidates.json`。后两者是运行时产物，仓库初始可以没有。
+- 流程：`node --test scripts/*.test.mjs` 全量单测 → recall 评估 → cooldown → 多源采集 → TokenHub `hy-mt2-plus` 批量翻译 → **LLM 二次去噪（`scripts/denoise.mjs`）** → Google Trends 外部热度 → 高频扫描方向提升（带准入闸门）→ 上传 artifact → 有变化时把数据产物提交回仓库（bot 提交带 `[skip ci]`，不会触发递归构建）。
+- 有则提交的数据产物：`data/opportunities.json`、`public/opportunities.json`、`data/history.json`、`data/recall-eval.json`、`data/rejected.json`、`data/denoise.json`、`data/external-heat.json`、`public/external-heat.json`、`data/query-scans.json`、`data/scan-candidates.json`。后两者是运行时产物，仓库初始可以没有。
 - 纯函数评分层（`ingest-lib.mjs`）：频率 30% / 强度 20% / 近期性 15% / 跨源印证 20% / 显式付费意愿 15%，规则显式、可单测、可复现。
 - **默认启用的合规源**：Hacker News 官方 API、Stack Exchange 官方 API、GitHub Issues 公开 API、可配置 RSS/Atom、第一方数据导入。
 - **Reddit 默认关闭**：`ENABLE_REDDIT=false`。只有持有 Reddit 商业数据授权并配置 `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET` 时才启用。Reddit 用户协议禁止未授权商业抓取。2026-10-31 起不再受理新的公开 API 申请，2027-01-12 起撤销未登记应用的权限，2027 年 3 月公开 Data API 全面终止；此后官方路径只剩与 Reddit 签商业数据协议，或迁入 Devvit（代码须运行在 Reddit 基础设施上、由 Reddit 决定开放哪些接口，做不了跨平台聚合的独立订阅产品）。
@@ -131,13 +131,37 @@ probe 只跑 `hn` / `so` 源白名单以避开 GitHub 限流；probe 抛错/超�
 - **`scripts/entitlement.mjs`**：凭证驱动的额度权益判定。`IDEARADAR_BILLING_ENABLED !== "1"` 时永远返回 guest、行为完全不变。开启后合法 API token → pro / 不限次，登录会话按 plan → pro / member，匿名 → guest。`/api/scan` 据此调整限流。
 - 模板自带的 `better-auth` / Prisma / Creem 链路保留未改；当前只做到「额度判定接口」，尚未把 session / Subscription 表直接接进 `/api/scan`。
 
+### 方案 C：LLM 二次去噪 · `scripts/denoise.mjs`
+
+规则层（`NOISE_TITLE_RULES` + `curation.json`）拦不住「服务中断公告」「GitHub issue 模板」「功能规格清单」这类被词面命中的噪声，因此补一层语义判定。翻译之后独立成步，模型同时看到中英文标题、逐字引语、赛道与来源，逐条判定「是否真实用户抱怨」。
+
+| 环境变量 | 语义 |
+| --- | --- |
+| `IDEARADAR_DENOISE=1` | 启用（脚本默认关，避免本地误调 API 产生费用）；云端 workflow 默认传 1，把仓库变量设为 0 可关闭 |
+| `IDEARADAR_TRANSLATE_TOKEN` | 复用翻译密钥，不新增 Secret |
+| `IDEARADAR_DENOISE_MAX_REJECT_RATIO` | 单轮驳回比例上限，默认 0.4；超过即整批回退保留，防模型抽风误杀 |
+| `IDEARADAR_DENOISE_BATCH` | 每批条数，默认 5（8 条时实测易出现漏键 / JSON 截断） |
+
+**不误杀优先（fail-open）**：只有模型显式返回 `keep:false` 才剔除。无 token、未启用、请求失败、非法 JSON、判定条数不足、漏键，一律保留原条目；失败批次不写缓存，下一轮自动重判。判定键用短序号 `k`（`p0`、`p1`…）而非采集长 id，避免超长 id 被模型截断后整批对不上。
+
+**成本可控**：判定按 `denoiseKey`（= `translationKey`，id + 英文标题 + 引语）增量缓存到 `data/denoise.json`，稳定条目不重复调用。实测 45 条首轮 9 次请求 / 约 20s，第二轮仅 1 次请求 / 5 条待判。
+
+**可复核、可翻案**：被剔除条目合并写入 `data/rejected.json`（`layer:"denoise"`、类别码、中文理由、按层统计），不覆盖人工策展层的驳回记录。发现误杀后把该 id 加进 `scripts/curation.json` 的 `forceKeepIds`，该条目将永不被去噪剔除；确认的噪声也可加进 `rejectIds` 由采集阶段硬驳回。当前 `forceKeepIds` 有 2 条实测误杀、`rejectIds` 有 1 条实测噪声。
+
+**口径说明**：`history.json` 的趋势快照由采集阶段写入，统计的是「采集到的痛点数量」；去噪是展示层的质量过滤，不回写历史快照，两者口径不同，不要拿趋势计数直接对展示条数。
+
+**实测效果**：46 条线上产物 → 人工策展驳回 1 条 → LLM 剔除 11 条（服务降级公告 ×2、接口待办模板、医疗/苹果行业新闻、Jira/PR 空模板、文档任务等）→ 最终 34 条。`Salesforce Bulk: a job is never recovered`、`Python Flask webhook ... no POST request`、`Expense - Not here page opens...` 等具体 bug 报告全部保留。模型偶发套话式误判与 JSON 截断仍然存在，靠安全阀 + `rejected.json` 周复核 + `forceKeepIds` 兜底，不代表判定 100% 准确。
+
 ## 8. 验证记录
 
 | 项 | 结果 |
 | --- | --- |
-| `node --test scripts/*.test.mjs` | 11 个测试文件，160/160 通过 |
+| `node --test scripts/*.test.mjs` | 12 个测试文件，181/181 通过（含 `denoise.test.mjs` 21 项） |
 | `pnpm exec tsc --noEmit` | 0 类型错误 |
 | `pnpm build` | 通过，29 个路由正常构建 |
+| 真实 TokenHub 去噪（46 条线上产物，5 轮迭代） | 覆盖率 45/45、`status=ok`、剔除 11 条噪声 + 1 条人工驳回，最终 34 条；`forceKept=2` 翻案生效 |
+| 去噪增量缓存（端到端） | 首轮 9 请求 / 45 条；第二轮 `cached=30 judged=5 requests=1`，零重复调用 |
+| `IDEARADAR_DENOISE` 默认关闭 | 零副作用：不请求、不写任何文件 |
 | `IDEARADAR_PROMOTE_PROBE=0 node scripts/promote-niches.mjs` | `added=0 gate=true`，零产出 auto 赛道不再被加回 |
 | 快速证据通道（真实 `/api/scan` 候选数据、临时目录） | 有证据 `added=1 / via=evidence / probeCalls=0`；无证据 `added=0 / via=no-evidence` |
 | `POST /api/scan` | 200，`mode=llm`、score 75 高分候选、`entitlement={enabled:false,tier:guest}` |
@@ -151,7 +175,9 @@ probe 只跑 `hn` / `so` 源白名单以避开 GitHub 限流；probe 抛错/超�
 
 - 模板 webhook 未验签（见第 3 节），接入真实收款前必须补齐。
 - 采集评分是启发式规则，输出是「候选机会」而非结论。
-- **真实采集产物仍含新闻/工单噪声**（例如服务中断新闻、GitHub issue 模板、开发工单标题被词面命中归入赛道）。`scripts/curation.json` 的 `excludeTerms` 目前只覆盖少量明显 fad 词，需要按周复核 `data/rejected.json` 与线上结果持续人工扩充；这是当前相关度的主要短板，不是代码缺陷。
+- **相关度仍不是 100%，但已由方案 C 显著缓解**：规则层（`NOISE_TITLE_RULES` + `curation.json`）拦不住服务中断公告、issue 模板、功能规格清单，`scripts/denoise.mjs` 的 LLM 二次去噪补上语义判定（见第 7 节）。模型仍会偶发套话式误判或输出截断，靠「fail-open 保留 + 0.4 安全阀 + `rejected.json` 周复核 + `forceKeepIds` 翻案」兜底，不能当作精确过滤器使用。
+- **LLM 去噪有 API 成本与不确定性**：默认关闭（`IDEARADAR_DENOISE=1` 开启）；云端 workflow 默认开启，把仓库变量设为 0 即停。每轮只判新增条目（增量缓存），但模型偶发 JSON 截断会让该批当轮保留、下轮自动重判。
+- **`history.json` 与展示条数口径不同**：趋势快照在采集阶段写入，去噪不回写历史，趋势计数会高于实际展示条数。
 - 采集层已过滤新闻标题、发行公告、CI 日志、多语言 issue，并按词边界截断标题；规则集中在 `ingest-lib.mjs` 的 `NOISE_TITLE_RULES`。
 - `better-auth` 与 Prisma 使用模板默认配置，生产环境应换成 Postgres 并配置迁移。
 - 若部署到 Vercel Serverless，本地文件写入不持久：必须配 `IDEARADAR_STORE_URL` 走远端 REST，否则方向记录与候选证据每次请求都会丢。

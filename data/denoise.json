@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-14T08:09:01.528Z",
+  "model": "hy-mt2-plus",
+  "totalVerdicts": 45,
+  "verdicts": {
+    "o0xygl": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "已预订的预约无法被其他患者预订",
+      "id": "scheduling-appointment-booking",
+      "title": "Appointment Booking",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1l86ra8": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "OAuth登录失败",
+      "id": "dev-workflow-claude-oauth-failures",
+      "title": "Claude OAuth Failures",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "wtcmtu": {
+      "keep": true,
+      "code": "issue-template",
+      "reason": "为功能需求模板，无用户投诉",
+      "id": "invoice-export-wish-import-expense-report-and-invoice-lines-fro",
+      "title": "WISH: import Expense Report (and invoice) lines from CSV",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1iaz7w3": {
+      "keep": true,
+      "code": "off-topic",
+      "reason": "内容为对微软产品的负面评价",
+      "id": "scheduling-libreoffice-actually-works-365-days-a-year",
+      "title": "LibreOffice actually works 365 days a year",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "cel4x8": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题为微软365服务性能下降的官方公告",
+      "id": "solo-crm-service-degradation-on-microsoft-365",
+      "title": "Service degradation on Microsoft 365",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "10q6ur": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及Yahoo Oauth功能异常",
+      "id": "dev-workflow-yahoo-oauth",
+      "title": "Yahoo Oauth",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1romyta": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到API调用出现HTTP 422错误",
+      "id": "solo-crm-issues-in-crm",
+      "title": "ISSUES in CRM",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "2b252w": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到同步失败会导致联系人无法导出",
+      "id": "solo-crm-salesforce-sync-log-and-failure-alert",
+      "title": "Salesforce: sync log and failure alert",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1k0af9r": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为苹果应用审核相关的行业新闻",
+      "id": "scheduling-ai-is-turning-apple-s-app-review-process-into-a-",
+      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "q1kin6": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到预订功能存在使用不便的问题",
+      "id": "scheduling-booking-improvements",
+      "title": "Booking improvements",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1q1cx2n": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为行业相关感慨，非软件痛点。",
+      "id": "solo-crm-running-a-law-firm-on-free-software",
+      "title": "Running a law firm on Free software",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "x996j0": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到webhook无POST请求的故障问题。",
+      "id": "dev-workflow-python-flask-webhook-receives-meta-lead-ads-test",
+      "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request…",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "14qo93j": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到CI流水线调试的故障问题。",
+      "id": "dev-workflow-devvm-dev-one-vm-for-every-project",
+      "title": "Devvm.dev: One VM for every project",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1pahlgq": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到CSV导出功能缺失的故障问题。",
+      "id": "invoice-export-csv-export-for-timesheets-and-invoices",
+      "title": "CSV export for timesheets and invoices",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "4lp5nm": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到无法提交非公司货币账户的故障问题。",
+      "id": "invoice-export-banking-app-transaction-multi-currency",
+      "title": "Banking App Transaction: Multi Currency",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "tihhkf": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为贡献指南链接，非软件痛点。",
+      "id": "invoice-export-expense-not-here-page-opens-after-deleting-expen",
+      "title": "Expense - Not here page opens after deleting expense on single expense table view",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "c9813y": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "提到接口是空实现，属于官方状态说明。",
+      "id": "scheduling-appointment-cancellation",
+      "title": "Appointment Cancellation",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1o3ijf0": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "提到接口是空实现，属于官方状态说明。",
+      "id": "scheduling-endpoint-delete-bookings-booking-id",
+      "title": "Endpoint: DELETE /bookings/{booking_id}",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "zeg1zq": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "提到接口是空实现，属于官方状态说明。",
+      "id": "scheduling-endpoint-get-bookings-booking-id",
+      "title": "Endpoint: GET /bookings/{booking_id}",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "ti9css": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为医疗行业新闻，与软件无关。",
+      "id": "scheduling-nurses-sound-alarm-as-uber-for-nursing-apps-push",
+      "title": "Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregulate Healthcare",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "17raob9": {
+      "keep": false,
+      "code": "issue-template",
+      "reason": "是空的GitHub任务列表模板。",
+      "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
+      "title": "Post each Stripe fee to Xero as Spend Money and each payout as a bank transfer (interim poster…",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1hriesl": {
+      "keep": false,
+      "code": "announcement",
+      "reason": "是QuickBooks相关的宣传内容。",
+      "id": "invoice-export-quickbooks",
+      "title": "Quickbooks",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "bfqf7a": {
+      "keep": false,
+      "code": "issue-template",
+      "reason": "是带标题和描述的GitHub任务模板。",
+      "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
+      "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1oxufvs": {
+      "keep": false,
+      "code": "issue-template",
+      "reason": "是关于预约管理的空任务列表。",
+      "id": "scheduling-appointment-management",
+      "title": "Appointment management",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1uib3xg": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到模型返回null的故障问题。",
+      "id": "scheduling-openai-structured-outputs-model-returns-null-or-",
+      "title": "OpenAI structured outputs: model returns null or skips values that exist in the source text…",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "22yq12": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为React代码示例，无问题描述",
+      "id": "solo-crm-crm",
+      "title": "CRM",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1rlcx53": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到没有POST请求，存在具体故障",
+      "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
+      "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request…",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1agg45t": {
+      "keep": false,
+      "code": "issue-template",
+      "reason": "是Jira计划任务模板，无用户投诉",
+      "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
+      "title": "Split chat-runtime's transcript and commands",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "10aehgh": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "列出多项预约功能需求，存在需求表述",
+      "id": "scheduling-appointment-booking-tasks",
+      "title": "Appointment booking tasks",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "y1k1ed": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到付款未核销，存在具体故障",
+      "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
+      "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce…",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "2tp4ne": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及发票页面显示错误。",
+      "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
+      "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page…",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1v71lo3": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及多币种结算功能问题。",
+      "id": "invoice-export-multi-currency-expenses-deposits-settlement-engi",
+      "title": "Multi-currency expenses, deposits & settlement engine",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1x6lmz6": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及订阅页面存在问题。",
+      "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
+      "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out…",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1xbk369": {
+      "keep": true,
+      "code": "announcement",
+      "reason": "标题为文档编写相关通知。",
+      "id": "scheduling-61-docs-document-the-scheduling-context-in-docs-",
+      "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "4mo5pg": {
+      "keep": true,
+      "code": "meta",
+      "reason": "内容为关于预约功能的讨论。",
+      "id": "scheduling-public-booking-phone-validation-and-booking-mana",
+      "title": "Public booking phone validation and booking management",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1r9pth0": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及任务永远无法恢复，属于具体故障问题。",
+      "id": "solo-crm-salesforce-bulk-a-remembered-job-salesforce-has-",
+      "title": "Salesforce Bulk: a remembered job Salesforce has deleted is never recovered",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1fpeatb": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能支持相关介绍，无用户痛点。",
+      "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
+      "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "toluil": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及密码在文件中泄露，属于具体安全故障问题。",
+      "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
+      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "18zgbi": {
+      "keep": true,
+      "code": "off-topic",
+      "reason": "内容为运营律所的博客创意，与软件工作流无关。",
+      "id": "scheduling-running-a-law-firm-on-free-software",
+      "title": "Running a law firm on Free software",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "p22tqt": {
+      "keep": true,
+      "code": "issue-template",
+      "reason": "内容为功能开发的待办清单，属于模板内容。",
+      "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
+      "title": "Scheduling (1/9): Scheduling store and config",
+      "at": "2026-11-14T08:07:10.196Z"
+    },
+    "1y6wo84": {
+      "keep": true,
+      "code": "other",
+      "reason": "为项目开发计划内容，非用户痛点。",
+      "id": "scheduling-patient-appointment-requests",
+      "title": "Patient appointment requests",
+      "at": "2026-11-14T08:08:55.121Z"
+    },
+    "gmvdio": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题提及Microsoft 365服务降级官方公告。",
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "title": "Service degradation on Microsoft 365",
+      "at": "2026-11-14T08:08:55.121Z"
+    },
+    "d4vnv": {
+      "keep": true,
+      "code": "other",
+      "reason": "为开发规划内容，非用户痛点。",
+      "id": "dev-workflow-beta-uber-api-integration",
+      "title": "Beta: Uber API integration",
+      "at": "2026-11-14T08:08:55.121Z"
+    },
+    "r2ytz1": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到Google Cloud IAP返回Error 9的错误现象。",
+      "id": "dev-workflow-google-cloud-iap-returns-error-9-after-oauth-red",
+      "title": "Google Cloud IAP returns Error 9 after OAuth redirect on Cloud Run",
+      "at": "2026-11-14T08:08:55.121Z"
+    },
+    "11xch1z": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到报告列表无法通过键盘导航的故障问题。",
+      "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
+      "title": "Expense - Report list cannot be navigated via keyboard",
+      "at": "2026-11-14T08:08:55.121Z"
+    }
+  }
+}

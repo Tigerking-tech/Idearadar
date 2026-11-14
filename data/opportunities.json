@@ -4,10 +4,10 @@
   "lookbackDays": 30,
   "minScore": 20,
   "curation": {
-    "version": 1,
-    "rejected": 0,
+    "version": 2,
+    "rejected": 1,
     "pinned": 0,
-    "cards": 46,
+    "cards": 34,
     "activeNiches": 5
   },
   "recall": {
@@ -99,7 +99,7 @@
   "totals": {
     "rawRecords": 1209,
     "complaintRecords": 73,
-    "opportunities": 46
+    "opportunities": 34
   },
   "errors": [],
   "items": [
@@ -373,66 +373,6 @@
       "cardKey": "1iaz7w3:v1"
     },
     {
-      "id": "solo-crm-service-degradation-on-microsoft-365",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Service degradation on Microsoft 365",
-      "score": 29,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "frustration"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T09:50:40.000Z",
-      "evidence": [
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-13T09:50:40.000Z",
-          "excerpt": "This year has been terrible for outages, the European Google power outage earlier this year, the PHP stuff (although that&#x27;s only tangentially related),the AWS outage in May, Cloudflare a couple times around this tim"
-        }
-      ],
-      "titleZh": "Microsoft 365服务性能下降",
-      "quoteZh": "今年的服务中断情况十分糟糕，先是年初的欧洲谷歌停电，还有PHP相关的问题（虽然那只是间接相关），五月又有AWS停电，这段时间Cloudflare也出现过几次故障。",
-      "translationKey": "cel4x8",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 4,
-          "urgency": 5,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 30,
-        "audience": "solo",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "cel4x8:v1"
-    },
-    {
       "id": "dev-workflow-yahoo-oauth",
       "nicheId": "dev-workflow",
       "nicheLabel": "Developer workflow and integration friction",
@@ -610,71 +550,6 @@
       "cardKey": "2b252w:v1"
     },
     {
-      "id": "scheduling-ai-is-turning-apple-s-app-review-process-into-a-",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
-      "score": 26,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T11:11:43.000Z",
-      "evidence": [
-        {
-          "title": "AI is turning Apple's app review process into a nightmare for synth developers",
-          "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
-          "source": "hn",
-          "createdAt": "2026-11-13T11:11:43.000Z",
-          "excerpt": "> You can avoid the 12 beta testers if you create an LLC Yeah that is an easy option. In my jurisdiction that costs above 500€ for legal paperwork (notarized stuff) and now you have to submit double-entry bookeping recor"
-        },
-        {
-          "title": "AI is turning Apple's app review process into a nightmare for synth developers",
-          "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
-          "source": "hn",
-          "createdAt": "2026-11-13T11:11:43.000Z",
-          "excerpt": "> You can avoid the 12 beta testers if you create an LLC Yeah that is an easy option. In my jurisdiction that costs above 500€ for legal paperwork (notarized stuff) and now you have to submit double-entry bookeping recor"
-        }
-      ],
-      "titleZh": "AI正在让苹果的应用审核流程成为合成器开发者的噩梦",
-      "quoteZh": "如果你成立有限责任公司就能避开12名测试用户，这确实是个简单的办法。但在我的所在地区，法律文件公证的费用就要500欧元以上，而且现在还得提交双栏记账记录。",
-      "translationKey": "1k0af9r",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 2,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 22,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1k0af9r:v1"
-    },
-    {
       "id": "scheduling-booking-improvements",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -793,66 +668,6 @@
         ]
       },
       "cardKey": "1q1cx2n:v1"
-    },
-    {
-      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-      "score": 26,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 12.4,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T02:59:24.000Z",
-      "evidence": [
-        {
-          "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-          "url": "https://github.com/FORHU/ilovelawyer-admin/issues/38",
-          "source": "github",
-          "createdAt": "2026-11-09T02:59:24.000Z",
-          "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
-        }
-      ],
-      "titleZh": "管理后台·客服聊天：工单收件箱与结果报告",
-      "quoteZh": "隶属于 FORHU/ilovelawyer-client#120，泳道 ADM-2，复用 BE-3 的管理端接口。问题：管理员需要一个统一入口，来回复机器人处理不了的客服工单，并查看哪些流程在失败，以便……",
-      "translationKey": "19lcdkv",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 4,
-          "urgency": 5,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 30,
-        "audience": "support",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "19lcdkv:v1"
     },
     {
       "id": "dev-workflow-python-flask-webhook-receives-meta-lead-ads-test",
@@ -1212,186 +1027,6 @@
       "cardKey": "c9813y:v1"
     },
     {
-      "id": "scheduling-endpoint-delete-bookings-booking-id",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Endpoint: DELETE /bookings/{booking_id}",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 10.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-05T17:50:32.000Z",
-      "evidence": [
-        {
-          "title": "Endpoint: DELETE /bookings/{booking_id}",
-          "url": "https://github.com/dragontamer09/flight-control/issues/10",
-          "source": "github",
-          "createdAt": "2026-11-05T17:50:32.000Z",
-          "excerpt": "- [ ] Cancels the booking, returns its seats on every flight, refunds in full (revenue drops). - [ ] Returns the booking with `status` `cancelled`. - [ ] Cancelling twice returns the same thing, not an error. - [ ] `404`"
-        }
-      ],
-      "titleZh": "接口：DELETE /bookings/{booking_id}",
-      "quoteZh": "待办：取消预订、释放所有航班座位、全额退款（收入下降）；返回 status 为 cancelled 的预订；重复取消返回同一结果而非报错；未知 id 返回 404。",
-      "translationKey": "1o3ijf0",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 3,
-          "urgency": 5,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 28,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1o3ijf0:v1"
-    },
-    {
-      "id": "scheduling-endpoint-get-bookings-booking-id",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Endpoint: GET /bookings/{booking_id}",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 10.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-05T17:50:30.000Z",
-      "evidence": [
-        {
-          "title": "Endpoint: GET /bookings/{booking_id}",
-          "url": "https://github.com/dragontamer09/flight-control/issues/9",
-          "source": "github",
-          "createdAt": "2026-11-05T17:50:30.000Z",
-          "excerpt": "- [ ] Returns the booking with `status` `confirmed` or `cancelled`. - [ ] `404` if unknown."
-        }
-      ],
-      "titleZh": "接口：GET /bookings/{booking_id}",
-      "quoteZh": "待办：返回 status 为 confirmed 或 cancelled 的预订；未知 id 返回 404。",
-      "translationKey": "zeg1zq",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 3,
-          "urgency": 5,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 28,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "zeg1zq:v1"
-    },
-    {
-      "id": "scheduling-nurses-sound-alarm-as-uber-for-nursing-apps-push",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregulate Healthcare",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 8.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-01T20:56:30.000Z",
-      "evidence": [
-        {
-          "title": "Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregulate Healthcare",
-          "url": "https://nurse.org/news/uber-for-nursing-gig-apps-report/",
-          "source": "hn",
-          "createdAt": "2026-11-01T20:56:30.000Z",
-          "excerpt": "Except when the \"meter is broken\" or they take the scenic route. My grandmother with dementia routinely got charged double or triple the expected rate for trips to medical appointments, until we figured out what was goin"
-        }
-      ],
-      "titleZh": "护士警示「护理界 Uber」类应用推动医疗去监管化",
-      "quoteZh": "除非计价器坏了，或者司机故意绕远路。我患有痴呆症的祖母去就医的行程经常被收取两三倍车费，直到我们发现问题出在……",
-      "translationKey": "ti9css",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 4,
-          "urgency": 5,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 30,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "ti9css:v1"
-    },
-    {
       "id": "scheduling-patient-appointment-requests",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1445,63 +1080,6 @@
         ]
       },
       "cardKey": "1y6wo84:v1"
-    },
-    {
-      "id": "scheduling-service-degradation-on-microsoft-365",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Service degradation on Microsoft 365",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T08:05:07.000Z",
-      "evidence": [
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-13T08:05:07.000Z",
-          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
-        }
-      ],
-      "titleZh": "Microsoft 365 服务降级",
-      "translationKey": "gmvdio",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "gmvdio:v1"
     },
     {
       "id": "dev-workflow-beta-uber-api-integration",
@@ -1670,240 +1248,6 @@
         ]
       },
       "cardKey": "11xch1z:v1"
-    },
-    {
-      "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Post each Stripe fee to Xero as Spend Money and each payout as a bank transfer (interim poster…",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T08:28:50.000Z",
-      "evidence": [
-        {
-          "title": "Post each Stripe fee to Xero as Spend Money and each payout as a bank transfer (interim poster after Ledger M8)",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4997",
-          "source": "github",
-          "createdAt": "2026-11-11T08:28:50.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — option (a): build M8 as designed, then a separate small interim Xero pos"
-        }
-      ],
-      "titleZh": "将每笔 Stripe 手续费记为 Xero 支出、每次结算记为银行转账（临时过账方案…",
-      "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11），工作顺序见该处。2026-11-11 已决策采用方案 (a)：先按设计实现 M8，再单独做一个临时的 Xero 过账……",
-      "translationKey": "17raob9",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "17raob9:v1"
-    },
-    {
-      "id": "invoice-export-quickbooks",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Quickbooks",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T13:16:35.000Z",
-      "evidence": [
-        {
-          "title": "Quickbooks",
-          "url": "https://github.com/occupysaas/website/issues/74",
-          "source": "github",
-          "createdAt": "2026-11-11T13:16:35.000Z",
-          "excerpt": "The Software-as-a-Service (SaaS) model has transformed software from something businesses could purchase and own into something they must continuously rent. QuickBooks Online is a perfect example of how this model can be"
-        }
-      ],
-      "titleZh": "QuickBooks 相关问题",
-      "quoteZh": "SaaS（软件即服务）模式把软件从买断拥有变成了持续租用。QuickBooks Online 正是这一模式的典型代表，它……",
-      "translationKey": "1hriesl",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1hriesl:v1"
-    },
-    {
-      "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T03:46:02.000Z",
-      "evidence": [
-        {
-          "title": "Add \"Calendly Link\" textbox under Admin Profile AND FIX BUBBLE HOMEPAGE BUG",
-          "url": "https://github.com/UTDallasEPICS/the-samaritan-inn/issues/145",
-          "source": "github",
-          "createdAt": "2026-11-12T03:46:02.000Z",
-          "excerpt": "## Description Add a Calendly Link textbox to the Admin Profile page, allowing admins to easily update the Calendly URL through the UI without needing to modify the codebase. Store the link in the database and overwrite "
-        }
-      ],
-      "titleZh": "在管理员资料页增加 Calendly 链接输入框，并修复气泡首页缺陷",
-      "quoteZh": "描述：在管理员资料页增加 Calendly 链接输入框，让管理员无需改代码即可通过界面更新 Calendly URL。链接存入数据库并覆盖……",
-      "translationKey": "bfqf7a",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "bfqf7a:v1"
-    },
-    {
-      "id": "scheduling-appointment-management",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment management",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 9.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-03T15:26:39.000Z",
-      "evidence": [
-        {
-          "title": "Appointment management",
-          "url": "https://github.com/NicolasDubray/NPJL/issues/84",
-          "source": "github",
-          "createdAt": "2026-11-03T15:26:39.000Z",
-          "excerpt": "As a supervisor, I want to be able to manage appointments by pressing a \"manage appointments\" button and thereby being taken to a page where I can see a calendar view of scheduled appointments, with the ability to cancel"
-        }
-      ],
-      "titleZh": "预约管理",
-      "quoteZh": "作为主管，我希望能点管理预约按钮进入一个页面，以日历视图查看已排定的预约，并能取消……",
-      "translationKey": "1oxufvs",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 3,
-          "urgency": 5,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 28,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1oxufvs:v1"
     },
     {
       "id": "scheduling-openai-structured-outputs-model-returns-null-or-",
@@ -2078,64 +1422,6 @@
         ]
       },
       "cardKey": "1rlcx53:v1"
-    },
-    {
-      "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Split chat-runtime's transcript and commands",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T22:31:08.000Z",
-      "evidence": [
-        {
-          "title": "Split chat-runtime's transcript and commands",
-          "url": "https://github.com/ejjsharpe/moonbase/issues/281",
-          "source": "github",
-          "createdAt": "2026-11-12T22:31:08.000Z",
-          "excerpt": "Parent epic: #273. Planning ticket **CL-08**. Track A. ## Dependencies CL-07 #280. ## Problem and outcome `chat-runtime/src/transcript.ts` (1,136 lines) and `commands.ts` (917) are over the 600-line limit and mix concern"
-        }
-      ],
-      "titleZh": "拆分 chat-runtime 的 transcript 与 commands",
-      "quoteZh": "父史诗：#273。规划工单 **CL-08**。轨道 A。 ## 依赖 CL-07 #280。 ## 问题与结果 `chat-runtime/src/transcript.ts`（1,136 行）和 `commands.ts`（917）超过 600 行限制且混淆了关注点",
-      "translationKey": "1agg45t",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "support",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1agg45t:v1"
     },
     {
       "id": "scheduling-appointment-booking-tasks",
@@ -2865,5 +2151,24 @@
     "done": 0,
     "skipped": 46,
     "requests": 0
+  },
+  "denoise": {
+    "version": 1,
+    "at": "2026-11-14T08:09:01.528Z",
+    "model": "hy-mt2-plus",
+    "status": "ok",
+    "enabled": true,
+    "total": 35,
+    "cached": 30,
+    "pending": 5,
+    "judged": 5,
+    "kept": 34,
+    "rejected": 1,
+    "requests": 1,
+    "ratioGuard": false,
+    "forceKeepIds": 2,
+    "forceKept": 2,
+    "skippedReason": null,
+    "errors": []
   }
 }

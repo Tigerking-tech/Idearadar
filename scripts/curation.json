@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "note": "人工策展规则（可版本控制、无需后台）。规则按 excludeTerms → rejectIds → minCorroboration → pinIds 顺序执行；任一清单为空时该步不改变行为。修改后下一轮定时采集生效，被拒条目写入 data/rejected.json 供每周复核。",
+  "version": 2,
+  "note": "人工策展规则（可版本控制、无需后台）。规则按 excludeTerms → rejectIds → minCorroboration → pinIds 顺序执行；任一清单为空时该步不改变行为。修改后下一轮定时采集生效，被拒条目写入 data/rejected.json 供每周复核。forceKeepIds 是 LLM 去噪（scripts/denoise.mjs）的人工翻案清单：列出被误杀条目的 id，该条目将永不被去噪剔除；id 可直接在 data/rejected.json 的 layer=denoise 记录里复制。",
   "excludeTerms": [
     "movie", "movies", "tv show", "netflix", "celebrity", "celebrities", "gossip",
     "horoscope", "zodiac", "lottery", "casino", "betting odds", "airdrop",
@@ -9,8 +9,14 @@
     "crypto price", "token price", "memecoin", "pump and dump",
     "电影", "电视剧", "明星", "八卦", "星座", "彩票", "空投", "抽奖", "优惠券", "币价"
   ],
-  "rejectIds": [],
+  "rejectIds": [
+    "support-transcripts-admin-support-chat-support-tickets-inbox-and-out"
+  ],
   "pinIds": [],
+  "forceKeepIds": [
+    "scheduling-appointment-cancellation",
+    "invoice-export-expense-not-here-page-opens-after-deleting-expen"
+  ],
   "minCorroboration": 1,
   "pinBoost": 15
 }

@@ -184,6 +184,36 @@ test("summarizeWithLlm 过滤非法索引、空标题并限制 5 条", async () 
   assert.equal(out[0].i, 0);
 });
 
+test("summarizeWithLlm 合并模型输出的重复 items 键（hy-mt2-plus 实测）", async () => {
+  const scored = Array.from({ length: 5 }, (_, i) => ({ ...row(i), score: 60 }));
+  const rec = (i) => JSON.stringify({ i, title: `痛点${i}`, quote: "证据原文", gap: "空白", score: 70 });
+  // 严格 JSON.parse 只会保留最后一个同名 items，前两条会被静默丢掉。
+  const broken = '{"items":[' + rec(0) + '],"items":[' + rec(1) + '],"items":[' + rec(2) + ']}';
+  const fetchImpl = async () => ({
+    ok: true,
+    json: async () => ({ choices: [{ message: { content: broken } }] }),
+  });
+  const out = await summarizeWithLlm(scored, "pet", "zh", { token: "fake" }, fetchImpl);
+  assert.equal(out.length, 3, "三个 items 数组都要合并，不能只留最后一个");
+  assert.deepEqual(out.map((x) => x.i), [0, 1, 2]);
+});
+
+test("summarizeWithLlm 漏填 i 时按输出顺序回退，明确越界的 i 仍丢弃", async () => {
+  const scored = Array.from({ length: 3 }, (_, i) => ({ ...row(i), score: 60 }));
+  const content = JSON.stringify({ items: [
+    { title: "漏填索引A", quote: "证据", gap: "", score: 70 },
+    { i: 99, title: "越界应丢弃", quote: "证据", gap: "", score: 70 },
+    { title: "漏填索引B", quote: "证据", gap: "", score: 70 },
+  ] });
+  const fetchImpl = async () => ({
+    ok: true,
+    json: async () => ({ choices: [{ message: { content } }] }),
+  });
+  const out = await summarizeWithLlm(scored, "pet", "zh", { token: "fake" }, fetchImpl);
+  assert.equal(out.length, 2);
+  assert.deepEqual(out.map((x) => x.title), ["漏填索引A", "漏填索引B"]);
+});
+
 test("summarizeWithLlm 非法 JSON / HTTP 错误 / 抛错一律降级为 null", async () => {
   const scored = [row(1)];
   const cases = [

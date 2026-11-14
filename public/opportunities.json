@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T08:28:59.049Z",
+  "generatedAt": "2026-11-14T10:06:40.532Z",
   "lookbackDays": 30,
   "minScore": 20,
   "curation": {
     "version": 2,
-    "rejected": 1,
+    "rejected": 2,
     "pinned": 0,
-    "cards": 34,
-    "activeNiches": 5
+    "cards": 60,
+    "activeNiches": 9
   },
   "recall": {
     "method": "relevance",
@@ -16,6 +16,38 @@
     "verdict": "adopt",
     "topicScope": "any",
     "nicheMetrics": [
+      {
+        "niche": "everyday-money",
+        "method": "relevance",
+        "raw": 40,
+        "itemCount": 36,
+        "recallTitleRate": 0.25,
+        "finalTitleRate": 0.2222222222222222
+      },
+      {
+        "niche": "pet-and-home-care",
+        "method": "relevance",
+        "raw": 26,
+        "itemCount": 21,
+        "recallTitleRate": 0.34615384615384615,
+        "finalTitleRate": 0.3181818181818182
+      },
+      {
+        "niche": "local-service-booking",
+        "method": "relevance",
+        "raw": 41,
+        "itemCount": 33,
+        "recallTitleRate": 0.6341463414634146,
+        "finalTitleRate": 0.696969696969697
+      },
+      {
+        "niche": "personal-admin",
+        "method": "relevance",
+        "raw": 41,
+        "itemCount": 32,
+        "recallTitleRate": 0.7560975609756098,
+        "finalTitleRate": 0.90625
+      },
       {
         "niche": "solo-crm",
         "method": "relevance",
@@ -27,33 +59,33 @@
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 212,
+        "raw": 222,
         "itemCount": 12,
-        "recallTitleRate": 0.5283018867924528,
+        "recallTitleRate": 0.4954954954954955,
         "finalTitleRate": 0.75
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 243,
+        "raw": 242,
         "itemCount": 2,
-        "recallTitleRate": 0.46502057613168724,
+        "recallTitleRate": 0.4669421487603306,
         "finalTitleRate": 1
       },
       {
         "niche": "scheduling",
         "method": "relevance",
-        "raw": 258,
+        "raw": 252,
         "itemCount": 18,
-        "recallTitleRate": 0.6395348837209303,
+        "recallTitleRate": 0.6507936507936508,
         "finalTitleRate": 0.6666666666666666
       },
       {
         "niche": "dev-workflow",
         "method": "relevance",
-        "raw": 232,
+        "raw": 226,
         "itemCount": 6,
-        "recallTitleRate": 0.5560344827586207,
+        "recallTitleRate": 0.5707964601769911,
         "finalTitleRate": 0.8333333333333334
       }
     ]
@@ -63,11 +95,11 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 558
+      "rows": 538
     },
     {
       "id": "so",
-      "label": "Stack Exchange (official API)",
+      "label": "Stack Exchange / Stack Overflow (official API)",
       "enabled": true,
       "rows": 59
     },
@@ -75,13 +107,19 @@
       "id": "github",
       "label": "GitHub Issues (public REST API)",
       "enabled": true,
-      "rows": 623
+      "rows": 598
+    },
+    {
+      "id": "consumerQa",
+      "label": "Everyday Q&A: webapps / money / workplace / travel (official Stack Exchange API)",
+      "enabled": true,
+      "rows": 148
     },
     {
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 8
+      "rows": 0
     },
     {
       "id": "firstParty",
@@ -97,11 +135,17 @@
     }
   ],
   "totals": {
-    "rawRecords": 1248,
-    "complaintRecords": 72,
-    "opportunities": 34
+    "rawRecords": 1343,
+    "complaintRecords": 197,
+    "opportunities": 60
   },
-  "errors": [],
+  "errors": [
+    {
+      "source": "rss",
+      "feed": "https://news.ycombinator.com/rss",
+      "message": "fetch failed"
+    }
+  ],
   "items": [
     {
       "id": "scheduling-appointment-booking",
@@ -163,7 +207,6 @@
         }
       ],
       "titleZh": "预约登记",
-      "quoteZh": "患者可查看可预约的医生与时段；可预约空闲时段；可改期或取消预约；已被预约的时段不能被其他患者重复预约。",
       "translationKey": "o0xygl",
       "opportunityCard": {
         "version": 1,
@@ -188,7 +231,191 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "o0xygl:v1"
+      "cardKey": "o0xygl:v1",
+      "quoteZh": "患者可查看可用医生及时段，可预订可用时段，可重新安排或取消预约，已预订的预约不可被其他患者预订。",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给患者做一个查看医生时间并预约的小工具",
+          "en": "A small tool for patients to view doctor slots and book appointments."
+        },
+        "who": {
+          "zh": "患者",
+          "en": "Patients."
+        },
+        "why": {
+          "zh": "无法重复预约已占用的预约时段",
+          "en": "Booked appointments cannot be booked by another patient."
+        },
+        "step": {
+          "zh": "做一个可查看医生时间并预约的简单网页版工具",
+          "en": "Create a simple web tool that shows doctor times and lets users book appointments."
+        }
+      }
+    },
+    {
+      "id": "everyday-money-does-an-expenses-paid-interview-cover-meals-as-w",
+      "nicheId": "everyday-money",
+      "nicheLabel": "Everyday money: subscriptions, expenses and reimbursements",
+      "title": "Does an expenses-paid interview cover meals as well?",
+      "score": 36,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 0,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 15
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [],
+      "willingnessToPay": true,
+      "lastSeen": "2016-08-13T12:03:16.000Z",
+      "evidence": [
+        {
+          "title": "Does an expenses-paid interview cover meals as well?",
+          "url": "https://workplace.stackexchange.com/questions/74199/does-an-expenses-paid-interview-cover-meals-as-well",
+          "source": "consumerQa",
+          "createdAt": "2016-08-13T12:03:16.000Z",
+          "excerpt": "This is for a position in the US. The company is paying for the flight, cab, hotel expenses. The domestic flight is over 4 hours each way. Can I also claim the food expense during my travel and stay. The company provides"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 2,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 8,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 36,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "4kivcq:v1",
+      "titleZh": "费用报销面试是否包含餐费？",
+      "quoteZh": "这是美国的一个职位，公司会承担机票、出租车和酒店费用，单程国内航班飞行时间超过4小时，我在旅行和住宿期间能否申请餐费报销？公司提供了。",
+      "translationKey": "4kivcq",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给求职者做一个查询美国工作差旅餐费报销规则的小工具",
+          "en": "A small tool for job seekers to check meal reimbursement rules for US work trips"
+        },
+        "who": {
+          "zh": "求职者",
+          "en": "job seekers"
+        },
+        "why": {
+          "zh": "不清楚美国工作差旅的餐费是否可报销",
+          "en": "they are unsure if meal expenses are covered for US work trips"
+        },
+        "step": {
+          "zh": "整理美国常见工作差旅报销规则，发到招聘平台相关帖子测试需求",
+          "en": "list common US work trip reimbursement rules and post them in relevant recruitment forum threads to test demand"
+        }
+      }
+    },
+    {
+      "id": "everyday-money-how-do-you-verify-your-household-budget",
+      "nicheId": "everyday-money",
+      "nicheLabel": "Everyday money: subscriptions, expenses and reimbursements",
+      "title": "how do you verify your household budget?",
+      "score": 31,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 10,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "broken",
+        "manual"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2019-09-25T18:30:00.000Z",
+      "evidence": [
+        {
+          "title": "how do you verify your household budget?",
+          "url": "https://money.stackexchange.com/questions/47446/how-do-you-verify-your-household-budget",
+          "source": "consumerQa",
+          "createdAt": "2019-09-25T18:30:00.000Z",
+          "excerpt": "I have a monthly household budget where I track income and expenses broken down by category. It's just an Excel spreadsheet where I enter the amounts from all receipts into the appropriate category. It's quite easy to ma"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 7,
+          "urgency": 5,
+          "feasibility": 6,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 44,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "tl2dfw:v1",
+      "titleZh": "如何核实家庭预算？",
+      "quoteZh": "我有一个按月记录的家庭预算表，按类别划分收入和支出，就是一份Excel表格，我把所有收据上的金额填入对应类别，操作起来相当简单。",
+      "translationKey": "tl2dfw",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给普通用户做一个自动汇总收支数据的小工具",
+          "en": "A small tool for ordinary users to automatically summarize income and expenses."
+        },
+        "who": {
+          "zh": "普通用户",
+          "en": "Ordinary users."
+        },
+        "why": {
+          "zh": "手动输入收据金额效率低且易出错。",
+          "en": "Manually entering receipt amounts is inefficient and prone to errors."
+        },
+        "step": {
+          "zh": "做一个可导入收据图片自动识别金额的简单工具，找2人试用。",
+          "en": "Create a simple tool that can import receipt images to automatically identify amounts and test it with 2 people."
+        }
+      }
     },
     {
       "id": "dev-workflow-claude-oauth-failures",
@@ -252,7 +479,114 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "1l86ra8:v1"
+      "cardKey": "1l86ra8:v1",
+      "titleZh": "Claude OAuth登录失败",
+      "quoteZh": "这里也是同样的问题，被拒绝登录，OAuth登录失败，在Claude Code中点击取消会让你重新进入会话，还要再尝试几次。",
+      "translationKey": "1l86ra8",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "headline": {
+          "zh": "给开发者做一个自动修复OAuth登录失败的小工具",
+          "en": "A small tool for developers to automatically fix OAuth login failures."
+        },
+        "who": {
+          "zh": "开发者",
+          "en": "Developers"
+        },
+        "why": {
+          "zh": "点击取消会重新进入错误会话，流程受阻。",
+          "en": "Clicking cancel restarts the error session, blocking progress."
+        },
+        "step": {
+          "zh": "做一个自动重试登录的简单脚本，找2位开发者测试。",
+          "en": "Create a simple script that auto-retries login and get tested by 2 devs."
+        }
+      }
+    },
+    {
+      "id": "everyday-money-what-functions-can-i-use-to-track-subscriptions",
+      "nicheId": "everyday-money",
+      "nicheLabel": "Everyday money: subscriptions, expenses and reimbursements",
+      "title": "What functions can I use to track subscriptions?",
+      "score": 30,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 9,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "pain",
+        "manual"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2013-12-10T02:14:24.000Z",
+      "evidence": [
+        {
+          "title": "What functions can I use to track subscriptions?",
+          "url": "https://superuser.com/questions/685935/what-functions-can-i-use-to-track-subscriptions",
+          "source": "consumerQa",
+          "createdAt": "2013-12-10T02:14:24.000Z",
+          "excerpt": "I am struggling to make a spreadsheet which will help me take control of member's subscription fees. Fees are paid per month. The spreadsheet has 12 horizontal cells, each one for a different month of the year. I created"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 6,
+          "urgency": 4,
+          "feasibility": 6,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 40,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "6wy4be:v1",
+      "titleZh": "有哪些功能可用于追踪订阅费用？",
+      "quoteZh": "我正在努力制作一个电子表格，以便管控会员的订阅费用，费用是按月支付的，表格有12列横排单元格，每列对应一年中的不同月份，我已经创建了。",
+      "translationKey": "6wy4be",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "bookkeeper",
+        "headline": {
+          "zh": "给预算管理员做一个按月统计订阅费的单页工具",
+          "en": "A small tool for budget administrators to track monthly subscription fees."
+        },
+        "who": {
+          "zh": "预算管理员",
+          "en": "budget-keeper"
+        },
+        "why": {
+          "zh": "需要手动制作包含12个月列的表格来管理订阅费用。",
+          "en": "They need to manually create a spreadsheet with 12 columns for monthly subscription fees."
+        },
+        "step": {
+          "zh": "做一个只统计订阅费的单页工具，找2个预算管理员试用。",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people tracking budgets and subscriptions."
+        }
+      }
     },
     {
       "id": "invoice-export-wish-import-expense-report-and-invoice-lines-fro",
@@ -263,7 +597,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
-        "recency": 12.5,
+        "recency": 12.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -293,7 +627,7 @@
         "version": 1,
         "dimensions": {
           "demand": 6,
-          "urgency": 3,
+          "urgency": 2,
           "feasibility": 9,
           "monetization": 0,
           "confidence": 4,
@@ -303,7 +637,7 @@
         },
         "evaluatedDimensions": 5,
         "totalDimensions": 8,
-        "total": 44,
+        "total": 42,
         "audience": "ops",
         "validation": "interview",
         "riskFlags": [
@@ -313,7 +647,111 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "wtcmtu:v1"
+      "cardKey": "wtcmtu:v1",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给普通用户做一个从CSV导入费用明细的工具",
+          "en": "A small tool for ordinary users to import expense details from CSV"
+        },
+        "who": {
+          "zh": "普通用户",
+          "en": "ordinary users"
+        },
+        "why": {
+          "zh": "需要手动导入费用报表和发票明细，效率低",
+          "en": "They need to manually import expense report and invoice details, which is inefficient"
+        },
+        "step": {
+          "zh": "做一个CSV导入的简单工具，找2人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 bookkeepers and finance staff."
+        }
+      }
+    },
+    {
+      "id": "personal-admin-export-personal-outlook-2016-contacts-excluding-",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Export personal Outlook 2016 contacts, excluding the global address list",
+      "score": 29,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 8,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "manual",
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2019-01-10T23:49:55.000Z",
+      "evidence": [
+        {
+          "title": "Export personal Outlook 2016 contacts, excluding the global address list",
+          "url": "https://superuser.com/questions/1392971/export-personal-outlook-2016-contacts-excluding-the-global-address-list",
+          "source": "consumerQa",
+          "createdAt": "2019-01-10T23:49:55.000Z",
+          "excerpt": "In Outlook 2016, how do I export contacts from an outlook profile, while excluding contacts that appear on the global address list? I'm trying to include only contacts that have been added manually. I have access to exch"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 6,
+          "urgency": 2,
+          "feasibility": 6,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 36,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1rl6xus:v1",
+      "titleZh": "导出Outlook 2016个人联系人，排除全局地址列表中的联系人",
+      "quoteZh": "在Outlook 2016中，如何从某个Outlook配置文件导出联系人，同时排除出现在全局地址列表中的联系人？我只想包含手动添加的联系人，我有访问Exchange的权限。",
+      "translationKey": "1rl6xus",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "headline": {
+          "zh": "给需要导出Outlook联系人的人做一个过滤全局地址列表的工具",
+          "en": "A small tool for people who need to export Outlook contacts to exclude global address list contacts."
+        },
+        "who": {
+          "zh": "需要导出Outlook个人联系人的人",
+          "en": "People who want to export their personal Outlook contacts without global address list entries."
+        },
+        "why": {
+          "zh": "无法找到方法排除全局地址列表中的联系人",
+          "en": "They cannot find a way to exclude contacts from the global address list when exporting."
+        },
+        "step": {
+          "zh": "做一个可筛选全局地址列表的简单导出工具，找1人试用",
+          "en": "Build a simple export tool with global address list filtering and get 1 person to test it."
+        }
+      }
     },
     {
       "id": "scheduling-libreoffice-actually-works-365-days-a-year",
@@ -370,7 +808,31 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "1iaz7w3:v1"
+      "cardKey": "1iaz7w3:v1",
+      "titleZh": "LibreOffice全年365天均可使用",
+      "quoteZh": "我讨厌所有微软相关的产品（Windows、Office、AD、O365、Teams、Entra、InTune、Azure、VSCode、OutBreak、Exchange），但LibreOffice甚至远无法满足我工作中被迫使用的需求，当LibreOffice有邮件功能时。",
+      "translationKey": "1iaz7w3",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给厌恶MS生态的用户做一个 LibreOffice 替代功能小工具",
+          "en": "A small tool for users who hate MS ecosystem to replace LibreOffice functions"
+        },
+        "who": {
+          "zh": "厌恶MS生态的用户",
+          "en": "Users who dislike MS products"
+        },
+        "why": {
+          "zh": "LibreOffice无法满足其工作需求",
+          "en": "LibreOffice does not cover the tasks they need to complete"
+        },
+        "step": {
+          "zh": "做一个仅能处理基础文档编辑的简易工具，找2人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+        }
+      }
     },
     {
       "id": "dev-workflow-yahoo-oauth",
@@ -427,7 +889,693 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "10q6ur:v1"
+      "cardKey": "10q6ur:v1",
+      "titleZh": "Yahoo OAuth问题",
+      "quoteZh": "### 是什么类型的问题？还有其他功能无法使用 ### MailCraft版本0.11.1（f1781cbe）### 平台windows x86_64### 账户类型其他（IMAP）### 发生了什么，你原本期望怎样？我们能否为它添加支持？",
+      "translationKey": "10q6ur",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "headline": {
+          "zh": "给独立开发者做一个修复Yahoo OAuth登录问题的小工具",
+          "en": "A small tool for indie-devs to fix Yahoo OAuth login issues"
+        },
+        "who": {
+          "zh": "独立开发者",
+          "en": "indie developers"
+        },
+        "why": {
+          "zh": "使用MailCraft时Yahoo OAuth登录功能出现故障。",
+          "en": "Someone asked about \"Yahoo Oauth\" in public Q&A — the current way is not smooth enough."
+        },
+        "step": {
+          "zh": "做一个仅解决该问题的单页工具，找2位开发者试用。",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 indie developers."
+        }
+      }
+    },
+    {
+      "id": "everyday-money-how-are-business-travel-expenses-usually-reporte",
+      "nicheId": "everyday-money",
+      "nicheLabel": "Everyday money: subscriptions, expenses and reimbursements",
+      "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
+      "score": 28,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 7,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking",
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2023-02-06T13:26:58.000Z",
+      "evidence": [
+        {
+          "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
+          "url": "https://travel.stackexchange.com/questions/179234/how-are-business-travel-expenses-usually-reported-when-using-the-dutch-public-tr",
+          "source": "consumerQa",
+          "createdAt": "2023-02-06T13:26:58.000Z",
+          "excerpt": "What is the best way to get receipts of the actual trips when filing expense reports during business travel in the Netherlands? The specificity is the use of the OV-chipkaart with preloaded balance to pay for the trips. "
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 5,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 26,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "16yz8hb:v1",
+      "titleZh": "荷兰公共交通费用报销方式",
+      "quoteZh": "在荷兰出差时填写费用报销单，获取实际出行凭证的最佳方法是什么？具体是指使用预充值余额的OV-chipkaart支付行程费用。",
+      "translationKey": "16yz8hb",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给差旅人员做一个生成交通费用凭证的小工具",
+          "en": "A small tool for travelers to generate transportation expense vouchers."
+        },
+        "who": {
+          "zh": "差旅人员",
+          "en": "Travelers."
+        },
+        "why": {
+          "zh": "无法获取OV-chipkaart出行对应的正式收据。",
+          "en": "They cannot obtain official receipts for OV-chipkaart trips."
+        },
+        "step": {
+          "zh": "做一个可输入行程信息的简单工具，生成模拟凭证。",
+          "en": "Create a simple tool that inputs trip details to generate mock vouchers."
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-can-i-get-uk-visa-appointment-fees-refund-before",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Can I get UK visa appointment fees refund before my appointment date?",
+      "score": 28,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 7,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "churn",
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2016-07-26T21:14:33.000Z",
+      "evidence": [
+        {
+          "title": "Can I get UK visa appointment fees refund before my appointment date?",
+          "url": "https://travel.stackexchange.com/questions/68492/can-i-get-uk-visa-appointment-fees-refund-before-my-appointment-date",
+          "source": "consumerQa",
+          "createdAt": "2016-07-26T21:14:33.000Z",
+          "excerpt": "I have taken appointment for my UK travel visa one week from now. But I want to cancel my UK trip. Can I claim refund for appointment fees paid on appointment cancellation?"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 5,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "h48wuj:v1",
+      "titleZh": "英国签证预约费退款问题",
+      "quoteZh": "我已预约一周后的英国旅游签证办理，但现在想取消行程，能否申请退还已支付的预约费？",
+      "translationKey": "h48wuj",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给想要取消英国签证预约的人做一个申请费用退款的工具",
+          "en": "A small tool for people who want to cancel UK visa appointments to apply for fee refunds"
+        },
+        "who": {
+          "zh": "想要取消英国签证预约的人",
+          "en": "People who want to cancel their UK visa appointments"
+        },
+        "why": {
+          "zh": "已支付预约费但想取消行程，无法得知是否可退款",
+          "en": "They paid a reservation fee but want to cancel their trip and don’t know if they can get a refund"
+        },
+        "step": {
+          "zh": "做一个简单的申请表，收集姓名和预约号后发送邮件询问",
+          "en": "Create a simple form to collect name and reservation number then send an email to inquire"
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-set-specific-date-and-time-as-reminder-in-outloo",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Set specific date and time as reminder in Outlook for an appointment",
+      "score": 28,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 7,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking",
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2017-08-15T16:54:39.000Z",
+      "evidence": [
+        {
+          "title": "Set specific date and time as reminder in Outlook for an appointment",
+          "url": "https://superuser.com/questions/661060/set-specific-date-and-time-as-reminder-in-outlook-for-an-appointment",
+          "source": "consumerQa",
+          "createdAt": "2017-08-15T16:54:39.000Z",
+          "excerpt": "How to set a specific reminder time, say Oct 21 2013 11:33 AM, for an appointment in MS Outlook 2010, which is scheduled for some different / arbitrary date? Certainly, I could just schedule the appointment to 11:43 AM a"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 5,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 26,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1l86vk0:v1",
+      "titleZh": "Outlook中设置特定日期时间的日程提醒",
+      "quoteZh": "如何在MS Outlook 2010中为安排在非固定日期的日程设置特定提醒时间，比如2013年10月21日上午11:33？当然也可以直接将日程安排在上午11:43。",
+      "translationKey": "1l86vk0",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给Outlook用户做一个设置固定时间日程提醒的小工具",
+          "en": "A small tool for Outlook users to set reminders at specific times"
+        },
+        "who": {
+          "zh": "Outlook用户",
+          "en": "Outlook users"
+        },
+        "why": {
+          "zh": "无法为非固定日期的预约设置特定提醒时间",
+          "en": "They cannot set specific reminder times for appointments scheduled on arbitrary dates"
+        },
+        "step": {
+          "zh": "做一个单页工具，输入预约日期和时间后直接生成提醒设置",
+          "en": "Create a single-page tool that generates reminder settings directly from inputted appointment dates and times"
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-what-is-the-cancellation-fee-for-uk-visa-applica",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "What is the Cancellation fee for UK visa application?",
+      "score": 28,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 7,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "churn",
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2019-09-17T09:19:53.000Z",
+      "evidence": [
+        {
+          "title": "What is the Cancellation fee for UK visa application?",
+          "url": "https://travel.stackexchange.com/questions/146956/what-is-the-cancellation-fee-for-uk-visa-application",
+          "source": "consumerQa",
+          "createdAt": "2019-09-17T09:19:53.000Z",
+          "excerpt": "What are the charges of cancelling the UK visa application? I haven't done the biometrics yet in fact not even booked the appointment, just submitted the application on gov.uk website and done the payment. So - Will I ge"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 5,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "fu3oiv:v1",
+      "titleZh": "英国签证申请取消费用",
+      "quoteZh": "取消英国签证申请需要支付哪些费用？我尚未进行生物特征采集，甚至没有预约，只是在gov.uk网站提交了申请并完成了付款，这种情况下会收取费用吗？",
+      "translationKey": "fu3oiv",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给签证申请人做一个查询取消费用的小工具",
+          "en": "A small tool for visa applicants to check cancellation fees"
+        },
+        "who": {
+          "zh": "签证申请人",
+          "en": "visa applicants"
+        },
+        "why": {
+          "zh": "不知道在未预约生物识别前取消申请需支付多少费用",
+          "en": "They don’t know the fee for canceling an application before booking a biometrics appointment"
+        },
+        "step": {
+          "zh": "做一个输入申请编号即可显示费用的简单页面",
+          "en": "Create a simple page that shows fees by entering an application number"
+        }
+      }
+    },
+    {
+      "id": "personal-admin-export-contacts-from-itunes-to-google",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Export contacts from iTunes to Google",
+      "score": 28,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 7,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking",
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2014-05-02T16:11:51.000Z",
+      "evidence": [
+        {
+          "title": "Export contacts from iTunes to Google",
+          "url": "https://superuser.com/questions/403619/export-contacts-from-itunes-to-google",
+          "source": "consumerQa",
+          "createdAt": "2014-05-02T16:11:51.000Z",
+          "excerpt": "How do I export the contacts backed up in iTunes from a MacBook to a Google account?"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 5,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 26,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1k43m2p:v1",
+      "titleZh": "从iTunes导出联系人至Google",
+      "quoteZh": "如何将MacBook上存储在iTunes中的联系人导出到Google账户？",
+      "translationKey": "1k43m2p",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给MacBook用户做一个从iTunes导出联系人到Google的工具",
+          "en": "A small tool for MacBook users to export contacts from iTunes to Google"
+        },
+        "who": {
+          "zh": "MacBook用户",
+          "en": "MacBook users"
+        },
+        "why": {
+          "zh": "不知道如何将iTunes中的联系人导出到Google账户",
+          "en": "They don't know how to export contacts from iTunes to a Google account"
+        },
+        "step": {
+          "zh": "做一个简单的导出工具，找2个用户测试使用",
+          "en": "Make a simple export tool and get 2 users to test it"
+        }
+      }
+    },
+    {
+      "id": "personal-admin-export-contacts-from-yahoo-hotmail-to-outlook-20",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Export contacts from Yahoo! & Hotmail to Outlook 2007",
+      "score": 28,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 7,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking",
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2011-04-08T10:58:14.000Z",
+      "evidence": [
+        {
+          "title": "Export contacts from Yahoo! & Hotmail to Outlook 2007",
+          "url": "https://webapps.stackexchange.com/questions/359/export-contacts-from-yahoo-hotmail-to-outlook-2007",
+          "source": "consumerQa",
+          "createdAt": "2011-04-08T10:58:14.000Z",
+          "excerpt": "How can I export my contact lists in Yahoo! and Hotmail accounts to Outlook 2007? If you have done that before, was it easy and %100 percent successful (i.e. no missing or duplicate entries)?"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 5,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 26,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "x31fc3:v1",
+      "titleZh": "从Yahoo!和Hotmail导出联系人至Outlook 2007",
+      "quoteZh": "如何将Yahoo!和Hotmail账户中的联系人列表导出到Outlook 2007？如果您之前做过，操作是否简单且能100%成功（即没有遗漏或重复的条目）？",
+      "translationKey": "x31fc3",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给需要导出邮箱联系人到旧版Outlook的用户做一个导出工具",
+          "en": "A small tool for people who need to export email contacts to old Outlook versions"
+        },
+        "who": {
+          "zh": "需要导出邮箱联系人到Outlook 2007的用户",
+          "en": "Users who need to export contacts from Yahoo! and Hotmail to Outlook 2007"
+        },
+        "why": {
+          "zh": "不知道如何完成该导出操作，担心会出现数据丢失或重复的问题",
+          "en": "They don’t know how to do the export and are worried about missing or duplicate data"
+        },
+        "step": {
+          "zh": "做一个能直接导入Yahoo!和Hotmail账号并导出到Outlook 2007的简易工具，找2人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+        }
+      }
+    },
+    {
+      "id": "personal-admin-how-to-manage-duplicate-contacts-in-thunderbird",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "How to manage duplicate contacts in Thunderbird?",
+      "score": 28,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 7,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking",
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2025-08-11T11:54:52.000Z",
+      "evidence": [
+        {
+          "title": "How to manage duplicate contacts in Thunderbird?",
+          "url": "https://superuser.com/questions/1842350/how-to-manage-duplicate-contacts-in-thunderbird",
+          "source": "consumerQa",
+          "createdAt": "2025-08-11T11:54:52.000Z",
+          "excerpt": "How can duplicate contacts be merged? Ideally by the merged contact not losing any information contained in any of the duplicates, possibly with manual review of the changes beforehand? Thunderbird 115.10.2. Some contact"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 5,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 26,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "19twsya:v1",
+      "titleZh": "在Thunderbird中管理重复联系人",
+      "quoteZh": "如何合并重复联系人？理想情况下合并后的联系人不应丢失任何重复项中的信息，或许可以先手动审核变更内容。当前使用的是Thunderbird 115.10.2版本，有些联系人存在重复情况。",
+      "translationKey": "19twsya",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给联系人管理者做一个合并重复联系人的小工具",
+          "en": "A small tool for contact managers to merge duplicate contacts."
+        },
+        "who": {
+          "zh": "联系人管理者",
+          "en": "Contact managers."
+        },
+        "why": {
+          "zh": "无法合并重复联系人且担心丢失原有信息。",
+          "en": "They are unable to merge duplicate contacts without losing existing information."
+        },
+        "step": {
+          "zh": "做一个可导入联系人列表并自动合并重复项的简易工具，找2人试用。",
+          "en": "Create a simple tool that imports contact lists and automatically merges duplicates for 2 users to test."
+        }
+      }
+    },
+    {
+      "id": "solo-crm-service-degradation-on-microsoft-365",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Service degradation on Microsoft 365",
+      "score": 28,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "frustration"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T09:50:40.000Z",
+      "evidence": [
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-13T09:50:40.000Z",
+          "excerpt": "This year has been terrible for outages, the European Google power outage earlier this year, the PHP stuff (although that&#x27;s only tangentially related),the AWS outage in May, Cloudflare a couple times around this tim"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "solo",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "cel4x8:v1",
+      "titleZh": "Microsoft 365服务性能下降问题",
+      "quoteZh": "今年的服务中断情况十分严重，先是年初欧洲地区的Google停电，还有PHP相关问题（虽然关联度较低），5月又出现AWS停电，近期Cloudflare也多次出现故障。",
+      "translationKey": "cel4x8",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "solo-founder",
+        "headline": {
+          "zh": "给solo-founder做一个监测M365故障的小工具",
+          "en": "A small tool for solo-founders to monitor M365 outages"
+        },
+        "who": {
+          "zh": "solo-founder",
+          "en": "solo-founder"
+        },
+        "why": {
+          "zh": "频繁的M365故障让他很困扰",
+          "en": "Frequent M365 outages trouble him"
+        },
+        "step": {
+          "zh": "做一个能显示近期故障记录的简单页面，找2人试用",
+          "en": "Make a simple page showing recent outages and ask 2 people to test it"
+        }
+      }
     },
     {
       "id": "solo-crm-issues-in-crm",
@@ -438,7 +1586,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.5,
+        "recency": 13.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -487,47 +1635,244 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "1romyta:v1"
+      "cardKey": "1romyta:v1",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "solo-founder",
+        "headline": {
+          "zh": "给「solo-founder」做一个「修复CRM联系人 enrichment接口错误」的小工具",
+          "en": "A small tool for solo-founders to fix the CRM contact enrichment API error"
+        },
+        "who": {
+          "zh": "solo-founder",
+          "en": "solo-founder"
+        },
+        "why": {
+          "zh": "使用标准UUID调用接口时会立即返回422错误",
+          "en": "Calling the interface with standard UUIDs returns a 422 error immediately"
+        },
+        "step": {
+          "zh": "做一个修复该错误的单页工具，找1人测试",
+          "en": "Build a one-page tool to fix the error and get 1 person to test it"
+        }
+      }
     },
     {
-      "id": "solo-crm-salesforce-sync-log-and-failure-alert",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Salesforce: sync log and failure alert",
-      "score": 27,
+      "id": "pet-and-home-care-can-i-consider-pets-as-evidence-of-family-member",
+      "nicheId": "pet-and-home-care",
+      "nicheLabel": "Pet and home care: records, reminders and care schedules",
+      "title": "Can I consider pets as \"evidence of family members remaining in your home country whilst you…",
+      "score": 26,
       "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 13.1,
-        "corroboration": 5,
+        "frequency": 10,
+        "intensity": 0,
+        "recency": 8,
+        "corroboration": 8,
         "willingnessToPay": 0
       },
-      "mentions": 1,
+      "mentions": 2,
       "sources": [
-        "github"
+        "consumerQa"
       ],
-      "signals": [
-        "broken"
-      ],
+      "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-10T13:16:18.000Z",
+      "lastSeen": "2019-08-17T15:36:51.000Z",
       "evidence": [
         {
-          "title": "Salesforce: sync log and failure alert",
-          "url": "https://github.com/nexoradev-stack/Marketing-DataLake-Agent/issues/61",
-          "source": "github",
-          "createdAt": "2026-11-10T13:16:18.000Z",
-          "excerpt": "📅 **Planned:** November 2026 (weekly sync runs every Sunday) ### What Record each sync run and alert the admins if it fails. ### Why A silent failure would let unmailable contacts back into exports. ### Steps - [ ] Log "
+          "title": "Can I consider pets as \"evidence of family members remaining in your home country whilst you travel\"?",
+          "url": "https://travel.stackexchange.com/questions/135235/can-i-consider-pets-as-evidence-of-family-members-remaining-in-your-home-countr",
+          "source": "consumerQa",
+          "createdAt": "2019-08-17T15:36:51.000Z",
+          "excerpt": "I have applied for standard UK visitor visa's for me and my wife and children. I have elderly parents staying behind, but they do not live with me and are not dependants, nor did I list them as such in the application. W"
+        },
+        {
+          "title": "Can I consider pets as \"evidence of family members remaining in your home country whilst you travel\"?",
+          "url": "https://travel.stackexchange.com/questions/135235/can-i-consider-pets-as-evidence-of-family-members-remaining-in-your-home-countr",
+          "source": "consumerQa",
+          "createdAt": "2019-08-17T15:36:51.000Z",
+          "excerpt": "I have applied for standard UK visitor visa's for me and my wife and children. I have elderly parents staying behind, but they do not live with me and are not dependants, nor did I list them as such in the application. W"
         }
       ],
-      "titleZh": "Salesforce：同步日志与失败告警",
-      "quoteZh": "计划：2026 年 11 月（每周日执行同步）。要做什么：记录每次同步运行，失败时告警管理员。为什么：静默失败会让不可邮寄的联系人重新混入导出。步骤：记录……",
-      "translationKey": "2b252w",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
-          "demand": 4,
-          "urgency": 6,
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 5,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "3srtq8:v1",
+      "titleZh": "能否将宠物视为家人仍居国内的证明",
+      "quoteZh": "我已为我和妻子孩子申请了英国普通访客签证。我有年迈的父母留在国内，但他们不与我同住，也不是我的受养人，我在申请中也未将他们列为受养人。",
+      "translationKey": "3srtq8",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给需要证明家人居家的申请人做一个生成宠物居留证明的小工具",
+          "en": "A small tool for applicants to generate proof of family pets staying at home."
+        },
+        "who": {
+          "zh": "签证申请人",
+          "en": "Visa applicants"
+        },
+        "why": {
+          "zh": "无法提供家人仍在国内的证明",
+          "en": "Unable to provide proof that family members remain in their home country."
+        },
+        "step": {
+          "zh": "做一个可输入宠物信息的简单工具，生成证明文本",
+          "en": "Create a simple tool that takes pet info and outputs a proof text."
+        }
+      }
+    },
+    {
+      "id": "pet-and-home-care-is-it-normal-for-my-vet-to-ask-me-for-my-driver-",
+      "nicheId": "pet-and-home-care",
+      "nicheLabel": "Pet and home care: records, reminders and care schedules",
+      "title": "Is it normal for my vet to ask me for my driver's license number?",
+      "score": 26,
+      "breakdown": {
+        "frequency": 10,
+        "intensity": 0,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 2,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2025-02-25T21:48:22.000Z",
+      "evidence": [
+        {
+          "title": "Is it normal for my vet to ask me for my driver's license number?",
+          "url": "https://pets.stackexchange.com/questions/39209/is-it-normal-for-my-vet-to-ask-me-for-my-drivers-license-number",
+          "source": "consumerQa",
+          "createdAt": "2025-02-25T21:48:22.000Z",
+          "excerpt": "I've been using the same vet clinic for 5 years and have never changed my address on file. My pets have had all of their appointments on time, every time, every year. Suddenly, the vet clinic claims they need a valid pro"
+        },
+        {
+          "title": "Is it normal for my vet to ask me for my driver's license number?",
+          "url": "https://pets.stackexchange.com/questions/39209/is-it-normal-for-my-vet-to-ask-me-for-my-drivers-license-number",
+          "source": "consumerQa",
+          "createdAt": "2025-02-25T21:48:22.000Z",
+          "excerpt": "I've been using the same vet clinic for 5 years and have never changed my address on file. My pets have had all of their appointments on time, every time, every year. Suddenly, the vet clinic claims they need a valid pro"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 5,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "sfd8g1:v1",
+      "titleZh": "兽医要求我提供驾照号码是否正常",
+      "quoteZh": "我一直在同一家兽医诊所就诊五年，档案中的地址从未更改。我的宠物每年都会按时赴约就诊，但突然间这家诊所称需要有效的驾照号码。",
+      "translationKey": "sfd8g1",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "pet-owner",
+        "headline": {
+          "zh": "给宠物主人做一个验证兽医信息合法性的小工具",
+          "en": "A small tool for pet owners to verify vet information legitimacy"
+        },
+        "who": {
+          "zh": "宠物主人",
+          "en": "pet owners"
+        },
+        "why": {
+          "zh": "担心提供的个人信息被不当使用",
+          "en": "worried about personal info being misused"
+        },
+        "step": {
+          "zh": "做一个简单输入姓名和诊所名的验证工具，找2位主人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 pet owners juggling care schedules."
+        }
+      }
+    },
+    {
+      "id": "scheduling-ai-is-turning-apple-s-app-review-process-into-a-",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+      "score": 26,
+      "breakdown": {
+        "frequency": 6,
+        "intensity": 0,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 2,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T11:11:43.000Z",
+      "evidence": [
+        {
+          "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+          "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
+          "source": "hn",
+          "createdAt": "2026-11-13T11:11:43.000Z",
+          "excerpt": "> You can avoid the 12 beta testers if you create an LLC Yeah that is an easy option. In my jurisdiction that costs above 500€ for legal paperwork (notarized stuff) and now you have to submit double-entry bookeping recor"
+        },
+        {
+          "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+          "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
+          "source": "hn",
+          "createdAt": "2026-11-13T11:11:43.000Z",
+          "excerpt": "> You can avoid the 12 beta testers if you create an LLC Yeah that is an easy option. In my jurisdiction that costs above 500€ for legal paperwork (notarized stuff) and now you have to submit double-entry bookeping recor"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 2,
+          "urgency": 3,
           "feasibility": 2,
           "monetization": 0,
           "confidence": 4,
@@ -537,8 +1882,8 @@
         },
         "evaluatedDimensions": 5,
         "totalDimensions": 8,
-        "total": 32,
-        "audience": "solo",
+        "total": 22,
+        "audience": "ops",
         "validation": "interview",
         "riskFlags": [
           "single-source",
@@ -547,7 +1892,31 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "2b252w:v1"
+      "cardKey": "1k0af9r:v1",
+      "titleZh": "AI正在让苹果的应用审核流程成为合成器开发者的噩梦",
+      "quoteZh": "如果你成立有限责任公司就能避开12名测试用户，这确实是个简单办法。但在我所在的地区，法律文件公证的费用就超过500欧元，而且现在还得提交双式记账凭证。",
+      "translationKey": "1k0af9r",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "solo-founder",
+        "headline": {
+          "zh": "给合成器开发者做一个自动申请LLC的辅助工具",
+          "en": "A small tool for synth developers to automate LLC application processes"
+        },
+        "who": {
+          "zh": "合成器开发者",
+          "en": "synth developers"
+        },
+        "why": {
+          "zh": "申请LLC的法律手续费用高昂且流程复杂",
+          "en": "Legal paperwork for LLC applications is expensive and cumbersome"
+        },
+        "step": {
+          "zh": "做一个简单的表单收集必要信息，发送给当地律师获取报价",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+        }
+      }
     },
     {
       "id": "scheduling-booking-improvements",
@@ -607,7 +1976,28 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "q1kin6:v1"
+      "cardKey": "q1kin6:v1",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "scheduler",
+        "headline": {
+          "zh": "给学生做一个快速便捷的预订小工具",
+          "en": "A small tool for students to make quick and easy bookings."
+        },
+        "who": {
+          "zh": "学生",
+          "en": "students"
+        },
+        "why": {
+          "zh": "预订流程复杂导致无法快速找到房间。",
+          "en": "The booking process is complicated, preventing them from finding rooms quickly."
+        },
+        "step": {
+          "zh": "做一个简易预订页面，邀请5名学生试用。",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+        }
+      }
     },
     {
       "id": "solo-crm-running-a-law-firm-on-free-software",
@@ -640,9 +2030,6 @@
           "excerpt": "I&#x27;m jealous, I&#x27;d love to be able to do this. I am a small cog in a big legal machine so I am stuck with whatever tech stack my firm mandates. Outlook + Word + a bunch of incredibly unintuitive, slow, buggy and "
         }
       ],
-      "titleZh": "用自由软件运营律所",
-      "quoteZh": "真羡慕，我也想这么做。我只是大型律所里的一颗小螺丝钉，技术栈完全由所里指定：Outlook + Word，外加一堆极其反直觉、缓慢又满是缺陷的……",
-      "translationKey": "1q1cx2n",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -667,7 +2054,31 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "1q1cx2n:v1"
+      "cardKey": "1q1cx2n:v1",
+      "titleZh": "用免费软件运营律师事务所",
+      "quoteZh": "我好羡慕，真希望自己也能这么做。我只是大型法律机构里的小角色，只能使用公司规定的技术栈，也就是Outlook、Word，再加上一堆极其不直观、运行缓慢且漏洞频出的工具。",
+      "translationKey": "1q1cx2n",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "solo-founder",
+        "headline": {
+          "zh": "给「律师行业单人创业者」做一个「替代Outlook+Word的简单案件管理工具」",
+          "en": "A small tool for lawyers running solo firms to replace Outlook and Word for case management."
+        },
+        "who": {
+          "zh": "律师行业单人创业者",
+          "en": "Solo lawyers running their own law firms."
+        },
+        "why": {
+          "zh": "被迫使用事务所规定的Outlook和Word等复杂工具，操作不便。",
+          "en": "Forced to use complex tools like Outlook and Word mandated by their firm, making operations inconvenient."
+        },
+        "step": {
+          "zh": "做一个基础的案件信息录入页面，找2位同行试用。",
+          "en": "Create a basic case information entry page and get it tested by 2 peers."
+        }
+      }
     },
     {
       "id": "dev-workflow-python-flask-webhook-receives-meta-lead-ads-test",
@@ -678,7 +2089,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 0,
-        "recency": 13.7,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -729,7 +2140,31 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "x996j0:v1"
+      "cardKey": "x996j0:v1",
+      "titleZh": "Python Flask webhook收到HTTP 200状态的Meta Lead Ads测试事件但无POST请求",
+      "quoteZh": "我正在使用Python Flask后端和Meta Graph API，将Meta（脸书）的Lead Ads功能集成到自定义CRM应用中，目的是在有潜在客户通过相关渠道提交信息时自动收到webhook通知。",
+      "translationKey": "x996j0",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "headline": {
+          "zh": "给独立开发者做一个自动校验Webhook请求状态的小工具",
+          "en": "A small tool for indie-devs to automatically check Webhook request status"
+        },
+        "who": {
+          "zh": "独立开发者",
+          "en": "indie-devs"
+        },
+        "why": {
+          "zh": "收到的Webhook返回200状态但没有对应的POST请求，无法确认数据是否真正送达",
+          "en": "The received Webhook returns 200 status but no corresponding POST request, making it impossible to confirm if data was actually delivered"
+        },
+        "step": {
+          "zh": "做一个能实时检测Webhook请求状态并显示结果的简单工具，找1位开发者试用",
+          "en": "Create a simple tool that detects Webhook request status in real time and shows results, then get it tested by 1 developer"
+        }
+      }
     },
     {
       "id": "dev-workflow-devvm-dev-one-vm-for-every-project",
@@ -740,7 +2175,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 11.3,
+        "recency": 11.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -786,7 +2221,441 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "14qo93j:v1"
+      "cardKey": "14qo93j:v1",
+      "titleZh": "Devvm.dev：每个项目对应一台虚拟机",
+      "quoteZh": "我明白这个思路。但后来我需要调试出故障的CI流水线，而自动化工具很擅长分析日志，所以我还是选择了登录账号继续处理问题。",
+      "translationKey": "14qo93j",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "headline": {
+          "zh": "给独立开发者做一个自动登录CI平台的小工具",
+          "en": "A small tool for indie-devs to auto-login to CI platforms"
+        },
+        "who": {
+          "zh": "独立开发者",
+          "en": "indie-devs"
+        },
+        "why": {
+          "zh": "需要手动登录CI平台，操作繁琐",
+          "en": "They have to manually log in to CI platforms which is cumbersome"
+        },
+        "step": {
+          "zh": "做一个自动填充认证信息的单页工具，找2个开发者试用",
+          "en": "Build a one-page tool that auto-fills login info and get tested by 2 devs"
+        }
+      }
+    },
+    {
+      "id": "everyday-money-good-application-for-tracking-member-subscriptio",
+      "nicheId": "everyday-money",
+      "nicheLabel": "Everyday money: subscriptions, expenses and reimbursements",
+      "title": "Good application for tracking member subscriptions?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "manual"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2017-09-28T09:56:40.000Z",
+      "evidence": [
+        {
+          "title": "Good application for tracking member subscriptions?",
+          "url": "https://webapps.stackexchange.com/questions/6397/good-application-for-tracking-member-subscriptions",
+          "source": "consumerQa",
+          "createdAt": "2017-09-28T09:56:40.000Z",
+          "excerpt": "I'm starting a small non-profit, that accepts donations from \"members\" in the form of monthly dues. Is there any web app that will help me track their payments? Something easier than keeping a spreadsheet in Excel. Integ"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 6,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1wns13r:v1",
+      "titleZh": "适合追踪会员订阅的好应用？",
+      "quoteZh": "我正在创办一家小型非营利组织，接受会员每月缴纳的捐款。有没有比Excel表格更便捷的网页应用可以帮助我记录这些付款信息？",
+      "translationKey": "1wns13r",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给非营利组织做一个追踪会员月费支付的小工具",
+          "en": "A small tool for non-profits to track member monthly dues payments"
+        },
+        "who": {
+          "zh": "非营利组织负责人",
+          "en": "Non-profit organization leaders"
+        },
+        "why": {
+          "zh": "需要简单工具来记录会员的月度捐款",
+          "en": "They need a simple tool to record members' monthly donations"
+        },
+        "step": {
+          "zh": "做一个基础表格，收集会员姓名和付款日期供测试",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people tracking budgets and subscriptions."
+        }
+      }
+    },
+    {
+      "id": "everyday-money-how-do-i-legally-download-the-songs-from-a-googl",
+      "nicheId": "everyday-money",
+      "nicheLabel": "Everyday money: subscriptions, expenses and reimbursements",
+      "title": "How do I legally download the songs from a Google Play Music playlist?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2018-12-20T01:01:35.000Z",
+      "evidence": [
+        {
+          "title": "How do I legally download the songs from a Google Play Music playlist?",
+          "url": "https://webapps.stackexchange.com/questions/93014/how-do-i-legally-download-the-songs-from-a-google-play-music-playlist",
+          "source": "consumerQa",
+          "createdAt": "2018-12-20T01:01:35.000Z",
+          "excerpt": "I have a Google Play Music 'Unlimited' subscription. How do I make the songs in my playlist available offline, as you can do on Spotify and the Mobile Apps? I am not talking about just the 'Free and Purchased' songs, but"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1oi3aoe:v1",
+      "titleZh": "如何合法下载Google Play音乐播放列表中的歌曲？",
+      "quoteZh": "我拥有Google Play音乐的“无限”订阅套餐。我想像在Spotify和手机应用那样，将播放列表里的歌曲下载到离线设备上查看，我不是指仅下载“免费歌曲”和“已购买歌曲”，而是全部歌曲。",
+      "translationKey": "1oi3aoe",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给订阅用户做一个离线下载工具",
+          "en": "A small tool for subscription users to download content offline"
+        },
+        "who": {
+          "zh": "Google Play Music Unlimited订阅者",
+          "en": "Subscribers to Google Play Music Unlimited"
+        },
+        "why": {
+          "zh": "无法像Spotify那样将播放列表歌曲离线保存",
+          "en": "They cannot save playlist songs offline like on Spotify"
+        },
+        "step": {
+          "zh": "做一个单页工具，让用户输入歌单链接直接生成下载链接",
+          "en": "Create a one-page tool that generates download links from a playlist URL"
+        }
+      }
+    },
+    {
+      "id": "everyday-money-how-do-i-merge-my-rss-feeds-in-the-old-reader",
+      "nicheId": "everyday-money",
+      "nicheLabel": "Everyday money: subscriptions, expenses and reimbursements",
+      "title": "How do I merge my RSS feeds in \"The Old Reader\"?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2015-06-02T12:23:35.000Z",
+      "evidence": [
+        {
+          "title": "How do I merge my RSS feeds in \"The Old Reader\"?",
+          "url": "https://webapps.stackexchange.com/questions/78709/how-do-i-merge-my-rss-feeds-in-the-old-reader",
+          "source": "consumerQa",
+          "createdAt": "2015-06-02T12:23:35.000Z",
+          "excerpt": "I am using \"The Old Reader\" to keep track of my responses on Stack Exchange. How can I merge this with another link to also show \"votes\" or \"featured\", etc. in the same subscription without having to move from one to ano"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "yg1ci3:v1",
+      "titleZh": "如何在The Old Reader中合并RSS源？",
+      "quoteZh": "我使用The Old Reader来记录在Stack Exchange上的回复。如何将其与另一个链接合并，以便在同一订阅中查看投票数或精选内容，而无需在两者之间切换？",
+      "translationKey": "yg1ci3",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给订阅管理用户做一个合并RSS源并显示投票信息的小工具",
+          "en": "A small tool for subscription managers to merge RSS sources and show vote info."
+        },
+        "who": {
+          "zh": "订阅管理用户",
+          "en": "Subscription managers."
+        },
+        "why": {
+          "zh": "无法在现有工具中合并多个RSS源并显示相关投票数据。",
+          "en": "They can't merge multiple RSS sources in their current tool to show vote data."
+        },
+        "step": {
+          "zh": "做一个能导入两个RSS链接并显示投票信息的单页工具，找2人试用。",
+          "en": "Make a single-page tool that imports two RSS links and shows vote info, and get 2 people to test it."
+        }
+      }
+    },
+    {
+      "id": "everyday-money-using-offset-function-across-multiple-sheets",
+      "nicheId": "everyday-money",
+      "nicheLabel": "Everyday money: subscriptions, expenses and reimbursements",
+      "title": "Using OFFSET function across multiple sheets",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "manual"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2021-10-17T16:06:45.000Z",
+      "evidence": [
+        {
+          "title": "Using OFFSET function across multiple sheets",
+          "url": "https://webapps.stackexchange.com/questions/159642/using-offset-function-across-multiple-sheets",
+          "source": "consumerQa",
+          "createdAt": "2021-10-17T16:06:45.000Z",
+          "excerpt": "New to Google sheets, so feel like I'm falling down somewhat of a rabbit hole trying to figure this out... I have a spreadsheet 'sheet 1' where we keep the details of our sales - Name, address, design, size, tracking. Th"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 6,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "q0gj23:v1",
+      "titleZh": "在多个工作表中使用OFFSET函数",
+      "quoteZh": "我是Google Sheets新手，感觉在弄懂这个功能时像掉进了迷宫……我有一个名为‘sheet 1’的电子表格，用于记录销售详情——名称、地址、设计、尺寸、追踪信息。",
+      "translationKey": "q0gj23",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "headline": {
+          "zh": "给Google Sheets新手做一个OFFSET函数用法小工具",
+          "en": "A small tool for Google Sheets beginners to use the OFFSET function"
+        },
+        "who": {
+          "zh": "Google Sheets新手",
+          "en": "Beginners using Google Sheets"
+        },
+        "why": {
+          "zh": "在多个工作表中使用OFFSET函数时感到困惑",
+          "en": "They are struggling to use the OFFSET function across multiple sheets"
+        },
+        "step": {
+          "zh": "做一个演示OFFSET函数用法的单页工具，找2人试用",
+          "en": "Create a one-page tool demonstrating OFFSET usage and get feedback from 2 users"
+        }
+      }
+    },
+    {
+      "id": "everyday-money-what-to-use-for-recording-a-rental",
+      "nicheId": "everyday-money",
+      "nicheLabel": "Everyday money: subscriptions, expenses and reimbursements",
+      "title": "What To Use For Recording A Rental?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "manual"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2022-03-06T11:49:50.000Z",
+      "evidence": [
+        {
+          "title": "What To Use For Recording A Rental?",
+          "url": "https://money.stackexchange.com/questions/149659/what-to-use-for-recording-a-rental",
+          "source": "consumerQa",
+          "createdAt": "2022-03-06T11:49:50.000Z",
+          "excerpt": "We've rented our old place. So we've got obligations now under landlord and tenants act 1936 and residential tenancies act 1995 to keep proper records. A new thing for us. Getting by with a spreadsheet and using Word for"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 6,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "fict93:v1",
+      "titleZh": "记录租赁业务该用什么工具？",
+      "quoteZh": "我们租出了原来的住所，现在需要根据1936年房东与租户法案以及1995年住宅租赁法案保留完整记录。这对我们来说是新事务，目前只能靠电子表格和Word应付。",
+      "translationKey": "fict93",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给房东和租客做一个记录租赁相关文件的小工具",
+          "en": "A small tool for landlords and tenants to record rental-related documents."
+        },
+        "who": {
+          "zh": "房东和租客",
+          "en": "Landlords and tenants."
+        },
+        "why": {
+          "zh": "他们需要遵守相关法律要求保存租赁记录，但对此不熟悉。",
+          "en": "They need to comply with legal requirements to keep rental records but are unfamiliar with it."
+        },
+        "step": {
+          "zh": "做一个简单的表单让双方上传相关文件并标记状态。",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people tracking budgets and subscriptions."
+        }
+      }
     },
     {
       "id": "invoice-export-csv-export-for-timesheets-and-invoices",
@@ -846,7 +2715,1912 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "1pahlgq:v1"
+      "cardKey": "1pahlgq:v1",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给财务人员做一个CSV导出工时表和发票数据的小工具",
+          "en": "A small tool for finance staff to export timesheet and invoice data as CSV"
+        },
+        "who": {
+          "zh": "财务人员",
+          "en": "finance staff"
+        },
+        "why": {
+          "zh": "需要将工时表和发票数据导出为表格格式",
+          "en": "they need to export timesheet and invoice data in spreadsheet format"
+        },
+        "step": {
+          "zh": "做一个简单的接口，生成包含工时表和发票行的CSV文件供测试",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 bookkeepers and finance staff."
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-booking-website-has-changed-a-part-of-my-flight-",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Booking website has changed a part of my flight, can I ask a full refund?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2017-02-24T13:19:45.000Z",
+      "evidence": [
+        {
+          "title": "Booking website has changed a part of my flight, can I ask a full refund?",
+          "url": "https://travel.stackexchange.com/questions/45473/booking-website-has-changed-a-part-of-my-flight-can-i-ask-a-full-refund",
+          "source": "consumerQa",
+          "createdAt": "2017-02-24T13:19:45.000Z",
+          "excerpt": "I have booked flight from broker, flight is from Riga RIX to Goa GOI, now part of my trip has changed. 3 9W2354H 24APR MAA GOI 1035 1315 (cancelled flight) 4 9W2305H 24APR MAA BLR 0820 0910 (new flight) 5 9W 498H 24APR B"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "10t311i:v1",
+      "titleZh": "预订网站更改了我的航班部分信息，我能要求全额退款吗？",
+      "quoteZh": "我通过代理商预订了从里加RIX飞往果阿GOI的航班，现在行程有一部分发生了变化。3 9W2354H 24APR MAA GOI 1035 1315（已取消的航班）4 9W2305H 24APR MAA BLR 0820 0910（新的航班）5 9W 498H 24APR B",
+      "translationKey": "10t311i",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "service-owner",
+        "headline": {
+          "zh": "给机票服务商做一个自动核销变更航班全额退款的工具",
+          "en": "A small tool for airline service providers to automatically approve full refunds for changed flights"
+        },
+        "who": {
+          "zh": "机票服务商",
+          "en": "airline service providers"
+        },
+        "why": {
+          "zh": "无法快速处理乘客因航班信息变更提出的全额退款申请",
+          "en": "They struggle to quickly process full refunds for passengers due to flight information changes"
+        },
+        "step": {
+          "zh": "做一个能自动匹配航班记录并生成退款申请单的简易工具，找2家同类服务商试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 small businesses handling bookings."
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-chargeback-for-hotel-refund",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Chargeback for hotel refund",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2020-05-29T11:33:09.000Z",
+      "evidence": [
+        {
+          "title": "Chargeback for hotel refund",
+          "url": "https://money.stackexchange.com/questions/126024/chargeback-for-hotel-refund",
+          "source": "consumerQa",
+          "createdAt": "2020-05-29T11:33:09.000Z",
+          "excerpt": "On 19.01. 2020, I have made a reservation at UK (Scotland) hotel. Booking made at that hotel could be cancelled any time (at least 1 day prior to check-in) with full refund. On 25.03. 2020 I have sent an email asking for"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1ajkdyw:v1",
+      "titleZh": "酒店退款相关的拒付申请",
+      "quoteZh": "2020年1月19日，我在英国（苏格兰）的一家酒店做了预订。该酒店允许在入住前至少一天取消预订并获得全额退款。2020年3月25日，我发送邮件请求退款。",
+      "translationKey": "1ajkdyw",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "service-owner",
+        "headline": {
+          "zh": "给酒店客服做一个拒付申请生成小工具",
+          "en": "A small tool for hotel staff to generate chargeback requests"
+        },
+        "who": {
+          "zh": "酒店客服",
+          "en": "hotel staff"
+        },
+        "why": {
+          "zh": "无法快速生成符合规则的拒付申请导致退款处理延迟",
+          "en": "They struggle to create compliant chargeback applications quickly"
+        },
+        "step": {
+          "zh": "做一个可填入基础信息的单页工具，找2家酒店试用",
+          "en": "Build a one-page tool with basic input fields and get tested by 2 hotels"
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-exchange-gain-on-credit-card-refund",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Exchange gain on credit card refund",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2017-03-09T19:43:39.000Z",
+      "evidence": [
+        {
+          "title": "Exchange gain on credit card refund",
+          "url": "https://money.stackexchange.com/questions/77108/exchange-gain-on-credit-card-refund",
+          "source": "consumerQa",
+          "createdAt": "2017-03-09T19:43:39.000Z",
+          "excerpt": "My credit card account is maintained in AED (United Arab Emirates Dirham). I have made a payment of 2,760 GBP to a hotel in London, which is equivalent to 13,037 AED . I later had to cancel the booking and was surprised "
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "db44ps:v1",
+      "titleZh": "信用卡退款产生的汇率收益",
+      "quoteZh": "我的信用卡账户以阿联酋迪拉姆计价。我向伦敦的一家酒店支付了2,760英镑，相当于13,037阿联酋迪拉姆。后来我不得不取消预订，对此感到十分意外。",
+      "translationKey": "db44ps",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给信用卡用户做一个汇率收益计算小工具",
+          "en": "A small tool for credit card users to calculate exchange gains from refunds"
+        },
+        "who": {
+          "zh": "信用卡用户",
+          "en": "Credit card users"
+        },
+        "why": {
+          "zh": "无法直接查看退款金额的汇率转换收益",
+          "en": "They cannot see the exchange gain from their refund amounts directly"
+        },
+        "step": {
+          "zh": "做一个输入英镑金额自动显示阿联酋迪拉姆等值的小工具，找1人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 small businesses handling bookings."
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-germany-what-to-do-if-my-visa-appointment-has-be",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Germany: What to do if my visa appointment has been cancelled?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2019-08-07T11:19:11.000Z",
+      "evidence": [
+        {
+          "title": "Germany: What to do if my visa appointment has been cancelled?",
+          "url": "https://travel.stackexchange.com/questions/143445/germany-what-to-do-if-my-visa-appointment-has-been-cancelled",
+          "source": "consumerQa",
+          "createdAt": "2019-08-07T11:19:11.000Z",
+          "excerpt": "The German embassy in Cairo cancelled my visa interview after I sent an email asking for an earlier appointment. No reason has been provided for the cancellation and they don't respond to my emails anymore. What can I do"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "h6goq1:v1",
+      "titleZh": "德国：签证面试被取消后该怎么办？",
+      "quoteZh": "在我发送邮件请求提前安排面试后，开罗的德国大使馆取消了我的签证面试。他们没有给出取消原因，也不再回复我的邮件。我该怎么做？",
+      "translationKey": "h6goq1",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给签证申请人做一个查询面试取消原因的小工具",
+          "en": "A small tool for visa applicants to check interview cancellation reasons"
+        },
+        "who": {
+          "zh": "签证申请人",
+          "en": "visa applicants"
+        },
+        "why": {
+          "zh": "无法获知面试取消的具体原因",
+          "en": "They cannot find out the specific reason for the interview cancellation"
+        },
+        "step": {
+          "zh": "做一个简单查询页面，输入预约号即可显示取消原因",
+          "en": "Create a simple query page that shows the cancellation reason with the appointment number"
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-i-agreed-to-cancel-a-long-planned-vacation-with-",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "I agreed to cancel a long-planned vacation (with travel costs) due to project deadlines, but…",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2019-07-01T15:35:43.000Z",
+      "evidence": [
+        {
+          "title": "I agreed to cancel a long-planned vacation (with travel costs) due to project deadlines, but now the timeline has all changed again",
+          "url": "https://workplace.stackexchange.com/questions/139306/i-agreed-to-cancel-a-long-planned-vacation-with-travel-costs-due-to-project-de",
+          "source": "consumerQa",
+          "createdAt": "2019-07-01T15:35:43.000Z",
+          "excerpt": "TL;DR cancelled a long-planned trip due to a delay in project deadlines and my backup person quitting, and received most of the cost back from the company. Turns out in retrospect it wasn't necessary as the deadlines the"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "11otogi:v1",
+      "titleZh": "因项目截止日期问题，我同意取消一场精心准备的度假行程（含差旅费），但……",
+      "quoteZh": "简而言之，由于项目截止日期推迟且备用人员离职，我取消了一场精心准备的旅行，并从公司拿回了大部分费用。事后看来，其实没必要这么做，因为那些截止日期本身并不那么紧迫。",
+      "translationKey": "11otogi",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给项目负责人做一个自动核算差旅退款的小工具",
+          "en": "A small tool for project managers to automatically calculate travel refund amounts."
+        },
+        "who": {
+          "zh": "项目负责人",
+          "en": "Project managers."
+        },
+        "why": {
+          "zh": "因项目截止日期延迟及备用人员离职需取消度假却只能拿到部分退款。",
+          "en": "Had to cancel a planned trip due to project delays and a quitting backup staff, receiving only partial company reimbursement."
+        },
+        "step": {
+          "zh": "做一个输入行程信息和费用后自动算退款的单页工具，找2人试用。",
+          "en": "Create a one-page tool that calculates refunds automatically from trip details and costs, and get tested by 2 people."
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-received-dispute-credit-and-refund",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Received dispute credit and refund",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2020-06-30T20:14:33.000Z",
+      "evidence": [
+        {
+          "title": "Received dispute credit and refund",
+          "url": "https://money.stackexchange.com/questions/127238/received-dispute-credit-and-refund",
+          "source": "consumerQa",
+          "createdAt": "2020-06-30T20:14:33.000Z",
+          "excerpt": "I had booked a flight with an airline through my chase credit card. It was a connecting flight and the airline canceled one of the connecting flights but didn't cancel and refund my trip. So I tried to cancel my entire t"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1lrj0p:v1",
+      "titleZh": "收到纠纷补偿与退款",
+      "quoteZh": "我通过Chase信用卡向一家航空公司预订了航班。这是中转航班，航空公司取消了其中一段中转航程，却没有取消我的行程并给予退款。所以我尝试取消整个行程。",
+      "translationKey": "1lrj0p",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给信用卡用户做一个查询纠纷补偿进度的小工具",
+          "en": "A small tool for credit card users to check dispute compensation progress"
+        },
+        "who": {
+          "zh": "信用卡用户",
+          "en": "credit card users"
+        },
+        "why": {
+          "zh": "无法查询到取消航班的补偿及退款情况",
+          "en": "They cannot track compensation and refund for canceled connecting flights"
+        },
+        "step": {
+          "zh": "做一个可输入订单号查询补偿状态的单页工具",
+          "en": "Create a one-page tool that takes an order number to show compensation status"
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-selling-a-bike-they-offered-to-buy-it-through-a-",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Selling a bike, they offered to buy it through a courier; how does this scam work?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2020-10-26T18:57:01.000Z",
+      "evidence": [
+        {
+          "title": "Selling a bike, they offered to buy it through a courier; how does this scam work?",
+          "url": "https://money.stackexchange.com/questions/132252/selling-a-bike-they-offered-to-buy-it-through-a-courier-how-does-this-scam-wor",
+          "source": "consumerQa",
+          "createdAt": "2020-10-26T18:57:01.000Z",
+          "excerpt": "My sister is selling her old dirt bike through Gumtree. She got an email this morning saying the following: Cheers for the prompt responses! please consider it sold and cancel every other appointment regarding it, I am b"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1xkrkn1:v1",
+      "titleZh": "出售自行车，对方提出通过快递购买，这是何种骗局？",
+      "quoteZh": "我姐姐正在Gumtree上出售她的旧越野摩托车。今天早上她收到一封邮件，内容如下：感谢您的快速回复！请视为已售出，并取消所有相关的预约。",
+      "translationKey": "1xkrkn1",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给卖家做一个识别快递诈骗风险的小工具",
+          "en": "A small tool for sellers to identify courier scam risks"
+        },
+        "who": {
+          "zh": "自行车卖家",
+          "en": "bicycle sellers"
+        },
+        "why": {
+          "zh": "收到买家声称已付款要求取消交易的邮件",
+          "en": "Received an email claiming payment was made requesting transaction cancellation"
+        },
+        "step": {
+          "zh": "做一个能自动识别邮件中取消交易关键词的工具，找2个卖家试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 small businesses handling bookings."
+        }
+      }
+    },
+    {
+      "id": "personal-admin-backup-photos-and-videos-to-google-photos",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Backup photos and videos to Google Photos",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2020-06-21T15:28:18.000Z",
+      "evidence": [
+        {
+          "title": "Backup photos and videos to Google Photos",
+          "url": "https://webapps.stackexchange.com/questions/143319/backup-photos-and-videos-to-google-photos",
+          "source": "consumerQa",
+          "createdAt": "2020-06-21T15:28:18.000Z",
+          "excerpt": "I am using the app download from https://photos.google.com/apps ( for Windows ) My question, how do I make sure that when I delete uploaded photos/videos from the local folder it won't be deleted in Google Photos? So for"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "nwv0kd:v1",
+      "titleZh": "将照片和视频备份到Google Photos",
+      "quoteZh": "我使用从https://photos.google.com/apps下载的（Windows版）应用。我的问题是，如何确保当我从本地文件夹删除已上传的照片/视频时，它们不会在Google Photos中被删除？",
+      "translationKey": "nwv0kd",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给Windows用户做一个自动同步本地照片到Google Photos的工具",
+          "en": "A small tool for Windows users to automatically sync local photos to Google Photos"
+        },
+        "who": {
+          "zh": "Windows用户",
+          "en": "Windows users"
+        },
+        "why": {
+          "zh": "担心删除本地照片后同步数据会丢失",
+          "en": "Worried that synced data will be lost after deleting local photos"
+        },
+        "step": {
+          "zh": "做一个能自动上传指定文件夹照片到Google Photos的简易工具，找2人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+        }
+      }
+    },
+    {
+      "id": "personal-admin-backup-photos-to-the-cloud-while-traveling",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Backup photos to the cloud while traveling?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2022-06-25T10:57:52.000Z",
+      "evidence": [
+        {
+          "title": "Backup photos to the cloud while traveling?",
+          "url": "https://travel.stackexchange.com/questions/71575/backup-photos-to-the-cloud-while-traveling",
+          "source": "consumerQa",
+          "createdAt": "2022-06-25T10:57:52.000Z",
+          "excerpt": "I'm going to travel around China for 3 weeks and I'm thinking how to backup my photo to the cloud (any storage provider is ok) taken with my old Canon 500D. Since I love to take time lapse, I will take several GBs of RAW"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1v4j8ur:v1",
+      "titleZh": "旅行时将照片备份到云端？",
+      "quoteZh": "我打算在中国旅行三周，想了解如何将用旧款佳能500D拍摄的照片备份到云端（任何存储服务都可以）。因为我喜欢拍摄延时摄影，所以会产生数GB的RAW格式文件。",
+      "translationKey": "1v4j8ur",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给旅行者做一个自动上传照片到云端的工具",
+          "en": "A small tool for travelers to automatically upload photos to the cloud"
+        },
+        "who": {
+          "zh": "旅行者",
+          "en": "travelers"
+        },
+        "why": {
+          "zh": "担心外出旅行时旧相机拍的照片无法保存",
+          "en": "worrying that photos taken with an old camera during travel won’t be saved"
+        },
+        "step": {
+          "zh": "做一个可上传照片就自动保存的简易工具，找1人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+        }
+      }
+    },
+    {
+      "id": "personal-admin-duplicate-folders-in-contacts-outlook-2010-merge",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Duplicate folders in contacts Outlook 2010 merge them",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2016-08-05T07:39:50.000Z",
+      "evidence": [
+        {
+          "title": "Duplicate folders in contacts Outlook 2010 merge them",
+          "url": "https://superuser.com/questions/655968/duplicate-folders-in-contacts-outlook-2010-merge-them",
+          "source": "consumerQa",
+          "createdAt": "2016-08-05T07:39:50.000Z",
+          "excerpt": "I have 4 different folders for Outlook contacts, three personal folders and one suggested contact folder. How do I merge these into one because I have to search all three in order to find one. Thanks."
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "14is1mm:v1",
+      "titleZh": "合并Outlook 2010联系人中的重复文件夹",
+      "quoteZh": "我在Outlook联系人中有4个不同的文件夹，三个是个人文件夹，一个是系统推荐的联系人文件夹。我该如何将它们合并为一个，因为我现在需要查看这三个文件夹才能找到某位联系人。谢谢。",
+      "translationKey": "14is1mm",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给联系人管理者做一个合并重复文件夹的工具",
+          "en": "A small tool for contact managers to merge duplicate folders"
+        },
+        "who": {
+          "zh": "联系人管理者",
+          "en": "contact managers"
+        },
+        "why": {
+          "zh": "需要在多个文件夹中逐一搜索联系人，效率很低",
+          "en": "They have to search across multiple folders manually which is inefficient"
+        },
+        "step": {
+          "zh": "做一个可导入联系人列表并自动合并重复文件夹的简易工具，找2人试用",
+          "en": "Build a simple tool that imports contact lists and auto-merges duplicates, get 2 people to test it"
+        }
+      }
+    },
+    {
+      "id": "personal-admin-extracting-exporting-contacts-in-googleapps-for-",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Extracting/Exporting contacts in GoogleApps for Education directory",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2018-02-07T08:02:57.000Z",
+      "evidence": [
+        {
+          "title": "Extracting/Exporting contacts in GoogleApps for Education directory",
+          "url": "https://webapps.stackexchange.com/questions/106855/extracting-exporting-contacts-in-googleapps-for-education-directory",
+          "source": "consumerQa",
+          "createdAt": "2018-02-07T08:02:57.000Z",
+          "excerpt": "I don't see a way to export the contacts in Google Apps four Education directory via Google's older/newer layout of contacts.google.com. If there is no such option, Is there any way to extract all contacts displayed in t"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1y5yfgb:v1",
+      "titleZh": "从Google Apps for Education目录导出联系人",
+      "quoteZh": "通过contacts.google.com的旧版或新版界面，我找不到从Google Apps for Education目录导出联系人的方法。如果没有这样的选项，是否有其他方式可以提取所有显示的联系人？",
+      "translationKey": "1y5yfgb",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给教育机构管理员做一个导出联系人列表的小工具",
+          "en": "A small tool for education institution admins to export contact lists"
+        },
+        "who": {
+          "zh": "教育机构管理员",
+          "en": "education institution admins"
+        },
+        "why": {
+          "zh": "无法通过contacts.google.com导出联系人数据",
+          "en": "There is no way to export contacts from Google Apps for Education's contacts.google.com"
+        },
+        "step": {
+          "zh": "做一个可批量导出联系人名单的简单工具，找2人试用",
+          "en": "Build a simple tool for batch exporting contact lists and get feedback from 2 users"
+        }
+      }
+    },
+    {
+      "id": "personal-admin-how-do-i-export-my-exchange-outlook-contacts-to-",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "How do I export my Exchange/Outlook contacts to iCloud with photos intact?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2020-10-15T09:23:27.000Z",
+      "evidence": [
+        {
+          "title": "How do I export my Exchange/Outlook contacts to iCloud with photos intact?",
+          "url": "https://superuser.com/questions/834422/how-do-i-export-my-exchange-outlook-contacts-to-icloud-with-photos-intact",
+          "source": "consumerQa",
+          "createdAt": "2020-10-15T09:23:27.000Z",
+          "excerpt": "I know how to export contacts from Exchange/Outlook via the .csv route (e.g. export as CSV, import into Gmail, export as vCard, then import into iCloud). But that method loses all the photos that are attached my contacts"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "183nfrf:v1",
+      "titleZh": "如何将Exchange/Outlook联系人连同照片一起导出到iCloud？",
+      "quoteZh": "我知道可以通过.csv格式导出Exchange/Outlook的联系人（例如先导出为CSV，再导入Gmail，然后导出为vCard并导入iCloud），但这种方法会丢失联系人附带的全部照片。",
+      "translationKey": "183nfrf",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给联系人管理用户做一个自动同步联系人及照片到iCloud的工具",
+          "en": "A small tool for contact managers to automatically sync contacts and photos to iCloud"
+        },
+        "who": {
+          "zh": "联系人管理用户",
+          "en": "people organizing contacts, photos and files"
+        },
+        "why": {
+          "zh": "手动转换多步骤易丢失照片导致数据不完整",
+          "en": "Someone asked about \"How do I export my Exchange/Outlook contacts to iCloud with \" in public Q&A — the current way is not smooth enough."
+        },
+        "step": {
+          "zh": "做一个能直接导入Exchange/Outlook并保留照片的导出工具，找2人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+        }
+      }
+    },
+    {
+      "id": "personal-admin-how-do-i-force-merge-contacts-in-google-contacts",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "How do I force merge contacts in Google Contacts?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2021-07-06T09:38:23.000Z",
+      "evidence": [
+        {
+          "title": "How do I force merge contacts in Google Contacts?",
+          "url": "https://webapps.stackexchange.com/questions/103824/how-do-i-force-merge-contacts-in-google-contacts",
+          "source": "consumerQa",
+          "createdAt": "2021-07-06T09:38:23.000Z",
+          "excerpt": "Google Contacts automatically identifies potential duplicates and supports merging these candidates, but I can't figure out how to force or suggest candidates for merging."
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1osdnfj:v1",
+      "titleZh": "如何强制合并Google联系人中的重复项？",
+      "quoteZh": "Google联系人会自动识别潜在的重复联系人并支持合并这些候选项，但我不知道如何强制合并或手动推荐需要合并的候选项。",
+      "translationKey": "1osdnfj",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给想要强制合并Google联系人重复项的人做一个自动筛选待合并项的工具",
+          "en": "A small tool for people who want to force merge duplicates in Google Contacts to auto-select items for merging."
+        },
+        "who": {
+          "zh": "Google联系人用户",
+          "en": "Users of Google Contacts."
+        },
+        "why": {
+          "zh": "无法找到强制合并或筛选待合并候选项的方法。",
+          "en": "They cannot find a way to force merges or identify candidates for merging."
+        },
+        "step": {
+          "zh": "做一个能自动识别重复联系人并列出待合并列表的简单工具，找2人试用。",
+          "en": "Create a simple tool that auto-identifies duplicate contacts and lists items for merging, then get 2 people to test it."
+        }
+      }
+    },
+    {
+      "id": "personal-admin-how-to-merge-contacts-in-sugarcrm",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "How to merge contacts in SugarCRM?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2013-01-09T22:30:39.000Z",
+      "evidence": [
+        {
+          "title": "How to merge contacts in SugarCRM?",
+          "url": "https://webapps.stackexchange.com/questions/30508/how-to-merge-contacts-in-sugarcrm",
+          "source": "consumerQa",
+          "createdAt": "2013-01-09T22:30:39.000Z",
+          "excerpt": "In SugarCRM, my company has been using it for 10+ years. For some ex employees, it was easier to create new contacts then search for existing contacts, and we have many, many duplicates. Is there a way to merge the dupli"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "ea3lbj:v1",
+      "titleZh": "SugarCRM联系人合并方法",
+      "quoteZh": "我们在SugarCRM已使用超过10年。对于部分前员工而言，创建新联系人比查找现有联系人更便捷，因此出现了大量重复联系人。是否有办法合并这些重复项？",
+      "translationKey": "ea3lbj",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给个人管理员做一个联系人去重工具",
+          "en": "A small tool for personal admins to remove duplicate contacts"
+        },
+        "who": {
+          "zh": "个人管理员",
+          "en": "personal admins"
+        },
+        "why": {
+          "zh": "存在大量重复联系人，创建新联系人比查找更麻烦",
+          "en": "There are many duplicate contacts making it harder to create new ones than to search"
+        },
+        "step": {
+          "zh": "做一个可导入联系人列表并标记重复项的简易工具，找2人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+        }
+      }
+    },
+    {
+      "id": "pet-and-home-care-my-rabbit-is-hyperventilating-and-can-t-get-comf",
+      "nicheId": "pet-and-home-care",
+      "nicheLabel": "Pet and home care: records, reminders and care schedules",
+      "title": "My rabbit is hyperventilating and can't get comfortable. What is wrong with her?",
+      "score": 25,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 4,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "seeking"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2019-05-29T04:59:17.000Z",
+      "evidence": [
+        {
+          "title": "My rabbit is hyperventilating and can't get comfortable. What is wrong with her?",
+          "url": "https://pets.stackexchange.com/questions/2123/my-rabbit-is-hyperventilating-and-cant-get-comfortable-what-is-wrong-with-her",
+          "source": "consumerQa",
+          "createdAt": "2019-05-29T04:59:17.000Z",
+          "excerpt": "I am back from the ER, the rabbit seems okay right now; but I'm still concerned that there might be something wrong with her. Here is a video of her in hyperventilating and unable to get comfortable . My presence makes h"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 24,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "yn4qkf:v1",
+      "titleZh": "兔子呼吸急促且无法安静",
+      "quoteZh": "我刚从急诊室回来，兔子目前看起来状况尚可，但我仍担心它可能存在问题。这是它呼吸急促且无法安静的视频，我的出现会让它更加不安。",
+      "translationKey": "yn4qkf",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "pet-owner",
+        "headline": {
+          "zh": "给宠物主人做一个快速判断兔子呼吸异常的工具",
+          "en": "A small tool for pet owners to quickly assess rabbit breathing issues"
+        },
+        "who": {
+          "zh": "宠物主人",
+          "en": "pet owners"
+        },
+        "why": {
+          "zh": "无法通过现有信息判断兔子呼吸急促的病因",
+          "en": "They cannot determine the cause of their rabbit's rapid breathing from available information"
+        },
+        "step": {
+          "zh": "制作一个可上传视频自动分析呼吸频率的工具原型",
+          "en": "Create a prototype that analyzes video footage to estimate breathing rate"
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-making-up-for-having-accidentally-left-work-earl",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Making up for having accidentally left work early",
+      "score": 24,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 3,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2019-10-09T06:58:36.000Z",
+      "evidence": [
+        {
+          "title": "Making up for having accidentally left work early",
+          "url": "https://workplace.stackexchange.com/questions/99729/making-up-for-having-accidentally-left-work-early",
+          "source": "consumerQa",
+          "createdAt": "2019-10-09T06:58:36.000Z",
+          "excerpt": "My shift schedule just changed and I accidentally left work 30 minutes early. Where I work monitors us very carefully on the computer and they are very strict about these sorts of things. I'm wondering what I should do? "
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 22,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1jz8n1t:v1",
+      "titleZh": "因意外提前下班如何补救",
+      "quoteZh": "我的排班刚有变动，我不小心提前30分钟离开了工作地点。我工作的单位会通过电脑严格监控我们，对这类情况要求极为严格，我不知道该怎么办？",
+      "translationKey": "1jz8n1t",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "service-owner",
+        "headline": {
+          "zh": "给服务提供者做一个补登下班时间的小工具",
+          "en": "A small tool for service providers to log adjusted work hours"
+        },
+        "who": {
+          "zh": "服务提供者",
+          "en": "service providers"
+        },
+        "why": {
+          "zh": "无法及时补登提前下班的时间记录",
+          "en": "they are unable to promptly update recorded work hours"
+        },
+        "step": {
+          "zh": "做一个简单表单让服务提供者填写补登信息",
+          "en": "create a simple form for them to enter adjusted time details"
+        }
+      }
+    },
+    {
+      "id": "local-service-booking-who-s-calendar-reminder-is-in-control",
+      "nicheId": "local-service-booking",
+      "nicheLabel": "Local services: appointments, cancellations and refunds",
+      "title": "Who's calendar reminder is in control?",
+      "score": 24,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 3,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2015-08-29T00:58:24.000Z",
+      "evidence": [
+        {
+          "title": "Who's calendar reminder is in control?",
+          "url": "https://superuser.com/questions/425845/whos-calendar-reminder-is-in-control",
+          "source": "consumerQa",
+          "createdAt": "2015-08-29T00:58:24.000Z",
+          "excerpt": "When I send a calendar appointment using Outlook 10 to my boss and set the reminder to NONE, does the reminder stay at NONE on my boss's calendar or does it change to my boss's default reminder setting on her calendar? ("
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 22,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "qf2lb4:v1",
+      "titleZh": "日历提醒由谁控制",
+      "quoteZh": "我用Outlook 10给上司发送日程安排并将提醒设置为无时，这个提醒会一直保持为无时在上司的日历上，还是会变成上司日历的默认提醒设置？",
+      "translationKey": "qf2lb4",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给老板做一个设置提醒状态查看的工具",
+          "en": "A small tool for bosses to check reminder settings."
+        },
+        "who": {
+          "zh": "老板",
+          "en": "bosses"
+        },
+        "why": {
+          "zh": "无法确认发送的日程提醒在对方日历上的实际状态。",
+          "en": "Unable to confirm the actual reminder status on the recipient's calendar."
+        },
+        "step": {
+          "zh": "做一个可查看对方日程提醒状态的简单页面。",
+          "en": "Create a simple page to view the recipient's schedule reminder status."
+        }
+      }
+    },
+    {
+      "id": "personal-admin-automatically-run-find-merge-duplicates-in-gmail",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Automatically run Find & Merge duplicates in Gmail contacts",
+      "score": 24,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 3,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2015-01-04T23:03:40.000Z",
+      "evidence": [
+        {
+          "title": "Automatically run Find & Merge duplicates in Gmail contacts",
+          "url": "https://webapps.stackexchange.com/questions/67272/automatically-run-find-merge-duplicates-in-gmail-contacts",
+          "source": "consumerQa",
+          "createdAt": "2015-01-04T23:03:40.000Z",
+          "excerpt": "I frequently use the function Find & Merge duplicates in Gmail Contacts. Can this function somehow be automatised to be run periodically without manual user execution?"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 22,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1rchuwc:v1",
+      "titleZh": "Gmail联系人自动查找合并重复项",
+      "quoteZh": "我经常使用Gmail联系人中的查找并合并重复项功能，能否让该功能定期自动运行，无需用户手动操作？",
+      "translationKey": "1rchuwc",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给普通用户做一个自动合并Gmail联系人重复项的工具",
+          "en": "A small tool for ordinary users to automatically merge duplicate Gmail contacts."
+        },
+        "who": {
+          "zh": "普通用户",
+          "en": "Ordinary users."
+        },
+        "why": {
+          "zh": "需要手动执行重复项合并操作，效率较低。",
+          "en": "They need to manually perform duplicate contact merging which is inefficient."
+        },
+        "step": {
+          "zh": "做一个一键自动合并Gmail联系人重复项的简单工具，找2人试用。",
+          "en": "Create a simple tool that automatically merges duplicate Gmail contacts with one click and get feedback from 2 users."
+        }
+      }
+    },
+    {
+      "id": "personal-admin-contacts-export-problems-with-google-contacts-pr",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Contacts export problems with Google Contacts Preview",
+      "score": 24,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 3,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2018-07-27T08:15:13.000Z",
+      "evidence": [
+        {
+          "title": "Contacts export problems with Google Contacts Preview",
+          "url": "https://webapps.stackexchange.com/questions/78093/contacts-export-problems-with-google-contacts-preview",
+          "source": "consumerQa",
+          "createdAt": "2018-07-27T08:15:13.000Z",
+          "excerpt": "I tried to export contacts from Google Contacts Preview but was told to go to old contacts to do so but there was no \"export\" contacts on the toolbar just import contacts. what should I do?"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 22,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "ok4kae:v1",
+      "titleZh": "Google联系人预览导出问题",
+      "quoteZh": "我尝试从Google联系人预览中导出联系人，却被告知要去旧联系人那里操作，但工具栏上没有导出联系人的选项，只有导入联系人，我该怎么做？",
+      "translationKey": "ok4kae",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给普通用户做一个从Google联系人预览导出联系人的小工具",
+          "en": "A small tool for ordinary users to export contacts from Google Contacts Preview"
+        },
+        "who": {
+          "zh": "普通用户",
+          "en": "Ordinary users"
+        },
+        "why": {
+          "zh": "在Google联系人预览中找不到导出联系人功能，只能通过旧版联系人入口操作",
+          "en": "There is no export option for contacts in Google Contacts Preview, forcing users to use the old contacts interface"
+        },
+        "step": {
+          "zh": "直接在Google联系人预览中测试导出按钮是否存在，确认问题真实性",
+          "en": "Test directly in Google Contacts Preview to confirm the absence of an export button"
+        }
+      }
+    },
+    {
+      "id": "personal-admin-external-hard-drive-for-storing-photo-backups-wh",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "External hard drive for storing photo backups whilst travelling",
+      "score": 24,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 3,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2013-03-12T07:18:36.000Z",
+      "evidence": [
+        {
+          "title": "External hard drive for storing photo backups whilst travelling",
+          "url": "https://travel.stackexchange.com/questions/14403/external-hard-drive-for-storing-photo-backups-whilst-travelling",
+          "source": "consumerQa",
+          "createdAt": "2013-03-12T07:18:36.000Z",
+          "excerpt": "Can anyone recommend a sturdy external hard drive specifically designed for travelling that I can back up photos and videos on?"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 22,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "l26e63:v1",
+      "titleZh": "适合旅行使用的照片备份外置硬盘",
+      "quoteZh": "有人能推荐一款专为旅行设计的坚固外置硬盘，用于备份照片和视频吗？",
+      "translationKey": "l26e63",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给旅行者做一个防摔照片备份外置硬盘选择工具",
+          "en": "A small tool for travelers to choose a shockproof external HDD for photo backup"
+        },
+        "who": {
+          "zh": "旅行者",
+          "en": "travelers"
+        },
+        "why": {
+          "zh": "找不到专为旅行设计的防摔照片备份硬盘",
+          "en": "They can't find a shockproof external HDD designed for travel photo backup"
+        },
+        "step": {
+          "zh": "列出5款防摔旅行用外置硬盘并附链接",
+          "en": "List 5 shockproof travel external HDDs with links"
+        }
+      }
+    },
+    {
+      "id": "personal-admin-is-there-a-facility-in-outlook-2003-that-will-fi",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Is there a facility in OUTLOOK 2003 that will find and merge duplicate contacts?",
+      "score": 24,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 3,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2013-07-10T03:27:10.000Z",
+      "evidence": [
+        {
+          "title": "Is there a facility in OUTLOOK 2003 that will find and merge duplicate contacts?",
+          "url": "https://superuser.com/questions/121622/is-there-a-facility-in-outlook-2003-that-will-find-and-merge-duplicate-contacts",
+          "source": "consumerQa",
+          "createdAt": "2013-07-10T03:27:10.000Z",
+          "excerpt": "Is there a facility in OUTLOOK 2003 that will find and merge duplicate contacts? OS is Windows XP SP3."
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 22,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1g9tf5t:v1",
+      "titleZh": "OUTLOOK 2003是否有查找合并重复联系人的功能",
+      "quoteZh": "OUTLOOK 2003是否有查找并合并重复联系人的功能？操作系统为Windows XP SP3。",
+      "translationKey": "1g9tf5t",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给Outlook 2003用户做一个查找合并重复联系人功能的小工具",
+          "en": "A small tool for Outlook 2003 users to find and merge duplicate contacts."
+        },
+        "who": {
+          "zh": "Outlook 2003用户",
+          "en": "Users of Outlook 2003."
+        },
+        "why": {
+          "zh": "他们需要工具来查找并合并重复的联系人。",
+          "en": "They need a tool to find and merge duplicate contacts."
+        },
+        "step": {
+          "zh": "做一个能识别并合并重复联系人的简易工具原型，找1人试用。",
+          "en": "Create a simple prototype that identifies and merges duplicate contacts, and get it tested by 1 person."
+        }
+      }
+    },
+    {
+      "id": "pet-and-home-care-can-these-vaccine-records-and-test-tool-kit-sati",
+      "nicheId": "pet-and-home-care",
+      "nicheLabel": "Pet and home care: records, reminders and care schedules",
+      "title": "Can these vaccine records and test tool kit satisfy the requirements for entering Hong Kong?",
+      "score": 24,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 3,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2023-01-28T17:44:05.000Z",
+      "evidence": [
+        {
+          "title": "Can these vaccine records and test tool kit satisfy the requirements for entering Hong Kong?",
+          "url": "https://travel.stackexchange.com/questions/179058/can-these-vaccine-records-and-test-tool-kit-satisfy-the-requirements-for-enterin",
+          "source": "consumerQa",
+          "createdAt": "2023-01-28T17:44:05.000Z",
+          "excerpt": "Do you have to meet any COVID-related requirements if you are arriving at Hong Kong International Airport and intend to take the high-speed train into mainland China? Non-Hong Kong residents aged 12 or above on the day o"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 22,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "gifeir:v1",
+      "titleZh": "疫苗记录与检测工具包能否满足入境香港的要求",
+      "quoteZh": "若从香港国际机场抵达并打算乘高铁前往中国内地，是否需要满足任何与新冠相关的要求？12岁及以上的非香港居民在当日",
+      "translationKey": "gifeir",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给入境香港旅客做一个疫苗记录核验小工具",
+          "en": "A small tool for travelers to verify vaccine records for Hong Kong entry"
+        },
+        "who": {
+          "zh": "入境香港的旅客",
+          "en": "Passengers arriving in Hong Kong"
+        },
+        "why": {
+          "zh": "不确定新冠相关要求是否满足入境条件",
+          "en": "They are unsure if their COVID requirements meet entry standards"
+        },
+        "step": {
+          "zh": "做一个简单查询工具，输入记录后显示是否符合要求",
+          "en": "Build a simple tool that checks records against entry requirements"
+        }
+      }
+    },
+    {
+      "id": "pet-and-home-care-how-do-i-get-dynamic-images-to-show-up-on-each-m",
+      "nicheId": "pet-and-home-care",
+      "nicheLabel": "Pet and home care: records, reminders and care schedules",
+      "title": "How do I get Dynamic Images to show up on each Microsoft Access 2007 database for reporting?",
+      "score": 24,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 0,
+        "recency": 11.4,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-05-09T16:06:10.000Z",
+      "evidence": [
+        {
+          "title": "How do I get Dynamic Images to show up on each Microsoft Access 2007 database for reporting?",
+          "url": "https://superuser.com/questions/143729/how-do-i-get-dynamic-images-to-show-up-on-each-microsoft-access-2007-database-fo",
+          "source": "consumerQa",
+          "createdAt": "2026-05-09T16:06:10.000Z",
+          "excerpt": "I'm finding it difficult to get MS reporting working to what I'd like to show. What I'm trying to do is: a) In my database store a URL file (HTTP external file), that is a .jpeg. I'd like to use that URL to call the imag"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 2,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "izbpgr:v1",
+      "titleZh": "如何让动态图片显示在每个Microsoft Access 2007数据库的报表中",
+      "quoteZh": "我很难让MS报表呈现我想要的内容。我的操作是：a）在数据库中存储一个URL文件（HTTP外部文件），即.jpeg格式，我想用该URL来调用图片",
+      "translationKey": "izbpgr",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给报表使用者做一个嵌入外部图片的简单工具",
+          "en": "A small tool for report users to embed external images"
+        },
+        "who": {
+          "zh": "报表使用者",
+          "en": "Report users"
+        },
+        "why": {
+          "zh": "无法将存储的JPEG图片插入报表中",
+          "en": "They can't insert stored JPEG images into reports"
+        },
+        "step": {
+          "zh": "做一个能上传图片并直接嵌入报表的单页工具，找1人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 pet owners juggling care schedules."
+        }
+      }
     },
     {
       "id": "invoice-export-banking-app-transaction-multi-currency",
@@ -857,7 +4631,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.3,
+        "recency": 9.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -879,9 +4653,6 @@
           "excerpt": "### Information about bug When trying to create a journal entry in the new banking app, it does not allow you to submit a Journal Entry with an account outside of the company currency. Normally, on a Journal Entry, there"
         }
       ],
-      "titleZh": "银行应用交易：多币种支持",
-      "quoteZh": "缺陷信息：在新银行应用中创建日记账分录时，若科目使用公司本位币以外的币种，系统不允许提交。通常日记账分录……",
-      "translationKey": "4lp5nm",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -906,7 +4677,31 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "4lp5nm:v1"
+      "cardKey": "4lp5nm:v1",
+      "titleZh": "银行应用交易：多货币",
+      "quoteZh": "### 错误信息 在新银行应用中创建日记账分录时，不允许使用公司货币之外的账户提交日记账分录。通常情况下，日记账分录上",
+      "translationKey": "4lp5nm",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给普通用户做一个多货币交易记录录入小工具",
+          "en": "A small tool for ordinary users to enter multi-currency transaction records"
+        },
+        "who": {
+          "zh": "普通用户",
+          "en": "Ordinary users"
+        },
+        "why": {
+          "zh": "在新的银行应用中无法输入公司账户外的账户的交易日志记录",
+          "en": "They cannot submit journal entries for accounts outside their company's currency in the new banking app"
+        },
+        "step": {
+          "zh": "做一个仅支持多货币账户交易的单页工具，找2人试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 bookkeepers and finance staff."
+        }
+      }
     },
     {
       "id": "scheduling-appointment-cancellation",
@@ -966,7 +4761,271 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "c9813y:v1"
+      "cardKey": "c9813y:v1",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "service-owner",
+        "headline": {
+          "zh": "给服务提供者做一个预约取消功能的小工具",
+          "en": "A small tool for service providers to cancel appointments."
+        },
+        "who": {
+          "zh": "服务提供者",
+          "en": "service providers"
+        },
+        "why": {
+          "zh": "当前预约取消功能为无效代码，无法处理取消操作。",
+          "en": "The current appointment cancellation feature is invalid code that can't handle cancellations."
+        },
+        "step": {
+          "zh": "做一个可实际使用的预约取消按钮原型，找1位服务提供者测试。",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+        }
+      }
+    },
+    {
+      "id": "scheduling-endpoint-delete-bookings-booking-id",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Endpoint: DELETE /bookings/{booking_id}",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 10.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-05T17:50:32.000Z",
+      "evidence": [
+        {
+          "title": "Endpoint: DELETE /bookings/{booking_id}",
+          "url": "https://github.com/dragontamer09/flight-control/issues/10",
+          "source": "github",
+          "createdAt": "2026-11-05T17:50:32.000Z",
+          "excerpt": "- [ ] Cancels the booking, returns its seats on every flight, refunds in full (revenue drops). - [ ] Returns the booking with `status` `cancelled`. - [ ] Cancelling twice returns the same thing, not an error. - [ ] `404`"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1o3ijf0:v1",
+      "titleZh": "端点：DELETE /bookings/{booking_id}",
+      "quoteZh": "- [ ] 取消预订，释放所有航班的座位，全额退款（收入减少）。- [ ] 返回状态为cancelled的预订。- [ ] 取消两次仍无异常，不会报错。- [ ] 返回404错误",
+      "translationKey": "1o3ijf0",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "service-owner",
+        "headline": {
+          "zh": "给服务商做一个删除预订状态的小工具",
+          "en": "A small tool for service owners to delete booking statuses."
+        },
+        "who": {
+          "zh": "服务商",
+          "en": "Service owners."
+        },
+        "why": {
+          "zh": "取消预订会导致座位释放和收入损失。",
+          "en": "Canceling bookings releases seats and causes revenue loss."
+        },
+        "step": {
+          "zh": "做一个可输入预订ID直接删除状态的单页工具，找1人测试。",
+          "en": "Make a one-page tool to delete status by booking ID and get 1 person to test it."
+        }
+      }
+    },
+    {
+      "id": "scheduling-endpoint-get-bookings-booking-id",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Endpoint: GET /bookings/{booking_id}",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 10.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-05T17:50:30.000Z",
+      "evidence": [
+        {
+          "title": "Endpoint: GET /bookings/{booking_id}",
+          "url": "https://github.com/dragontamer09/flight-control/issues/9",
+          "source": "github",
+          "createdAt": "2026-11-05T17:50:30.000Z",
+          "excerpt": "- [ ] Returns the booking with `status` `confirmed` or `cancelled`. - [ ] `404` if unknown."
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "zeg1zq:v1",
+      "titleZh": "端点：GET /bookings/{booking_id}",
+      "quoteZh": "- [ ] 返回状态为confirmed或cancelled的预订。- [ ] 若预订不存在则返回404错误。",
+      "translationKey": "zeg1zq",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "service-owner",
+        "headline": {
+          "zh": "给服务业主做一个查询已确认或取消预订状态的工具",
+          "en": "A small tool for service owners to check booking status"
+        },
+        "who": {
+          "zh": "服务业主",
+          "en": "service owners"
+        },
+        "why": {
+          "zh": "无法获取已确认或取消的预订状态信息",
+          "en": "They cannot retrieve booking status as confirmed or cancelled"
+        },
+        "step": {
+          "zh": "做一个简单接口查询工具，找2个服务业主测试使用",
+          "en": "Build a simple API query tool and get tested by 2 service owners"
+        }
+      }
+    },
+    {
+      "id": "scheduling-nurses-sound-alarm-as-uber-for-nursing-apps-push",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregulate Healthcare",
+      "score": 23,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 8.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-01T20:56:30.000Z",
+      "evidence": [
+        {
+          "title": "Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregulate Healthcare",
+          "url": "https://nurse.org/news/uber-for-nursing-gig-apps-report/",
+          "source": "hn",
+          "createdAt": "2026-11-01T20:56:30.000Z",
+          "excerpt": "Except when the \"meter is broken\" or they take the scenic route. My grandmother with dementia routinely got charged double or triple the expected rate for trips to medical appointments, until we figured out what was goin"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "ti9css:v1",
+      "titleZh": "护士声音警报作为‘护理行业优步’应用的推送功能以优化医疗资源分配",
+      "quoteZh": "除非计价器出故障或他们选择绕路，否则患有痴呆症的祖母去就医时常常要支付预期费用的两倍甚至三倍，直到我们弄清楚问题所在",
+      "translationKey": "ti9css",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "service-owner",
+        "headline": {
+          "zh": "给护理服务提供者做一个提醒异常收费的警报工具",
+          "en": "A small tool for nursing service providers to get alerts about abnormal charges"
+        },
+        "who": {
+          "zh": "护理服务提供者",
+          "en": "people scheduling appointments"
+        },
+        "why": {
+          "zh": "当计费系统出问题时他们会被多收费用",
+          "en": "Someone asked about \"Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregu\" in public Q&A — the current way is not smooth enough."
+        },
+        "step": {
+          "zh": "做一个能识别异常收费记录并发送警报的简单工具，找2位服务提供者试用",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+        }
+      }
     },
     {
       "id": "scheduling-patient-appointment-requests",
@@ -1022,1162 +5081,81 @@
         ]
       },
       "cardKey": "1y6wo84:v1",
-      "titleZh": "患者预约请求处理",
-      "quoteZh": "## 目标 患者可通过应用提交预约申请，工作人员可进行确认或拒绝。 ## 背景 - 在开发 #39（PR #66）过程中发现：创建和修改操作仅供服务提供方使用（患者会收到 403 错误），且不存在对应的 requested 字段。",
-      "translationKey": "1y6wo84"
-    },
-    {
-      "id": "dev-workflow-beta-uber-api-integration",
-      "nicheId": "dev-workflow",
-      "nicheLabel": "Developer workflow and integration friction",
-      "title": "Beta: Uber API integration",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T07:26:27.000Z",
-      "evidence": [
-        {
-          "title": "Beta: Uber API integration",
-          "url": "https://github.com/Xhanti-mbasa/cttrains-api/issues/26",
-          "source": "github",
-          "createdAt": "2026-11-12T07:26:27.000Z",
-          "excerpt": "## Request and rollout Add an optional **Uber integration** to CT Trains. **Backlog/planning only — do not implement, register accounts or integrate credentials yet.** Develop and test in **CT Trains Lab / the experiment"
+      "titleZh": "患者预约请求",
+      "quoteZh": "## 目标 患者可在应用中申请预约，工作人员可确认或拒绝。## 背景 - 在开发#39（PR #66）时发现：创建和PATCH操作仅供服务提供者使用（患者会收到403错误），且没有requested字段",
+      "translationKey": "1y6wo84",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给医疗服务人员做一个确认或拒绝预约请求的小工具",
+          "en": "A small tool for medical staff to confirm or reject appointment requests."
+        },
+        "who": {
+          "zh": "医疗服务人员",
+          "en": "Medical staff."
+        },
+        "why": {
+          "zh": "当前仅服务方能创建和修改预约，患者无法直接发起请求。",
+          "en": "Currently only providers can create and modify appointments, preventing patients from submitting requests directly."
+        },
+        "step": {
+          "zh": "做一个简单页面让患者填写预约信息，服务人员可直接查看并回复。",
+          "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
         }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "unknown",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "d4vnv:v1",
-      "titleZh": "测试版：Uber API 集成",
-      "quoteZh": "## 请求与推进 在 CT Trains 中添加可选的 Uber 集成功能。**目前仅处于待办/规划阶段——暂勿实施，也无需注册账户或集成凭证。**应在 CT Trains 实验室中进行开发和测试。",
-      "translationKey": "d4vnv"
-    },
-    {
-      "id": "dev-workflow-google-cloud-iap-returns-error-9-after-oauth-red",
-      "nicheId": "dev-workflow",
-      "nicheLabel": "Developer workflow and integration friction",
-      "title": "Google Cloud IAP returns Error 9 after OAuth redirect on Cloud Run",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "so"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T01:15:28.000Z",
-      "evidence": [
-        {
-          "title": "Google Cloud IAP returns Error 9 after OAuth redirect on Cloud Run",
-          "url": "https://stackoverflow.com/questions/80016390/google-cloud-iap-returns-error-9-after-oauth-redirect-on-cloud-run",
-          "source": "so",
-          "createdAt": "2026-11-13T01:15:28.000Z",
-          "excerpt": "I'm troubleshooting Google Cloud Identity-Aware Proxy (IAP) authentication for a Cloud Run service. Environment Google Cloud Run, region asia-northeast3 IAP enabled on the Cloud Run service Custom OAuth client of type We"
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "unknown",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "r2ytz1:v1",
-      "titleZh": "Cloud Run 上的 OAuth 重定向后 Google Cloud IAP 返回错误 9",
-      "quoteZh": "我正在为一项 Cloud Run 服务排查 Google Cloud Identity-Aware Proxy（IAP）认证问题。环境为 Cloud Run，区域为 asia-northeast3，该 Cloud Run 服务已启用 IAP，使用的自定义 OAuth 客户端类型为 We。",
-      "translationKey": "r2ytz1"
-    },
-    {
-      "id": "invoice-export-expense-not-here-page-opens-after-deleting-expen",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Expense - Not here page opens after deleting expense on single expense table view",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T08:26:57.000Z",
-      "evidence": [
-        {
-          "title": "Expense - Not here page opens after deleting expense on single expense table view",
-          "url": "https://github.com/Expensify/App/issues/106817",
-          "source": "github",
-          "createdAt": "2026-11-13T08:26:57.000Z",
-          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
-        }
-      ],
-      "titleZh": "删除单笔费用后出现“费用不在此处”页面",
-      "quoteZh": "如果您还未了解，可查看我们的[贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md)以了解入门流程。要加入我们的Slack频道，请填写[此表格](h)",
-      "translationKey": "tihhkf",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "tihhkf:v1"
-    },
-    {
-      "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Expense - Report list cannot be navigated via keyboard",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.1,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T11:29:02.000Z",
-      "evidence": [
-        {
-          "title": "Expense - Report list cannot be navigated via keyboard",
-          "url": "https://github.com/Expensify/App/issues/106702",
-          "source": "github",
-          "createdAt": "2026-11-12T11:29:02.000Z",
-          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
-        }
-      ],
-      "titleZh": "费用 - 报告列表无法通过键盘导航",
-      "quoteZh": "如果您还没有，请查看我们的 [贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) 以进行入职。要加入我们的 Slack 频道，请填写 [此表单](h",
-      "translationKey": "11xch1z",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "11xch1z:v1"
-    },
-    {
-      "id": "scheduling-openai-structured-outputs-model-returns-null-or-",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "OpenAI structured outputs: model returns null or skips values that exist in the source text…",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "so"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T06:41:24.000Z",
-      "evidence": [
-        {
-          "title": "OpenAI structured outputs: model returns null or skips values that exist in the source text during email data extraction",
-          "url": "https://stackoverflow.com/questions/80016369/openai-structured-outputs-model-returns-null-or-skips-values-that-exist-in-the",
-          "source": "so",
-          "createdAt": "2026-11-13T06:41:24.000Z",
-          "excerpt": "I am currently working on an application where we get an email, and after identification, we process that email with AI, where a response is required in JSON format for the values. Initially, I used a strict JSON schema "
-        }
-      ],
-      "titleZh": "OpenAI 结构化输出：模型返回 null 或跳过源文本中存在的值…",
-      "quoteZh": "我目前正在开发一个应用程序，我们收到电子邮件，识别后使用 AI 处理该邮件，需要以 JSON 格式对值进行响应。最初，我使用了严格的 JSON schema",
-      "translationKey": "1uib3xg",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1uib3xg:v1"
-    },
-    {
-      "id": "solo-crm-crm",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "CRM",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T01:48:33.000Z",
-      "evidence": [
-        {
-          "title": "CRM",
-          "url": "https://github.com/crmtdmpangkalanbalai-spec/vitejs-vite-skn1cv3a/issues/1",
-          "source": "github",
-          "createdAt": "2026-11-12T01:48:33.000Z",
-          "excerpt": "import React, { useState, useEffect, useMemo } from 'react'; import { Users, MessageSquare, FileText, ShieldCheck, TrendingUp, Plus, Search, Send, Edit3, Trash2, CheckCircle, Clock, Car, User, LogOut, Lock, History, Info"
-        }
-      ],
-      "titleZh": "CRM 客户关系管理",
-      "quoteZh": "代码片段：从 react 导入 useState、useEffect、useMemo，并引入 Users、MessageSquare、FileText、ShieldCheck、TrendingUp 等图标组件……",
-      "translationKey": "22yq12",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "solo",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "22yq12:v1"
-    },
-    {
-      "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request…",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "so"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:50:49.000Z",
-      "evidence": [
-        {
-          "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request arrives for generated test leads",
-          "url": "https://stackoverflow.com/questions/80016032/python-flask-webhook-receives-meta-lead-ads-test-event-with-http-200-but-no-pos",
-          "source": "so",
-          "createdAt": "2026-11-11T15:50:49.000Z",
-          "excerpt": "I'm integrating Meta (Facebook) Lead Ads with a custom CRM application using a Python Flask backend and Meta Graph API. The goal is to receive webhook notifications automatically whenever a lead is submitted through an I"
-        }
-      ],
-      "titleZh": "Python Flask webhook 收到 Meta Lead Ads 测试事件并返回 HTTP 200，却没有 POST 请求…",
-      "quoteZh": "我在用 Python Flask 后端 + Meta Graph API 把 Meta（Facebook）Lead Ads 接入自研 CRM，目标是线索表单提交后自动收到 webhook 通知……",
-      "translationKey": "1rlcx53",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "solo",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1rlcx53:v1"
-    },
-    {
-      "id": "scheduling-appointment-booking-tasks",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Appointment booking tasks",
-      "score": 21,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 4,
-        "recency": 6.1,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-27T14:12:30.000Z",
-      "evidence": [
-        {
-          "title": "Appointment booking tasks",
-          "url": "https://github.com/2403a52388/hospital-appointment-schedule/issues/5",
-          "source": "github",
-          "createdAt": "2026-10-27T14:11:15.000Z",
-          "excerpt": "Create appointment booking Display available doctors Display available time slots Implement book appointments Implement re-schedule appointments Implement cancel appointments Test appointment booking"
-        },
-        {
-          "title": "Appointment booking tasks",
-          "url": "https://github.com/NalubolaSaicharan/hospital-appointment-schedule/issues/5",
-          "source": "github",
-          "createdAt": "2026-10-27T14:12:30.000Z",
-          "excerpt": "Create appointment booking item Display available docters Display available time slots Implement book appointments Implement re-schedule appointmnets Implement cancel appointments Test appointment booking"
-        }
-      ],
-      "titleZh": "预约登记任务",
-      "quoteZh": "创建预约登记；展示可预约医生；展示可用时段；实现预约；实现改期；实现取消；测试预约流程。",
-      "translationKey": "10aehgh",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 4,
-          "urgency": 4,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 28,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "10aehgh:v1"
-    },
-    {
-      "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce…",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:34:20.000Z",
-      "evidence": [
-        {
-          "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce unrecorded, until someone notices",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4921",
-          "source": "github",
-          "createdAt": "2026-11-10T21:34:20.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Two of the app's incoming notification feeds can lose a messag"
-        }
-      ],
-      "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…",
-      "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11）。一、用大白话说明问题：应用的两个入站通知通道可能丢消息……",
-      "translationKey": "y1k1ed",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "y1k1ed:v1"
-    },
-    {
-      "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page…",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 7.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-30T06:12:02.000Z",
-      "evidence": [
-        {
-          "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page, then audit the app)",
-          "url": "https://github.com/arcforgelabs/flow/issues/441",
-          "source": "github",
-          "createdAt": "2026-10-30T06:12:02.000Z",
-          "excerpt": "### Bug type Behavior bug (incorrect output/state without crash) ### Summary An issued invoice that Xero refused sits on the Pending tab. Its page shows \"Pending\" and \"Not in Xero yet\", but not the reason. When the reaso"
-        }
-      ],
-      "titleZh": "每次暂挂或拒付都标明规则并关联命中项（修复已开具发票页面…",
-      "quoteZh": "缺陷类型：行为缺陷（不崩溃但输出或状态错误）。摘要：被 Xero 拒绝的已开具发票停留在待处理页签，页面只显示待处理、尚未同步到 Xero，却不给原因；当原因……",
-      "translationKey": "2tp4ne",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 4,
-          "urgency": 5,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 30,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "2tp4ne:v1"
-    },
-    {
-      "id": "invoice-export-multi-currency-expenses-deposits-settlement-engi",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Multi-currency expenses, deposits & settlement engine",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 8.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "manual"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-01T14:40:44.000Z",
-      "evidence": [
-        {
-          "title": "Multi-currency expenses, deposits & settlement engine",
-          "url": "https://github.com/StanSiska/sailing-trip-planner-app/issues/8",
-          "source": "github",
-          "createdAt": "2026-11-01T14:40:44.000Z",
-          "excerpt": "Full expense tracking and settlement (inspired by the real expedition spreadsheet). ### Acceptance Criteria - Shared vs Personal expenses - Multi-currency + exchange rate - Who paid, categories, receipts - Live balances "
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 3,
-          "urgency": 2,
-          "feasibility": 6,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 30,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1v71lo3:v1"
-    },
-    {
-      "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out…",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:38:00.000Z",
-      "evidence": [
-        {
-          "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out late",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4986",
-          "source": "github",
-          "createdAt": "2026-11-10T21:38:00.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app sends membership subscription invoices and joining-fee"
-        }
-      ],
-      "titleZh": "订阅页面让未接 Xero 的俱乐部走进死胡同，还可能把发票排队发出…",
-      "quoteZh": "隶属于项目 #4898。一、用大白话说明问题：应用会发送会员订阅发票和入会费……",
-      "translationKey": "1x6lmz6",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1x6lmz6:v1"
-    },
-    {
-      "id": "scheduling-61-docs-document-the-scheduling-context-in-docs-",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.2,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T19:35:03.000Z",
-      "evidence": [
-        {
-          "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
-          "url": "https://github.com/polaeskandar/khmh-koeln-app-frontend/issues/297",
-          "source": "github",
-          "createdAt": "2026-11-10T19:35:03.000Z",
-          "excerpt": "Document the Meetings context in `docs/features/meetings.md`, so its features, rules and code can be found and understood without reading the whole codebase. It covers the agenda, schedules (create, edit, pause), session"
-        }
-      ],
-      "titleZh": "61 [文档] 在 docs/features/scheduling.md 中记录调度上下文",
-      "quoteZh": "在 `docs/features/meetings.md` 中记录会议上下文，以便无需阅读整个代码库即可找到并理解其功能、规则和代码。它涵盖议程、日程（创建、编辑、暂停）、会话",
-      "translationKey": "1xbk369",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1xbk369:v1"
-    },
-    {
-      "id": "scheduling-public-booking-phone-validation-and-booking-mana",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Public booking phone validation and booking management",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T13:04:54.000Z",
-      "evidence": [
-        {
-          "title": "Public booking phone validation and booking management",
-          "url": "https://github.com/MaleeshaKumarage/readysetsiivous/issues/379",
-          "source": "github",
-          "createdAt": "2026-11-09T13:04:54.000Z",
-          "excerpt": "Merged from #335 and #365. Public booking validation and customer management. - **Phone validation (#335):** public bookings accept any non-empty phone up to 40 characters (\"abc\" was accepted in QA). Agree accepted forma"
-        }
-      ],
-      "titleZh": "公开预约的手机号校验与预约管理",
-      "quoteZh": "合并自 #335 与 #365：公开预约校验与客户管理。电话校验（#335）：公开预约目前接受任意非空、长度不超过 40 字符的电话（QA 中 abc 也被接受），需约定统一格式……",
-      "translationKey": "4mo5pg",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "4mo5pg:v1"
-    },
-    {
-      "id": "solo-crm-salesforce-bulk-a-remembered-job-salesforce-has-",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Salesforce Bulk: a remembered job Salesforce has deleted is never recovered",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T09:49:25.000Z",
-      "evidence": [
-        {
-          "title": "Salesforce Bulk: a remembered job Salesforce has deleted is never recovered",
-          "url": "https://github.com/ValueRetail/vrsky/issues/779",
-          "source": "github",
-          "createdAt": "2026-11-09T09:49:25.000Z",
-          "excerpt": "Found in #760 (PR #777). The Salesforce producer remembers a Bulk API job by envelope id so that a retry resumes it rather than submitting it twice. If Salesforce has deleted that job, the state read answers 404. Every a"
-        }
-      ],
-      "titleZh": "Salesforce Bulk：被 Salesforce 删除却仍被记住的任务永远无法恢复",
-      "quoteZh": "发现于 #760（PR #777）。Salesforce 生产者用 envelope id 记住一个 Bulk API 任务，以便重试时续跑而非重复提交。若 Salesforce 已删除该任务，状态读取会返回 404，之后每次……",
-      "translationKey": "1r9pth0",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "solo",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1r9pth0:v1"
-    },
-    {
-      "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.1,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T14:26:06.000Z",
-      "evidence": [
-        {
-          "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
-          "url": "https://github.com/Feathr/zendesk-mcp/issues/35",
-          "source": "github",
-          "createdAt": "2026-11-10T14:26:06.000Z",
-          "excerpt": "Zendesk can call MCP tools from action flows ([Connecting to MCP servers](https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows)), but only over HTTP w"
-        }
-      ],
-      "titleZh": "汇总：Zendesk 动作流连接的 HTTP + OAuth 支持",
-      "quoteZh": "Zendesk 可以在动作流中调用 MCP 工具，但仅支持基于 HTTP 的连接（官方文档：在动作流中连接 MCP 服务器并使用 MCP 工具）……",
-      "translationKey": "1fpeatb",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "support",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1fpeatb:v1"
-    },
-    {
-      "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.1,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-08T15:14:12.000Z",
-      "evidence": [
-        {
-          "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
-          "source": "hn",
-          "createdAt": "2026-11-08T15:14:12.000Z",
-          "excerpt": "I&#x27;m skeptical of how \"super paranoid\" you actually are. This doesn&#x27;t sound super paranoid. For instance: that&#x27;s a ton of surface area. Did you have your AI agent decide which endpoint is destructive or did"
-        }
-      ],
-      "titleZh": "Claude Code 的「不再询问」致 1,122 个公开 GitHub 文件泄露密码",
-      "quoteZh": "我有点怀疑你说的超级谨慎到底有多谨慎，这听起来并不算。比如说：暴露面也太大了吧。是你让 AI 代理自己判断哪个端点具有破坏性，还是……",
-      "translationKey": "toluil",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 2,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 18,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "toluil:v1"
-    },
-    {
-      "id": "scheduling-running-a-law-firm-on-free-software",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Running a law firm on Free software",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 11.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-07T15:47:58.000Z",
-      "evidence": [
-        {
-          "title": "Running a law firm on Free software",
-          "url": "https://decoded.legal/blog/2026/11/running-a-law-firm-on-free-software-2026-edition/",
-          "source": "hn",
-          "createdAt": "2026-11-07T15:47:58.000Z",
-          "excerpt": "This is a fun blog idea, I&#x27;m going to steal it. I&#x27;ve been running a software engineering co-op for the last 5 years using only self hosted and FOSS software (outside of our email server and discord). The bulk o"
-        }
-      ],
-      "titleZh": "用自由软件运营律所",
-      "quoteZh": "这个博客点子挺有意思，我打算借用。过去 5 年我一直用纯自托管和 FOSS 软件运营一家软件工程合作社（邮件服务器和 Discord 除外），大部分……",
-      "translationKey": "18zgbi",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 2,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 18,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "18zgbi:v1"
-    },
-    {
-      "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Scheduling (1/9): Scheduling store and config",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.4,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T03:45:56.000Z",
-      "evidence": [
-        {
-          "title": "Scheduling (1/9): Scheduling store and config",
-          "url": "https://github.com/ncsa/lumen/issues/480",
-          "source": "github",
-          "createdAt": "2026-11-09T03:45:56.000Z",
-          "excerpt": "Part of the request scheduling epic (queues, priorities and KV-cache affinity). Add the `scheduling:` config block and a small store module that later items build on. - Config block as in the epic, with defaults and per-"
-        }
-      ],
-      "titleZh": "排期模块（1/9）：存储与配置",
-      "quoteZh": "属于请求排期史诗（队列、优先级与 KV-cache 亲和性）的一部分。新增 scheduling: 配置块与一个小型 store 模块，供后续条目扩展。配置块按史诗定义，带默认值与……",
-      "translationKey": "p22tqt",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 2,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 18,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "p22tqt:v1"
+      }
     }
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-14T08:30:54.380Z",
-    "status": "partial",
+    "at": "2026-11-14T10:38:11.236Z",
+    "status": "ok",
     "skippedReason": null,
-    "errors": [
-      "invalid title translation for dev-workflow-yahoo-oauth",
-      "HTTP 429 (rate limited)"
-    ],
-    "total": 45,
-    "cached": 25,
+    "errors": [],
+    "total": 60,
+    "cached": 52,
     "translated": 8,
-    "failed": 12,
+    "failed": 0,
     "requests": 1
   },
   "cardInsights": {
     "enabled": false,
     "considered": 0,
     "done": 0,
-    "skipped": 45,
+    "skipped": 60,
     "requests": 0
   },
   "denoise": {
     "version": 1,
-    "at": "2026-11-14T08:30:54.440Z",
+    "at": "2026-11-14T10:38:28.981Z",
     "model": "hy-mt2-plus",
-    "status": "ok",
+    "status": "suspicious",
     "enabled": true,
-    "total": 45,
-    "cached": 45,
-    "pending": 0,
-    "judged": 0,
-    "kept": 34,
-    "rejected": 11,
-    "requests": 0,
-    "ratioGuard": false,
+    "total": 60,
+    "cached": 19,
+    "pending": 41,
+    "judged": 41,
+    "kept": 60,
+    "rejected": 0,
+    "requests": 9,
+    "ratioGuard": true,
     "forceKeepIds": 2,
-    "forceKept": 2,
+    "forceKept": 1,
     "skippedReason": null,
+    "errors": []
+  },
+  "ideaSummary": {
+    "version": 2,
+    "model": "hy-mt2-plus",
+    "at": "2026-11-14T11:30:06.396Z",
+    "enabled": true,
+    "status": "ok",
+    "total": 60,
+    "cached": 59,
+    "generated": 1,
+    "templated": 0,
+    "requests": 1,
     "errors": []
   }
 }

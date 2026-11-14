@@ -142,24 +142,61 @@ export function createCollector({
     }));
   }
 
-  /** Stack Exchange — 官方 2.3 API（公开可用） */
-  async function stackExchange({ query, limit }) {
+  /**
+   * Stack Exchange — 官方 2.3 API（公开可用）。
+   * timeless=true 时不加 fromdate、用 relevance 排序：普通人痛点是常青问题
+   * （「报销怎么记账」「怎么导出联系人」），不是新闻，套 30 天时效窗口会把
+   * 召回压到接近 0。技术赛道仍用 30 天窗口 + activity 保持 B2 口径不变。
+   */
+  async function stackExchange({ query, limit, site = "stackoverflow", timeless = false, sort }) {
     const params = new URLSearchParams({
       order: "desc",
-      sort: "activity",
+      sort: sort || (timeless ? "relevance" : "activity"),
       q: query,
-      site: "stackoverflow",
+      site,
       pagesize: String(limit),
       filter: "withbody",
-      fromdate: String(sinceEpoch),
     });
+    if (!timeless) params.set("fromdate", String(sinceEpoch));
     const data = await getJson(`https://api.stackexchange.com/2.3/search/advanced?${params}`);
     return (data.items || []).map((i) => ({
-      title: normalizeText(i.title || "Stack Overflow question"),
+      title: normalizeText(i.title || "Stack Exchange question"),
       text: normalizeText(i.body || ""),
       url: i.link,
       createdAt: new Date((i.last_activity_date || i.creation_date || sinceEpoch) * 1000).toISOString(),
     }));
+  }
+
+  /**
+   * 治本：普通人 / 小微商家的日常痛点源。
+   *
+   * 现有 4 个源全是英文开发者社区（HN / StackOverflow / GitHub Issues / RSS），
+   * 产出的是「OAuth 失败」「CSV 导出接口」这类技术工单——普通创业者读不懂、
+   * 也拿不到灵感。这里改用 Stack Exchange 官方 2.3 API 的**非技术站点**
+   * （webapps 网页应用 / money 个人财务 / workplace 职场 / travel 出行 /
+   *  superuser 电脑使用 / pets 宠物），它们收录的是真实生活与工作里的
+   *  「怎么…/有没有办法…/…不管用」，正是可商业化的普通人痛点。
+   *
+   * 合规：全部走官方公开 API，无抓取、无需授权、遵守 Stack Exchange ToS；
+   * 站点清单来自 cfg.consumerSites（可版本控制），单站失败不影响其他站。
+   * 电商/本地生活评论无合规公开接口，本项目明确不接（见 README 合规边界）。
+   */
+  async function consumerQa({ query, limit, sites }) {
+    const useSites = Array.isArray(sites) && sites.length
+      ? sites
+      : Array.isArray(cfg.consumerSites) && cfg.consumerSites.length
+        ? cfg.consumerSites
+        : ["webapps", "money", "workplace", "travel"];
+    const perSite = Math.max(2, Math.ceil(limit / useSites.length));
+    const settled = await Promise.allSettled(
+      useSites.map((site) => stackExchange({ query, limit: perSite, site, timeless: true, sort: "relevance" })),
+    );
+    const out = [];
+    settled.forEach((res, idx) => {
+      if (res.status === "fulfilled") out.push(...res.value);
+      else errors.push({ source: "consumerQa", site: useSites[idx], query, message: String(res.reason?.message || res.reason) });
+    });
+    return out;
   }
 
   /**
@@ -296,8 +333,11 @@ export function createCollector({
 
   const CONNECTORS = [
     { id: "hn", label: "Hacker News (official API)", run: hackerNews, enabled: true },
-    { id: "so", label: "Stack Exchange (official API)", run: stackExchange, enabled: true },
+    { id: "so", label: "Stack Exchange / Stack Overflow (official API)", run: stackExchange, enabled: true },
     { id: "github", label: "GitHub Issues (public REST API)", run: githubIssues, enabled: true },
+    // 治本：普通人痛点源只在标记 consumer 的赛道跑，避免给 5 个技术赛道
+    // 各多打 4 站 × N query 的无效请求（SE 匿名配额有限），也不稀释技术召回口径。
+    { id: "consumerQa", label: "Everyday Q&A: webapps / money / workplace / travel (official Stack Exchange API)", run: consumerQa, enabled: true, consumerOnly: true },
     { id: "rss", label: "Configured RSS / Atom feeds", run: rssFeeds, enabled: true },
     { id: "firstParty", label: "First-party imports", run: firstParty, enabled: true },
     { id: "reddit", label: "Reddit (licensed credentials required)", run: reddit, enabled: process.env.ENABLE_REDDIT === "true" },
@@ -308,7 +348,14 @@ export function createCollector({
     const rows = [];
     const sourceStats = [];
     const limit = Math.max(1, Number(queryLimit) || niche.queries.length);
-    for (const connector of CONNECTORS.filter((c) => c.enabled)) {
+    // 赛道级源白名单（治本）：配了 sources 的赛道只跑这些源，避免普通人赛道
+    // 把 GitHub/HN 技术噪声又灌回来；未配置时沿用 consumerOnly 默认口径。
+    const allow = Array.isArray(niche.sources) ? new Set(niche.sources) : null;
+    for (const connector of CONNECTORS.filter(
+      (c) => c.enabled && (allow
+        ? allow.has(c.id)
+        : !c.consumerOnly || niche.consumer === true),
+    )) {
       let count = 0;
       for (const query of niche.queries.slice(0, limit)) {
         try {
@@ -341,7 +388,12 @@ export function createCollector({
         (!Array.isArray(sources) || sources.includes(c.id)),
     );
     const settled = await Promise.allSettled(
-      connectors.map((c) => c.run({ query, limit, method: "relevance" })),
+      connectors.map((c) => c.run(
+        c.id === "consumerQa"
+          // 治本：实时检索只跑 3 个高信号普通人站点，控制 7s 超时内的并发与配额。
+          ? { query, limit, method: "relevance", sites: ["webapps", "money", "workplace"] }
+          : { query, limit, method: "relevance" },
+      )),
     );
     const rows = [];
     settled.forEach((res, idx) => {

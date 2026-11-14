@@ -95,6 +95,21 @@ jobs:
           IDEARADAR_TRANSLATE_MODEL: hy-mt2-plus
         run: node scripts/denoise.mjs
 
+      # L1「一句话机会」：把去噪后的干净证据翻译成「给谁 + 做什么」的机会陈述，
+      # 放在翻译/去噪之后，模型能同时看到中英文、且不必为噪声条目花钱。
+      # 复用同一 TokenHub 密钥与 json_object 协议，按 ideaKey 增量缓存（每轮只
+      # 生成新增条目）。无 token / 未启用 / 请求失败 / 非法 JSON 一律回退确定性
+      # 模板（fail-open，绝不编造市场数字、绝不让 Actions 变红）。
+      # 云端默认开启；把仓库变量 IDEARADAR_IDEA 设为 0 可随时关闭以省 API 费用
+      # （关闭时仍为全部条目写确定性模板，前端永远有可读的一句话机会）。
+      - name: Generate one-line opportunities
+        env:
+          IDEARADAR_IDEA: ${{ vars.IDEARADAR_IDEA || '1' }}
+          IDEARADAR_TRANSLATE_TOKEN: ${{ secrets.IDEARADAR_TRANSLATE_TOKEN }}
+          IDEARADAR_TRANSLATE_ENDPOINT: https://tokenhub.tencentmaas.com/v1/chat/completions
+          IDEARADAR_TRANSLATE_MODEL: hy-mt2-plus
+        run: node scripts/idea.mjs
+
       # P1 外部搜索热度：Google Trends 每日热榜（公开 RSS），与站内多快照趋势
       # 分口径展示。抓取失败/端点改版会诚实写 status=unavailable，绝不阻塞采集。
       - name: Fetch external search interest
@@ -128,6 +143,7 @@ jobs:
             public/recall-eval.json
             data/rejected.json
             data/denoise.json
+            data/idea.json
             data/external-heat.json
             public/external-heat.json
           retention-days: 14
@@ -139,7 +155,7 @@ jobs:
           git add data/opportunities.json public/opportunities.json data/history.json public/history.json data/recall-eval.json public/recall-eval.json scripts/ingest.config.json
           # 新增产物都是「有则提交」：脚本首次运行或诚实降级时文件仍会生成，
           # 但用 -f 兜底，任何单文件缺失都不影响整批提交。
-          for f in data/query-scans.json data/scan-candidates.json data/rejected.json data/denoise.json data/external-heat.json public/external-heat.json; do
+          for f in data/query-scans.json data/scan-candidates.json data/rejected.json data/denoise.json data/idea.json data/external-heat.json public/external-heat.json; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if git diff --cached --quiet; then

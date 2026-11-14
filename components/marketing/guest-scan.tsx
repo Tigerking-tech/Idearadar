@@ -5,13 +5,14 @@ import Link from "next/link";
 import { EN_DICT, type Dict, type Locale } from "@/lib/i18n";
 import {
   searchSignals,
-  topSignals,
+  groupByPersona,
+  ideaText,
   type Signal,
   type OpportunityCard,
   type ExternalHeat,
 } from "@/lib/signals";
 
-type Suggestion = { label: string; sub: string; query: string[] };
+type Suggestion = { label: string; sub: string; query: string[]; persona?: string };
 
 type TrendKey = Signal["trend"];
 
@@ -220,12 +221,17 @@ export function GuestScan({
    * forceLocal 用于方向卡片 / 随机方向：它们本来就是固定索引覆盖的方向，
    * 传入的是一组关键词，不适合拿去现场检索。
    */
-  function runScan(raw?: string, display?: string, opts?: { forceLocal?: boolean }) {
+  function runScan(raw?: string, display?: string, opts?: { forceLocal?: boolean; preset?: Signal[] }) {
     const q = (raw ?? query).trim();
     if (!q || !ready || exhausted || phase === "running") return;
 
-    const ranked = searchSignals(q, signals);
-    const useLive = !opts?.forceLocal && ranked.quality !== "strong";
+    // 方向卡按人群直取该人群的机会（与 L2 分组同口径），不再靠关键词兜底串到别的赛道。
+    const preset = opts?.preset;
+    const usePreset = Array.isArray(preset) && preset.length > 0;
+    const ranked = usePreset
+      ? { list: preset as Signal[], noMatch: false, quality: "strong" as const }
+      : searchSignals(q, signals);
+    const useLive = !opts?.forceLocal && !usePreset && ranked.quality !== "strong";
     const label = display ?? q;
     const requestId = (requestIdRef.current += 1);
 
@@ -332,7 +338,16 @@ export function GuestScan({
    * 演示数据与实时数据都能出结果，且不需要随采集条目变化维护 id 清单。
    */
   function runSuggestion(s: Suggestion) {
-    runScan(s.query.join(" "), s.label, { forceLocal: true });
+    const preset = s.persona
+      ? [...signals]
+          .filter((x) => (x.idea?.persona || "general") === s.persona)
+          .sort((a, b) => b.score - a.score || b.mentions - a.mentions)
+          .slice(0, 4)
+      : [];
+    runScan(s.query.join(" "), s.label, {
+      forceLocal: true,
+      ...(preset.length ? { preset } : {}),
+    });
   }
 
   function runSurprise() {
@@ -366,7 +381,11 @@ export function GuestScan({
   // 实时检索的大模型结果也带译文，必须一并计入，否则「查看原文」不会出现在实时结果上。
   // 必须放在所有 state 声明之后：立即求值的表达式引用 state 会落进暂时性死区。
   const hasTranslations = zh && (signals.some((s) => s.translated) || (results ?? []).some((s) => s.translated));
-  const feedItems = topSignals(signals, 6);
+  // L2：零输入首屏按「人群 / 场景」分组展示一句话机会，而不是按分数排技术 bug 流。
+  const personaGroups = groupByPersona(signals, 4, 2);
+  const todayIdea = personaGroups[0]?.items[0] ?? null;
+  const personaName = (code: string) =>
+    t.idea.personaNames[code as keyof typeof t.idea.personaNames] ?? code;
   const runningSteps = scanMode === "live" ? t.liveRunningSteps : t.runningSteps;
 
   return (
@@ -391,69 +410,89 @@ export function GuestScan({
             <>
               {/* 零输入发现流：对标 Exploding Topics 的首屏趋势信息流（结果出现后仍常驻） */}
               <section className="rr-feed" aria-label={t.feedTitle}>
-                  <div className="rr-feed-head">
-                    <span className="rr-feed-kicker">{t.feedKicker}</span>
-                    <h3 className="rr-feed-title">{t.feedTitle}</h3>
-                    <p className="rr-feed-text">{t.feedText}</p>
+                <div className="rr-feed-head">
+                  <span className="rr-feed-kicker">{t.feedKicker}</span>
+                  <h3 className="rr-feed-title">{t.feedTitle}</h3>
+                  <p className="rr-feed-text">{t.feedText}</p>
+                </div>
+
+                {/* 今日一点子：零输入时首屏 10 秒就能读懂一个「给谁 + 做什么」 */}
+                {todayIdea && (
+                  <div className="rr-today-idea">
+                    <span className="rr-today-kicker">{t.idea.kicker}</span>
+                    <p className="rr-today-headline">{ideaText(todayIdea.idea, "headline", locale) || displayTitle(todayIdea)}</p>
+                    <p className="rr-today-step">{ideaText(todayIdea.idea, "step", locale)}</p>
+                    <button
+                      type="button"
+                      className="rr-feed-explore"
+                      disabled={!ready || isRunning}
+                      onClick={() => runScan(todayIdea.title, ideaText(todayIdea.idea, "headline", locale) || todayIdea.title, { forceLocal: true })}
+                    >
+                      {t.exploreLabel} →
+                    </button>
                   </div>
-                  <div className="rr-feed-grid">
-                    {feedItems.map((s) => (
-                      <article className="rr-feed-item" key={s.id}>
-                        <div className="rr-feed-item-top">
-                          <span className="rr-cat-badge">{s.category}</span>
-                          <span className={`rr-trend rr-trend-${s.trend}`}>
-                            <span aria-hidden="true">{s.trend === "rising" ? "▲" : s.trend === "peaked" ? "▼" : "■"}</span>
-                            {trendLabel(s.trend, d)}
-                          </span>
-                        </div>
-                        <h4 className="rr-feed-item-title">{displayTitle(s)}</h4>
-                        <div className="rr-feed-item-mid">
-                          <Sparkline points={s.spark} trend={s.trend} />
-                          <div className="rr-feed-item-score">
-                            <strong>{s.score}</strong>
-                            <span>{t.scoreLabelShort}</span>
+                )}
+
+                {personaGroups.map((g) => (
+                  <div className="rr-persona-group" key={g.persona}>
+                    <div className="rr-persona-head">
+                      <span className="rr-persona-name">{personaName(g.persona)}</span>
+                      <span className="rr-persona-count">{g.items.length} {t.idea.groupUnit}</span>
+                    </div>
+                    <div className="rr-feed-grid">
+                      {g.items.map((s) => (
+                        <article className="rr-feed-item" key={s.id}>
+                          <div className="rr-feed-item-top">
+                            <span className="rr-cat-badge">{s.category}</span>
+                            <span className={`rr-trend rr-trend-${s.trend}`}>
+                              <span aria-hidden="true">{s.trend === "rising" ? "▲" : s.trend === "peaked" ? "▼" : "■"}</span>
+                              {trendLabel(s.trend, d)}
+                            </span>
                           </div>
-                        </div>
-                        <div className="rr-feed-item-meta">
-                          <span>{s.mentions} {t.mentions}</span>
-                          <span>· {zh ? "来源 " : ""}{fmtSources(s.sources.slice(0, 2), zh)}</span>
-                        </div>
-                        <button
-                          type="button"
-                          className="rr-feed-explore"
-                          disabled={!ready || isRunning}
-                          onClick={() => runScan(displayTitle(s), undefined, { forceLocal: true })}
-                        >
-                          {t.exploreLabel} →
-                        </button>
-                      </article>
-                    ))}
+                          <h4 className="rr-feed-item-title">{ideaText(s.idea, "headline", locale) || displayTitle(s)}</h4>
+                          <p className="rr-feed-item-step">{ideaText(s.idea, "step", locale)}</p>
+                          <div className="rr-feed-item-meta">
+                            <span>{s.mentions} {t.mentions}</span>
+                            <span>· {zh ? "来源 " : ""}{fmtSources(s.sources.slice(0, 2), zh)}</span>
+                          </div>
+                          <button
+                            type="button"
+                            className="rr-feed-explore"
+                            disabled={!ready || isRunning}
+                            onClick={() => runScan(s.title, ideaText(s.idea, "headline", locale) || s.title, { forceLocal: true })}
+                          >
+                            {t.exploreLabel} →
+                          </button>
+                        </article>
+                      ))}
+                    </div>
                   </div>
-                  {live && generatedAt && (
-                    <p className="rr-feed-live-note">{t.feedLiveNote} {new Date(generatedAt).toLocaleDateString(zh ? "zh-CN" : "en-US")}</p>
-                  )}
-                  {/* 诚实标注：引导历史 / 样本不足 / 口径切换时不把演示趋势冒充真实趋势 */}
-                  {live && historySeeded && <p className="rr-feed-seed-note">{t.feedSeedNote}</p>}
-                  {live && !historySeeded && !trendReady && <p className="rr-feed-seed-note">{t.feedTrendPending}</p>}
-                  {live && recallSwitch && <p className="rr-feed-seed-note">{t.feedRecallSwitch}</p>}
-                  {/* AI 译文标注与「查看原文」切换：引语是证据链，必须能一键回看英文原文 */}
-                  {hasTranslations && (
-                    <p className="rr-feed-translate-note">
-                      {t.translatedNote}{" "}
-                      <button
-                        type="button"
-                        className="rr-translate-toggle"
-                        aria-pressed={showOriginal}
-                        onClick={() => setShowOriginal((v) => !v)}
-                      >
-                        {showOriginal ? t.viewTranslation : t.viewOriginal}
-                      </button>
-                    </p>
-                  )}
-                </section>
+                ))}
+                {live && generatedAt && (
+                  <p className="rr-feed-live-note">{t.feedLiveNote} {new Date(generatedAt).toLocaleDateString(zh ? "zh-CN" : "en-US")}</p>
+                )}
+                {/* 诚实标注：引导历史 / 样本不足 / 口径切换时不把演示趋势冒充真实趋势 */}
+                {live && historySeeded && <p className="rr-feed-seed-note">{t.feedSeedNote}</p>}
+                {live && !historySeeded && !trendReady && <p className="rr-feed-seed-note">{t.feedTrendPending}</p>}
+                {live && recallSwitch && <p className="rr-feed-seed-note">{t.feedRecallSwitch}</p>}
+                {/* AI 译文标注与「查看原文」切换：引语是证据链，必须能一键回看英文原文 */}
+                {hasTranslations && (
+                  <p className="rr-feed-translate-note">
+                    {t.translatedNote}{" "}
+                    <button
+                      type="button"
+                      className="rr-translate-toggle"
+                      aria-pressed={showOriginal}
+                      onClick={() => setShowOriginal((v) => !v)}
+                    >
+                      {showOriginal ? t.viewTranslation : t.viewOriginal}
+                    </button>
+                  </p>
+                )}
+              </section>
 
               {/* 方向浏览：没想法时直接点（解决冷启动），结果出现后仍常驻 */}
-              <div className="rr-try-browse">
+              <div className="rr-try-browse" id="rr-browse">
                   <div className="rr-try-browse-kicker">{t.browseKicker}</div>
                   <h3 className="rr-try-browse-title">{t.browseTitle}</h3>
                   <div className="rr-try-tiles">
@@ -596,46 +635,94 @@ export function GuestScan({
                   <p className="rr-try-order-note">{t.resultOrderNote}</p>
                 )}
                 {noMatch && <p className="rr-try-nomatch">{live ? t.noMatchLive : t.noMatch}</p>}
-                {results.map((it, i) => (
-                  <article className="rr-try-result" key={it.id}>
-                    <div className="rr-try-result-top">
-                      <span className="rr-try-rank">{String(i + 1).padStart(2, "0")}</span>
-                      <h4>{displayTitle(it)}</h4>
-                      <span className="rr-try-score" aria-label={`${t.scoreLabel} ${it.score}`}>
-                        {it.score}<small>/100</small>
-                      </span>
-                    </div>
-                    <div className="rr-try-result-meta">
-                      <span className="rr-cat-badge rr-cat-badge-sm">{it.category}</span>
-                      <span className={`rr-trend rr-trend-${it.trend} rr-trend-sm`}>
-                        <span aria-hidden="true">{it.trend === "rising" ? "▲" : it.trend === "peaked" ? "▼" : "■"}</span>
-                        {trendLabel(it.trend, d)}
-                      </span>
-                      <span className="rr-try-result-mentions">{it.mentions} {t.mentions}</span>
-                    </div>
-                    <div className="rr-try-result-spark">
-                      <Sparkline points={it.spark} trend={it.trend} />
-                      <span className="rr-try-result-sources">{zh ? "来源：" : `${t.sourcesLabel}: `}{fmtSources(it.sources, zh)}</span>
-                    </div>
-                    {/* 外部搜索热度：独立于内部趋势芯片，单列一行避免口径混淆。 */}
-                    {it.externalHeat !== undefined && it.externalHeat !== null && (
-                      <div className="rr-heat-row">
-                        <span className="rr-try-label">{t.externalHeat.label}</span>
-                        <ExternalHeatNote heat={it.externalHeat} d={d} zh={zh} />
+                {results.map((it, i) => {
+                  const idea = it.idea;
+                  const headline = ideaText(idea, "headline", locale) || displayTitle(it);
+                  const persona = idea?.persona || "general";
+                  const similar = signals
+                    .filter((s) => s.id !== it.id && (s.idea?.persona || "general") === persona)
+                    .slice(0, 4);
+                  return (
+                    <article className="rr-try-result" key={it.id}>
+                      {/* L1：一句话机会置顶，证据与评分降为可展开详情 */}
+                      <div className="rr-idea-head">
+                        <span className="rr-try-rank">{String(i + 1).padStart(2, "0")}</span>
+                        <div className="rr-idea-head-main">
+                          <span className="rr-idea-kicker">{t.idea.kicker}</span>
+                          <h4 className="rr-idea-headline">{headline}</h4>
+                        </div>
+                        <span className="rr-try-score" aria-label={`${t.scoreLabel} ${it.score}`}>
+                          {it.score}<small>/100</small>
+                        </span>
                       </div>
-                    )}
-                    <div className="rr-try-quote">
-                      <span className="rr-try-label">{t.quoteLabel}</span>
-                      <p>{qMark[0]}{displayQuote(it)}{qMark[1]}</p>
-                    </div>
-                    <div className="rr-try-gap">
-                      <span className="rr-try-label">{t.gapLabel}</span>
-                      <p>{it.gap}</p>
-                    </div>
-                    {/* 结构化机会卡：只有真实采集数据带 card；演示/实时检索结果自动省略。 */}
-                    {it.card && <CardPanel card={it.card} d={d} zh={zh} />}
-                  </article>
-                ))}
+                      <p className="rr-idea-note">{idea?.origin === "llm" ? t.idea.aiNote : t.idea.templateNote}</p>
+                      <dl className="rr-idea-grid">
+                        <div><dt>{t.idea.whoLabel}</dt><dd>{ideaText(idea, "who", locale)}</dd></div>
+                        <div><dt>{t.idea.whyLabel}</dt><dd>{ideaText(idea, "why", locale)}</dd></div>
+                        <div><dt>{t.idea.stepLabel}</dt><dd>{ideaText(idea, "step", locale)}</dd></div>
+                      </dl>
+
+                      {/* 三个追问：都是确定性本地动作，不假装有 AI、不额外消耗免费额度 */}
+                      <div className="rr-idea-actions">
+                        <details className="rr-idea-action">
+                          <summary className="rr-idea-btn">
+                            <span className="rr-lbl-open">{t.idea.evidenceOpen}</span>
+                            <span className="rr-lbl-close">{t.idea.evidenceClose}</span>
+                          </summary>
+                          <div className="rr-evidence-body">
+                            <p className="rr-evidence-title">{displayTitle(it)}</p>
+                            <div className="rr-try-result-meta">
+                              <span className="rr-cat-badge rr-cat-badge-sm">{it.category}</span>
+                              <span className={`rr-trend rr-trend-${it.trend} rr-trend-sm`}>
+                                <span aria-hidden="true">{it.trend === "rising" ? "▲" : it.trend === "peaked" ? "▼" : "■"}</span>
+                                {trendLabel(it.trend, d)}
+                              </span>
+                              <span className="rr-try-result-mentions">{it.mentions} {t.mentions}</span>
+                            </div>
+                            <div className="rr-try-result-spark">
+                              <Sparkline points={it.spark} trend={it.trend} />
+                              <span className="rr-try-result-sources">{zh ? "来源：" : `${t.sourcesLabel}: `}{fmtSources(it.sources, zh)}</span>
+                            </div>
+                            {it.externalHeat !== undefined && it.externalHeat !== null && (
+                              <div className="rr-heat-row">
+                                <span className="rr-try-label">{t.externalHeat.label}</span>
+                                <ExternalHeatNote heat={it.externalHeat} d={d} zh={zh} />
+                              </div>
+                            )}
+                            <div className="rr-try-quote">
+                              <span className="rr-try-label">{t.quoteLabel}</span>
+                              <p>{qMark[0]}{displayQuote(it)}{qMark[1]}</p>
+                            </div>
+                            <div className="rr-try-gap">
+                              <span className="rr-try-label">{t.idea.signalLabel}</span>
+                              <p>{it.gap}</p>
+                            </div>
+                            {it.card && <CardPanel card={it.card} d={d} zh={zh} />}
+                          </div>
+                        </details>
+                        <details className="rr-idea-action">
+                          <summary className="rr-idea-btn">{t.idea.similar}</summary>
+                          <div className="rr-similar-body">
+                            {similar.length ? (
+                              <ul className="rr-similar-list">
+                                {similar.map((s) => (
+                                  <li key={s.id}>{ideaText(s.idea, "headline", locale) || displayTitle(s)}</li>
+                                ))}
+                              </ul>
+                            ) : <p className="rr-note">{t.idea.similarEmpty}</p>}
+                          </div>
+                        </details>
+                        <button
+                          type="button"
+                          className="rr-idea-btn rr-idea-btn-scroll"
+                          onClick={() => document.getElementById("rr-browse")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                        >
+                          {t.idea.nextDirection}
+                        </button>
+                      </div>
+                    </article>
+                  );
+                })}
               </>
             )}
 

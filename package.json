@@ -11,7 +11,8 @@
     "test:ingest": "node --test scripts/*.test.mjs",
     "ingest:heat": "node scripts/external-heat.mjs",
     "ingest:promote": "node scripts/promote-niches.mjs",
-    "ingest:denoise": "node scripts/denoise.mjs"
+    "ingest:denoise": "node scripts/denoise.mjs",
+    "ingest:idea": "node scripts/idea.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.3",

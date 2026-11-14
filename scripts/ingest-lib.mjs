@@ -10,6 +10,13 @@ export const COMPLAINT_RULES = [
   { id: "wish", weight: 5, pattern: /\b(i wish|why is there no|is there any tool|alternative to|anyone know a way)\b/i },
   { id: "manual", weight: 4, pattern: /\b(manually|spreadsheet|copy and paste|workaround|hours every week)\b/i },
   { id: "churn", weight: 4, pattern: /\b(cancel(?:led|ling)?|switched away|abandoned|gave up on)\b/i },
+  // 治本：面向普通人/小微商家的非技术站点（Stack Exchange webapps/money/workplace…
+  // 大量是「怎么…/有没有办法…/…不管用」的求助句，而不是带 bug/fail 的开发工单。
+  // 只加在 consumer 赛道判定里启用，不改技术赛道的既有口径（见 extractSignals 的
+  // consumerMode 参数），避免污染 B2 召回门禁与既有单测。
+  { id: "seeking", weight: 4, consumerOnly: true, pattern: /\b(how (?:do|can|to) (?:i|we|you)?|is there (?:a|any) way|are there|any (?:way|tool|app|suggestions)|looking for (?:a|an|ways)|what'?s the best way|can'?t seem to|unable to|won'?t let me|no way to|keeps? (?:charging|failing|resetting)|too (?:expensive|complicated|slow|many steps)|every (?:week|month|time) i have to|do i (?:need|have) to|who maintains|any advice|best way to)\b/i },
+  { id: "question", weight: 3, consumerOnly: true, pattern: /^(?:can|could|should|would|does|do|is|are|has|have|why|what|which|who|when|where|how)\b|\?\s*$/i },
+  { id: "zh_pain", weight: 5, consumerOnly: true, pattern: /(太贵|太麻烦|不好用|没法|没办法|搞不定|总是|每次都要|手动|重复|能不能|有没有|怎么才能|希望可以|导出不了|同步不了|找不到|又要重新|一堆)/ },
 ];
 
 export const WTP_RULES = [
@@ -120,9 +127,15 @@ export function normalizeText(input = "") {
     .trim();
 }
 
-export function extractSignals(text = "") {
+/**
+ * @param {string} text 正文
+ * @param {{ consumerMode?: boolean }} opts consumerMode=true 时额外启用「普通人
+ *   求助句式」与中文抱怨规则；技术赛道默认 false，保持 B2 门禁与既有单测口径不变。
+ */
+export function extractSignals(text = "", opts = {}) {
   const clean = normalizeText(text);
-  const matched = COMPLAINT_RULES.filter((r) => r.pattern.test(clean));
+  const rules = opts.consumerMode ? COMPLAINT_RULES : COMPLAINT_RULES.filter((r) => !r.consumerOnly);
+  const matched = rules.filter((r) => r.pattern.test(clean));
   const wtp = WTP_RULES.filter((r) => r.pattern.test(clean)).map((r) => r.id);
   const intensityRaw = matched.reduce((sum, r) => sum + r.weight, 0);
   return {
@@ -132,6 +145,55 @@ export function extractSignals(text = "") {
     wtpSignals: wtp,
     hasComplaint: matched.length > 0,
   };
+}
+
+/**
+ * 治本：普通人来源的噪音判定。技术赛道的 NOISE_TITLE_RULES 是为 GitHub issue
+ * 设计的（工单号、方括号标签、conventional commit、issue 模板…），套到
+ * Stack Exchange 生活/工作问答站会把 "How do I export my contacts?" 这类
+ * 真实求助当成 editorial 或开发任务误杀。这里只拦最明确的「非抱怨」内容：
+ * 招聘、公告、纯新闻、榜单、非 ASCII 乱码，其余一律放行进入后续评分。
+ */
+const CONSUMER_NOISE_RULES = [
+  { id: "hiring", pattern: /\b(we'?re hiring|now hiring|job opening|apply now|salary|recruiter)\b/i },
+  { id: "announcement", pattern: /^(?:announcing|introducing|launching|releasing|now available|meet the)\b/i },
+  { id: "listicle", pattern: /^(?:the |top )?\d+ (?:best|ways|tips|tools|apps)\b/i },
+  { id: "market_news", pattern: /\b(?:ipo|valuation|acquisition|funding round|shares? (?:rise|fall)|earnings)\b/i },
+];
+export function isConsumerNoiseTitle(title = "") {
+  const t = normalizeText(title);
+  if (!t) return true;
+  return CONSUMER_NOISE_RULES.some((r) => r.pattern.test(t));
+}
+
+/**
+ * 治本：剥离 issue / 帖子正文里的模板套话，让「逐字原话」不再张冠李戴。
+ *
+ * 现象：GitHub issue 正文常以「If you haven't yet, check out our contributing
+ * guide…」「## Problem / Parent epic / TODO:」「Planned: 2026-11 … Steps:」开头，
+ * dedupe 直接 slice(0,220) 会把这些当成用户抱怨的原文，于是中文页出现
+ * 「标题：删除费用后报错 / 逐字原话：请查看我们的贡献指南」这类错位。
+ *
+ * 策略：只有检测到模板标记时才动手，正常文本原样返回 —— 避免让现有译文缓存键
+ * 大面积失效。按句切分，丢弃模板句/纯链接/清单项，取第一段有实质内容的话。
+ * 全部被丢弃时诚实回退到规范化原文的前 maxLen，绝不编造。
+ */
+const BOILERPLATE_RE = /(contribut(?:ing|ion) guide|code of conduct|pull request template|fill out (?:this|the) form|join (?:our|the) slack|slack channel|##\s*(?:problem|expected|steps|todo)|parent epic|\bwish:\b|planned:|acceptance criteria|issue template|bug report template|如果您还未|请查看我们的|贡献指南|待办[:：]|步骤[:：]|摘要[:：]?\s*$|使用场景[:：]?\s*$)/i;
+const LINK_ONLY_RE = /^(?:https?:\/\/\S+|\[[^\]]*\]\([^)]*\)|[-*#>\s]+)$/i;
+export function cleanExcerpt(text = "", maxLen = 220) {
+  const clean = normalizeText(text);
+  if (!clean) return "";
+  if (!BOILERPLATE_RE.test(clean)) return clean.slice(0, maxLen);
+  // 按句末标点与换行切分；保留足够长、非模板、非纯链接的片段。
+  const parts = clean
+    .split(/(?<=[.!?。！？])\s+|\n+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const kept = parts.filter(
+    (s) => s.length >= 12 && !BOILERPLATE_RE.test(s) && !LINK_ONLY_RE.test(s),
+  );
+  const picked = kept.length ? kept.join(" ").slice(0, maxLen) : "";
+  return picked || clean.slice(0, maxLen);
 }
 
 /**
@@ -151,11 +213,23 @@ export function scorePainPoint({
   daysSinceLatest = 999,
   lookbackDays = 30,
   hasWtp = false,
+  // 治本：普通人常青痛点（Stack Exchange 生活/工作问答）多是「一年前就有人问、
+  // 至今仍没好办法」的单源提问。工单口径用 recency(30 天) + 多源 corroboration
+  // 会把它们压到 ~12 分、全部低于 minScore。consumerMode 改为按「被反复问到 +
+  // 提问具体度」计分，不对「老」和「单源」过度惩罚。技术赛道默认 false，口径不变。
+  consumerMode = false,
 } = {}) {
-  const frequency = clamp((mentions / 10) * 30, 0, 30);
+  const nSources = new Set(sources).size;
+  const frequency = clamp((mentions / (consumerMode ? 6 : 10)) * 30, 0, 30);
   const intensity = clamp(intensityRaw, 0, 20);
-  const recency = clamp(15 * (1 - daysSinceLatest / Math.max(1, lookbackDays)), 0, 15);
-  const corroboration = clamp(new Set(sources).size * 5, 0, 20);
+  const recency = consumerMode
+    // 常青基础分 8 + 一年内活跃再温和加权；老问题不归零。
+    ? 8 + clamp(7 * (1 - daysSinceLatest / 365), 0, 7)
+    : clamp(15 * (1 - daysSinceLatest / Math.max(1, lookbackDays)), 0, 15);
+  const corroboration = consumerMode
+    // 单源也给 8 分基准（普通问答天然单源），多源再累加。
+    ? 8 + clamp((nSources - 1) * 5, 0, 12)
+    : clamp(nSources * 5, 0, 20);
   const wtp = hasWtp ? 15 : 0;
   const score = Math.round(frequency + intensity + recency + corroboration + wtp);
   return {
@@ -209,7 +283,9 @@ export function dedupe(items = [], threshold = 0.8) {
       url: m.url,
       source: m.source,
       createdAt: m.createdAt,
-      excerpt: m.text.slice(0, 220),
+      // 治本：剥掉贡献指南 / 待办模板等样板段，避免「标题与逐字原话」张冠李戴。
+      // 译文（quoteZh）由 quoteOf 基于同一 excerpt 生成，天然同源。
+      excerpt: cleanExcerpt(m.text, 220),
     })),
   }));
 }
@@ -346,11 +422,17 @@ export function matchTopic(text = "", terms = []) {
 export function buildOpportunities(raw = [], ctx = {}) {
   const { niche = {}, cfg = {}, now = new Date(), topicScope = "any" } = ctx;
   const terms = Array.isArray(niche.topicTerms) ? niche.topicTerms : [];
-  const eligible = raw.filter((r) => !isNoiseTitle(r.title));
+  // 治本：面向普通人/小微商家的赛道走宽松噪音判定 + 求助句式/中文抱怨规则；
+  // 未标记的技术赛道保持原有严格口径，B2 门禁与既有单测不受影响。
+  const consumer = niche.consumer === true;
+  const noiseFn = consumer ? isConsumerNoiseTitle : isNoiseTitle;
+  const eligible = raw.filter((r) => !noiseFn(r.title));
   const signaled = eligible
     .filter((r) => normalizeText(r.text).length > 0)
     .map((r) => {
-      const sig = extractSignals(r.text);
+      // consumer 赛道：普通人痛点常在标题问句里（「Can I…」「How do I export…」），
+      // 正文可能只是背景陈述；把标题并入判定文本，避免真实求助被判「无抱怨」。
+      const sig = extractSignals(consumer ? `${r.title} ${r.text}` : r.text, { consumerMode: consumer });
       return {
         ...r,
         signals: sig.signals,
@@ -370,7 +452,7 @@ export function buildOpportunities(raw = [], ctx = {}) {
   const items = [];
   for (const g of groups) {
     const excerpts = g.evidence.map((e) => e.excerpt).join(" ");
-    const agg = extractSignals(excerpts);
+    const agg = extractSignals(excerpts, { consumerMode: consumer });
     const latest = g.evidence.reduce(
       (max, e) => (e.createdAt > max ? e.createdAt : max),
       g.evidence[0]?.createdAt || now.toISOString(),
@@ -382,6 +464,7 @@ export function buildOpportunities(raw = [], ctx = {}) {
       daysSinceLatest: daysBetween(latest, now),
       lookbackDays: cfg.lookbackDays ?? 30,
       hasWtp: agg.wtpSignals.length > 0,
+      consumerMode: consumer,
     });
     if (score < (cfg.minScore ?? 20)) continue;
     items.push({
@@ -488,6 +571,9 @@ export const SIGNAL_LABELS_ZH = Object.freeze({
   data_loss: "数据丢失",
   performance: "性能问题",
   security: "安全顾虑",
+  seeking: "求助与反复折腾",
+  question: "待解答的问题",
+  zh_pain: "使用痛点",
 });
 
 export function localizeSignalLabels(signals = []) {

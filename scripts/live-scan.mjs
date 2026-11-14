@@ -18,11 +18,13 @@
 import { createHash } from "node:crypto";
 import { createCollector } from "./connectors.mjs";
 import { appendQuery } from "./scan-store.mjs";
+import { templateIdea } from "./idea-core.mjs";
 
 export const SOURCE_LABELS = {
   hn: "Hacker News",
   so: "StackOverflow",
   github: "GitHub Issues",
+  consumerQa: "Everyday Q&A",
   rss: "RSS",
   firstParty: "Imported",
   reddit: "Reddit",
@@ -122,7 +124,9 @@ async function callLlm(system, payload, env, fetchImpl, timeoutMs = 20_000) {
       { role: "user", content: JSON.stringify(payload) },
     ],
   };
-  const res = await fetchImpl(cfg.endpoint, {
+  // 同账号连续调用（扩词 → 归纳）常触发 TokenHub 429；实测这是 /api/scan
+  // 一直降级成 rules 的主因。退避重试最多 3 次，仍失败才交上层规则降级。
+  const post = () => fetchImpl(cfg.endpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -132,15 +136,113 @@ async function callLlm(system, payload, env, fetchImpl, timeoutMs = 20_000) {
     body: JSON.stringify(body),
     signal: AbortSignal.timeout(timeoutMs),
   });
-  if (!res.ok) return null;
+  let res;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    res = await post();
+    if (res && res.ok === false && res.status === 429 && attempt < 2) {
+      await new Promise((r) => setTimeout(r, 1200 * (attempt + 1)));
+      continue;
+    }
+    break;
+  }
+  if (!res || !res.ok) return null;
   const data = await res.json();
   const raw = data?.choices?.[0]?.message?.content;
   if (!raw || typeof raw !== "string") return null;
-  try {
-    return JSON.parse(raw);
-  } catch {
-    return null;
+  return parseLlmObject(raw);
+}
+
+/**
+ * hy-mt2-plus 是翻译专用模型，一次输出多条完整记录时常在 JSON 后多吐一段、
+ * 或尾部少一个括号；严格 JSON.parse 会让整批归纳静默降级成规则模式（现场
+ * 实测 /api/scan 一直 mode=rules，结果里混入 HN 新闻）。这里按 {} 栈扫描
+ * 抠出第一个完整对象；数组格式则从 "items":[…] 起配平抠数组再包回对象。
+ * 只做结构恢复，不编造内容；一条都救不回仍返回 null 交上层降级。
+ */
+/**
+ * hy-mt2-plus 输出多条记录时常写成 {"items":[{...}],"items":[{...}],...} ——
+ * 合法 JSON，但重复键会互相覆盖，严格解析后只剩最后一条（真实 /api/scan
+ * 降级成 rules 的根因）。逐个抠出每个 items 数组并合并，一条都不丢。
+ */
+function collectItemsArrays(s) {
+  const out = [];
+  const re = /"items"\s*:\s*\[/g;
+  let m;
+  while ((m = re.exec(s)) !== null) {
+    const start = m.index + m[0].length - 1; // 指向 '['
+    let depth = 0, inStr = false, esc = false, end = -1;
+    for (let i = start; i < s.length; i++) {
+      const c = s[i];
+      if (inStr) {
+        if (esc) esc = false;
+        else if (c === "\\") esc = true;
+        else if (c === '"') inStr = false;
+        continue;
+      }
+      if (c === '"') { inStr = true; continue; }
+      if (c === "[") depth += 1;
+      else if (c === "]") { depth -= 1; if (depth === 0) { end = i; break; } }
+    }
+    if (end > start) {
+      try { const arr = JSON.parse(s.slice(start, end + 1)); if (Array.isArray(arr)) out.push(...arr); } catch {}
+      re.lastIndex = end + 1;
+    }
   }
+  return out;
+}
+
+function parseLlmObject(raw) {
+  const s = String(raw || "").trim();
+  // 优先合并重复 items 键；expandQuery 的 {"terms":[...]} 不含 items，自动跳过。
+  const merged = collectItemsArrays(s);
+  if (merged.length) {
+    let base = {};
+    try { base = JSON.parse(s) || {}; } catch {}
+    return { ...base, items: merged };
+  }
+  try {
+    const v = JSON.parse(s);
+    return v && typeof v === "object" ? v : null;
+  } catch {}
+  let inStr = false, esc = false, depth = 0, start = -1;
+  const stack = [];
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    if (inStr) {
+      if (esc) esc = false;
+      else if (ch === "\\") esc = true;
+      else if (ch === '"') inStr = false;
+      continue;
+    }
+    if (ch === '"') { inStr = true; continue; }
+    if (ch === "{") { if (depth === 0) start = i; stack.push(i); depth += 1; continue; }
+    if (ch === "}") {
+      depth -= 1; stack.pop();
+      if (depth === 0 && start >= 0) {
+        try {
+          const v = JSON.parse(s.slice(start, i + 1));
+          if (v && typeof v === "object") return v;
+        } catch {}
+        start = -1;
+      }
+      continue;
+    }
+    if (ch === "[" && depth === 0) {
+      // 纯数组输出：配平截取后包成 { items: [...] }，兼容归纳与扩词两种 prompt。
+      let d = 1, end = -1, q = false, e = false;
+      for (let j = i + 1; j < s.length; j++) {
+        const c = s[j];
+        if (q) { if (e) e = false; else if (c === "\\") e = true; else if (c === '"') q = false; continue; }
+        if (c === '"') { q = true; continue; }
+        if (c === "[") d += 1;
+        else if (c === "]") { d -= 1; if (d === 0) { end = j; break; } }
+      }
+      if (end > i) {
+        try { const arr = JSON.parse(s.slice(i, end + 1)); if (Array.isArray(arr)) return { items: arr, terms: arr }; } catch {}
+      }
+    }
+  }
+  return null;
 }
 
 /** 把用户方向扩成 2–3 个英文检索词；失败/无密钥时退回内置词典 + 原文。 */
@@ -223,20 +325,30 @@ Output ONLY a JSON object: {"items":[{"i":0,"title":"...","quote":"...","gap":".
 /** 大模型归纳；任何异常都返回 null，由调用方降级到规则模式。 */
 export async function summarizeWithLlm(scored, q, locale, env = {}, fetchImpl = fetch) {
   if (!llmConfig(env).token || !scored.length) return null;
-  const records = scored.slice(0, 14).map((r, i) => ({
+  // payload 越大，hy-mt2-plus 输出 5 条记录时越容易截断/畸形；实测 10 条 × 300 字符
+  // 仍足够让模型过滤新闻与闲聊，且显著提高一次成型的概率（整体 25s 预算内）。
+  const records = scored.slice(0, 10).map((r, i) => ({
     i,
     source: SOURCE_LABELS[r.source] || r.source,
     title: r.title,
-    text: r.text.slice(0, 420),
+    text: r.text.slice(0, 300),
   }));
   try {
     const out = await callLlm(locale === "zh" ? SYS_ZH : SYS_EN, { query: q, records }, env, fetchImpl);
     if (!Array.isArray(out?.items)) return null;
     const used = new Set();
     const items = [];
-    for (const it of out.items) {
-      const i = Number(it?.i);
-      if (!Number.isInteger(i) || i < 0 || i >= records.length || used.has(i)) continue;
+    // 仅当 i 漏填 / 非数字时按输出顺序回退；模型明确给了越界数字则丢弃，
+    // 不把指向不存在记录的内容硬塞进结果（证据链必须能对应到真实条目）。
+    for (let pos = 0; pos < out.items.length; pos++) {
+      const it = out.items[pos];
+      const rawI = it?.i;
+      const num = Number(rawI);
+      let i;
+      if (rawI === undefined || rawI === null || rawI === "" || !Number.isFinite(num)) i = pos;
+      else if (!Number.isInteger(num) || num < 0 || num >= records.length) continue;
+      else i = num;
+      if (used.has(i)) continue;
       const title = String(it?.title || "").trim();
       const quote = String(it?.quote || "").trim();
       const gap = String(it?.gap || "").trim();
@@ -289,6 +401,13 @@ export function buildSignals(scored, q, locale, llmItems) {
     titleOriginal: r.title,
     quoteOriginal: r.text.slice(0, 320),
     translated,
+    // L1：实时检索结果也带一句「给谁 + 做什么」。用确定性模板兜底，
+    // 不额外调 LLM（实时接口已有 25s 超时预算，不能再叠加一次生成调用）。
+    idea: templateIdea({
+      title,
+      titleZh: zh ? title : "",
+      signals: ["seeking", "manual"],
+    }),
   });
 
   if (Array.isArray(llmItems) && llmItems.length) {

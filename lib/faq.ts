@@ -21,8 +21,8 @@ export const FAQ_ITEMS = [
     a: "Each pain point receives a 0-100 score combining frequency (how often it recurs across unrelated threads), intensity (emotional strength and language), recency, cross-source corroboration, and explicit willingness-to-pay signals. Findings below the quality threshold are rejected rather than shown, so the opportunity list stays short and verifiable.",
   },
   {
-    q: "What is a competitor gap?",
-    a: "For every pain point we list the products already trying to solve it and summarise their documented recurring failures from low-star reviews and complaints. A competitor gap is a problem that is both frequently complained about and poorly handled by every existing solution we found.",
+    q: "What is a one-line opportunity?",
+    a: "Raw complaints are hard to act on, so each finding is rewritten into one plain-language idea: who has the problem, why there is room for a small tool, and the cheapest first step to test it. It is derived strictly from the collected wording; you can always expand the card to read the original quote and sources. No market size or revenue numbers are invented.",
   },
   {
     q: "Can I use my own support tickets, reviews or CSV data?",
@@ -34,7 +34,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Do I need to sign up to try IdeaRadar?",
-    a: "No. You can run 3 niche scans straight from /try with no account, no email and no credit card. The guest trial runs on a localised demo dataset so you can judge the output format first; the 3-scan count is stored on your device. After 3 scans, create a free account to get 3 scans every month, or upgrade for unlimited scans and live collection.",
+    a: "No. You can run 3 scans straight from /try with no account, no email and no credit card. Guest scans read the same live ingest dataset as the rest of the site, and a vague direction triggers a fresh search of public discussions; the 3-scan count is stored on your device. After 3 scans, create a free account for 3 scans every month, or upgrade for unlimited scans.",
   },
   {
     q: "How much does IdeaRadar cost?",
@@ -65,8 +65,8 @@ export const FAQ_ITEMS_ZH = [
     a: "每个痛点得到一个 0–100 分，综合频率（在互不相关的帖子里重复出现多少次）、强度（情绪与措辞）、近期性、跨数据源印证，以及明确的付费意愿信号。低于质量阈值的结论会被拒绝而不是展示，让商机列表保持短且可核验。",
   },
   {
-    q: "什么是竞品空白？",
-    a: "对每条痛点，我们列出已经在尝试解决它的产品，并根据低星评价与抱怨总结它们被反复诟病的失败点。竞品空白指的是：既被频繁抱怨、又被我们找到的所有现有方案都处理得很差的问题。",
+    q: "什么是一句话机会？",
+    a: "原始抱怨很难直接拿来用，所以每条结论都会被改写成一句看得懂的点子：谁遇到这个麻烦、为什么还有做一个小工具的空间、以及成本最低的第一步怎么验证。它只依据采集到的原话推导，点开卡片随时能核对原文与来源；不会编造市场规模或营收数字。",
   },
   {
     q: "能导入我自己的客服工单、评论或 CSV 数据吗？",
@@ -78,7 +78,7 @@ export const FAQ_ITEMS_ZH = [
   },
   {
     q: "试用 创意雷达 需要先注册吗？",
-    a: "不需要。打开 /zh/try 就能免注册扫描 3 次，不用账号、不留邮箱、不用信用卡。访客试用使用本地化的演示数据集，方便你先判断输出格式；3 次额度记在本机设备上。用完 3 次后，注册免费账号可每月继续扫 3 次，升级后不限次数并启动实时采集。",
+    a: "不需要。打开 /zh/try 就能免注册扫描 3 次，不用账号、不留邮箱、不用信用卡。访客扫描读取的是和站内一致的真实采集数据，输入的方向太笼统时还会现场检索公开讨论；3 次额度记在本机设备上。用完 3 次后，注册免费账号可每月继续扫 3 次，升级后不限次数。",
   },
   {
     q: "创意雷达 多少钱？",

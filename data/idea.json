@@ -1,0 +1,1268 @@
+{
+  "schemaVersion": 1,
+  "version": 2,
+  "generatedAt": "2026-11-14T11:30:06.400Z",
+  "totalVerdicts": 60,
+  "verdicts": {
+    "idea-2-o0xygl": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给患者做一个查看医生时间并预约的小工具",
+        "en": "A small tool for patients to view doctor slots and book appointments."
+      },
+      "who": {
+        "zh": "患者",
+        "en": "Patients."
+      },
+      "why": {
+        "zh": "无法重复预约已占用的预约时段",
+        "en": "Booked appointments cannot be booked by another patient."
+      },
+      "step": {
+        "zh": "做一个可查看医生时间并预约的简单网页版工具",
+        "en": "Create a simple web tool that shows doctor times and lets users book appointments."
+      }
+    },
+    "idea-2-4kivcq": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给求职者做一个查询美国工作差旅餐费报销规则的小工具",
+        "en": "A small tool for job seekers to check meal reimbursement rules for US work trips"
+      },
+      "who": {
+        "zh": "求职者",
+        "en": "job seekers"
+      },
+      "why": {
+        "zh": "不清楚美国工作差旅的餐费是否可报销",
+        "en": "they are unsure if meal expenses are covered for US work trips"
+      },
+      "step": {
+        "zh": "整理美国常见工作差旅报销规则，发到招聘平台相关帖子测试需求",
+        "en": "list common US work trip reimbursement rules and post them in relevant recruitment forum threads to test demand"
+      }
+    },
+    "idea-2-tl2dfw": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给普通用户做一个自动汇总收支数据的小工具",
+        "en": "A small tool for ordinary users to automatically summarize income and expenses."
+      },
+      "who": {
+        "zh": "普通用户",
+        "en": "Ordinary users."
+      },
+      "why": {
+        "zh": "手动输入收据金额效率低且易出错。",
+        "en": "Manually entering receipt amounts is inefficient and prone to errors."
+      },
+      "step": {
+        "zh": "做一个可导入收据图片自动识别金额的简单工具，找2人试用。",
+        "en": "Create a simple tool that can import receipt images to automatically identify amounts and test it with 2 people."
+      }
+    },
+    "idea-2-1l86ra8": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "indie-dev",
+      "headline": {
+        "zh": "给开发者做一个自动修复OAuth登录失败的小工具",
+        "en": "A small tool for developers to automatically fix OAuth login failures."
+      },
+      "who": {
+        "zh": "开发者",
+        "en": "Developers"
+      },
+      "why": {
+        "zh": "点击取消会重新进入错误会话，流程受阻。",
+        "en": "Clicking cancel restarts the error session, blocking progress."
+      },
+      "step": {
+        "zh": "做一个自动重试登录的简单脚本，找2位开发者测试。",
+        "en": "Create a simple script that auto-retries login and get tested by 2 devs."
+      }
+    },
+    "idea-2-6wy4be": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "bookkeeper",
+      "headline": {
+        "zh": "给预算管理员做一个按月统计订阅费的单页工具",
+        "en": "A small tool for budget administrators to track monthly subscription fees."
+      },
+      "who": {
+        "zh": "预算管理员",
+        "en": "budget-keeper"
+      },
+      "why": {
+        "zh": "需要手动制作包含12个月列的表格来管理订阅费用。",
+        "en": "They need to manually create a spreadsheet with 12 columns for monthly subscription fees."
+      },
+      "step": {
+        "zh": "做一个只统计订阅费的单页工具，找2个预算管理员试用。",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people tracking budgets and subscriptions."
+      }
+    },
+    "idea-2-wtcmtu": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给普通用户做一个从CSV导入费用明细的工具",
+        "en": "A small tool for ordinary users to import expense details from CSV"
+      },
+      "who": {
+        "zh": "普通用户",
+        "en": "ordinary users"
+      },
+      "why": {
+        "zh": "需要手动导入费用报表和发票明细，效率低",
+        "en": "They need to manually import expense report and invoice details, which is inefficient"
+      },
+      "step": {
+        "zh": "做一个CSV导入的简单工具，找2人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 bookkeepers and finance staff."
+      }
+    },
+    "idea-2-1rl6xus": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "indie-dev",
+      "headline": {
+        "zh": "给需要导出Outlook联系人的人做一个过滤全局地址列表的工具",
+        "en": "A small tool for people who need to export Outlook contacts to exclude global address list contacts."
+      },
+      "who": {
+        "zh": "需要导出Outlook个人联系人的人",
+        "en": "People who want to export their personal Outlook contacts without global address list entries."
+      },
+      "why": {
+        "zh": "无法找到方法排除全局地址列表中的联系人",
+        "en": "They cannot find a way to exclude contacts from the global address list when exporting."
+      },
+      "step": {
+        "zh": "做一个可筛选全局地址列表的简单导出工具，找1人试用",
+        "en": "Build a simple export tool with global address list filtering and get 1 person to test it."
+      }
+    },
+    "idea-2-1iaz7w3": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给厌恶MS生态的用户做一个 LibreOffice 替代功能小工具",
+        "en": "A small tool for users who hate MS ecosystem to replace LibreOffice functions"
+      },
+      "who": {
+        "zh": "厌恶MS生态的用户",
+        "en": "Users who dislike MS products"
+      },
+      "why": {
+        "zh": "LibreOffice无法满足其工作需求",
+        "en": "LibreOffice does not cover the tasks they need to complete"
+      },
+      "step": {
+        "zh": "做一个仅能处理基础文档编辑的简易工具，找2人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+      }
+    },
+    "idea-2-10q6ur": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "indie-dev",
+      "headline": {
+        "zh": "给独立开发者做一个修复Yahoo OAuth登录问题的小工具",
+        "en": "A small tool for indie-devs to fix Yahoo OAuth login issues"
+      },
+      "who": {
+        "zh": "独立开发者",
+        "en": "indie developers"
+      },
+      "why": {
+        "zh": "使用MailCraft时Yahoo OAuth登录功能出现故障。",
+        "en": "Someone asked about \"Yahoo Oauth\" in public Q&A — the current way is not smooth enough."
+      },
+      "step": {
+        "zh": "做一个仅解决该问题的单页工具，找2位开发者试用。",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 indie developers."
+      }
+    },
+    "idea-2-16yz8hb": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给差旅人员做一个生成交通费用凭证的小工具",
+        "en": "A small tool for travelers to generate transportation expense vouchers."
+      },
+      "who": {
+        "zh": "差旅人员",
+        "en": "Travelers."
+      },
+      "why": {
+        "zh": "无法获取OV-chipkaart出行对应的正式收据。",
+        "en": "They cannot obtain official receipts for OV-chipkaart trips."
+      },
+      "step": {
+        "zh": "做一个可输入行程信息的简单工具，生成模拟凭证。",
+        "en": "Create a simple tool that inputs trip details to generate mock vouchers."
+      }
+    },
+    "idea-2-h48wuj": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给想要取消英国签证预约的人做一个申请费用退款的工具",
+        "en": "A small tool for people who want to cancel UK visa appointments to apply for fee refunds"
+      },
+      "who": {
+        "zh": "想要取消英国签证预约的人",
+        "en": "People who want to cancel their UK visa appointments"
+      },
+      "why": {
+        "zh": "已支付预约费但想取消行程，无法得知是否可退款",
+        "en": "They paid a reservation fee but want to cancel their trip and don’t know if they can get a refund"
+      },
+      "step": {
+        "zh": "做一个简单的申请表，收集姓名和预约号后发送邮件询问",
+        "en": "Create a simple form to collect name and reservation number then send an email to inquire"
+      }
+    },
+    "idea-2-1l86vk0": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给Outlook用户做一个设置固定时间日程提醒的小工具",
+        "en": "A small tool for Outlook users to set reminders at specific times"
+      },
+      "who": {
+        "zh": "Outlook用户",
+        "en": "Outlook users"
+      },
+      "why": {
+        "zh": "无法为非固定日期的预约设置特定提醒时间",
+        "en": "They cannot set specific reminder times for appointments scheduled on arbitrary dates"
+      },
+      "step": {
+        "zh": "做一个单页工具，输入预约日期和时间后直接生成提醒设置",
+        "en": "Create a single-page tool that generates reminder settings directly from inputted appointment dates and times"
+      }
+    },
+    "idea-2-fu3oiv": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给签证申请人做一个查询取消费用的小工具",
+        "en": "A small tool for visa applicants to check cancellation fees"
+      },
+      "who": {
+        "zh": "签证申请人",
+        "en": "visa applicants"
+      },
+      "why": {
+        "zh": "不知道在未预约生物识别前取消申请需支付多少费用",
+        "en": "They don’t know the fee for canceling an application before booking a biometrics appointment"
+      },
+      "step": {
+        "zh": "做一个输入申请编号即可显示费用的简单页面",
+        "en": "Create a simple page that shows fees by entering an application number"
+      }
+    },
+    "idea-2-1k43m2p": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给MacBook用户做一个从iTunes导出联系人到Google的工具",
+        "en": "A small tool for MacBook users to export contacts from iTunes to Google"
+      },
+      "who": {
+        "zh": "MacBook用户",
+        "en": "MacBook users"
+      },
+      "why": {
+        "zh": "不知道如何将iTunes中的联系人导出到Google账户",
+        "en": "They don't know how to export contacts from iTunes to a Google account"
+      },
+      "step": {
+        "zh": "做一个简单的导出工具，找2个用户测试使用",
+        "en": "Make a simple export tool and get 2 users to test it"
+      }
+    },
+    "idea-2-x31fc3": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给需要导出邮箱联系人到旧版Outlook的用户做一个导出工具",
+        "en": "A small tool for people who need to export email contacts to old Outlook versions"
+      },
+      "who": {
+        "zh": "需要导出邮箱联系人到Outlook 2007的用户",
+        "en": "Users who need to export contacts from Yahoo! and Hotmail to Outlook 2007"
+      },
+      "why": {
+        "zh": "不知道如何完成该导出操作，担心会出现数据丢失或重复的问题",
+        "en": "They don’t know how to do the export and are worried about missing or duplicate data"
+      },
+      "step": {
+        "zh": "做一个能直接导入Yahoo!和Hotmail账号并导出到Outlook 2007的简易工具，找2人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+      }
+    },
+    "idea-2-19twsya": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给联系人管理者做一个合并重复联系人的小工具",
+        "en": "A small tool for contact managers to merge duplicate contacts."
+      },
+      "who": {
+        "zh": "联系人管理者",
+        "en": "Contact managers."
+      },
+      "why": {
+        "zh": "无法合并重复联系人且担心丢失原有信息。",
+        "en": "They are unable to merge duplicate contacts without losing existing information."
+      },
+      "step": {
+        "zh": "做一个可导入联系人列表并自动合并重复项的简易工具，找2人试用。",
+        "en": "Create a simple tool that imports contact lists and automatically merges duplicates for 2 users to test."
+      }
+    },
+    "idea-2-cel4x8": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "solo-founder",
+      "headline": {
+        "zh": "给solo-founder做一个监测M365故障的小工具",
+        "en": "A small tool for solo-founders to monitor M365 outages"
+      },
+      "who": {
+        "zh": "solo-founder",
+        "en": "solo-founder"
+      },
+      "why": {
+        "zh": "频繁的M365故障让他很困扰",
+        "en": "Frequent M365 outages trouble him"
+      },
+      "step": {
+        "zh": "做一个能显示近期故障记录的简单页面，找2人试用",
+        "en": "Make a simple page showing recent outages and ask 2 people to test it"
+      }
+    },
+    "idea-2-1romyta": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "solo-founder",
+      "headline": {
+        "zh": "给「solo-founder」做一个「修复CRM联系人 enrichment接口错误」的小工具",
+        "en": "A small tool for solo-founders to fix the CRM contact enrichment API error"
+      },
+      "who": {
+        "zh": "solo-founder",
+        "en": "solo-founder"
+      },
+      "why": {
+        "zh": "使用标准UUID调用接口时会立即返回422错误",
+        "en": "Calling the interface with standard UUIDs returns a 422 error immediately"
+      },
+      "step": {
+        "zh": "做一个修复该错误的单页工具，找1人测试",
+        "en": "Build a one-page tool to fix the error and get 1 person to test it"
+      }
+    },
+    "idea-2-3srtq8": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给需要证明家人居家的申请人做一个生成宠物居留证明的小工具",
+        "en": "A small tool for applicants to generate proof of family pets staying at home."
+      },
+      "who": {
+        "zh": "签证申请人",
+        "en": "Visa applicants"
+      },
+      "why": {
+        "zh": "无法提供家人仍在国内的证明",
+        "en": "Unable to provide proof that family members remain in their home country."
+      },
+      "step": {
+        "zh": "做一个可输入宠物信息的简单工具，生成证明文本",
+        "en": "Create a simple tool that takes pet info and outputs a proof text."
+      }
+    },
+    "idea-2-sfd8g1": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "pet-owner",
+      "headline": {
+        "zh": "给宠物主人做一个验证兽医信息合法性的小工具",
+        "en": "A small tool for pet owners to verify vet information legitimacy"
+      },
+      "who": {
+        "zh": "宠物主人",
+        "en": "pet owners"
+      },
+      "why": {
+        "zh": "担心提供的个人信息被不当使用",
+        "en": "worried about personal info being misused"
+      },
+      "step": {
+        "zh": "做一个简单输入姓名和诊所名的验证工具，找2位主人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 pet owners juggling care schedules."
+      }
+    },
+    "idea-2-1k0af9r": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "solo-founder",
+      "headline": {
+        "zh": "给合成器开发者做一个自动申请LLC的辅助工具",
+        "en": "A small tool for synth developers to automate LLC application processes"
+      },
+      "who": {
+        "zh": "合成器开发者",
+        "en": "synth developers"
+      },
+      "why": {
+        "zh": "申请LLC的法律手续费用高昂且流程复杂",
+        "en": "Legal paperwork for LLC applications is expensive and cumbersome"
+      },
+      "step": {
+        "zh": "做一个简单的表单收集必要信息，发送给当地律师获取报价",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+      }
+    },
+    "idea-2-q1kin6": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "scheduler",
+      "headline": {
+        "zh": "给学生做一个快速便捷的预订小工具",
+        "en": "A small tool for students to make quick and easy bookings."
+      },
+      "who": {
+        "zh": "学生",
+        "en": "students"
+      },
+      "why": {
+        "zh": "预订流程复杂导致无法快速找到房间。",
+        "en": "The booking process is complicated, preventing them from finding rooms quickly."
+      },
+      "step": {
+        "zh": "做一个简易预订页面，邀请5名学生试用。",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+      }
+    },
+    "idea-2-1q1cx2n": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "solo-founder",
+      "headline": {
+        "zh": "给「律师行业单人创业者」做一个「替代Outlook+Word的简单案件管理工具」",
+        "en": "A small tool for lawyers running solo firms to replace Outlook and Word for case management."
+      },
+      "who": {
+        "zh": "律师行业单人创业者",
+        "en": "Solo lawyers running their own law firms."
+      },
+      "why": {
+        "zh": "被迫使用事务所规定的Outlook和Word等复杂工具，操作不便。",
+        "en": "Forced to use complex tools like Outlook and Word mandated by their firm, making operations inconvenient."
+      },
+      "step": {
+        "zh": "做一个基础的案件信息录入页面，找2位同行试用。",
+        "en": "Create a basic case information entry page and get it tested by 2 peers."
+      }
+    },
+    "idea-2-x996j0": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "indie-dev",
+      "headline": {
+        "zh": "给独立开发者做一个自动校验Webhook请求状态的小工具",
+        "en": "A small tool for indie-devs to automatically check Webhook request status"
+      },
+      "who": {
+        "zh": "独立开发者",
+        "en": "indie-devs"
+      },
+      "why": {
+        "zh": "收到的Webhook返回200状态但没有对应的POST请求，无法确认数据是否真正送达",
+        "en": "The received Webhook returns 200 status but no corresponding POST request, making it impossible to confirm if data was actually delivered"
+      },
+      "step": {
+        "zh": "做一个能实时检测Webhook请求状态并显示结果的简单工具，找1位开发者试用",
+        "en": "Create a simple tool that detects Webhook request status in real time and shows results, then get it tested by 1 developer"
+      }
+    },
+    "idea-2-14qo93j": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "indie-dev",
+      "headline": {
+        "zh": "给独立开发者做一个自动登录CI平台的小工具",
+        "en": "A small tool for indie-devs to auto-login to CI platforms"
+      },
+      "who": {
+        "zh": "独立开发者",
+        "en": "indie-devs"
+      },
+      "why": {
+        "zh": "需要手动登录CI平台，操作繁琐",
+        "en": "They have to manually log in to CI platforms which is cumbersome"
+      },
+      "step": {
+        "zh": "做一个自动填充认证信息的单页工具，找2个开发者试用",
+        "en": "Build a one-page tool that auto-fills login info and get tested by 2 devs"
+      }
+    },
+    "idea-2-1wns13r": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给非营利组织做一个追踪会员月费支付的小工具",
+        "en": "A small tool for non-profits to track member monthly dues payments"
+      },
+      "who": {
+        "zh": "非营利组织负责人",
+        "en": "Non-profit organization leaders"
+      },
+      "why": {
+        "zh": "需要简单工具来记录会员的月度捐款",
+        "en": "They need a simple tool to record members' monthly donations"
+      },
+      "step": {
+        "zh": "做一个基础表格，收集会员姓名和付款日期供测试",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people tracking budgets and subscriptions."
+      }
+    },
+    "idea-2-1oi3aoe": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给订阅用户做一个离线下载工具",
+        "en": "A small tool for subscription users to download content offline"
+      },
+      "who": {
+        "zh": "Google Play Music Unlimited订阅者",
+        "en": "Subscribers to Google Play Music Unlimited"
+      },
+      "why": {
+        "zh": "无法像Spotify那样将播放列表歌曲离线保存",
+        "en": "They cannot save playlist songs offline like on Spotify"
+      },
+      "step": {
+        "zh": "做一个单页工具，让用户输入歌单链接直接生成下载链接",
+        "en": "Create a one-page tool that generates download links from a playlist URL"
+      }
+    },
+    "idea-2-yg1ci3": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给订阅管理用户做一个合并RSS源并显示投票信息的小工具",
+        "en": "A small tool for subscription managers to merge RSS sources and show vote info."
+      },
+      "who": {
+        "zh": "订阅管理用户",
+        "en": "Subscription managers."
+      },
+      "why": {
+        "zh": "无法在现有工具中合并多个RSS源并显示相关投票数据。",
+        "en": "They can't merge multiple RSS sources in their current tool to show vote data."
+      },
+      "step": {
+        "zh": "做一个能导入两个RSS链接并显示投票信息的单页工具，找2人试用。",
+        "en": "Make a single-page tool that imports two RSS links and shows vote info, and get 2 people to test it."
+      }
+    },
+    "idea-2-q0gj23": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "indie-dev",
+      "headline": {
+        "zh": "给Google Sheets新手做一个OFFSET函数用法小工具",
+        "en": "A small tool for Google Sheets beginners to use the OFFSET function"
+      },
+      "who": {
+        "zh": "Google Sheets新手",
+        "en": "Beginners using Google Sheets"
+      },
+      "why": {
+        "zh": "在多个工作表中使用OFFSET函数时感到困惑",
+        "en": "They are struggling to use the OFFSET function across multiple sheets"
+      },
+      "step": {
+        "zh": "做一个演示OFFSET函数用法的单页工具，找2人试用",
+        "en": "Create a one-page tool demonstrating OFFSET usage and get feedback from 2 users"
+      }
+    },
+    "idea-2-fict93": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给房东和租客做一个记录租赁相关文件的小工具",
+        "en": "A small tool for landlords and tenants to record rental-related documents."
+      },
+      "who": {
+        "zh": "房东和租客",
+        "en": "Landlords and tenants."
+      },
+      "why": {
+        "zh": "他们需要遵守相关法律要求保存租赁记录，但对此不熟悉。",
+        "en": "They need to comply with legal requirements to keep rental records but are unfamiliar with it."
+      },
+      "step": {
+        "zh": "做一个简单的表单让双方上传相关文件并标记状态。",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people tracking budgets and subscriptions."
+      }
+    },
+    "idea-2-1pahlgq": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给财务人员做一个CSV导出工时表和发票数据的小工具",
+        "en": "A small tool for finance staff to export timesheet and invoice data as CSV"
+      },
+      "who": {
+        "zh": "财务人员",
+        "en": "finance staff"
+      },
+      "why": {
+        "zh": "需要将工时表和发票数据导出为表格格式",
+        "en": "they need to export timesheet and invoice data in spreadsheet format"
+      },
+      "step": {
+        "zh": "做一个简单的接口，生成包含工时表和发票行的CSV文件供测试",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 bookkeepers and finance staff."
+      }
+    },
+    "idea-2-10t311i": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "service-owner",
+      "headline": {
+        "zh": "给机票服务商做一个自动核销变更航班全额退款的工具",
+        "en": "A small tool for airline service providers to automatically approve full refunds for changed flights"
+      },
+      "who": {
+        "zh": "机票服务商",
+        "en": "airline service providers"
+      },
+      "why": {
+        "zh": "无法快速处理乘客因航班信息变更提出的全额退款申请",
+        "en": "They struggle to quickly process full refunds for passengers due to flight information changes"
+      },
+      "step": {
+        "zh": "做一个能自动匹配航班记录并生成退款申请单的简易工具，找2家同类服务商试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 small businesses handling bookings."
+      }
+    },
+    "idea-2-1ajkdyw": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "service-owner",
+      "headline": {
+        "zh": "给酒店客服做一个拒付申请生成小工具",
+        "en": "A small tool for hotel staff to generate chargeback requests"
+      },
+      "who": {
+        "zh": "酒店客服",
+        "en": "hotel staff"
+      },
+      "why": {
+        "zh": "无法快速生成符合规则的拒付申请导致退款处理延迟",
+        "en": "They struggle to create compliant chargeback applications quickly"
+      },
+      "step": {
+        "zh": "做一个可填入基础信息的单页工具，找2家酒店试用",
+        "en": "Build a one-page tool with basic input fields and get tested by 2 hotels"
+      }
+    },
+    "idea-2-db44ps": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给信用卡用户做一个汇率收益计算小工具",
+        "en": "A small tool for credit card users to calculate exchange gains from refunds"
+      },
+      "who": {
+        "zh": "信用卡用户",
+        "en": "Credit card users"
+      },
+      "why": {
+        "zh": "无法直接查看退款金额的汇率转换收益",
+        "en": "They cannot see the exchange gain from their refund amounts directly"
+      },
+      "step": {
+        "zh": "做一个输入英镑金额自动显示阿联酋迪拉姆等值的小工具，找1人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 small businesses handling bookings."
+      }
+    },
+    "idea-2-h6goq1": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给签证申请人做一个查询面试取消原因的小工具",
+        "en": "A small tool for visa applicants to check interview cancellation reasons"
+      },
+      "who": {
+        "zh": "签证申请人",
+        "en": "visa applicants"
+      },
+      "why": {
+        "zh": "无法获知面试取消的具体原因",
+        "en": "They cannot find out the specific reason for the interview cancellation"
+      },
+      "step": {
+        "zh": "做一个简单查询页面，输入预约号即可显示取消原因",
+        "en": "Create a simple query page that shows the cancellation reason with the appointment number"
+      }
+    },
+    "idea-2-11otogi": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给项目负责人做一个自动核算差旅退款的小工具",
+        "en": "A small tool for project managers to automatically calculate travel refund amounts."
+      },
+      "who": {
+        "zh": "项目负责人",
+        "en": "Project managers."
+      },
+      "why": {
+        "zh": "因项目截止日期延迟及备用人员离职需取消度假却只能拿到部分退款。",
+        "en": "Had to cancel a planned trip due to project delays and a quitting backup staff, receiving only partial company reimbursement."
+      },
+      "step": {
+        "zh": "做一个输入行程信息和费用后自动算退款的单页工具，找2人试用。",
+        "en": "Create a one-page tool that calculates refunds automatically from trip details and costs, and get tested by 2 people."
+      }
+    },
+    "idea-2-1lrj0p": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给信用卡用户做一个查询纠纷补偿进度的小工具",
+        "en": "A small tool for credit card users to check dispute compensation progress"
+      },
+      "who": {
+        "zh": "信用卡用户",
+        "en": "credit card users"
+      },
+      "why": {
+        "zh": "无法查询到取消航班的补偿及退款情况",
+        "en": "They cannot track compensation and refund for canceled connecting flights"
+      },
+      "step": {
+        "zh": "做一个可输入订单号查询补偿状态的单页工具",
+        "en": "Create a one-page tool that takes an order number to show compensation status"
+      }
+    },
+    "idea-2-1xkrkn1": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给卖家做一个识别快递诈骗风险的小工具",
+        "en": "A small tool for sellers to identify courier scam risks"
+      },
+      "who": {
+        "zh": "自行车卖家",
+        "en": "bicycle sellers"
+      },
+      "why": {
+        "zh": "收到买家声称已付款要求取消交易的邮件",
+        "en": "Received an email claiming payment was made requesting transaction cancellation"
+      },
+      "step": {
+        "zh": "做一个能自动识别邮件中取消交易关键词的工具，找2个卖家试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 small businesses handling bookings."
+      }
+    },
+    "idea-2-nwv0kd": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给Windows用户做一个自动同步本地照片到Google Photos的工具",
+        "en": "A small tool for Windows users to automatically sync local photos to Google Photos"
+      },
+      "who": {
+        "zh": "Windows用户",
+        "en": "Windows users"
+      },
+      "why": {
+        "zh": "担心删除本地照片后同步数据会丢失",
+        "en": "Worried that synced data will be lost after deleting local photos"
+      },
+      "step": {
+        "zh": "做一个能自动上传指定文件夹照片到Google Photos的简易工具，找2人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+      }
+    },
+    "idea-2-1v4j8ur": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给旅行者做一个自动上传照片到云端的工具",
+        "en": "A small tool for travelers to automatically upload photos to the cloud"
+      },
+      "who": {
+        "zh": "旅行者",
+        "en": "travelers"
+      },
+      "why": {
+        "zh": "担心外出旅行时旧相机拍的照片无法保存",
+        "en": "worrying that photos taken with an old camera during travel won’t be saved"
+      },
+      "step": {
+        "zh": "做一个可上传照片就自动保存的简易工具，找1人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+      }
+    },
+    "idea-2-14is1mm": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给联系人管理者做一个合并重复文件夹的工具",
+        "en": "A small tool for contact managers to merge duplicate folders"
+      },
+      "who": {
+        "zh": "联系人管理者",
+        "en": "contact managers"
+      },
+      "why": {
+        "zh": "需要在多个文件夹中逐一搜索联系人，效率很低",
+        "en": "They have to search across multiple folders manually which is inefficient"
+      },
+      "step": {
+        "zh": "做一个可导入联系人列表并自动合并重复文件夹的简易工具，找2人试用",
+        "en": "Build a simple tool that imports contact lists and auto-merges duplicates, get 2 people to test it"
+      }
+    },
+    "idea-2-1y5yfgb": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给教育机构管理员做一个导出联系人列表的小工具",
+        "en": "A small tool for education institution admins to export contact lists"
+      },
+      "who": {
+        "zh": "教育机构管理员",
+        "en": "education institution admins"
+      },
+      "why": {
+        "zh": "无法通过contacts.google.com导出联系人数据",
+        "en": "There is no way to export contacts from Google Apps for Education's contacts.google.com"
+      },
+      "step": {
+        "zh": "做一个可批量导出联系人名单的简单工具，找2人试用",
+        "en": "Build a simple tool for batch exporting contact lists and get feedback from 2 users"
+      }
+    },
+    "idea-2-183nfrf": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给联系人管理用户做一个自动同步联系人及照片到iCloud的工具",
+        "en": "A small tool for contact managers to automatically sync contacts and photos to iCloud"
+      },
+      "who": {
+        "zh": "联系人管理用户",
+        "en": "people organizing contacts, photos and files"
+      },
+      "why": {
+        "zh": "手动转换多步骤易丢失照片导致数据不完整",
+        "en": "Someone asked about \"How do I export my Exchange/Outlook contacts to iCloud with \" in public Q&A — the current way is not smooth enough."
+      },
+      "step": {
+        "zh": "做一个能直接导入Exchange/Outlook并保留照片的导出工具，找2人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+      }
+    },
+    "idea-2-1osdnfj": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给想要强制合并Google联系人重复项的人做一个自动筛选待合并项的工具",
+        "en": "A small tool for people who want to force merge duplicates in Google Contacts to auto-select items for merging."
+      },
+      "who": {
+        "zh": "Google联系人用户",
+        "en": "Users of Google Contacts."
+      },
+      "why": {
+        "zh": "无法找到强制合并或筛选待合并候选项的方法。",
+        "en": "They cannot find a way to force merges or identify candidates for merging."
+      },
+      "step": {
+        "zh": "做一个能自动识别重复联系人并列出待合并列表的简单工具，找2人试用。",
+        "en": "Create a simple tool that auto-identifies duplicate contacts and lists items for merging, then get 2 people to test it."
+      }
+    },
+    "idea-2-ea3lbj": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给个人管理员做一个联系人去重工具",
+        "en": "A small tool for personal admins to remove duplicate contacts"
+      },
+      "who": {
+        "zh": "个人管理员",
+        "en": "personal admins"
+      },
+      "why": {
+        "zh": "存在大量重复联系人，创建新联系人比查找更麻烦",
+        "en": "There are many duplicate contacts making it harder to create new ones than to search"
+      },
+      "step": {
+        "zh": "做一个可导入联系人列表并标记重复项的简易工具，找2人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people organizing contacts, photos and files."
+      }
+    },
+    "idea-2-yn4qkf": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "pet-owner",
+      "headline": {
+        "zh": "给宠物主人做一个快速判断兔子呼吸异常的工具",
+        "en": "A small tool for pet owners to quickly assess rabbit breathing issues"
+      },
+      "who": {
+        "zh": "宠物主人",
+        "en": "pet owners"
+      },
+      "why": {
+        "zh": "无法通过现有信息判断兔子呼吸急促的病因",
+        "en": "They cannot determine the cause of their rabbit's rapid breathing from available information"
+      },
+      "step": {
+        "zh": "制作一个可上传视频自动分析呼吸频率的工具原型",
+        "en": "Create a prototype that analyzes video footage to estimate breathing rate"
+      }
+    },
+    "idea-2-1jz8n1t": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "service-owner",
+      "headline": {
+        "zh": "给服务提供者做一个补登下班时间的小工具",
+        "en": "A small tool for service providers to log adjusted work hours"
+      },
+      "who": {
+        "zh": "服务提供者",
+        "en": "service providers"
+      },
+      "why": {
+        "zh": "无法及时补登提前下班的时间记录",
+        "en": "they are unable to promptly update recorded work hours"
+      },
+      "step": {
+        "zh": "做一个简单表单让服务提供者填写补登信息",
+        "en": "create a simple form for them to enter adjusted time details"
+      }
+    },
+    "idea-2-qf2lb4": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给老板做一个设置提醒状态查看的工具",
+        "en": "A small tool for bosses to check reminder settings."
+      },
+      "who": {
+        "zh": "老板",
+        "en": "bosses"
+      },
+      "why": {
+        "zh": "无法确认发送的日程提醒在对方日历上的实际状态。",
+        "en": "Unable to confirm the actual reminder status on the recipient's calendar."
+      },
+      "step": {
+        "zh": "做一个可查看对方日程提醒状态的简单页面。",
+        "en": "Create a simple page to view the recipient's schedule reminder status."
+      }
+    },
+    "idea-2-1rchuwc": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给普通用户做一个自动合并Gmail联系人重复项的工具",
+        "en": "A small tool for ordinary users to automatically merge duplicate Gmail contacts."
+      },
+      "who": {
+        "zh": "普通用户",
+        "en": "Ordinary users."
+      },
+      "why": {
+        "zh": "需要手动执行重复项合并操作，效率较低。",
+        "en": "They need to manually perform duplicate contact merging which is inefficient."
+      },
+      "step": {
+        "zh": "做一个一键自动合并Gmail联系人重复项的简单工具，找2人试用。",
+        "en": "Create a simple tool that automatically merges duplicate Gmail contacts with one click and get feedback from 2 users."
+      }
+    },
+    "idea-2-ok4kae": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给普通用户做一个从Google联系人预览导出联系人的小工具",
+        "en": "A small tool for ordinary users to export contacts from Google Contacts Preview"
+      },
+      "who": {
+        "zh": "普通用户",
+        "en": "Ordinary users"
+      },
+      "why": {
+        "zh": "在Google联系人预览中找不到导出联系人功能，只能通过旧版联系人入口操作",
+        "en": "There is no export option for contacts in Google Contacts Preview, forcing users to use the old contacts interface"
+      },
+      "step": {
+        "zh": "直接在Google联系人预览中测试导出按钮是否存在，确认问题真实性",
+        "en": "Test directly in Google Contacts Preview to confirm the absence of an export button"
+      }
+    },
+    "idea-2-l26e63": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给旅行者做一个防摔照片备份外置硬盘选择工具",
+        "en": "A small tool for travelers to choose a shockproof external HDD for photo backup"
+      },
+      "who": {
+        "zh": "旅行者",
+        "en": "travelers"
+      },
+      "why": {
+        "zh": "找不到专为旅行设计的防摔照片备份硬盘",
+        "en": "They can't find a shockproof external HDD designed for travel photo backup"
+      },
+      "step": {
+        "zh": "列出5款防摔旅行用外置硬盘并附链接",
+        "en": "List 5 shockproof travel external HDDs with links"
+      }
+    },
+    "idea-2-1g9tf5t": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给Outlook 2003用户做一个查找合并重复联系人功能的小工具",
+        "en": "A small tool for Outlook 2003 users to find and merge duplicate contacts."
+      },
+      "who": {
+        "zh": "Outlook 2003用户",
+        "en": "Users of Outlook 2003."
+      },
+      "why": {
+        "zh": "他们需要工具来查找并合并重复的联系人。",
+        "en": "They need a tool to find and merge duplicate contacts."
+      },
+      "step": {
+        "zh": "做一个能识别并合并重复联系人的简易工具原型，找1人试用。",
+        "en": "Create a simple prototype that identifies and merges duplicate contacts, and get it tested by 1 person."
+      }
+    },
+    "idea-2-gifeir": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给入境香港旅客做一个疫苗记录核验小工具",
+        "en": "A small tool for travelers to verify vaccine records for Hong Kong entry"
+      },
+      "who": {
+        "zh": "入境香港的旅客",
+        "en": "Passengers arriving in Hong Kong"
+      },
+      "why": {
+        "zh": "不确定新冠相关要求是否满足入境条件",
+        "en": "They are unsure if their COVID requirements meet entry standards"
+      },
+      "step": {
+        "zh": "做一个简单查询工具，输入记录后显示是否符合要求",
+        "en": "Build a simple tool that checks records against entry requirements"
+      }
+    },
+    "idea-2-izbpgr": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给报表使用者做一个嵌入外部图片的简单工具",
+        "en": "A small tool for report users to embed external images"
+      },
+      "who": {
+        "zh": "报表使用者",
+        "en": "Report users"
+      },
+      "why": {
+        "zh": "无法将存储的JPEG图片插入报表中",
+        "en": "They can't insert stored JPEG images into reports"
+      },
+      "step": {
+        "zh": "做一个能上传图片并直接嵌入报表的单页工具，找1人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 pet owners juggling care schedules."
+      }
+    },
+    "idea-2-4lp5nm": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给普通用户做一个多货币交易记录录入小工具",
+        "en": "A small tool for ordinary users to enter multi-currency transaction records"
+      },
+      "who": {
+        "zh": "普通用户",
+        "en": "Ordinary users"
+      },
+      "why": {
+        "zh": "在新的银行应用中无法输入公司账户外的账户的交易日志记录",
+        "en": "They cannot submit journal entries for accounts outside their company's currency in the new banking app"
+      },
+      "step": {
+        "zh": "做一个仅支持多货币账户交易的单页工具，找2人试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 bookkeepers and finance staff."
+      }
+    },
+    "idea-2-c9813y": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "service-owner",
+      "headline": {
+        "zh": "给服务提供者做一个预约取消功能的小工具",
+        "en": "A small tool for service providers to cancel appointments."
+      },
+      "who": {
+        "zh": "服务提供者",
+        "en": "service providers"
+      },
+      "why": {
+        "zh": "当前预约取消功能为无效代码，无法处理取消操作。",
+        "en": "The current appointment cancellation feature is invalid code that can't handle cancellations."
+      },
+      "step": {
+        "zh": "做一个可实际使用的预约取消按钮原型，找1位服务提供者测试。",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+      }
+    },
+    "idea-2-1o3ijf0": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "service-owner",
+      "headline": {
+        "zh": "给服务商做一个删除预订状态的小工具",
+        "en": "A small tool for service owners to delete booking statuses."
+      },
+      "who": {
+        "zh": "服务商",
+        "en": "Service owners."
+      },
+      "why": {
+        "zh": "取消预订会导致座位释放和收入损失。",
+        "en": "Canceling bookings releases seats and causes revenue loss."
+      },
+      "step": {
+        "zh": "做一个可输入预订ID直接删除状态的单页工具，找1人测试。",
+        "en": "Make a one-page tool to delete status by booking ID and get 1 person to test it."
+      }
+    },
+    "idea-2-zeg1zq": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "service-owner",
+      "headline": {
+        "zh": "给服务业主做一个查询已确认或取消预订状态的工具",
+        "en": "A small tool for service owners to check booking status"
+      },
+      "who": {
+        "zh": "服务业主",
+        "en": "service owners"
+      },
+      "why": {
+        "zh": "无法获取已确认或取消的预订状态信息",
+        "en": "They cannot retrieve booking status as confirmed or cancelled"
+      },
+      "step": {
+        "zh": "做一个简单接口查询工具，找2个服务业主测试使用",
+        "en": "Build a simple API query tool and get tested by 2 service owners"
+      }
+    },
+    "idea-2-ti9css": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "service-owner",
+      "headline": {
+        "zh": "给护理服务提供者做一个提醒异常收费的警报工具",
+        "en": "A small tool for nursing service providers to get alerts about abnormal charges"
+      },
+      "who": {
+        "zh": "护理服务提供者",
+        "en": "people scheduling appointments"
+      },
+      "why": {
+        "zh": "当计费系统出问题时他们会被多收费用",
+        "en": "Someone asked about \"Nurses Sound Alarm as 'Uber for Nursing' Apps Push to Deregu\" in public Q&A — the current way is not smooth enough."
+      },
+      "step": {
+        "zh": "做一个能识别异常收费记录并发送警报的简单工具，找2位服务提供者试用",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+      }
+    },
+    "idea-2-1y6wo84": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给医疗服务人员做一个确认或拒绝预约请求的小工具",
+        "en": "A small tool for medical staff to confirm or reject appointment requests."
+      },
+      "who": {
+        "zh": "医疗服务人员",
+        "en": "Medical staff."
+      },
+      "why": {
+        "zh": "当前仅服务方能创建和修改预约，患者无法直接发起请求。",
+        "en": "Currently only providers can create and modify appointments, preventing patients from submitting requests directly."
+      },
+      "step": {
+        "zh": "做一个简单页面让患者填写预约信息，服务人员可直接查看并回复。",
+        "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
+      }
+    }
+  }
+}

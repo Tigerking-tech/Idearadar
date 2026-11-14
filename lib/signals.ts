@@ -10,6 +10,7 @@
 
 import { GUEST_ITEMS_EN, GUEST_ITEMS_ZH } from "./guest-scan-data";
 import { classifyTrend, localizeSignalLabels } from "../scripts/ingest-lib.mjs";
+import { templateIdea as buildTemplateIdea, personaOf } from "../scripts/idea-core.mjs";
 
 export type TrendKind = "rising" | "steady" | "peaked";
 
@@ -50,6 +51,7 @@ export const SOURCE_LABELS: Record<string, string> = {
   rss: "RSS",
   firstParty: "First-party",
   reddit: "Reddit",
+  consumerQa: "Everyday Q&A",
 };
 
 /** 真实采集的 nicheLabel 是英文配置；中文页本地化为中文类目，避免中文页混入英文句子。 */
@@ -58,7 +60,19 @@ const NICHE_LABEL_ZH: Record<string, string> = {
   "invoice-export": "发票与报销导出",
   "support-transcripts": "客服记录导出",
   scheduling: "预约排期",
+  // 治本新增的普通人赛道：中文页不再回退到英文长 nicheLabel。
+  "everyday-money": "记账、订阅与报销",
+  "pet-and-home-care": "宠物与家庭照护",
+  "local-service-booking": "本地服务预约",
+  "personal-admin": "个人事务整理",
+  "dev-workflow": "开发者工作流",
 };
+/** 平台专有名词保留英文品牌；描述性来源名在中文页本地化，避免半中文半英文。 */
+const SOURCE_LABELS_ZH: Record<string, string> = {
+  hn: "Hacker News", so: "Stack Exchange", github: "GitHub Issues",
+  rss: "RSS", firstParty: "自有数据", reddit: "Reddit", consumerQa: "日常问答",
+};
+
 function categoryFor(rawNicheId: string | undefined, fallback: string, locale: "en" | "zh"): string {
   if (locale === "zh" && rawNicheId && NICHE_LABEL_ZH[rawNicheId]) return NICHE_LABEL_ZH[rawNicheId];
   return fallback;
@@ -92,6 +106,21 @@ export type ExternalHeat = {
   traffic: number | null;
 };
 
+/**
+ * L1「一句话机会」：把一条证据翻译成「给谁 + 做什么」。
+ * 数据语言无关（zh/en 双字段），脚本 scripts/idea.mjs 生成，
+ * origin 区分 LLM 产出还是确定性模板降级，前端可诚实标注。
+ */
+export type Idea = {
+  version: number;
+  origin: "llm" | "template";
+  persona: string;
+  headline: { zh: string; en: string };
+  who: { zh: string; en: string };
+  why: { zh: string; en: string };
+  step: { zh: string; en: string };
+};
+
 export type Signal = {
   id: string;
   title: string;
@@ -118,6 +147,8 @@ export type Signal = {
   card?: OpportunityCard | null;
   /** 外部搜索热度（仅真实采集数据带，按 niche 关联） */
   externalHeat?: ExternalHeat | null;
+  /** L1 一句话机会（采集端 LLM 或确定性模板生成） */
+  idea?: Idea | null;
   /** 原始 niche id，用于关联外部热度等按赛道组织的数据 */
   nicheId?: string;
 };
@@ -245,24 +276,43 @@ function trendFromBreakdown(score: number, b: RawOpportunity["breakdown"]): Tren
 
 /* ----------------------------- 演示数据映射 ----------------------------- */
 
+/** 演示条目 id → 人群 code（演示数据无 nicheId，给模板一个像样的人群）。 */
+const DEMO_PERSONA: Record<string, string> = {
+  crm: "solo-founder", invoice: "bookkeeper", support: "support-team",
+  booking: "scheduler", project: "solo-founder", password: "home-organizer",
+  email: "home-organizer", form: "solo-founder", analytics: "indie-dev",
+  knowledge: "home-organizer", checkout: "service-owner", ci: "indie-dev",
+};
 function demoSignals(locale: "en" | "zh"): Signal[] {
   const items = locale === "zh" ? GUEST_ITEMS_ZH : GUEST_ITEMS_EN;
   const catMap = locale === "zh" ? CATEGORY_ZH : CATEGORY_EN;
-  return items.map((it) => ({
-    id: it.id,
-    title: it.title,
-    score: it.score,
-    mentions: it.mentions,
-    sources: it.sources,
-    category: catMap[it.id] ?? (locale === "zh" ? "其他" : "Other"),
-    trend: trendFromScore(it.score),
-    spark: sparkForTrend(it.id, trendFromScore(it.score)),
-    quote: it.quote,
-    gap: it.gap,
-    titleOriginal: it.title,
-    quoteOriginal: it.quote,
-    translated: false,
-  }));
+  return items.map((it) => {
+    const tpl = buildTemplateIdea({
+      id: it.id,
+      titleZh: locale === "zh" ? it.title : "",
+      title: it.title,
+      signals: ["manual"],
+    });
+    // 演示条目的人群以 DEMO_PERSONA 为准（NICHE_PERSONA 不含这些短 id）。
+    const idea = DEMO_PERSONA[it.id] ? { ...tpl, persona: DEMO_PERSONA[it.id] } : tpl;
+    return {
+      id: it.id,
+      title: it.title,
+      score: it.score,
+      mentions: it.mentions,
+      sources: it.sources,
+      category: catMap[it.id] ?? (locale === "zh" ? "其他" : "Other"),
+      trend: trendFromScore(it.score),
+      spark: sparkForTrend(it.id, trendFromScore(it.score)),
+      quote: it.quote,
+      gap: it.gap,
+      titleOriginal: it.title,
+      quoteOriginal: it.quote,
+      translated: false,
+      nicheId: it.id,
+      idea,
+    } satisfies Signal;
+  });
 }
 
 /* ----------------------------- 实时数据映射 ----------------------------- */
@@ -284,6 +334,8 @@ type RawOpportunity = {
   translationKey?: string;
   /** P0-3 采集端 attachCards 写入的结构化机会卡 */
   opportunityCard?: OpportunityCard;
+  /** L1 采集端 idea.mjs 写入的一句话机会（缺失时前端用模板兜底） */
+  idea?: Idea;
 };
 
 /** 外部热度产物（scripts/external-heat.mjs 写），按 niche id 索引。 */
@@ -305,7 +357,9 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
   if (!id || typeof raw.title !== "string" || raw.title.length < 6) return null;
   const b = raw.breakdown ?? {};
   const score = typeof raw.score === "number" ? raw.score : 0;
-  const sources = Array.isArray(raw.sources) ? raw.sources.map((s) => SOURCE_LABELS[s] ?? s) : [];
+  const sources = Array.isArray(raw.sources)
+    ? raw.sources.map((s) => (locale === "zh" ? SOURCE_LABELS_ZH[s] ?? SOURCE_LABELS[s] ?? s : SOURCE_LABELS[s] ?? s))
+    : [];
   const evidence = Array.isArray(raw.evidence) ? raw.evidence : [];
   const quoteEn = evidence[0]?.excerpt?.trim() || raw.title;
   const titleEn = raw.title.replace(/\s*…\s*$/, "").slice(0, 160);
@@ -321,12 +375,12 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
         ? localizeSignalLabels(raw.signals)
         : raw.signals
       : [];
+  // 无信号标签时中文页不再回退英文 nicheLabel（会在「识别到的信号」里露出英文长句）。
   const gap = signalLabels.length
     ? signalLabels.join("；")
-    : raw.nicheLabel ||
-      (locale === "zh"
-        ? "现有产品在该方向持续栽跟头，尚无人完整接住。"
-        : "Existing tools keep falling short here — nobody has fully solved it yet.");
+    : locale === "zh"
+      ? (NICHE_LABEL_ZH[raw.nicheId || ""] || "来自公开讨论，暂未识别出明确信号类型。")
+      : raw.nicheLabel || "Existing tools keep falling short here — nobody has fully solved it yet.";
   // 趋势：优先基于该 niche 的历史时序（多快照）；无 niche / 无历史时退回单快照启发式。
   const trend: TrendKind = raw.nicheId
     ? trendForNiche(raw.nicheId, history)
@@ -356,8 +410,23 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
     translated: useZh,
     card: raw.opportunityCard ?? null,
     externalHeat,
+    // L1 一句话机会：优先用采集端 LLM 产出；缺失/版本旧/结构不全时用确定性模板兜底，
+    // 保证任何数据来源（实时采集/本地/演示）前端都能显示一句可读机会，绝不空白。
+    // LLM 偶尔把 persona 判成 general：以赛道映射为准对齐，避免首页出现空泛分组。
+    idea: withPersona(validIdea(raw.idea) ? raw.idea! : buildTemplateIdea(raw), raw),
     nicheId: raw.nicheId,
   };
+}
+
+function validIdea(v: unknown): v is Idea {
+  if (!v || typeof v !== "object") return false;
+  const x = v as Idea;
+  return typeof x.headline?.zh === "string" && x.headline.zh.length > 0
+    && typeof x.headline?.en === "string" && x.headline.en.length > 0;
+}
+/** 模板兜底时把 persona 对齐到赛道映射（模板已用 nicheId，这里保证一致）。 */
+function withPersona(idea: Idea, raw: RawOpportunity): Idea {
+  return idea.persona === "general" ? { ...idea, persona: personaOf(raw) } : idea;
 }
 
 /** 健壮性：任何解析异常都返回 null，让调用方安全回退到演示数据。 */
@@ -469,7 +538,9 @@ export function searchSignals(query: string, signals: Signal[], limit = 4) {
   }
   const scored = signals.map((it, idx) => {
     // 中文页也能用中文词搜索；同时保留英文原文，中英混合查询都能命中。
-    const hay = `${it.title} ${it.titleOriginal} ${it.category} ${it.gap} ${it.quote} ${it.quoteOriginal}`.toLowerCase();
+    // L1：把「一句话机会」也纳入检索语料。用户输入生活化中文词（如「导出通讯录」）
+    // 时能命中已整理好的点子，减少落到质量较低的现场检索兜底。
+    const hay = `${it.title} ${it.titleOriginal} ${it.category} ${it.gap} ${it.quote} ${it.quoteOriginal} ${ideaText(it.idea, "headline", "zh")} ${ideaText(it.idea, "headline", "en")} ${ideaText(it.idea, "who", "zh")} ${ideaText(it.idea, "step", "zh")}`.toLowerCase();
     let hits = 0;
     for (const t of terms) {
       // 纯英文短词按词边界匹配：否则 "app" 会命中 "appointment"、
@@ -531,4 +602,35 @@ export function topSignals(signals: Signal[], n = 6): Signal[] {
     seenId.add(s.id);
   }
   return picked.sort((a, b) => b.score - a.score || b.mentions - a.mentions);
+}
+
+/**
+ * L2：把信号按「人群 / 场景」分组，供零输入首页的灵感流使用。
+ * 分组键是 idea.persona（采集端已按赛道映射，缺失时归 general）。
+ * 每组内按分数排序，组间按「该组最高分」排序，保证首屏先看到最强机会。
+ * 目的：把「按技术赛道排序的 bug 流」改造成「给谁 + 做什么」的灵感卡。
+ */
+export function groupByPersona(signals: Signal[], maxGroups = 4, perGroup = 2): { persona: string; items: Signal[] }[] {
+  const buckets = new Map<string, Signal[]>();
+  for (const s of signals) {
+    const key = s.idea?.persona || "general";
+    if (!buckets.has(key)) buckets.set(key, []);
+    buckets.get(key)!.push(s);
+  }
+  // 避免 Map 迭代器在低 target 下的 downlevelIteration 报错：先收集成数组再遍历。
+  const entries: { persona: string; items: Signal[] }[] = [];
+  buckets.forEach((items, persona) => entries.push({ persona, items }));
+  return entries
+    .map((g) => ({ persona: g.persona, items: [...g.items].sort((a, b) => b.score - a.score || b.mentions - a.mentions) }))
+    .sort((a, b) => (b.items[0]?.score ?? 0) - (a.items[0]?.score ?? 0) || b.items.length - a.items.length)
+    .slice(0, maxGroups)
+    .map((g) => ({ persona: g.persona, items: g.items.slice(0, perGroup) }));
+}
+
+/** 一句话机会的本地化取值（SSR 与客户端共用）。 */
+export function ideaText(idea: Idea | null | undefined, field: "headline" | "who" | "why" | "step", locale: "en" | "zh"): string {
+  if (!idea) return "";
+  const pair = idea[field];
+  if (!pair) return "";
+  return (locale === "zh" ? pair.zh : pair.en) || pair.zh || pair.en || "";
 }

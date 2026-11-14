@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14T08:30:54.440Z",
+  "updatedAt": "2026-11-14T10:38:28.981Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 45,
+  "totalVerdicts": 86,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -363,6 +363,334 @@
       "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
       "title": "Expense - Report list cannot be navigated via keyboard",
       "at": "2026-11-14T08:08:55.121Z"
+    },
+    "4kivcq": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为求职报销相关问题",
+      "id": "everyday-money-does-an-expenses-paid-interview-cover-meals-as-w",
+      "title": "Does an expenses-paid interview cover meals as well?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "tl2dfw": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为家庭预算核实相关问题",
+      "id": "everyday-money-how-do-you-verify-your-household-budget",
+      "title": "how do you verify your household budget?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "6wy4be": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为订阅费用追踪相关问题",
+      "id": "everyday-money-what-functions-can-i-use-to-track-subscriptions",
+      "title": "What functions can I use to track subscriptions?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1rl6xus": {
+      "keep": false,
+      "code": "meta",
+      "reason": "内容为Outlook联系人导出操作讨论",
+      "id": "personal-admin-export-personal-outlook-2016-contacts-excluding-",
+      "title": "Export personal Outlook 2016 contacts, excluding the global address list",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "16yz8hb": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为荷兰差旅报销相关问题",
+      "id": "everyday-money-how-are-business-travel-expenses-usually-reporte",
+      "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "h48wuj": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为签证相关问题，不属于软件工作流范畴。",
+      "id": "local-service-booking-can-i-get-uk-visa-appointment-fees-refund-before",
+      "title": "Can I get UK visa appointment fees refund before my appointment date?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1l86vk0": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为Outlook日程设置问题，不属于软件工作流范畴。",
+      "id": "local-service-booking-set-specific-date-and-time-as-reminder-in-outloo",
+      "title": "Set specific date and time as reminder in Outlook for an appointment",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "fu3oiv": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为签证申请取消费用问题，不属于软件工作流范畴。",
+      "id": "local-service-booking-what-is-the-cancellation-fee-for-uk-visa-applica",
+      "title": "What is the Cancellation fee for UK visa application?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1k43m2p": {
+      "keep": true,
+      "code": "other",
+      "reason": "无具体软件故障或需求描述。",
+      "id": "personal-admin-export-contacts-from-itunes-to-google",
+      "title": "Export contacts from iTunes to Google",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "x31fc3": {
+      "keep": true,
+      "code": "other",
+      "reason": "无具体软件故障或需求描述。",
+      "id": "personal-admin-export-contacts-from-yahoo-hotmail-to-outlook-20",
+      "title": "Export contacts from Yahoo! & Hotmail to Outlook 2007",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "19twsya": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为邮件客户端联系人管理问题",
+      "id": "personal-admin-how-to-manage-duplicate-contacts-in-thunderbird",
+      "title": "How to manage duplicate contacts in Thunderbird?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "3srtq8": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为签证申请相关问题",
+      "id": "pet-and-home-care-can-i-consider-pets-as-evidence-of-family-member",
+      "title": "Can I consider pets as \"evidence of family members remaining in your home country whilst you…",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "sfd8g1": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为兽医服务相关问题",
+      "id": "pet-and-home-care-is-it-normal-for-my-vet-to-ask-me-for-my-driver-",
+      "title": "Is it normal for my vet to ask me for my driver's license number?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1wns13r": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "询问更简单的会员订阅追踪应用",
+      "id": "everyday-money-good-application-for-tracking-member-subscriptio",
+      "title": "Good application for tracking member subscriptions?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1oi3aoe": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为音乐下载相关问题",
+      "id": "everyday-money-how-do-i-legally-download-the-songs-from-a-googl",
+      "title": "How do I legally download the songs from a Google Play Music playlist?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "yg1ci3": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户询问如何合并RSS源",
+      "id": "everyday-money-how-do-i-merge-my-rss-feeds-in-the-old-reader",
+      "title": "How do I merge my RSS feeds in \"The Old Reader\"?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "q0gj23": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户询问如何在多工作表使用OFFSET函数",
+      "id": "everyday-money-using-offset-function-across-multiple-sheets",
+      "title": "Using OFFSET function across multiple sheets",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "fict93": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户询问记录租赁业务该用何种工具",
+      "id": "everyday-money-what-to-use-for-recording-a-rental",
+      "title": "What To Use For Recording A Rental?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "10t311i": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户询问航班信息变更能否申请全额退款",
+      "id": "local-service-booking-booking-website-has-changed-a-part-of-my-flight-",
+      "title": "Booking website has changed a part of my flight, can I ask a full refund?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1ajkdyw": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户询问酒店退款相关的拒付申请",
+      "id": "local-service-booking-chargeback-for-hotel-refund",
+      "title": "Chargeback for hotel refund",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "db44ps": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为信用卡退款汇率收益相关内容",
+      "id": "local-service-booking-exchange-gain-on-credit-card-refund",
+      "title": "Exchange gain on credit card refund",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "h6goq1": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为德国签证面试取消相关问题",
+      "id": "local-service-booking-germany-what-to-do-if-my-visa-appointment-has-be",
+      "title": "Germany: What to do if my visa appointment has been cancelled?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "11otogi": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为项目原因取消度假相关经历",
+      "id": "local-service-booking-i-agreed-to-cancel-a-long-planned-vacation-with-",
+      "title": "I agreed to cancel a long-planned vacation (with travel costs) due to project deadlines, but…",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1lrj0p": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为航空航班取消退款相关问题",
+      "id": "local-service-booking-received-dispute-credit-and-refund",
+      "title": "Received dispute credit and refund",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1xkrkn1": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为自行车买卖快递骗局相关问题",
+      "id": "local-service-booking-selling-a-bike-they-offered-to-buy-it-through-a-",
+      "title": "Selling a bike, they offered to buy it through a courier; how does this scam work?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "nwv0kd": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "询问删除本地文件后谷歌相册是否同步删除的问题",
+      "id": "personal-admin-backup-photos-and-videos-to-google-photos",
+      "title": "Backup photos and videos to Google Photos",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1v4j8ur": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "咨询旅行时如何备份相机照片到云端的问题",
+      "id": "personal-admin-backup-photos-to-the-cloud-while-traveling",
+      "title": "Backup photos to the cloud while traveling?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "14is1mm": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "请求合并Outlook联系人中重复的文件夹",
+      "id": "personal-admin-duplicate-folders-in-contacts-outlook-2010-merge",
+      "title": "Duplicate folders in contacts Outlook 2010 merge them",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1y5yfgb": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "询问无法导出Google教育版联系人解决方案",
+      "id": "personal-admin-extracting-exporting-contacts-in-googleapps-for-",
+      "title": "Extracting/Exporting contacts in GoogleApps for Education directory",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "183nfrf": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "反馈现有导出方法会丢失联系人照片的问题",
+      "id": "personal-admin-how-do-i-export-my-exchange-outlook-contacts-to-",
+      "title": "How do I export my Exchange/Outlook contacts to iCloud with photos intact?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1osdnfj": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户询问强制合并联系人的方法",
+      "id": "personal-admin-how-do-i-force-merge-contacts-in-google-contacts",
+      "title": "How do I force merge contacts in Google Contacts?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "ea3lbj": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户询问SugarCRM联系人合并的方法",
+      "id": "personal-admin-how-to-merge-contacts-in-sugarcrm",
+      "title": "How to merge contacts in SugarCRM?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "yn4qkf": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为宠物健康问题",
+      "id": "pet-and-home-care-my-rabbit-is-hyperventilating-and-can-t-get-comf",
+      "title": "My rabbit is hyperventilating and can't get comfortable. What is wrong with her?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1jz8n1t": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为工作失误补救问题",
+      "id": "local-service-booking-making-up-for-having-accidentally-left-work-earl",
+      "title": "Making up for having accidentally left work early",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "qf2lb4": {
+      "keep": false,
+      "code": "meta",
+      "reason": "内容为日历提醒设置的相关讨论",
+      "id": "local-service-booking-who-s-calendar-reminder-is-in-control",
+      "title": "Who's calendar reminder is in control?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1rchuwc": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户希望该功能可自动定期运行",
+      "id": "personal-admin-automatically-run-find-merge-duplicates-in-gmail",
+      "title": "Automatically run Find & Merge duplicates in Gmail contacts",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "ok4kae": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户反馈导出功能不存在，存在使用障碍",
+      "id": "personal-admin-contacts-export-problems-with-google-contacts-pr",
+      "title": "Contacts export problems with Google Contacts Preview",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "l26e63": {
+      "keep": true,
+      "code": "off-topic",
+      "reason": "内容为旅行外置硬盘选购推荐",
+      "id": "personal-admin-external-hard-drive-for-storing-photo-backups-wh",
+      "title": "External hard drive for storing photo backups whilst travelling",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "1g9tf5t": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户询问OUTLOOK 2003是否有合并重复联系人功能",
+      "id": "personal-admin-is-there-a-facility-in-outlook-2003-that-will-fi",
+      "title": "Is there a facility in OUTLOOK 2003 that will find and merge duplicate contacts?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "gifeir": {
+      "keep": true,
+      "code": "meta",
+      "reason": "内容为入境香港的防疫要求咨询",
+      "id": "pet-and-home-care-can-these-vaccine-records-and-test-tool-kit-sati",
+      "title": "Can these vaccine records and test tool kit satisfy the requirements for entering Hong Kong?",
+      "at": "2026-11-14T10:38:11.269Z"
+    },
+    "izbpgr": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题提及Microsoft Access 2007服务相关问题",
+      "id": "pet-and-home-care-how-do-i-get-dynamic-images-to-show-up-on-each-m",
+      "title": "How do I get Dynamic Images to show up on each Microsoft Access 2007 database for reporting?",
+      "at": "2026-11-14T10:38:11.269Z"
     }
   }
 }

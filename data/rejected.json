@@ -1,17 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T08:09:01.528Z",
+  "generatedAt": "2026-11-14T08:30:54.440Z",
   "curationVersion": 2,
   "count": 12,
-  "curationCount": 1,
-  "denoiseCount": 11,
   "items": [
     {
       "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
       "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
       "reasons": [
         "rejectId:support-transcripts-admin-support-chat-support-tickets-inbox-and-out"
-      ]
+      ],
+      "niche": "support-transcripts"
     },
     {
       "id": "solo-crm-service-degradation-on-microsoft-365",
@@ -59,15 +58,6 @@
       "note": "内容为医疗行业新闻，与软件无关。"
     },
     {
-      "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
-      "title": "Post each Stripe fee to Xero as Spend Money and each payout as a bank transfer (interim poster…",
-      "layer": "denoise",
-      "reasons": [
-        "llm:issue-template"
-      ],
-      "note": "是空的GitHub任务列表模板。"
-    },
-    {
       "id": "invoice-export-quickbooks",
       "title": "Quickbooks",
       "layer": "denoise",
@@ -95,6 +85,15 @@
       "note": "是关于预约管理的空任务列表。"
     },
     {
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "title": "Service degradation on Microsoft 365",
+      "layer": "denoise",
+      "reasons": [
+        "llm:status-news"
+      ],
+      "note": "标题提及Microsoft 365服务降级官方公告。"
+    },
+    {
       "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
       "title": "Split chat-runtime's transcript and commands",
       "layer": "denoise",
@@ -104,13 +103,15 @@
       "note": "是Jira计划任务模板，无用户投诉"
     },
     {
-      "id": "scheduling-service-degradation-on-microsoft-365",
-      "title": "Service degradation on Microsoft 365",
+      "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
+      "title": "Post each Stripe fee to Xero as Spend Money and each payout as a bank transfer (interim poster…",
       "layer": "denoise",
       "reasons": [
-        "llm:status-news"
+        "llm:issue-template"
       ],
-      "note": "标题提及Microsoft 365服务降级官方公告。"
+      "note": "是空的GitHub任务列表模板。"
     }
-  ]
+  ],
+  "curationCount": 1,
+  "denoiseCount": 11
 }

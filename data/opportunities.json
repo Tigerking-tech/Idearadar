@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T06:56:47.367Z",
+  "generatedAt": "2026-11-14T08:28:59.049Z",
   "lookbackDays": 30,
   "minScore": 20,
   "curation": {
@@ -27,16 +27,16 @@
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 223,
+        "raw": 212,
         "itemCount": 12,
-        "recallTitleRate": 0.5022421524663677,
+        "recallTitleRate": 0.5283018867924528,
         "finalTitleRate": 0.75
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
         "raw": 243,
-        "itemCount": 3,
+        "itemCount": 2,
         "recallTitleRate": 0.46502057613168724,
         "finalTitleRate": 1
       },
@@ -45,7 +45,7 @@
         "method": "relevance",
         "raw": 258,
         "itemCount": 18,
-        "recallTitleRate": 0.6124031007751938,
+        "recallTitleRate": 0.6395348837209303,
         "finalTitleRate": 0.6666666666666666
       },
       {
@@ -63,7 +63,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 544
+      "rows": 558
     },
     {
       "id": "so",
@@ -75,7 +75,7 @@
       "id": "github",
       "label": "GitHub Issues (public REST API)",
       "enabled": true,
-      "rows": 598
+      "rows": 623
     },
     {
       "id": "rss",
@@ -97,8 +97,8 @@
     }
   ],
   "totals": {
-    "rawRecords": 1209,
-    "complaintRecords": 73,
+    "rawRecords": 1248,
+    "complaintRecords": 72,
     "opportunities": 34
   },
   "errors": [],
@@ -112,7 +112,7 @@
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 13.9,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -199,7 +199,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 4,
-        "recency": 14.6,
+        "recency": 14.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -259,7 +259,7 @@
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
       "title": "WISH: import Expense Report (and invoice) lines from CSV",
-      "score": 30,
+      "score": 29,
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
@@ -324,7 +324,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.8,
+        "recency": 14.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -558,7 +558,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -909,64 +909,6 @@
       "cardKey": "4lp5nm:v1"
     },
     {
-      "id": "invoice-export-expense-not-here-page-opens-after-deleting-expen",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Expense - Not here page opens after deleting expense on single expense table view",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T08:26:57.000Z",
-      "evidence": [
-        {
-          "title": "Expense - Not here page opens after deleting expense on single expense table view",
-          "url": "https://github.com/Expensify/App/issues/106817",
-          "source": "github",
-          "createdAt": "2026-11-13T08:26:57.000Z",
-          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
-        }
-      ],
-      "titleZh": "删除单笔费用后出现“费用不在此处”页面",
-      "quoteZh": "如果您还未了解，可查看我们的[贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md)以了解入门流程。要加入我们的Slack频道，请填写[此表格](h)",
-      "translationKey": "tihhkf",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "tihhkf:v1"
-    },
-    {
       "id": "scheduling-appointment-cancellation",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
@@ -1035,7 +977,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1079,7 +1021,10 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "1y6wo84:v1"
+      "cardKey": "1y6wo84:v1",
+      "titleZh": "患者预约请求处理",
+      "quoteZh": "## 目标 患者可通过应用提交预约申请，工作人员可进行确认或拒绝。 ## 背景 - 在开发 #39（PR #66）过程中发现：创建和修改操作仅供服务提供方使用（患者会收到 403 错误），且不存在对应的 requested 字段。",
+      "translationKey": "1y6wo84"
     },
     {
       "id": "dev-workflow-beta-uber-api-integration",
@@ -1134,7 +1079,10 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "d4vnv:v1"
+      "cardKey": "d4vnv:v1",
+      "titleZh": "测试版：Uber API 集成",
+      "quoteZh": "## 请求与推进 在 CT Trains 中添加可选的 Uber 集成功能。**目前仅处于待办/规划阶段——暂勿实施，也无需注册账户或集成凭证。**应在 CT Trains 实验室中进行开发和测试。",
+      "translationKey": "d4vnv"
     },
     {
       "id": "dev-workflow-google-cloud-iap-returns-error-9-after-oauth-red",
@@ -1145,7 +1093,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1189,7 +1137,68 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "r2ytz1:v1"
+      "cardKey": "r2ytz1:v1",
+      "titleZh": "Cloud Run 上的 OAuth 重定向后 Google Cloud IAP 返回错误 9",
+      "quoteZh": "我正在为一项 Cloud Run 服务排查 Google Cloud Identity-Aware Proxy（IAP）认证问题。环境为 Cloud Run，区域为 asia-northeast3，该 Cloud Run 服务已启用 IAP，使用的自定义 OAuth 客户端类型为 We。",
+      "translationKey": "r2ytz1"
+    },
+    {
+      "id": "invoice-export-expense-not-here-page-opens-after-deleting-expen",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Expense - Not here page opens after deleting expense on single expense table view",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T08:26:57.000Z",
+      "evidence": [
+        {
+          "title": "Expense - Not here page opens after deleting expense on single expense table view",
+          "url": "https://github.com/Expensify/App/issues/106817",
+          "source": "github",
+          "createdAt": "2026-11-13T08:26:57.000Z",
+          "excerpt": "If you haven’t already, check out our [contributing guidelines](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) for onboarding. To join our Slack channel, fill out [this form](h"
+        }
+      ],
+      "titleZh": "删除单笔费用后出现“费用不在此处”页面",
+      "quoteZh": "如果您还未了解，可查看我们的[贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md)以了解入门流程。要加入我们的Slack频道，请填写[此表格](h)",
+      "translationKey": "tihhkf",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "tihhkf:v1"
     },
     {
       "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
@@ -1432,7 +1441,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 4,
-        "recency": 6.2,
+        "recency": 6.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1617,7 +1626,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 8.7,
+        "recency": 8.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1732,7 +1741,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.3,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1848,7 +1857,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.6,
+        "recency": 12.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1906,7 +1915,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.2,
+        "recency": 13.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1964,7 +1973,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.2,
+        "recency": 12.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2132,39 +2141,39 @@
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-14T06:58:07.564Z",
-    "status": "skipped",
+    "at": "2026-11-14T08:30:54.380Z",
+    "status": "partial",
     "skippedReason": null,
     "errors": [
       "invalid title translation for dev-workflow-yahoo-oauth",
-      "invalid quote translation for dev-workflow-google-cloud-iap-returns-error-9-after-oauth-red"
+      "HTTP 429 (rate limited)"
     ],
-    "total": 46,
-    "cached": 36,
-    "translated": 0,
-    "failed": 10,
-    "requests": 0
+    "total": 45,
+    "cached": 25,
+    "translated": 8,
+    "failed": 12,
+    "requests": 1
   },
   "cardInsights": {
     "enabled": false,
     "considered": 0,
     "done": 0,
-    "skipped": 46,
+    "skipped": 45,
     "requests": 0
   },
   "denoise": {
     "version": 1,
-    "at": "2026-11-14T08:09:01.528Z",
+    "at": "2026-11-14T08:30:54.440Z",
     "model": "hy-mt2-plus",
     "status": "ok",
     "enabled": true,
-    "total": 35,
-    "cached": 30,
-    "pending": 5,
-    "judged": 5,
+    "total": 45,
+    "cached": 45,
+    "pending": 0,
+    "judged": 0,
     "kept": 34,
-    "rejected": 1,
-    "requests": 1,
+    "rejected": 11,
+    "requests": 0,
     "ratioGuard": false,
     "forceKeepIds": 2,
     "forceKept": 2,

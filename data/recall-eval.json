@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-14T06:53:44.810Z",
+  "evaluatedAt": "2026-11-14T08:25:54.233Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,19 +15,19 @@
   },
   "global": {
     "relevance": {
-      "raw": 1207,
+      "raw": 1254,
       "itemCount": 46,
-      "recallHits": 644,
+      "recallHits": 643,
       "finalHits": 33,
-      "recallTitleRate": 0.5335542667771334,
+      "recallTitleRate": 0.5127591706539075,
       "finalTitleRate": 0.717391304347826
     },
     "legacy": {
-      "raw": 1191,
+      "raw": 1254,
       "itemCount": 60,
-      "recallHits": 130,
+      "recallHits": 133,
       "finalHits": 8,
-      "recallTitleRate": 0.109151973131822,
+      "recallTitleRate": 0.10606060606060606,
       "finalTitleRate": 0.13333333333333333
     }
   },
@@ -35,36 +35,36 @@
     "relevance": [
       {
         "niche": "solo-crm",
-        "raw": 253,
+        "raw": 245,
         "itemCount": 7,
-        "recallTitleRate": 0.4901185770750988,
+        "recallTitleRate": 0.5061224489795918,
         "finalTitleRate": 0.5714285714285714,
         "stats": {
-          "raw": 253,
+          "raw": 245,
           "complaintRecords": 7,
           "items": 7
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 223,
+        "raw": 226,
         "itemCount": 12,
-        "recallTitleRate": 0.5022421524663677,
+        "recallTitleRate": 0.49557522123893805,
         "finalTitleRate": 0.75,
         "stats": {
-          "raw": 223,
+          "raw": 226,
           "complaintRecords": 17,
           "items": 12
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 241,
+        "raw": 243,
         "itemCount": 3,
-        "recallTitleRate": 0.46887966804979253,
+        "recallTitleRate": 0.46502057613168724,
         "finalTitleRate": 1,
         "stats": {
-          "raw": 241,
+          "raw": 243,
           "complaintRecords": 5,
           "items": 3
         }
@@ -73,7 +73,7 @@
         "niche": "scheduling",
         "raw": 258,
         "itemCount": 18,
-        "recallTitleRate": 0.6434108527131783,
+        "recallTitleRate": 0.6395348837209303,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
           "raw": 258,
@@ -92,67 +92,91 @@
           "complaintRecords": 12,
           "items": 6
         }
+      },
+      {
+        "niche": "auto-pet-app-booking",
+        "raw": 50,
+        "itemCount": 0,
+        "recallTitleRate": 0,
+        "finalTitleRate": 0,
+        "stats": {
+          "raw": 50,
+          "complaintRecords": 0,
+          "items": 0
+        }
       }
     ],
     "legacy": [
       {
         "niche": "solo-crm",
-        "raw": 252,
+        "raw": 244,
         "itemCount": 19,
-        "recallTitleRate": 0.06746031746031746,
+        "recallTitleRate": 0.06967213114754098,
         "finalTitleRate": 0.05263157894736842,
         "stats": {
-          "raw": 252,
-          "complaintRecords": 19,
+          "raw": 244,
+          "complaintRecords": 20,
           "items": 19
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 205,
-        "itemCount": 13,
-        "recallTitleRate": 0.11219512195121951,
-        "finalTitleRate": 0.07692307692307693,
+        "raw": 226,
+        "itemCount": 12,
+        "recallTitleRate": 0.13274336283185842,
+        "finalTitleRate": 0.08333333333333333,
         "stats": {
-          "raw": 205,
+          "raw": 226,
           "complaintRecords": 13,
-          "items": 13
+          "items": 12
         }
       },
       {
         "niche": "support-transcripts",
         "raw": 244,
-        "itemCount": 19,
-        "recallTitleRate": 0.11885245901639344,
-        "finalTitleRate": 0.21052631578947367,
+        "itemCount": 21,
+        "recallTitleRate": 0.10245901639344263,
+        "finalTitleRate": 0.09523809523809523,
         "stats": {
           "raw": 244,
-          "complaintRecords": 19,
-          "items": 19
+          "complaintRecords": 21,
+          "items": 21
         }
       },
       {
         "niche": "scheduling",
         "raw": 258,
-        "itemCount": 19,
+        "itemCount": 27,
         "recallTitleRate": 0.12790697674418605,
-        "finalTitleRate": 0.15789473684210525,
+        "finalTitleRate": 0.14814814814814814,
         "stats": {
           "raw": 258,
-          "complaintRecords": 27,
-          "items": 19
+          "complaintRecords": 35,
+          "items": 27
         }
       },
       {
         "niche": "dev-workflow",
         "raw": 232,
-        "itemCount": 20,
+        "itemCount": 18,
         "recallTitleRate": 0.1206896551724138,
-        "finalTitleRate": 0.25,
+        "finalTitleRate": 0.2777777777777778,
         "stats": {
           "raw": 232,
-          "complaintRecords": 26,
-          "items": 20
+          "complaintRecords": 21,
+          "items": 18
+        }
+      },
+      {
+        "niche": "auto-pet-app-booking",
+        "raw": 50,
+        "itemCount": 0,
+        "recallTitleRate": 0,
+        "finalTitleRate": 0,
+        "stats": {
+          "raw": 50,
+          "complaintRecords": 0,
+          "items": 0
         }
       }
     ]
@@ -207,13 +231,13 @@
         "titleHit": false
       },
       {
-        "title": "Bitbucket Pipelines: run/trigger, latest-failure, tail, grep, test reports; deployments &…",
+        "title": "constructEvent throws RangeError or a generic Error for a malformed v1 value instead of…",
         "niche": "dev-workflow",
         "titleHit": false
       },
       {
-        "title": "AFP: export_to_doctags() raises ZeroDivisionError because every page has size 0x0",
-        "niche": "invoice-export",
+        "title": "Google Translate silently triggers billable language detection without agent action or…",
+        "niche": "dev-workflow",
         "titleHit": false
       },
       {
@@ -232,12 +256,12 @@
         "titleHit": false
       },
       {
-        "title": "Inserting a manual share for a user on the plain Customer Community license succeeds instead of…",
-        "niche": "solo-crm",
+        "title": "P1 v3 Task30: 5-node partition/rejoin can stall node-4 on missing-parent sync despite connected…",
+        "niche": "scheduling",
         "titleHit": false
       },
       {
-        "title": "Inserting a user with a standard external profile succeeds when the org doesn't allow standard…",
+        "title": "Inserting a manual share for a user on the plain Customer Community license succeeds instead of…",
         "niche": "solo-crm",
         "titleHit": false
       }

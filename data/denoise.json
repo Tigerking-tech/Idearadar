@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14T13:41:59.105Z",
+  "updatedAt": "2026-11-14T22:23:33.185Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 89,
+  "totalVerdicts": 92,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -715,6 +715,30 @@
       "id": "support-transcripts-intercom-data-model-and-migrations",
       "title": "Intercom: data model and migrations",
       "at": "2026-11-14T13:41:54.724Z"
+    },
+    "bflpem": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及schema_drift字段偏差。",
+      "id": "solo-crm-contract-drift-hubspot-customer-2-fields",
+      "title": "Contract drift: hubspot.customer (2 fields)",
+      "at": "2026-11-14T22:23:31.286Z"
+    },
+    "1l3dvcp": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及schema_drift字段偏差。",
+      "id": "solo-crm-contract-drift-hubspot-order-2-fields",
+      "title": "Contract drift: hubspot.order (2 fields)",
+      "at": "2026-11-14T22:23:31.286Z"
+    },
+    "1xvee9o": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为项目规划相关说明。",
+      "id": "support-transcripts-intercom-watchdog-health-and-connection-log",
+      "title": "Intercom: watchdog, health and connection log",
+      "at": "2026-11-14T22:23:31.286Z"
     }
   }
 }

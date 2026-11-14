@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-14T13:38:30.431Z",
+  "evaluatedAt": "2026-11-14T22:19:51.959Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 917,
+      "raw": 963,
       "itemCount": 60,
-      "recallHits": 458,
-      "finalHits": 38,
-      "recallTitleRate": 0.4994547437295529,
-      "finalTitleRate": 0.6333333333333333
+      "recallHits": 455,
+      "finalHits": 37,
+      "recallTitleRate": 0.4724818276220145,
+      "finalTitleRate": 0.6166666666666667
     },
     "legacy": {
-      "raw": 912,
+      "raw": 960,
       "itemCount": 60,
-      "recallHits": 158,
-      "finalHits": 27,
-      "recallTitleRate": 0.17324561403508773,
-      "finalTitleRate": 0.45
+      "recallHits": 155,
+      "finalHits": 26,
+      "recallTitleRate": 0.16145833333333334,
+      "finalTitleRate": 0.43333333333333335
     }
   },
   "perNiche": {
@@ -83,62 +83,74 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 152,
+        "raw": 154,
         "itemCount": 5,
-        "recallTitleRate": 0.39473684210526316,
+        "recallTitleRate": 0.38961038961038963,
         "finalTitleRate": 0.6,
         "stats": {
-          "raw": 152,
+          "raw": 154,
           "complaintRecords": 5,
           "items": 5
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 123,
+        "raw": 124,
         "itemCount": 6,
-        "recallTitleRate": 0.4878048780487805,
+        "recallTitleRate": 0.4838709677419355,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 123,
+          "raw": 124,
           "complaintRecords": 8,
           "items": 6
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 156,
+        "raw": 155,
         "itemCount": 1,
-        "recallTitleRate": 0.38461538461538464,
+        "recallTitleRate": 0.4,
         "finalTitleRate": 1,
         "stats": {
-          "raw": 156,
+          "raw": 155,
           "complaintRecords": 2,
           "items": 1
         }
       },
       {
         "niche": "scheduling",
-        "raw": 168,
-        "itemCount": 14,
-        "recallTitleRate": 0.6309523809523809,
-        "finalTitleRate": 0.7142857142857143,
+        "raw": 167,
+        "itemCount": 12,
+        "recallTitleRate": 0.6227544910179641,
+        "finalTitleRate": 0.75,
         "stats": {
-          "raw": 168,
-          "complaintRecords": 19,
-          "items": 14
+          "raw": 167,
+          "complaintRecords": 18,
+          "items": 12
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 170,
+        "raw": 165,
         "itemCount": 5,
-        "recallTitleRate": 0.5647058823529412,
+        "recallTitleRate": 0.5636363636363636,
         "finalTitleRate": 0.8,
         "stats": {
-          "raw": 170,
-          "complaintRecords": 8,
+          "raw": 165,
+          "complaintRecords": 9,
           "items": 5
+        }
+      },
+      {
+        "niche": "auto-pet-app-booking",
+        "raw": 50,
+        "itemCount": 0,
+        "recallTitleRate": 0,
+        "finalTitleRate": 0,
+        "stats": {
+          "raw": 50,
+          "complaintRecords": 0,
+          "items": 0
         }
       }
     ],
@@ -193,62 +205,74 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 152,
-        "itemCount": 8,
-        "recallTitleRate": 0.05921052631578947,
-        "finalTitleRate": 0.125,
+        "raw": 154,
+        "itemCount": 7,
+        "recallTitleRate": 0.11038961038961038,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 152,
-          "complaintRecords": 8,
-          "items": 8
+          "raw": 154,
+          "complaintRecords": 7,
+          "items": 7
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 123,
-        "itemCount": 12,
-        "recallTitleRate": 0.13821138211382114,
-        "finalTitleRate": 0.16666666666666666,
+        "raw": 124,
+        "itemCount": 9,
+        "recallTitleRate": 0.08064516129032258,
+        "finalTitleRate": 0.1111111111111111,
         "stats": {
-          "raw": 123,
-          "complaintRecords": 17,
-          "items": 12
+          "raw": 124,
+          "complaintRecords": 10,
+          "items": 9
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 151,
-        "itemCount": 11,
-        "recallTitleRate": 0.06622516556291391,
-        "finalTitleRate": 0.09090909090909091,
+        "raw": 152,
+        "itemCount": 6,
+        "recallTitleRate": 0.05921052631578947,
+        "finalTitleRate": 0.16666666666666666,
         "stats": {
-          "raw": 151,
-          "complaintRecords": 11,
-          "items": 11
+          "raw": 152,
+          "complaintRecords": 6,
+          "items": 6
         }
       },
       {
         "niche": "scheduling",
-        "raw": 168,
+        "raw": 167,
         "itemCount": 14,
-        "recallTitleRate": 0.13095238095238096,
-        "finalTitleRate": 0.14285714285714285,
+        "recallTitleRate": 0.1497005988023952,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 168,
-          "complaintRecords": 17,
+          "raw": 167,
+          "complaintRecords": 18,
           "items": 14
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 170,
-        "itemCount": 10,
-        "recallTitleRate": 0.1411764705882353,
-        "finalTitleRate": 0.3,
+        "raw": 165,
+        "itemCount": 26,
+        "recallTitleRate": 0.10909090909090909,
+        "finalTitleRate": 0.23076923076923078,
         "stats": {
-          "raw": 170,
-          "complaintRecords": 13,
-          "items": 10
+          "raw": 165,
+          "complaintRecords": 31,
+          "items": 26
+        }
+      },
+      {
+        "niche": "auto-pet-app-booking",
+        "raw": 50,
+        "itemCount": 0,
+        "recallTitleRate": 0,
+        "finalTitleRate": 0,
+        "stats": {
+          "raw": 50,
+          "complaintRecords": 0,
+          "items": 0
         }
       }
     ]
@@ -286,17 +310,22 @@
         "titleHit": true
       },
       {
-        "title": "LibreOffice actually works 365 days a year",
-        "niche": "scheduling",
+        "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
+        "niche": "everyday-money",
         "titleHit": false
       },
       {
-        "title": "Yahoo Oauth",
-        "niche": "dev-workflow",
+        "title": "Can I get UK visa appointment fees refund before my appointment date?",
+        "niche": "local-service-booking",
         "titleHit": true
       }
     ],
     "legacy": [
+      {
+        "title": "Configuration was changed as a side effect of the harmonization work",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
       {
         "title": "Does an expenses-paid interview cover meals as well?",
         "niche": "everyday-money",
@@ -313,28 +342,23 @@
         "titleHit": false
       },
       {
+        "title": "CI timing budget",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
+        "title": "Share the best-effort SSE recipient lookup across domain",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
         "title": "Export personal Outlook 2016 contacts, excluding the global address list",
         "niche": "personal-admin",
         "titleHit": true
       },
       {
-        "title": "LibreOffice actually works 365 days a year",
+        "title": "Parity is far larger than the current harnesses measure: a real-builds suite, a deep test tier…",
         "niche": "scheduling",
-        "titleHit": false
-      },
-      {
-        "title": "Type debt: voice-agent-runtime and number-marketplace typecheck (non-blocking since #1187)",
-        "niche": "scheduling",
-        "titleHit": false
-      },
-      {
-        "title": "smoke:worker aborts at 25b: bootstrapD1 needs CONTROL_DB for better-auth since CORE283",
-        "niche": "solo-crm",
-        "titleHit": false
-      },
-      {
-        "title": "catena-templates workflows run Python in the locked uv project",
-        "niche": "support-transcripts",
         "titleHit": false
       }
     ]

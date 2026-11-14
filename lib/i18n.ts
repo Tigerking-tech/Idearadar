@@ -390,6 +390,54 @@ const EN = {
       { n: "02", title: "Verbatim evidence", text: "Each finding keeps the original wording and the sources behind it. Nothing is inferred or paraphrased into a nicer-sounding claim." },
       { n: "03", title: "Competitor gaps", text: "See what existing products already attempt, and the failure they keep repeating — the part worth building for." },
     ],
+    // P0-3 结构化机会卡：全部是枚举 code 的本地化文案，卡片数据本身语言无关。
+    card: {
+      toggle: "Opportunity card",
+      scoreLabel: "Opportunity score",
+      scored: "scored from real evidence",
+      dimsTitle: "Eight scoring dimensions",
+      notAssessed: "Not assessed",
+      dim: {
+        demand: "Demand", urgency: "Urgency", feasibility: "Feasibility",
+        monetization: "Monetization", confidence: "Evidence",
+        competition: "Competition", marketSize: "Market size", retention: "Retention",
+      },
+      audience: "Likely user",
+      validation: "Cheapest first validation",
+      risks: "Risk flags",
+      insight: "Analyst note",
+      audienceCode: {
+        solo: "Solo founders", team: "Small teams", enterprise: "Enterprise",
+        developer: "Developers", ops: "Ops / finance", support: "Support teams",
+        unknown: "Not determined",
+      },
+      validationCode: {
+        interview: "5 user interviews", prototype: "A clickable prototype",
+        landing: "A landing-page test", "data-pull": "A one-off data pull",
+        "manual-audit": "A manual audit of existing threads",
+      },
+      riskCode: {
+        "single-source": "Single source only", "thin-evidence": "Thin evidence",
+        "no-wtp": "No stated willingness to pay",
+        "unverified-competition": "Competitors not verified",
+        stale: "Signal older than 21 days",
+      },
+      noRisks: "No flags raised",
+      basis: "Derived only from collected evidence. Unassessed dimensions are left blank, never guessed.",
+    },
+    // P1 外部搜索热度：与站内多快照趋势是两套不同口径，必须分开标注。
+    externalHeat: {
+      label: "External search interest",
+      basis: "Google Trends daily list (US) — a different measure from the in-product multi-snapshot trend.",
+      unavailable: "External trend data unavailable for this run",
+      noMatch: "Not on today's external trend list",
+      hit: "Trending: {term} · ~{traffic} searches",
+    },
+    // P2 会员额度：仅当服务端开启计费时才会出现，默认关闭时前端不展示。
+    entitlement: {
+      unlimited: "Pro member · unlimited scans",
+      member: "Signed-in member",
+    },
     limitsKicker: "Good to know",
     limitsH2: "What the free trial covers",
     limits: [
@@ -768,6 +816,54 @@ export const ZH_DICT: Dict = {
       { n: "02", title: "逐字证据", text: "每条结论保留原始措辞与来源出处，不做推断，也不改写成更好听的说法。" },
       { n: "03", title: "竞品空白", text: "看清现有产品已经尝试了什么，以及它们反复失败的那一环 —— 那才是值得动手的地方。" },
     ],
+    // P0-3 结构化机会卡：枚举 code 的中文文案，与 EN 结构一一对应。
+    card: {
+      toggle: "机会卡",
+      scoreLabel: "机会评分",
+      scored: "依据真实证据推导",
+      dimsTitle: "八维评分",
+      notAssessed: "未评估",
+      dim: {
+        demand: "需求强度", urgency: "紧迫度", feasibility: "可构建性",
+        monetization: "变现信号", confidence: "证据置信",
+        competition: "竞品格局", marketSize: "市场规模", retention: "留存复购",
+      },
+      audience: "目标用户",
+      validation: "最低成本验证",
+      risks: "风险提示",
+      insight: "分析备注",
+      audienceCode: {
+        solo: "独立创业者", team: "小型团队", enterprise: "企业客户",
+        developer: "开发者", ops: "运营 / 财务", support: "客服团队",
+        unknown: "暂不确定",
+      },
+      validationCode: {
+        interview: "先做 5 场用户访谈", prototype: "做一个可点击原型",
+        landing: "做一个落地页测试", "data-pull": "先手工拉一次数据",
+        "manual-audit": "人工复核现有讨论",
+      },
+      riskCode: {
+        "single-source": "仅单一来源", "thin-evidence": "证据偏薄",
+        "no-wtp": "未见明确付费意愿",
+        "unverified-competition": "竞品格局未核实",
+        stale: "信号超过 21 天",
+      },
+      noRisks: "未发现明显风险",
+      basis: "全部由已采集证据推导；没有证据的维度留空，绝不猜测。",
+    },
+    // P1 外部搜索热度：与站内多快照趋势口径不同，必须分开标注。
+    externalHeat: {
+      label: "外部搜索热度",
+      basis: "来自 Google Trends 每日热榜（美国），与站内多快照趋势是不同口径。",
+      unavailable: "本次未取到外部趋势数据",
+      noMatch: "未进入今日外部热榜",
+      hit: "上榜：{term} · 约 {traffic} 次搜索",
+    },
+    // P2 会员额度：仅当服务端开启计费时才出现，默认关闭时前端不展示。
+    entitlement: {
+      unlimited: "专业版会员 · 不限次数",
+      member: "已登录会员",
+    },
     limitsKicker: "使用前须知",
     limitsH2: "免费试用包含什么",
     limits: [

@@ -7,11 +7,19 @@ import {
   searchSignals,
   topSignals,
   type Signal,
+  type OpportunityCard,
+  type ExternalHeat,
 } from "@/lib/signals";
 
 type Suggestion = { label: string; sub: string; query: string[] };
 
 type TrendKey = Signal["trend"];
+
+/** 八维的固定顺序；前 5 维有证据，后 3 维展示为「未评估」。 */
+const CARD_DIMS: (keyof OpportunityCard["dimensions"])[] = [
+  "demand", "urgency", "feasibility", "monetization", "confidence",
+  "competition", "marketSize", "retention",
+];
 
 /**
  * 免注册试用（Guest Scan）
@@ -64,6 +72,78 @@ function fmtSources(sources: string[], zh: boolean): string {
   return zh ? sources.join("、") : sources.join(" · ");
 }
 
+/**
+ * P1 外部搜索热度：与内部趋势芯片严格分开展示，明确写出「不同口径」。
+ * 无数据 / 未命中都如实说明，绝不把「没上榜」伪装成「热度低」。
+ */
+function ExternalHeatNote({ heat, d, zh }: { heat: ExternalHeat | null | undefined; d: Dict; zh: boolean }) {
+  const t = d.tryPage.externalHeat;
+  if (!heat || heat.status !== "ok") {
+    return <span className="rr-heat rr-heat-unavailable">{t.unavailable}</span>;
+  }
+  if (!heat.matched || !heat.term) {
+    return <span className="rr-heat rr-heat-nomatch" title={t.basis}>{t.noMatch}</span>;
+  }
+  const traffic = heat.traffic ? heat.traffic.toLocaleString(zh ? "zh-CN" : "en-US") : "—";
+  const text = t.hit.replace("{term}", heat.term).replace("{traffic}", traffic);
+  return <span className="rr-heat rr-heat-hit" title={t.basis}>{text}</span>;
+}
+
+/**
+ * P0-3 结构化机会卡（可折叠）。
+ * 只渲染 data 里真实存在的维度，未评估维度显式标「未评估」而不是 0 分；
+ * 所有文案来自 i18n，卡片数据本身语言无关，中英页共用同一份。
+ */
+function CardPanel({ card, d, zh }: { card: OpportunityCard; d: Dict; zh: boolean }) {
+  const c = d.tryPage.card;
+  const dimLabel = (k: string) => c.dim[k as keyof typeof c.dim] ?? k;
+  const audience = c.audienceCode[card.audience as keyof typeof c.audienceCode] ?? c.audienceCode.unknown;
+  const validation = c.validationCode[card.validation as keyof typeof c.validationCode] ?? card.validation;
+  const insight = card.insight ? (zh ? card.insight.zh || card.insight.en : card.insight.en || card.insight.zh) : null;
+  return (
+    <details className="rr-card-panel">
+      <summary className="rr-card-panel-summary">
+        <span>{c.toggle}</span>
+        <span className="rr-card-panel-score" title={c.scored}>
+          {c.scoreLabel} <strong>{card.total}</strong>
+          <small>/100</small>
+        </span>
+      </summary>
+      <div className="rr-card-panel-body">
+        <div className="rr-card-dims-title">{c.dimsTitle}</div>
+        <div className="rr-card-dims">
+          {CARD_DIMS.map((k) => {
+            const v = card.dimensions[k];
+            const assessed = typeof v === "number";
+            return (
+              <div className="rr-card-dim" key={k}>
+                <span className="rr-card-dim-label">{dimLabel(k)}</span>
+                <span className="rr-card-dim-track" aria-hidden="true">
+                  {assessed && <i style={{ width: `${Math.max(4, (v as number) * 10)}%` }} />}
+                </span>
+                <span className={`rr-card-dim-val${assessed ? "" : " is-na"}`}>
+                  {assessed ? `${v}/10` : c.notAssessed}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+        <dl className="rr-card-facts">
+          <div><dt>{c.audience}</dt><dd>{audience}</dd></div>
+          <div><dt>{c.validation}</dt><dd>{validation}</dd></div>
+          <div><dt>{c.risks}</dt><dd>
+            {card.riskFlags.length
+              ? card.riskFlags.map((f) => c.riskCode[f as keyof typeof c.riskCode] ?? f).join(zh ? "、" : " · ")
+              : c.noRisks}
+          </dd></div>
+          {insight && <div><dt>{c.insight}</dt><dd>{insight}</dd></div>}
+        </dl>
+        <p className="rr-card-basis">{c.basis}</p>
+      </div>
+    </details>
+  );
+}
+
 export function GuestScan({
   d = EN_DICT,
   locale = "en",
@@ -103,7 +183,10 @@ export function GuestScan({
   const [scanMode, setScanMode] = useState<"local" | "live" | null>(null);
   /** 实时检索状态机：失败 / 无证据 / 元词都需要诚实空态，不能再兜底伪装成相关结果。 */
   const [liveState, setLiveState] = useState<null | "searching" | "done" | "empty" | "vague" | "failed">(null);
-  const [liveMeta, setLiveMeta] = useState<{ mode: string; sources: string[]; elapsedMs: number } | null>(null);
+  const [liveMeta, setLiveMeta] = useState<{
+    mode: string; sources: string[]; elapsedMs: number;
+    entitlement?: { enabled: boolean; tier: string; unlimited: boolean };
+  } | null>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   /** 在途请求编号：resetDemo 或新扫描会让旧响应失效，避免结果串台。 */
   const requestIdRef = useRef(0);
@@ -202,6 +285,13 @@ export function GuestScan({
           mode: String(data.mode || "rules"),
           sources: Array.isArray(data.sources) ? data.sources : [],
           elapsedMs: Number(data.elapsedMs) || 0,
+          entitlement: data.entitlement && typeof data.entitlement === "object"
+            ? {
+                enabled: Boolean(data.entitlement.enabled),
+                tier: String(data.entitlement.tier || "guest"),
+                unlimited: Boolean(data.entitlement.unlimited),
+              }
+            : undefined,
         });
         setResults(items);
         setNoMatch(false);
@@ -478,6 +568,12 @@ export function GuestScan({
                       {liveMeta.mode === "llm" ? t.liveModeLlm : t.liveModeRules}
                     </span>
                   )}
+                  {/* P2 会员额度标签：默认关闭计费时不渲染，不影响现有界面。 */}
+                  {liveMeta?.entitlement?.enabled && liveMeta.entitlement.tier !== "guest" && (
+                    <span className="rr-entitlement">
+                      {liveMeta.entitlement.unlimited ? t.entitlement.unlimited : t.entitlement.member}
+                    </span>
+                  )}
                   {hasTranslations && (
                     <button
                       type="button"
@@ -521,6 +617,13 @@ export function GuestScan({
                       <Sparkline points={it.spark} trend={it.trend} />
                       <span className="rr-try-result-sources">{zh ? "来源：" : `${t.sourcesLabel}: `}{fmtSources(it.sources, zh)}</span>
                     </div>
+                    {/* 外部搜索热度：独立于内部趋势芯片，单列一行避免口径混淆。 */}
+                    {it.externalHeat !== undefined && it.externalHeat !== null && (
+                      <div className="rr-heat-row">
+                        <span className="rr-try-label">{t.externalHeat.label}</span>
+                        <ExternalHeatNote heat={it.externalHeat} d={d} zh={zh} />
+                      </div>
+                    )}
                     <div className="rr-try-quote">
                       <span className="rr-try-label">{t.quoteLabel}</span>
                       <p>{qMark[0]}{displayQuote(it)}{qMark[1]}</p>
@@ -529,6 +632,8 @@ export function GuestScan({
                       <span className="rr-try-label">{t.gapLabel}</span>
                       <p>{it.gap}</p>
                     </div>
+                    {/* 结构化机会卡：只有真实采集数据带 card；演示/实时检索结果自动省略。 */}
+                    {it.card && <CardPanel card={it.card} d={d} zh={zh} />}
                   </article>
                 ))}
               </>

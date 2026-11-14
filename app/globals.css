@@ -566,3 +566,62 @@ body {
   .rr-try-result-spark { gap: 8px; }
   .rr-try-empty { padding: 18px 14px; }
 }
+
+/* ---------- 外部搜索热度（P1，与内部趋势分口径） ---------- */
+.rr-heat-row { margin-top: 10px; }
+.rr-heat {
+  display: inline-block; font-size: 11px; line-height: 1.5;
+  padding: 3px 9px; border-radius: 8px; overflow-wrap: anywhere;
+}
+.rr-heat-hit { background: #fff3e8; color: #a35a1c; font-weight: 650; }
+.rr-heat-nomatch { background: #f2f3f7; color: #6c7180; }
+.rr-heat-unavailable { background: #f2f3f7; color: #9a9ead; font-style: italic; }
+
+/* ---------- 结构化机会卡（P0-3，可折叠） ---------- */
+.rr-card-panel {
+  margin-top: 14px; border: 1px solid #e4e0ff; border-radius: 12px;
+  background: linear-gradient(180deg, #fbfaff, #fff); overflow: hidden;
+}
+.rr-card-panel-summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 11px 14px; cursor: pointer; list-style: none;
+  font-size: 12.5px; font-weight: 700; color: var(--rr-indigo);
+}
+.rr-card-panel-summary::-webkit-details-marker { display: none; }
+.rr-card-panel-summary::before {
+  content: "▸"; display: inline-block; margin-right: 8px;
+  transition: transform 0.15s ease; color: var(--rr-indigo);
+}
+.rr-card-panel[open] .rr-card-panel-summary::before { transform: rotate(90deg); }
+.rr-card-panel-summary > span:first-child { flex: 1; min-width: 0; }
+.rr-card-panel-score { font-size: 11px; font-weight: 600; color: var(--rr-muted); white-space: nowrap; }
+.rr-card-panel-score strong { font-size: 15px; font-weight: 800; color: var(--rr-indigo); font-variant-numeric: tabular-nums; }
+.rr-card-panel-score small { font-size: 10px; }
+.rr-card-panel-body { padding: 4px 14px 14px; border-top: 1px solid #eeecff; }
+.rr-card-dims-title { font-size: 10px; font-weight: 750; letter-spacing: 0.1em; color: var(--rr-muted); margin: 12px 0 8px; }
+.rr-card-dims { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 16px; }
+.rr-card-dim { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.rr-card-dim-label { flex: 0 0 66px; font-size: 11px; color: var(--rr-slate); overflow-wrap: anywhere; }
+.rr-card-dim-track {
+  flex: 1; min-width: 20px; height: 6px; border-radius: 999px; background: #ececf6; overflow: hidden;
+}
+.rr-card-dim-track i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8f83ff, #5b4bf5); }
+.rr-card-dim-val { flex: 0 0 auto; font-size: 10.5px; font-weight: 650; color: var(--rr-indigo); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rr-card-dim-val.is-na { color: #a2a6b5; font-weight: 500; font-style: italic; }
+.rr-card-facts { margin: 14px 0 0; display: flex; flex-direction: column; gap: 8px; }
+.rr-card-facts > div { display: flex; gap: 10px; align-items: baseline; }
+.rr-card-facts dt { flex: 0 0 92px; font-size: 11px; font-weight: 700; color: var(--rr-muted); }
+.rr-card-facts dd { margin: 0; flex: 1; min-width: 0; font-size: 12px; line-height: 1.55; color: #3d4251; overflow-wrap: anywhere; }
+.rr-card-basis { margin: 12px 0 0; font-size: 10.5px; line-height: 1.55; color: #9a9ead; font-style: italic; }
+
+/* ---------- 会员额度标签（P2，默认关闭计费时不出现） ---------- */
+.rr-entitlement {
+  font-size: 11px; font-weight: 650; color: #1c7a4a; background: #e8f7ee;
+  padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .rr-card-dims { grid-template-columns: minmax(0, 1fr); }
+  .rr-card-facts > div { flex-direction: column; gap: 2px; }
+  .rr-card-facts dt { flex: none; }
+}

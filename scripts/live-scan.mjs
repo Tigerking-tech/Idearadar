@@ -15,10 +15,9 @@
  * 该模块被 app/api/scan/route.ts（服务端）与 node --test 单测共用；
  * 纯函数（normalizeQuery / queryTokens / scoreRows / buildSignals）不碰网络。
  */
-import fs from "node:fs/promises";
-import path from "node:path";
 import { createHash } from "node:crypto";
 import { createCollector } from "./connectors.mjs";
+import { appendQuery } from "./scan-store.mjs";
 
 export const SOURCE_LABELS = {
   hn: "Hacker News",
@@ -366,33 +365,14 @@ export async function runLiveScan({ query, locale = "en", root = process.cwd(), 
 
 /**
  * 第 3 步「沉淀」：记录按需扫过的方向，供 promote-niches.mjs 提升为定时采集赛道。
- * 仅在文件系统可写时生效（本地 / 自托管 / Actions）；Vercel 函数不可写时静默跳过，
+ *
+ * 已委托给 scan-store.mjs 的 appendQuery（单一真源）：默认写本地文件，配了
+ * IDEARADAR_STORE_URL 时写远端 REST，Vercel 等无持久文件系统也能闭环。
+ * 保留旧签名 (query, meta, root) 供既有调用方/单测兼容；写入失败返回 false，
  * 不因写失败影响用户这次扫描结果。
  */
 export async function recordQuery(query, meta = {}, root = process.cwd()) {
-  const file = path.join(root, "data", "query-scans.json");
   const q = normalizeQuery(query);
   if (!q) return false;
-  try {
-    let data = { version: 1, queries: [], updatedAt: null };
-    try {
-      const parsed = JSON.parse(await fs.readFile(file, "utf8"));
-      if (parsed && Array.isArray(parsed.queries)) data = parsed;
-    } catch {
-      /* 文件不存在或格式损坏时重建 */
-    }
-    data.queries = (data.queries || []).concat([{
-      q,
-      at: new Date().toISOString(),
-      hits: Number(meta.hits) || 0,
-      locale: meta.locale || "en",
-      mode: meta.mode || "rules",
-    }]).slice(-500);
-    data.updatedAt = new Date().toISOString();
-    await fs.mkdir(path.dirname(file), { recursive: true });
-    await fs.writeFile(file, `${JSON.stringify(data, null, 2)}\n`);
-    return true;
-  } catch {
-    return false;
-  }
+  return appendQuery(q, meta, { root, env: process.env });
 }

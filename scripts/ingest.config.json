@@ -103,33 +103,65 @@
       ]
     },
     {
-      "id": "auto-pet-app-booking",
-      "label": "pet app booking",
-      "auto": true,
+      "id": "dev-workflow",
+      "label": "Developer workflow and integration friction",
       "topicTerms": [
-        "pet app booking"
+        "webhook",
+        "api client",
+        "ci pipeline",
+        "build",
+        "oauth",
+        "endpoint",
+        "sdk",
+        "authentication",
+        "rate limit",
+        "integration",
+        "logging"
       ],
       "queries": [
-        "pet app booking"
-      ]
-    },
-    {
-      "id": "auto-6c3c0d95be",
-      "label": "宠物寄养",
-      "auto": true,
-      "topicTerms": [
-        "宠物寄养",
-        "pet app",
-        "pet care"
-      ],
-      "queries": [
-        "宠物寄养",
-        "pet app",
-        "pet care"
+        "webhook",
+        "ci pipeline",
+        "oauth",
+        "api integration"
       ]
     }
   ],
+  "_feedsNote": "新增源一律 enabled:false（默认关）。这些是资讯/发布型源，与「用户抱怨」相关性低，贸然开启会用新闻标题稀释召回相关率。每个源产出的记录仍要经过 buildOpportunities 的噪音链与 curation.json 策展闸门；按需把 enabled 改为 true 即可生效，无需改代码。",
   "feeds": [
-    "https://news.ycombinator.com/rss"
+    {
+      "url": "https://news.ycombinator.com/rss",
+      "label": "Hacker News",
+      "enabled": true
+    },
+    {
+      "url": "https://github.blog/changelog/feed/",
+      "label": "GitHub Changelog",
+      "enabled": false
+    },
+    {
+      "url": "https://huggingface.co/blog/feed.xml",
+      "label": "Hugging Face Blog",
+      "enabled": false
+    },
+    {
+      "url": "https://dev.to/feed",
+      "label": "DEV Community",
+      "enabled": false
+    },
+    {
+      "url": "https://www.producthunt.com/feed",
+      "label": "Product Hunt",
+      "enabled": false
+    },
+    {
+      "url": "https://rss.arxiv.org/rss/cs.SE",
+      "label": "arXiv cs.SE",
+      "enabled": false
+    },
+    {
+      "url": "https://lobste.rs/t/programming.rss",
+      "label": "Lobsters",
+      "enabled": false
+    }
   ]
 }

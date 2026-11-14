@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T06:17:32.657Z",
+  "generatedAt": "2026-11-13T15:19:19.647Z",
   "lookbackDays": 30,
   "minScore": 20,
   "recall": {
@@ -12,34 +12,34 @@
       {
         "niche": "solo-crm",
         "method": "relevance",
-        "raw": 246,
+        "raw": 251,
         "itemCount": 7,
-        "recallTitleRate": 0.5040650406504065,
+        "recallTitleRate": 0.4820717131474104,
         "finalTitleRate": 0.5714285714285714
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 208,
-        "itemCount": 12,
-        "recallTitleRate": 0.5384615384615384,
-        "finalTitleRate": 0.75
+        "raw": 219,
+        "itemCount": 13,
+        "recallTitleRate": 0.5068493150684932,
+        "finalTitleRate": 0.7692307692307693
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 243,
+        "raw": 239,
         "itemCount": 3,
-        "recallTitleRate": 0.4609053497942387,
+        "recallTitleRate": 0.4686192468619247,
         "finalTitleRate": 1
       },
       {
         "niche": "scheduling",
         "method": "relevance",
-        "raw": 258,
-        "itemCount": 19,
-        "recallTitleRate": 0.5930232558139535,
-        "finalTitleRate": 0.631578947368421
+        "raw": 260,
+        "itemCount": 18,
+        "recallTitleRate": 0.5846153846153846,
+        "finalTitleRate": 0.6666666666666666
       },
       {
         "niche": "auto-pet-app-booking",
@@ -54,7 +54,7 @@
         "method": "relevance",
         "raw": 114,
         "itemCount": 0,
-        "recallTitleRate": 0.05263157894736842,
+        "recallTitleRate": 0.043859649122807015,
         "finalTitleRate": 0
       }
     ]
@@ -64,13 +64,13 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 497
+      "rows": 514
     },
     {
       "id": "so",
       "label": "Stack Exchange (official API)",
       "enabled": true,
-      "rows": 33
+      "rows": 32
     },
     {
       "id": "github",
@@ -82,7 +82,7 @@
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 2
+      "rows": 0
     },
     {
       "id": "firstParty",
@@ -98,8 +98,8 @@
     }
   ],
   "totals": {
-    "rawRecords": 1119,
-    "complaintRecords": 61,
+    "rawRecords": 1133,
+    "complaintRecords": 65,
     "opportunities": 41
   },
   "errors": [],
@@ -113,7 +113,7 @@
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 13.9,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -165,7 +165,109 @@
       ],
       "titleZh": "预约登记",
       "quoteZh": "患者可查看可预约的医生与时段；可预约空闲时段；可改期或取消预约；已被预约的时段不能被其他患者重复预约。",
-      "translationKey": "o0xygl"
+      "translationKey": "o0xygl",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 9,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 7,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 48,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "o0xygl:v1"
+    },
+    {
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Service degradation on Microsoft 365",
+      "score": 32,
+      "breakdown": {
+        "frequency": 12,
+        "intensity": 0,
+        "recency": 14.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 4,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T08:05:07.000Z",
+      "evidence": [
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-12T23:15:56.000Z",
+          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
+        },
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-12T23:15:56.000Z",
+          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
+        },
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-13T08:05:07.000Z",
+          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
+        },
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://status.cloud.microsoft/",
+          "source": "hn",
+          "createdAt": "2026-11-13T08:05:07.000Z",
+          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
+        }
+      ],
+      "titleZh": "Microsoft 365 服务降级",
+      "quoteZh": "此处按逆时间顺序工作：从 UTC 凌晨 1:06:17 更新：当前状态：我们的调查发现，受影响服务器上负责建立安全连接的过程变得 over",
+      "translationKey": "k0xfgs",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 5,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "k0xfgs:v1"
     },
     {
       "id": "invoice-export-wish-import-expense-report-and-invoice-lines-fro",
@@ -176,7 +278,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
-        "recency": 12.5,
+        "recency": 12.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -201,18 +303,43 @@
       ],
       "titleZh": "希望支持从 CSV 导入费用报表（及发票）明细",
       "quoteZh": "功能请求：希望创建业务对象后能直接从 CSV 文件导入费用报表（及发票）明细。使用场景：志愿者常有多笔费用，会直接发来一份电子表格。",
-      "translationKey": "wtcmtu"
+      "translationKey": "wtcmtu",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 6,
+          "urgency": 3,
+          "feasibility": 9,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 44,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "wtcmtu:v1"
     },
     {
-      "id": "scheduling-faa-issues-national-ground-stop",
+      "id": "scheduling-global-microsoft-outage",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
-      "title": "FAA issues national ground stop",
+      "title": "Global Microsoft Outage",
       "score": 29,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.8,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -221,57 +348,47 @@
         "hn"
       ],
       "signals": [
-        "frustration"
+        "broken"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-13T22:27:53.000Z",
+      "lastSeen": "2026-11-13T10:21:41.000Z",
       "evidence": [
         {
-          "title": "FAA issues national ground stop",
-          "url": "https://www.nbcnews.com/news/us-news/faa-orders-nationwide-ground-stop-departing-flights-reasons-safety-rcna609247",
+          "title": "Global Microsoft Outage",
+          "url": "https://www.cnn.com/2026/11/12/business/live-news/microsoft-global-outage-intl-hnk",
           "source": "hn",
-          "createdAt": "2026-11-13T22:27:53.000Z",
-          "excerpt": "Hate that for all involved. Was flying out of ATL when the Crowdstrike clusterfuck imploded Delta&#x27;s antiquated crew scheduling backends. Not a fun night. Godspeed for everyone getting to where they need to be, someh"
+          "createdAt": "2026-11-13T10:21:41.000Z",
+          "excerpt": "Unfortunally, this outage broke my entire work: - No emails, calendar, file sharing, etc. - Claude Code broke as well because I cannot login back. - Multiple services I use with 365 are also broken."
         }
       ],
-      "titleZh": "FAA发布的全国地面停飞指令",
-      "quoteZh": "这会让所有相关人员都很头疼。当时我正从亚特兰大机场起飞，Crowdstrike系统崩溃导致达美航空过时的机组排班后端彻底失灵，那真是个糟糕的夜晚。祝所有需要赶路的人一切顺利。",
-      "translationKey": "10ijzhj"
-    },
-    {
-      "id": "scheduling-libreoffice-actually-works-365-days-a-year",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "LibreOffice actually works 365 days a year",
-      "score": 29,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
+      "titleZh": "微软全球服务中断",
+      "quoteZh": "不幸的是，这次服务中断彻底毁了我的工作：无法发送邮件、使用日历、共享文件等等。Claude Code也坏了，因为我无法重新登录。我使用的其他多个365相关服务也都出故障了。",
+      "translationKey": "11tn18c",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
       },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "frustration"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T19:04:59.000Z",
-      "evidence": [
-        {
-          "title": "LibreOffice actually works 365 days a year",
-          "url": "https://twitter.com/LibreOffice/status/2121205272479998268",
-          "source": "hn",
-          "createdAt": "2026-11-13T19:04:59.000Z",
-          "excerpt": "I hate all things MS (Windows, Office, AD, O365, Teams, Entra, InTune, Azure, VSCode, OutBreak, Exchange). But LibreOffice doesn&#x27;t even begin to cover what I&#x27;m forced to use at work. When LibreOffice has a mail"
-        }
-      ],
-      "titleZh": "LibreOffice 全年365天均可正常使用",
-      "quoteZh": "我讨厌所有MS相关的产品（Windows、Office、AD、O365、Teams、Entra、InTune、Azure、VSCode、OutBreak、Exchange）。但LibreOffice甚至无法满足我在工作中被迫使用的需求。当LibreOffice的邮件功能出问题时",
-      "translationKey": "1iaz7w3"
+      "cardKey": "11tn18c:v1"
     },
     {
       "id": "solo-crm-service-degradation-on-microsoft-365",
@@ -282,7 +399,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.6,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -306,7 +423,32 @@
       ],
       "titleZh": "Microsoft 365服务性能下降",
       "quoteZh": "今年的服务中断情况十分糟糕，先是年初的欧洲谷歌停电，还有PHP相关的问题（虽然那只是间接相关），五月又有AWS停电，这段时间Cloudflare也出现过几次故障。",
-      "translationKey": "cel4x8"
+      "translationKey": "cel4x8",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "solo",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "cel4x8:v1"
     },
     {
       "id": "solo-crm-issues-in-crm",
@@ -317,7 +459,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.5,
+        "recency": 13.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -341,7 +483,92 @@
       ],
       "titleZh": "CRM 中的问题汇总",
       "quoteZh": "手动补全联系人接口 POST /api/v1/leads/{id}/enrich 在使用标准 lead UUID（如 b0000001-0000-0000-0000-000000000001）调用时立即失败，返回 HTTP 422 Unprocessable Entity。此外……",
-      "translationKey": "1romyta"
+      "translationKey": "1romyta",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "solo",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1romyta:v1"
+    },
+    {
+      "id": "scheduling-booking-improvements",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Booking improvements",
+      "score": 27,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 14.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-13T00:12:52.000Z",
+      "evidence": [
+        {
+          "title": "Booking improvements",
+          "url": "https://github.com/Pogut/nikolai-demo-red/issues/3",
+          "source": "github",
+          "createdAt": "2026-11-13T00:12:52.000Z",
+          "excerpt": "As a student, I want booking to work well and be fast, so that I can get a room quickly. - booking should be easy - it should be user friendly - cancel works"
+        }
+      ],
+      "titleZh": "预订改进",
+      "quoteZh": "作为一名学生，我希望预订运行良好且快速，以便我能快速获得房间。 - 预订应简单 - 应用户友好 - 取消可用",
+      "translationKey": "q1kin6",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "q1kin6:v1"
     },
     {
       "id": "solo-crm-salesforce-sync-log-and-failure-alert",
@@ -352,7 +579,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.1,
+        "recency": 13.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -376,7 +603,92 @@
       ],
       "titleZh": "Salesforce：同步日志与失败告警",
       "quoteZh": "计划：2026 年 11 月（每周日执行同步）。要做什么：记录每次同步运行，失败时告警管理员。为什么：静默失败会让不可邮寄的联系人重新混入导出。步骤：记录……",
-      "translationKey": "2b252w"
+      "translationKey": "2b252w",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "solo",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "2b252w:v1"
+    },
+    {
+      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
+      "score": 27,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 12.7,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T02:59:24.000Z",
+      "evidence": [
+        {
+          "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
+          "url": "https://github.com/FORHU/ilovelawyer-admin/issues/38",
+          "source": "github",
+          "createdAt": "2026-11-09T02:59:24.000Z",
+          "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
+        }
+      ],
+      "titleZh": "管理后台·客服聊天：工单收件箱与结果报告",
+      "quoteZh": "隶属于 FORHU/ilovelawyer-client#120，泳道 ADM-2，复用 BE-3 的管理端接口。问题：管理员需要一个统一入口，来回复机器人处理不了的客服工单，并查看哪些流程在失败，以便……",
+      "translationKey": "19lcdkv",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "support",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "19lcdkv:v1"
     },
     {
       "id": "scheduling-ai-is-turning-apple-s-app-review-process-into-a-",
@@ -387,7 +699,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 0,
-        "recency": 14.6,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -416,42 +728,32 @@
       ],
       "titleZh": "AI正在让苹果的应用审核流程成为合成器开发者的噩梦",
       "quoteZh": "如果你成立有限责任公司就能避开12名测试用户，这确实是个简单的办法。但在我的所在地区，法律文件公证的费用就要500欧元以上，而且现在还得提交双栏记账记录。",
-      "translationKey": "1k0af9r"
-    },
-    {
-      "id": "scheduling-booking-improvements",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Booking improvements",
-      "score": 26,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 14.4,
-        "corroboration": 5,
-        "willingnessToPay": 0
+      "translationKey": "1k0af9r",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 2,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 22,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
       },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T00:12:52.000Z",
-      "evidence": [
-        {
-          "title": "Booking improvements",
-          "url": "https://github.com/Pogut/nikolai-demo-red/issues/3",
-          "source": "github",
-          "createdAt": "2026-11-13T00:12:52.000Z",
-          "excerpt": "As a student, I want booking to work well and be fast, so that I can get a room quickly. - booking should be easy - it should be user friendly - cancel works"
-        }
-      ],
-      "titleZh": "预订改进",
-      "quoteZh": "作为一名学生，我希望预订运行良好且快速，以便我能快速获得房间。 - 预订应简单 - 应用户友好 - 取消可用",
-      "translationKey": "q1kin6"
+      "cardKey": "1k0af9r:v1"
     },
     {
       "id": "solo-crm-running-a-law-firm-on-free-software",
@@ -462,7 +764,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 11.7,
+        "recency": 12,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -486,42 +788,32 @@
       ],
       "titleZh": "用自由软件运营律所",
       "quoteZh": "真羡慕，我也想这么做。我只是大型律所里的一颗小螺丝钉，技术栈完全由所里指定：Outlook + Word，外加一堆极其反直觉、缓慢又满是缺陷的……",
-      "translationKey": "1q1cx2n"
-    },
-    {
-      "id": "support-transcripts-admin-support-chat-support-tickets-inbox-and-out",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-      "score": 26,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 12.4,
-        "corroboration": 5,
-        "willingnessToPay": 0
+      "translationKey": "1q1cx2n",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "solo",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
       },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T02:59:24.000Z",
-      "evidence": [
-        {
-          "title": "Admin - Support Chat: Support Tickets inbox and outcome report",
-          "url": "https://github.com/FORHU/ilovelawyer-admin/issues/38",
-          "source": "github",
-          "createdAt": "2026-11-09T02:59:24.000Z",
-          "excerpt": "Part of FORHU/ilovelawyer-client#120. Lane **ADM-2**. Uses BE-3's admin endpoints. ## Problem Admins need one place to answer the Support Tickets the bot couldn't handle, and to see which flows are failing so the content"
-        }
-      ],
-      "titleZh": "管理后台·客服聊天：工单收件箱与结果报告",
-      "quoteZh": "隶属于 FORHU/ilovelawyer-client#120，泳道 ADM-2，复用 BE-3 的管理端接口。问题：管理员需要一个统一入口，来回复机器人处理不了的客服工单，并查看哪些流程在失败，以便……",
-      "translationKey": "19lcdkv"
+      "cardKey": "1q1cx2n:v1"
     },
     {
       "id": "invoice-export-csv-export-for-timesheets-and-invoices",
@@ -532,7 +824,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 12.7,
+        "recency": 13,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -556,18 +848,103 @@
       ],
       "titleZh": "工时表与发票的 CSV 导出",
       "quoteZh": "摘要：财务与管理者经常需要表格数据，请为工时表与发票明细增加 CSV 导出。待办：新增 GET /api/timesheets/export.csv 与 GET /api/invoices/:id/export.csv；复用……",
-      "translationKey": "1pahlgq"
+      "translationKey": "1pahlgq",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 3,
+          "feasibility": 6,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1pahlgq:v1"
+    },
+    {
+      "id": "scheduling-appointment-vehicle-management",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Appointment & Vehicle Management",
+      "score": 25,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 12.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T03:51:57.000Z",
+      "evidence": [
+        {
+          "title": "Appointment & Vehicle Management",
+          "url": "https://github.com/ShaneW12/Group3-CarWash/issues/11",
+          "source": "github",
+          "createdAt": "2026-11-09T03:51:57.000Z",
+          "excerpt": "Develop functionality that allows CleanRide customers to manage their vehicles and car wash appointments. User stories - Add a vehicle - View saved vehicles - Book an appointment - Cancel an appointment"
+        }
+      ],
+      "titleZh": "预约与车辆管理",
+      "quoteZh": "开发功能，让 CleanRide 客户管理自己的车辆与洗车预约。用户故事：添加车辆、查看已保存车辆、预约、取消预约。",
+      "translationKey": "lhy25o",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "lhy25o:v1"
     },
     {
       "id": "invoice-export-banking-app-transaction-multi-currency",
       "nicheId": "invoice-export",
       "nicheLabel": "Invoicing and expense export failures",
       "title": "Banking App Transaction: Multi Currency",
-      "score": 23,
+      "score": 24,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9.3,
+        "recency": 9.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -591,7 +968,32 @@
       ],
       "titleZh": "银行应用交易：多币种支持",
       "quoteZh": "缺陷信息：在新银行应用中创建日记账分录时，若科目使用公司本位币以外的币种，系统不允许提交。通常日记账分录……",
-      "translationKey": "4lp5nm"
+      "translationKey": "4lp5nm",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "4lp5nm:v1"
     },
     {
       "id": "invoice-export-expense-not-here-page-opens-after-deleting-expen",
@@ -602,7 +1004,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -624,7 +1026,32 @@
       ],
       "titleZh": "删除单笔费用后出现“费用不在此处”页面",
       "quoteZh": "如果您还未了解，可查看我们的[贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md)以了解入门流程。要加入我们的Slack频道，请填写[此表格](h)",
-      "translationKey": "tihhkf"
+      "translationKey": "tihhkf",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "tihhkf:v1"
     },
     {
       "id": "scheduling-appointment-cancellation",
@@ -635,7 +1062,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 11.1,
+        "recency": 11.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -659,7 +1086,32 @@
       ],
       "titleZh": "预约取消",
       "quoteZh": "需求：FR-06 预约取消与 FR-07 保留历史。AppointmentService.cancel_appointment 目前只是抛出 NotImplementedError 的占位实现，预约根本无法取消。任务：实现……",
-      "translationKey": "c9813y"
+      "translationKey": "c9813y",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "c9813y:v1"
     },
     {
       "id": "scheduling-endpoint-delete-bookings-booking-id",
@@ -670,7 +1122,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 10.7,
+        "recency": 11.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -694,7 +1146,32 @@
       ],
       "titleZh": "接口：DELETE /bookings/{booking_id}",
       "quoteZh": "待办：取消预订、释放所有航班座位、全额退款（收入下降）；返回 status 为 cancelled 的预订；重复取消返回同一结果而非报错；未知 id 返回 404。",
-      "translationKey": "1o3ijf0"
+      "translationKey": "1o3ijf0",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1o3ijf0:v1"
     },
     {
       "id": "scheduling-endpoint-get-bookings-booking-id",
@@ -705,7 +1182,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 10.7,
+        "recency": 11.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -729,7 +1206,32 @@
       ],
       "titleZh": "接口：GET /bookings/{booking_id}",
       "quoteZh": "待办：返回 status 为 confirmed 或 cancelled 的预订；未知 id 返回 404。",
-      "translationKey": "zeg1zq"
+      "translationKey": "zeg1zq",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "zeg1zq:v1"
     },
     {
       "id": "scheduling-nurses-sound-alarm-as-uber-for-nursing-apps-push",
@@ -740,7 +1242,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 8.8,
+        "recency": 9.1,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -764,7 +1266,32 @@
       ],
       "titleZh": "护士警示「护理界 Uber」类应用推动医疗去监管化",
       "quoteZh": "除非计价器坏了，或者司机故意绕远路。我患有痴呆症的祖母去就医的行程经常被收取两三倍车费，直到我们发现问题出在……",
-      "translationKey": "ti9css"
+      "translationKey": "ti9css",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "ti9css:v1"
     },
     {
       "id": "scheduling-openai-structured-outputs-model-returns-null-or-",
@@ -775,7 +1302,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 14.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -797,18 +1324,43 @@
       ],
       "titleZh": "OpenAI 结构化输出：模型返回 null 或跳过源文本中存在的值…",
       "quoteZh": "我目前正在开发一个应用程序，我们收到电子邮件，识别后使用 AI 处理该邮件，需要以 JSON 格式对值进行响应。最初，我使用了严格的 JSON schema",
-      "translationKey": "1uib3xg"
+      "translationKey": "1uib3xg",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1uib3xg:v1"
     },
     {
-      "id": "scheduling-patient-appointment-requests",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Patient appointment requests",
+      "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Split chat-runtime's transcript and commands",
       "score": 23,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.9,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -818,52 +1370,222 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-14T01:10:17.000Z",
+      "lastSeen": "2026-11-12T22:31:08.000Z",
       "evidence": [
         {
-          "title": "Patient appointment requests",
-          "url": "https://github.com/zacharyelston/WeHelp/issues/68",
+          "title": "Split chat-runtime's transcript and commands",
+          "url": "https://github.com/ejjsharpe/moonbase/issues/281",
           "source": "github",
-          "createdAt": "2026-11-14T01:10:17.000Z",
-          "excerpt": "## Goal Patients can ask for an appointment in the app, and staff confirm or decline it. ## Context - Found while building #39 (PR #66): create and PATCH are provider-only (patients get 403) and there is no `requested` s"
+          "createdAt": "2026-11-12T22:31:08.000Z",
+          "excerpt": "Parent epic: #273. Planning ticket **CL-08**. Track A. ## Dependencies CL-07 #280. ## Problem and outcome `chat-runtime/src/transcript.ts` (1,136 lines) and `commands.ts` (917) are over the 600-line limit and mix concern"
         }
       ],
-      "titleZh": "患者预约请求处理",
-      "quoteZh": "## 目标：患者可通过应用提交预约申请，工作人员可确认或拒绝。## 背景：在开发#39（PR #66）时发现，创建和PATCH操作仅开放给医疗服务提供方（患者会收到403错误），且不存在`requested`字段。",
-      "translationKey": "1y6wo84"
+      "titleZh": "拆分 chat-runtime 的 transcript 与 commands",
+      "quoteZh": "父史诗：#273。规划工单 **CL-08**。轨道 A。 ## 依赖 CL-07 #280。 ## 问题与结果 `chat-runtime/src/transcript.ts`（1,136 行）和 `commands.ts`（917）超过 600 行限制且混淆了关注点",
+      "translationKey": "1agg45t",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "support",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1agg45t:v1"
     },
     {
-      "id": "scheduling-service-degradation-on-microsoft-365",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Service degradation on Microsoft 365",
-      "score": 23,
+      "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce…",
+      "score": 22,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.5,
+        "recency": 13.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
       "mentions": 1,
       "sources": [
-        "hn"
+        "github"
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-13T08:05:07.000Z",
+      "lastSeen": "2026-11-10T21:34:20.000Z",
       "evidence": [
         {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://status.cloud.microsoft/",
-          "source": "hn",
-          "createdAt": "2026-11-13T08:05:07.000Z",
-          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
+          "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce unrecorded, until someone notices",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4921",
+          "source": "github",
+          "createdAt": "2026-11-10T21:34:20.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Two of the app's incoming notification feeds can lose a messag"
         }
       ],
-      "titleZh": "Microsoft 365 服务降级",
-      "translationKey": "gmvdio",
-      "quoteZh": "来自健康状态页面的内容：\"Microsoft Teams：包括加入通话、会议、群组聊天以及频道消息在内的大部分核心功能均未受影响。但依赖Exchange Online的场景，比如日历功能，则会受到影响。\""
+      "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…",
+      "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11）。一、用大白话说明问题：应用的两个入站通知通道可能丢消息……",
+      "translationKey": "y1k1ed",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "y1k1ed:v1"
+    },
+    {
+      "id": "invoice-export-batches-balancing-transfers-holds-and-multi-curr",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Batches, balancing transfers, holds and multi-currency",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 8.3,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-10-31T06:39:41.000Z",
+      "evidence": [
+        {
+          "title": "Batches, balancing transfers, holds and multi-currency",
+          "url": "https://github.com/laiwf94/ledgerd/issues/26",
+          "source": "github",
+          "createdAt": "2026-10-31T06:39:41.000Z",
+          "excerpt": "**Week 3 of 52** · Mon 16 Nov 2026 to Sun 22 Nov 2026 ## Why Marketplace payouts need several transfers to happen together, sweeps fail on short balances, holds cannot grow, and a currency conversion is two separate entr"
+        }
+      ],
+      "titleZh": "批次、平衡转账、保留与多币种",
+      "quoteZh": "**第 3 周（共 52 周）** · 2026年11月16日周一 至 2026年11月22日周日 ## 为什么 Marketplace 付款需要多笔转账一起发生，清扫在余额不足时失败，保留不能增长，且货币转换是两个单独的 entr",
+      "translationKey": "1p5th3o",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1p5th3o:v1"
+    },
+    {
+      "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page…",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 7.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-10-30T06:12:02.000Z",
+      "evidence": [
+        {
+          "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page, then audit the app)",
+          "url": "https://github.com/arcforgelabs/flow/issues/441",
+          "source": "github",
+          "createdAt": "2026-10-30T06:12:02.000Z",
+          "excerpt": "### Bug type Behavior bug (incorrect output/state without crash) ### Summary An issued invoice that Xero refused sits on the Pending tab. Its page shows \"Pending\" and \"Not in Xero yet\", but not the reason. When the reaso"
+        }
+      ],
+      "titleZh": "每次暂挂或拒付都标明规则并关联命中项（修复已开具发票页面…",
+      "quoteZh": "缺陷类型：行为缺陷（不崩溃但输出或状态错误）。摘要：被 Xero 拒绝的已开具发票停留在待处理页签，页面只显示待处理、尚未同步到 Xero，却不给原因；当原因……",
+      "translationKey": "2tp4ne",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "2tp4ne:v1"
     },
     {
       "id": "invoice-export-expense-report-list-cannot-be-navigated-via-keyb",
@@ -874,7 +1596,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.1,
+        "recency": 14.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -896,7 +1618,32 @@
       ],
       "titleZh": "费用 - 报告列表无法通过键盘导航",
       "quoteZh": "如果您还没有，请查看我们的 [贡献指南](https://github.com/Expensify/ReactNativeChat/blob/main/contributingGuides/CONTRIBUTING.md) 以进行入职。要加入我们的 Slack 频道，请填写 [此表单](h",
-      "translationKey": "11xch1z"
+      "translationKey": "11xch1z",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "11xch1z:v1"
     },
     {
       "id": "invoice-export-post-each-stripe-fee-to-xero-as-spend-money-and-",
@@ -907,7 +1654,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.5,
+        "recency": 13.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -929,7 +1676,32 @@
       ],
       "titleZh": "将每笔 Stripe 手续费记为 Xero 支出、每次结算记为银行转账（临时过账方案…",
       "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11），工作顺序见该处。2026-11-11 已决策采用方案 (a)：先按设计实现 M8，再单独做一个临时的 Xero 过账……",
-      "translationKey": "17raob9"
+      "translationKey": "17raob9",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "17raob9:v1"
     },
     {
       "id": "invoice-export-quickbooks",
@@ -940,7 +1712,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.6,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -962,7 +1734,148 @@
       ],
       "titleZh": "QuickBooks 相关问题",
       "quoteZh": "SaaS（软件即服务）模式把软件从买断拥有变成了持续租用。QuickBooks Online 正是这一模式的典型代表，它……",
-      "translationKey": "1hriesl"
+      "translationKey": "1hriesl",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1hriesl:v1"
+    },
+    {
+      "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out…",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T21:38:00.000Z",
+      "evidence": [
+        {
+          "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out late",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4986",
+          "source": "github",
+          "createdAt": "2026-11-10T21:38:00.000Z",
+          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app sends membership subscription invoices and joining-fee"
+        }
+      ],
+      "titleZh": "订阅页面让未接 Xero 的俱乐部走进死胡同，还可能把发票排队发出…",
+      "quoteZh": "隶属于项目 #4898。一、用大白话说明问题：应用会发送会员订阅发票和入会费……",
+      "translationKey": "1x6lmz6",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1x6lmz6:v1"
+    },
+    {
+      "id": "scheduling-61-docs-document-the-scheduling-context-in-docs-",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
+      "score": 22,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T19:35:03.000Z",
+      "evidence": [
+        {
+          "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
+          "url": "https://github.com/polaeskandar/khmh-koeln-app-frontend/issues/297",
+          "source": "github",
+          "createdAt": "2026-11-10T19:35:03.000Z",
+          "excerpt": "Document the Meetings context in `docs/features/meetings.md`, so its features, rules and code can be found and understood without reading the whole codebase. It covers the agenda, schedules (create, edit, pause), session"
+        }
+      ],
+      "titleZh": "61 [文档] 在 docs/features/scheduling.md 中记录调度上下文",
+      "quoteZh": "在 `docs/features/meetings.md` 中记录会议上下文，以便无需阅读整个代码库即可找到并理解其功能、规则和代码。它涵盖议程、日程（创建、编辑、暂停）、会话",
+      "translationKey": "1xbk369",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1xbk369:v1"
     },
     {
       "id": "scheduling-add-calendly-link-textbox-under-admin-profile-an",
@@ -973,7 +1886,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.9,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -995,7 +1908,32 @@
       ],
       "titleZh": "在管理员资料页增加 Calendly 链接输入框，并修复气泡首页缺陷",
       "quoteZh": "描述：在管理员资料页增加 Calendly 链接输入框，让管理员无需改代码即可通过界面更新 Calendly URL。链接存入数据库并覆盖……",
-      "translationKey": "bfqf7a"
+      "translationKey": "bfqf7a",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "bfqf7a:v1"
     },
     {
       "id": "scheduling-appointment-management",
@@ -1006,7 +1944,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 9.7,
+        "recency": 10,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1030,7 +1968,32 @@
       ],
       "titleZh": "预约管理",
       "quoteZh": "作为主管，我希望能点管理预约按钮进入一个页面，以日历视图查看已排定的预约，并能取消……",
-      "translationKey": "1oxufvs"
+      "translationKey": "1oxufvs",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1oxufvs:v1"
     },
     {
       "id": "solo-crm-crm",
@@ -1041,7 +2004,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.9,
+        "recency": 14.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1063,7 +2026,32 @@
       ],
       "titleZh": "CRM 客户关系管理",
       "quoteZh": "代码片段：从 react 导入 useState、useEffect、useMemo，并引入 Users、MessageSquare、FileText、ShieldCheck、TrendingUp 等图标组件……",
-      "translationKey": "22yq12"
+      "translationKey": "22yq12",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "solo",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "22yq12:v1"
     },
     {
       "id": "solo-crm-python-flask-webhook-receives-meta-lead-ads-test",
@@ -1074,7 +2062,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 13.7,
+        "recency": 14,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1096,40 +2084,32 @@
       ],
       "titleZh": "Python Flask webhook 收到 Meta Lead Ads 测试事件并返回 HTTP 200，却没有 POST 请求…",
       "quoteZh": "我在用 Python Flask 后端 + Meta Graph API 把 Meta（Facebook）Lead Ads 接入自研 CRM，目标是线索表单提交后自动收到 webhook 通知……",
-      "translationKey": "1rlcx53"
-    },
-    {
-      "id": "support-transcripts-split-chat-runtime-s-transcript-and-commands",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Split chat-runtime's transcript and commands",
-      "score": 22,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
+      "translationKey": "1rlcx53",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "solo",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
       },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-12T22:31:08.000Z",
-      "evidence": [
-        {
-          "title": "Split chat-runtime's transcript and commands",
-          "url": "https://github.com/ejjsharpe/moonbase/issues/281",
-          "source": "github",
-          "createdAt": "2026-11-12T22:31:08.000Z",
-          "excerpt": "Parent epic: #273. Planning ticket **CL-08**. Track A. ## Dependencies CL-07 #280. ## Problem and outcome `chat-runtime/src/transcript.ts` (1,136 lines) and `commands.ts` (917) are over the 600-line limit and mix concern"
-        }
-      ],
-      "titleZh": "拆分 chat-runtime 的 transcript 与 commands",
-      "quoteZh": "父史诗：#273。规划工单 **CL-08**。轨道 A。 ## 依赖 CL-07 #280。 ## 问题与结果 `chat-runtime/src/transcript.ts`（1,136 行）和 `commands.ts`（917）超过 600 行限制且混淆了关注点",
-      "translationKey": "1agg45t"
+      "cardKey": "1rlcx53:v1"
     },
     {
       "id": "scheduling-appointment-booking-tasks",
@@ -1140,7 +2120,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 4,
-        "recency": 6.2,
+        "recency": 6.5,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1171,176 +2151,32 @@
       ],
       "titleZh": "预约登记任务",
       "quoteZh": "创建预约登记；展示可预约医生；展示可用时段；实现预约；实现改期；实现取消；测试预约流程。",
-      "translationKey": "10aehgh"
-    },
-    {
-      "id": "invoice-export-a-server-restart-at-the-wrong-moment-can-leave-a",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce…",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
+      "translationKey": "10aehgh",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 4,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
       },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:34:20.000Z",
-      "evidence": [
-        {
-          "title": "A server restart at the wrong moment can leave a Xero payment unapplied, or an email bounce unrecorded, until someone notices",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4921",
-          "source": "github",
-          "createdAt": "2026-11-10T21:34:20.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English Two of the app's incoming notification feeds can lose a messag"
-        }
-      ],
-      "titleZh": "服务在错误时机重启会导致 Xero 付款未核销，或邮件退回…",
-      "quoteZh": "隶属于项目 #4898（独立评审见 b17868649，2026-11-11）。一、用大白话说明问题：应用的两个入站通知通道可能丢消息……",
-      "translationKey": "y1k1ed"
-    },
-    {
-      "id": "invoice-export-every-hold-or-refusal-names-its-rule-and-links-w",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page…",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 7.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-10-30T06:12:02.000Z",
-      "evidence": [
-        {
-          "title": "Every hold or refusal names its rule and links what it matched (fix the issued invoice page, then audit the app)",
-          "url": "https://github.com/arcforgelabs/flow/issues/441",
-          "source": "github",
-          "createdAt": "2026-10-30T06:12:02.000Z",
-          "excerpt": "### Bug type Behavior bug (incorrect output/state without crash) ### Summary An issued invoice that Xero refused sits on the Pending tab. Its page shows \"Pending\" and \"Not in Xero yet\", but not the reason. When the reaso"
-        }
-      ],
-      "titleZh": "每次暂挂或拒付都标明规则并关联命中项（修复已开具发票页面…",
-      "quoteZh": "缺陷类型：行为缺陷（不崩溃但输出或状态错误）。摘要：被 Xero 拒绝的已开具发票停留在待处理页签，页面只显示待处理、尚未同步到 Xero，却不给原因；当原因……",
-      "translationKey": "2tp4ne"
-    },
-    {
-      "id": "invoice-export-multi-currency-expenses-deposits-settlement-engi",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Multi-currency expenses, deposits & settlement engine",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 8.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "manual"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-01T14:40:44.000Z",
-      "evidence": [
-        {
-          "title": "Multi-currency expenses, deposits & settlement engine",
-          "url": "https://github.com/StanSiska/sailing-trip-planner-app/issues/8",
-          "source": "github",
-          "createdAt": "2026-11-01T14:40:44.000Z",
-          "excerpt": "Full expense tracking and settlement (inspired by the real expedition spreadsheet). ### Acceptance Criteria - Shared vs Personal expenses - Multi-currency + exchange rate - Who paid, categories, receipts - Live balances "
-        }
-      ],
-      "titleZh": "多币种费用、预付款及结算引擎",
-      "quoteZh": "完整的费用追踪与结算功能（灵感来源于真实的探险项目电子表格）。### 需求标准：区分个人费用与团队费用；支持多币种及汇率转换；记录支付方、费用类别及收据信息；实时显示账户余额。",
-      "translationKey": "1v71lo3"
-    },
-    {
-      "id": "invoice-export-subscriptions-screen-gives-a-club-without-xero-a",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out…",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T21:38:00.000Z",
-      "evidence": [
-        {
-          "title": "Subscriptions screen gives a club without Xero a dead end, and can queue invoices that go out late",
-          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4986",
-          "source": "github",
-          "createdAt": "2026-11-10T21:38:00.000Z",
-          "excerpt": "Part of programme #4898 (independent review at `b17868649`, 11 Nov 2026). Its place in the working order is listed there. ## 1. The problem, in plain English The app sends membership subscription invoices and joining-fee"
-        }
-      ],
-      "titleZh": "订阅页面让未接 Xero 的俱乐部走进死胡同，还可能把发票排队发出…",
-      "quoteZh": "隶属于项目 #4898。一、用大白话说明问题：应用会发送会员订阅发票和入会费……",
-      "translationKey": "1x6lmz6"
-    },
-    {
-      "id": "scheduling-61-docs-document-the-scheduling-context-in-docs-",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.3,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T19:35:03.000Z",
-      "evidence": [
-        {
-          "title": "61 [Docs] Document the Scheduling context in docs/features/scheduling.md",
-          "url": "https://github.com/polaeskandar/khmh-koeln-app-frontend/issues/297",
-          "source": "github",
-          "createdAt": "2026-11-10T19:35:03.000Z",
-          "excerpt": "Document the Meetings context in `docs/features/meetings.md`, so its features, rules and code can be found and understood without reading the whole codebase. It covers the agenda, schedules (create, edit, pause), session"
-        }
-      ],
-      "titleZh": "在文档中记录调度相关内容",
-      "quoteZh": "在`docs/features/meetings.md`文件中详细记录会议相关的功能、规则及代码逻辑，这样无需浏览整个代码库就能了解相关内容。该文档涵盖会议议程、日程安排（创建、编辑、暂停）、会议环节等信息。",
-      "translationKey": "1xbk369"
+      "cardKey": "10aehgh:v1"
     },
     {
       "id": "scheduling-public-booking-phone-validation-and-booking-mana",
@@ -1351,7 +2187,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.6,
+        "recency": 13,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1373,150 +2209,43 @@
       ],
       "titleZh": "公开预约的手机号校验与预约管理",
       "quoteZh": "合并自 #335 与 #365：公开预约校验与客户管理。电话校验（#335）：公开预约目前接受任意非空、长度不超过 40 字符的电话（QA 中 abc 也被接受），需约定统一格式……",
-      "translationKey": "4mo5pg"
-    },
-    {
-      "id": "solo-crm-salesforce-bulk-a-remembered-job-salesforce-has-",
-      "nicheId": "solo-crm",
-      "nicheLabel": "CRM complexity for solo founders",
-      "title": "Salesforce Bulk: a remembered job Salesforce has deleted is never recovered",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
+      "translationKey": "4mo5pg",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
       },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-09T09:49:25.000Z",
-      "evidence": [
-        {
-          "title": "Salesforce Bulk: a remembered job Salesforce has deleted is never recovered",
-          "url": "https://github.com/ValueRetail/vrsky/issues/779",
-          "source": "github",
-          "createdAt": "2026-11-09T09:49:25.000Z",
-          "excerpt": "Found in #760 (PR #777). The Salesforce producer remembers a Bulk API job by envelope id so that a retry resumes it rather than submitting it twice. If Salesforce has deleted that job, the state read answers 404. Every a"
-        }
-      ],
-      "titleZh": "Salesforce Bulk：被 Salesforce 删除却仍被记住的任务永远无法恢复",
-      "quoteZh": "发现于 #760（PR #777）。Salesforce 生产者用 envelope id 记住一个 Bulk API 任务，以便重试时续跑而非重复提交。若 Salesforce 已删除该任务，状态读取会返回 404，之后每次……",
-      "translationKey": "1r9pth0"
-    },
-    {
-      "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
-      "score": 21,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 13.2,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-10T14:26:06.000Z",
-      "evidence": [
-        {
-          "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
-          "url": "https://github.com/Feathr/zendesk-mcp/issues/35",
-          "source": "github",
-          "createdAt": "2026-11-10T14:26:06.000Z",
-          "excerpt": "Zendesk can call MCP tools from action flows ([Connecting to MCP servers](https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows)), but only over HTTP w"
-        }
-      ],
-      "titleZh": "汇总：Zendesk 动作流连接的 HTTP + OAuth 支持",
-      "quoteZh": "Zendesk 可以在动作流中调用 MCP 工具，但仅支持基于 HTTP 的连接（官方文档：在动作流中连接 MCP 服务器并使用 MCP 工具）……",
-      "translationKey": "1fpeatb"
-    },
-    {
-      "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 12.2,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-08T15:14:12.000Z",
-      "evidence": [
-        {
-          "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
-          "source": "hn",
-          "createdAt": "2026-11-08T15:14:12.000Z",
-          "excerpt": "I&#x27;m skeptical of how \"super paranoid\" you actually are. This doesn&#x27;t sound super paranoid. For instance: that&#x27;s a ton of surface area. Did you have your AI agent decide which endpoint is destructive or did"
-        }
-      ],
-      "titleZh": "Claude Code 的「不再询问」致 1,122 个公开 GitHub 文件泄露密码",
-      "quoteZh": "我有点怀疑你说的超级谨慎到底有多谨慎，这听起来并不算。比如说：暴露面也太大了吧。是你让 AI 代理自己判断哪个端点具有破坏性，还是……",
-      "translationKey": "toluil"
-    },
-    {
-      "id": "scheduling-running-a-law-firm-on-free-software",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Running a law firm on Free software",
-      "score": 20,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 11.7,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-07T15:47:58.000Z",
-      "evidence": [
-        {
-          "title": "Running a law firm on Free software",
-          "url": "https://decoded.legal/blog/2026/11/running-a-law-firm-on-free-software-2026-edition/",
-          "source": "hn",
-          "createdAt": "2026-11-07T15:47:58.000Z",
-          "excerpt": "This is a fun blog idea, I&#x27;m going to steal it. I&#x27;ve been running a software engineering co-op for the last 5 years using only self hosted and FOSS software (outside of our email server and discord). The bulk o"
-        }
-      ],
-      "titleZh": "用自由软件运营律所",
-      "quoteZh": "这个博客点子挺有意思，我打算借用。过去 5 年我一直用纯自托管和 FOSS 软件运营一家软件工程合作社（邮件服务器和 Discord 除外），大部分……",
-      "translationKey": "18zgbi"
+      "cardKey": "4mo5pg:v1"
     },
     {
       "id": "scheduling-scheduling-1-9-scheduling-store-and-config",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
       "title": "Scheduling (1/9): Scheduling store and config",
-      "score": 20,
+      "score": 21,
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 12.4,
+        "recency": 12.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1538,19 +2267,343 @@
       ],
       "titleZh": "排期模块（1/9）：存储与配置",
       "quoteZh": "属于请求排期史诗（队列、优先级与 KV-cache 亲和性）的一部分。新增 scheduling: 配置块与一个小型 store 模块，供后续条目扩展。配置块按史诗定义，带默认值与……",
-      "translationKey": "p22tqt"
+      "translationKey": "p22tqt",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "p22tqt:v1"
+    },
+    {
+      "id": "solo-crm-salesforce-bulk-a-remembered-job-salesforce-has-",
+      "nicheId": "solo-crm",
+      "nicheLabel": "CRM complexity for solo founders",
+      "title": "Salesforce Bulk: a remembered job Salesforce has deleted is never recovered",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-09T09:49:25.000Z",
+      "evidence": [
+        {
+          "title": "Salesforce Bulk: a remembered job Salesforce has deleted is never recovered",
+          "url": "https://github.com/ValueRetail/vrsky/issues/779",
+          "source": "github",
+          "createdAt": "2026-11-09T09:49:25.000Z",
+          "excerpt": "Found in #760 (PR #777). The Salesforce producer remembers a Bulk API job by envelope id so that a retry resumes it rather than submitting it twice. If Salesforce has deleted that job, the state read answers 404. Every a"
+        }
+      ],
+      "titleZh": "Salesforce Bulk：被 Salesforce 删除却仍被记住的任务永远无法恢复",
+      "quoteZh": "发现于 #760（PR #777）。Salesforce 生产者用 envelope id 记住一个 Bulk API 任务，以便重试时续跑而非重复提交。若 Salesforce 已删除该任务，状态读取会返回 404，之后每次……",
+      "translationKey": "1r9pth0",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "solo",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1r9pth0:v1"
+    },
+    {
+      "id": "support-transcripts-rollup-http-oauth-for-zendesk-action-flow-connec",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
+      "score": 21,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 13.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-10T14:26:06.000Z",
+      "evidence": [
+        {
+          "title": "Rollup: HTTP + OAuth for Zendesk action-flow connections",
+          "url": "https://github.com/Feathr/zendesk-mcp/issues/35",
+          "source": "github",
+          "createdAt": "2026-11-10T14:26:06.000Z",
+          "excerpt": "Zendesk can call MCP tools from action flows ([Connecting to MCP servers](https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows)), but only over HTTP w"
+        }
+      ],
+      "titleZh": "汇总：Zendesk 动作流连接的 HTTP + OAuth 支持",
+      "quoteZh": "Zendesk 可以在动作流中调用 MCP 工具，但仅支持基于 HTTP 的连接（官方文档：在动作流中连接 MCP 服务器并使用 MCP 工具）……",
+      "translationKey": "1fpeatb",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "support",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1fpeatb:v1"
+    },
+    {
+      "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-08T15:14:12.000Z",
+      "evidence": [
+        {
+          "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+          "source": "hn",
+          "createdAt": "2026-11-08T15:14:12.000Z",
+          "excerpt": "I&#x27;m skeptical of how \"super paranoid\" you actually are. This doesn&#x27;t sound super paranoid. For instance: that&#x27;s a ton of surface area. Did you have your AI agent decide which endpoint is destructive or did"
+        }
+      ],
+      "titleZh": "Claude Code 的「不再询问」致 1,122 个公开 GitHub 文件泄露密码",
+      "quoteZh": "我有点怀疑你说的超级谨慎到底有多谨慎，这听起来并不算。比如说：暴露面也太大了吧。是你让 AI 代理自己判断哪个端点具有破坏性，还是……",
+      "translationKey": "toluil",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 3,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 20,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "toluil:v1"
+    },
+    {
+      "id": "invoice-export-programme-xero-operation-row-claim-fencing",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Programme: Xero operation-row claim fencing",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 5.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-10-25T22:18:56.000Z",
+      "evidence": [
+        {
+          "title": "Programme: Xero operation-row claim fencing",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/4400",
+          "source": "github",
+          "createdAt": "2026-10-25T22:18:56.000Z",
+          "excerpt": "Part of programme #4898. Its place in the working order is listed there. > **DECIDED 11 Nov 2026 — Released: every formerly parked Xero and payment bug may be fixed now, ordered by harm, ahead of the ledger steps; this r"
+        }
+      ],
+      "titleZh": "项目：Xero 操作行认领隔离",
+      "quoteZh": "隶属于项目 #4898，工作顺序见该处。2026-11-11 已决策并发布：此前搁置的 Xero 与支付类缺陷现在均可修复，按危害程度排序，优先于总账步骤……",
+      "translationKey": "18tdgf2",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 4,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 28,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "18tdgf2:v1"
+    },
+    {
+      "id": "scheduling-running-a-law-firm-on-free-software",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Running a law firm on Free software",
+      "score": 20,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 0,
+        "recency": 12,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "hn"
+      ],
+      "signals": [],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-07T15:47:58.000Z",
+      "evidence": [
+        {
+          "title": "Running a law firm on Free software",
+          "url": "https://decoded.legal/blog/2026/11/running-a-law-firm-on-free-software-2026-edition/",
+          "source": "hn",
+          "createdAt": "2026-11-07T15:47:58.000Z",
+          "excerpt": "This is a fun blog idea, I&#x27;m going to steal it. I&#x27;ve been running a software engineering co-op for the last 5 years using only self hosted and FOSS software (outside of our email server and discord). The bulk o"
+        }
+      ],
+      "titleZh": "用自由软件运营律所",
+      "quoteZh": "这个博客点子挺有意思，我打算借用。过去 5 年我一直用纯自托管和 FOSS 软件运营一家软件工程合作社（邮件服务器和 Discord 除外），大部分……",
+      "translationKey": "18zgbi",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 1,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 18,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "18zgbi:v1"
     }
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-14T06:18:50.681Z",
+    "at": "2026-11-13T15:20:21.797Z",
     "status": "ok",
     "skippedReason": null,
     "errors": [],
     "total": 41,
-    "cached": 36,
-    "translated": 5,
+    "cached": 37,
+    "translated": 4,
     "failed": 0,
     "requests": 1
+  },
+  "curation": {
+    "version": 1,
+    "rejected": 0,
+    "pinned": 0,
+    "cards": 41,
+    "activeNiches": 4
   }
 }

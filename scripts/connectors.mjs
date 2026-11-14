@@ -11,6 +11,28 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { normalizeText } from "./ingest-lib.mjs";
 
+/**
+ * 纯函数：把 feeds 配置归一化成「启用的 URL 列表」。
+ * 兼容历史字符串数组（默认视作启用）与新的结构化对象数组
+ * （{ url, label, enabled }，enabled:false 的源默认关，不发起请求）。
+ * 非法项、缺 url、非 http(s) 一律跳过，保证配置写错也不会打挂整轮采集。
+ */
+export function resolveFeeds(feeds) {
+  if (!Array.isArray(feeds)) return [];
+  const out = [];
+  for (const f of feeds) {
+    if (typeof f === "string") {
+      if (/^https?:\/\//.test(f) && !out.includes(f)) out.push(f);
+      continue;
+    }
+    if (!f || typeof f !== "object") continue;
+    if (f.enabled === false) continue;
+    const url = String(f.url || "");
+    if (/^https?:\/\//.test(url) && !out.includes(url)) out.push(url);
+  }
+  return out;
+}
+
 const DEFAULT_TIMEOUT_MS = 15_000;
 // GitHub Search API 认证限额 30 次/分、匿名 10 次/分；且门禁+采集会在同一
 // workflow 连续跑 3 轮全量召回。默认把每个 GitHub 请求间隔拉到 2.3s
@@ -186,7 +208,7 @@ export function createCollector({
 
   async function rssFeeds({ query, limit }) {
     const out = [];
-    for (const feedUrl of cfg.feeds || []) {
+    for (const feedUrl of resolveFeeds(cfg.feeds)) {
       try {
         if (!feedCache.has(feedUrl)) {
           feedCache.set(feedUrl, await getText(feedUrl).catch((e) => {
@@ -308,10 +330,15 @@ export function createCollector({
    * 与 collectNiche 的串行批量语义不同——用户在线等待，最坏耗时必须等于
    * 单个请求超时，而不是各平台超时之和。排除 rss/firstParty（前者是定时订阅、
    * 后者是本地导入文件，都不属于「按方向现场搜公开讨论」）。
+   *
+   * @param {string[]|null} sources 可选的源白名单。准入闸门 probe 传 ["hn","so"]
+   *   即可只跑公开无鉴权的两个源，完全避开 GitHub Search 的限流窗口；不传时
+   *   保持全部合规源（现有 /api/scan 行为不变）。
    */
-  async function collectQuery(query, limit = 12) {
+  async function collectQuery(query, limit = 12, sources = null) {
     const connectors = CONNECTORS.filter(
-      (c) => c.enabled && c.id !== "rss" && c.id !== "firstParty",
+      (c) => c.enabled && c.id !== "rss" && c.id !== "firstParty" &&
+        (!Array.isArray(sources) || sources.includes(c.id)),
     );
     const settled = await Promise.allSettled(
       connectors.map((c) => c.run({ query, limit, method: "relevance" })),

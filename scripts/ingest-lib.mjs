@@ -536,3 +536,80 @@ export function inheritTranslations(prevItems = [], nextItems = []) {
     return out;
   });
 }
+
+/* --------------------------- 人工策展层（Curate） --------------------------- */
+
+/**
+ * 排除词命中判定：纯英文/数字词按词边界匹配（避免 "app" 命中 "appointment"、
+ * "movie" 命中 "remove" 这类子串误杀），含中文的词直接按包含匹配。
+ */
+function curationHit(haystack, term) {
+  const t = String(term).toLowerCase().trim();
+  if (!t) return false;
+  if (/^[a-z0-9][a-z0-9 ]*$/.test(t)) {
+    const escaped = t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return new RegExp(`(?:^|[^a-z0-9])${escaped}(?:$|[^a-z0-9])`, "i").test(haystack);
+  }
+  return haystack.includes(t);
+}
+
+/**
+ * 竞品的 Curate 层在本项目里退化成「可版本控制的规则 + 留痕」，不引入后台。
+ *
+ * 执行顺序固定为 excludeTerms → rejectIds → minCorroboration → pinIds：
+ * 前一步命中即驳回（附具体理由，写入 rejected.json 供人工复核），pin 只作用于
+ * 通过全部闸门的条目。任一清单为空时该步不改变行为，因此空规则 = 原样返回。
+ *
+ * @param {object[]} items buildOpportunities 的产物
+ * @param {object} rules curation.json
+ * @returns {{items:object[], rejected:object[]}}
+ */
+export function applyCuration(items = [], rules = {}) {
+  const list = Array.isArray(items) ? items : [];
+  const excludeTerms = Array.isArray(rules.excludeTerms) ? rules.excludeTerms.map(String) : [];
+  const rejectIds = new Set((Array.isArray(rules.rejectIds) ? rules.rejectIds : []).map(String));
+  const pinIds = new Set((Array.isArray(rules.pinIds) ? rules.pinIds : []).map(String));
+  const minCorroboration = Math.max(0, Number(rules.minCorroboration) || 0);
+  const pinBoost = Number(rules.pinBoost) || 0;
+
+  const kept = [];
+  const rejected = [];
+  let pinnedAny = false;
+  for (const it of list) {
+    const id = String(it?.id ?? "");
+    const hay = `${it?.title ?? ""} ${quoteOf(it)}`.toLowerCase();
+    const reasons = [];
+
+    // 1. 排除词：影视 / 名人 / 币价 / 促销 / 招聘等昙花一现的 fad
+    const hit = excludeTerms.find((t) => curationHit(hay, t));
+    if (hit) reasons.push(`excludeTerm:${hit}`);
+    // 2. 人工驳回（带 id 精确匹配）
+    if (rejectIds.has(id)) reasons.push(`rejectId:${id}`);
+    // 3. 跨源印证下限：单源孤证在策展层被拒，避免一条帖子撑起一个「趋势」
+    if (!reasons.length) {
+      const sources = new Set(Array.isArray(it?.sources) ? it.sources.map(String) : []);
+      if (sources.size < minCorroboration) {
+        reasons.push(`minCorroboration:${sources.size}<${minCorroboration}`);
+      }
+    }
+    if (reasons.length) {
+      rejected.push({ id, title: String(it?.title ?? "").slice(0, 120), reasons });
+      continue;
+    }
+    // 4. 人工置顶：加分后重排，且不覆盖已有字段（pinned 只作标记）
+    let out = it;
+    if (pinIds.has(id)) {
+      out = { ...it, pinned: true, score: clamp((Number(it?.score) || 0) + pinBoost, 0, 100) };
+      pinnedAny = true;
+    }
+    kept.push(out);
+  }
+  // 只有真的发生过 pin 才重排（pin 改变了分数）；空规则或规则未命中时
+  // 完全保持上游 buildOpportunities 的既定顺序，做到「空清单不改行为」。
+  if (pinnedAny) {
+    kept.sort(
+      (a, b) => (Number(b?.score) || 0) - (Number(a?.score) || 0) || String(a?.id).localeCompare(String(b?.id)),
+    );
+  }
+  return { items: kept, rejected };
+}

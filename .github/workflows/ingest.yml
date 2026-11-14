@@ -34,8 +34,8 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Unit-test ingest, translation and live scan
-        run: node --test scripts/ingest.test.mjs scripts/translate.test.mjs scripts/live-scan.test.mjs scripts/promote-niches.test.mjs
+      - name: Unit-test the full pipeline
+        run: node --test scripts/*.test.mjs
 
       # B2 门禁：用同一份 connector 跑「相关度 vs 时间」两种召回并写出 verdict。
       # 若相关度口径不达标，verdict=fallback，采集脚本会自动保留旧的时间排序，
@@ -81,11 +81,23 @@ jobs:
           IDEARADAR_TRANSLATE_MODEL: hy-mt2-plus
         run: node scripts/translate.mjs
 
+      # P1 外部搜索热度：Google Trends 每日热榜（公开 RSS），与站内多快照趋势
+      # 分口径展示。抓取失败/端点改版会诚实写 status=unavailable，绝不阻塞采集。
+      - name: Fetch external search interest
+        run: node scripts/external-heat.mjs
+
       # 第 3 步「沉淀」：把用户按需扫描过的高频方向提升为定时采集赛道，
       # 下一轮采集就会覆盖这些方向，固定索引自然变宽。脚本幂等，无新增时不改文件。
-      # 注意：只有文件系统可写的环境（本地 / 自托管 / Actions 里已提交上来的记录）
-      # 才有 query-scans.json；Vercel 函数不可写，正式部署需外部存储才能闭环。
+      # P0-1 召回准入闸门：方向必须有 /api/scan 落盘的高分候选证据，或用
+      # createCollector 轻量入口（只跑 HN+StackExchange，避开 GitHub 限流）现场
+      # 试跑达标，才允许提升；零召回方向 fail-closed 不提升，杜绝空转赛道。
+      # 同时回收本轮零产出的 auto 赛道。IDEARADAR_PROMOTE_PROBE=0 可关闭 probe
+      # （只认落盘证据）；正式部署配 IDEARADAR_STORE_URL 走远端存储闭环。
       - name: Promote frequent live-scan directions
+        env:
+          IDEARADAR_PROMOTE_PROBE: ${{ vars.IDEARADAR_PROMOTE_PROBE || '1' }}
+          IDEARADAR_STORE_URL: ${{ secrets.IDEARADAR_STORE_URL }}
+          IDEARADAR_STORE_TOKEN: ${{ secrets.IDEARADAR_STORE_TOKEN }}
         run: node scripts/promote-niches.mjs
 
       - name: Upload structured output
@@ -100,6 +112,9 @@ jobs:
             public/history.json
             data/recall-eval.json
             public/recall-eval.json
+            data/rejected.json
+            data/external-heat.json
+            public/external-heat.json
           retention-days: 14
 
       - name: Commit refreshed data
@@ -107,7 +122,11 @@ jobs:
           git config user.name "rantradar-bot"
           git config user.email "bot@rantradar.app"
           git add data/opportunities.json public/opportunities.json data/history.json public/history.json data/recall-eval.json public/recall-eval.json scripts/ingest.config.json
-          if [ -f data/query-scans.json ]; then git add data/query-scans.json; fi
+          # 新增产物都是「有则提交」：脚本首次运行或诚实降级时文件仍会生成，
+          # 但用 -f 兜底，任何单文件缺失都不影响整批提交。
+          for f in data/query-scans.json data/scan-candidates.json data/rejected.json data/external-heat.json public/external-heat.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else

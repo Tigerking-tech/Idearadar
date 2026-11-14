@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "ingest": "node scripts/ingest.mjs",
-    "test:ingest": "node --test scripts/ingest.test.mjs scripts/translate.test.mjs scripts/live-scan.test.mjs scripts/promote-niches.test.mjs"
+    "test:ingest": "node --test scripts/*.test.mjs",
+    "ingest:heat": "node scripts/external-heat.mjs",
+    "ingest:promote": "node scripts/promote-niches.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.3",

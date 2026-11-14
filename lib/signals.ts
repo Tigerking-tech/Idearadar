@@ -64,6 +64,34 @@ function categoryFor(rawNicheId: string | undefined, fallback: string, locale: "
   return fallback;
 }
 
+/**
+ * P0-3 结构化机会卡：与 scripts/cards.mjs 的 buildCard 输出一一对应。
+ * dimensions 前 5 维是 0–10 数值，后 3 维为 null（未评估，绝不伪造）。
+ * audience / validation / riskFlags 都是枚举 code，由 i18n 本地化，语言无关。
+ */
+export type OpportunityCard = {
+  version: number;
+  dimensions: {
+    demand: number; urgency: number; feasibility: number; monetization: number;
+    confidence: number; competition: number | null; marketSize: number | null; retention: number | null;
+  };
+  evaluatedDimensions: number;
+  totalDimensions: number;
+  total: number;
+  audience: string;
+  validation: string;
+  riskFlags: string[];
+  insight?: { zh?: string; en?: string };
+};
+
+/** P1 外部搜索热度：与内部 trend 分口径，独立标注。 */
+export type ExternalHeat = {
+  status: "ok" | "unavailable";
+  matched: boolean;
+  term: string | null;
+  traffic: number | null;
+};
+
 export type Signal = {
   id: string;
   title: string;
@@ -86,6 +114,12 @@ export type Signal = {
   quoteOriginal: string;
   /** 当前展示是否为 AI 译文（决定是否显示翻译标注与切换按钮） */
   translated: boolean;
+  /** 结构化机会卡（仅真实采集数据带；演示/实时检索结果无卡） */
+  card?: OpportunityCard | null;
+  /** 外部搜索热度（仅真实采集数据带，按 niche 关联） */
+  externalHeat?: ExternalHeat | null;
+  /** 原始 niche id，用于关联外部热度等按赛道组织的数据 */
+  nicheId?: string;
 };
 
 /** 只有真正含汉字的字符串才算有效译文，避免把英文/空串当译文缓存下来。 */
@@ -248,6 +282,17 @@ type RawOpportunity = {
   titleZh?: string;
   quoteZh?: string;
   translationKey?: string;
+  /** P0-3 采集端 attachCards 写入的结构化机会卡 */
+  opportunityCard?: OpportunityCard;
+};
+
+/** 外部热度产物（scripts/external-heat.mjs 写），按 niche id 索引。 */
+export type ExternalHeatDoc = {
+  schemaVersion?: number;
+  generatedAt?: string;
+  source?: string;
+  status?: "ok" | "unavailable";
+  byNiche?: Record<string, { matched: boolean; term: string | null; traffic: number | null }>;
 };
 
 function norm(n: number | undefined, max = 20): number {
@@ -255,7 +300,7 @@ function norm(n: number | undefined, max = 20): number {
   return Math.max(0, Math.min(1, x / max));
 }
 
-function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, locale: "en" | "zh"): Signal | null {
+function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, locale: "en" | "zh", heatDoc: ExternalHeatDoc | null = null): Signal | null {
   const id = raw.id ?? raw.title ?? "";
   if (!id || typeof raw.title !== "string" || raw.title.length < 6) return null;
   const b = raw.breakdown ?? {};
@@ -288,6 +333,13 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
     : trendFromBreakdown(score, b);
   // sparkline 优先画真实历史序列，无历史时按趋势形状生成（保证曲线语义与芯片一致）。
   const spark = (raw.nicheId ? sparkFromHistory(raw.nicheId, history) : null) ?? sparkForTrend(id, trend);
+  // 外部热度：外部产物不可用时不挂载（前端不显示），可用时按赛道命中情况标注。
+  const nicheHeat = heatDoc && heatDoc.status === "ok" && raw.nicheId
+    ? heatDoc.byNiche?.[raw.nicheId]
+    : undefined;
+  const externalHeat: ExternalHeat | null = nicheHeat
+    ? { status: "ok", matched: Boolean(nicheHeat.matched), term: nicheHeat.term ?? null, traffic: nicheHeat.traffic ?? null }
+    : null;
   return {
     id,
     title: useZh && titleZh ? titleZh : titleEn,
@@ -302,17 +354,20 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
     quoteOriginal: quoteEn,
     gap,
     translated: useZh,
+    card: raw.opportunityCard ?? null,
+    externalHeat,
+    nicheId: raw.nicheId,
   };
 }
 
 /** 健壮性：任何解析异常都返回 null，让调用方安全回退到演示数据。 */
-export function tryParseLiveSignals(json: unknown, history: SignalHistory | null = null, locale: "en" | "zh" = "en"): Signal[] | null {
+export function tryParseLiveSignals(json: unknown, history: SignalHistory | null = null, locale: "en" | "zh" = "en", heatDoc: ExternalHeatDoc | null = null): Signal[] | null {
   try {
     if (!json || typeof json !== "object") return null;
     const items = (json as { items?: unknown }).items;
     if (!Array.isArray(items) || items.length === 0) return null;
     const mapped = (items as RawOpportunity[])
-      .map((raw) => mapOpportunity(raw, history, locale))
+      .map((raw) => mapOpportunity(raw, history, locale, heatDoc))
       .filter((x): x is Signal => x !== null)
       .filter((s) => s.score >= 20 && s.mentions >= 1);
     return mapped.length >= 3 ? mapped : null;
@@ -364,7 +419,15 @@ export function resolveSignals(locale: "en" | "zh"): ResolvedFeed {
         hist = null; // 历史文件缺失/损坏时安全回退到单快照启发式
       }
       history = hist;
-      live = tryParseLiveSignals(raw, hist, locale);
+      // 外部热度是可选增强：文件缺失/损坏时传 null，前端不显示，绝不回退到假数据。
+      let heatDoc: ExternalHeatDoc | null = null;
+      try {
+        const parsedHeat = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "external-heat.json"), "utf8"));
+        if (parsedHeat && parsedHeat.status === "ok" && parsedHeat.byNiche) heatDoc = parsedHeat as ExternalHeatDoc;
+      } catch {
+        heatDoc = null;
+      }
+      live = tryParseLiveSignals(raw, hist, locale, heatDoc);
       generatedAt = raw?.generatedAt ?? null;
     } catch {
       live = null;

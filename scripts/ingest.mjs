@@ -12,7 +12,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { aggregateByNiche, appendHistory, buildOpportunities, healthCheck, inheritTranslations } from "./ingest-lib.mjs";
+import { aggregateByNiche, appendHistory, buildOpportunities, healthCheck, inheritTranslations, applyCuration } from "./ingest-lib.mjs";
+import { attachCards } from "./cards.mjs";
 import { createCollector } from "./connectors.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -21,6 +22,18 @@ const TIMEOUT_MS = 15_000;
 
 const cfg = JSON.parse(await fs.readFile(CONFIG_PATH, "utf8"));
 const now = new Date();
+
+/**
+ * P0-2 人工策展规则（可版本控制的文件，无需后台）。
+ * 缺文件 / JSON 损坏时退回空规则：applyCuration 对空规则原样返回，采集不中断。
+ */
+const CURATION_PATH = path.join(ROOT, "scripts", "curation.json");
+let curationRules = {};
+try {
+  curationRules = JSON.parse(await fs.readFile(CURATION_PATH, "utf8"));
+} catch (err) {
+  console.warn(`[ingest] 策展规则不可用，按空规则继续：${err.message}`);
+}
 
 /**
  * 召回口径（B2 门禁）：
@@ -49,6 +62,8 @@ const sourceStats = [];
 let totalRaw = 0;
 let totalComplaints = 0;
 const opportunities = [];
+/** 被策展层驳回的条目（带赛道与理由），写入 rejected.json 供每周人工复核。 */
+const rejectedItems = [];
 
 const nicheMetrics = [];
 
@@ -68,10 +83,18 @@ for (const niche of cfg.niches) {
     now,
     topicScope: recallCfg.topicScope || "any",
   });
+  // P0-2 人工策展：排除 fad / 人工驳回 / 单源孤证 / 人工置顶，串在评分之后。
+  const curated = applyCuration(built.items, curationRules);
   totalRaw += built.stats.raw;
   totalComplaints += built.stats.complaintRecords;
-  opportunities.push(...built.items);
-  nicheMetrics.push({ niche: niche.id, method: recallMethod, ...built.metrics });
+  opportunities.push(...curated.items);
+  for (const r of curated.rejected) rejectedItems.push({ ...r, niche: niche.id });
+
+  // 健康闸门统计排除空转赛道：itemCount=0 的赛道不进 nicheMetrics，
+  // 避免零产出 auto 赛道把全局相关率稀释成 0（P0-1 的数据层配套）。
+  if (curated.items.length > 0) {
+    nicheMetrics.push({ niche: niche.id, method: recallMethod, ...built.metrics, itemCount: curated.items.length });
+  }
 }
 
 opportunities.sort((a, b) => b.score - a.score || b.mentions - a.mentions || a.id.localeCompare(b.id));
@@ -88,13 +111,23 @@ try {
 } catch {
   prevItems = []; // 首次运行 / 产物损坏时按全新翻译处理
 }
-const items = inheritTranslations(prevItems, opportunities.slice(0, cfg.maxItems));
+const inherited = inheritTranslations(prevItems, opportunities.slice(0, cfg.maxItems));
+// P0-3 结构化机会卡：确定性纯函数、零新增网络调用，翻译失败也不影响卡片完整性。
+const items = attachCards(inherited, now);
 
 const output = {
   schemaVersion: 1,
   generatedAt: now.toISOString(),
   lookbackDays: cfg.lookbackDays,
   minScore: cfg.minScore,
+  // P0-2 策展摘要：规则版本 + 本轮驳回数，便于复核「为什么某条没出现」。
+  curation: {
+    version: curationRules.version ?? 1,
+    rejected: rejectedItems.length,
+    pinned: items.filter((it) => it.pinned).length,
+    cards: items.filter((it) => it.opportunityCard).length,
+    activeNiches: nicheMetrics.length,
+  },
   // B2：召回口径与逐赛道相关度指标，供离线评估、CI 与人工复核追溯。
   recall: {
     method: recallMethod,
@@ -137,6 +170,17 @@ const json = `${JSON.stringify(output, null, 2)}\n`;
 await fs.writeFile(path.join(ROOT, "data", "opportunities.json"), json);
 await fs.writeFile(path.join(ROOT, "public", "opportunities.json"), json);
 
+// P0-2 被驳回条目单独留痕（不进公开产物，避免把 fad 类标题暴露给前端）。
+const rejectedDoc = {
+  schemaVersion: 1,
+  generatedAt: now.toISOString(),
+  curationVersion: curationRules.version ?? 1,
+  count: rejectedItems.length,
+  items: rejectedItems.slice(0, 300),
+};
+const rejectedJson = `${JSON.stringify(rejectedDoc, null, 2)}\n`;
+await fs.writeFile(path.join(ROOT, "data", "rejected.json"), rejectedJson);
+
 // 趋势追踪：把本次运行的「按 niche 聚合快照」追加进历史，供发现流计算上升/平稳/过峰。
 const historyPath = path.join(ROOT, "data", "history.json");
 const publicHistoryPath = path.join(ROOT, "public", "history.json");
@@ -170,6 +214,7 @@ if (process.env.INGEST_WEBHOOK_URL) {
 console.log(`[ingest] connectors: ${collector.connectorIds.join(", ")}`);
 console.log(`[ingest] recall: ${recallMethod} (verdict=${recallVerdict?.verdict ?? "unevaluated"})`);
 console.log(`[ingest] raw=${totalRaw} complaints=${totalComplaints} opportunities=${items.length}`);
+console.log(`[ingest] curation: rejected=${rejectedItems.length} pinned=${output.curation.pinned} cards=${output.curation.cards} activeNiches=${output.curation.activeNiches}`);
 console.log(`[ingest] errors=${errors.length}`);
 for (const e of errors.slice(0, 8)) console.log(`  - ${e.source}: ${e.message}`);
 

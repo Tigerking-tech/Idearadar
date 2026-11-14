@@ -35,6 +35,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { quoteOf, translationKey } from "./ingest-lib.mjs";
+import { mergeInsight } from "./cards.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "data", "opportunities.json");
@@ -296,6 +297,105 @@ export async function translateItems(items = [], opts = {}) {
   return { items: out, stats };
 }
 
+/* --------------------- 可选：LLM 一句话洞察（默认关闭） --------------------- */
+
+const INSIGHT_SYSTEM = `You write ONE short, evidence-bound observation for an "opportunity card" on IdeaRadar.
+You are given pain-point records that already carry a title, evidence score and signal labels.
+Rules:
+- Output ONLY a JSON object {"items":[{"id":"...","zh":"...","en":"..."}]}, one element per input, same id.
+- "zh" is one Simplified Chinese sentence (<=40 chars); "en" is one English sentence (<=90 chars).
+- Base it STRICTLY on the supplied title + signals. Never invent market size, competitors, revenue, users, numbers or predictions.
+- If there is not enough to say, return an empty string for both fields. Prefer saying nothing over speculating.
+- No markdown, no commentary, no extra keys.`;
+
+/**
+ * 可选增强：给机会卡补一句中英洞察。默认关闭（IDEARADAR_CARD_INSIGHT=1 才启用），
+ * 不改动主翻译协议；复用同一 endpoint/model/json_object，用 cardInsightKey 增量缓存。
+ * 任何失败都静默跳过，卡片骨架（确定性生成）始终完整。
+ */
+export async function translateCardInsights(items = [], opts = {}) {
+  const enabled = opts.enabled ?? (process.env.IDEARADAR_CARD_INSIGHT === "1");
+  const token = opts.token ?? process.env.IDEARADAR_TRANSLATE_TOKEN ?? "";
+  const stats = { enabled, considered: 0, done: 0, skipped: 0, requests: 0, errors: [] };
+  if (!enabled || !token) {
+    stats.skipped = items.filter((x) => x?.opportunityCard).length;
+    return { items, stats };
+  }
+  const ctx = {
+    endpoint: opts.endpoint || process.env.IDEARADAR_TRANSLATE_ENDPOINT || DEFAULT_ENDPOINT,
+    model: opts.model || process.env.IDEARADAR_TRANSLATE_MODEL || DEFAULT_MODEL,
+    token,
+    fetchImpl: opts.fetchImpl || fetch,
+    jsonMode: opts.jsonMode ?? (process.env.IDEARADAR_TRANSLATE_JSON_MODE !== "0"),
+    batchSize: Math.max(1, Number(opts.batchSize || DEFAULT_BATCH_SIZE)),
+  };
+  const out = items.map((x) => ({ ...x }));
+  const pending = [];
+  out.forEach((it, i) => {
+    if (!it.opportunityCard) return;
+    stats.considered += 1;
+    const key = `${it.cardKey || translationKey(it)}`;
+    if (it.opportunityCard.insight && it.cardInsightKey === key) {
+      stats.skipped += 1;
+      return;
+    }
+    pending.push(i);
+  });
+  for (let s = 0; s < pending.length; s += ctx.batchSize) {
+    const idxs = pending.slice(s, s + ctx.batchSize);
+    const batch = idxs.map((i) => ({
+      id: out[i].id,
+      title: out[i].title,
+      score: out[i].score,
+      signals: Array.isArray(out[i].signals) ? out[i].signals.slice(0, 6) : [],
+    }));
+    const body = {
+      model: ctx.model,
+      temperature: 0.2,
+      max_tokens: 1500,
+      ...(ctx.jsonMode ? { response_format: { type: "json_object" } } : {}),
+      messages: [
+        { role: "system", content: INSIGHT_SYSTEM },
+        { role: "user", content: JSON.stringify({ items: batch }) },
+      ],
+    };
+    try {
+      const post = (payload) => ctx.fetchImpl(ctx.endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", Accept: "application/json",
+          Authorization: `Bearer ${ctx.token}`,
+        },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(60_000),
+      });
+      let res = await post(body);
+      if (ctx.jsonMode && res && res.ok === false && res.status === 400) {
+        const fb = { ...body };
+        delete fb.response_format;
+        res = await post(fb);
+      }
+      if (!res || !res.ok) throw new Error(`HTTP ${res?.status ?? "no-response"}`);
+      const data = await res.json();
+      const content = data?.choices?.[0]?.message?.content;
+      const parsed = parseModelJson(content);
+      const byId = new Map(parsed.filter((x) => x && x.id != null).map((x) => [String(x.id), x]));
+      for (const i of idxs) {
+        const r = byId.get(String(out[i].id));
+        const zh = typeof r?.zh === "string" ? r.zh.trim() : "";
+        const en = typeof r?.en === "string" ? r.en.trim() : "";
+        out[i].opportunityCard = mergeInsight(out[i].opportunityCard, { zh, en });
+        out[i].cardInsightKey = `${out[i].cardKey || translationKey(out[i])}`;
+        stats.done += 1;
+      }
+      stats.requests += 1;
+    } catch (err) {
+      stats.errors.push(String(err?.message || err));
+    }
+  }
+  return { items: out, stats };
+}
+
 async function main() {
   let raw;
   try {
@@ -304,7 +404,9 @@ async function main() {
     console.warn(`[translate] 无法读取采集产物，跳过：${err.message}`);
     return;
   }
-  const { items, stats } = await translateItems(Array.isArray(raw.items) ? raw.items : []);
+  const { items: translated, stats } = await translateItems(Array.isArray(raw.items) ? raw.items : []);
+  const insight = await translateCardInsights(translated);
+  const items = insight.items;
   if (stats.skippedReason) console.warn(`[translate] 跳过翻译：${stats.skippedReason}（保留英文原文，不影响采集）`);
   for (const e of stats.errors.slice(0, 5)) console.warn(`[translate] 批次失败（保留英文）：${e}`);
   for (const e of stats.errors.slice(5)) console.warn(`[translate]   ${e}`);
@@ -324,6 +426,13 @@ async function main() {
       failed: stats.failed,
       requests: stats.requests,
     },
+    cardInsights: {
+      enabled: insight.stats.enabled,
+      considered: insight.stats.considered,
+      done: insight.stats.done,
+      skipped: insight.stats.skipped,
+      requests: insight.stats.requests,
+    },
   };
   const json = `${JSON.stringify(output, null, 2)}\n`;
   await fs.writeFile(DATA_PATH, json);
@@ -332,6 +441,10 @@ async function main() {
     `[translate] total=${stats.total} cached=${stats.cached} pending=${stats.pending} translated=${stats.translated} failed=${stats.failed} requests=${stats.requests}` +
       (stats.skippedReason ? ` | 端点级跳过：${stats.skippedReason}` : ""),
   );
+  if (insight.stats.enabled) {
+    console.log(`[translate] cardInsights: considered=${insight.stats.considered} done=${insight.stats.done} skipped=${insight.stats.skipped} requests=${insight.stats.requests}`);
+    for (const e of insight.stats.errors.slice(0, 3)) console.warn(`[translate] 洞察批次失败（卡片骨架仍完整）：${e}`);
+  }
 }
 
 // 直接运行时才执行；被单测 import 时保持静默。

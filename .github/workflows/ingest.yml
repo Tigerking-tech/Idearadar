@@ -162,5 +162,12 @@ jobs:
             echo "No data changes to commit."
           else
             git commit -m "chore(data): refresh opportunity index [skip ci]"
-            git push
+            # 代码推送可能与定时采集并发（remote contains work you do not have locally）。
+            # 首次被拒时重放到最新 main 再推一次；冲突以本轮刚采集的数据为准。
+            if ! git push origin HEAD:main; then
+              echo "Push rejected (concurrent update). Rebasing onto latest main and retrying."
+              git fetch origin main
+              git rebase -X theirs origin/main
+              git push origin HEAD:main
+            fi
           fi

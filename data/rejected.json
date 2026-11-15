@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T06:26:08.587Z",
+  "generatedAt": "2026-11-15T18:51:35.311Z",
   "curationVersion": 2,
   "count": 24,
   "items": [
@@ -100,7 +100,7 @@
       "reasons": [
         "llm:status-news"
       ],
-      "note": "标题为微软365服务性能下降的官方公告"
+      "note": "标题为微软365服务性能下降官方公告"
     },
     {
       "id": "pet-and-home-care-can-i-consider-pets-as-evidence-of-family-member",
@@ -184,6 +184,15 @@
       "note": "内容为宠物健康问题"
     },
     {
+      "id": "solo-crm-running-a-law-firm-on-free-software",
+      "title": "Running a law firm on Free software",
+      "layer": "denoise",
+      "reasons": [
+        "llm:status-news"
+      ],
+      "note": "标题为用免费软件运营律师事务所的感慨"
+    },
+    {
       "id": "local-service-booking-making-up-for-having-accidentally-left-work-earl",
       "title": "Making up for having accidentally left work early",
       "layer": "denoise",
@@ -209,15 +218,6 @@
         "llm:status-news"
       ],
       "note": "标题提及Microsoft Access 2007服务相关问题"
-    },
-    {
-      "id": "solo-crm-contact-management-system",
-      "title": "contact management system",
-      "layer": "denoise",
-      "reasons": [
-        "llm:issue-template"
-      ],
-      "note": "内容为代码骨架，属于空模板。"
     }
   ],
   "curationCount": 1,

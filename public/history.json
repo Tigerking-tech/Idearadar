@@ -448,6 +448,52 @@
         }
       },
       "methodVersion": 2
+    },
+    {
+      "t": "2026-11-15T18:50:14.077Z",
+      "byNiche": {
+        "scheduling": {
+          "score": 30,
+          "mentions": 10,
+          "items": 4
+        },
+        "everyday-money": {
+          "score": 28,
+          "mentions": 9,
+          "items": 9
+        },
+        "dev-workflow": {
+          "score": 25,
+          "mentions": 8,
+          "items": 6
+        },
+        "invoice-export": {
+          "score": 26,
+          "mentions": 6,
+          "items": 6
+        },
+        "personal-admin": {
+          "score": 26,
+          "mentions": 15,
+          "items": 15
+        },
+        "local-service-booking": {
+          "score": 26,
+          "mentions": 12,
+          "items": 12
+        },
+        "solo-crm": {
+          "score": 27,
+          "mentions": 3,
+          "items": 3
+        },
+        "pet-and-home-care": {
+          "score": 25,
+          "mentions": 7,
+          "items": 5
+        }
+      },
+      "methodVersion": 2
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-15T06:26:08.587Z",
+  "updatedAt": "2026-11-15T18:51:35.311Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 93,
+  "totalVerdicts": 101,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -747,6 +747,70 @@
       "id": "invoice-export-invoice-search-share-link-notes-and-csv-export",
       "title": "Invoice search, share link, notes and CSV export",
       "at": "2026-11-15T06:26:06.228Z"
+    },
+    "lo182m": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及显示div或表格出错",
+      "id": "invoice-export-expense-report-error-displaying-a-div-or-table",
+      "title": "Expense report : Error displaying a div or table",
+      "at": "2026-11-15T18:51:30.400Z"
+    },
+    "gega1c": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题为微软365服务性能下降官方公告",
+      "id": "solo-crm-service-degradation-on-microsoft-365",
+      "title": "Service degradation on Microsoft 365",
+      "at": "2026-11-15T18:51:30.400Z"
+    },
+    "ogo4vp": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及预约列表因信用状态异常出错",
+      "id": "scheduling-consultation-appointment-creditstate-reflects-th",
+      "title": "Consultation: appointment creditState reflects the reused credit, breaking appointment lists",
+      "at": "2026-11-15T18:51:30.400Z"
+    },
+    "1d49dsu": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题为用免费软件运营律师事务所的感慨",
+      "id": "solo-crm-running-a-law-firm-on-free-software",
+      "title": "Running a law firm on Free software",
+      "at": "2026-11-15T18:51:30.400Z"
+    },
+    "1lpdof4": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及CI/CD流水线搭建存在手动干预问题",
+      "id": "dev-workflow-ci-cd-pipeline-setup",
+      "title": "CI/CD Pipeline Setup",
+      "at": "2026-11-15T18:51:30.400Z"
+    },
+    "1mvesxd": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为开发相关问题咨询，非软件痛点。",
+      "id": "dev-workflow-how-can-i-set-a-static-lock-screen-wallpaper-wit",
+      "title": "How can I set a static lock screen wallpaper without resetting the OEM lock screen style (clock…",
+      "at": "2026-11-15T18:51:30.400Z"
+    },
+    "1w5f14o": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及在1122个公开文件中泄露密码。",
+      "id": "invoice-export-claude-code-s-don-t-ask-again-exposes-passwords-",
+      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "at": "2026-11-15T18:51:30.400Z"
+    },
+    "16d88yd": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为产品版本信息，非软件痛点。",
+      "id": "scheduling-c5-appointment-planning",
+      "title": "C5. Appointment planning",
+      "at": "2026-11-15T18:51:30.400Z"
     }
   }
 }

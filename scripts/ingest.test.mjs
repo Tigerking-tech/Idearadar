@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   clamp,
   normalizeText,
+  cleanQuote,
   extractSignals,
   scorePainPoint,
   jaccard,
@@ -37,6 +38,38 @@ test("clamp 边界与异常值", () => {
 test("normalizeText 去标签、解实体、压缩空白", () => {
   assert.equal(normalizeText("  <p>Tools &amp;  broken</p>  "), "Tools & broken");
   assert.equal(normalizeText("a\n\n  b"), "a b");
+});
+
+test("normalizeText 解十六进制/十进制实体（HN Algolia 的 &#x27; / &#x2F;）", () => {
+  assert.equal(
+    normalizeText("Can&#x27;t find an arxiv&#x2F;website &#39;here&#39;"),
+    "Can't find an arxiv/website 'here'",
+  );
+  assert.equal(normalizeText("a&nbsp;b &hellip; &copy; 2026"), "a b … © 2026");
+  assert.equal(normalizeText("<script>alert(1)</script>real&nbsp;text"), "real text");
+  // 不二次解码，避免把 &amp;#x27; 篡改成一个引号
+  assert.equal(normalizeText("&amp;#x27;"), "&#x27;");
+});
+
+test("cleanQuote 从网页样板处截断，只留用户自己说的话", () => {
+  const raw = "Can&#x27;t find an arxiv or anything to download without paying. I found this in some Chinese app&#x2F;website (not sure if it&#x27;s the same thing): 打开CSDN APP Copyright © 1999-2020, CSDN.NET, All Rights Reserved 打开APP LightGen: All-optical synthesis chip 原创 2025-12-30 20:54:42 阅读量 539 收藏 20 10赞 Xy-unu 码龄6年 关注 论文基本信息 标题 {";
+  const q = cleanQuote(raw, 400);
+  assert.ok(q.startsWith("Can't find an arxiv"));
+  assert.ok(q.includes("Chinese app/website"));
+  assert.ok(!q.includes("&#x"), "十六进制实体必须已解码");
+  assert.ok(!q.includes("Copyright"));
+  assert.ok(!q.includes("阅读量"));
+  assert.ok(!q.includes("码龄"));
+  assert.ok(!q.includes("{"));
+  assert.ok(!/[:：]\s*$/.test(q), "末尾残破的引导冒号要去掉");
+  assert.ok(q.length > 60 && q.length < 200);
+});
+
+test("cleanQuote 整段都是网页样板时返回空，不硬塞垃圾", () => {
+  assert.equal(cleanQuote("打开CSDN APP Copyright © 1999-2020 All Rights Reserved 阅读量 539"), "");
+  const short = cleanQuote("&#x27; &#x2F; &#39;");
+  assert.ok(!short.includes("&#"), "实体必须被解码");
+  assert.ok(short.length < 25, "清洗后只剩符号，不足以当原话");
 });
 
 test("extractSignals 命中抱怨与付费意愿，且不误判中性文本", () => {

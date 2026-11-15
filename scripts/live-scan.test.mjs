@@ -119,6 +119,110 @@ test("scoreRows 空输入返回空数组", () => {
   assert.deepEqual(scoreRows(null, ["pet"]), []);
 });
 
+/* ---------------- 客户视角：结果必须是人话、必须是痛点 ---------------- */
+
+test("scoreRows 剔除 Show HN 产品推销帖（创始人在介绍自己的东西）", () => {
+  const rows = [
+    row(1),
+    row(2, {
+      title: "Show HN: Omelo - AI pet health companion, Health timelines",
+      text: "Hey HN, I'm Amogh. I'm a solo founder building Omelo. Pet parents make health decisions with almost no data: missed vaccines, forgotten deworming, scattered notes.",
+    }),
+  ];
+  const out = scoreRows(rows, ["pet"]);
+  assert.equal(out.length, 1);
+  assert.match(out[0].title, /Pet app/);
+});
+
+test("scoreRows 整段网页样板清洗后为空，整条丢弃而不是摆成「对方原话」", () => {
+  const rows = [
+    row(1),
+    row(2, {
+      title: "All-optical synthesis chip for large-scale semantic vision",
+      text: "打开CSDN APP Copyright © 1999-2020, CSDN.NET, All Rights Reserved 打开APP 原创 2025-12-30 20:54:42 阅读量 539 收藏 20 10赞 码龄6年 关注 论文基本信息 标题 {",
+    }),
+  ];
+  const out = scoreRows(rows, ["pet"]);
+  assert.equal(out.length, 1);
+  assert.match(out[0].title, /Pet app/);
+});
+
+test("scoreRows 解实体并从样板处截断，text/quote 都变成人话", () => {
+  const raw = "The pet booking page is broken and I can&#x27;t find a workaround. 打开CSDN APP Copyright © 1999-2020 阅读量 539 码龄6年";
+  const out = scoreRows([row(1, { text: raw })], ["pet"]);
+  assert.equal(out.length, 1);
+  assert.ok(out[0].quote.includes("can't find a workaround"));
+  assert.ok(!out[0].quote.includes("&#x"));
+  assert.ok(!out[0].quote.includes("Copyright"));
+  assert.ok(!out[0].quote.includes("阅读量"));
+  assert.equal(out[0].text, out[0].quote, "喂给大模型与结果卡的应是同一份清洗文本");
+});
+
+test("buildSignals 即使拿到未清洗的原始脏文本，也不把乱码摆进 quote", () => {
+  const dirty = "Can&#x27;t export pet contacts without paying. 打开CSDN APP Copyright © 1999-2020 阅读量 539 码龄6年";
+  const scored = scoreRows([row(1, { text: dirty })], ["pet"]);
+  const sig = buildSignals(scored, "宠物", "zh", null);
+  assert.equal(sig.length, 1);
+  assert.ok(!sig[0].quote.includes("&#x"));
+  assert.ok(!sig[0].quote.includes("Copyright"));
+  assert.match(sig[0].quote, /can't export pet contacts/i);
+});
+
+test("scoreRows 剔除开发任务单/构建日志/工具征集，保留真实痛点描述", () => {
+  const bad = [
+    row(2, { title: "android build", text: "**BUILD SUCCEEDED** source pets-pet-care app-debug.apk gradle.log 0 error lines" }),
+    row(3, { title: "Medication Epic E1", text: "**Epic name:** Manage Approved Pet Care Promotions **Business value:** Launch offers" }),
+    row(4, { title: "Create a pet", text: "## User story As a pet owner, I want to add my pet with its name and species. ## Done when - [ ] The app opens" }),
+    row(5, { title: "[Tool] 通讯录文件查看器", text: "## Tool name vCard Viewer ## What should it do? 解析 .vcf 文件" }),
+    row(6, { title: "Day Care Booking", text: "Task scope: Calendar interface. Project context: please build me a doggy day care app. Acceptance criteria: - [ ] Customer selects pet" }),
+  ];
+  const good = row(1, {
+    title: "Export contacts as vCard",
+    text: "## Problem Contacts can already be exported as CSV, but CSV doesn't open directly in Apple Contacts or most address books. This is frustrating and I wish there was a workaround.",
+  });
+  const out = scoreRows([...bad, good], ["pet", "contacts"]);
+  assert.equal(out.length, 1);
+  assert.match(out[0].title, /Export contacts as vCard/);
+  assert.ok(!out[0].quote.includes("##"), "markdown 标题标记应被清掉");
+  assert.ok(out[0].quote.includes("doesn't open directly"));
+});
+
+test("scoreRows 只保留有痛点/求助信号的结果，PRD/宣传/需求单不占「对方原话」", () => {
+  const rows = [
+    row(2, { title: "宠物行业 GIS 选址方案", text: "Pet store 选址需要数据支撑。核心功能包括养宠家庭密度、竞品分布、交通便利度分析，适用宠物连锁医院与用品店。" }),
+    row(3, { title: "新增-导出通讯录", text: "在用户管理的用户详情处新增导出通讯录功能，pet owners 可以导出所选账号的所有联系人，包括手机号码、邮箱、昵称" }),
+    row(4, { title: "Critter Care", text: "Care for your pet critters. Have some kind of Pen area where critters bounce around. Spend Normal Currency on Food or Toys." }),
+    row(1, { title: "Export contacts as vCard", text: "## Problem Contacts can already be exported as CSV, but CSV doesn't open directly in Apple Contacts. This is frustrating and I wish there was a workaround." }),
+    row(5, { title: "How to create academic tables in Google Docs?", text: "Is it possible to format and style tables in Google Docs in a similar design as academic articles published in peer-reviewed journals?" }),
+  ];
+  const out = scoreRows(rows, ["pet", "contacts", "academic"]);
+  const titles = out.map((r) => r.title);
+  assert.ok(!titles.some((t) => /GIS|新增-导出|Critter Care/.test(t)), "需求单/宣传/设计文档不得进入结果");
+  assert.ok(titles.some((t) => /Export contacts as vCard/.test(t)), "真实痛点要保留");
+  assert.ok(titles.some((t) => /academic tables/.test(t)), "真实求助要保留");
+});
+
+test("scoreRows 剔除别人写好的产品企划，不把「目标用户/核心痛点」当成对方原话", () => {
+  const rows = [
+    row(2, {
+      title: "💡 [独立宠物美容师] PawStyle AI - 宠物美容档案纸本易丢",
+      text: "目标用户 独立宠物美容师、社区小型宠物美容店。核心痛点 - 每只宠物的毛质、皮肤状况记在纸本或脑子里，换个店员就断档；造型前后照片散落在各人手机相册。",
+    }),
+    row(1, { title: "Pet booking keeps failing", text: "The pet booking page is broken and I can't find a workaround. This is frustrating." }),
+  ];
+  const out = scoreRows(rows, ["pet"]);
+  assert.equal(out.length, 1);
+  assert.match(out[0].title, /Pet booking keeps failing/);
+});
+
+test("scoreRows 全是开发文档时返回空，让前端走诚实空态而不是凑数", () => {
+  const rows = [
+    row(2, { title: "F3 预约主流程", text: "父 Issue 1 构建内容：预约主流程垂直切片，后端 GET /api/slots 懒生成时段，小程序预约页端到端打通 pet booking 链路。" }),
+    row(3, { title: "功能提案", text: "Summary Bring the pet forum composer closer to progressive editing. Scope - Keep core formatting actions visible and move advanced options." }),
+  ];
+  assert.deepEqual(scoreRows(rows, ["pet"]), []);
+});
+
 /* ---------------- 构造 Signal ---------------- */
 
 test("buildSignals 规则模式字段完整，趋势为 steady 且不伪造曲线", () => {

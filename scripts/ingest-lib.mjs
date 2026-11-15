@@ -115,16 +115,46 @@ export function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
+/**
+ * HTML 实体解码。HN Algolia 的 comment_text / story_text 是 HTML 片段，
+ * 单引号与斜杠编码成十六进制实体 &#x27; / &#x2F;；旧实现只解 5 个命名实体，
+ * 于是「对方逐字原话」里出现 "Can&#x27;t" 这种乱码（用户截图实测）。
+ * 顺序：先数字实体（十六进制→十进制），再命名实体；未知实体原样保留，
+ * 不把 &amp;#x27; 二次解成引号，避免篡改原文。
+ */
+const NAMED_ENTITIES = {
+  amp: "&", apos: "'", quot: '"', lt: "<", gt: ">", nbsp: " ",
+  hellip: "…", mdash: "—", ndash: "–", rsquo: "’", lsquo: "‘",
+  rdquo: "”", ldquo: "“", copy: "©", reg: "®", trade: "™",
+  middot: "·", bull: "•", laquo: "«", raquo: "»", times: "×",
+  divide: "÷", deg: "°", eacute: "é", egrave: "è", agrave: "à",
+  ccedil: "ç", uuml: "ü", ouml: "ö", auml: "ä", ntilde: "ñ",
+};
+
+function fromCodePoint(n) {
+  if (!Number.isFinite(n) || n < 0 || n > 0x10ffff) return "";
+  // 控制字符不进「原话」，替换成空格而不是留成乱码
+  if (n < 0x20 || (n >= 0x7f && n < 0xa0)) return " ";
+  try { return String.fromCodePoint(n); } catch { return ""; }
+}
+
+function decodeEntities(s) {
+  return s
+    .replace(/&#x([0-9a-f]+);?/gi, (_, h) => fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);?/g, (_, d) => fromCodePoint(parseInt(d, 10)))
+    .replace(/&([a-z][a-z0-9]*);?/gi, (m, name) => {
+      const key = name.toLowerCase();
+      return Object.prototype.hasOwnProperty.call(NAMED_ENTITIES, key) ? NAMED_ENTITIES[key] : m;
+    });
+}
+
 export function normalizeText(input = "") {
-  return String(input)
-    .replace(/<[^>]*>/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/\s+/g, " ")
-    .trim();
+  let s = String(input);
+  // 先摘掉整块脚本/样式，避免其正文混进「原话」
+  s = s.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, " ");
+  s = s.replace(/<[^>]*>/g, " ");
+  s = decodeEntities(s);
+  return s.replace(/\s+/g, " ").trim();
 }
 
 /**
@@ -194,6 +224,43 @@ export function cleanExcerpt(text = "", maxLen = 220) {
   );
   const picked = kept.length ? kept.join(" ").slice(0, maxLen) : "";
   return picked || clean.slice(0, maxLen);
+}
+
+/**
+ * 网页样板标记。HN / 问答区里常有人整段复制网页正文，浏览器复制会连带
+ * 页脚、版权、APP 引导、阅读量、博主信息。这段不是用户自己说的话，
+ * 从第一个标记处整段砍掉，只保留前面的真实发言。
+ */
+const WEB_BOILERPLATE_RE = /(打开\s*(?:CSDN|知乎|掘金|简书|微博|头条|APP|应用)|Copyright\s*[©(cC)]|All\s*Rights\s*Reserved|版权所有|阅读量|阅读\s*\d+|\d+\s*(?:赞|收藏|评论|阅读)|码龄|关注\s*(?:公众号|博主|作者)|原创\s*20\d{2}|发布于\s*20\d{2}|责任编辑|转载请注明|扫描二维码|长按识别|登录\s*\/?\s*注册|立即下载|下载\s*APP|本文来自|点击查看全文|展开全文|免责声明)/i;
+
+/**
+ * 实时检索结果卡「对方原话」专用清洗。与 cleanExcerpt 分开：后者只在定时
+ * 采集管线里剥 GitHub issue 模板，改动它会让既有译文缓存键大面积失效。
+ *
+ * 现象（用户截图）：一段 HN 评论后面粘了整页 CSDN 复制文本，旧链路直接
+ * r.text.slice(0,400) 摆到「逐字原话」里，于是出现乱码 + 版权 + 阅读量。
+ * 策略：解实体 → 从第一个网页样板处截断 → 去掉 markdown 表格残片/纯 URL/
+ * 末尾残破引导符。清洗后没剩人话就返回空，由上层整条丢弃，绝不硬塞垃圾。
+ */
+export function cleanQuote(text = "", maxLen = 400) {
+  let s = normalizeText(text);
+  if (!s) return "";
+  const m = WEB_BOILERPLATE_RE.exec(s);
+  if (m) {
+    if (m.index === 0) return "";
+    s = s.slice(0, m.index);
+  }
+  s = s
+    .replace(/\|\s*-{3,}\s*\|/g, " ")
+    .replace(/[{}]/g, " ")
+    // 去掉 markdown 标题/加粗标记，让「原话」读起来像一句话而不是 issue 模板
+    .replace(/#{1,6}\s*/g, "")
+    .replace(/\*\*/g, "")
+    .replace(/https?:\/\/\S+/gi, " ")
+    .replace(/[\s:;:,，、（(]+$/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return s.slice(0, maxLen).trim();
 }
 
 /**

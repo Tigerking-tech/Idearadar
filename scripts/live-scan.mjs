@@ -19,6 +19,7 @@ import { createHash } from "node:crypto";
 import { createCollector } from "./connectors.mjs";
 import { appendQuery } from "./scan-store.mjs";
 import { templateIdea } from "./idea-core.mjs";
+import { cleanQuote, extractSignals } from "./ingest-lib.mjs";
 
 export const SOURCE_LABELS = {
   hn: "Hacker News",
@@ -57,7 +58,36 @@ const CN_EN_HINTS = {
   农业: ["agriculture", "farming"], 儿童: ["kids app", "parenting"],
 };
 
-const NOISE_RE = /(we'?re hiring|now hiring|job opening|apply now|\bjob alert\b|show hn:\s*(?:ask|launch)|salary|recruiter|sponsored|newsletter signup)/i;
+const NOISE_RE = /(we'?re hiring|now hiring|job opening|apply now|\bjob alert\b|\bshow hn\b|\blaunch hn\b|\bproduct hunt\b|salary|recruiter|sponsored|newsletter signup)/i;
+/**
+ * 「这段不是人话」的硬闸门。客户视角实测：一条 HN 评论后面粘了整页 CSDN
+ * 复制文本（&#x27; 乱码 + Copyright + 阅读量 + 码龄），旧链路只要正文够长、
+ * 命中一个检索词就当「对方逐字原话」展示。清洗后仍残留这些标记就整条丢弃。
+ */
+const UNREADABLE_RE = /(&#(?:x[0-9a-f]+|\d+);?|Copyright|All\s*Rights\s*Reserved|打开\s*APP|阅读量|码龄|原创\s*20\d{2}|\d+\s*赞)/i;
+/** 产品发布/推销帖：创始人在介绍自己的东西，不是别人的痛点。 */
+const PROMO_TITLE_RE = /^(?:show hn|launch hn|ask hn|introducing|announcing|we built|i built|check out my|meet the)\b/i;
+/**
+ * 「开发者给自己派活」的任务单，不是某个人在抱怨自己遇到的麻烦。
+ * 客户视角实测：搜「宠物店」返回 BUILD SUCCEEDED 构建日志、Epic 需求文档、
+ * User story / Done when 清单、「please build me a doggy day care app」委托、
+ * [Tool] 工具征集帖。只拦这些明确的结构标记；「Problem: CSV 打不开通讯录」
+ * 这类真实痛点保留。
+ */
+const TASK_DOC_RE = /(\bBUILD (?:SUCCEEDED|FAILED)\b|gradle\.log|\bapk\s*\(|\b(?:Epic name|Business value|What to build|Task scope|Acceptance criteria|Project context)\s*:|\b(?:User story|Done when|Steps to [Rr]eproduce|Prerequisites)\b|\bacceptance criteria\b|\bplease build me\b|\bwhat (?:to build|should it do)\b|\bAs a .{0,60}\bI want to\b|\[Tool\]|\bTool name\s*[:/]|-\s*\[ \])/i;
+/**
+ * 「真人痛点」补充判定。闸门刻意不用 PAIN_RES：那套规则里的 \bissue\b 会把
+ * 「父 Issue 1」「#123 issue」这类工单编号当成抱怨，反而放进开发任务单。
+ * 这里只认真人讲麻烦时会用的词，配合 extractSignals 的求助/抱怨规则一起判定。
+ */
+const REAL_PAIN_RE = /\b(slow(?:ly)?|poor|bad quality|too (?:many|expensive|complicated|slow)|can'?t|unable to|doesn'?t work|not working|broken|crash\w*|fail(?:s|ed|ure)?|error|bug|frustrat\w*|annoying|painful|workaround|wish|missing|no way to|confusing)\b|每次都要|手动|重复|找不到|没法|太麻烦|不好用|太贵/i;
+/**
+ * 别人已经写好的产品企划/商业计划，不是「对方原话」。客户视角实测：搜
+ * 「宠物店」返回一份带「目标用户 / 核心痛点 / 适用企业」的 AI 点子文档，
+ * 读起来像产品说明书，用户照样不知道自己能做什么。产品定位是「别人的
+ * 抱怨」，这类结构化企划不进结果。
+ */
+const PLAN_DOC_RE = /(目标用户|核心痛点|适用企业|竞品分析|商业模式|产品定位|用户画像|功能清单|市场痛点|解决方案[:：]|^\s*💡|\bTarget users\b|\bCore pain points\b)/i;
 const PAIN_RES = [
   /\b(bug|issue|error|fail(?:ed|s|ure)?|broken|crash|regression)\b/i,
   /\b(doesn'?t work|can'?t|unable to|not working|stuck|timeout|hangs?)\b/i,
@@ -294,18 +324,27 @@ export function scoreRows(rows, terms) {
   for (const r of rows || []) {
     const url = String(r?.url || "");
     if (!url || seen.has(url)) continue;
-    seen.add(url);
     const title = String(r?.title || "").trim();
-    const text = String(r?.text || "").trim();
-    if (title.length < 8 || text.length < 30) continue;
-    const hay = `${title} ${text}`.toLowerCase();
+    // 先清洗成「用户自己说的话」，再参与检索词匹配、喂给大模型、摆到结果卡。
+    // 旧实现直接拿原始 r.text：网页样板既会误命中检索词，又会被 slice(0,400)
+    // 当成逐字原话（用户截图里的乱码 + CSDN 页脚就是这么进来的）。
+    const quote = cleanQuote(String(r?.text || ""), 400);
+    if (title.length < 8 || quote.length < 25) continue;
+    if (UNREADABLE_RE.test(quote) || PROMO_TITLE_RE.test(title)) continue;
+    if (TASK_DOC_RE.test(`${title} ${quote}`) || PLAN_DOC_RE.test(`${title} ${quote}`)) continue;
+    const hay = `${title} ${quote}`.toLowerCase();
     if (NOISE_RE.test(hay)) continue;
     let hits = 0;
     for (const t of list) if (t && hay.includes(t)) hits += 1;
     if (hits === 0) continue;
     const painHits = PAIN_RES.filter((re) => re.test(hay)).length;
-    const score = Math.min(92, 36 + hits * 9 + painHits * 7 + Math.min(10, Math.floor(text.length / 140)));
-    scored.push({ ...r, title, text, hits, painHits, score });
+    // 客户视角闸门：没有痛点/求助信号的结果，多半是 PRD、Epic、功能提案、
+    // 产品宣传或开发任务单，不是「别人遇到的麻烦」。宁可给诚实空态，
+    // 也不让它们占着「对方逐字原话」的位置（实测 5 个方向里这类占多数）。
+    if (!extractSignals(quote, { consumerMode: true }).hasComplaint && !REAL_PAIN_RE.test(quote)) continue;
+    const score = Math.min(92, 36 + hits * 9 + painHits * 7 + Math.min(10, Math.floor(quote.length / 140)));
+    seen.add(url);
+    scored.push({ ...r, title, text: quote, quote, hits, painHits, score });
   }
   return scored.sort((a, b) => b.score - a.score || b.painHits - a.painHits || b.text.length - a.text.length).slice(0, 24);
 }
@@ -392,30 +431,35 @@ export function buildSignals(scored, q, locale, llmItems) {
    * 不拿 LLM 归纳短语冒充——用户反馈「什么是填报压力」正是归纳标题丢了场景。
    * 归纳短标题只放进 summaryTitle 并明确标注，前端据此诚实区分。
    */
-  const make = (r, gap, score, summaryTitle) => ({
-    id: liveId(r.url),
-    title: r.title.slice(0, 160),
-    score,
-    mentions: 1,
-    sources: [SOURCE_LABELS[r.source] || r.source],
-    category,
-    trend: "steady",
-    spark: flatSpark(),
-    quote: r.text.slice(0, 400),
-    gap,
-    titleOriginal: r.title.slice(0, 160),
-    quoteOriginal: r.text.slice(0, 400),
-    translated: false,
-    sourceUrl: typeof r.url === "string" && /^https?:\/\//.test(r.url) ? r.url : null,
-    summaryTitle: summaryTitle || null,
-    // 保留 idea 字段以兼容既有数据结构，但前端按 origin==="template"
-    // 不再把这套写死的话术渲染成「一句话机会」（用户反馈是万能废话）。
-    idea: templateIdea({
-      title: r.title,
-      titleZh: "",
-      signals: ["seeking", "manual"],
-    }),
-  });
+  const make = (r, gap, score, summaryTitle) => {
+    // 双保险：即使调用方绕过 scoreRows 直接构造 scored，也不会把网页样板
+    // 当成「对方逐字原话」。清洗后没剩人话时如实回退，绝不编造内容。
+    const quote = cleanQuote(r.text, 400) || String(r.text || "").slice(0, 400);
+    return {
+      id: liveId(r.url),
+      title: r.title.slice(0, 160),
+      score,
+      mentions: 1,
+      sources: [SOURCE_LABELS[r.source] || r.source],
+      category,
+      trend: "steady",
+      spark: flatSpark(),
+      quote,
+      gap,
+      titleOriginal: r.title.slice(0, 160),
+      quoteOriginal: quote,
+      translated: false,
+      sourceUrl: typeof r.url === "string" && /^https?:\/\//.test(r.url) ? r.url : null,
+      summaryTitle: summaryTitle || null,
+      // 保留 idea 字段以兼容既有数据结构，但前端按 origin==="template"
+      // 不再把这套写死的话术渲染成「一句话机会」（用户反馈是万能废话）。
+      idea: templateIdea({
+        title: r.title,
+        titleZh: "",
+        signals: ["seeking", "manual"],
+      }),
+    };
+  };
 
   if (Array.isArray(llmItems) && llmItems.length) {
     return llmItems.map((it) => {

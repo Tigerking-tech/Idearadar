@@ -137,7 +137,11 @@ export function createCollector({
     return (data.hits || []).map((h) => ({
       title: normalizeText(pick(h, "title", "story_title") || h.comment_text?.slice(0, 110) || "HN discussion"),
       text: normalizeText(pick(h, "comment_text", "story_text") || ""),
-      url: h.story_url || (h.objectID ? `https://news.ycombinator.com/item?id=${h.objectID}` : "https://news.ycombinator.com"),
+      // 优先指向 HN 讨论页：story_url 是帖子外链（论文页 / 产品落地页，
+      // 常带付费墙），点「查看原始讨论」应回到真正能读到抱怨的地方。
+      url: h.objectID
+        ? `https://news.ycombinator.com/item?id=${h.objectID}`
+        : (h.story_url || "https://news.ycombinator.com"),
       createdAt: iso(h.created_at),
     }));
   }

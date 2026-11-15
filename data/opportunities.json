@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T22:22:26.950Z",
+  "generatedAt": "2026-11-15T06:24:39.013Z",
   "lookbackDays": 30,
   "minScore": 20,
   "curation": {
@@ -51,41 +51,41 @@
       {
         "niche": "solo-crm",
         "method": "relevance",
-        "raw": 242,
+        "raw": 255,
         "itemCount": 10,
-        "recallTitleRate": 0.512396694214876,
+        "recallTitleRate": 0.4823529411764706,
         "finalTitleRate": 0.7
       },
       {
         "niche": "invoice-export",
         "method": "relevance",
-        "raw": 221,
+        "raw": 208,
         "itemCount": 12,
-        "recallTitleRate": 0.502262443438914,
+        "recallTitleRate": 0.5336538461538461,
         "finalTitleRate": 0.75
       },
       {
         "niche": "support-transcripts",
         "method": "relevance",
-        "raw": 243,
-        "itemCount": 4,
-        "recallTitleRate": 0.4732510288065844,
+        "raw": 239,
+        "itemCount": 3,
+        "recallTitleRate": 0.48535564853556484,
         "finalTitleRate": 1
       },
       {
         "niche": "scheduling",
         "method": "relevance",
-        "raw": 253,
+        "raw": 250,
         "itemCount": 15,
-        "recallTitleRate": 0.6521739130434783,
+        "recallTitleRate": 0.62,
         "finalTitleRate": 0.7333333333333333
       },
       {
         "niche": "dev-workflow",
         "method": "relevance",
-        "raw": 225,
+        "raw": 227,
         "itemCount": 6,
-        "recallTitleRate": 0.5466666666666666,
+        "recallTitleRate": 0.5418502202643172,
         "finalTitleRate": 0.8333333333333334
       }
     ]
@@ -95,7 +95,7 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 554
+      "rows": 547
     },
     {
       "id": "so",
@@ -119,7 +119,7 @@
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 1
+      "rows": 3
     },
     {
       "id": "firstParty",
@@ -135,8 +135,8 @@
     }
   ],
   "totals": {
-    "rawRecords": 1382,
-    "complaintRecords": 197,
+    "rawRecords": 1377,
+    "complaintRecords": 194,
     "opportunities": 37
   },
   "errors": [],
@@ -146,11 +146,11 @@
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
       "title": "Appointment Booking",
-      "score": 44,
+      "score": 43,
       "breakdown": {
         "frequency": 21,
         "intensity": 4,
-        "recency": 13.6,
+        "recency": 13.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -258,7 +258,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 9,
-        "recency": 12.2,
+        "recency": 12,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -506,7 +506,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.4,
+        "recency": 14.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -587,7 +587,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.4,
+        "recency": 13.3,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -660,6 +660,87 @@
       }
     },
     {
+      "id": "invoice-export-invoice-search-share-link-notes-and-csv-export",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Invoice search, share link, notes and CSV export",
+      "score": 27,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 14.6,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "manual"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-14T12:09:35.000Z",
+      "evidence": [
+        {
+          "title": "Invoice search, share link, notes and CSV export",
+          "url": "https://github.com/ToukoUrsin/junction26-kuitti/issues/1",
+          "source": "github",
+          "createdAt": "2026-11-14T12:09:35.000Z",
+          "excerpt": "As someone who sends a lot of invoices, I want to find invoices quickly, share one with a client without making them sign up, keep a note on an invoice, and take my list into a spreadsheet, so I spend less time hunting t"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 3,
+          "feasibility": 6,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1eafwg6:v1",
+      "titleZh": "发票搜索、分享链接、备注及CSV导出功能",
+      "quoteZh": "作为经常发送发票的人，我希望能够快速查找发票，无需客户注册即可分享给对方，在发票上添加备注，还能将列表导入电子表格，从而减少寻找时间",
+      "translationKey": "1eafwg6",
+      "idea": {
+        "version": 2,
+        "origin": "llm",
+        "persona": "general",
+        "headline": {
+          "zh": "给普通用户做一个可快速搜索、分享及导出发票的简单工具",
+          "en": "A small tool for ordinary users to quickly search, share, and export invoices."
+        },
+        "who": {
+          "zh": "普通用户",
+          "en": "Ordinary users."
+        },
+        "why": {
+          "zh": "需要快速查找、分享和导出发票，现有方式操作繁琐。",
+          "en": "They need to quickly find, share, and export invoices, but current methods are cumbersome."
+        },
+        "step": {
+          "zh": "做一个基础版单页工具，供3人试用。",
+          "en": "Create a basic single-page tool for 3 people to test."
+        }
+      }
+    },
+    {
       "id": "solo-crm-issues-in-crm",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
@@ -668,7 +749,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.2,
+        "recency": 13,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -749,7 +830,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 14,
+        "recency": 13.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -830,7 +911,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 11,
+        "recency": 10.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1977,7 +2058,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 11.4,
+        "recency": 11.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2058,7 +2139,7 @@
       "breakdown": {
         "frequency": 6,
         "intensity": 0,
-        "recency": 13.4,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2144,7 +2225,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 12.3,
+        "recency": 12.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2635,7 +2716,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 12.1,
+        "recency": 11.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2716,7 +2797,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 9,
+        "recency": 8.8,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2797,7 +2878,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 4,
-        "recency": 10.8,
+        "recency": 10.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2878,7 +2959,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2898,6 +2979,9 @@
           "excerpt": "Contract check found drift in `hubspot.customer` (owner: `crm-team`, 3999 records scanned). | kind | field | records | severity | sample keys | |---|---|---|---|---| | schema_drift | `email->email_address` | 3 / 3999 | f"
         }
       ],
+      "titleZh": "合同字段偏差：hubspot.customer（2个字段）",
+      "quoteZh": "合同检查在`hubspot.customer`中发现字段偏差（负责人：`crm-team`，已扫描3999条记录）。| 类型 | 字段 | 记录数 | 严重程度 | 样本键 | |---|---|---|---|---| | 结构偏差 | `email->email_address` | 3 / 3999 | f",
+      "translationKey": "bflpem",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -2923,9 +3007,6 @@
         ]
       },
       "cardKey": "bflpem:v1",
-      "titleZh": "合同字段偏差：hubspot.customer（2个字段）",
-      "quoteZh": "合同检查在`hubspot.customer`中发现字段偏差（负责人：`crm-team`，已扫描3999条记录）。| 类型 | 字段 | 记录数 | 严重程度 | 样本键 | |---|---|---|---|---| | 结构偏差 | `email->email_address` | 3 / 3999 | f",
-      "translationKey": "bflpem",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -2957,7 +3038,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2977,6 +3058,9 @@
           "excerpt": "Contract check found drift in `hubspot.order` (owner: `crm-team`, 4001 records scanned). | kind | field | records | severity | sample keys | |---|---|---|---|---| | schema_drift | `deal_currency_code->currency_code` | 2 "
         }
       ],
+      "titleZh": "合同字段偏差：hubspot.order（2个字段）",
+      "quoteZh": "合同检查在`hubspot.order`中发现字段偏差（负责人：`crm-team`，已扫描4001条记录）。| 类型 | 字段 | 记录数 | 严重程度 | 样本键 | |---|---|---|---|---| | 结构偏差 | `deal_currency_code->currency_code` | 2",
+      "translationKey": "1l3dvcp",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3002,9 +3086,6 @@
         ]
       },
       "cardKey": "1l3dvcp:v1",
-      "titleZh": "合同字段偏差：hubspot.order（2个字段）",
-      "quoteZh": "合同检查在`hubspot.order`中发现字段偏差（负责人：`crm-team`，已扫描4001条记录）。| 类型 | 字段 | 记录数 | 严重程度 | 样本键 | |---|---|---|---|---| | 结构偏差 | `deal_currency_code->currency_code` | 2",
-      "translationKey": "1l3dvcp",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3028,85 +3109,6 @@
       }
     },
     {
-      "id": "support-transcripts-intercom-data-model-and-migrations",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Intercom: data model and migrations",
-      "score": 23,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 0,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-14T11:28:11.000Z",
-      "evidence": [
-        {
-          "title": "Intercom: data model and migrations",
-          "url": "https://github.com/justin-small/Relay/issues/272",
-          "source": "github",
-          "createdAt": "2026-11-14T11:28:11.000Z",
-          "excerpt": "Part of #237 **Epic: Intercom over a local LiveKit server**. ## What The intercom module's own tables in `relay.db`, created with `db.migrate(\"intercom\", /migrations)` (`NNNN_name.sql`, namespaced so they never collide w"
-        }
-      ],
-      "titleZh": "Intercom：数据模型与迁移",
-      "quoteZh": "属于#237 **大型任务：通过本地LiveKit服务器使用Intercom**。## 内容 Intercom模块自身的表存储在`relay.db`中，这些表是通过`db.migrate(\"intercom\", /migrations)`（如`NNNN_name.sql`）创建的，其命名空间设置可避免冲突",
-      "translationKey": "kcwdiz",
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 1,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 20,
-        "audience": "support",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "kcwdiz:v1",
-      "idea": {
-        "version": 2,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "headline": {
-          "zh": "给独立开发者做一个Intercom数据模型迁移工具",
-          "en": "A small tool for independent developers to migrate Intercom data models"
-        },
-        "who": {
-          "zh": "独立开发者",
-          "en": "independent developers"
-        },
-        "why": {
-          "zh": "需要手动执行数据库迁移操作",
-          "en": "they need to manually perform database migration operations"
-        },
-        "step": {
-          "zh": "做一个能导入relay.db并生成迁移脚本的简单工具，找1位开发者试用",
-          "en": "Build a minimal version that solves only this one thing, then try it with 3 support teams."
-        }
-      }
-    },
-    {
       "id": "support-transcripts-intercom-watchdog-health-and-connection-log",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
@@ -3115,7 +3117,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 0,
-        "recency": 14.8,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -3135,6 +3137,9 @@
           "excerpt": "Part of #237 **Epic: Intercom over a local LiveKit server**. ## What A watchdog inside the intercom module that checks everything the intercom depends on, restarts what Relay itself runs, shows it on an **Intercom health"
         }
       ],
+      "titleZh": "Intercom：监控机制、运行状态及连接日志",
+      "quoteZh": "属于#237 **大型项目：通过本地LiveKit服务器运行Intercom**。## 什么是该机制？Intercom模块内的监控机制会检查Intercom依赖的所有组件，重启Relay自身的相关进程，并在**Intercom运行状态页面**上显示相关信息。",
+      "translationKey": "1xvee9o",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -3160,9 +3165,6 @@
         ]
       },
       "cardKey": "1xvee9o:v1",
-      "titleZh": "Intercom：监控机制、运行状态及连接日志",
-      "quoteZh": "属于#237 **大型项目：通过本地LiveKit服务器运行Intercom**。## 什么是该机制？Intercom模块内的监控机制会检查Intercom依赖的所有组件，重启Relay自身的相关进程，并在**Intercom运行状态页面**上显示相关信息。",
-      "translationKey": "1xvee9o",
       "idea": {
         "version": 2,
         "origin": "llm",
@@ -3188,15 +3190,17 @@
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-14T22:23:31.235Z",
-    "status": "ok",
+    "at": "2026-11-15T06:26:06.175Z",
+    "status": "partial",
     "skippedReason": null,
-    "errors": [],
+    "errors": [
+      "Expected ',' or '}' after property value in JSON at position 2141 (line 30 column 234)"
+    ],
     "total": 60,
-    "cached": 57,
-    "translated": 3,
-    "failed": 0,
-    "requests": 1
+    "cached": 36,
+    "translated": 16,
+    "failed": 8,
+    "requests": 2
   },
   "cardInsights": {
     "enabled": false,
@@ -3207,14 +3211,14 @@
   },
   "denoise": {
     "version": 1,
-    "at": "2026-11-14T22:23:33.185Z",
+    "at": "2026-11-15T06:26:08.587Z",
     "model": "hy-mt2-plus",
     "status": "ok",
     "enabled": true,
     "total": 60,
-    "cached": 57,
-    "pending": 3,
-    "judged": 3,
+    "cached": 59,
+    "pending": 1,
+    "judged": 1,
     "kept": 37,
     "rejected": 23,
     "requests": 1,
@@ -3227,14 +3231,14 @@
   "ideaSummary": {
     "version": 2,
     "model": "hy-mt2-plus",
-    "at": "2026-11-14T22:23:41.637Z",
+    "at": "2026-11-15T06:26:11.073Z",
     "enabled": true,
     "status": "ok",
     "total": 37,
-    "cached": 34,
-    "generated": 3,
+    "cached": 36,
+    "generated": 1,
     "templated": 0,
-    "requests": 3,
+    "requests": 1,
     "errors": []
   }
 }

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14T22:23:33.185Z",
+  "updatedAt": "2026-11-15T06:26:08.587Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 92,
+  "totalVerdicts": 93,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -739,6 +739,14 @@
       "id": "support-transcripts-intercom-watchdog-health-and-connection-log",
       "title": "Intercom: watchdog, health and connection log",
       "at": "2026-11-14T22:23:31.286Z"
+    },
+    "1eafwg6": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及希望快速查找发票等需求",
+      "id": "invoice-export-invoice-search-share-link-notes-and-csv-export",
+      "title": "Invoice search, share link, notes and CSV export",
+      "at": "2026-11-15T06:26:06.228Z"
     }
   }
 }

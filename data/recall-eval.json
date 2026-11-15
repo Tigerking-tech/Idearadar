@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-14T22:19:51.959Z",
+  "evaluatedAt": "2026-11-15T06:22:11.069Z",
   "verdict": "adopt",
   "method": "relevance",
   "reasons": [],
@@ -15,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 963,
+      "raw": 967,
       "itemCount": 60,
-      "recallHits": 455,
+      "recallHits": 454,
       "finalHits": 37,
-      "recallTitleRate": 0.4724818276220145,
+      "recallTitleRate": 0.46949327817993797,
       "finalTitleRate": 0.6166666666666667
     },
     "legacy": {
-      "raw": 960,
+      "raw": 950,
       "itemCount": 60,
-      "recallHits": 155,
-      "finalHits": 26,
-      "recallTitleRate": 0.16145833333333334,
-      "finalTitleRate": 0.43333333333333335
+      "recallHits": 128,
+      "finalHits": 27,
+      "recallTitleRate": 0.13473684210526315,
+      "finalTitleRate": 0.45
     }
   },
   "perNiche": {
@@ -85,7 +85,7 @@
         "niche": "solo-crm",
         "raw": 154,
         "itemCount": 5,
-        "recallTitleRate": 0.38961038961038963,
+        "recallTitleRate": 0.38311688311688313,
         "finalTitleRate": 0.6,
         "stats": {
           "raw": 154,
@@ -95,12 +95,12 @@
       },
       {
         "niche": "invoice-export",
-        "raw": 124,
+        "raw": 126,
         "itemCount": 6,
-        "recallTitleRate": 0.4838709677419355,
+        "recallTitleRate": 0.47619047619047616,
         "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 124,
+          "raw": 126,
           "complaintRecords": 8,
           "items": 6
         }
@@ -109,7 +109,7 @@
         "niche": "support-transcripts",
         "raw": 155,
         "itemCount": 1,
-        "recallTitleRate": 0.4,
+        "recallTitleRate": 0.4064516129032258,
         "finalTitleRate": 1,
         "stats": {
           "raw": 155,
@@ -121,7 +121,7 @@
         "niche": "scheduling",
         "raw": 167,
         "itemCount": 12,
-        "recallTitleRate": 0.6227544910179641,
+        "recallTitleRate": 0.6167664670658682,
         "finalTitleRate": 0.75,
         "stats": {
           "raw": 167,
@@ -131,12 +131,12 @@
       },
       {
         "niche": "dev-workflow",
-        "raw": 165,
+        "raw": 167,
         "itemCount": 5,
-        "recallTitleRate": 0.5636363636363636,
+        "recallTitleRate": 0.5568862275449101,
         "finalTitleRate": 0.8,
         "stats": {
-          "raw": 165,
+          "raw": 167,
           "complaintRecords": 9,
           "items": 5
         }
@@ -205,36 +205,36 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 154,
-        "itemCount": 7,
-        "recallTitleRate": 0.11038961038961038,
+        "raw": 156,
+        "itemCount": 6,
+        "recallTitleRate": 0.04487179487179487,
         "finalTitleRate": 0,
         "stats": {
-          "raw": 154,
-          "complaintRecords": 7,
-          "items": 7
+          "raw": 156,
+          "complaintRecords": 6,
+          "items": 6
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 124,
-        "itemCount": 9,
-        "recallTitleRate": 0.08064516129032258,
-        "finalTitleRate": 0.1111111111111111,
+        "raw": 111,
+        "itemCount": 11,
+        "recallTitleRate": 0.06306306306306306,
+        "finalTitleRate": 0.09090909090909091,
         "stats": {
-          "raw": 124,
-          "complaintRecords": 10,
-          "items": 9
+          "raw": 111,
+          "complaintRecords": 11,
+          "items": 11
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 152,
+        "raw": 151,
         "itemCount": 6,
-        "recallTitleRate": 0.05921052631578947,
-        "finalTitleRate": 0.16666666666666666,
+        "recallTitleRate": 0.0728476821192053,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 152,
+          "raw": 151,
           "complaintRecords": 6,
           "items": 6
         }
@@ -242,25 +242,25 @@
       {
         "niche": "scheduling",
         "raw": 167,
-        "itemCount": 14,
-        "recallTitleRate": 0.1497005988023952,
-        "finalTitleRate": 0,
+        "itemCount": 20,
+        "recallTitleRate": 0.07784431137724551,
+        "finalTitleRate": 0.15,
         "stats": {
           "raw": 167,
-          "complaintRecords": 18,
-          "items": 14
+          "complaintRecords": 27,
+          "items": 20
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 165,
-        "itemCount": 26,
-        "recallTitleRate": 0.10909090909090909,
+        "raw": 167,
+        "itemCount": 13,
+        "recallTitleRate": 0.08383233532934131,
         "finalTitleRate": 0.23076923076923078,
         "stats": {
-          "raw": 165,
-          "complaintRecords": 31,
-          "items": 26
+          "raw": 167,
+          "complaintRecords": 16,
+          "items": 13
         }
       },
       {
@@ -295,11 +295,6 @@
         "titleHit": false
       },
       {
-        "title": "Appointment Booking",
-        "niche": "scheduling",
-        "titleHit": true
-      },
-      {
         "title": "WISH: import Expense Report (and invoice) lines from CSV",
         "niche": "invoice-export",
         "titleHit": true
@@ -307,6 +302,11 @@
       {
         "title": "Export personal Outlook 2016 contacts, excluding the global address list",
         "niche": "personal-admin",
+        "titleHit": true
+      },
+      {
+        "title": "Appointment Booking",
+        "niche": "scheduling",
         "titleHit": true
       },
       {
@@ -322,11 +322,6 @@
     ],
     "legacy": [
       {
-        "title": "Configuration was changed as a side effect of the harmonization work",
-        "niche": "dev-workflow",
-        "titleHit": false
-      },
-      {
         "title": "Does an expenses-paid interview cover meals as well?",
         "niche": "everyday-money",
         "titleHit": false
@@ -337,17 +332,17 @@
         "titleHit": true
       },
       {
+        "title": "UHI consultation lifecycle: on_update, unprompted on_cancel with reasons, gateway audit copies",
+        "niche": "scheduling",
+        "titleHit": false
+      },
+      {
         "title": "What functions can I use to track subscriptions?",
         "niche": "everyday-money",
         "titleHit": false
       },
       {
-        "title": "CI timing budget",
-        "niche": "dev-workflow",
-        "titleHit": false
-      },
-      {
-        "title": "Share the best-effort SSE recipient lookup across domain",
+        "title": "MCP servers in a session: show which connected, which failed and which need sign-in, live from…",
         "niche": "dev-workflow",
         "titleHit": false
       },
@@ -357,8 +352,13 @@
         "titleHit": true
       },
       {
-        "title": "Parity is far larger than the current harnesses measure: a real-builds suite, a deep test tier…",
-        "niche": "scheduling",
+        "title": "New emails with the same subject are appended to an existing ticket instead of creating a new…",
+        "niche": "support-transcripts",
+        "titleHit": false
+      },
+      {
+        "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
+        "niche": "everyday-money",
         "titleHit": false
       }
     ]

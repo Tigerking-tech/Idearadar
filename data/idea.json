@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "version": 2,
-  "generatedAt": "2026-11-14T22:23:41.640Z",
+  "generatedAt": "2026-11-15T06:26:11.076Z",
   "totalVerdicts": 37,
   "verdicts": {
     "idea-2-o0xygl": {
@@ -697,27 +697,6 @@
         "en": "Build a minimal version that solves only this one thing, then try it with 3 people scheduling appointments."
       }
     },
-    "idea-2-kcwdiz": {
-      "version": 2,
-      "origin": "llm",
-      "persona": "indie-dev",
-      "headline": {
-        "zh": "给独立开发者做一个Intercom数据模型迁移工具",
-        "en": "A small tool for independent developers to migrate Intercom data models"
-      },
-      "who": {
-        "zh": "独立开发者",
-        "en": "independent developers"
-      },
-      "why": {
-        "zh": "需要手动执行数据库迁移操作",
-        "en": "they need to manually perform database migration operations"
-      },
-      "step": {
-        "zh": "做一个能导入relay.db并生成迁移脚本的简单工具，找1位开发者试用",
-        "en": "Build a minimal version that solves only this one thing, then try it with 3 support teams."
-      }
-    },
     "idea-2-bflpem": {
       "version": 2,
       "origin": "llm",
@@ -779,6 +758,27 @@
       "step": {
         "zh": "做一个能自动检测服务状态并触发重启的简易脚本",
         "en": "Build a minimal version that solves only this one thing, then try it with 3 support teams."
+      }
+    },
+    "idea-2-1eafwg6": {
+      "version": 2,
+      "origin": "llm",
+      "persona": "general",
+      "headline": {
+        "zh": "给普通用户做一个可快速搜索、分享及导出发票的简单工具",
+        "en": "A small tool for ordinary users to quickly search, share, and export invoices."
+      },
+      "who": {
+        "zh": "普通用户",
+        "en": "Ordinary users."
+      },
+      "why": {
+        "zh": "需要快速查找、分享和导出发票，现有方式操作繁琐。",
+        "en": "They need to quickly find, share, and export invoices, but current methods are cumbersome."
+      },
+      "step": {
+        "zh": "做一个基础版单页工具，供3人试用。",
+        "en": "Create a basic single-page tool for 3 people to test."
       }
     }
   }

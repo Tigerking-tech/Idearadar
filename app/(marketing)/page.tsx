@@ -13,9 +13,9 @@ import {
 } from "@/components/marketing/sections";
 
 export const metadata = getSEOTags({
-  title: "IdeaRadar — Turn real customer signals into validated business ideas",
+  title: "IdeaRadar — One-line business ideas from real public discussions",
   description:
-    "IdeaRadar finds recurring customer signals across Reddit, Hacker News, review sites and support threads, scores their strength, and maps the competitor gaps worth building for. Every finding links to its source.",
+    "IdeaRadar turns real, public questions and complaints into one-line business ideas: who has the problem, the small tool you could build, and the cheapest first step. Every idea links back to its source. Free to try, no signup.",
   canonicalUrlRelative: "/",
   languages: { "en-US": "/", "zh-CN": "/zh", "x-default": "/" },
 });

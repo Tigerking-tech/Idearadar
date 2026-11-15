@@ -109,7 +109,7 @@ export function RoiCalculator({ d = EN_DICT.roi }: { d?: RoiDict }) {
   const [hours, setHours] = useState(10);
   const [rate, setRate] = useState(50);
   const manualCost = hours * rate * 4;
-  const toolCost = 49;
+  const toolCost = 0; // 免费：工具本身不收费，这里只对比「自己翻帖子花掉的时间成本」
   const saved = Math.max(0, manualCost - toolCost);
 
   return (
@@ -178,60 +178,5 @@ export function RoiCalculator({ d = EN_DICT.roi }: { d?: RoiDict }) {
   );
 }
 
-/**
- * 订阅按钮：真实对接模板自带的 Creem checkout route。
- * 配置 CREEM_PRODUCT_PRO / CREEM_PRODUCT_TEAM 后直接创建结账会话并跳转；
- * 未配置时降级到注册页，本地演示不会报错。
- */
-export function SubscribeButton({
-  productId,
-  fallbackHref = "/signup",
-  label,
-  loadingLabel = "Opening checkout…",
-  variant = "primary",
-  block = false,
-}: {
-  productId?: string;
-  fallbackHref?: string;
-  label: string;
-  loadingLabel?: string;
-  variant?: "primary" | "outline";
-  block?: boolean;
-}) {
-  const [loading, setLoading] = useState(false);
-  const cls = `rr-btn ${variant === "primary" ? "rr-btn-primary" : "rr-btn-outline"} ${block ? "rr-btn-block" : ""}`;
-
-  if (!productId) {
-    return (
-      <Link href={fallbackHref} className={cls}>
-        {label}
-      </Link>
-    );
-  }
-
-  return (
-    <button
-      type="button"
-      className={cls}
-      disabled={loading}
-      onClick={async () => {
-        setLoading(true);
-        try {
-          const res = await fetch(`/api/checkout?product_id=${encodeURIComponent(productId)}`);
-          const data = await res.json();
-          if (data?.checkoutUrl) {
-            window.location.href = data.checkoutUrl;
-          } else {
-            window.location.href = fallbackHref;
-          }
-        } catch {
-          window.location.href = fallbackHref;
-        } finally {
-          setLoading(false);
-        }
-      }}
-    >
-      {loading ? loadingLabel : label}
-    </button>
-  );
-}
+/* 订阅/结账按钮已移除：本项目免费、开源、无账号与付费套餐，
+   定价卡片直接链接到免费试用与开放数据，不再对接任何 checkout 端点。 */

@@ -3,9 +3,9 @@ import { FaqSection, FinalCta } from "@/components/marketing/sections";
 import { ZH_DICT } from "@/lib/i18n";
 
 export const metadata = getSEOTags({
-  title: "常见问题 — 创意雷达 数据源、Reddit 政策与计费",
+  title: "常见问题 — 创意雷达 数据源、一句话点子与免费试用",
   description:
-    "关于 创意雷达 的常见问题：产品用途、痛点如何评分、使用哪些数据源、Reddit API 合规、第一方数据导入、API 与 MCP 接入，以及 Creem 计费。",
+    "关于 创意雷达 的常见问题：产品做了什么、抱怨如何变成一句话点子、用哪些公开数据源、机器翻译、免注册 3 次试用，以及哪些功能还没上线。",
   canonicalUrlRelative: "/zh/faq",
   languages: { "en-US": "/faq", "zh-CN": "/zh/faq", "x-default": "/faq" },
   ogLocale: "zh_CN",
@@ -19,7 +19,7 @@ export default function ZhFaqPage() {
           <span className="rr-kicker">常见问题</span>
           <h1 className="rr-h2 mt-3">常见问题</h1>
           <p className="rr-lead mt-4 text-[16px] max-w-[620px] mx-auto">
-            关于产品、数据合规、评分与计费，用大白话一次讲清楚。
+            现在能用的、数据从哪来、还有哪些只在规划中 —— 用大白话一次讲清楚。
           </p>
         </div>
       </section>

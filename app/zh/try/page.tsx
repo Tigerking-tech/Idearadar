@@ -6,14 +6,14 @@ import { resolveSignals } from "@/lib/signals";
 
 export const dynamic = "force-dynamic";
 
-const title = "免费试用 — 免注册扫描 3 次 | 创意雷达";
+const title = "免费试用 — 免注册看点子 3 次 | 创意雷达";
 const description =
-  "免注册试用 创意雷达：不用账号、不用信用卡，先免费扫描 3 次细分市场。输入一个市场或工作流，即可拿到排序后的痛点、证据评分、逐字原话、来源出处与竞品空白。";
+  "免注册试用 创意雷达：不用账号、不用信用卡，先免费看 3 次点子。可按「谁会遇到」分组浏览，也能输入方向，拿到一句话点子与可核对的原始措辞、来源链接。";
 
 export const metadata = getSEOTags({
   title,
   description,
-  keywords: ["免费试用", "无需注册", "用户抱怨分析", "痛点挖掘", "细分市场扫描", "创意雷达 免费"],
+  keywords: ["免费试用", "无需注册", "一句话点子", "创业灵感", "按人群浏览", "创意雷达 免费"],
   canonicalUrlRelative: "/zh/try",
   languages: { "en-US": "/try", "zh-CN": "/zh/try", "x-default": "/try" },
   ogLocale: "zh_CN",

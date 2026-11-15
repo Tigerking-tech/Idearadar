@@ -5,7 +5,7 @@ import config from "@/config";
 import { FAQ_ITEMS, FAQ_ITEMS_ZH } from "@/lib/faq";
 import { EN_DICT, type Dict } from "@/lib/i18n";
 import { renderFaqSchema } from "@/lib/seo";
-import { RoiCalculator, SubscribeButton } from "./interactive";
+import { RoiCalculator } from "./interactive";
 
 /**
  * 读取定时 workflow 产出的结构化数据（服务端、构建时读取）。
@@ -142,17 +142,20 @@ export function LivePreview({ d = EN_DICT }: SectionProps) {
                 <span>{p.scanHead}</span>
                 <span className="rr-scan-badge">{p.samplePains}</span>
               </div>
-              {p.sample.map((row) => (
-                <div className="rr-scan-row" key={row.label}>
-                  <div className="rr-scan-row-top">
-                    <span>{row.label}</span>
-                    <span className="rr-scan-score">{row.score}</span>
+              {(() => {
+                const maxMentions = Math.max(1, ...p.sample.map((row) => row.mentions));
+                return p.sample.map((row) => (
+                  <div className="rr-scan-row" key={row.label}>
+                    <div className="rr-scan-row-top">
+                      <span>{row.label}</span>
+                      <span className="rr-scan-score">{row.mentions} {p.sampleUnit}</span>
+                    </div>
+                    <div className="rr-bar-track">
+                      <div className="rr-bar-fill" style={{ width: `${Math.round((row.mentions / maxMentions) * 100)}%` }} />
+                    </div>
                   </div>
-                  <div className="rr-bar-track">
-                    <div className="rr-bar-fill" style={{ width: `${row.score}%` }} />
-                  </div>
-                </div>
-              ))}
+                ));
+              })()}
               <div className="rr-scan-foot">
                 {footLive}
                 {stats ? (
@@ -345,7 +348,7 @@ export function PricingSection({
                 {plan.featured && <span className="rr-price-badge">{p.badge}</span>}
                 <h3 className="rr-h3">{t.name}</h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="rr-price-amount">${plan.price}</span>
+                  <span className="rr-price-amount">{t.priceLabel}</span>
                   <span className="text-[13px] text-[#8b90a0]">{t.cadence}</span>
                 </div>
                 <p className="text-[13.5px] text-[#5c6273] mt-3 min-h-[40px]">{t.description}</p>
@@ -357,20 +360,12 @@ export function PricingSection({
                     </li>
                   ))}
                 </ul>
-                <SubscribeButton
-                  productId={plan.productId}
-                  label={t.cta}
-                  loadingLabel={d.locale === "zh" ? "正在打开结账页…" : "Opening checkout…"}
-                  variant={plan.featured ? "primary" : "outline"}
-                  block
-                  fallbackHref={
-                    plan.id === "free"
-                      ? d.locale === "zh" ? "/zh/try" : "/try"
-                      : plan.id === "team"
-                        ? `mailto:${config.supportEmail}`
-                        : "/signup"
-                  }
-                />
+                <Link
+                  href={t.href}
+                  className={`rr-btn ${plan.featured ? "rr-btn-primary" : "rr-btn-outline"} rr-btn-block`}
+                >
+                  {t.cta}
+                </Link>
               </div>
             );
           })}

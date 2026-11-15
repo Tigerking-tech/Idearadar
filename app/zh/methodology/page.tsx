@@ -4,29 +4,21 @@ import { FinalCta } from "@/components/marketing/sections";
 import { ZH_DICT } from "@/lib/i18n";
 
 export const metadata = getSEOTags({
-  title: "方法论 — 创意雷达 如何给痛点打分与选择数据源",
+  title: "方法论 — 创意雷达 如何把公开提问变成一句话点子",
   description:
-    "创意雷达 评分方法：出现频率、情绪强度、时效性、跨源印证与付费意愿信号合成 0–100 证据分。含数据源合规政策、Reddit API 时间线与自动采集工作流说明。",
+    "创意雷达 的真实工作方式：定时从公开 API 采集、噪音过滤与抱怨判定、LLM 去噪、一句话机会生成与模板兜底、增量翻译、多快照趋势。含数据源合规说明与如实标注的已知限制。",
   canonicalUrlRelative: "/zh/methodology",
   languages: { "en-US": "/methodology", "zh-CN": "/zh/methodology", "x-default": "/methodology" },
   ogLocale: "zh_CN",
 });
 
-const SCORE_DIMENSIONS = [
-  ["出现频率", "30%", "同一抱怨在互不相关的讨论中重复出现的次数，去重后统计。"],
-  ["情绪强度", "20%", "情绪词、紧迫措辞，以及问题造成的实际后果描述。"],
-  ["时效性", "15%", "近期讨论权重高于历史讨论，过时的问题逐步衰减。"],
-  ["跨源印证", "20%", "同一问题出现在相互独立、互不引用的多个平台上。"],
-  ["付费意愿", "15%", "明确写出的预算、正在付费的工具或量化的成本。推断意图计零分。"],
-] as const;
-
-const REDDIT_TIMELINE = [
-  ["2023 年", "Reddit 开始对高频商业 API 调用收费，多个第三方客户端关停。"],
-  ["2025 年 6 月", "Reddit 起诉 Anthropic 未经授权商业抓取用户内容。"],
-  ["2025 年 11 月", "GummySearch 公告因未取得商业数据 API 授权而关停。"],
-  ["2026 年 10 月", "Reddit 停止受理新的公开 API 访问申请。"],
-  ["2026 年 11 月", "Reddit 终止 RSS 订阅支持。"],
-  ["2027 年 3 月", "剩余公开 Data API 访问终止，第三方应用迁往开发者平台。"],
+const PIPELINE = [
+  ["采集", "定时任务查询官方公开 API，把结构化 JSON 写回仓库。"],
+  ["过滤", "确定性规则先丢掉新闻、招聘、发行公告与模板套话，再保留带抱怨或求助信号的记录。"],
+  ["去噪", "LLM 判定每条是否是真实用户问题；若驳回过多则整批回退保留（安全阀），且全程失败不阻断。"],
+  ["成点子", "第二道 LLM 写出一句话机会：谁遇到麻烦、为什么还有空间、最小第一步。不可用时用确定性模板兜底。"],
+  ["翻译", "增量翻译步骤把中文标题、原话与点子写进数据产物，用户可随时切回查看原文。"],
+  ["趋势", "每次采集向 history.json 追加一个快照；真实快照攒够之前，趋势一律显示「平稳」。"],
 ] as const;
 
 export default function ZhMethodologyPage() {
@@ -36,51 +28,37 @@ export default function ZhMethodologyPage() {
         <div className="max-w-[820px] mx-auto rr-prose">
           <span className="rr-kicker">方法论</span>
           <h1 className="rr-h2 mt-3 !text-[clamp(32px,4vw,48px)]">
-            创意雷达 如何把用户抱怨变成 0–100 证据分
+            创意雷达 如何把公开提问变成一句话点子
           </h1>
           <p className="rr-lead mt-5">
-            这一页完整说明 创意雷达 测量什么、使用哪些数据源，以及自动采集工作流背后的合规规则。
+            这一页如实说明 创意雷达 到底做了什么、用了哪些数据源，以及结论的边界在哪里。
             全文以平实、可核查的服务端静态文本写成，方便搜索引擎与 AI 助手准确引用。
           </p>
-          <p className="rr-note">最后更新：2026 年 11 月 11 日。</p>
+          <p className="rr-note">最后更新：2026 年 11 月 15 日。</p>
 
-          <h2 id="about">什么是痛点？</h2>
+          <h2 id="about">这个产品实际做了什么</h2>
           <p>
-            痛点是人们在没有问卷引导的情况下，公开用自己的话反复描述的具体问题。
-            创意雷达 只统计自发讨论中出现的抱怨；仅仅提到某个关键词的帖子不算痛点。
-            采集层会先排除新闻标题、发行公告、开发工单与 CI 日志，再从正文判断是否存在抱怨信号。
+            创意雷达 读取公开论坛与问答社区里、人们自发提出的真实提问与抱怨，把每条改写成一句大白话点子：
+            谁遇到这个麻烦、能做个什么小工具、最小第一步怎么试。每个点子都能点回原始讨论与来源。
+            它不编造市场规模、营收估算或严重度评分。这是一个免费、可自行托管的开源项目 —— 没有账号、没有订阅、没有收银台。
           </p>
 
-          <h2>什么是竞品空白？</h2>
+          <h2 id="scoring">采集管线</h2>
           <p>
-            竞品空白指一个既被频繁抱怨、又被所有已知解决方案处理得很差的问题。
-            对每条痛点，我们会列出已经在解决它的产品，并根据差评与抱怨讨论归纳它们反复失败的地方。
-          </p>
-
-          <h2>什么是付费意愿信号？</h2>
-          <p>
-            付费意愿（WTP）信号是逐字写出的预算、正在付费的工具，或问题造成的量化成本。
-            它是判断一条抱怨能否成为商机最可靠的单一指标。创意雷达 逐字抽取 WTP 表述，绝不从语气推断。
-          </p>
-
-          <h2 id="scoring">评分模型</h2>
-          <p>
-            每条候选痛点得到 0 到 100 的分数。低于质量阈值的结论会被直接拒绝而不展示，
-            让商机清单保持短且可验证。
+            每一步彼此独立，且都按「失败不阻断」设计：某道 LLM 不可用或输出非法时，管线保留确定性结果，
+            而不是丢掉记录或让整轮采集失败。
           </p>
           <table>
             <thead>
               <tr>
-                <th>维度</th>
-                <th>权重</th>
-                <th>衡量内容</th>
+                <th>阶段</th>
+                <th>做了什么</th>
               </tr>
             </thead>
             <tbody>
-              {SCORE_DIMENSIONS.map(([name, weight, detail]) => (
+              {PIPELINE.map(([name, detail]) => (
                 <tr key={name}>
                   <td><strong>{name}</strong></td>
-                  <td>{weight}</td>
                   <td>{detail}</td>
                 </tr>
               ))}
@@ -89,63 +67,47 @@ export default function ZhMethodologyPage() {
 
           <h2 id="data-sources">数据源与合规</h2>
           <p>
-            默认开启的连接器只使用访问条款清晰的公开来源：Hacker News 官方 API、
-            Stack Exchange 官方 API、公开的 GitHub Issues API，以及自行配置的 RSS／Atom 订阅源。
-            你还可以导入第一方数据 —— 客服工单、通话记录、问卷导出与评论 CSV，因为你本来就持有这些数据的权利。
+            默认连接器只使用访问条款清晰的公开来源：Hacker News 官方 API、Stack Exchange 官方 API
+            （含记账、宠物、差旅、职场等日常问答站点）、公开的 GitHub Issues API，以及任意可配置的
+            RSS／Atom 订阅。因为是多源采集，任何单一平台修改条款都不会让产品停摆。
           </p>
           <p>
-            Reddit 连接器<strong>默认关闭</strong>，仅在提供受 Reddit 商业数据授权覆盖的凭证时才启用。
-            Reddit 用户协议禁止未经授权的商业抓取，平台也正在关闭公开数据访问。
-            因此任何单一平台修改条款，都无法让本产品停摆。
+            Reddit 连接器<strong>默认关闭</strong>，需要你自备受 Reddit 商业数据授权覆盖的凭证。
+            电商与本地生活评论（电商平台、餐饮与生活服务应用）没有面向此用途的合规公开接口，
+            因此 创意雷达 不从这些来源采集 —— 没有的接口，我们不假装接了。
           </p>
-          <p>
-            需要特别说明：Apify、Bright Data、Anysite 这类第三方抓取服务商<strong>不是 Reddit 授权渠道</strong>，
-            购买其取数服务不会洗掉权利瑕疵。第三方抓取通道在工程上也是军备竞赛，
-            不应作为收费产品的数据地基。
-          </p>
-
-          <h2>Reddit 数据政策时间线</h2>
-          <table>
-            <thead>
-              <tr><th>时间</th><th>事件</th></tr>
-            </thead>
-            <tbody>
-              {REDDIT_TIMELINE.map(([date, event]) => (
-                <tr key={date}><td><strong>{date}</strong></td><td>{event}</td></tr>
-              ))}
-            </tbody>
-          </table>
 
           <h2>自动采集工作流</h2>
           <p>
             采集按计划运行于 GitHub 托管 runner 上的 <code>.github/workflows/ingest.yml</code>。
-            各连接器彼此独立；工作流把结果归一化到统一结构、按语义相似度去重、套用上面的评分模型，
-            并写出结构化 JSON。因为采集发生在 runner 而非本地工作站，本地网络受限时也能持续工作。
+            工作流把结果归一化到统一结构、去重、滤噪、跑 LLM 去噪与点子生成、写入中文、再提交刷新后的 JSON。
+            因为采集发生在 runner 而非本地工作站，本地网络受限时也能持续工作。若数据提交与其他推送撞车，
+            并发保护会自动 rebase 后重试。
           </p>
           <p>
-            结构化输出面向下游使用：专业版提供 CSV 与 JSON 导出，团队版另有 Webhook、
-            JSON API 与 MCP 端点，便于 AI 助手直接查询商机库。
-          </p>
-
-          <h2>持续监控与一次性点子清单</h2>
-          <p>
-            一次性点子清单只回答一次「我可以做什么」。创意雷达 围绕持续监控构建：
-            同一细分市场按计划重复扫描，新抱怨与历史结果做差分，重要变化通过 Slack、邮件或 Webhook 推送。
-            这让市场调研成为可重复的工作流，而不是一次性的消费。
+            完整结果是一个机器可读的纯文本文件 <code>/opportunities.json</code> —— 对所有人开放，
+            不用登录、不限次数。没有 CSV 导出、Webhook、JSON API 或 MCP 端点；那些是规划中的想法，不是已上线的功能。
           </p>
 
-          <h2>补充数据源的接入优先级</h2>
+          <h2>输入固定索引之外的方向会怎样</h2>
           <p>
-            按合规成本从低到高排序：① 客服工单与第一方数据（零平台风险，也是最难被通用工具复制的壁垒）；
-            ② 官方开放 API（Hacker News、Stack Exchange、GitHub Issues、YouTube Data、News／GDELT）；
-            ③ 需要商业谈判的来源（Reddit 商业数据协议、X 官方 API）；
-            ④ 不接入 —— 电商评论的使用条款普遍禁止自动化抓取。
+            如果你输入的方向不在固定数据里，免费试用会现场检索一次公开讨论。这些结果会明确标注为
+            「实时检索 / 规则筛选」，<strong>不会</strong>被伪装成已验证、已入索引的点子 —— 质量低于夜间策展的数据。
+            实时检索不可用或证据不足时，页面会如实说明而不是编造结果，且失败的尝试不扣 3 次免费额度。
+          </p>
+
+          <h2>如实标注的限制</h2>
+          <p>
+            一句话点子只是从采集原话出发的起点，不是已验证的商业论证，也不保证产品一定成功。
+            部分来源本身就是冷门问答，改写出的点子仍可能偏窄。中文为机器翻译，原始措辞始终可查。
+            3 次额度只存在浏览器里，是演示用的限制，不是生产级配额。早期趋势曲线在真实快照攒够前使用引导样本，
+            攒够后自动切换为真实数据。
           </p>
 
           <div className="rr-card p-6 mt-10 not-prose">
             <h3 className="rr-h3">继续阅读</h3>
             <ul className="mt-3 space-y-2 text-[14px]">
-              <li><Link href="/zh/pricing">套餐与功能对比 →</Link></li>
+              <li><Link href="/zh/pricing">哪些免费、哪些还在规划 →</Link></li>
               <li><Link href="/zh/faq">常见问题 →</Link></li>
               <li><Link href="/llms.txt">LLM 可读站点索引（llms.txt）→</Link></li>
             </ul>

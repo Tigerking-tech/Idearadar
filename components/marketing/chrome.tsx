@@ -53,7 +53,7 @@ export function SiteHeader({
           </nav>
         </div>
         <div className="rr-header-actions">
-          <Link href="/signin" className="rr-signin rr-desktop-only">
+          <Link href="/opportunities.json" className="rr-signin rr-desktop-only">
             {d.nav.signin}
           </Link>
           <Link href={d.nav.ctaHref} className="rr-btn rr-btn-primary rr-btn-sm rr-desktop-only">

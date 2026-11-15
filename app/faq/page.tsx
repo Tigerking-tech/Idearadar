@@ -2,9 +2,9 @@ import { getSEOTags, renderBreadcrumbSchema } from "@/lib/seo";
 import { FaqSection, FinalCta } from "@/components/marketing/sections";
 
 export const metadata = getSEOTags({
-  title: "FAQ — IdeaRadar Data Sources, Reddit Policy & Billing",
+  title: "FAQ — IdeaRadar data sources, one-line ideas & the free trial",
   description:
-    "Answers about IdeaRadar: what it does, how pain points are scored, which data sources are used, Reddit API compliance, first-party data import, API/MCP access, and Creem billing.",
+    "Answers about IdeaRadar: what it does, how a complaint becomes a one-line idea, which public data sources are used, machine translation, the no-signup 3-scan trial, and which features are not built yet.",
   canonicalUrlRelative: "/faq",
   languages: { "en-US": "/faq", "zh-CN": "/zh/faq", "x-default": "/faq" },
 });
@@ -17,7 +17,7 @@ export default function FaqPage() {
           <span className="rr-kicker">FAQ</span>
           <h1 className="rr-h2 mt-3">Frequently asked questions</h1>
           <p className="rr-lead mt-4 text-[16px] max-w-[620px] mx-auto">
-            Product, data compliance, scoring and billing — answered in plain language.
+            What works today, where the data comes from, and what is still only planned — in plain language.
           </p>
         </div>
       </section>

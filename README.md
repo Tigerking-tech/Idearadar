@@ -1,6 +1,8 @@
 # IdeaRadar
 
-从公开讨论中挖「能动手的小工具点子」的 SaaS：采集合规公开源 → 过滤噪声 → 把每条证据改写成一句「给谁 + 做什么」的机会 → 按人群分组的零输入灵感流 → 原文证据可回溯。自己用，也对外开放订阅收费（Creem 作为 Merchant of Record）。
+从公开讨论中挖「能动手的小工具点子」的开源、可自托管项目：采集合规公开源 → 过滤噪声 → LLM 二次去噪 → 把每条证据改写成一句「给谁 + 做什么」的机会 → 按人群分组的零输入灵感流 → 原文证据可回溯。
+
+**当前定位是免费、无账号、无订阅、无收银台的公开演示**：免注册 3 次只是浏览器 localStorage 的演示配额，完整采集数据在 `/opportunities.json` 一直开放，不存在注册解锁、付费套餐或按席位收费。代码基底来自 Creem 模板，但支付 / 订阅链路当前完全未启用（见第 3 节），全站可见文案已按「只描述已实现功能」逐页诚实化（见第 8 节末）。
 
 ## 1. 模板来源
 
@@ -10,9 +12,9 @@
 - 官方文档：<https://docs.creem.io/code/sdks/templates>
 - 备选对照（未采用）：`jpr5/creem-saas-boilerplate`（Next 16 + Supabase，带 demo mode）、`pacekit/creembase`（Supabase + `@creem_io/nextjs` 验签 + Playwright e2e）
 
-选官方模板的原因：Creem 接入链路完整且本地 SQLite 即可跑，不需要外部服务就能验证。本环境 `git clone` 到 github.com 超时，最终通过 `api.github.com/repos/.../tarball` 取回源码（这也是第 4 项要做 GitHub workflow 兜底的现实原因）。
+选官方模板的原因（当时的历史判断）：Creem 接入链路完整且本地 SQLite 即可跑，不需要外部服务就能验证。产品现已转为免费、无收银台，该接入链路不再运行，模板仅作为 Next.js App Router 骨架保留。本环境 `git clone` 到 github.com 超时，最终通过 `api.github.com/repos/.../tarball` 取回源码（这也是第 6 节要做 GitHub workflow 兜底的现实原因）。
 
-**保留的支付链路**：`app/api/checkout/route.ts`、`app/api/customerPortal/route.ts`、`app/api/products/route.ts`、`app/api/subscription/cancel/route.ts`、`app/api/webhook/route.ts`、`lib/creem.ts`、`prisma/schema.prisma`。
+**保留但未启用的模板支付链路**：`app/api/checkout/route.ts`、`app/api/customerPortal/route.ts`、`app/api/products/route.ts`、`app/api/subscription/cancel/route.ts`、`app/api/webhook/route.ts`、`lib/creem.ts`、`prisma/schema.prisma`。当前产品不收款，这些路由与 `app/(auth)`、`app/(session)` 模板页仅为对照保留：可见导航与所有 CTA 已改指 `/try` 或 `/opportunities.json`，`SubscribeButton` / checkout 调用已删除，`middleware.ts` 把 `/signin`、`/signup`、`/account`、`/dashboard`、`/products` 统一 307 到 `/try`，`robots.ts` 亦将这些路径列为 private，用户不可达。
 
 **修掉的模板遗留问题**：强制暗色主题、第三方统计脚本、缺失的 `@/config`、`signup` 页非法导出、失效的 waitlist 类型引用、缺失的 `feature.image`、未转义撇号导致的 ESLint 报错。
 
@@ -40,23 +42,24 @@ pnpm ingest:idea        # 生成「一句话机会」（需 IDEARADAR_IDEA=1 + t
 
 `IDEARADAR_LIVE_FEED=1` 让 `/try` 读取真实采集产物而非演示数据；本地 `.env.local` 已开启。LLM 相关开关：`IDEARADAR_TRANSLATE_TOKEN`（复用给翻译 / 去噪 / 一句话机会 / 实时检索归纳）、`IDEARADAR_DENOISE`、`IDEARADAR_IDEA`，均默认关闭以避免本地误调产生费用；云端 workflow 默认开启。密钥只放在 `.env.local` 或 GitHub Actions Secret，不入库。
 
-## 3. Creem 配置
+## 3. 模板支付链路（当前未启用）
 
-1. 在 Creem 后台开启 Test Mode，创建 API Key → `CREEM_API_KEY`。
-2. 创建两个订阅产品（Pro / Team），把 Product ID 填入 `CREEM_PRODUCT_PRO` / `CREEM_PRODUCT_TEAM`。定价页 Pro / Team 按钮会自动创建 checkout 会话并跳转；未配置时降级到注册页，本地演示不会报错。免费版按钮不进支付链路，直接指向免注册试用页 `/try`（中文 `/zh/try`）。
-3. 配置 Webhook 指向 `/api/webhook`，设置 `CREEM_WEBHOOK_SECRET`、`SUCCESS_URL`。
-4. 上线前把 `NEXT_PUBLIC_SITE_URL` 改成真实域名。
+本节只说明代码基底里**存在但当前不运行**的东西，不是上线配置指引。产品现在免费、无账号、无订阅、无收银台，因此以下环境变量均不需要配置：
 
-> **上线前必办的安全项**：模板的 `app/api/webhook/route.ts` 未做签名校验（模板 README 明确写了 "not taking security into account"）。上线接收真实付款前，必须按 <https://docs.creem.io/webhooks> 用 `CREEM_WEBHOOK_SECRET` 校验签名头，并在写库前做幂等处理。本仓库保留模板原实现以便对照，未擅自猜测签名算法。
+- `CREEM_API_KEY`、`CREEM_PRODUCT_PRO` / `CREEM_PRODUCT_TEAM`、`CREEM_WEBHOOK_SECRET`、`SUCCESS_URL`：模板 checkout / webhook 所用，当前没有任何入口会调用。
+- 定价页三档卡片已改为普通链接：`Free trial → /try`、`Full dataset → /opportunities.json`、`Planned → /#how-it-works`（明确标「规划中、未实现」），不再创建 checkout 会话，也不再降级到注册页。
+- 若将来真要恢复收款，**必须先办安全项**：模板的 `app/api/webhook/route.ts` 未做签名校验（模板 README 明确写了 "not taking security into account"）。按 <https://docs.creem.io/webhooks> 用 `CREEM_WEBHOOK_SECRET` 校验签名头并在写库前做幂等，再重新接通收款链路。本仓库保留模板原实现以便对照，未擅自猜测签名算法。
+
+上线前仍需把 `NEXT_PUBLIC_SITE_URL` 改成真实域名（当前 `idearadar.app` 为占位）。
 
 ## 4. 页面结构
 
 | 路径 | 内容 |
 | --- | --- |
 | `/` | 落地页：Hero / 数据条 / 实时采集预览 / 三步流程 / 示例证据链 / 对比 + ROI 计算器 / 数据源合规 / 定价 / FAQ / 底部 CTA |
-| `/try`、`/zh/try` | 免注册试用页：不登录先免费扫 3 次（localStorage 记在本机，中英共用）；零输入灵感流（今日一点子高亮卡 + 按人群分组的机会卡 + 人/场景方向卡 + 快捷词）；结果卡把「一句话机会（谁在痛 / 为什么有机会 / 最小起步）」置顶，逐字原话、信号标签、八维机会卡、外部热度收进「看原文证据」折叠区；三个追问为确定性本地动作；方向卡按人群直取；弱/无命中走 `/api/scan` 现场检索并诚实标注；失败/证据不足不扣次数；3 次用完引导注册或对比套餐 |
+| `/try`、`/zh/try` | 免注册试用页：不登录先免费扫 3 次（localStorage 记在本机，中英共用）；零输入灵感流（今日一点子高亮卡 + 按人群分组的机会卡 + 人/场景方向卡 + 快捷词）；结果卡把「一句话机会（谁在痛 / 为什么有机会 / 最小起步）」置顶，逐字原话、信号标签、八维机会卡、外部热度收进「看原文证据」折叠区；三个追问为确定性本地动作；方向卡按人群直取；弱/无命中走 `/api/scan` 现场检索并诚实标注；失败/证据不足不扣次数；3 次用完引导「浏览完整公开数据」或「回首页」，不再承诺注册 / 升级解锁 |
 | `/pricing` | 独立定价页（SEO 落地页） |
-| `/methodology` | GEO 语义页：评分模型、术语定义、数据源合规、Reddit 政策时间线、workflow 说明 |
+| `/methodology` | GEO 语义页：真实采集管线（Collect / Filter / Denoise / Ideate / Translate / Track）、数据源与合规边界、已知限制、Reddit 政策时间线、workflow 说明；明确列出「尚未实现」的功能，不再描述虚构的评分模型 / WTP / 竞品空白 |
 | `/faq` | FAQ 独立页 |
 | `/privacy`、`/terms` | 法务页 |
 | `/sitemap.xml`、`/robots.txt` | 动态生成 |
@@ -71,7 +74,7 @@ pnpm ingest:idea        # 生成「一句话机会」（需 IDEARADAR_IDEA=1 + t
 **Google**
 
 - `lib/seo.tsx` 统一 metadata：title / description / keywords / canonical / `metadataBase` / OG / Twitter card / robots 指令
-- `app/sitemap.ts` 六个公开页面、`app/robots.ts` 站点规则与 sitemap/host
+- `app/sitemap.ts` 六对（12 条 URL）公开页面、`app/robots.ts` 站点规则与 sitemap/host
 - 结构化数据（`@graph`）：`Organization`、`WebSite`、`SoftwareApplication`；首页/FAQ 页注入 `FAQPage`；子页注入 `BreadcrumbList`
 - 自托管 Inter 字体 + 自有 `public/og.png`，无外部字体请求，不拖慢 LCP
 - 全部营销页为服务端组件，正文进入初始 HTML；每页单一 `<h1>`，语义化 `<h2>/<h3>/<table>/<details>`
@@ -79,10 +82,10 @@ pnpm ingest:idea        # 生成「一句话机会」（需 IDEARADAR_IDEA=1 + t
 
 **GPT / Claude / Perplexity 等 LLM**
 
-- `/llms.txt`（站点索引）+ `/llms-full.txt`（完整事实上下文：评分权重表、数据源清单、Reddit 时间线、定价表、FAQ）
+- `/llms.txt`（站点索引）+ `/llms-full.txt`（完整事实上下文：当前真实功能、采集管线、数据源与合规边界、Reddit 时间线、FAQ，以及显式单列的 `Not built yet / Planned (not built)` 清单）
 - `robots.txt` 显式放行 `GPTBot`、`OAI-SearchBot`、`ChatGPT-User`、`ClaudeBot`、`anthropic-ai`、`PerplexityBot`、`Google-Extended`、`Applebot-Extended`、`CCBot`、`cohere-ai`、`YouBot`
 - `<link rel="alternate" type="text/plain" href="/llms.txt">` 声明
-- 事实性、可整段引用的正文（`/methodology`），示例数据一律标注 illustrative，避免 LLM 引用虚构数字
+- 事实性、可整段引用的正文（`/methodology`）；首页预览卡改用最近一次采集的 4 条真实点子与真实提及数，不再展示编造的 `0–100` 示例分数；未实现功能一律否定或标「规划中（未实现）」，避免 LLM 引用虚构数字与功能
 
 ## 6. 自动采集 workflow
 
@@ -91,14 +94,14 @@ pnpm ingest:idea        # 生成「一句话机会」（需 IDEARADAR_IDEA=1 + t
 - 定时：每 6 小时在 GitHub 托管 runner 上运行；也支持 `workflow_dispatch` 手动触发。
 - 流程：`node --test scripts/*.test.mjs` 全量单测 → recall 评估 → cooldown → 多源采集 → TokenHub `hy-mt2-plus` 批量翻译 → **LLM 二次去噪（`scripts/denoise.mjs`）** → **一句话机会生成（`scripts/idea.mjs`）** → Google Trends 外部热度 → 高频扫描方向提升（带准入闸门）→ 上传 artifact → 有变化时把数据产物提交回仓库（bot 提交带 `[skip ci]`，不会触发递归构建）。
 - 有则提交的数据产物：`data/opportunities.json`、`public/opportunities.json`、`data/history.json`、`data/recall-eval.json`、`data/rejected.json`、`data/denoise.json`、`data/idea.json`、`data/external-heat.json`、`public/external-heat.json`、`data/query-scans.json`、`data/scan-candidates.json`。后两者是运行时产物，仓库初始可以没有。
-- 纯函数评分层（`ingest-lib.mjs`）：频率 30% / 强度 20% / 近期性 15% / 跨源印证 20% / 显式付费意愿 15%，规则显式、可单测、可复现。
+- 纯函数评分层（`ingest-lib.mjs`）：频率 30% / 强度 20% / 近期性 15% / 跨源印证 20% / 显式付费意愿**词面命中** 15%，规则显式、可单测、可复现。这是采集端对候选条目的启发式排序权重，**不是**对外展示的 `0–100` 严重度评分，也不提取付费金额；普通人赛道走 `consumerMode` 的常青痛点口径（见第 7 节）。
 - **默认启用的合规源**：Hacker News 官方 API、Stack Exchange 官方 API（技术站 + `consumerQa` 非技术站）、GitHub Issues 公开 API、可配置 RSS/Atom、第一方数据导入。`consumerQa` 走 Stack Exchange 2.3 官方接口的 `webapps` / `money` / `workplace` / `travel` / `superuser` / `pets`，`timeless=true` 不加 30 天窗口、按 `relevance` 抓常青痛点，服务于 4 个普通人赛道。
 - **Reddit 默认关闭**：`ENABLE_REDDIT=false`。只有持有 Reddit 商业数据授权并配置 `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET` 时才启用。Reddit 用户协议禁止未授权商业抓取。2026-10-31 起不再受理新的公开 API 申请，2027-01-12 起撤销未登记应用的权限，2027 年 3 月公开 Data API 全面终止；此后官方路径只剩与 Reddit 签商业数据协议，或迁入 Devvit（代码须运行在 Reddit 基础设施上、由 Reddit 决定开放哪些接口，做不了跨平台聚合的独立订阅产品）。
 - **第三方抓取服务商不是「授权数据源」**：Apify、Bright Data、Anysite 售卖的是「代取公开页面数据」的服务，不是源平台的授权。Apify 自家 Reddit 抓取器页面明确声明未获 Reddit 授权或认证、不隶属于 Reddit，靠住宅代理 IP 轮换读取未登录访客可见页面。付费购买取数服务不等于取得平台的权利许可——服务商通过合同把 ToS 合规责任与数据控制者责任转移给使用方。Reddit 2026-09-30 公告正是以「大规模抓取与自动化滥用、AI 训练数据采集」为由分阶段关闭 RSS 与公开 API，并已于 2025 年起诉 Anthropic、Perplexity 及多家抓取服务商。因此本项目不把此类服务列为合规源；仅用于自用研究时，须放在独立、默认关闭的适配器内并显式标注「未授权抓取、风险自担」，不得作为对外收费产品的主数据源。
 - **补充源的接入优先级**：第一方数据（客服工单、调研导出，零平台合规风险且竞品无法复制）→ 官方开放 API（HN、Stack Exchange、GitHub Issues、YouTube Data、News/GDELT）→ 需商业谈判（Reddit 商业数据协议；X 官方 API 免费档几乎不含读取额度、付费读取按次计费）→ 不接入（平台条款明确禁止自动化访问者，如 Amazon 评论，完整评论已移至登录墙后）。
 - 本地网络受限不影响采集：任务跑在 GitHub runner 上；这也是上层「多源 + 数据自治」结论的工程落地。
 
-推送到 GitHub 后，Actions 会自动开始抓取。**当前环境状态**：`git clone`/`git push` 到 `github.com` 超时，但 `api.github.com` 与 `codeload.github.com` 可达，因此推送走 GitHub REST API 通道（需要仓库写权限 token）。仓库文件已全部就位，拿到 token 后即可推送并启用 workflow；也可在任意可访问 github.com 的机器上 `git remote add origin && git push`。
+推送到 GitHub 后，Actions 会自动开始抓取，云端 workflow 已多轮跑通（16 步全 success，含翻译、去噪、一句话机会、数据提交）。**本沙箱网络现状**：`github.com` 的 git TLS 通道不稳定（常见 `GnuTLS recv error (-110)`），但 `api.github.com` 与 `codeload.github.com` 可达，因此代码推送走 GitHub REST API `base_tree` 通道：以远端最新 tree 为基线、只覆盖本次变更文件，保留 bot 的 `[skip ci]` 数据提交历史，避免把云端数据刷新覆盖掉。并发 push 被拒时 `Commit refreshed data` 步骤会 `fetch + rebase -X theirs` 后重试。
 
 ## 7. P0 / P1 / P2 架构（本轮落地）
 
@@ -193,22 +196,28 @@ probe 只跑 `hn` / `so` 源白名单以避开 GitHub 限流；probe 抛错/超�
 | 真实 TokenHub 一句话机会 | v2 单条批次 60/60 全 LLM 生成、`status=ok`、零模板；增量重跑 `cached=59 generated=1 requests=1` |
 | 方向卡人群直取 | 点「养宠物、记照护的人」返回宠物/照护相关点子，不再串到收支、Outlook 等别的赛道 |
 | 中文页英文残留 | 新赛道 nicheLabel、来源名、gap 全部本地化；`consumerQa` → 日常问答 |
+| 全站逐页浏览器体检 | 19 个页面逐页抓取文案 / 链接 / 按钮并逐项点击，汇总「文案承诺 vs 真实实现」清单：功能本身可用，但首页「工作原理」、定价、FAQ、方法论、隐私、条款、`llms*.txt` 承诺了一整套未实现功能（竞品空白图 / 市场空白分 / WTP 原话 / CSV 导入 / `0–100` 评分 / 数据保留 7 天 / 导出 / 监控告警 / Webhook·API·MCP / 5 席位 / 共享工作台），「登录」「升级专业版」还指向坏的 Creem 模板页 |
+| 营销文案诚实化 | 重写 `lib/i18n.ts`、`lib/faq.ts`、`config.ts`、`lib/seo.tsx`、8 个独立页、方法论 / 隐私 / 条款 6 页、`llms.txt` / `llms-full.txt`：只描述当前真实实现，未上线功能统一标「规划中（未实现）」或明确否定；删除 `SubscribeButton` 与 checkout 死代码，ROI `toolCost` 由 49 改为 0，定价 CTA 改普通 `<Link>`，导航「登录」改指 `/opportunities.json`，预览卡改真实点子 + 真实提及数 |
+| 坏模板页兜底 | `middleware.ts` 把 `/signin` `/signup` `/account` `/dashboard` `/products` 统一 307 → `/try`；本地 curl 5/5 命中，可见导航与 CTA 不再引用这些坏页 |
+| SSR 可见文案扫描 | 去掉 `<script>` / `<style>` 后逐词核对可见文本，无虚构承诺；剩余命中均为「（未实现）」「不编造 severity score」「目前还没有」等诚实否定句 |
+| 全站交互复检 | 导航 / 语言切换 / FAQ 折叠 / 定价 CTA / 试用页方向卡·随机·快捷词·手动输入·3 次配额 `3→2→1→0`·耗尽引导·三个追问·查看原文 12/12 通过（语言切换初次假阴性已单独复测）；试用页 6/6；320/360/390px 无溢出；控制台 0 error |
+| polish 后最终验证（本轮收尾） | `node --test scripts/*.test.mjs` 207/207、`pnpm exec tsc --noEmit` 0 错误、`pnpm build` 通过（29 路由）；重启 `pnpm start` 后 12 个正常页 200、5 个坏模板页 307 → `/try`；SSR 可见文案扫描 7/7 新文案生效，虚构承诺词命中全部落在「（未实现）」「没有…」「规划中的想法，不是已上线的功能」否定语境；浏览器逐项复检 28/28（含首页新 hero、真实预览卡、定价 featured 落在第一档免费试用、中英 CTA 链接全 200、3 次配额 `3→2→1→0`、方向卡 / 随机 / 三个追问 / 看原文证据 / 耗尽引导、语言切换、FAQ 折叠、390px 无溢出、控制台 0 error）；终稿截图目视核对首页 / 工作原理三步 / 定价三档，均无虚构承诺 |
 
-采集结果接入首页「Live preview」的**统计脚注**（候选条数、数据源、更新日期），并链接到 `/opportunities.json` 供查看原始数据：GitHub Actions 每次刷新 JSON，重新部署后脚注数字随之变化，形成「自动抓取 → 网站」闭环。
+采集结果接入首页「Live preview」：卡片展示最近一次采集的 4 条真实一句话点子，右侧为真实提及数（`mentions`）与按最大值归一化的相对热度条；下方**统计脚注**给出候选条数、数据源、更新日期，并链接到 `/opportunities.json` 供查看原始数据。不再使用编造的示例痛点与 `92/87/81/74` 分数。GitHub Actions 每次刷新 JSON，重新部署后数字随之变化，形成「自动抓取 → 网站」闭环。
 
 **中文标题与逐字原话来自采集端批量 AI 翻译**（TokenHub `hy-mt2-plus`，`response_format: json_object`），前端 SSR 直接输出中文 HTML，可点「查看原文」核对英文原文。翻译失败或 429 只 warn、不阻塞采集，此时保留英文原文。这是与早期「格式示意数据」版本的本质区别。
 
 ## 9. 已知限制
 
-- 模板 webhook 未验签（见第 3 节），接入真实收款前必须补齐。
+- 模板 webhook 未验签（见第 3 节）；当前不收款、该链路未启用，将来恢复收款前必须补齐。
 - 采集评分是启发式规则，输出是「候选机会」而非结论。
 - **相关度仍不是 100%，但已由方案 C 显著缓解**：规则层（`NOISE_TITLE_RULES` + `curation.json`）拦不住服务中断公告、issue 模板、功能规格清单，`scripts/denoise.mjs` 的 LLM 二次去噪补上语义判定（见第 7 节）。模型仍会偶发套话式误判或输出截断，靠「fail-open 保留 + 0.4 安全阀 + `rejected.json` 周复核 + `forceKeepIds` 翻案」兜底，不能当作精确过滤器使用。
 - **LLM 去噪有 API 成本与不确定性**：默认关闭（`IDEARADAR_DENOISE=1` 开启）；云端 workflow 默认开启，把仓库变量设为 0 即停。每轮只判新增条目（增量缓存），但模型偶发 JSON 截断会让该批当轮保留、下轮自动重判。
 - **`history.json` 与展示条数口径不同**：趋势快照在采集阶段写入，去噪不回写历史，趋势计数会高于实际展示条数。
 - 采集层已过滤新闻标题、发行公告、CI 日志、多语言 issue，并按词边界截断标题；规则集中在 `ingest-lib.mjs` 的 `NOISE_TITLE_RULES`。
-- `better-auth` 与 Prisma 使用模板默认配置，生产环境应换成 Postgres 并配置迁移。
+- `better-auth` 与 Prisma 仍是模板默认配置、当前未被任何可见流程调用（无注册 / 无登录 / 无会话）；若将来恢复账号体系，生产环境应换成 Postgres 并配置迁移。
 - 若部署到 Vercel Serverless，本地文件写入不持久：必须配 `IDEARADAR_STORE_URL` 走远端 REST，否则方向记录与候选证据每次请求都会丢。
-- 计费 / 权益默认关闭（`IDEARADAR_BILLING_ENABLED` 未设），`/api/scan` 一律按 guest 20 次/10 分钟处理。
+- 计费 / 权益默认关闭（`IDEARADAR_BILLING_ENABLED` 未设），`/api/scan` 一律按 guest 20 次/10 分钟处理。当前产品没有账号、订阅或付费套餐，`scripts/entitlement.mjs` 只是预留骨架，不是已上线的商业化能力。
 - Google Trends RSS 在部分网络（含本沙箱）不可达，此时外部热度 `status: unavailable`，前端不渲染热度行；这是设计内的诚实降级，不是故障。
 - `data/scan-candidates.json` 由 `/api/scan` 在检出 score ≥ 55 候选时才生成，仓库初始可不含该文件。
 - 站点域名 `idearadar.app` 为占位，上线前替换 `NEXT_PUBLIC_SITE_URL` 与 `public/llms*.txt` 中的绝对链接。
@@ -217,7 +226,7 @@ probe 只跑 `hn` / `so` 源白名单以避开 GitHub 限流；probe 抛错/超�
 - **实时检索路径质量低于固定索引**：输入库外方向走 `/api/scan`，规则降级时可能召回 HN 新闻 / 闲聊，一句话机会由确定性模板生成（带原始标题、明确标「依据下方证据自动归纳」）。已把 `callLlm` 改成宽松 JSON 解析提升 LLM 归纳命中率，但不代表该路径等价于整理好的固定索引。
 - **`hy-mt2-plus` 是翻译专用模型**，JSON 结构能力弱：一句话机会靠「单条批次 + 栈式对象提取 + 字符串字段容错」把成功率拉到 60/60；换模型或改 prompt 必须重新实测，单条解析失败时回退模板并下轮自动重试。
 - **普通人赛道来自 Stack Exchange 非技术站点的公开问答**，内容偏「提问」而非「抱怨」；一句话机会是把提问改写成「可以做的小工具」，属于启发式建议而非已验证需求，不能当作市场规模或需求结论。
-- **营销页仍有少量「竞品空白」历史文案**（首页特性列表、定价页 features 等）未全量清理，与试用页当前实现不完全一致；试用页与 FAQ 已收口，其余页面待下一轮统一替换。
+- **全站文案已逐页诚实化（本轮完成，不再是待办）**：此前首页「工作原理」、定价、FAQ、方法论、隐私、条款、`llms*.txt` 承诺的竞品空白图 / 市场空白分 / WTP 原话 / 导入客服工单与 CSV / `0–100` 严重度评分 / 数据保留 7 天 / CSV·JSON 导出 / 持续监控告警 / Webhook·API·MCP / 5 席位 / 共享工作台 / 注册升级解锁，均为**未实现功能**，现已全部改为否定表述或「规划中（未实现）」；`Creem`、`$49`、`$199`、`Upgrade to Pro` 等收款承诺从可见文案与 GEO 文档中清除。逐页体检、替换与 SSR 扫描记录见第 8 节。
 - `lib/i18n.ts` 的 `demoTag` / `foot` **不是待清理的残留文案**：它们是 `live=false`（关闭实时数据、回退演示数据集）时的诚实标注分支，由 `guest-scan.tsx` 按 `live ? footLive : foot`、`live ? liveTag : demoTag` 渲染。开启 `IDEARADAR_LIVE_FEED` 后首屏不显示，但刻意保留，删掉会让演示数据被误认为真实采集结果。
 
 ## 10. 中英文双语
@@ -225,6 +234,6 @@ probe 只跑 `hn` / `so` 源白名单以避开 GitHub 限流；probe 抛错/超�
 - **六对独立静态页**：`/`↔`/zh`、`/pricing`↔`/zh/pricing`、`/faq`↔`/zh/faq`、`/methodology`↔`/zh/methodology`、`/privacy`↔`/zh/privacy`、`/terms`↔`/zh/terms`，全部在构建时预渲染，正文直接出现在初始 HTML 中。语言切换用真实 `<a>` 链接而非前端文案替换，中文内容因此可被 Google 与 LLM 抓取；切换器停留在**同一页面的另一语言**，不会跳回首页。
 - **单一事实源**：`lib/i18n.ts` 的 `EN_DICT` / `ZH_DICT` 覆盖首页全部区块、导航、页脚、公告条、交互组件、定价与 FAQ 文案，以及机会卡八维、外部热度、会员额度标签；组件默认取 `EN_DICT`，英文页零改动。中文 FAQ 在 `lib/faq.ts` 的 `FAQ_ITEMS_ZH`，与 FAQPage 结构化数据共用。Methodology／Privacy／Terms 的正文在各自 `/zh/*/page.tsx` 内，同为服务端静态渲染。
 - **SEO / GEO**：每对页面互指 `hreflang`（`en-US` / `zh-CN` / `x-default`），`sitemap.xml` 为 12 条 URL 全部输出 hreflang，`llms.txt` 与 `llms-full.txt` 列出全部中文页。
-- **中文站零英文正文**：产品名在中文页渲染为「创意雷达 / IdeaRadar」，技术术语（Creem、Reddit、API、CSV、MCP、GitHub 等）保留原文，其余叙述全部中文化；不再有「（English）」标注。
+- **中文站零英文正文**：产品名在中文页渲染为「创意雷达 / IdeaRadar」，技术术语（Reddit、API、CSV、GitHub 等）保留原文，其余叙述全部中文化；不再有「（English）」标注。`Creem` 等收款相关词已从全部可见文案与 `llms*.txt` 中移除（支付链路当前未启用，见第 3 节）。
 - `<html lang>` 仍固定为 `en`（见第 9 节），中文页容器带 `lang="zh-CN"` 且中文 metadata／hreflang／OG locale／FAQPage 齐全。
 - **线上与本地**：两者共用 `/workspace/rantradar` 的 `.next` 构建产物；`pnpm build` 后必须重启 3000 端口的发布服务（发布技能的 autostart 带 `restart:true`，或直接重跑 `publish.js`）才能让线上加载新构建，否则新路由会 500、旧页面仍是旧内容。链接与 sharecode 在重新发布后保持不变。

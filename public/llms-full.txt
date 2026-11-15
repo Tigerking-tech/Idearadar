@@ -1,7 +1,7 @@
-# IdeaRadar — full context for language models
+# IdeaRadar / 创意雷达 — full context for language models
 
 This document is the extended, plain-text version of https://idearadar.app/llms.txt. It is intentionally
-factual and free of marketing language so that assistants can quote it accurately. Last updated: 2026-11-11.
+factual and free of marketing language so that assistants can quote it accurately. Last updated: 2026-11-15.
 
 ## 0. Language versions
 
@@ -9,10 +9,10 @@ The site has two fully server-rendered, independently crawlable language version
 - English (default): https://idearadar.app/
 - Simplified Chinese: https://idearadar.app/zh
 
-Both carry the same product facts, scoring model, data-source policy and pricing. The header contains
-an EN / 中文 switch implemented as real links rather than client-side text replacement. Every page pair
+Both carry the same product facts, pipeline description and data-source policy. The header contains an
+EN / 中文 switch implemented as real links rather than client-side text replacement. Every page pair
 declares bidirectional hreflang (en-US / zh-CN, x-default pointing to English) in both metadata and the
-XML sitemap, and the switch links the same page across languages rather than jumping back to the home page.
+XML sitemap, and the switch links the same page across languages.
 
 All seven marketing and documentation pages have Chinese counterparts, each an independent static HTML page:
 - / and /zh (landing page)
@@ -23,59 +23,65 @@ All seven marketing and documentation pages have Chinese counterparts, each an i
 - /privacy and /zh/privacy
 - /terms and /zh/terms
 
-On the Chinese pages, the FAQ section and its FAQPage structured data are in Simplified Chinese, and the
-legal and methodology prose is Chinese. Product names and technical terms (IdeaRadar, Creem, Reddit, API,
-CSV, MCP, Webhook) remain in their original form.
+Chinese titles, quotes and one-line ideas are machine-translated by an incremental translation step and
+written into the dataset; users can toggle "查看原文 / View original" to read the exact English wording.
+On Chinese pages, the FAQ section and its FAQPage structured data, the legal prose and the methodology
+prose are all in Simplified Chinese. Product names and technical terms (IdeaRadar, GitHub, Reddit, API,
+JSON) remain in their original form.
 
-The landing page score cards show labelled example data in each language, not raw scraped titles. Raw
-collection output is English-language community content and is not republished on the marketing pages;
-the scheduled workflow's real statistics (candidate count, sources, update date) are exposed as structured
-JSON at https://idearadar.app/opportunities.json.
+The four idea cards shown in the landing-page preview are real one-line ideas taken from the latest
+scheduled ingest, not invented examples. The full collected dataset — original wording, sources, and
+derived ideas — is exposed as structured JSON at https://idearadar.app/opportunities.json.
 
 ## 1. Definition
 
-IdeaRadar is a voice-of-customer research SaaS. It collects unprompted public complaints, clusters
-recurring problems, scores their business relevance, and maps which existing solutions fail to address
-them. Its output is a ranked list of opportunity briefs, not a keyword-mention feed.
+IdeaRadar is a free, open, self-hostable idea-discovery tool. It reads real, unprompted questions and
+complaints from public forums and Q&A sites and turns each into one plain-language idea. Its output is
+not a keyword-mention feed and not a scored opportunity brief: it is a short, readable idea you can act
+on or dismiss in seconds.
 
-A "pain point" is a recurring, specific problem described by a person in their own words in public,
-without being prompted by a survey. A post that only mentions a keyword is not a pain point.
+A "one-line idea" states three things: who has the problem, the small tool you could build, and the
+cheapest first step to test it. It is derived strictly from the collected wording. IdeaRadar does NOT
+compute a 0-100 severity score, extract willingness-to-pay signals, or build a competitor gap map —
+those were earlier marketing claims and have been removed because the product does not do them.
 
-A "competitor gap" is a problem that is frequently complained about and poorly handled by every
-existing solution identified for that problem.
+IdeaRadar has no account, no subscription, no paid plan and no checkout. There is no merchant of record.
+It is a free, self-hostable open project.
 
-A "willingness-to-pay signal" (WTP) is a verbatim statement of a budget, a current tool being paid
-for, or a quantified cost of the problem. IdeaRadar extracts WTP statements verbatim and never infers
-them from tone.
+## 2. The collection pipeline (what actually runs)
 
-## 2. Scoring model
+Each stage is independent and fails open: if an LLM step is unavailable or its output is malformed, the
+pipeline keeps the deterministic result rather than dropping the record or blocking the run.
 
-Each candidate pain point receives a score from 0 to 100:
-
-| Dimension | Weight | Meaning |
-| --- | --- | --- |
-| Frequency | 30% | Recurrence across unrelated threads after deduplication |
-| Intensity | 20% | Emotional strength, urgency language, described consequences |
-| Recency | 15% | Recent discussions weigh more; stale problems decay |
-| Cross-source corroboration | 20% | Same problem on independent platforms that do not reference each other |
-| Willingness to pay | 15% | Explicit budget, current spend or quantified cost; inferred intent scores zero |
-
-Findings below the quality threshold are rejected rather than shown. A high score requires multiple
-independent sources, at least one explicit WTP statement, and at least two documented failures in
-existing tools.
+1. Collect — A scheduled GitHub Actions workflow queries official public APIs and writes structured JSON.
+2. Filter — Deterministic rules drop news, job posts, release notes and boilerplate, then keep records
+   with complaint or help-seeking signals. Everyday (non-technical) Q&A uses looser, evergreen-pain rules.
+3. Denoise — An LLM pass judges whether each record is a real user problem. A safety valve keeps the
+   whole batch if too many are rejected; the step fails open on any error.
+4. Ideate — A second LLM pass writes the one-line idea (who / why / first step). Short per-item batching,
+   stack-based JSON recovery and an incremental cache handle weak model output; a deterministic template
+   is used when the LLM result is missing or invalid.
+5. Translate — Chinese titles, quotes and idea text are written into the dataset; originals are kept.
+6. Track — Each ingest appends a snapshot to history.json. Trends need several real snapshots before
+   they move off "Steady"; seeded bootstrap snapshots retire automatically once enough real ones exist.
 
 ## 3. Data sources and compliance
 
 Enabled by default:
 1. Hacker News — official public API.
-2. Stack Exchange — official public API.
+2. Stack Exchange — official public API, including non-technical everyday Q&A sites (webapps, money,
+   workplace, travel, superuser, pets) for consumer-facing pains.
 3. GitHub Issues — public REST API.
 4. RSS / Atom — any feed configured by the user.
-5. First-party import — support tickets, call notes, survey exports, review CSVs.
 
 Opt-in only:
-6. Reddit — disabled by default. Enabled only when the user supplies credentials covered by a Reddit
+5. Reddit — disabled by default. It would require the user's own credentials covered by a Reddit
    commercial data licence. Reddit's User Agreement prohibits unlicensed commercial scraping.
+
+Compliance boundary, stated plainly: e-commerce and local-life review sites (marketplaces, food and
+lifestyle apps) do not offer a compliant public API for this use, so IdeaRadar does not collect from
+them. App Store review RSS was tested and yields effectively no usable records. We do not pretend a
+source exists when it does not.
 
 Relevant public timeline (Reddit announcement of 30 September 2026):
 - 2023: Reddit starts charging for high-volume commercial API access; several third-party clients close.
@@ -90,25 +96,14 @@ Relevant public timeline (Reddit announcement of 30 September 2026):
 - March 2027: remaining public Data API access ends; apps move to Reddit's Developer Platform (Devvit),
   where Reddit hosts the code and controls which APIs are exposed.
 Reddit cites large-scale scraping, automated abuse and AI training data collection as the reasons.
-After March 2027, stable commercial access requires a data licensing agreement with Reddit itself
-(of the kind Reddit has with Google and OpenAI), not a third-party scraper subscription.
+After March 2027, stable commercial access requires a data licensing agreement with Reddit itself, not
+a third-party scraper subscription.
 
-Third-party scraper marketplaces are not licensed sources:
-Apify, Bright Data and Anysite sell a data-collection service, not a licence from the source platform.
-Apify's own Reddit scraper pages state the actor is "not affiliated with, endorsed by, or sponsored by
-Reddit" and "not authorised or certified by Reddit, Inc."; they read logged-out public pages through
-rotating residential proxies. Paying such a vendor does not cure a platform terms-of-service problem:
-the vendor's contract makes the buyer the data controller and assigns compliance responsibility to the
-buyer. IdeaRadar therefore does not classify these services as compliant sources, and does not use
-scraped Reddit, X or Amazon review data as a primary input for a paid subscription product.
-
-Source priority for new connectors:
-1. First-party data (support tickets, survey exports) - no platform access risk, not replicable by competitors.
-2. Official open APIs (Hacker News, Stack Exchange, GitHub Issues, YouTube Data, news feeds).
-3. Sources requiring a commercial agreement (Reddit data licensing; X API, whose free tier offers
-   almost no read allowance and whose paid reads are metered per call).
-4. Excluded: sources whose terms forbid automated access (e.g. Amazon reviews; the full review
-   history is now behind a login wall).
+Third-party scraper marketplaces are not licensed sources: Apify, Bright Data and Anysite sell a
+data-collection service, not a licence from the source platform. Paying such a vendor does not cure a
+platform terms-of-service problem: the vendor's contract makes the buyer the data controller and assigns
+compliance responsibility to the buyer. IdeaRadar therefore does not classify these services as
+compliant sources and does not use scraped Reddit, X or Amazon review data.
 
 Design consequence: no single platform can disable the product. Multi-source ingestion is a survival
 requirement, not a feature.
@@ -116,63 +111,82 @@ requirement, not a feature.
 ## 4. Automated collection workflow
 
 Collection runs on a schedule from `.github/workflows/ingest.yml` on GitHub-hosted runners. Each
-connector is independent. The pipeline normalises results to a common schema, deduplicates by semantic
-similarity, applies the scoring model, and writes structured JSON. Because it runs on the runner rather
-than the user's workstation, collection continues even when a local network restricts outbound access.
+connector is independent. The pipeline normalises results to a common schema, de-duplicates, filters
+noise, runs the LLM denoise and idea steps, writes Chinese text, refreshes external search interest and
+promotes frequent live-scan directions into new niches, then commits the refreshed JSON. Because it runs
+on the runner rather than the user's workstation, collection continues even when a local network
+restricts outbound access. A concurrency guard rebases and retries if a data commit races another push.
 
-Outputs: CSV and JSON export on Pro; webhooks, JSON API and MCP endpoint on Team. Continuous monitoring
-diffs new complaints against previous runs and pushes material changes by Slack, email or webhook.
+Outputs: a public /opportunities.json dataset and a history.json of snapshots. There is NO CSV export,
+NO webhook, NO JSON API and NO MCP endpoint. There is NO continuous monitoring with Slack/email/webhook
+alerts. These are planned ideas, not built features.
 
-## 5. Plans and billing
+## 5. Free to use — no plans to buy
 
-| Plan | Price | Key limits |
+| What | Status | Detail |
 | --- | --- | --- |
-| Guest trial | $0 | 3 niche scans, no signup, no email, no credit card; localised demo dataset |
-| Free | $0/month | 3 niche scans/month after signup, 1 data source, 7-day retention |
-| Pro | $49/month | Unlimited scans, all compliant sources, scoring, competitor gaps, export, weekly digest |
-| Team | $199/month | Everything in Pro, 5 seats, monitoring, alerts, webhooks, API and MCP |
+| Free trial | Available now | 3 scans per device, no signup, no email, no credit card |
+| Browsing ideas | Available now | Grouped by who has the problem; no input needed |
+| One-line ideas | Available now | Who / why / first step, with original wording and source link |
+| Open dataset | Available now | /opportunities.json — no login, no scan limit |
+| Accounts, saved scans | Planned (not built) | — |
+| Continuous monitoring, alerts | Planned (not built) | — |
+| CSV/JSON export, webhooks, API, MCP | Planned (not built) | — |
+| Team seats, shared workspace | Planned (not built) | — |
+| First-party data import | Planned (not built) | — |
 
-The guest trial at /try (Chinese: /zh/try) lets any visitor run 3 scans before creating an account. It
-returns ranked pain points, 0-100 evidence scores, verbatim signals, sources and competitor gaps from a
-language-localised demo dataset, so the output format is identical in both languages without republishing
-raw English community titles. The 3-scan counter is stored in the browser; it is a demonstration limit,
-not a production-grade quota. Live collection starts after signup.
+The free trial at /try (Chinese: /zh/try) reads the same scheduled ingest dataset as the rest of the
+site. It lets a visitor browse without typing anything, or run up to 3 scans. Each result opens with a
+one-line idea and can be expanded to read the original wording and source. The 3-scan counter is stored
+in the browser (localStorage); it is a demonstration limit, not a production-grade quota. A failed or
+evidence-insufficient live search does not use one of the 3 scans. After 3 scans there is no account to
+create and no plan to buy — the full public dataset remains open.
 
-All prices in USD. Subscription billing, VAT and sales tax are handled by Creem as merchant of record.
+There are no prices, no billing, no VAT handling and no merchant of record, because there is no payment.
 
 ## 6. Frequently asked questions
 
-Q: How is IdeaRadar different from a Reddit keyword monitor?
-A: A keyword monitor reports mentions. IdeaRadar groups similar complaints, scores severity and
-frequency, extracts explicit WTP signals, links every finding to its original post, maps competitor
-weaknesses, and runs continuously rather than as a one-off idea list.
+Q: How is IdeaRadar different from a keyword monitor or a raw forum feed?
+A: A raw feed mixes bug reports, news and job posts. IdeaRadar filters that noise and rewrites each real
+problem into one plain-language idea, grouped by who would use it. It does not run continuous monitoring
+and does not invent a market-size or severity score; if the evidence is thin, the card says so.
 
-Q: Can I use my own data?
-A: Yes. Support conversations, call notes, survey exports and review CSVs can be imported. First-party
-data is the most defensible source and often contains buying language absent from public forums.
+Q: Can I import my own support tickets, reviews or CSV data?
+A: No. First-party data import is not built. The product currently uses only public, compliant sources.
 
-Q: Do you provide an API or MCP access?
-A: Team includes a JSON API and an MCP endpoint so AI assistants can query the opportunity database.
-Pro includes weekly digests and CSV/JSON export.
+Q: Do you provide an API or MCP access, monitoring or alerts?
+A: No. Those are planned ideas and are marked as not built. What works today is the free 3-scan demo and
+the open /opportunities.json dataset. There is no continuous monitoring, alerting, JSON API or MCP endpoint.
+
+Q: Why is some text in Chinese, and is it machine-translated?
+A: The public sources are mostly English. A scheduled translation step writes Chinese titles, quotes and
+ideas into the dataset. Toggle View original to read the exact English wording. Title, translated quote
+and one-line idea all come from the same collected record, so they do not drift apart.
 
 Q: Is there a free trial, and do I need to sign up?
-A: Yes, and no signup is required. Anyone can run 3 niche scans at /try (Chinese: /zh/try) with no
-account, no email and no credit card. The guest trial uses a localised demo dataset and stores the
-3-scan counter in the browser. After 3 scans, a free account provides 3 scans per month; Pro provides
-unlimited scans. There is no separate 7-day time-limited trial.
+A: Yes, and no signup is required. Anyone can run 3 scans at /try (Chinese: /zh/try) with no account, no
+email and no credit card. There is no account system to sign up for and no upgrade path; after 3 scans
+the full public dataset is still open to browse.
+
+Q: How much does IdeaRadar cost?
+A: It is free. There is no account, subscription, paid plan or checkout. It is a self-hostable open project.
 
 ## 7. Machine-readable endpoints
 
 - https://idearadar.app/llms.txt — short LLM site index
 - https://idearadar.app/llms-full.txt — this document
+- https://idearadar.app/opportunities.json — the full public idea dataset
 - https://idearadar.app/sitemap.xml — XML sitemap
 - https://idearadar.app/robots.txt — robots rules (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot,
   PerplexityBot, Google-Extended, Applebot-Extended, CCBot and others explicitly allowed)
 
 ## 8. Limitations
 
-Scores and opportunity briefs are decision support, not a guarantee of product success. Users should
-validate demand independently before building. Illustrative examples shown on the marketing site are
-labelled as sample data and are not live findings. The guest trial's 3-scan quota is enforced in the
-browser only; clearing site data or switching devices resets it, so it is a demonstration limit rather
-than a production-grade entitlement.
+A one-line idea is a starting point, not a validated business case or a guarantee that a product will
+succeed. Some source records are niche questions and the resulting ideas can still feel narrow. Chinese
+text is machine-translated; the original wording is always available. The 3-scan quota is enforced in the
+browser only — clearing site data or switching devices resets it, so it is a demonstration limit rather
+than a production-grade entitlement. On-demand live search (for directions outside the fixed index) is
+clearly labelled as live/rule-filtered, is not a verified idea, and is lower quality than the curated
+nightly dataset; it can occasionally surface news or off-topic posts. Early trend curves use seeded
+sample history until enough real snapshots accumulate, then switch to real data automatically.

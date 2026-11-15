@@ -6,9 +6,9 @@ import { resolveSignals } from "@/lib/signals";
 
 export const dynamic = "force-dynamic";
 
-const title = "免费试用 — 免注册看点子 3 次 | 创意雷达";
+const title = "免费试用 — 3 次免费检索，无需注册 | 创意雷达";
 const description =
-  "免注册试用 创意雷达：不用账号、不用信用卡，先免费看 3 次点子。可按「谁会遇到」分组浏览，也能输入方向，拿到一句话点子与可核对的原始措辞、来源链接。";
+  "免注册试用 创意雷达：不用账号、不用信用卡，先免费看 3 次。每条结果都给出逐字原话和可点开的原始讨论链接；已整理的方向另附一句大白话点子。";
 
 export const metadata = getSEOTags({
   title,

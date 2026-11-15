@@ -13,9 +13,9 @@ import {
 } from "@/components/marketing/sections";
 
 export const metadata = getSEOTags({
-  title: "IdeaRadar — One-line business ideas from real public discussions",
+  title: "IdeaRadar — Real public problems, with the wording and source to check",
   description:
-    "IdeaRadar turns real, public questions and complaints into one-line business ideas: who has the problem, the small tool you could build, and the cheapest first step. Every idea links back to its source. Free to try, no signup.",
+    "IdeaRadar surfaces real, public questions and complaints with the verbatim wording and a link to the original discussion. Indexed directions also carry a one-line idea; fresh live searches show the real quote first, never filler. Free to try, no signup.",
   canonicalUrlRelative: "/",
   languages: { "en-US": "/", "zh-CN": "/zh", "x-default": "/" },
 });

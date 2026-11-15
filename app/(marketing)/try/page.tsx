@@ -6,9 +6,9 @@ import { resolveSignals } from "@/lib/signals";
 
 export const dynamic = "force-dynamic";
 
-const title = "Free trial — 3 idea scans, no signup | IdeaRadar";
+const title = "Free trial — 3 free scans, no signup | IdeaRadar";
 const description =
-  "Try IdeaRadar without an account: run 3 free scans, no signup and no credit card. Browse ideas grouped by who has the problem, or type a direction to get one-line ideas with the original wording and source link.";
+  "Try IdeaRadar without an account: run 3 free scans, no signup and no credit card. Every result shows the verbatim quote and a link to the original discussion; indexed directions also carry a one-line idea.";
 
 export const metadata = getSEOTags({
   title,

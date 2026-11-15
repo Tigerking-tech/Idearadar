@@ -37,3 +37,6 @@ next-env.d.ts
 
 dev.db
 .env
+
+# local live-scan cache (user queries, not for version control)
+data/scan-candidates.json

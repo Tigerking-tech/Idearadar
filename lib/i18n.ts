@@ -362,7 +362,7 @@ const EN = {
     quoteLabel: "VERBATIM SIGNAL",
     gapLabel: "SIGNALS FOUND",
     foot: "Guest scan uses a localised demo dataset so the output format reads the same in both languages. The scheduled ingest pipeline's live output is available at",
-    footLive: "Live output is from the scheduled ingest pipeline across public, compliant sources. Full dataset with source links:",
+    footLive: "The briefs on this page come from the scheduled ingest pipeline (public, compliant sources). New directions are fetched live on demand instead. Full dataset with source links:",
     dataLinkLabel: "/opportunities.json",
     feedKicker: "DISCOVER WITHOUT TYPING",
     feedTitle: "Opportunity briefs grouped by who has the problem",
@@ -399,6 +399,7 @@ const EN = {
     clue: {
       kicker: "ONE REAL SIGNAL FROM PUBLIC Q&A",
       quoteLabel: "WHAT THEY ACTUALLY WROTE",
+      quoteLabelTranslated: "WHAT THEY WROTE (CHINESE TRANSLATION)",
       summaryLabel: "AI summary (not verbatim): ",
       fromLabel: "From ",
       openSource: "Open the original discussion",
@@ -907,7 +908,7 @@ export const ZH_DICT: Dict = {
     quoteLabel: "逐字原话",
     gapLabel: "识别到的信号",
     foot: "访客扫描使用本地化的演示数据集，保证中英文输出格式一致。定时采集工作流产出的真实数据见",
-    footLive: "实时数据来自定时采集管线，覆盖公开合规数据源。含来源链接的完整数据集：",
+    footLive: "本页的固定简报来自定时采集工作流（公开合规数据源）；输入新方向时另做现场实时检索。含来源链接的完整数据集：",
     dataLinkLabel: "/opportunities.json",
     feedKicker: "不用打字也能发现",
     feedTitle: "按「谁会遇到」分组的机会简报",
@@ -943,6 +944,7 @@ export const ZH_DICT: Dict = {
     clue: {
       kicker: "公开讨论里的一条真实线索",
       quoteLabel: "对方原话",
+      quoteLabelTranslated: "对方原话（中文译文）",
       summaryLabel: "AI 归纳（不是原话）：",
       fromLabel: "来自 ",
       openSource: "查看原始讨论",

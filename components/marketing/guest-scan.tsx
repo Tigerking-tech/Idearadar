@@ -792,7 +792,11 @@ export function GuestScan({
                       {/* 主角：真实逐字原话 + 来源 + 可点的原始讨论链接（证据层，claim 锚点） */}
                       <div className="rr-clue" id={evidenceId}>
                         <div className="rr-clue-top">
-                          <span className="rr-clue-label">{t.clue.quoteLabel}</span>
+                          <span className="rr-clue-label">
+                            {it.translated && !showOriginal && zh
+                              ? t.clue.quoteLabelTranslated
+                              : t.clue.quoteLabel}
+                          </span>
                           <span className="rr-clue-lang">
                             {it.translated
                               ? (showOriginal ? t.clue.langOriginal : t.clue.langTranslation)

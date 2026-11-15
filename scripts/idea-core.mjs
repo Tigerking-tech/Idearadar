@@ -139,6 +139,7 @@ HARD RULES — evidence-bound, never fabricate:
 - Everything MUST be grounded ONLY in the given title/quote/signals. Do NOT invent market size, revenue, user counts, competitors, funding, growth rates, percentages, timing, or any number not in the input. If the evidence does not support a claim, say plainly it is unknown / an assumption.
 - Think FIRST PRINCIPLES for rootObstacle and build: strip away the surface symptom, name the ONE underlying obstacle blocking the outcome, then name the SMALLEST single concrete thing that could be built to remove exactly that obstacle (one function, buildable & shippable — never a vague "platform", never "build an MVP and find 3 users").
 - FORBIDDEN generic filler anywhere: "做个最小版本找 3 个人试用" / "build an MVP" / "do user interviews" / "make a spreadsheet" / "look it up on the website" / "write a blog post" / any pure research with no concrete artifact.
+- For stopIf, describe an OBSERVABLE signal in plain words. NEVER invent a percentage, count or numeric threshold that is not in the input; the founder sets their own stop threshold, do not pick one for them.
 - Each of the 8 fields is ONE short sentence, in BOTH "zh" (Simplified Chinese) and "en" (English). Keep it concrete and specific to THIS complaint, not reusable boilerplate.
 
 Return ONLY a JSON object with EXACTLY this shape, one element per input, same order, same k, no extra keys, no prose, no markdown:

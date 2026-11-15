@@ -412,3 +412,19 @@ test("generateIdeas：缓存里不合格的简报不复用，重新生成而不�
   assert.ok(!/做个?最小版本|build an MVP|找\s*3\s*个人试用/.test(JSON.stringify(items[0].idea)));
   assert.ok(items[0].idea.brief, "重新生成的结果应是合法简报");
 });
+
+// 客户视角：停止条件是「该不该放弃」的判断标准，不能由模型凭空拍一个百分比。
+// 用户点「对照原话核对」会发现原话里根本没有这个数字，与首页「0 个编造的分数」
+// 承诺冲突。prompt 已明文禁止；这里再对真实数据产物做一道防回归闸门。
+test("数据产物：简报的停止条件不含凭空百分比阈值", async () => {
+  const { readFileSync } = await import("node:fs");
+  const file = new URL("../data/opportunities.json", import.meta.url);
+  const data = JSON.parse(readFileSync(file, "utf8"));
+  const bad = (data.items || [])
+    .filter((x) => {
+      const s = x?.idea?.brief?.stopIf;
+      return s && /\d{1,3}\s*%/.test(`${s.zh || ""} ${s.en || ""}`);
+    })
+    .map((x) => x.id);
+  assert.deepEqual(bad, [], "stopIf 不该出现无来源的百分比阈值");
+});

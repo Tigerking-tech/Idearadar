@@ -9,10 +9,10 @@ const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://idearadar.app").re
 const config = {
   appName: "IdeaRadar",
   appDescription:
-    "IdeaRadar turns real, public questions and complaints into one-line business ideas: who has the problem, the small tool you could build, and the cheapest first step. Every idea links back to its original source. Try 3 scans free, no signup.",
+    "IdeaRadar shows real, public questions and complaints with the verbatim wording and a link to the original discussion. For indexed directions it adds a one-line idea; fresh live searches show the real wording first. Try 3 scans free, no signup.",
   domainName: siteUrl.replace(/^https?:\/\//, ""),
   siteUrl,
-  tagline: "One-line ideas from real public discussions.",
+  tagline: "Real public problems, with the wording and source to check.",
   supportEmail: "hello@idearadar.app",
   creem: {
     url: process.env.CREEM_API_URL || "https://test-api.creem.io",

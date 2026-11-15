@@ -380,7 +380,11 @@ export function GuestScan({
   // 只有中文页且确实存在 AI 译文时才出现切换；英文页展示的本就是原文。
   // 实时检索的大模型结果也带译文，必须一并计入，否则「查看原文」不会出现在实时结果上。
   // 必须放在所有 state 声明之后：立即求值的表达式引用 state 会落进暂时性死区。
-  const hasTranslations = zh && (signals.some((s) => s.translated) || (results ?? []).some((s) => s.translated));
+  // 拆成两个判断：发现流（全库条目）与当前结果各自决定要不要显示原文/译文切换。
+  // 旧版把全库 signals 也算进来，导致实时检索的纯英文结果也常驻一个点了没变化的
+  // 「查看译文」按钮——正是用户反馈「点不开」的那个按钮。
+  const hasFeedTranslations = zh && signals.some((s) => s.translated);
+  const hasResultTranslations = zh && (results ?? []).some((s) => s.translated);
   // L2：零输入首屏按「人群 / 场景」分组展示一句话机会，而不是按分数排技术 bug 流。
   const personaGroups = groupByPersona(signals, 4, 2);
   const todayIdea = personaGroups[0]?.items[0] ?? null;
@@ -476,7 +480,7 @@ export function GuestScan({
                 {live && !historySeeded && !trendReady && <p className="rr-feed-seed-note">{t.feedTrendPending}</p>}
                 {live && recallSwitch && <p className="rr-feed-seed-note">{t.feedRecallSwitch}</p>}
                 {/* AI 译文标注与「查看原文」切换：引语是证据链，必须能一键回看英文原文 */}
-                {hasTranslations && (
+                {hasFeedTranslations && (
                   <p className="rr-feed-translate-note">
                     {t.translatedNote}{" "}
                     <button
@@ -613,7 +617,7 @@ export function GuestScan({
                       {liveMeta.entitlement.unlimited ? t.entitlement.unlimited : t.entitlement.member}
                     </span>
                   )}
-                  {hasTranslations && (
+                  {hasResultTranslations && (
                     <button
                       type="button"
                       className="rr-translate-toggle"
@@ -637,40 +641,91 @@ export function GuestScan({
                 {noMatch && <p className="rr-try-nomatch">{live ? t.noMatchLive : t.noMatch}</p>}
                 {results.map((it, i) => {
                   const idea = it.idea;
-                  const headline = ideaText(idea, "headline", locale) || displayTitle(it);
+                  // 只有采集端 LLM 真正生成过的一句话机会才展示四段；
+                  // 确定性模板（实时检索路径 100% 走这里）是万能套话，不再冒充点子。
+                  const hasRealIdea = idea?.origin === "llm";
+                  const headline = hasRealIdea
+                    ? (ideaText(idea, "headline", locale) || displayTitle(it))
+                    : displayTitle(it);
                   const persona = idea?.persona || "general";
                   const similar = signals
                     .filter((s) => s.id !== it.id && (s.idea?.persona || "general") === persona)
                     .slice(0, 4);
+                  const sourceUrl = typeof it.sourceUrl === "string" && /^https?:\/\//.test(it.sourceUrl)
+                    ? it.sourceUrl
+                    : null;
                   return (
                     <article className="rr-try-result" key={it.id}>
-                      {/* L1：一句话机会置顶，证据与评分降为可展开详情 */}
+                      {/* 头部：真实线索标题 + 真实提及数（不再是 unexplained 85/100） */}
                       <div className="rr-idea-head">
                         <span className="rr-try-rank">{String(i + 1).padStart(2, "0")}</span>
                         <div className="rr-idea-head-main">
-                          <span className="rr-idea-kicker">{t.idea.kicker}</span>
+                          <span className="rr-idea-kicker">{hasRealIdea ? t.idea.kicker : t.clue.kicker}</span>
                           <h4 className="rr-idea-headline">{headline}</h4>
                         </div>
-                        <span className="rr-try-score" aria-label={`${t.scoreLabel} ${it.score}`}>
-                          {it.score}<small>/100</small>
+                        <span className="rr-try-score rr-try-score-mentions" aria-label={`${it.mentions} ${t.mentions}`}>
+                          {it.mentions}<small>{t.mentions}</small>
                         </span>
                       </div>
-                      <p className="rr-idea-note">{idea?.origin === "llm" ? t.idea.aiNote : t.idea.templateNote}</p>
-                      <dl className="rr-idea-grid">
-                        <div><dt>{t.idea.whoLabel}</dt><dd>{ideaText(idea, "who", locale)}</dd></div>
-                        <div><dt>{t.idea.whyLabel}</dt><dd>{ideaText(idea, "why", locale)}</dd></div>
-                        <div><dt>{t.idea.stepLabel}</dt><dd>{ideaText(idea, "step", locale)}</dd></div>
-                      </dl>
 
-                      {/* 三个追问：都是确定性本地动作，不假装有 AI、不额外消耗免费额度 */}
+                      {/* 主角：真实逐字原话 + 来源 + 可点的原始讨论链接，不折叠 */}
+                      <div className="rr-clue">
+                        <div className="rr-clue-top">
+                          <span className="rr-clue-label">{t.clue.quoteLabel}</span>
+                          <span className="rr-clue-lang">
+                            {it.translated
+                              ? (showOriginal ? t.clue.langOriginal : t.clue.langTranslation)
+                              : t.clue.langVerbatim}
+                          </span>
+                        </div>
+                        <blockquote className="rr-clue-quote">{qMark[0]}{displayQuote(it)}{qMark[1]}</blockquote>
+                        {/* 归纳短标题（如「填报压力」）明确标注，不冒充原标题或原话 */}
+                        {it.summaryTitle && (
+                          <p className="rr-clue-summary">
+                            <span className="rr-clue-label">{t.clue.summaryLabel}</span>{it.summaryTitle}
+                          </p>
+                        )}
+                        <div className="rr-clue-meta">
+                          <span className="rr-clue-source">{t.clue.fromLabel}{fmtSources(it.sources, zh)}</span>
+                          {sourceUrl ? (
+                            <a
+                              className="rr-clue-open"
+                              href={sourceUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {t.clue.openSource} ↗
+                            </a>
+                          ) : (
+                            <span className="rr-clue-nolink">{t.clue.noLink}</span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* 机会区：模板结果不渲染四段套话，诚实说明「还没生成点子」 */}
+                      {hasRealIdea ? (
+                        <>
+                          <p className="rr-idea-note">{t.idea.aiNote}</p>
+                          <dl className="rr-idea-grid">
+                            <div><dt>{t.idea.whoLabel}</dt><dd>{ideaText(idea, "who", locale)}</dd></div>
+                            <div><dt>{t.idea.whyLabel}</dt><dd>{ideaText(idea, "why", locale)}</dd></div>
+                            <div><dt>{t.idea.stepLabel}</dt><dd>{ideaText(idea, "step", locale)}</dd></div>
+                          </dl>
+                        </>
+                      ) : (
+                        <p className="rr-clue-noidea">{t.clue.noIdea}</p>
+                      )}
+
+                      {/* 三个追问：外链 / 同类线索 / 回到方向卡，都是确定性本地动作 */}
                       <div className="rr-idea-actions">
+                        {/* 更多细节：原标题 / 信号 / 内部分级；原话已放在主视图，这里不重复 */}
                         <details className="rr-idea-action">
                           <summary className="rr-idea-btn">
-                            <span className="rr-lbl-open">{t.idea.evidenceOpen}</span>
-                            <span className="rr-lbl-close">{t.idea.evidenceClose}</span>
+                            <span className="rr-lbl-open">{t.clue.moreOpen}</span>
+                            <span className="rr-lbl-close">{t.clue.moreClose}</span>
                           </summary>
                           <div className="rr-evidence-body">
-                            <p className="rr-evidence-title">{displayTitle(it)}</p>
+                            <p className="rr-evidence-title">{t.clue.originalTitleLabel}{displayTitle(it)}</p>
                             <div className="rr-try-result-meta">
                               <span className="rr-cat-badge rr-cat-badge-sm">{it.category}</span>
                               <span className={`rr-trend rr-trend-${it.trend} rr-trend-sm`}>
@@ -689,10 +744,12 @@ export function GuestScan({
                                 <ExternalHeatNote heat={it.externalHeat} d={d} zh={zh} />
                               </div>
                             )}
-                            <div className="rr-try-quote">
-                              <span className="rr-try-label">{t.quoteLabel}</span>
-                              <p>{qMark[0]}{displayQuote(it)}{qMark[1]}</p>
-                            </div>
+                            {sourceUrl && (
+                              <div className="rr-try-quote">
+                                <span className="rr-try-label">{t.clue.openSource}</span>
+                                <p><a href={sourceUrl} target="_blank" rel="noopener noreferrer">{sourceUrl}</a></p>
+                              </div>
+                            )}
                             <div className="rr-try-gap">
                               <span className="rr-try-label">{t.idea.signalLabel}</span>
                               <p>{it.gap}</p>
@@ -700,13 +757,22 @@ export function GuestScan({
                             {it.card && <CardPanel card={it.card} d={d} zh={zh} />}
                           </div>
                         </details>
+                        {/* 同类线索：有原始链接的条目可直接点开，不再是纯文字 */}
                         <details className="rr-idea-action">
                           <summary className="rr-idea-btn">{t.idea.similar}</summary>
                           <div className="rr-similar-body">
                             {similar.length ? (
                               <ul className="rr-similar-list">
                                 {similar.map((s) => (
-                                  <li key={s.id}>{ideaText(s.idea, "headline", locale) || displayTitle(s)}</li>
+                                  <li key={s.id}>
+                                    {typeof s.sourceUrl === "string" && /^https?:\/\//.test(s.sourceUrl) ? (
+                                      <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer">
+                                        {ideaText(s.idea, "headline", locale) || displayTitle(s)} ↗
+                                      </a>
+                                    ) : (
+                                      <span>{ideaText(s.idea, "headline", locale) || displayTitle(s)}</span>
+                                    )}
+                                  </li>
                                 ))}
                               </ul>
                             ) : <p className="rr-note">{t.idea.similarEmpty}</p>}
@@ -717,7 +783,7 @@ export function GuestScan({
                           className="rr-idea-btn rr-idea-btn-scroll"
                           onClick={() => document.getElementById("rr-browse")?.scrollIntoView({ behavior: "smooth", block: "start" })}
                         >
-                          {t.idea.nextDirection}
+                          {t.clue.backToBrowse}
                         </button>
                       </div>
                     </article>

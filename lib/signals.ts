@@ -143,6 +143,12 @@ export type Signal = {
   quoteOriginal: string;
   /** 当前展示是否为 AI 译文（决定是否显示翻译标注与切换按钮） */
   translated: boolean;
+  /** 原始讨论链接：真实采集来自 evidence[].url，实时检索来自 r.url，演示数据为 null。
+   *  前端据此渲染「查看原始讨论 ↗」，兑现「每条都能点回来源」，不拿来源名冒充链接。 */
+  sourceUrl?: string | null;
+  /** 实时检索的 AI 归纳短标题（如「填报压力」）。只作补充并明确标注，
+   *  绝不冒充真实标题或逐字原话；真实标题始终在 titleOriginal。 */
+  summaryTitle?: string | null;
   /** 结构化机会卡（仅真实采集数据带；演示/实时检索结果无卡） */
   card?: OpportunityCard | null;
   /** 外部搜索热度（仅真实采集数据带，按 niche 关联） */
@@ -309,6 +315,7 @@ function demoSignals(locale: "en" | "zh"): Signal[] {
       titleOriginal: it.title,
       quoteOriginal: it.quote,
       translated: false,
+      sourceUrl: null,
       nicheId: it.id,
       idea,
     } satisfies Signal;
@@ -408,6 +415,7 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
     quoteOriginal: quoteEn,
     gap,
     translated: useZh,
+    sourceUrl: evidence.find((e) => typeof e?.url === "string" && /^https?:\/\//.test(e.url))?.url ?? null,
     card: raw.opportunityCard ?? null,
     externalHeat,
     // L1 一句话机会：优先用采集端 LLM 产出；缺失/版本旧/结构不全时用确定性模板兜底，

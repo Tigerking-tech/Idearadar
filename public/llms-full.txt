@@ -36,12 +36,15 @@ derived ideas — is exposed as structured JSON at https://idearadar.app/opportu
 ## 1. Definition
 
 IdeaRadar is a free, open, self-hostable idea-discovery tool. It reads real, unprompted questions and
-complaints from public forums and Q&A sites and turns each into one plain-language idea. Its output is
-not a keyword-mention feed and not a scored opportunity brief: it is a short, readable idea you can act
-on or dismiss in seconds.
+complaints from public forums and Q&A sites and shows each with the verbatim wording and a link to the
+original discussion. For directions already in the fixed index, an LLM-written one-line idea is added.
+Fresh on-demand live searches show the real wording, a clearly-labelled AI summary and a source link first,
+and do NOT dress a generic template up as an idea. Its output is not a scored opportunity brief.
 
-A "one-line idea" states three things: who has the problem, the small tool you could build, and the
-cheapest first step to test it. It is derived strictly from the collected wording. IdeaRadar does NOT
+A "one-line idea" (indexed directions only) states who has the problem and a concrete small tool. It is
+derived strictly from the collected wording. Live-search results instead show the verbatim quote, a
+source link and a clearly-labelled AI summary — the deterministic template idea is never shown as a
+generated idea. IdeaRadar does NOT
 compute a 0-100 severity score, extract willingness-to-pay signals, or build a competitor gap map —
 those were earlier marketing claims and have been removed because the product does not do them.
 
@@ -127,7 +130,8 @@ alerts. These are planned ideas, not built features.
 | --- | --- | --- |
 | Free trial | Available now | 3 scans per device, no signup, no email, no credit card |
 | Browsing ideas | Available now | Grouped by who has the problem; no input needed |
-| One-line ideas | Available now | Who / why / first step, with original wording and source link |
+| Verbatim quotes + source links | Available now | On every result; one tap opens the original discussion |
+| One-line ideas (indexed directions) | Available now | LLM-written; live-search results show the real quote instead |
 | Open dataset | Available now | /opportunities.json — no login, no scan limit |
 | Accounts, saved scans | Planned (not built) | — |
 | Continuous monitoring, alerts | Planned (not built) | — |
@@ -136,8 +140,10 @@ alerts. These are planned ideas, not built features.
 | First-party data import | Planned (not built) | — |
 
 The free trial at /try (Chinese: /zh/try) reads the same scheduled ingest dataset as the rest of the
-site. It lets a visitor browse without typing anything, or run up to 3 scans. Each result opens with a
-one-line idea and can be expanded to read the original wording and source. The 3-scan counter is stored
+site. It lets a visitor browse without typing anything, or run up to 3 scans. Every result opens with
+the verbatim wording and a link to the original discussion; indexed results also carry a one-line idea,
+while live-search results show the real wording, a labelled AI summary and a source link instead of a
+generic idea. The 3-scan counter is stored
 in the browser (localStorage); it is a demonstration limit, not a production-grade quota. A failed or
 evidence-insufficient live search does not use one of the 3 scans. After 3 scans there is no account to
 create and no plan to buy — the full public dataset remains open.
@@ -147,8 +153,9 @@ There are no prices, no billing, no VAT handling and no merchant of record, beca
 ## 6. Frequently asked questions
 
 Q: How is IdeaRadar different from a keyword monitor or a raw forum feed?
-A: A raw feed mixes bug reports, news and job posts. IdeaRadar filters that noise and rewrites each real
-problem into one plain-language idea, grouped by who would use it. It does not run continuous monitoring
+A: A raw feed mixes bug reports, news and job posts. IdeaRadar filters that noise, shows the verbatim
+wording with a source link, and (for indexed directions) adds a one-line idea grouped by who would use it.
+It does not run continuous monitoring
 and does not invent a market-size or severity score; if the evidence is thin, the card says so.
 
 Q: Can I import my own support tickets, reviews or CSV data?
@@ -182,8 +189,9 @@ A: It is free. There is no account, subscription, paid plan or checkout. It is a
 
 ## 8. Limitations
 
-A one-line idea is a starting point, not a validated business case or a guarantee that a product will
-succeed. Some source records are niche questions and the resulting ideas can still feel narrow. Chinese
+A one-line idea (indexed directions only) is a starting point, not a validated business case. Live-search
+results are raw public wording — sometimes a spec or issue template rather than a complaint — with no
+generated idea; read the quote and open the source to judge them. Chinese
 text is machine-translated; the original wording is always available. The 3-scan quota is enforced in the
 browser only — clearing site data or switching devices resets it, so it is a demonstration limit rather
 than a production-grade entitlement. On-demand live search (for directions outside the fixed index) is

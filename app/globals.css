@@ -654,7 +654,51 @@ body {
   overflow-wrap: anywhere; word-break: break-word;
 }
 
-/* 结果卡：一句话机会置顶，证据与评分降为可展开详情 */
+/* 结果卡：真实原话 + 原始讨论链接为主角；机会文案只在真有 LLM 点子时出现 */
+.rr-try-score-mentions { font-size: 15px; white-space: nowrap; }
+.rr-try-score-mentions small { display: block; font-size: 10px; margin-top: 1px; }
+
+.rr-clue {
+  margin-top: 14px; padding: 14px; border: 1px solid #e8e6fb;
+  border-left: 3px solid #5b4bf5; border-radius: 10px; background: #fbfaff;
+}
+.rr-clue-top {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+  justify-content: space-between;
+}
+.rr-clue-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.06em; color: #5b4bf5;
+}
+.rr-clue-lang { font-size: 10px; color: var(--rr-muted); }
+.rr-clue-quote {
+  margin: 8px 0 0; font-size: 13.5px; line-height: 1.7; color: #2f3342;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.rr-clue-summary {
+  margin: 10px 0 0; font-size: 11.5px; line-height: 1.6; color: #6a7080;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.rr-clue-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+  margin-top: 12px; padding-top: 10px; border-top: 1px dashed #e2e0f6;
+}
+.rr-clue-source { font-size: 11px; color: var(--rr-muted); }
+.rr-clue-open {
+  font-size: 12px; font-weight: 700; color: #4a44c9; text-decoration: none;
+  border-bottom: 1px solid #c9c4f7; padding-bottom: 1px;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.rr-clue-open:hover { color: #5b4bf5; border-bottom-color: #5b4bf5; }
+.rr-clue-nolink { font-size: 11px; color: #9a9ead; font-style: italic; }
+.rr-clue-noidea {
+  margin: 12px 0 0; font-size: 12px; line-height: 1.65; color: #6a7080;
+  padding: 10px 12px; border-radius: 8px; background: #f7f7fb;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.rr-evidence-body a, .rr-similar-list a {
+  color: #4a44c9; overflow-wrap: anywhere; word-break: break-word;
+}
+
 .rr-idea-head { display: flex; align-items: flex-start; gap: 12px; }
 .rr-idea-head-main { flex: 1; min-width: 0; }
 .rr-idea-kicker {
@@ -719,4 +763,7 @@ body {
   .rr-idea-grid dt { flex: none; }
   .rr-idea-actions { gap: 7px; }
   .rr-idea-btn { font-size: 11.5px; padding: 6px 11px; }
+  .rr-clue { padding: 12px; }
+  .rr-clue-quote { font-size: 12.5px; }
+  .rr-try-score-mentions { font-size: 13px; }
 }

@@ -138,16 +138,43 @@ test("buildSignals 规则模式字段完整，趋势为 steady 且不伪造曲�
   }
 });
 
-test("buildSignals 大模型模式输出中文标题且标注 translated", () => {
+test("buildSignals 大模型模式保留真实原标题/原话，归纳短语降级为 summaryTitle", () => {
   const scored = scoreRows([row(1)], ["pet"]);
   const out = buildSignals(scored, "宠物", "zh", [
     { i: 0, title: "宠物预约在移动端反复失败", quote: "预约接口返回 500", gap: "缺少重试与错误提示", score: 78 },
   ]);
   assert.equal(out.length, 1);
-  assert.equal(out[0].title, "宠物预约在移动端反复失败");
-  assert.equal(out[0].score, 78);
-  assert.equal(out[0].translated, true);
+  // 真实标题与逐字原话，不拿 LLM 归纳短语冒充（用户反馈「什么是填报压力」的根因）
+  assert.equal(out[0].title, scored[0].title);
   assert.equal(out[0].titleOriginal, scored[0].title);
+  assert.equal(out[0].quote, scored[0].text.slice(0, 400));
+  assert.equal(out[0].quoteOriginal, scored[0].text.slice(0, 400));
+  // 归纳短语只作补充并明确标注，不冒充标题
+  assert.equal(out[0].summaryTitle, "宠物预约在移动端反复失败");
+  // 未翻译的原始讨论不能标成 AI 译文
+  assert.equal(out[0].translated, false);
+  // 原始讨论链接必须送到前端，供「查看原始讨论 ↗」渲染
+  assert.equal(out[0].sourceUrl, "https://example.com/1");
+  assert.equal(out[0].score, 78);
+  // 模板兜底仍标 template，前端据此不渲染四段万能套话
+  assert.equal(out[0].idea.origin, "template");
+});
+
+test("buildSignals 规则模式同样带真实原文与原始链接，归纳标题为空", () => {
+  const scored = scoreRows([row(3)], ["pet"]);
+  const out = buildSignals(scored, "pet", "en", null);
+  assert.equal(out[0].title, scored[0].title);
+  assert.equal(out[0].quote, scored[0].text.slice(0, 400));
+  assert.equal(out[0].sourceUrl, "https://example.com/3");
+  assert.equal(out[0].summaryTitle, null);
+  assert.equal(out[0].translated, false);
+  assert.equal(out[0].idea.origin, "template");
+});
+
+test("buildSignals 丢弃非法 url，不把脏数据渲染成外链", () => {
+  const scored = scoreRows([row(4, { url: "javascript:alert(1)" })], ["pet"]);
+  const out = buildSignals(scored, "pet", "zh", null);
+  assert.equal(out[0].sourceUrl, null);
 });
 
 test("buildSignals 大模型条目索引越界时回退到首条记录而不崩溃", () => {
@@ -273,7 +300,12 @@ test("runLiveScan 有密钥且返回合法归纳时走 llm 模式", async () => 
     collect: async () => [row(1), row(2)],
   });
   assert.equal(res.mode, "llm");
-  assert.equal(res.items[0].title, "宠物预约反复失败");
+  // 主标题/原话用采集到的真实文本，归纳短语只进 summaryTitle
+  assert.equal(res.items[0].title, res.items[0].titleOriginal);
+  assert.equal(res.items[0].quote, res.items[0].quoteOriginal);
+  assert.equal(res.items[0].summaryTitle, "宠物预约反复失败");
+  assert.match(res.items[0].sourceUrl, /^https:\/\/example\.com\//);
+  assert.equal(res.items[0].idea.origin, "template");
 });
 
 /* ---------------- 方向沉淀 ---------------- */

@@ -29,7 +29,7 @@ export const getSEOTags = ({
     description: desc,
     applicationName: config.appName,
     keywords: keywords || [
-      "one-line business ideas",
+      "business ideas from public questions",
       "public Q&A mining",
       "startup idea discovery",
       "complaint to product idea",
@@ -98,8 +98,8 @@ export function renderSchemaTags() {
       description: config.appDescription,
       featureList: [
         "3 free scans without signup",
-        "One-line ideas grouped by who has the problem",
-        "Original wording and source link on every idea",
+        "Verbatim wording and a link to the original discussion on every result",
+        "One-line ideas for indexed directions, grouped by who has the problem",
         "AI denoising and translation of public discussions",
         "Open /opportunities.json dataset",
       ],

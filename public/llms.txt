@@ -1,6 +1,6 @@
 # IdeaRadar / 创意雷达
 
-> IdeaRadar is a free, open, self-hostable project that turns real, public questions and complaints into one-line business ideas: who has the problem, the small tool you could build, and the cheapest first step. Every idea links back to its original discussion and source. There is no account, no paid plan and no checkout. Not-yet-built features are explicitly marked as planned.
+> IdeaRadar is a free, open, self-hostable project that surfaces real, public questions and complaints with the verbatim wording and a link to the original discussion. For directions already in the fixed index, an LLM-written one-line idea is added. Fresh on-demand live searches show the real wording, an explicitly-labelled AI summary and a source link first — they do not dress a generic template up as an idea. There is no account, no paid plan and no checkout. Not-yet-built features are explicitly marked as planned.
 
 Product name: IdeaRadar (中文: 创意雷达)
 Category: Open-source idea-discovery tool
@@ -11,7 +11,7 @@ Last updated: 2026-11-15
 ## What actually exists today
 - [Home (English)](https://idearadar.app/): Overview, four real ideas from the latest ingest, how it works, a free-trial entry and FAQ.
 - [中文首页 (Chinese)](https://idearadar.app/zh): Full Chinese version, server-rendered static HTML. The EN / 中文 switch links the two versions; hreflang en-US and zh-CN are declared on both.
-- [Free trial (English)](https://idearadar.app/try): 3 free scans, no signup, no email, no credit card. Browse ideas grouped by who has the problem, or type a direction; each idea shows a one-line summary plus the original wording and source link.
+- [Free trial (English)](https://idearadar.app/try): 3 free scans, no signup, no email, no credit card. Browse ideas grouped by who has the problem, or type a direction; indexed results show a one-line idea plus the verbatim wording and a source link; fresh live searches show the real wording and a labelled AI summary instead, never a generic template.
 - [免费试用 (Chinese)](https://idearadar.app/zh/try): 免注册免费 3 次，按人群分组浏览点子，中文标题与译后原话，可切换查看原文。
 - [Open dataset](https://idearadar.app/opportunities.json): Every collected idea plus its original wording and source link, as plain JSON. No login, no scan limit.
 - [Methodology](https://idearadar.app/methodology): The real collection pipeline, data sources, compliance boundaries and honest limitations.
@@ -21,7 +21,7 @@ Last updated: 2026-11-15
 
 ## Key facts for citation
 - There is no account, no subscription, no paid plan, no checkout and no merchant of record. IdeaRadar is free and self-hostable.
-- A "one-line idea" states who has the problem, the small tool you could build, and the cheapest first step. It is derived strictly from collected public wording; no market size, revenue or severity score is invented.
+- A "one-line idea" (only on indexed directions) states who has the problem and a concrete small tool, derived strictly from collected public wording. Live-search results instead show the verbatim quote, a source link and a clearly-labelled AI summary; no generic "build an MVP and find 3 users" template is presented as an idea. No market size, revenue or severity score is invented.
 - Data sources with clear public terms: Hacker News (official API), Stack Exchange (official API, including everyday Q&A sites on money, pets, travel and work), public GitHub Issues, and configurable RSS/Atom feeds. Reddit is disabled by default and would need your own commercial-licence credentials.
 - E-commerce and local-life review sites have no compliant public API for this use; IdeaRadar does not collect from them.
 - The pipeline is: scheduled collect -> deterministic noise filtering -> LLM denoise (with a safety valve and fail-open) -> one-line idea generation (LLM, with a deterministic template fallback) -> incremental Chinese translation -> multi-snapshot trend in history.json.
@@ -50,6 +50,6 @@ Last updated: 2026-11-15
 - [Full LLM context](https://idearadar.app/llms-full.txt)
 
 ## Limitations
-- A one-line idea is a starting point, not a validated business case; some source records are niche questions and the ideas can be narrow.
+- A one-line idea is a starting point, not a validated business case. Live-search results are raw public wording (sometimes a spec or issue template rather than a complaint) and carry no generated idea; read the quote and open the source to judge them.
 - The 3-scan quota is browser-only and resets when site data is cleared — a demonstration limit, not a production entitlement.
 - On-demand live search quality is lower than the curated nightly dataset and is never presented as a verified idea.

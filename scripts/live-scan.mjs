@@ -387,25 +387,32 @@ export function buildSignals(scored, q, locale, llmItems) {
   const fallbackGap = zh
     ? "来自刚检索到的公开讨论；尚未做竞品覆盖分析，不做结论性判断。"
     : "From freshly retrieved public discussions; no competitor analysis performed yet.";
-  const make = (r, title, quote, gap, score, translated) => ({
+  /**
+   * 证据优先：主标题 / 逐字原话一律用采集到的真实文本（r.title / r.text），
+   * 不拿 LLM 归纳短语冒充——用户反馈「什么是填报压力」正是归纳标题丢了场景。
+   * 归纳短标题只放进 summaryTitle 并明确标注，前端据此诚实区分。
+   */
+  const make = (r, gap, score, summaryTitle) => ({
     id: liveId(r.url),
-    title,
+    title: r.title.slice(0, 160),
     score,
     mentions: 1,
     sources: [SOURCE_LABELS[r.source] || r.source],
     category,
     trend: "steady",
     spark: flatSpark(),
-    quote,
+    quote: r.text.slice(0, 400),
     gap,
-    titleOriginal: r.title,
-    quoteOriginal: r.text.slice(0, 320),
-    translated,
-    // L1：实时检索结果也带一句「给谁 + 做什么」。用确定性模板兜底，
-    // 不额外调 LLM（实时接口已有 25s 超时预算，不能再叠加一次生成调用）。
+    titleOriginal: r.title.slice(0, 160),
+    quoteOriginal: r.text.slice(0, 400),
+    translated: false,
+    sourceUrl: typeof r.url === "string" && /^https?:\/\//.test(r.url) ? r.url : null,
+    summaryTitle: summaryTitle || null,
+    // 保留 idea 字段以兼容既有数据结构，但前端按 origin==="template"
+    // 不再把这套写死的话术渲染成「一句话机会」（用户反馈是万能废话）。
     idea: templateIdea({
-      title,
-      titleZh: zh ? title : "",
+      title: r.title,
+      titleZh: "",
       signals: ["seeking", "manual"],
     }),
   });
@@ -413,17 +420,10 @@ export function buildSignals(scored, q, locale, llmItems) {
   if (Array.isArray(llmItems) && llmItems.length) {
     return llmItems.map((it) => {
       const r = scored[it.i] || scored[0];
-      return make(r, it.title, it.quote, it.gap, it.score, zh);
+      return make(r, it.gap, it.score, it.title);
     });
   }
-  return scored.slice(0, 5).map((r) => make(
-    r,
-    r.title.slice(0, 120),
-    r.text.slice(0, 320),
-    fallbackGap,
-    r.score,
-    false,
-  ));
+  return scored.slice(0, 5).map((r) => make(r, fallbackGap, r.score, null));
 }
 
 /** 现场采集：复用 connectors.mjs 的合规公开源，并发、短超时、单平台可失败。 */

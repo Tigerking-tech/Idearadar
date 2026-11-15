@@ -242,11 +242,10 @@ export function EvidenceSection({ d = EN_DICT }: SectionProps) {
                 ))}
               </ul>
               <div className="rr-divider my-5" />
-              <div className="flex items-baseline justify-between">
-                <span className="text-[13px] font-semibold">{e.gapScore}</span>
-                <span className="rr-gradient-text text-2xl font-extrabold">88</span>
-              </div>
-              <p className="rr-note mt-2">{e.gapNote}</p>
+              {/* 曾在这里硬编码一个「88 / 100」编造分数 + 「画张草图找 3 个人」套话，
+                  与「不编造数字、不拿套话充数」的定位冲突，改为如实说明可点回的证据。 */}
+              <div className="text-[12px] font-bold tracking-[0.1em] text-[#8b90a0] mb-2">{e.traceLabel}</div>
+              <p className="text-[13.5px] leading-relaxed text-[#4a4f5e]">{e.traceText}</p>
             </div>
           </div>
         </div>

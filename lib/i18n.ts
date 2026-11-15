@@ -95,8 +95,8 @@ const EN = {
 
   stats: [
     { num: "3", label: "free scans, no signup" },
-    { num: "100%", label: "verbatim wording, one tap to the source" },
-    { num: "100%", label: "linked to the original discussion" },
+    { num: "0", label: "invented scores or market-size claims" },
+    { num: "1", label: "tap to the source, when a link exists" },
   ],
 
   preview: {
@@ -146,7 +146,7 @@ const EN = {
       {
         n: "3",
         title: "Check the original words",
-        text: "Every result opens with the exact wording and a link to the original thread. Nothing is invented: if we have not generated a concrete idea for one, the card says so instead of padding it with filler.",
+        text: "Results open with the exact wording; a link to the original thread is shown when we have one and flagged when we do not. Nothing is invented: if we have not generated a concrete idea for one, the card says so instead of padding it with filler.",
       },
     ],
   },
@@ -169,7 +169,7 @@ const EN = {
       { name: "The evidence", gap: "Source link and verbatim wording are one tap away" },
     ],
     traceLabel: "TRACEABLE TO THE SOURCE",
-    traceText: "Every result shows the verbatim quote and a link to the original thread. No invented scores, no build-an-MVP-and-find-3-users filler.",
+    traceText: "Results show the verbatim quote and a source link where one is available — missing links are flagged, not hidden. No invented scores, no build-an-MVP-and-find-3-users filler.",
   },
 
   compare: {
@@ -588,8 +588,8 @@ export const ZH_DICT: Dict = {
 
   stats: [
     { num: "3", label: "次免费扫描，无需注册" },
-    { num: "100%", label: "逐字原话，一键点回来源" },
-    { num: "100%", label: "可点回原始讨论" },
+    { num: "0", label: "个编造的分数或市场规模估算" },
+    { num: "1", label: "次点击回到原帖（有链接时）" },
   ],
 
   preview: {
@@ -634,12 +634,12 @@ export const ZH_DICT: Dict = {
       {
         n: "2",
         title: "读对方到底怎么说的",
-        text: "你会看到逐字原话和来源链接，噪音和招聘贴已滤掉。已经整理进索引的方向另附一句大白话点子；刚做实时检索的方向，先给真实原话，不硬套一句万能计划。",
+        text: "你会看到逐字原话；能点的来源链接就给，没有会明说，噪音和招聘贴已滤掉。已经整理进索引的方向另附一句大白话点子；刚做实时检索的方向，先给真实原话，不硬套一句万能计划。",
       },
       {
         n: "3",
         title: "点开核对原话",
-        text: "每条结果开头就是逐字原话和指向原帖的链接。不编造：某条还没生成具体点子时，卡片会如实说明，不拿套话凑数。",
+        text: "结果开头是逐字原话；有原帖链接就给，没有会明说。不编造：某条还没生成具体点子时，卡片会如实说明，不拿套话凑数。",
       },
     ],
   },
@@ -661,7 +661,7 @@ export const ZH_DICT: Dict = {
       { name: "证据", gap: "点一下就能看到来源链接与原始措辞" },
     ],
     traceLabel: "全程能点回来源",
-    traceText: "每条结果都给出逐字原话和原始讨论链接。没有编造的分数，也没有「做个最小版本找 3 个人试用」这类套话。",
+    traceText: "结果尽量给出逐字原话和原始讨论链接；没有链接的会如实标注，不藏起来。没有编造的分数，也没有「做个最小版本找 3 个人试用」这类套话。",
   },
 
   compare: {

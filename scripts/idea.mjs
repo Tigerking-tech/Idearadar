@@ -31,13 +31,14 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   IDEA_VERSION, ideaKey, ideaInput, templateIdea, normalizeIdea,
-  IDEA_SYSTEM_PROMPT, IDEA_USER_PREFIX,
+  IDEA_SYSTEM_PROMPT, IDEA_USER_PREFIX, BRIEF_FIELDS,
 } from "./idea-core.mjs";
 
 // 纯逻辑统一从 idea-core re-export，保持既有 import "./idea.mjs" 的单测兼容。
 export {
   IDEA_VERSION, NICHE_PERSONA, PERSONAS, PERSONA_LABEL,
   ideaKey, ideaInput, templateIdea, normalizeIdea,
+  BRIEF_FIELDS, normalizeBrief,
 } from "./idea-core.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -53,7 +54,8 @@ const DEFAULT_MODEL = "hy-mt2-plus";
 // 变多（每批间隔节流 + 429 退避重试已在 generateIdeas/callIdeaBatch 内处理）。
 const DEFAULT_BATCH_SIZE = 1;
 const TIMEOUT_MS = 90_000;
-const MAX_TOKENS = 1800;
+// v3 简报是 8 段 × 双语，比旧 4 段长不少；1800 会被截断导致 brief 不完整。
+const MAX_TOKENS = 2600;
 
 async function callIdeaBatch(batch, ctx, signal) {
   const body = {
@@ -137,7 +139,12 @@ export function extractIdeaRecords(raw) {
       for (const e of obj.items) if (e && typeof e === "object") accept(e);
       return;
     }
-    if (obj.k != null && obj.headline && typeof obj.headline === "object") {
+    // v3 简报格式（obj.brief）与 v2 旧四段格式（obj.headline）都认，
+    // 便于灰度期单测/降级结果继续可解析。
+    if (obj.k != null && (
+      (obj.brief && typeof obj.brief === "object") ||
+      (obj.headline && typeof obj.headline === "object")
+    )) {
       const k = String(obj.k);
       if (!found.has(k)) found.set(k, obj);
     }
@@ -165,8 +172,38 @@ export function extractIdeaRecords(raw) {
       accept(obj);
     }
   }
-  if (!found.size) throw new Error("no valid idea objects in model output");
+  if (!found.size) {
+    // 兜底：hy-mt2-plus 长输出常在最末一段 en 值漏一个闭合引号（尾部形如
+    //  "...improvement.}}]}"），外层三层 { 全被吞进字符串，栈式一个带 k 的
+    //  对象都抠不出——但 8 段 {zh,en} 内容大多完好。这里改成按「字段名」逐段
+    //  恢复：不依赖括号闭合，只要 build + jobStory 在，就能还原一份合法简报。
+    const recovered = recoverBriefRecord(t);
+    if (recovered) return [recovered];
+    throw new Error("no valid idea objects in model output");
+  }
   return sortIdeaRecords([...found.values()]);
+}
+
+/** 从一段（可能被尾部漏引号毁掉外层结构的）文本里按字段名恢复单条简报记录。 */
+function recoverBriefRecord(t) {
+  const brief = {};
+  for (const f of BRIEF_FIELDS) {
+    // 每个字段是 "f":{"zh":"…","en":"…"}；逐个字段独立匹配，互不影响。
+    const seg = new RegExp(`"${f}"\\s*:\\s*\\{([\\s\\S]*?)\\}`).exec(t);
+    if (!seg) continue;
+    const zhM = /"zh"\s*:\s*"((?:[^"\\]|\\.)*)"/.exec(seg[1]);
+    const enM = /"en"\s*:\s*"((?:[^"\\]|\\.)*)"/.exec(seg[1]);
+    brief[f] = {
+      zh: (zhM ? zhM[1] : "").replace(/\\"/g, '"').slice(0, 120),
+      en: (enM ? enM[1] : "").replace(/\\"/g, '"').slice(0, 160),
+    };
+  }
+  // 缺尾引号的最后一段可能连 } 都没有，用更宽松的方式补一次（只取 zh/en 值）。
+  if (!brief.build || (!brief.build.zh && !brief.build.en)) return null;
+  if (!brief.jobStory || (!brief.jobStory.zh && !brief.jobStory.en)) return null;
+  const kM = /"k"\s*:\s*"([^"]+)"/.exec(t);
+  const pM = /"persona"\s*:\s*"([^"]+)"/.exec(t);
+  return { k: kM ? kM[1] : "p0", persona: pM ? pM[1] : "general", brief };
 }
 
 /**
@@ -216,8 +253,21 @@ export async function generateIdeas(items = [], opts = {}) {
     // 只有 LLM 结果才算「已生成」可命中缓存。模板是失败/关闭时的兜底，
     // 必须留待下一轮重新尝试，否则一次 429/畸形 JSON 就会让该条永远停在模板。
     if (hit && hit.version === IDEA_VERSION && hit.origin === "llm" && typeof hit.headline?.zh === "string") {
-      out[i].idea = hit;
-      stats.cached += 1;
+      // 缓存是历史产物：cleanBriefText 加入前写入的简报可能残留 <具体用户> 等
+      // JTBD 占位符，旧四段也可能和清理后的简报不一致。统一过一遍 normalizeIdea，
+      // 让占位符清理 / 套话闸门 / 旧四段派生对缓存同样生效 —— 否则下次 workflow
+      // 命中缓存时会把脏简报原封不动带回前端，变成「修一次又冒出来」的假修复。
+      const normalized = normalizeIdea(hit, out[i]);
+      // v2 旧四段缓存归一化后同样是 origin=llm（只是 brief=null），也算合法命中；
+      // 只有真正回退成 template 的历史脏缓存才重新生成。
+      if (normalized.origin === "llm") {
+        out[i].idea = normalized;
+        ideas[key] = normalized; // 自愈：把清理后的结果写回缓存，避免每轮重复清理
+        stats.cached += 1;
+      } else {
+        // 历史缓存不合格（套话 / 结构损坏）：不留情面，重新生成，绝不复用。
+        pending.push(i);
+      }
     } else {
       pending.push(i);
     }

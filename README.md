@@ -1,6 +1,6 @@
 # IdeaRadar
 
-从公开讨论中挖「能动手的小工具点子」的开源、可自托管项目：采集合规公开源 → 过滤噪声 → LLM 二次去噪 → 把每条证据改写成一句「给谁 + 做什么」的机会 → 按人群分组的零输入灵感流 → 原文证据可回溯。
+从公开讨论中挖「能判断要不要动手的机会简报」的开源、可自托管项目：采集合规公开源 → 过滤噪声 → LLM 二次去噪 → 把每条证据拆成 **8 段可决策机会简报**（具体场景 / 痛点 / 现在怎么凑合 / 第一性原理上的本质障碍 / 最小可造之物 / 最便宜的证伪动作 / 放弃信号 / 为何现在）→ 每段标注「证据 / 推断 / 假设」并可点回逐字原话核对 → 按人群分组的零输入灵感流。**当前实现以第 12 节为准，第 7–11 节是演进历史**。
 
 **当前定位是免费、无账号、无订阅、无收银台的公开演示**：免注册 3 次只是浏览器 localStorage 的演示配额，完整采集数据在 `/opportunities.json` 一直开放，不存在注册解锁、付费套餐或按席位收费。代码基底来自 Creem 模板，但支付 / 订阅链路当前完全未启用（见第 3 节），全站可见文案已按「只描述已实现功能」逐页诚实化（见第 8 节末）。
 
@@ -37,10 +37,10 @@ pnpm ingest             # 手动跑一次多源采集
 pnpm ingest:heat        # 抓 Google Trends 每日热榜，写外部搜索热度
 pnpm ingest:promote     # 把高频扫描方向提升为 auto 赛道（带召回准入闸门）
 pnpm ingest:denoise     # LLM 二次去噪（需 IDEARADAR_DENOISE=1 + token）
-pnpm ingest:idea        # 生成「一句话机会」（需 IDEARADAR_IDEA=1 + token）
+pnpm ingest:idea        # 生成 8 段可决策机会简报（需 IDEARADAR_IDEA=1 + token）
 ```
 
-`IDEARADAR_LIVE_FEED=1` 让 `/try` 读取真实采集产物而非演示数据；本地 `.env.local` 已开启。LLM 相关开关：`IDEARADAR_TRANSLATE_TOKEN`（复用给翻译 / 去噪 / 一句话机会 / 实时检索归纳）、`IDEARADAR_DENOISE`、`IDEARADAR_IDEA`，均默认关闭以避免本地误调产生费用；云端 workflow 默认开启。密钥只放在 `.env.local` 或 GitHub Actions Secret，不入库。
+`IDEARADAR_LIVE_FEED=1` 让 `/try` 读取真实采集产物而非演示数据；本地 `.env.local` 已开启。LLM 相关开关：`IDEARADAR_TRANSLATE_TOKEN`（复用给翻译 / 去噪 / 机会简报 / 实时检索归纳 / 按需简报 `/api/brief`）、`IDEARADAR_DENOISE`、`IDEARADAR_IDEA`，均默认关闭以避免本地误调产生费用；云端 workflow 默认开启。密钥只放在 `.env.local` 或 GitHub Actions Secret，不入库。
 
 ## 3. 模板支付链路（当前未启用）
 
@@ -57,9 +57,9 @@ pnpm ingest:idea        # 生成「一句话机会」（需 IDEARADAR_IDEA=1 + t
 | 路径 | 内容 |
 | --- | --- |
 | `/` | 落地页：Hero / 数据条 / 实时采集预览 / 三步流程 / 示例证据链 / 对比 + ROI 计算器 / 数据源合规 / 定价 / FAQ / 底部 CTA |
-| `/try`、`/zh/try` | 免注册试用页：不登录先免费扫 3 次（localStorage 记在本机，中英共用）；零输入灵感流（今日一点子高亮卡 + 按人群分组的机会卡 + 人/场景方向卡 + 快捷词）；结果卡以「逐字原话 + 来源 + 可点开的原始讨论链接」为主角（`Signal.sourceUrl`，真实采集来自 `evidence[].url`、实时检索来自 `r.url`）；**只有采集端 LLM 真写过一句话机会（`idea.origin==="llm"`，固定索引 60 条）才展示四段**，模板兜底结果不冒充点子，改为诚实说明「这条还没生成具体点子」；归纳短标题明确标注「AI 归纳（不是原话）」；分数位由编造的 `85/100` 改为可核查的提及数；「查看原文」按当前结果判断是否渲染（实时检索不再显示点了没反应的按钮）；三个追问为 `更多细节`（含原始链接）/ `看同类线索`（可点）/ `回到方向卡`；方向卡按人群直取；弱/无命中走 `/api/scan` 现场检索并诚实标注；失败/证据不足不扣次数；3 次用完引导「浏览完整公开数据」或「回首页」，不再承诺注册 / 升级解锁 |
+| `/try`、`/zh/try` | 免注册试用页：不登录先免费扫 3 次（localStorage 记在本机，中英共用）；零输入灵感流（今日一点子高亮卡 + 按人群分组的机会卡 + 人/场景方向卡 + 快捷词）；**结果卡 = 可决策机会简报**：答案优先，先给「最小值得造的那个东西」，再默认展开 3 段（具体应用场景 / 痛点 / 第一性原理上的本质障碍），完整 8 段折叠在「完整简报」里；每段标「证据 / 推断 / 假设」，AI 推断带 claim 级「对照原话核对 ↗」内联锚点；验证清单（最便宜证伪动作 + 放弃信号 + 原帖链接）一键复制；顶部保留真实逐字原话、来源与可点开的原始讨论链接（`Signal.sourceUrl`，固定索引来自 `evidence[].url`、实时检索来自 `r.url`）；分数位是可核查的提及数，不是编造的 `85/100`；**固定索引（`idea.origin==="llm"`，60 条）才有完整简报**，实时检索默认不冒充点子，给「按需生成完整简报」按钮（独立 `/api/brief`，不占主检索 25s 预算）+ 8 个判断框架问题，失败时保留原话与框架；归纳短标题明确标注「AI 归纳（不是原话）」；「查看原文」按当前结果判断是否渲染；三个追问为 `更多细节` / `看同类线索`（可点）/ `回到方向卡`；方向卡按人群直取；弱/无命中走 `/api/scan` 现场检索并诚实标注；失败/证据不足不扣次数；3 次用完引导「浏览完整公开数据」或「回首页」，不再承诺注册 / 升级解锁 |
 | `/pricing` | 独立定价页（SEO 落地页） |
-| `/methodology` | GEO 语义页：真实采集管线（Collect / Filter / Denoise / Ideate / Translate / Track）、数据源与合规边界、已知限制、Reddit 政策时间线、workflow 说明；明确列出「尚未实现」的功能，不再描述虚构的评分模型 / WTP / 竞品空白 |
+| `/methodology` | GEO 语义页：真实采集管线（Collect / Filter / Denoise / Brief / Translate / Track）、8 段简报字段说明、数据源与合规边界、已知限制、Reddit 政策时间线、workflow 说明；明确列出「尚未实现」的功能，不再描述虚构的评分模型 / WTP / 竞品空白 |
 | `/faq` | FAQ 独立页 |
 | `/privacy`、`/terms` | 法务页 |
 | `/sitemap.xml`、`/robots.txt` | 动态生成 |
@@ -85,14 +85,14 @@ pnpm ingest:idea        # 生成「一句话机会」（需 IDEARADAR_IDEA=1 + t
 - `/llms.txt`（站点索引）+ `/llms-full.txt`（完整事实上下文：当前真实功能、采集管线、数据源与合规边界、Reddit 时间线、FAQ，以及显式单列的 `Not built yet / Planned (not built)` 清单）
 - `robots.txt` 显式放行 `GPTBot`、`OAI-SearchBot`、`ChatGPT-User`、`ClaudeBot`、`anthropic-ai`、`PerplexityBot`、`Google-Extended`、`Applebot-Extended`、`CCBot`、`cohere-ai`、`YouBot`
 - `<link rel="alternate" type="text/plain" href="/llms.txt">` 声明
-- 事实性、可整段引用的正文（`/methodology`）；首页预览卡、证据区改用最近一次采集的真实点子与真实提及数，不再展示编造的 `0–100` 示例分数（含证据区曾硬编码的 `88` 分，已替换为「全程能点回来源」说明）；首页 hero / steps / stats 改为「双路径」诚实表述：固定索引给一句话点子，实时检索先给原话与来源；未实现功能一律否定或标「规划中（未实现）」，避免 LLM 引用虚构数字与功能
+- 事实性、可整段引用的正文（`/methodology`）；首页预览卡**改为构建时直接读 `data/opportunities.json`**，展示最近一次采集里提及数最高的 4 条「最小可造之物」（取自 v3 简报 `build` 派生的 `idea.headline`，中英各取一份），不再用静态示例冒充真实点子；证据区改展示 8 段简报里的场景 / 痛点 / 本质障碍 / 最小可造之物；不再展示编造的 `0–100` 示例分数（含证据区曾硬编码的 `88` 分）；首页 hero / steps / stats 改为「8 段可决策简报」诚实表述；未实现功能一律否定或标「规划中（未实现）」，避免 LLM 引用虚构数字与功能
 
 ## 6. 自动采集 workflow
 
 文件：`.github/workflows/ingest.yml` + `scripts/ingest.mjs` + `scripts/ingest-lib.mjs` + `scripts/ingest.config.json`。
 
 - 定时：每 6 小时在 GitHub 托管 runner 上运行；也支持 `workflow_dispatch` 手动触发。
-- 流程：`node --test scripts/*.test.mjs` 全量单测 → recall 评估 → cooldown → 多源采集 → TokenHub `hy-mt2-plus` 批量翻译 → **LLM 二次去噪（`scripts/denoise.mjs`）** → **一句话机会生成（`scripts/idea.mjs`）** → Google Trends 外部热度 → 高频扫描方向提升（带准入闸门）→ 上传 artifact → 有变化时把数据产物提交回仓库（bot 提交带 `[skip ci]`，不会触发递归构建）。
+- 流程：`node --test scripts/*.test.mjs` 全量单测 → recall 评估 → cooldown → 多源采集 → TokenHub `hy-mt2-plus` 批量翻译 → **LLM 二次去噪（`scripts/denoise.mjs`）** → **8 段机会简报生成（`scripts/idea.mjs`，缓存命中也重新归一化）** → Google Trends 外部热度 → 高频扫描方向提升（带准入闸门）→ 上传 artifact → 有变化时把数据产物提交回仓库（bot 提交带 `[skip ci]`，不会触发递归构建）。
 - 有则提交的数据产物：`data/opportunities.json`、`public/opportunities.json`、`data/history.json`、`data/recall-eval.json`、`data/rejected.json`、`data/denoise.json`、`data/idea.json`、`data/external-heat.json`、`public/external-heat.json`、`data/query-scans.json`、`data/scan-candidates.json`。后两者是运行时产物，仓库初始可以没有。
 - 纯函数评分层（`ingest-lib.mjs`）：频率 30% / 强度 20% / 近期性 15% / 跨源印证 20% / 显式付费意愿**词面命中** 15%，规则显式、可单测、可复现。这是采集端对候选条目的启发式排序权重，**不是**对外展示的 `0–100` 严重度评分，也不提取付费金额；普通人赛道走 `consumerMode` 的常青痛点口径（见第 7 节）。
 - **默认启用的合规源**：Hacker News 官方 API、Stack Exchange 官方 API（技术站 + `consumerQa` 非技术站）、GitHub Issues 公开 API、可配置 RSS/Atom、第一方数据导入。`consumerQa` 走 Stack Exchange 2.3 官方接口的 `webapps` / `money` / `workplace` / `travel` / `superuser` / `pets`，`timeless=true` 不加 30 天窗口、按 `relevance` 抓常青痛点，服务于 4 个普通人赛道。
@@ -101,7 +101,7 @@ pnpm ingest:idea        # 生成「一句话机会」（需 IDEARADAR_IDEA=1 + t
 - **补充源的接入优先级**：第一方数据（客服工单、调研导出，零平台合规风险且竞品无法复制）→ 官方开放 API（HN、Stack Exchange、GitHub Issues、YouTube Data、News/GDELT）→ 需商业谈判（Reddit 商业数据协议；X 官方 API 免费档几乎不含读取额度、付费读取按次计费）→ 不接入（平台条款明确禁止自动化访问者，如 Amazon 评论，完整评论已移至登录墙后）。
 - 本地网络受限不影响采集：任务跑在 GitHub runner 上；这也是上层「多源 + 数据自治」结论的工程落地。
 
-推送到 GitHub 后，Actions 会自动开始抓取，云端 workflow 已多轮跑通（16 步全 success，含翻译、去噪、一句话机会、数据提交）。**本沙箱网络现状**：`github.com` 的 git TLS 通道不稳定（常见 `GnuTLS recv error (-110)`），但 `api.github.com` 与 `codeload.github.com` 可达，因此代码推送走 GitHub REST API `base_tree` 通道：以远端最新 tree 为基线、只覆盖本次变更文件，保留 bot 的 `[skip ci]` 数据提交历史，避免把云端数据刷新覆盖掉。并发 push 被拒时 `Commit refreshed data` 步骤会 `fetch + rebase -X theirs` 后重试。
+推送到 GitHub 后，Actions 会自动开始抓取，云端 workflow 已多轮跑通（16 步全 success，含翻译、去噪、机会简报、数据提交）。**本沙箱网络现状**：`github.com` 的 git TLS 通道不稳定（常见 `GnuTLS recv error (-110)`），但 `api.github.com` 与 `codeload.github.com` 可达，因此代码推送走 GitHub REST API `base_tree` 通道：以远端最新 tree 为基线、只覆盖本次变更文件，保留 bot 的 `[skip ci]` 数据提交历史，避免把云端数据刷新覆盖掉。并发 push 被拒时 `Commit refreshed data` 步骤会 `fetch + rebase -X theirs` 后重试。
 
 ## 7. P0 / P1 / P2 架构（本轮落地）
 
@@ -302,3 +302,70 @@ probe 只跑 `hn` / `so` 源白名单以避开 GitHub 限流；probe 抛错/超�
 **仍存在的限制（如实保留，未用规则硬凑）**：中文方向 → 英文检索词映射粗糙、`hits>=1` 就算相关，导致「论文里的专业表格」「发票导出」「宠物预约」仍会给出弱相关结果（学术出版讨论、SQL join 问题、智能机吐槽）；数据源是 HN / StackOverflow / GitHub Issues，天然以开发者内容为主，普通人赛道偏窄。这是数据源与相关性问题，不是文案或清洗规则能解决的，见第 9 节「治本」方向。
 
 验证：`220/220` 单测（新增 11 项防回归：实体解码、样板截断、`Show HN`/任务单/企划/无痛点剔除、真痛点保留、`buildSignals` 双保险）、`tsc` 0 错误、`build` 通过；浏览器 13/13 逐项点过（截图方向 + 真人痛点方向，结果卡无乱码/样板/markdown 标记、外链可点、390px 无溢出、控制台 0 error），结果卡元素截图逐张目视确认。
+
+## 12. 可决策机会简报 v3（产品经理视角的成体系重构）
+
+用户明确指出「你就是没有把自己当成产品经理和客户」：结果卡点不开、看不懂「填报压力」这类抽象词、所谓点子是「做个最小 MVP 然后找 3 个人使用」这种万能废话，并要求「具体应用场景是什么、客户痛点到底是什么、从第一性原理看哪个点子能解决客户问题」，同时要求**跨行业博采众长**（UI 借鉴 A、交互借鉴 B、信息收集借鉴 C、信息整合输出参考 D、创新落地借鉴 F），「不要我说一个你再做一个」。本节记录的是成体系重构，不是逐点补丁。
+
+### 12.1 病根诊断
+
+产品把「别人的一条帖子」当成了交付物，而用户要的是「一个能判断值不值得动手的决定」。价值链断在：真实原话（证据）→ 谁在什么场景卡住 → 本质障碍 → 因此最小可造之物 → 怎么最快证伪 → 每步都能点回证据。旧结果卡只有原话和四段模板，中间四环全缺。
+
+### 12.2 跨行业借鉴矩阵（不是口头参考，全部落到实现）
+
+| 借鉴对象 | 借鉴什么 | 落到本项目的哪里 |
+| --- | --- | --- |
+| **A · UI**：Linear / Stripe / Notion | 卡片化、一屏一焦点、格式塔分组、克制、单一主按钮 | 结果卡答案优先，核心 3 段默认展开，其余折叠；`.rr-brief-row` 用左侧色条区分证据/推断/假设 |
+| **B · 交互**：Perplexity + Typeform | claim 级内联引用、渐进深度、连续追问、教学式空态 | 每段 AI 推断带「对照原话核对 ↗」锚点；完整 8 段进 `<details>`；无简报时给 8 个判断框架问题而非「暂无点子」；`/api/brief` 做按需深度 |
+| **C · 信息收集**：AnswerThePublic / Glimpse / 差评挖掘 | 按「抱怨 / 求助 / 想要」意图聚合，而非按技术赛道 | `scoreRows(..., {strict:true})` 收紧泛词弱命中，`consumerQa` 生活站提权 +8，实时检索站点扩到 `webapps/money/workplace/travel/pets` |
+| **D · 信息整合输出**：投资 one-pager / 机会评估 memo | 问题、证据、为何现在、最便宜测试、**停止条件**，`[证据]/[假设]` 标注 | 8 段简报含 `test` / `stopIf` / `whyNow`；每段标注证据/推断/假设；验证清单一键复制 |
+| **F · 方法论**：JTBD / 第一性原理 / 机会树 / Mom Test | `When… I want… so I can…`，拆到根本真理再重建解法 | `jobStory` 用 JTBD 句式；`rootObstacle` 要求剥掉表象；`build` 必须是消除该障碍的最小可造之物；`FILLER_RE` 拦万能套话 |
+
+**创新点**：把 Perplexity 的 claim 级引用用在「机会判断」而非事实问答；把投资 memo 的**停止条件**引入灵感工具；验证清单可勾选/可复制。
+
+### 12.3 数据模型 v3（`scripts/idea-core.mjs`）
+
+`IDEA_VERSION` 升到 `3`，`Idea.brief` 为 8 段双语结构化简报：`jobStory` / `pain` / `workaround` / `rootObstacle` / `build` / `test` / `stopIf` / `whyNow`。旧四段 `headline / who / why / step` 从简报派生（首页 feed、今日点子、同类线索等既有调用点自动获得具体信息）。`templateIdea()` 改为 `brief: null`，不再冒充完整简报。`FILLER_RE` 硬闸门拦截「做个最小版本找 3 个人试用」「build an MVP」「市场规模」等套话与编造数字；`cleanBriefText()` 清理 `<具体用户>` 等 JTBD 占位符。`IDEA_SYSTEM_PROMPT` 要求模型以资深 PM 身份、仅依据给定原话生成，禁止编造市场规模 / 用户数 / 竞品 / 营收 / 百分比 / 时间性理由。
+
+`scripts/idea.mjs` 的 `MAX_TOKENS` 提到 2600，`extractIdeaRecords()` 新增 `recoverBriefRecord()` 按字段逐段恢复 `hy-mt2-plus` 尾部漏引号的畸形输出。固定索引 60 条用真实 LLM 全量重生成：`60/60 origin=llm`、`60/60` 带 `brief`、`0` 套话。
+
+### 12.4 缓存治本（本轮修的一个真根因）
+
+上一轮只清理了 `data/opportunities.json` / `public/opportunities.json` 的占位符，但 **`data/idea.json` 缓存是在 `cleanBriefText()` 加入前写入的，仍含 24 处占位符**；而 `generateIdeas()` 缓存命中时直接 `out[i].idea = hit`，绕过了 `normalizeIdea()` → 下次 workflow 命中缓存就会把脏简报原封不动带回前端，变成「修一次又冒出来」的假修复。
+
+修复：缓存命中统一走 `normalizeIdea(hit, item)`，让占位符清理 / 套话闸门 / 旧四段派生对缓存同样生效；清理后的结果写回缓存（自愈）；`origin` 回退成 `template` 的历史脏缓存重新生成。v2 旧四段缓存的 `pick()` 也共用 `cleanBriefText()`。补 2 项防回归单测（缓存占位符清理 + 不合格缓存重生成），并修复了改动引入的 v2 缓存兼容性回归。三个数据文件用同一套归一化一次性自愈，`0` 占位符、`60` 条 `llm`、`0` 降级，字段完整性经 git 版本逐项比对无损。
+
+### 12.5 实时检索路径（`scripts/live-scan.mjs` + `scripts/connectors.mjs`）
+
+`scoreRows(rows, terms, {strict:true})`：要求至少命中一个**实义词**（长度 ≥4 且不在 `GENERIC_TOKENS` 停用表，或中文 ≥2 字），挡掉「搜『专业表格』却因 `data` 命中一堆无关帖」；`consumerQa` 生活站加 8 分提到主路径；实时检索 `consumerQa` 站点从 3 个扩到 5 个。补 2 项单测（strict 拦泛词弱命中、生活站提权且非 strict 不受影响）。
+
+### 12.6 按需深度 `/api/brief`（借鉴 Perplexity progressive depth）
+
+主检索 `/api/scan` 有 25s 总超时且已叠加扩词 + 归纳两次 LLM 调用，再塞 8 段简报会超时并加剧 429。因此独立成 `POST /api/brief`：输入只有真实标题 + 真实原话（密钥只在服务端读取），IP 内存限流 60s 20 次，14s 超时，429 退避一次，`extractIdeaRecords()` + `normalizeBrief()` 过套话闸门，任何失败返回 `{brief:null}` 让前端保留判断框架（fail-open）。前端结果卡在无简报时给「生成完整简报」按钮，成功后把简报写回该条 `Signal.idea`。
+
+### 12.7 结果卡 UI（`components/marketing/guest-scan.tsx` + `app/globals.css` + `lib/i18n.ts`）
+
+答案优先（kicker + `build` 作为 headline + 提及数）→ 真实逐字原话 / 来源 / 原始链接（带 `evidenceId` 锚点）→ 有简报时默认展开核心 3 段、完整 8 段折叠、每段标证据/推断/假设、claim 级「对照原话核对 ↗」、验证清单可复制；无简报时不消极空话，给 8 个判断框架问题 + 按需生成按钮。原标题 / 趋势 / 信号 / 结构卡收进二级「更多细节」。三个追问改为「同类线索 / 再读原话 / 换个方向」。中英 `brief` 字典块一一对应。
+
+### 12.8 全站文案与 GEO 对齐（消除「文案 vs 实现」不一致）
+
+- 首页预览卡曾把字典里写死的 4 条 v2 标题标成「来自最近一次采集的四个真实点子」，数据一变就对不上。改为**构建时直接读 `data/opportunities.json`**，取提及数最高的 4 条 `idea.headline`（v3 派生自 `build`、已清洗、中英各一份），数据文件缺失时才回退字典示例。
+- 首页 hero / stats / preview / steps / evidence、中英页面 metadata、`config.ts`、`lib/seo.tsx`（`SoftwareApplication.featureList`）、`lib/faq.ts`（页面正文与 `FAQPage` JSON-LD 共用）、中英 `/methodology`、`llms.txt`、`llms-full.txt` 全部改成「8 段可决策机会简报」定位，并如实说明 `/api/brief` 是内部接口而非对外 API 产品。
+- 首页示例证据区改展示真实第一条简报的**场景 / 痛点 / 本质障碍 / 最小可造之物**，并明确标注原话是 GitHub issue 需求清单片段、8 段是 AI 推断、是判断起点而非已验证需求。
+
+### 12.9 浏览器实测后追加的召回治理
+
+用浏览器真跑实时检索时，仍撞上用户反复反馈的「搜 A 出一堆不相关」：搜「宠物店」返回 `pets.stackexchange.com` 的「怎么养懒猴」，搜「发票导出」返回 SQL join 与讨薪邮件。逐层打印管线中间产物后定位到 4 个叠加根因，都不是改文案能解决的：
+
+1. **扩词结果被整批截掉（真 bug）**：`expandQuery()` 把 `base = [原文, ...词典泛词]` 放前面再 `slice(0, 3)`，base 本身就占满 3 个，LLM 扩出的具体英文短语（如 `invoice export failed`）全被丢弃 —— 等于白调一次模型，检索仍只用 `invoice` / `billing` 这类泛词。改为「原文 → LLM 具体短语 → 词典泛词兜底」，上限放宽到 5。修复后「预约改期」召回到真正相关的改期流程故障，「导出通讯录」召回到 `Contacts Export Feature`。
+2. **模型没被要求显式判「是不是同一件事」**：改写中英归纳 prompt，要求每条输出 `relevant` 布尔值，并明确「方向说 A、记录讲 B，即使共享同一个泛词也算不相关」（举例：开店经营 vs 养野生动物）。`summarizeWithLlm()` 丢弃 `relevant:false`；模型没给该字段时 fail-open 保留，避免误杀。
+3. **「全不相关」仍会通过规则降级把脏记录放回来**：原来归纳返回 `null` 就降级 `rules` 展示全部 scored。现在严格区分 `[]`（调用成功但全不相关）与 `null`（调用失败）：`[]` 时 `buildSignals()` 返回空、`runLiveScan()` 返回 `mode: no-evidence`，前端显示「没找到足够证据 / 本次没有消耗试用次数」，不再拿弱相关内容充数。
+4. **Epic / P0 编号式需求规格被当成「对方逐字原话」**：实测「预约改期」第一条是 `P0 FREE AI 06: ... Parent epic: Deliverable ... cost boundaries` 的 PRD。`TASK_DOC_RE` 补 `^P\d+`、`Parent epic`、`Deliverable`、`cost boundaries`、JIRA 式编号等标记，保留真实痛点描述。
+
+补 6 项防回归单测。真实 `/api/scan` 复测：有相关证据的方向（导出通讯录 / 预约改期）能出结果，没有的方向（发票导出 / 宠物店 / 露营装备租赁）给诚实空态，不再摆一条不相关的帖子。
+
+### 12.10 验证
+
+`240/240` 单测、`pnpm exec tsc --noEmit` 0 错误、`pnpm build` 通过；`/api/brief` 用真实 TokenHub 链路 5.2s 返回 8 段完整简报（无占位符、无套话）；浏览器逐项 **42/42 通过**（12 个中英页面文案、首页动态预览卡、固定索引结果卡的 8 段简报 / claim 级锚点 / 验证清单复制 / 三个追问、实时检索判断框架 + 真实点击「生成完整简报」、3 次配额 3→2→1→0、320/360/390px 无溢出、控制台 0 error）；15 个正常页 200、5 个坏页 307 → `/try`。
+
+**仍如实保留的限制**：实时检索召回受公开源质量影响、波动较大，很多方向会落到诚实空态；中文→英文检索词映射仍粗糙、数据源天然偏开发者，普通人赛道偏窄；固定索引的简报是 LLM 基于单条公开记录做的推断，可能出错（正因如此才标注证据/推断/假设并允许点回原话核对）；模板 Creem 路由源码仍在仓库但用户不可达。

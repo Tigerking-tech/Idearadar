@@ -9,7 +9,7 @@ const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://idearadar.app").re
 const config = {
   appName: "IdeaRadar",
   appDescription:
-    "IdeaRadar shows real, public questions and complaints with the verbatim wording and a link to the original discussion. For indexed directions it adds a one-line idea; fresh live searches show the real wording first. Try 3 scans free, no signup.",
+    "IdeaRadar turns real, public complaints into an 8-part decision-ready opportunity brief: scenario, pain, root obstacle, smallest build, cheapest test and stop signal. Every inference is tagged and links back to the verbatim quote. Fresh live searches show the real wording first. Try 3 scans free, no signup.",
   domainName: siteUrl.replace(/^https?:\/\//, ""),
   siteUrl,
   tagline: "Real public problems, with the wording and source to check.",

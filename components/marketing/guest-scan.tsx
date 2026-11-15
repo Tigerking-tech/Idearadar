@@ -7,10 +7,28 @@ import {
   searchSignals,
   groupByPersona,
   ideaText,
+  briefText,
+  hasBrief,
   type Signal,
+  type Brief,
+  type BriefField,
   type OpportunityCard,
   type ExternalHeat,
 } from "@/lib/signals";
+
+/** 机会简报 8 段的渲染顺序与「证据 / 推断 / 假设」归属。
+ *  答案优先：前 3 段（场景→痛点→本质障碍）默认展开，直接回答用户的三个问题；
+ *  余下 5 段放进「展开完整简报」的渐进披露层，避免一屏砸 8 个字段。 */
+const BRIEF_FIELDS: { field: BriefField; tag: "evidence" | "inference" | "assumption" }[] = [
+  { field: "jobStory", tag: "inference" },
+  { field: "pain", tag: "evidence" },
+  { field: "rootObstacle", tag: "inference" },
+  { field: "build", tag: "inference" },
+  { field: "workaround", tag: "assumption" },
+  { field: "test", tag: "inference" },
+  { field: "stopIf", tag: "inference" },
+  { field: "whyNow", tag: "assumption" },
+];
 
 type Suggestion = { label: string; sub: string; query: string[]; persona?: string };
 
@@ -71,6 +89,59 @@ function trendLabel(t: TrendKey, d: Dict): string {
 /** 来源名是平台专有名词（保留英文品牌名），但中文页用「、」连接并加「来源」前缀，避免读成英文句子。 */
 function fmtSources(sources: string[], zh: boolean): string {
   return zh ? sources.join("、") : sources.join(" · ");
+}
+
+/**
+ * 「复制验证清单」：把 test / stopIf / 原帖链接导出成可带走的一段纯文本，
+ * 让用户从「读」走到「做」。剪贴板不可用时降级为选中提示，不抛错。
+ */
+function CopyChecklist({ text, label, copiedLabel }: { text: string; label: string; copiedLabel: string }) {
+  const [copied, setCopied] = useState(false);
+  const onCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setCopied(false);
+    }
+  };
+  return (
+    <button type="button" className={`rr-brief-copy${copied ? " is-copied" : ""}`} onClick={onCopy}>
+      {copied ? `✓ ${copiedLabel}` : label}
+    </button>
+  );
+}
+
+/**
+ * 简报字段行：label + 一句实质内容 + 「证据/推断/假设」徽标 + claim 级
+ * 「对照原话核对 ↗」（跳到该结果的证据卡）。借鉴 Perplexity 的 inline
+ * provenance：每条 AI 推断都能一步点回它依据的原话，怀疑者不必离开页面。
+ */
+function BriefRow({
+  field, value, tag, dict, evidenceId,
+}: {
+  field: BriefField;
+  value: string;
+  tag: "evidence" | "inference" | "assumption";
+  dict: Dict["tryPage"]["brief"];
+  evidenceId: string;
+}) {
+  if (!value) return null;
+  const tagLabel = tag === "evidence" ? dict.evidenceTag : tag === "inference" ? dict.inferenceTag : dict.assumptionTag;
+  return (
+    <div className={`rr-brief-row rr-brief-row-${tag}`}>
+      <div className="rr-brief-row-head">
+        <span className="rr-brief-row-label">{dict.field[field]}</span>
+        <span className={`rr-brief-tag rr-brief-tag-${tag}`}>{tagLabel}</span>
+      </div>
+      <p className="rr-brief-row-value">{value}</p>
+      <a className="rr-brief-check" href={`#${evidenceId}`} onClick={(e) => {
+        e.preventDefault();
+        document.getElementById(evidenceId)?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }}>{dict.checkAgainst}</a>
+    </div>
+  );
 }
 
 /**
@@ -188,6 +259,9 @@ export function GuestScan({
     mode: string; sources: string[]; elapsedMs: number;
     entitlement?: { enabled: boolean; tier: string; unlimited: boolean };
   } | null>(null);
+  /** 按需生成的简报：result.id → 状态。实时检索结果默认无简报，
+   *  点「生成完整简报」后调 /api/brief，成功即把简报写回该条结果走完整视图。 */
+  const [genBriefState, setGenBriefState] = useState<Record<string, "running" | "failed">>({});
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   /** 在途请求编号：resetDemo 或新扫描会让旧响应失效，避免结果串台。 */
   const requestIdRef = useRef(0);
@@ -375,6 +449,37 @@ export function GuestScan({
     setScanMode(null);
     setLiveState(null);
     setLiveMeta(null);
+    setGenBriefState({});
+  }
+
+  /**
+   * 按需为一条实时检索线索生成完整简报（Perplexity 式渐进深度）。
+   * 成功则把 8 段简报写回该条结果的 idea，卡片即切换为完整简报视图；
+   * 失败保留判断框架并给出诚实提示，绝不显示半截内容。
+   */
+  async function generateBrief(id: string, title: string, quote: string) {
+    setGenBriefState((s) => ({ ...s, [id]: "running" }));
+    try {
+      const res = await fetch("/api/brief", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, quote, locale }),
+      });
+      const data = await res.json();
+      const brief = data?.brief as Brief | null;
+      if (brief) {
+        setResults((prev) => prev
+          ? prev.map((s) => s.id === id
+            ? { ...s, idea: { ...(s.idea || {}), origin: "llm", brief } as Signal["idea"] }
+            : s)
+          : prev);
+        setGenBriefState((s) => { const n = { ...s }; delete n[id]; return n; });
+      } else {
+        setGenBriefState((s) => ({ ...s, [id]: "failed" }));
+      }
+    } catch {
+      setGenBriefState((s) => ({ ...s, [id]: "failed" }));
+    }
   }
 
   // 只有中文页且确实存在 AI 译文时才出现切换；英文页展示的本就是原文。
@@ -641,12 +746,14 @@ export function GuestScan({
                 {noMatch && <p className="rr-try-nomatch">{live ? t.noMatchLive : t.noMatch}</p>}
                 {results.map((it, i) => {
                   const idea = it.idea;
-                  // 只有采集端 LLM 真正生成过的一句话机会才展示四段；
-                  // 确定性模板（实时检索路径 100% 走这里）是万能套话，不再冒充点子。
-                  const hasRealIdea = idea?.origin === "llm";
-                  const headline = hasRealIdea
-                    ? (ideaText(idea, "headline", locale) || displayTitle(it))
-                    : displayTitle(it);
+                  // v3：一条结果 = 一份「可决策机会简报」。有 8 段简报（固定索引 60 条）
+                  // 走完整简报视图；实时检索/模板降级没有简报，走「判断框架」——
+                  // 不编造点子，也不给「还没生成」这种消极空话，而是给用户一套能自己
+                  // 对着原话判断的提问框架（借鉴 Typeform 教学式空态 + 投资 one-pager）。
+                  const brief = hasBrief(idea);
+                  const bDict = t.brief;
+                  const build = brief ? briefText(idea, "build", locale) : "";
+                  const headline = build || displayTitle(it);
                   const persona = idea?.persona || "general";
                   const similar = signals
                     .filter((s) => s.id !== it.id && (s.idea?.persona || "general") === persona)
@@ -654,22 +761,36 @@ export function GuestScan({
                   const sourceUrl = typeof it.sourceUrl === "string" && /^https?:\/\//.test(it.sourceUrl)
                     ? it.sourceUrl
                     : null;
+                  // claim 级「核对原话」锚点：每条 AI 推断都能一步跳回它依据的原话。
+                  const evidenceId = `rr-evidence-${it.id.replace(/[^a-zA-Z0-9_-]/g, "")}`;
+                  // 前 3 段（场景 / 痛点 / 本质障碍）默认展开，直接回答用户三个问题；
+                  // 后 5 段放进「展开完整简报」，不一次性砸 8 个字段。
+                  const coreFields = BRIEF_FIELDS.slice(0, 3);
+                  const moreFields = BRIEF_FIELDS.slice(3);
+                  const checklistText = brief
+                    ? [
+                        `[${bDict.field.test}] ${briefText(idea, "test", locale)}`,
+                        `[${bDict.field.stopIf}] ${briefText(idea, "stopIf", locale)}`,
+                        sourceUrl ? `${t.clue.openSource}: ${sourceUrl}` : "",
+                      ].filter(Boolean).join("\n")
+                    : "";
                   return (
                     <article className="rr-try-result" key={it.id}>
-                      {/* 头部：真实线索标题 + 真实提及数（不再是 unexplained 85/100） */}
+                      {/* 答案优先：kicker + 一句话结论（最小可造之物）+ 真实提及数 */}
                       <div className="rr-idea-head">
                         <span className="rr-try-rank">{String(i + 1).padStart(2, "0")}</span>
                         <div className="rr-idea-head-main">
-                          <span className="rr-idea-kicker">{hasRealIdea ? t.idea.kicker : t.clue.kicker}</span>
+                          <span className="rr-idea-kicker">{brief ? bDict.kicker : t.clue.kicker}</span>
                           <h4 className="rr-idea-headline">{headline}</h4>
+                          {brief && <span className="rr-brief-answer-label">{bDict.answerLabel}</span>}
                         </div>
                         <span className="rr-try-score rr-try-score-mentions" aria-label={`${it.mentions} ${t.mentions}`}>
                           {it.mentions}<small>{t.mentions}</small>
                         </span>
                       </div>
 
-                      {/* 主角：真实逐字原话 + 来源 + 可点的原始讨论链接，不折叠 */}
-                      <div className="rr-clue">
+                      {/* 主角：真实逐字原话 + 来源 + 可点的原始讨论链接（证据层，claim 锚点） */}
+                      <div className="rr-clue" id={evidenceId}>
                         <div className="rr-clue-top">
                           <span className="rr-clue-label">{t.clue.quoteLabel}</span>
                           <span className="rr-clue-lang">
@@ -679,7 +800,6 @@ export function GuestScan({
                           </span>
                         </div>
                         <blockquote className="rr-clue-quote">{qMark[0]}{displayQuote(it)}{qMark[1]}</blockquote>
-                        {/* 归纳短标题（如「填报压力」）明确标注，不冒充原标题或原话 */}
                         {it.summaryTitle && (
                           <p className="rr-clue-summary">
                             <span className="rr-clue-label">{t.clue.summaryLabel}</span>{it.summaryTitle}
@@ -688,12 +808,7 @@ export function GuestScan({
                         <div className="rr-clue-meta">
                           <span className="rr-clue-source">{t.clue.fromLabel}{fmtSources(it.sources, zh)}</span>
                           {sourceUrl ? (
-                            <a
-                              className="rr-clue-open"
-                              href={sourceUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
+                            <a className="rr-clue-open" href={sourceUrl} target="_blank" rel="noopener noreferrer">
                               {t.clue.openSource} ↗
                             </a>
                           ) : (
@@ -702,64 +817,128 @@ export function GuestScan({
                         </div>
                       </div>
 
-                      {/* 机会区：模板结果不渲染四段套话，诚实说明「还没生成点子」 */}
-                      {hasRealIdea ? (
+                      {brief ? (
                         <>
-                          <p className="rr-idea-note">{t.idea.aiNote}</p>
-                          <dl className="rr-idea-grid">
-                            <div><dt>{t.idea.whoLabel}</dt><dd>{ideaText(idea, "who", locale)}</dd></div>
-                            <div><dt>{t.idea.whyLabel}</dt><dd>{ideaText(idea, "why", locale)}</dd></div>
-                            <div><dt>{t.idea.stepLabel}</dt><dd>{ideaText(idea, "step", locale)}</dd></div>
-                          </dl>
+                          {/* 答案优先的核心决策链：场景 → 痛点 → 第一性原理本质障碍 */}
+                          <div className="rr-brief-core">
+                            {coreFields.map(({ field, tag }) => (
+                              <BriefRow key={field} field={field} tag={tag}
+                                value={briefText(idea, field, locale)} dict={bDict} evidenceId={evidenceId} />
+                            ))}
+                          </div>
+
+                          {/* 渐进披露：完整简报（余下 5 段）+ 验证清单 + 元数据 */}
+                          <details className="rr-brief-more">
+                            <summary className="rr-brief-more-btn">
+                              <span className="rr-lbl-open">{bDict.expand}</span>
+                              <span className="rr-lbl-close">{bDict.collapse}</span>
+                            </summary>
+                            <div className="rr-brief-more-body">
+                              <p className="rr-brief-ainote">{bDict.aiNote}</p>
+                              <div className="rr-brief-core">
+                                {moreFields.map(({ field, tag }) => (
+                                  <BriefRow key={field} field={field} tag={tag}
+                                    value={briefText(idea, field, locale)} dict={bDict} evidenceId={evidenceId} />
+                                ))}
+                              </div>
+                              {/* 验证清单：可复制，从「读」走到「做」 */}
+                              <div className="rr-brief-checklist">
+                                <div className="rr-brief-checklist-head">
+                                  <span className="rr-brief-checklist-title">{bDict.checklistTitle}</span>
+                                  <CopyChecklist text={checklistText} label={bDict.copyChecklist} copiedLabel={bDict.copied} />
+                                </div>
+                                <p className="rr-brief-checklist-test">{briefText(idea, "test", locale)}</p>
+                                <p className="rr-brief-checklist-stop">{bDict.field.stopIf}：{briefText(idea, "stopIf", locale)}</p>
+                              </div>
+                              {/* 更多细节：原标题 / 趋势 / 信号 / 结构卡，收在二级折叠里 */}
+                              <details className="rr-idea-action">
+                                <summary className="rr-idea-btn">{t.clue.moreOpen}</summary>
+                                <div className="rr-evidence-body">
+                                  <p className="rr-evidence-title">{t.clue.originalTitleLabel}{displayTitle(it)}</p>
+                                  <div className="rr-try-result-meta">
+                                    <span className="rr-cat-badge rr-cat-badge-sm">{it.category}</span>
+                                    <span className={`rr-trend rr-trend-${it.trend} rr-trend-sm`}>
+                                      <span aria-hidden="true">{it.trend === "rising" ? "▲" : it.trend === "peaked" ? "▼" : "■"}</span>
+                                      {trendLabel(it.trend, d)}
+                                    </span>
+                                    <span className="rr-try-result-mentions">{it.mentions} {t.mentions}</span>
+                                  </div>
+                                  <div className="rr-try-result-spark">
+                                    <Sparkline points={it.spark} trend={it.trend} />
+                                    <span className="rr-try-result-sources">{zh ? "来源：" : `${t.sourcesLabel}: `}{fmtSources(it.sources, zh)}</span>
+                                  </div>
+                                  {it.externalHeat !== undefined && it.externalHeat !== null && (
+                                    <div className="rr-heat-row">
+                                      <span className="rr-try-label">{t.externalHeat.label}</span>
+                                      <ExternalHeatNote heat={it.externalHeat} d={d} zh={zh} />
+                                    </div>
+                                  )}
+                                  {sourceUrl && (
+                                    <div className="rr-try-quote">
+                                      <span className="rr-try-label">{t.clue.openSource}</span>
+                                      <p><a href={sourceUrl} target="_blank" rel="noopener noreferrer">{sourceUrl}</a></p>
+                                    </div>
+                                  )}
+                                  <div className="rr-try-gap">
+                                    <span className="rr-try-label">{t.idea.signalLabel}</span>
+                                    <p>{it.gap}</p>
+                                  </div>
+                                  {it.card && <CardPanel card={it.card} d={d} zh={zh} />}
+                                </div>
+                              </details>
+                            </div>
+                          </details>
                         </>
                       ) : (
-                        <p className="rr-clue-noidea">{t.clue.noIdea}</p>
+                        /* 无简报：教学式判断框架。不编造点子，给用户 8 个能对着原话
+                           自己判断的问题（Typeform 式引导 + one-pager 结构）。 */
+                        <div className="rr-brief-framework">
+                          <div className="rr-brief-framework-title">{bDict.noBriefTitle}</div>
+                          <p className="rr-brief-framework-text">{bDict.noBriefText}</p>
+                          {/* 按需深度：想看完整推理，点一下单独生成（不占用主检索预算） */}
+                          <div className="rr-brief-gen">
+                            <button
+                              type="button"
+                              className="rr-brief-gen-btn"
+                              disabled={genBriefState[it.id] === "running"}
+                              onClick={() => generateBrief(it.id, displayTitle(it), displayQuote(it))}
+                            >
+                              {genBriefState[it.id] === "running" ? bDict.genBriefRunning : bDict.genBrief}
+                            </button>
+                            {genBriefState[it.id] === "failed" && (
+                              <p className="rr-brief-gen-fail">{bDict.genBriefFailed}</p>
+                            )}
+                          </div>
+                          <div className="rr-brief-framework-kicker">{bDict.frameworkKicker}</div>
+                          <ol className="rr-brief-framework-list">
+                            {BRIEF_FIELDS.map(({ field }) => (
+                              <li key={field}>
+                                <span className="rr-brief-framework-field">{bDict.field[field]}</span>
+                                <span className="rr-brief-framework-q">{bDict.frameworkQ[field]}</span>
+                              </li>
+                            ))}
+                          </ol>
+                          <details className="rr-idea-action">
+                            <summary className="rr-idea-btn">{t.clue.moreOpen}</summary>
+                            <div className="rr-evidence-body">
+                              <p className="rr-evidence-title">{t.clue.originalTitleLabel}{displayTitle(it)}</p>
+                              <div className="rr-try-result-meta">
+                                <span className="rr-cat-badge rr-cat-badge-sm">{it.category}</span>
+                                <span className="rr-try-result-mentions">{it.mentions} {t.mentions}</span>
+                              </div>
+                              <div className="rr-try-gap">
+                                <span className="rr-try-label">{t.idea.signalLabel}</span>
+                                <p>{it.gap}</p>
+                              </div>
+                            </div>
+                          </details>
+                        </div>
                       )}
 
-                      {/* 三个追问：外链 / 同类线索 / 回到方向卡，都是确定性本地动作 */}
+                      {/* 三个追问：同类线索 / 再读原话 / 换个方向，都是确定性本地动作 */}
                       <div className="rr-idea-actions">
-                        {/* 更多细节：原标题 / 信号 / 内部分级；原话已放在主视图，这里不重复 */}
                         <details className="rr-idea-action">
-                          <summary className="rr-idea-btn">
-                            <span className="rr-lbl-open">{t.clue.moreOpen}</span>
-                            <span className="rr-lbl-close">{t.clue.moreClose}</span>
-                          </summary>
-                          <div className="rr-evidence-body">
-                            <p className="rr-evidence-title">{t.clue.originalTitleLabel}{displayTitle(it)}</p>
-                            <div className="rr-try-result-meta">
-                              <span className="rr-cat-badge rr-cat-badge-sm">{it.category}</span>
-                              <span className={`rr-trend rr-trend-${it.trend} rr-trend-sm`}>
-                                <span aria-hidden="true">{it.trend === "rising" ? "▲" : it.trend === "peaked" ? "▼" : "■"}</span>
-                                {trendLabel(it.trend, d)}
-                              </span>
-                              <span className="rr-try-result-mentions">{it.mentions} {t.mentions}</span>
-                            </div>
-                            <div className="rr-try-result-spark">
-                              <Sparkline points={it.spark} trend={it.trend} />
-                              <span className="rr-try-result-sources">{zh ? "来源：" : `${t.sourcesLabel}: `}{fmtSources(it.sources, zh)}</span>
-                            </div>
-                            {it.externalHeat !== undefined && it.externalHeat !== null && (
-                              <div className="rr-heat-row">
-                                <span className="rr-try-label">{t.externalHeat.label}</span>
-                                <ExternalHeatNote heat={it.externalHeat} d={d} zh={zh} />
-                              </div>
-                            )}
-                            {sourceUrl && (
-                              <div className="rr-try-quote">
-                                <span className="rr-try-label">{t.clue.openSource}</span>
-                                <p><a href={sourceUrl} target="_blank" rel="noopener noreferrer">{sourceUrl}</a></p>
-                              </div>
-                            )}
-                            <div className="rr-try-gap">
-                              <span className="rr-try-label">{t.idea.signalLabel}</span>
-                              <p>{it.gap}</p>
-                            </div>
-                            {it.card && <CardPanel card={it.card} d={d} zh={zh} />}
-                          </div>
-                        </details>
-                        {/* 同类线索：有原始链接的条目可直接点开，不再是纯文字 */}
-                        <details className="rr-idea-action">
-                          <summary className="rr-idea-btn">{t.idea.similar}</summary>
+                          <summary className="rr-idea-btn">{bDict.followUpItems.similar}</summary>
                           <div className="rr-similar-body">
                             {similar.length ? (
                               <ul className="rr-similar-list">
@@ -778,12 +957,16 @@ export function GuestScan({
                             ) : <p className="rr-note">{t.idea.similarEmpty}</p>}
                           </div>
                         </details>
+                        <a className="rr-idea-btn" href={`#${evidenceId}`} onClick={(e) => {
+                          e.preventDefault();
+                          document.getElementById(evidenceId)?.scrollIntoView({ behavior: "smooth", block: "center" });
+                        }}>{bDict.followUpItems.evidence}</a>
                         <button
                           type="button"
                           className="rr-idea-btn rr-idea-btn-scroll"
                           onClick={() => document.getElementById("rr-browse")?.scrollIntoView({ behavior: "smooth", block: "start" })}
                         >
-                          {t.clue.backToBrowse}
+                          {bDict.followUpItems.directions}
                         </button>
                       </div>
                     </article>

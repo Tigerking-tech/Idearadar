@@ -42,9 +42,10 @@ export default function TermsPage() {
 
         <h2>No guarantee of business outcome</h2>
         <p>
-          A one-line idea is a starting point derived from public wording, not a validated business
-          case or a guarantee that a product will succeed. Some source records are narrow questions and
-          the resulting ideas can be niche. Chinese text is machine-translated. Validate demand
+          An 8-part opportunity brief is a structured judgement aid derived from public wording, not a
+          validated business case or a guarantee that a product will succeed. Its inference fields are
+          reasoned from a single record and may be wrong. Some source records are narrow questions and
+          the resulting briefs can be niche. Chinese text is machine-translated. Validate demand
           independently before building.
         </p>
 

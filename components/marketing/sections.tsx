@@ -10,15 +10,14 @@ import { RoiCalculator } from "./interactive";
 /**
  * 读取定时 workflow 产出的结构化数据（服务端、构建时读取）。
  *
- * 设计边界（重要）：营销首页的评分卡片是「输出格式示意」，固定使用字典中
- * 各语言自带的示例条目，绝不把采集到的原文标题直接铺到页面上。原因：
- * 1. 采集源以英文社区为主，原文标题放在中文页会破坏语言一致性；
- * 2. 原始标题常含 issue 编号、多语言正文、噪声短语，且被硬截断会出现半个单词；
- * 3. 卡片是版式演示，不是数据看板，混入未经复核的原文反而降低可信度。
+ * 设计边界（重要）：预览卡只展示「LLM 归纳后的双语短句」（v3 简报的 build
+ * 段派生出的 idea.headline），绝不把采集到的原始 issue 标题直接铺到页面上 ——
+ * 原文标题常含编号、多语言正文、噪声短语，中文页还会破坏语言一致性。
+ * 归纳短句已经过 cleanBriefText 清洗，中英各一份，按页面语言取即可。
  *
- * 真实采集结果只以「产出条数 / 数据源 / 更新日期」三项统计出现在脚注，
- * 并链接到 /opportunities.json 供需要原始数据的人查看。这样中英文两版都
- * 干净、可抓取，且与 workflow 的闭环仍然存在（数字随每次采集刷新）。
+ * 旧实现把字典里写死的 4 条示例标成「来自最近一次采集的四个真实点子」，
+ * 数据和文案一变就对不上；现在标题、顺序、提及数都随 /opportunities.json
+ * 刷新，卡片标题才配得上「REAL」两个字。数据文件缺失时回退字典示例。
  */
 function getLatestScanStats() {
   try {
@@ -35,6 +34,37 @@ function getLatestScanStats() {
         .filter((s) => /^[a-z0-9_-]+$/i.test(s))
         .slice(0, 4),
     };
+  } catch {
+    return null;
+  }
+}
+
+/** 按词边界收短标题，避免英文被硬截出半个单词（中文无空格，短句一般无需截断）。 */
+function clipLabel(raw: string, max = 88): string {
+  const s = String(raw || "").replace(/[。.]\s*$/, "").trim();
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut) + "…";
+}
+
+/** 预览卡 4 条真实机会：取最近一次采集里提及数最高的 4 条「最小可造之物」。 */
+function getPreviewIdeas(locale: "en" | "zh") {
+  try {
+    const file = path.join(process.cwd(), "data", "opportunities.json");
+    const data = JSON.parse(fs.readFileSync(file, "utf8"));
+    const items: any[] = (data.items || []).filter((x: any) => x?.idea?.headline);
+    if (!items.length) return null;
+    const top = [...items]
+      .sort((a, b) => (Number(b.mentions) || 0) - (Number(a.mentions) || 0))
+      .slice(0, 4);
+    return top.map((x) => {
+      const h = x.idea.headline || {};
+      const label = clipLabel(String(
+        locale === "zh" ? (h.zh || h.en || x.titleZh || x.title) : (h.en || h.zh || x.title),
+      ));
+      return { label, mentions: Number(x.mentions) || x.evidence?.length || 1 };
+    });
   } catch {
     return null;
   }
@@ -103,6 +133,8 @@ export function StatsBar({ d = EN_DICT }: SectionProps) {
 export function LivePreview({ d = EN_DICT }: SectionProps) {
   const stats = getLatestScanStats();
   const p = d.preview;
+  // 真实数据优先；数据文件不可用时才回退字典示例，且回退时不再自称「真实」。
+  const sample = getPreviewIdeas(d.locale === "zh" ? "zh" : "en") ?? p.sample;
   const footLive = stats
     ? p.footLive
         .replace("{total}", String(stats.total))
@@ -143,8 +175,8 @@ export function LivePreview({ d = EN_DICT }: SectionProps) {
                 <span className="rr-scan-badge">{p.samplePains}</span>
               </div>
               {(() => {
-                const maxMentions = Math.max(1, ...p.sample.map((row) => row.mentions));
-                return p.sample.map((row) => (
+                const maxMentions = Math.max(1, ...sample.map((row) => row.mentions));
+                return sample.map((row) => (
                   <div className="rr-scan-row" key={row.label}>
                     <div className="rr-scan-row-top">
                       <span>{row.label}</span>

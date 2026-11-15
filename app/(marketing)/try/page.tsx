@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 const title = "Free trial — 3 free scans, no signup | IdeaRadar";
 const description =
-  "Try IdeaRadar without an account: run 3 free scans, no signup and no credit card. Every result shows the verbatim quote and a link to the original discussion; indexed directions also carry a one-line idea.";
+  "Try IdeaRadar without an account: run 3 free scans, no signup and no credit card. Every result shows the verbatim quote and a link to the original discussion; indexed directions open with an 8-part decision-ready brief (scenario, pain, root obstacle, smallest build, cheapest test, stop signal), and live searches can generate one on demand.";
 
 export const metadata = getSEOTags({
   title,

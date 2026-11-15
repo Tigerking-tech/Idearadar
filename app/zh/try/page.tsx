@@ -8,12 +8,12 @@ export const dynamic = "force-dynamic";
 
 const title = "免费试用 — 3 次免费检索，无需注册 | 创意雷达";
 const description =
-  "免注册试用 创意雷达：不用账号、不用信用卡，先免费看 3 次。每条结果都给出逐字原话和可点开的原始讨论链接；已整理的方向另附一句大白话点子。";
+  "免注册试用 创意雷达：不用账号、不用信用卡，先免费看 3 次。每条结果都给出逐字原话和可点开的原始讨论链接；已整理的方向附 8 段可决策机会简报（场景 / 痛点 / 本质障碍 / 最小可造之物 / 验证 / 放弃信号），实时检索也能按需生成简报。";
 
 export const metadata = getSEOTags({
   title,
   description,
-  keywords: ["免费试用", "无需注册", "一句话点子", "创业灵感", "按人群浏览", "创意雷达 免费"],
+  keywords: ["免费试用", "无需注册", "机会简报", "客户痛点", "创业灵感", "按人群浏览", "创意雷达 免费"],
   canonicalUrlRelative: "/zh/try",
   languages: { "en-US": "/try", "zh-CN": "/zh/try", "x-default": "/try" },
   ogLocale: "zh_CN",

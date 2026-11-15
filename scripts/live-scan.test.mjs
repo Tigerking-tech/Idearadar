@@ -70,6 +70,22 @@ test("expandQuery 无密钥时不发请求，返回原文 + 词典", async () =>
   assert.ok(terms.length <= 3);
 });
 
+test("expandQuery 有密钥时真正采用 LLM 扩出的具体检索词，不再被 slice 截掉", async () => {
+  const fetchImpl = async () => ({
+    ok: true,
+    json: async () => ({ choices: [{ message: { content: JSON.stringify({
+      terms: ["invoice export failed", "billing export broken"],
+    }) } }] }),
+  });
+  const terms = await expandQuery("发票导出", { token: "fake" }, fetchImpl);
+  assert.equal(terms[0], "发票导出");
+  assert.ok(terms.includes("invoice export failed"), "LLM 扩词必须真正用于检索");
+  assert.ok(terms.includes("billing export broken"));
+  assert.ok(terms.length <= 5);
+  assert.ok(terms.indexOf("invoice export failed") < terms.indexOf("invoice"),
+    "具体短语应排在词典泛词之前");
+});
+
 /* ---------------- 去噪打分（核心防线） ---------------- */
 
 test("scoreRows 必须命中检索词：含痛点词但不相关的记录一律丢弃", () => {
@@ -435,4 +451,100 @@ test("recordQuery 空查询或不可写路径返回 false 而不抛异常", asyn
   // 用 /dev/null 的子路径：ENOTDIR 立即失败。不要用 /proc 路径，
   // 该文件系统上的递归 mkdir 在本沙箱会挂住，测试进程无法退出。
   assert.equal(await recordQuery("pet", {}, "/dev/null/nope"), false);
+});
+
+/* ---------------- 召回治理：strict 收紧弱命中 + 普通人源提权 ---------------- */
+
+test("scoreRows strict：只命中泛词、没命中实义检索词的弱相关被拦截", () => {
+  // 搜「invoice app」：weak 只因正文里的泛词 app 命中，完全没有 invoice；
+  // loose 口径会把它当结果，strict 要求命中实义词 invoice，应挡掉。
+  const weak = row(1, { title: "Generic app tool keeps failing on mobile", source: "hn" });
+  const strong = row(2, {
+    title: "Invoice export keeps failing on mobile",
+    text: "I cannot export invoices to CSV. It is frustrating and I wish there was a workaround because the export fails every time for users.",
+    source: "hn",
+  });
+  const terms = ["invoice app"];
+  const loose = scoreRows([weak, strong], terms);
+  const strict = scoreRows([weak, strong], terms, { strict: true });
+  assert.ok(loose.some((r) => r.url.endsWith("/1")), "loose 口径下弱相关确实会漏进来");
+  assert.ok(!strict.some((r) => r.url.endsWith("/1")), "strict 必须拦掉只命中泛词的弱相关");
+  assert.ok(strict.some((r) => r.url.endsWith("/2")), "真正命中 invoice 的结果必须保留");
+});
+
+test("scoreRows strict：普通人生活站同等命中下排在开发者源之前", () => {
+  const dev = row(1, { source: "github" });
+  const consumer = row(2, { source: "consumerQa" });
+  const terms = ["pet app"];
+  const loose = scoreRows([dev, consumer], terms);
+  const strict = scoreRows([dev, consumer], terms, { strict: true });
+  assert.equal(loose.length, 2);
+  assert.equal(strict.length, 2, "strict 不得误杀两条真实痛点记录");
+  assert.equal(strict[0].source, "consumerQa", "生活站应被提到主路径");
+  assert.ok(strict[0].score > strict[1].score, "应真的加分，不是只改文案");
+  const devLoose = loose.find((r) => r.source === "github");
+  const devStrict = strict.find((r) => r.source === "github");
+  assert.equal(devLoose.score, devStrict.score, "非 strict 路径不引入 consumer 提权");
+});
+
+/* ---------------- 相关性闸门：模型判不相关 → 诚实空态，不降级凑数 ---------------- */
+
+test("buildSignals：模型判定全不相关时返回空数组，不降级回原始脏记录", () => {
+  const scored = [row(1), row(2)];
+  assert.deepEqual(buildSignals(scored, "宠物店", "zh", []), [], "[] 应是诚实空态");
+  assert.equal(buildSignals(scored, "宠物店", "zh", null).length, 2,
+    "null 表示调用失败，仍按规则降级（fail-open），与 [] 严格区分");
+});
+
+test("summarizeWithLlm：丢弃模型显式判为不相关的记录，保留真正相关的记录", async () => {
+  const scored = Array.from({ length: 3 }, (_, i) => ({ ...row(i), score: 60 }));
+  const content = JSON.stringify({ items: [
+    { i: 0, relevant: false, title: "怎么养懒猴", quote: "无关", gap: "", score: 70 },
+    { i: 1, relevant: true, title: "宠物店预约总被重复占用", quote: "证据原文", gap: "一把时段锁", score: 80 },
+  ] });
+  const fetchImpl = async () => ({
+    ok: true, json: async () => ({ choices: [{ message: { content } }] }),
+  });
+  const out = await summarizeWithLlm(scored, "宠物店", "zh", { token: "fake" }, fetchImpl);
+  assert.equal(out.length, 1);
+  assert.equal(out[0].i, 1);
+});
+
+test("summarizeWithLlm：全部不相关返回空数组而非 null，让上层走诚实空态", async () => {
+  const scored = [row(1), row(2)];
+  const content = JSON.stringify({ items: [
+    { i: 0, relevant: false, score: 70 },
+    { i: 1, relevant: false, score: 60 },
+  ] });
+  const fetchImpl = async () => ({
+    ok: true, json: async () => ({ choices: [{ message: { content } }] }),
+  });
+  const out = await summarizeWithLlm(scored, "宠物店", "zh", { token: "fake" }, fetchImpl);
+  assert.deepEqual(out, [], "调用成功但全不相关，必须是 [] 而不是 null");
+});
+
+test("summarizeWithLlm：模型没给 relevant 字段时 fail-open 保留，不误杀", async () => {
+  const scored = [row(1)];
+  const content = JSON.stringify({ items: [
+    { i: 0, title: "有效痛点", quote: "证据原文", gap: "", score: 70 },
+  ] });
+  const fetchImpl = async () => ({
+    ok: true, json: async () => ({ choices: [{ message: { content } }] }),
+  });
+  const out = await summarizeWithLlm(scored, "pet", "zh", { token: "fake" }, fetchImpl);
+  assert.equal(out.length, 1, "旧模型/降级输出没有 relevant 字段时不能全丢");
+});
+
+test("scoreRows 拦掉 P0/Epic 编号式需求规格，不把它当成对方逐字原话", () => {
+  const bad = row(1, {
+    title: "P0 FREE AI 06: Cancellation & Rescheduling Assistant",
+    text: "Parent epic: Deliverable Classify cancel/change requests, explain current policy, direct to existing flows. Appointment booking is frustrating and I wish there was a workaround because it keeps failing.",
+  });
+  const good = row(2, {
+    title: "Appointment Rescheduling Flow Malfunction",
+    text: "Attempting to reschedule an existing appointment fails or generates errors, preventing students from updating booking times. This is frustrating and I wish there was a workaround.",
+  });
+  const out = scoreRows([bad, good], ["appointment"]);
+  assert.ok(!out.some((r) => r.url.endsWith("/1")), "Epic/P0 任务单必须被挡掉");
+  assert.ok(out.some((r) => r.url.endsWith("/2")), "真实痛点描述必须保留");
 });

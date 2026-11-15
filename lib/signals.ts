@@ -107,14 +107,28 @@ export type ExternalHeat = {
 };
 
 /**
- * L1「一句话机会」：把一条证据翻译成「给谁 + 做什么」。
- * 数据语言无关（zh/en 双字段），脚本 scripts/idea.mjs 生成，
- * origin 区分 LLM 产出还是确定性模板降级，前端可诚实标注。
+ * v3「可决策机会简报」：8 段双语，把一条真实抱怨拆成
+ * 场景(JTBD) → 痛点 → 现在的凑合办法 → 第一性原理本质障碍 →
+ * 最小可造之物 → 最便宜证伪动作 → 停止条件 → 为何现在。
+ * 每段语言无关（zh/en 双字段），脚本 scripts/idea.mjs 生成。
+ */
+export type BriefField =
+  | "jobStory" | "pain" | "workaround" | "rootObstacle"
+  | "build" | "test" | "stopIf" | "whyNow";
+
+export type Brief = Record<BriefField, { zh: string; en: string }>;
+
+/**
+ * 「一句话机会」：v3 起 headline/who/why/step 从简报派生（首页 feed / 今日点子 /
+ * 同类线索等既有调用点无需改动即获得实质内容）。brief 为结构化 8 段；
+ * origin 区分 LLM 产出还是确定性模板降级（模板 brief=null，前端诚实标注）。
  */
 export type Idea = {
   version: number;
   origin: "llm" | "template";
   persona: string;
+  /** v3 结构化机会简报；模板 / 旧格式降级为 null。 */
+  brief?: Brief | null;
   headline: { zh: string; en: string };
   who: { zh: string; en: string };
   why: { zh: string; en: string };
@@ -641,4 +655,19 @@ export function ideaText(idea: Idea | null | undefined, field: "headline" | "who
   const pair = idea[field];
   if (!pair) return "";
   return (locale === "zh" ? pair.zh : pair.en) || pair.zh || pair.en || "";
+}
+
+/** v3 机会简报字段的本地化取值（SSR 与客户端共用），缺语言时回退另一语言。 */
+export function briefText(idea: Idea | null | undefined, field: BriefField, locale: "en" | "zh"): string {
+  const b = idea?.brief;
+  if (!b) return "";
+  const pair = b[field];
+  if (!pair) return "";
+  return (locale === "zh" ? pair.zh : pair.en) || pair.zh || pair.en || "";
+}
+
+/** 该条是否有可用于决策的完整简报（至少 build + jobStory 有内容）。 */
+export function hasBrief(idea: Idea | null | undefined): boolean {
+  const b = idea?.brief;
+  return Boolean(b && (b.build?.zh || b.build?.en) && (b.jobStory?.zh || b.jobStory?.en));
 }

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   IDEA_VERSION, ideaKey, ideaInput, templateIdea, normalizeIdea, generateIdeas,
   NICHE_PERSONA, PERSONAS, extractIdeaRecords,
+  BRIEF_FIELDS, normalizeBrief,
 } from "./idea.mjs";
 
 const item = (over = {}) => ({
@@ -246,4 +247,168 @@ test("normalizeIdea：step 为纯中文字符串时保留中文、英文回退�
   assert.equal(n.origin, "llm");
   assert.ok(n.step.zh.includes("粘贴账单"), "中文模型内容不能被模板覆盖");
   assert.ok(n.step.en.length > 0, "英文侧回退模板，不留空");
+});
+
+/* ---------------- v3「可决策机会简报」防回归 ---------------- */
+
+const briefRec = (k, over = {}) => ({
+  k, persona: "indie-dev",
+  brief: {
+    jobStory: { zh: "当导出联系人给会计时，小老板想把名单存成干净表格以便直接报税", en: "When exporting contacts monthly, a small owner wants a clean sheet so they can file directly" },
+    pain: { zh: "名为=1+1的收件人被原样导出，Excel 里当公式执行，得手动清理几十行", en: "A recipient named =1+1 is exported raw and evaluated as a formula in Excel, forcing manual cleanup" },
+    workaround: { zh: "现在只能逐行删公式符号，容易漏且慢", en: "They delete formula signs row by row, slow and error-prone" },
+    rootObstacle: { zh: "导出功能把不受信任的单元格内容原样写入文件，没有先转成纯文本", en: "The exporter writes untrusted cell content verbatim instead of converting it to plain text first" },
+    build: { zh: "在写入 CSV 前把所有单元格统一转成纯文本的一个导出开关", en: "A single export toggle that stringifies every cell to plain text before writing the CSV" },
+    test: { zh: "做一个能上传 CSV 就给出纯净文件的单页，发给 3 位常导联系人的人当天试用", en: "Ship a one-page CSV cleaner and send it to 3 people who export contacts this week" },
+    stopIf: { zh: "没人愿意为省这几分钟改变现有导出习惯时，就别做", en: "If nobody will change their export habit to save these minutes, drop it" },
+    whyNow: { zh: "原话里没有时间性证据，只能确认这确实在发生", en: "No timing evidence in the quote; only that this is happening" },
+  },
+  ...over,
+});
+
+test("normalizeBrief：8 段双语齐全时采纳", () => {
+  const b = normalizeBrief(briefRec("p0").brief);
+  assert.ok(b, "合法简报必须被采纳");
+  assert.deepEqual(Object.keys(b), BRIEF_FIELDS);
+  assert.ok(b.build.zh.length > 0 && b.build.en.length > 0);
+  assert.ok(b.rootObstacle.zh.includes("纯文本"));
+});
+
+test("normalizeBrief：命中万能套话/编造数字 → 判不合格（不拿废话充数）", () => {
+  const a = briefRec("p0").brief;
+  assert.equal(normalizeBrief({ ...a, build: { zh: "做个最小 MVP 找 3 个人试用", en: "build an MVP" } }), null);
+  const b = briefRec("p0").brief;
+  assert.equal(normalizeBrief({ ...b, pain: { zh: "市场规模 3 亿美元", en: "a 300 million market" } }), null);
+  const c = briefRec("p0").brief;
+  assert.equal(normalizeBrief({ ...c, test: { zh: "做 5 场用户访谈", en: "do user interviews" } }), null);
+});
+
+test("normalizeBrief：缺核心字段 / 非对象 / 全空 → 判不合格", () => {
+  const a = briefRec("p0").brief; delete a.build;
+  assert.equal(normalizeBrief(a), null);
+  assert.equal(normalizeBrief(null), null);
+  assert.equal(normalizeBrief({}), null);
+});
+
+test("normalizeBrief：某段写成纯字符串时保留中文、英文诚实留白", () => {
+  const a = briefRec("p0").brief;
+  a.pain = "导出时公式没被转义，得手动清";
+  const b = normalizeBrief(a);
+  assert.ok(b);
+  assert.ok(b.pain.zh.includes("转义"));
+  assert.equal(b.pain.en, "");
+});
+
+test("normalizeIdea：v3 简报采纳，旧四段从简报派生且不再有找3人套话", () => {
+  const n = normalizeIdea(briefRec("p0"), item());
+  assert.equal(n.origin, "llm");
+  assert.ok(n.brief, "v3 必须挂 brief");
+  // headline 来自 build、step 来自 test —— 首页/今日点子/同类线索自动获得实质内容。
+  assert.ok(n.headline.zh.includes("纯文本"), "headline 应派生自 build");
+  assert.ok(n.step.zh.includes("上传") || n.step.zh.includes("当天"), "step 应派生自 test");
+  assert.ok(!/找\s*3\s*(个|位)人试用|最小起步|做个?最小(版本|MVP)/.test(JSON.stringify(n)), "不得残留万能套话");
+});
+
+test("templateIdea：v3 模板 brief 为 null 且不含找3人套话", () => {
+  const t = templateIdea(item());
+  assert.equal(t.brief, null, "模板不冒充已生成简报");
+  assert.ok(!/找\s*3\s*个|最小版本|做个?最小(版本|MVP)|build an MVP/.test(JSON.stringify(t)));
+  assert.ok(t.step.zh.includes("原始讨论"), "第一步应是打开原帖核对，不是万能套话");
+});
+
+test("extractIdeaRecords：v3 简报对象可被栈式抠出并归一化", () => {
+  const out = extractIdeaRecords(JSON.stringify({ items: [briefRec("p0")] }));
+  assert.equal(out.length, 1);
+  assert.equal(out[0].k, "p0");
+  const n = normalizeIdea(out[0], item());
+  assert.equal(n.origin, "llm");
+  assert.ok(n.brief);
+});
+
+test("generateIdeas：v3 简报输出被采纳为 llm，brief 完整", async () => {
+  const rows = [item()];
+  const replies = [briefRec("p0")];
+  const { items, stats } = await generateIdeas(rows, OPTS(ideaFetch({ items: replies })));
+  assert.equal(stats.generated, 1);
+  assert.equal(items[0].idea.origin, "llm");
+  assert.ok(items[0].idea.brief, "生成结果应带 8 段简报");
+  assert.ok(items[0].idea.headline.zh.includes("纯文本"));
+});
+
+test("extractIdeaRecords：尾部漏引号毁掉外层结构时，按字段名逐段恢复简报", () => {
+  // 复刻真实 hy-mt2-plus 畸形：最后一段 en 少一个 "，外层 }]}] 被吞进字符串。
+  const seg = (f, zh, en) => `"${f}":{"zh":"${zh}","en":"${en}"}`;
+  const broken = '{"items":[{"k":"p0","persona":"indie-dev","brief":{'
+    + [seg("jobStory", "当导出联系人时想存成干净表格以便报税", "want a clean sheet to file taxes"),
+       seg("pain", "公式被原样导出得手动清理", "formula exported raw, manual cleanup"),
+       seg("workaround", "逐行删公式符号", "delete signs row by row"),
+       seg("rootObstacle", "导出未把单元格转纯文本", "exporter writes cells verbatim"),
+       seg("build", "写入前统一转纯文本的导出开关", "a toggle that stringifies cells before write"),
+       seg("test", "做一个上传CSV就出纯净文件的单页当天发给3人试用", "ship a one-page CSV cleaner today"),
+       seg("stopIf", "准确率低于50%就放弃", "if accuracy below 50% drop it")].join(",")
+    + ',"whyNow":{"zh":"无时间证据","en":"no timing evidence.'  // 故意漏闭合引号
+    + '}}]}]';
+  const out = extractIdeaRecords(broken);
+  assert.equal(out.length, 1);
+  assert.equal(out[0].k, "p0");
+  const n = normalizeIdea(out[0], item());
+  assert.equal(n.origin, "llm", "尾部畸形也应还原成 llm 简报");
+  assert.ok(n.brief, "应恢复出 brief");
+  assert.ok(n.brief.build.zh.includes("纯文本"));
+});
+
+test("normalizeBrief：停止条件里的合理百分比阈值不被误杀", () => {
+  const b = briefRec("p0").brief;
+  b.stopIf = { zh: "准确率低于 50% 就放弃", en: "if accuracy below 50% drop it" };
+  assert.ok(normalizeBrief(b), "合理阈值不是编造规模，不该回退");
+  const c = briefRec("p0").brief;
+  c.test = { zh: "做一个单页当天发给 3 位目标用户试用", en: "ship a one-page tool to 3 target users today" };
+  assert.ok(normalizeBrief(c), "有具体 artifact 的验证动作不是万能套话");
+});
+
+test("generateIdeas：命中历史缓存时清理 JTBD 占位符并把干净结果写回缓存", async () => {
+  const it = item();
+  const key = ideaKey(it);
+  const brief = JSON.parse(JSON.stringify(briefRec("p0").brief));
+  brief.jobStory = {
+    zh: "当需要统计家庭收支时，<具体用户>希望手动录入收据以便掌握预算。",
+    en: "When tallying household expenses, <specific user> wants to log receipts to track the budget.",
+  };
+  // 模拟 cleanBriefText 加入前写入的历史缓存：结构合法但文本带占位符。
+  const dirty = {
+    version: IDEA_VERSION, origin: "llm", persona: "general", brief,
+    headline: { zh: "旧标题", en: "Old headline" },
+    who: { zh: "", en: "" }, why: { zh: "", en: "" }, step: { zh: "", en: "" },
+  };
+  const { items, ideas, stats } = await generateIdeas([it], OPTS(ideaFetch({ fail: true }), {
+    cache: { [key]: dirty },
+  }));
+  assert.equal(stats.cached, 1, "应命中缓存");
+  assert.equal(stats.requests, 0, "命中缓存不应再发请求");
+  assert.equal(items[0].idea.origin, "llm");
+  const text = JSON.stringify(items[0].idea);
+  assert.ok(!/[<>]/.test(text), "产物不得残留尖括号");
+  assert.ok(!/具体用户|特定用户|specific user|specific persona/.test(text), "产物不得残留占位词");
+  assert.ok(items[0].idea.brief.jobStory.zh.includes("希望手动录入"), "清理后正文仍完整");
+  assert.ok(!/[<>]/.test(JSON.stringify(ideas[key])), "缓存本身也要自愈，不能下轮又带回来");
+  assert.ok(items[0].idea.headline.zh.includes("纯文本"), "旧四段应从清理后的简报重新派生");
+});
+
+test("generateIdeas：缓存里不合格的简报不复用，重新生成而不是把套话带回前端", async () => {
+  const it = item();
+  const key = ideaKey(it);
+  const brief = JSON.parse(JSON.stringify(briefRec("p0").brief));
+  brief.build = { zh: "做个最小版本找 3 个人试用", en: "build an MVP and find 3 users" };
+  const dirty = {
+    version: IDEA_VERSION, origin: "llm", persona: "general", brief,
+    headline: { zh: "旧", en: "Old" },
+    who: { zh: "", en: "" }, why: { zh: "", en: "" }, step: { zh: "", en: "" },
+  };
+  const { items, stats } = await generateIdeas([it], OPTS(ideaFetch({ items: [briefRec("p0")] }), {
+    cache: { [key]: dirty },
+  }));
+  assert.equal(stats.cached, 0, "不合格缓存不算命中");
+  assert.equal(stats.generated, 1, "应重新生成");
+  assert.ok(!/做个?最小版本|build an MVP|找\s*3\s*个人试用/.test(JSON.stringify(items[0].idea)));
+  assert.ok(items[0].idea.brief, "重新生成的结果应是合法简报");
 });

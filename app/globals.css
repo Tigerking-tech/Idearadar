@@ -721,6 +721,112 @@ body {
   color: #3d4251; overflow-wrap: anywhere; word-break: break-word;
 }
 
+/* ---------- v3「可决策机会简报」：答案优先 + 渐进披露 + 证据/推断/假设双色 ---------- */
+.rr-brief-answer-label {
+  display: inline-block; margin-top: 7px; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.04em; color: #4a44c9; background: #efedff;
+  border-radius: 5px; padding: 3px 8px;
+}
+.rr-brief-core { margin-top: 14px; display: flex; flex-direction: column; gap: 9px; }
+.rr-brief-row {
+  padding: 11px 13px; border-radius: 9px; border: 1px solid #eef0f8;
+  background: #fbfbff; border-left: 3px solid #c9c4f7;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.rr-brief-row-evidence { border-left-color: #2f9e6f; background: #f6fcf9; }
+.rr-brief-row-inference { border-left-color: #5b4bf5; background: #fbfaff; }
+.rr-brief-row-assumption { border-left-color: #b9bdcc; background: #fafafd; }
+.rr-brief-row-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 9px; margin-bottom: 5px;
+}
+.rr-brief-row-label { font-size: 10.5px; font-weight: 800; letter-spacing: 0.05em; color: #3d4251; }
+.rr-brief-tag {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.06em; border-radius: 4px;
+  padding: 2px 6px; text-transform: uppercase;
+}
+.rr-brief-tag-evidence { color: #1f7a54; background: #e2f5ec; }
+.rr-brief-tag-inference { color: #4a44c9; background: #ece9ff; }
+.rr-brief-tag-assumption { color: #7a8090; background: #eeeff4; }
+.rr-brief-row-value { margin: 0; font-size: 13.5px; line-height: 1.68; color: #2f3342; }
+.rr-brief-check {
+  display: inline-block; margin-top: 7px; font-size: 10.5px; font-weight: 650;
+  color: #8a86c0; text-decoration: none; border-bottom: 1px dashed #c9c4f7;
+}
+.rr-brief-check:hover { color: #4a44c9; }
+
+/* 渐进披露：完整简报折叠层 */
+.rr-brief-more { margin-top: 13px; }
+.rr-brief-more-btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
+  font-size: 12px; font-weight: 700; color: #4a44c9; background: #f0efff;
+  border: 1px solid #dedcf5; border-radius: 999px; padding: 7px 15px;
+}
+.rr-brief-more-btn::-webkit-details-marker { display: none; }
+.rr-brief-more-btn:hover { border-color: #5b4bf5; }
+.rr-brief-more[open] > .rr-brief-more-btn .rr-lbl-open { display: none; }
+.rr-brief-more[open] > .rr-brief-more-btn .rr-lbl-close { display: inline; }
+.rr-brief-more > .rr-brief-more-btn .rr-lbl-close { display: none; }
+.rr-brief-more-body { margin-top: 12px; }
+.rr-brief-ainote {
+  margin: 0 0 12px; font-size: 11px; line-height: 1.65; color: #7a8090;
+  padding: 9px 11px; border-radius: 8px; background: #f7f7fb;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.rr-brief-more-body .rr-idea-action { margin-top: 12px; }
+
+/* 验证清单：可复制 */
+.rr-brief-checklist {
+  margin-top: 14px; padding: 12px 14px; border: 1px solid #d9f0e4;
+  border-radius: 10px; background: #f4fbf7;
+}
+.rr-brief-checklist-head {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px;
+  margin-bottom: 8px;
+}
+.rr-brief-checklist-title { font-size: 11px; font-weight: 800; letter-spacing: 0.04em; color: #1f7a54; }
+.rr-brief-copy {
+  font-size: 11px; font-weight: 700; color: #1f7a54; background: #fff;
+  border: 1px solid #bfe6d1; border-radius: 7px; padding: 5px 11px; cursor: pointer;
+}
+.rr-brief-copy:hover { border-color: #2f9e6f; }
+.rr-brief-copy.is-copied { color: #fff; background: #2f9e6f; border-color: #2f9e6f; }
+.rr-brief-checklist-test, .rr-brief-checklist-stop {
+  margin: 4px 0 0; font-size: 12.5px; line-height: 1.65; color: #2f4a3d;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.rr-brief-checklist-stop { color: #6a7080; font-size: 11.5px; }
+
+/* 无简报时的教学式判断框架（实时检索 / 模板降级） */
+.rr-brief-framework {
+  margin-top: 14px; padding: 14px; border: 1px solid #e8e6fb; border-radius: 10px;
+  background: #fbfaff;
+}
+.rr-brief-framework-title { font-size: 13px; font-weight: 800; color: var(--rr-ink); }
+.rr-brief-framework-text {
+  margin: 6px 0 0; font-size: 11.5px; line-height: 1.65; color: #6a7080;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.rr-brief-framework-kicker {
+  margin: 13px 0 8px; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; color: #5b4bf5;
+}
+.rr-brief-framework-list { margin: 0; padding-left: 20px; }
+.rr-brief-framework-list li { margin-bottom: 8px; font-size: 12.5px; line-height: 1.6; color: #3d4251; }
+.rr-brief-framework-field { display: block; font-size: 10px; font-weight: 800; color: #8a86c0; letter-spacing: 0.03em; }
+.rr-brief-framework-q { display: block; overflow-wrap: anywhere; word-break: break-word; }
+.rr-brief-framework .rr-idea-action { margin-top: 12px; }
+.rr-brief-gen { margin-top: 11px; }
+.rr-brief-gen-btn {
+  font-size: 12px; font-weight: 700; color: #fff; background: #5b4bf5;
+  border: 1px solid #5b4bf5; border-radius: 8px; padding: 8px 15px; cursor: pointer;
+  transition: background 0.15s ease;
+}
+.rr-brief-gen-btn:hover:not(:disabled) { background: #4a44c9; }
+.rr-brief-gen-btn:disabled { opacity: 0.65; cursor: default; }
+.rr-brief-gen-fail {
+  margin: 8px 0 0; font-size: 11px; line-height: 1.6; color: #8a5a2f;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+
 /* 三个追问：确定性本地动作，展开的 details 独占整行避免挤压 */
 .rr-idea-actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px; margin-top: 16px; }
 .rr-idea-action { flex: 0 0 auto; }
@@ -766,4 +872,8 @@ body {
   .rr-clue { padding: 12px; }
   .rr-clue-quote { font-size: 12.5px; }
   .rr-try-score-mentions { font-size: 13px; }
+  .rr-brief-row { padding: 10px 11px; }
+  .rr-brief-row-value { font-size: 12.5px; }
+  .rr-idea-headline { font-size: 15px; }
+  .rr-brief-framework-list { padding-left: 17px; }
 }

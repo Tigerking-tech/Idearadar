@@ -30,6 +30,8 @@ export const getSEOTags = ({
     applicationName: config.appName,
     keywords: keywords || [
       "business ideas from public questions",
+      "opportunity brief",
+      "first-principles idea analysis",
       "public Q&A mining",
       "startup idea discovery",
       "complaint to product idea",
@@ -99,7 +101,8 @@ export function renderSchemaTags() {
       featureList: [
         "3 free scans without signup",
         "Verbatim wording and a link to the original discussion on every result",
-        "One-line ideas for indexed directions, grouped by who has the problem",
+        "8-part decision-ready opportunity briefs for indexed directions (scenario, pain, root obstacle, smallest build, cheapest test, stop signal)",
+        "On-demand brief generation for live searches, with evidence / inference / assumption tags on every claim",
         "AI denoising and translation of public discussions",
         "Open /opportunities.json dataset",
       ],

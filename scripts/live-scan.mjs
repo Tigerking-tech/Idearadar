@@ -74,7 +74,7 @@ const PROMO_TITLE_RE = /^(?:show hn|launch hn|ask hn|introducing|announcing|we b
  * [Tool] 工具征集帖。只拦这些明确的结构标记；「Problem: CSV 打不开通讯录」
  * 这类真实痛点保留。
  */
-const TASK_DOC_RE = /(\bBUILD (?:SUCCEEDED|FAILED)\b|gradle\.log|\bapk\s*\(|\b(?:Epic name|Business value|What to build|Task scope|Acceptance criteria|Project context)\s*:|\b(?:User story|Done when|Steps to [Rr]eproduce|Prerequisites)\b|\bacceptance criteria\b|\bplease build me\b|\bwhat (?:to build|should it do)\b|\bAs a .{0,60}\bI want to\b|\[Tool\]|\bTool name\s*[:/]|-\s*\[ \])/i;
+const TASK_DOC_RE = /(\bBUILD (?:SUCCEEDED|FAILED)\b|gradle\.log|\bapk\s*\(|\b(?:Epic name|Business value|What to build|Task scope|Acceptance criteria|Project context)\s*:|\b(?:User story|Done when|Steps to [Rr]eproduce|Prerequisites)\b|\bacceptance criteria\b|\bplease build me\b|\bwhat (?:to build|should it do)\b|\bAs a .{0,60}\bI want to\b|\[Tool\]|\bTool name\s*[:/]|-\s*\[ \]|^\s*P[0-9]+\b|^\s*[A-Z]{2,8}-[0-9]+\s*:|\bParent epic\b|\bDeliverable\b|\bcost boundaries\b)/i;
 /**
  * 「真人痛点」补充判定。闸门刻意不用 PAIN_RES：那套规则里的 \bissue\b 会把
  * 「父 Issue 1」「#123 issue」这类工单编号当成抱怨，反而放进开发任务单。
@@ -290,7 +290,11 @@ export async function expandQuery(q, env = {}, fetchImpl = fetch) {
       8_000,
     );
     const terms = Array.isArray(out?.terms) ? out.terms.filter((t) => typeof t === "string" && t.trim()) : [];
-    return dedupe([...base, ...terms.map((t) => t.trim().slice(0, 40))]).slice(0, 3);
+    // 旧实现把 base（原文 + 词典泛词）放前面再 slice(0,3)，base 本身就占满 3 个，
+    // LLM 扩出的具体英文短语被整批截掉 —— 等于白调一次模型，检索仍只用
+    // "invoice" / "billing" 这种泛词，正是「搜 A 出一堆不相关」的根因之一。
+    // 改成：原文 → LLM 具体短语 → 词典泛词兜底，上限放宽到 5（仍在总预算内）。
+    return dedupe([q, ...terms.map((t) => t.trim().slice(0, 40)), ...hintTerms(q)]).slice(0, 5);
   } catch {
     return dedupe(base).slice(0, 3);
   }
@@ -311,7 +315,19 @@ function dedupe(arr) {
  * 硬性要求：必须命中至少一个检索词，否则丢弃——这正是旧版「创意需求」
  * 只靠「需求」二字误命中就返回「预约取消」的根源。
  */
-export function scoreRows(rows, terms) {
+/**
+ * 泛词停用表：中文方向常常被扩成 "app / data / tool / software / web" 这类
+ * 几乎出现在每条技术帖里的宽泛词，只要命中任意一个就当「相关」，正是用户
+ * 反馈「搜 A 出一堆不相关」的根因。strict 模式（实时检索启用）要求至少命中
+ * 一个「实义词」，或标题直接命中方向词，把这种偶然命中挡掉。
+ */
+const GENERIC_TOKENS = new Set([
+  "app", "apps", "web", "website", "tool", "tools", "software", "data", "system",
+  "online", "free", "best", "use", "using", "new", "how", "way", "make", "api",
+  "code", "open", "source", "project", "service", "user", "users", "support",
+]);
+
+export function scoreRows(rows, terms, opts = {}) {
   // 每个检索词都要再按 token 展开：像 "pet app booking" 这样的英文短语，
   // 整串几乎不会出现在任何一条讨论里，只用整串匹配会把全部记录误判为不相关。
   const list = [];
@@ -319,6 +335,12 @@ export function scoreRows(rows, terms) {
   for (const item of (Array.isArray(terms) ? terms : [terms])) {
     queryTokens(String(item)).forEach(add);
   }
+  const strict = Boolean(opts.strict);
+  // 实义词：长度 ≥3 且不在泛词停用表；中文两字片段也算实义。
+  const contentTokens = list.filter((t) =>
+    (/[\u3400-\u9fff]/.test(t) && t.length >= 2) ||
+    (t.length >= 4 && !GENERIC_TOKENS.has(t)),
+  );
   const seen = new Set();
   const scored = [];
   for (const r of rows || []) {
@@ -337,29 +359,44 @@ export function scoreRows(rows, terms) {
     let hits = 0;
     for (const t of list) if (t && hay.includes(t)) hits += 1;
     if (hits === 0) continue;
+    // strict：必须命中至少一个实义词，或标题里出现方向词。挡掉「泛词偶然
+    // 命中正文」的弱相关（如搜「专业表格」却因 'data' 命中一堆无关帖）。
+    if (strict && contentTokens.length) {
+      const titleLc = title.toLowerCase();
+      const contentHit = contentTokens.some((t) => hay.includes(t));
+      const titleHit = contentTokens.some((t) => titleLc.includes(t));
+      if (!contentHit && !titleHit) continue;
+    }
     const painHits = PAIN_RES.filter((re) => re.test(hay)).length;
     // 客户视角闸门：没有痛点/求助信号的结果，多半是 PRD、Epic、功能提案、
     // 产品宣传或开发任务单，不是「别人遇到的麻烦」。宁可给诚实空态，
     // 也不让它们占着「对方逐字原话」的位置（实测 5 个方向里这类占多数）。
     if (!extractSignals(quote, { consumerMode: true }).hasComplaint && !REAL_PAIN_RE.test(quote)) continue;
-    const score = Math.min(92, 36 + hits * 9 + painHits * 7 + Math.min(10, Math.floor(quote.length / 140)));
+    // 召回治理：普通人生活站（Stack Exchange 非技术站点）提到主路径，
+    // 同等命中下优先于 HN/GitHub 的开发者工单。
+    const consumerBoost = strict && r.source === "consumerQa" ? 8 : 0;
+    const score = Math.min(92, 36 + hits * 9 + painHits * 7 + Math.min(10, Math.floor(quote.length / 140)) + consumerBoost);
     seen.add(url);
     scored.push({ ...r, title, text: quote, quote, hits, painHits, score });
   }
   return scored.sort((a, b) => b.score - a.score || b.painHits - a.painHits || b.text.length - a.text.length).slice(0, 24);
 }
 
-const SYS_ZH = `你是创业需求分析助手。用户给了一个方向，以及从 Hacker News、Stack Overflow、GitHub Issues 现场检索到的公开讨论记录。
-只保留真实的用户抱怨、功能请求或反复出现的问题；丢弃招聘、新闻发布、纯技术闲聊、与该方向无关的内容。
+const SYS_ZH = `你是创业需求分析助手。用户给了一个方向，以及从公开问答、论坛、GitHub Issues 现场检索到的讨论记录。
+第一步先判「是不是同一件事」：用户方向说的是 A，记录讲的是 B，即使两者共享同一个泛词（例如都含「宠物 / pet」，但一个讲开店经营、一个讲怎么养野生动物），也算不相关，必须丢弃。只保留与用户方向真正讲的是同一件事的记录。
+在相关记录里，再只留真实的用户抱怨、功能请求或反复出现的问题；丢弃招聘、新闻发布、纯技术闲聊、产品推销、需求文档。
 每条输出必须能对应到给定记录（用字段 i 标注索引），不得编造事实、数字或来源。
-用自然简洁的简体中文输出：title（痛点标题）、quote（该记录原文摘录的中文翻译，保留技术名词与接口路径）、gap（竞品空白或值得构建的机会，基于记录谨慎推断，不夸大）、score（0-100 证据强度）。
-输出且仅输出一个 JSON 对象：{"items":[{"i":0,"title":"...","quote":"...","gap":"...","score":72}]}，最多 5 条，按 score 降序。`;
+为每条给 relevant（布尔）：不相关就 false，且不要为它写 title/quote；只把 relevant:true 的条目放进 items。
+用自然简洁的简体中文输出：title（痛点标题）、quote（该记录原文摘录的中文翻译，保留技术名词与接口路径）、gap（基于原话谨慎推断的、值得构建的具体小功能，不夸大、不做竞品结论）、score（0-100 证据强度）。
+输出且仅输出一个 JSON 对象：{"items":[{"i":0,"relevant":true,"title":"...","quote":"...","gap":"...","score":72}]}，最多 5 条，按 score 降序。若没有一条与方向真正相关，输出 {"items":[]}。`;
 
-const SYS_EN = `You are a startup-demand analyst. The user gave a direction plus public discussion records freshly retrieved from Hacker News, Stack Overflow and GitHub Issues.
-Keep only genuine user complaints, feature requests, or recurring problems. Discard job posts, announcements, pure chit-chat and anything off-topic.
+const SYS_EN = `You are a startup-demand analyst. The user gave a direction plus public discussion records freshly retrieved from public Q&A sites, forums and GitHub Issues.
+First judge whether each record is about THE SAME THING as the direction. If the direction is about A and the record is about B, it is irrelevant even when both share a broad word (e.g. both mention "pet" but one is about running a pet shop and the other about keeping a wild animal). Discard those.
+Among relevant records, keep only genuine user complaints, feature requests, or recurring problems. Discard job posts, announcements, pure chit-chat, product promos and spec documents.
 Every item MUST map to a supplied record via its index field "i". Never invent facts, numbers or sources.
-Output concise English: title, quote (verbatim excerpt), gap (competitor gap or build opportunity, inferred cautiously), score (0-100 evidence strength).
-Output ONLY a JSON object: {"items":[{"i":0,"title":"...","quote":"...","gap":"...","score":72}]}, at most 5 items, sorted by score descending.`;
+Give each item relevant (boolean): false means off-topic, and for those do not write title/quote. Put only relevant:true items into items.
+Output concise English: title, quote (verbatim excerpt), gap (one concrete small function worth building, inferred cautiously from the quote; do not make competitor or market claims), score (0-100 evidence strength).
+Output ONLY a JSON object: {"items":[{"i":0,"relevant":true,"title":"...","quote":"...","gap":"...","score":72}]}, at most 5 items, sorted by score descending. If nothing is genuinely relevant, output {"items":[]}.`;
 
 /** 大模型归纳；任何异常都返回 null，由调用方降级到规则模式。 */
 export async function summarizeWithLlm(scored, q, locale, env = {}, fetchImpl = fetch) {
@@ -381,6 +418,9 @@ export async function summarizeWithLlm(scored, q, locale, env = {}, fetchImpl = 
     // 不把指向不存在记录的内容硬塞进结果（证据链必须能对应到真实条目）。
     for (let pos = 0; pos < out.items.length; pos++) {
       const it = out.items[pos];
+      // 模型显式判「与用户方向不是同一件事」→ 丢弃。fail-open：模型没给
+      // relevant 字段（旧模型 / 降级输出）时保留，避免新 prompt 误杀全部结果。
+      if (it?.relevant === false) continue;
       const rawI = it?.i;
       const num = Number(rawI);
       let i;
@@ -402,7 +442,10 @@ export async function summarizeWithLlm(scored, q, locale, env = {}, fetchImpl = 
       });
       if (items.length >= 5) break;
     }
-    return items.length ? items : null;
+    // 调用成功但模型判定没有一条与方向相关 → 返回空数组，上层走诚实空态。
+    // 与「调用失败返回 null、上层降级规则模式」严格区分，避免把泛词命中的
+    // 脏记录（搜宠物店却出养懒猴）又通过降级路径放回结果里。
+    return items;
   } catch {
     return null;
   }
@@ -461,7 +504,9 @@ export function buildSignals(scored, q, locale, llmItems) {
     };
   };
 
-  if (Array.isArray(llmItems) && llmItems.length) {
+  if (Array.isArray(llmItems)) {
+    // 空数组 = 模型判定全不相关：诚实空态，不降级回原始记录凑数。
+    if (!llmItems.length) return [];
     return llmItems.map((it) => {
       const r = scored[it.i] || scored[0];
       return make(r, it.gap, it.score, it.title);
@@ -511,11 +556,17 @@ export async function runLiveScan({ query, locale = "en", root = process.cwd(), 
   } catch (err) {
     errors.push({ source: "collector", message: String(err?.message || err) });
   }
-  const scored = scoreRows(rows, terms);
+  // 实时链路启用 strict：收紧泛词弱命中 + 普通人源提权（单测默认兼容旧口径）。
+  const scored = scoreRows(rows, terms, { strict: true });
   if (!scored.length) {
     return { items: [], mode: "no-evidence", sources: [], terms, errors };
   }
   const llmItems = await summarizeWithLlm(scored, q, locale, env, fetchImpl);
+  if (Array.isArray(llmItems) && !llmItems.length) {
+    // 模型判完了，没有一条与用户方向真正相关：诚实空态，也不把泛词命中的
+    // 脏记录通过规则降级展示出来（用户反复反馈「搜 A 出一堆不相关」）。
+    return { items: [], mode: "no-evidence", sources: [], terms, errors };
+  }
   const items = buildSignals(scored, q, locale, llmItems);
   return {
     items,

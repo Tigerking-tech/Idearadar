@@ -394,8 +394,11 @@ export function createCollector({
     const settled = await Promise.allSettled(
       connectors.map((c) => c.run(
         c.id === "consumerQa"
-          // 治本：实时检索只跑 3 个高信号普通人站点，控制 7s 超时内的并发与配额。
-          ? { query, limit, method: "relevance", sites: ["webapps", "money", "workplace"] }
+          // 召回治理：把面向普通人的合规公开源提到实时检索主路径。
+          // 从 3 站扩到 5 个高信号生活站（含 travel 出行、pets 宠物），
+          // 这些是「怎么…/有没有办法…/…不管用」的普通人痛点，比 HN/GitHub
+          // 的技术工单更贴近创业灵感。官方 2.3 API、单站失败不影响其他站。
+          ? { query, limit, method: "relevance", sites: ["webapps", "money", "workplace", "travel", "pets"] }
           : { query, limit, method: "relevance" },
       )),
     );

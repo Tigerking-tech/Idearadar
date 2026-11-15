@@ -15,7 +15,7 @@ import {
 export const metadata = getSEOTags({
   title: "IdeaRadar — Real public problems, with the wording and source to check",
   description:
-    "IdeaRadar surfaces real, public questions and complaints with the verbatim wording and a link to the original discussion. Indexed directions also carry a one-line idea; fresh live searches show the real quote first, never filler. Free to try, no signup.",
+    "IdeaRadar turns real, public complaints into an 8-part, decision-ready opportunity brief: the scenario, the pain it costs, the root obstacle, the smallest thing worth building, the cheapest test and the stop signal. Every inference is tagged and links back to the verbatim quote and original discussion. Fresh live searches show the real wording first. Free to try, no signup.",
   canonicalUrlRelative: "/",
   languages: { "en-US": "/", "zh-CN": "/zh", "x-default": "/" },
 });

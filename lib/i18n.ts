@@ -45,7 +45,7 @@ const EN = {
 
   footer: {
     desc:
-      "IdeaRadar turns real, public complaints into one-line business ideas: who has the problem, the small tool you could build, and the cheapest first step. Every idea links back to its source.",
+      "IdeaRadar turns real, public complaints into an 8-part decision-ready opportunity brief: the scenario, the pain, the root obstacle, the smallest thing worth building, the cheapest test and the stop signal. Every inference links back to the verbatim wording.",
     billing: "Free to use — no account, no subscription, no credit card.",
     groups: [
       {
@@ -82,10 +82,10 @@ const EN = {
 
   hero: {
     eyebrow: "Not sure what to build? Start here",
-    line1: "From real complaints,",
-    line2: "to one clear idea.",
+    line1: "From a real complaint,",
+    line2: "to a decision you can defend.",
     lead:
-      "{app} surfaces real questions and complaints from public forums and Q&A sites, with the verbatim wording and a link back to the original thread. For directions already in the index, we also add one plain-language idea. On fresh live searches you get the real wording first — no invented numbers, no filler advice.",
+      "{app} turns real, public complaints into a decision-ready opportunity brief: the exact scenario, the pain it costs, the root obstacle behind it, the smallest thing worth building, the cheapest way to disprove it, and the signal that says stop. Every inference is tagged and links back to the verbatim wording. Live searches show the real quote first — no invented numbers, no filler advice.",
     cta1: "Try 3 scans free",
     cta2: "See live results",
     cta1Href: "/try",
@@ -95,43 +95,43 @@ const EN = {
 
   stats: [
     { num: "3", label: "free scans, no signup" },
-    { num: "0", label: "invented scores or market-size claims" },
-    { num: "1", label: "tap to the source, when a link exists" },
+    { num: "0", label: "invented scores, market-size claims or filler advice" },
+    { num: "1", label: "tap back to the verbatim wording on every inference" },
   ],
 
   preview: {
-    kicker: "PUBLIC QUESTIONS → ONE-LINE IDEAS",
-    h2a: "The pain points worth solving are ",
-    h2b: "already online.",
+    kicker: "PUBLIC QUESTIONS → DECISION-READY BRIEFS",
+    h2a: "The smallest thing worth building is ",
+    h2b: "already in someone's complaint.",
     lead:
-      "Every day people describe, in plain words, the workflows that keep getting stuck. We collect those public questions, filter out the noise, and rewrite each into one small-tool idea — so you start from a real problem instead of a guess.",
+      "Every day people describe, in plain words, where a workflow gets stuck. We collect those public questions, filter out the noise, and turn each into an 8-part brief: the scenario, the pain, the current workaround, the root obstacle, the smallest build, the cheapest test, the stop signal, and why now. You start from evidence, not a guess.",
     bullets: [
       "Every finding links back to the original thread",
-      "Cross-source corroboration, not a single-platform echo",
+      "Each inference is tagged evidence / inference / assumption and can be checked against the quote",
       "Low-signal complaints are rejected, not padded into a list",
     ],
-    methodLink: "See how ideas are built →",
+    methodLink: "See how a brief is built →",
     methodHref: "/methodology",
-    scanHead: "FOUR REAL IDEAS FROM THE LATEST INGEST",
-    samplePains: "4 live ideas",
+    scanHead: "FOUR REAL BRIEFS FROM THE LATEST INGEST",
+    samplePains: "4 real briefs",
     sampleUnit: "mentions",
     footLive:
-      "Scheduled ingest produced {total} candidates ({sources}) · Updated {date}. Four ideas from the latest run are shown above.",
-    footSample: "These four ideas come from the latest scheduled ingest; open the full dataset for the original wording and sources.",
+      "Scheduled ingest produced {total} candidates ({sources}) · Updated {date}. Four briefs from the latest run are shown above.",
+    footSample: "These briefs come from the latest scheduled ingest; open the full dataset for the original wording and sources.",
     dataLinkLabel: "View the live dataset →",
     dataLinkHref: "/opportunities.json",
     sample: [
-      { label: "A small tool for patients to view doctor slots and book appointments", mentions: 7 },
-      { label: "A small tool for indie devs to check webhook delivery status", mentions: 2 },
-      { label: "A small tool for pet owners to verify vet information", mentions: 2 },
-      { label: "A small tool for ordinary users to summarize income and expenses", mentions: 1 },
+      { label: "A digital lock that stops two patients booking the same slot", mentions: 7 },
+      { label: "A single query for whether an expense is reimbursable", mentions: 1 },
+      { label: "A simple OCR module that reads amounts and categories off receipts", mentions: 1 },
+      { label: "An input field for entering a monthly subscription fee", mentions: 1 },
     ],
   },
 
   steps: {
     kicker: "How it works",
-    h2: "From a real complaint to one small idea",
-    lead: "Three steps, about a minute. No surveys, no signup, no guessing.",
+    h2: "From a real complaint to a decision, in three steps",
+    lead: "About a minute. No surveys, no signup, no guessing.",
     items: [
       {
         n: "1",
@@ -140,36 +140,36 @@ const EN = {
       },
       {
         n: "2",
-        title: "Read what people actually wrote",
-        text: "You see the verbatim wording and its source link, with noise and job posts filtered out. Directions already in the index also carry a one-line idea; a fresh live search shows the real quote instead of a generic plan.",
+        title: "Read an 8-part opportunity brief",
+        text: "Indexed directions open with the smallest thing worth building, then the scenario, the pain it costs and the root obstacle behind it. Each part is tagged evidence, inference or assumption, so you know what is a quote and what is a judgement.",
       },
       {
         n: "3",
-        title: "Check the original words",
-        text: "Results open with the exact wording; a link to the original thread is shown when we have one and flagged when we do not. Nothing is invented: if we have not generated a concrete idea for one, the card says so instead of padding it with filler.",
+        title: "Check every inference against the quote",
+        text: "One tap takes you from any inference back to the verbatim wording and the original thread. A fresh live search starts with the real quote and a judgement framework instead of a generic plan; you can generate a full brief on demand. Nothing is invented — if there is no evidence for a claim, the brief says so.",
       },
     ],
   },
 
   evidence: {
-    kicker: "One idea, fully traceable",
-    h2: "What one idea looks like",
+    kicker: "One brief, fully traceable",
+    h2: "What an opportunity brief looks like",
     chip: "From the latest ingest",
-    chips: ["7 mentions", "1 source", "AI-written"],
-    title: "A small tool for patients to view doctor slots and book appointments",
-    quote: "“Booked appointments cannot be booked by another patient.”",
-    note: "A real idea from the scheduled public-ingest dataset, not a made-up example. Open it in the free trial to read the original wording and the source link.",
-    wtpLabel: "WHO HAS THIS PROBLEM",
+    chips: ["7 mentions", "1 source", "8-part brief"],
+    title: "A digital lock that prevents two patients booking the same slot",
+    quote: "“Patient can view available doctors and slots … Booked appointments cannot be booked by another patient.”",
+    note: "A real record from the scheduled public ingest (a GitHub issue describing desired behaviour), not a made-up example. The 8 parts below are AI inferences derived strictly from that wording — each can be checked against the quote. It is a starting point for a decision, not a validated demand.",
+    wtpLabel: "THE SCENARIO",
     wtpText:
-      "Patients trying to book a slot. The persona comes from the original question, not a guessed market segment.",
-    competitorLabel: "WHY THERE'S ROOM",
+      "When a patient needs care, they want to see available doctors and time slots and book one, so they can be seen on time. Drawn from the original record, not a guessed market segment.",
+    competitorLabel: "FROM PAIN TO THE SMALLEST BUILD",
     competitors: [
-      { name: "The real question", gap: "Someone is already asking how to do this in public" },
-      { name: "The small tool", gap: "One page showing free doctor times and confirming a booking" },
-      { name: "The evidence", gap: "Source link and verbatim wording are one tap away" },
+      { name: "The pain", gap: "A booked slot can still be taken by another patient, wasting the slot or losing the visit" },
+      { name: "The root obstacle", gap: "The system has no exclusive lock on a booked slot, so two bookings can collide" },
+      { name: "The smallest build", gap: "A digital lock that refuses a second booking on an already-booked slot" },
     ],
     traceLabel: "TRACEABLE TO THE SOURCE",
-    traceText: "Results show the verbatim quote and a source link where one is available — missing links are flagged, not hidden. No invented scores, no build-an-MVP-and-find-3-users filler.",
+    traceText: "Every inference is tagged and links back to the verbatim quote and the original thread. No invented scores, no market-size numbers, no build-an-MVP-and-find-3-users filler, and an explicit stop signal for when to walk away.",
   },
 
   compare: {
@@ -194,7 +194,7 @@ const EN = {
   },
 
   roi: {
-    title: "Skimming threads vs. reading one-line ideas",
+    title: "Skimming threads vs. reading a decision-ready brief",
     subtitle: "Drag the sliders to match your own research habits.",
     chip: "Free, no signup",
     hours: "Hours spent reading threads per week",
@@ -249,7 +249,7 @@ const EN = {
         href: "/try",
         cadence: "",
         description: "What works right now, no signup.",
-        features: ["3 scans per device, no account", "Ideas grouped by who has the problem", "One-line ideas: who, why, first step", "Original wording and source link on every idea"],
+        features: ["3 scans per device, no account", "Opportunities grouped by who has the problem", "8-part briefs: scenario, pain, root obstacle, smallest build, cheapest test, stop signal", "Original wording and source link on every result"],
         cta: "Try 3 scans free",
       },
       {
@@ -303,7 +303,7 @@ const EN = {
     h1a: "Run 3 real scans.",
     h1b: "No account needed.",
     lead:
-      "Not sure what to build? Start from one plain-language idea: who has the problem, the small tool you could make, and the cheapest first step. Every idea links back to the original wording. Three scans are free — no signup, no email, no credit card.",
+      "Not sure what to build? Start from an 8-part, decision-ready brief: the scenario, the pain, the root obstacle, the smallest thing worth building, the cheapest test and the stop signal. Every inference links back to the verbatim wording. Three scans are free — no signup, no email, no credit card.",
     badges: ["No signup", "No credit card", "3 free scans"],
     cardHead: "GUEST SCAN",
     cardHeadLive: "LIVE FEED",
@@ -315,7 +315,7 @@ const EN = {
     inputHint: "Press Enter or use the button. Each run uses one free scan.",
     browseKicker: "NOT SURE WHAT TO SEARCH?",
     browseTitle: "Start with who has the problem",
-    browseText: "No idea yet? Pick the kind of person or situation you care about — no typing needed.",
+    browseText: "No idea yet? Pick the kind of person or situation you care about — each card opens a decision-ready brief, no typing needed.",
     // 方向卡改成「人 + 场景」：query 用真实采集里出现过的普通词，
     // 不再有 CI / webhook / 埋点这类技术黑话，也不再按演示数据的短 id 取条目。
     suggestions: [
@@ -365,8 +365,8 @@ const EN = {
     footLive: "Live output is from the scheduled ingest pipeline across public, compliant sources. Full dataset with source links:",
     dataLinkLabel: "/opportunities.json",
     feedKicker: "DISCOVER WITHOUT TYPING",
-    feedTitle: "Ideas grouped by who has the problem",
-    feedText: "No keyword needed. Each card is one small tool someone could build, grouped by the people who would use it. Tap one to see the evidence behind it.",
+    feedTitle: "Opportunity briefs grouped by who has the problem",
+    feedText: "No keyword needed. Each card is a decision-ready brief: the scenario, the pain, the root obstacle, the smallest build and the cheapest test, grouped by the people who would use it. Tap one to check every inference against the original quote.",
     feedLiveNote: "Live ingest output · generated",
     feedSeedNote: "Trend curves currently use sample history while live snapshots accumulate — replaced automatically as real data arrives.",
     feedTrendPending: "Trend needs at least 3 ingest snapshots; showing Steady until then.",
@@ -413,19 +413,19 @@ const EN = {
       backToBrowse: "Back to directions",
     },
     idea: {
-      kicker: "ONE IDEA YOU COULD ACT ON",
+      kicker: "ONE DECISION-READY BRIEF TO START WITH",
       aiNote: "AI-written from the evidence below; the first step is a suggestion, not a validated conclusion",
       templateNote: "Auto-summarised from the evidence below",
       whoLabel: "WHO HAS THIS PROBLEM",
       whyLabel: "WHY THERE'S ROOM",
-      stepLabel: "FIRST SMALL STEP",
+      stepLabel: "CHEAPEST TEST",
       evidenceOpen: "See the original evidence",
       evidenceClose: "Hide evidence",
       signalLabel: "SIGNALS FOUND",
       nextDirection: "Try another direction",
       similar: "Similar signals",
       similarEmpty: "No other findings for this group yet",
-      groupUnit: "ideas",
+      groupUnit: "briefs",
       personaNames: {
         "budget-keeper": "Budget & subscription trackers",
         "pet-owner": "Pet owners & carers",
@@ -438,6 +438,63 @@ const EN = {
         "indie-dev": "Indie developers",
         general: "People running into this",
       },
+    },
+    // v3「可决策机会简报」：8 段结构化推理 + 证据/推断/假设标注 + 渐进披露。
+    brief: {
+      kicker: "A DECISION-READY OPPORTUNITY BRIEF",
+      answerLabel: "THE SMALLEST THING WORTH BUILDING",
+      evidenceTag: "EVIDENCE",
+      inferenceTag: "INFERENCE",
+      assumptionTag: "ASSUMPTION",
+      checkAgainst: "check against the quote ↗",
+      field: {
+        jobStory: "The concrete scenario",
+        pain: "The pain & what it costs",
+        workaround: "What they do today",
+        rootObstacle: "First principles: the real obstacle",
+        build: "The smallest buildable thing",
+        test: "The cheapest way to falsify it",
+        stopIf: "When to drop the idea",
+        whyNow: "Why now (or: no timing evidence)",
+      },
+      fieldHint: {
+        jobStory: "Who, in what situation, trying to do what — inferred from the quote",
+        pain: "Where exactly they get stuck, grounded in their words",
+        workaround: "Their current fix and why it fails — an assumption unless stated",
+        rootObstacle: "Strip the symptom: the one thing truly blocking the outcome",
+        build: "One concrete function that removes that obstacle, not a platform",
+        test: "A shippable artifact + a short time box that could prove nobody wants it",
+        stopIf: "The observable signal that means stop",
+        whyNow: "Left blank honestly when the evidence gives no timing reason",
+      },
+      expand: "Show the full brief",
+      collapse: "Hide the full brief",
+      aiNote: "This is AI reasoning over the quote above, not verified fact. Every line is labelled evidence, inference or assumption — open the source and judge for yourself.",
+      checklistTitle: "Your validation checklist",
+      copyChecklist: "Copy checklist",
+      copied: "Copied",
+      noBriefTitle: "No AI brief was generated for this fresh result",
+      noBriefText: "Live searches run on a tight time budget, so the model could not always finish a full brief. We will not invent a generic idea. Use the framework below against the verbatim quote to decide for yourself.",
+      frameworkKicker: "A FRAMEWORK TO JUDGE IT YOURSELF",
+      frameworkQ: {
+        jobStory: "Who is in this situation, and what are they actually trying to get done?",
+        pain: "Which exact step hurts, and what does it cost them (time, money, risk)?",
+        workaround: "What do they do today instead? (Assume, then verify.)",
+        rootObstacle: "Beneath the symptom, what is the ONE underlying obstacle?",
+        build: "What is the smallest single thing that removes exactly that obstacle?",
+        test: "What could you ship this week to find out if anyone cares?",
+        stopIf: "What result would tell you to drop it?",
+        whyNow: "Is there any evidence this matters now — or none at all?",
+      },
+      followUps: "Keep pulling the thread",
+      followUpItems: {
+        evidence: "Re-read the verbatim quote",
+        similar: "Other findings for this direction",
+        directions: "Try a different direction",
+      },
+      genBrief: "Generate the full brief for this clue",
+      genBriefRunning: "Writing the brief…",
+      genBriefFailed: "Could not generate a brief this time — keep the framework and the source link below.",
     },
     // P0-3 结构化机会卡：全部是枚举 code 的本地化文案，卡片数据本身语言无关。
     card: {
@@ -538,7 +595,7 @@ export const ZH_DICT: Dict = {
   },
 
   footer: {
-    desc: "创意雷达把公开的真实抱怨，整理成一句话就能看懂的点子：谁遇到这个麻烦、能做个什么小工具、最小第一步怎么试。每个点子都能点回原始出处。",
+    desc: "创意雷达把公开的真实抱怨，拆成一份 8 段、能判断要不要动手的机会简报：具体场景、痛点、第一性原理上的本质障碍、最小可造之物、最便宜的验证与放弃信号。每段推断都能点回逐字原话。",
     billing: "免费使用 —— 无需账号、无需订阅、无需信用卡。",
     groups: [
       {
@@ -575,10 +632,10 @@ export const ZH_DICT: Dict = {
 
   hero: {
     eyebrow: "还没想好做什么？从这里开始",
-    line1: "从真实的抱怨，",
-    line2: "到一个看得懂的点子。",
+    line1: "从一条真实的抱怨，",
+    line2: "到一份能判断要不要动手的简报。",
     lead:
-      "{app} 把公开论坛和问答社区里的真实提问与抱怨摆到你面前：逐字原话、来源，以及点回原始讨论的链接。已经整理进索引的方向，会再附一句大白话点子；刚做实时检索的方向，先给你原话 —— 不编数字，不拿套话充数。",
+      "{app} 把公开的真实抱怨整理成一份能判断要不要动手的机会简报：具体是谁在什么场景卡住、痛点让人付出什么、剥开表象后的本质障碍、最小值得造的那个东西、最便宜的证伪动作，以及什么信号出现就该放弃。每段推断都标了「证据 / 推断 / 假设」，都能点回逐字原话核对。实时检索的新方向先给原话 —— 不编数字，不拿套话充数。",
     cta1: "免注册免费扫 3 次",
     cta2: "查看实时结果",
     cta1Href: "/zh/try",
@@ -588,42 +645,42 @@ export const ZH_DICT: Dict = {
 
   stats: [
     { num: "3", label: "次免费扫描，无需注册" },
-    { num: "0", label: "个编造的分数或市场规模估算" },
-    { num: "1", label: "次点击回到原帖（有链接时）" },
+    { num: "0", label: "个编造的分数、市场规模或万能套话" },
+    { num: "1", label: "次点击，把每段推断核对回原话" },
   ],
 
   preview: {
-    kicker: "公开提问 → 一句话点子",
-    h2a: "值得解决的痛点，",
-    h2b: "早就写在了网上。",
+    kicker: "公开提问 → 可决策机会简报",
+    h2a: "最小值得造的那个东西，",
+    h2b: "早就写在别人的抱怨里。",
     lead:
-      "每天都有人用大白话公开描述自己被卡住的流程。我们收集这些公开提问、滤掉噪音，再把每一条改写成一个能动手的小工具点子 —— 让你从真实存在的问题出发，而不是从猜测出发。",
+      "每天都有人用大白话公开描述自己被卡住的流程。我们收集这些公开提问、滤掉噪音，再把每一条拆成 8 段简报：具体场景、痛点、现在怎么凑合、本质障碍、最小可造之物、最便宜的验证、放弃信号、为什么是现在。让你从证据出发，而不是从猜测出发。",
     bullets: [
       "每条结论都能点回原始帖子",
-      "跨数据源交叉印证，不是单一平台的回声",
+      "每段都标「证据 / 推断 / 假设」，推断可对照原话核对",
       "低信号抱怨直接拒绝，不拿来凑数",
     ],
-    methodLink: "看看点子怎么来 →",
+    methodLink: "看看简报怎么来 →",
     methodHref: "/zh/methodology",
-    scanHead: "最近一次采集里的四个真实点子",
-    samplePains: "4 条真实点子",
+    scanHead: "最近一次采集里的四份真实简报",
+    samplePains: "4 份真实简报",
     sampleUnit: "次提及",
     footLive:
-      "定时采集工作流最近产出 {total} 条候选（{sources}）· 更新于 {date}。上方是最近一次采集里的四个点子。",
-    footSample: "这四个点子来自最近一次定时采集；打开完整数据可查看原始措辞与来源。",
+      "定时采集工作流最近产出 {total} 条候选（{sources}）· 更新于 {date}。上方是最近一次采集里的四份简报。",
+    footSample: "这四份简报来自最近一次定时采集；打开完整数据可查看原始措辞与来源。",
     dataLinkLabel: "查看真实采集数据 →",
     dataLinkHref: "/opportunities.json",
     sample: [
-      { label: "给患者做一个查看医生时间并预约的小工具", mentions: 7 },
-      { label: "给独立开发者做一个自动校验 Webhook 请求状态的小工具", mentions: 2 },
-      { label: "给宠物主人做一个验证兽医信息合法性的小工具", mentions: 2 },
-      { label: "给普通用户做一个自动汇总收支数据的小工具", mentions: 1 },
+      { label: "给已预约时段加一把数字锁，禁止他人重复预订同一时段", mentions: 7 },
+      { label: "一个查询某项费用是否在报销政策范围内的单条件查询", mentions: 1 },
+      { label: "扫描收据图片并自动识别金额与分类的简单 OCR 模块", mentions: 1 },
+      { label: "一个可直接输入月度订阅费数值的输入字段", mentions: 1 },
     ],
   },
 
   steps: {
     kicker: "工作原理",
-    h2: "从一条真实抱怨到一个小点子",
+    h2: "从一条真实抱怨，到一个能做的决定",
     lead: "三步，大约一分钟。不发问卷、不用注册、不靠猜。",
     items: [
       {
@@ -633,35 +690,35 @@ export const ZH_DICT: Dict = {
       },
       {
         n: "2",
-        title: "读对方到底怎么说的",
-        text: "你会看到逐字原话；能点的来源链接就给，没有会明说，噪音和招聘贴已滤掉。已经整理进索引的方向另附一句大白话点子；刚做实时检索的方向，先给真实原话，不硬套一句万能计划。",
+        title: "读一份 8 段机会简报",
+        text: "已整理的方向先给「最小值得造的那个东西」，再给具体场景、痛点代价，以及剥开表象后的本质障碍。每段都标了「证据 / 推断 / 假设」，你分得清哪句是原话、哪句是判断。",
       },
       {
         n: "3",
-        title: "点开核对原话",
-        text: "结果开头是逐字原话；有原帖链接就给，没有会明说。不编造：某条还没生成具体点子时，卡片会如实说明，不拿套话凑数。",
+        title: "把每段推断核对回原话",
+        text: "点一下就能从任意一段推断回到逐字原话和原始讨论。实时检索的新方向先给原话和一套判断框架，不硬套万能计划；想要完整简报，点一下按需生成。不编造：某条没有证据支撑时，简报会如实留白。",
       },
     ],
   },
 
   evidence: {
-    kicker: "一个点子，全程可回溯",
-    h2: "一个点子长什么样",
+    kicker: "一份简报，全程可回溯",
+    h2: "一份机会简报长什么样",
     chip: "取自最近一次采集",
-    chips: ["7 次提及", "1 个来源", "AI 归纳"],
-    title: "给患者做一个查看医生时间并预约的小工具",
-    quote: "「无法重复预约已占用的预约时段」",
-    note: "来自定时公开采集产物的真实点子，不是编造的示例。到免费试用里点开，即可核对原始措辞与来源链接。",
-    wtpLabel: "谁遇到这个麻烦",
-    wtpText: "想挂号约时间的患者。人群来自原始提问，不是凭空划分的市场。",
-    competitorLabel: "为什么还有机会",
+    chips: ["7 次提及", "1 个来源", "8 段简报"],
+    title: "给已预约时段加一把数字锁，禁止他人重复预订同一时段",
+    quote: "「患者可查看可用医生及时段，可预订可用时段……已预订的预约不可被其他患者预订」",
+    note: "来自定时公开采集产物的真实记录（一条描述期望行为的 GitHub issue），不是编造的示例。下方 8 段是 AI 严格依据这段措辞做的推断，每段都能点回原话核对。它是做决定的起点，不是已验证的需求。",
+    wtpLabel: "具体应用场景",
+    wtpText: "患者需要就诊时，希望查看可用医生和时间段并预约，以便按时完成诊疗。场景取自原始记录，不是凭空划分的市场。",
+    competitorLabel: "从痛点，到最小可造之物",
     competitors: [
-      { name: "真实提问", gap: "已经有人在公开问这件事该怎么做" },
-      { name: "小工具", gap: "一个页面显示可约时段并确认预约" },
-      { name: "证据", gap: "点一下就能看到来源链接与原始措辞" },
+      { name: "痛点", gap: "已预约的时段仍可能被其他患者占用，导致资源浪费或患者错过就诊" },
+      { name: "本质障碍", gap: "系统缺乏对已预约时段的排他性锁定机制，两次预约会冲突" },
+      { name: "最小可造之物", gap: "一把数字锁：已占用的时段拒绝第二次预订" },
     ],
     traceLabel: "全程能点回来源",
-    traceText: "结果尽量给出逐字原话和原始讨论链接；没有链接的会如实标注，不藏起来。没有编造的分数，也没有「做个最小版本找 3 个人试用」这类套话。",
+    traceText: "每段推断都带标签，并能点回逐字原话与原始讨论。没有编造的分数、没有市场规模数字、没有「做个最小版本找 3 个人试用」这类套话，还写明了什么信号出现就该放弃。",
   },
 
   compare: {
@@ -686,7 +743,7 @@ export const ZH_DICT: Dict = {
   },
 
   roi: {
-    title: "自己翻帖子 vs. 直接读一句话点子",
+    title: "自己翻帖子 vs. 直接读一份机会简报",
     subtitle: "拖动滑块，代入你自己的调研习惯。",
     chip: "免费，无需注册",
     hours: "每周花在翻帖子上的小时数",
@@ -741,7 +798,7 @@ export const ZH_DICT: Dict = {
         href: "/zh/try",
         cadence: "",
         description: "现在就能用，无需注册。",
-        features: ["每台设备 3 次扫描，无需账号", "按「谁会遇到」分组的点子", "一句话点子：谁、为什么、第一步", "每个点子都带原始措辞与来源链接"],
+        features: ["每台设备 3 次扫描，无需账号", "按「谁会遇到」分组的机会", "8 段简报：场景、痛点、本质障碍、最小可造之物、验证、放弃信号", "每条结果都带原始措辞与来源链接"],
         cta: "免费扫 3 次",
       },
       {
@@ -794,7 +851,7 @@ export const ZH_DICT: Dict = {
     h1a: "先免费扫 3 次。",
     h1b: "不用注册账号。",
     lead:
-      "还没想好要做什么？先从一个看得懂的点子开始：谁遇到这个麻烦、能做个什么小工具、最小第一步怎么试。每个点子都能点开核对原始讨论。3 次扫描全免费 —— 不用注册、不留邮箱、不用信用卡。",
+      "还没想好要做什么？先看一份 8 段、能判断要不要动手的机会简报：具体应用场景、痛点、第一性原理上的本质障碍、最小值得造的东西、最便宜的验证与放弃信号。每段推断都能点回逐字原话核对。3 次扫描全免费 —— 不用注册、不留邮箱、不用信用卡。",
     badges: ["无需注册", "无需信用卡", "免费 3 次"],
     cardHead: "访客扫描",
     cardHeadLive: "实时信号",
@@ -853,8 +910,8 @@ export const ZH_DICT: Dict = {
     footLive: "实时数据来自定时采集管线，覆盖公开合规数据源。含来源链接的完整数据集：",
     dataLinkLabel: "/opportunities.json",
     feedKicker: "不用打字也能发现",
-    feedTitle: "按「谁会遇到」分组的点子",
-    feedText: "不用输入关键词。每张卡是一个有人真能做的小工具，按会用它的那群人分组；点开能看到背后的原话证据。",
+    feedTitle: "按「谁会遇到」分组的机会简报",
+    feedText: "不用输入关键词。每张卡是一份可决策简报：具体场景、痛点、本质障碍、最小可造之物与最便宜的验证，按会用它的那群人分组；点开能逐段核对原话。",
     feedLiveNote: "实时采集产出 · 生成于",
     feedSeedNote: "趋势曲线暂用演示历史，真实采集积累后会自动替换。",
     feedTrendPending: "趋势需至少 3 次采集快照，攒够前统一显示「平稳」。",
@@ -900,19 +957,19 @@ export const ZH_DICT: Dict = {
       backToBrowse: "回到方向卡",
     },
     idea: {
-      kicker: "今天就能琢磨的一个点子",
+      kicker: "今天就能琢磨的一份机会简报",
       aiNote: "由下方证据归纳，起步动作只是建议、不是已验证结论；可点开核对原话",
       templateNote: "依据下方证据自动归纳",
       whoLabel: "谁在痛",
       whyLabel: "为什么有机会",
-      stepLabel: "最小起步",
+      stepLabel: "最便宜的验证",
       evidenceOpen: "看原文证据",
       evidenceClose: "收起证据",
       signalLabel: "识别到的信号",
       nextDirection: "换个方向看看",
       similar: "看同类线索",
       similarEmpty: "这个方向暂时只有这一条",
-      groupUnit: "个点子",
+      groupUnit: "份简报",
       personaNames: {
         "budget-keeper": "管账、盯订阅的人",
         "pet-owner": "养宠物、记照护的人",
@@ -925,6 +982,63 @@ export const ZH_DICT: Dict = {
         "indie-dev": "独立开发者",
         general: "遇到这类麻烦的人",
       },
+    },
+    // v3「可决策机会简报」：与 EN brief 块一一对应。
+    brief: {
+      kicker: "一份能判断要不要动手的机会简报",
+      answerLabel: "最小、最值得造的那个东西",
+      evidenceTag: "证据",
+      inferenceTag: "推断",
+      assumptionTag: "假设",
+      checkAgainst: "对照上面的原话核对 ↗",
+      field: {
+        jobStory: "具体应用场景",
+        pain: "痛点，以及它让人付出什么",
+        workaround: "现在是怎么凑合的",
+        rootObstacle: "第一性原理：真正的障碍",
+        build: "最小、可造的那个东西",
+        test: "最便宜的证伪动作",
+        stopIf: "什么信号出现就放弃",
+        whyNow: "为什么是现在（或：无时间证据）",
+      },
+      fieldHint: {
+        jobStory: "谁、在什么处境下、到底想完成什么 —— 由原话推断",
+        pain: "具体卡在哪一步，依据对方自己的话",
+        workaround: "他们现在用什么办法顶着、为什么不够 —— 未说明即为假设",
+        rootObstacle: "剥掉表象：真正挡住结果的那一件事",
+        build: "刚好移除这个障碍的一个具体功能，不是一个平台",
+        test: "一个能交付的小东西 + 短时间窗口，用来验证有没有人在乎",
+        stopIf: "看到什么结果，就该停手",
+        whyNow: "证据里没有时间性理由时，就如实留白",
+      },
+      expand: "展开完整简报",
+      collapse: "收起完整简报",
+      aiNote: "以下是 AI 基于上方原话做的推理，不是已验证的事实。每一句都标了证据 / 推断 / 假设 —— 请点开原帖自己判断。",
+      checklistTitle: "你的验证清单",
+      copyChecklist: "复制清单",
+      copied: "已复制",
+      noBriefTitle: "这条实时结果没有生成 AI 简报",
+      noBriefText: "实时检索有严格的时间预算，模型不一定来得及写完整份简报。我们不会编一个万能点子充数。用下面的框架，对照上面的逐字原话自己判断。",
+      frameworkKicker: "一套自己就能用的判断框架",
+      frameworkQ: {
+        jobStory: "这里是谁，在什么处境下，真正想把什么事办成？",
+        pain: "具体卡在哪一步？为此付出什么（时间、钱、风险）？",
+        workaround: "他们现在拿什么凑合？（先假设，再去核实。）",
+        rootObstacle: "剥掉表象，真正挡住结果的那一件事是什么？",
+        build: "刚好移除那个障碍的、最小的一个东西是什么？",
+        test: "这周能做出什么，去试探有没有人真的在乎？",
+        stopIf: "出现什么结果，就说明该放弃？",
+        whyNow: "有没有任何证据说明现在值得做 —— 还是根本没有？",
+      },
+      followUps: "顺着这条继续挖",
+      followUpItems: {
+        evidence: "再读一遍逐字原话",
+        similar: "这个方向的其他线索",
+        directions: "换个方向看看",
+      },
+      genBrief: "为这条线索生成完整简报",
+      genBriefRunning: "正在写简报…",
+      genBriefFailed: "这次没能生成简报 —— 保留下面的判断框架和原帖链接，一样能自己判断。",
     },
     // P0-3 结构化机会卡：枚举 code 的中文文案，与 EN 结构一一对应。
     card: {

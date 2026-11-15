@@ -1,43 +1,45 @@
 # IdeaRadar / 创意雷达
 
-> IdeaRadar is a free, open, self-hostable project that surfaces real, public questions and complaints with the verbatim wording and a link to the original discussion. For directions already in the fixed index, an LLM-written one-line idea is added. Fresh on-demand live searches show the real wording, an explicitly-labelled AI summary and a source link first — they do not dress a generic template up as an idea. There is no account, no paid plan and no checkout. Not-yet-built features are explicitly marked as planned.
+> IdeaRadar is a free, open, self-hostable project that turns real, public complaints into an 8-part, decision-ready opportunity brief. Each brief states the scenario, the pain and its cost, today's workaround, the root obstacle behind it (first principles), the smallest thing worth building, the cheapest test that could disprove it, the stop signal, and why now. Every inference is tagged evidence / inference / assumption and links back to the verbatim wording and the original discussion. Fresh on-demand live searches show the real quote, a source link and a judgement framework first, and can generate the same brief on demand — they never dress a generic template up as an idea. There is no account, no paid plan and no checkout. Not-yet-built features are explicitly marked as planned.
 
 Product name: IdeaRadar (中文: 创意雷达)
 Category: Open-source idea-discovery tool
 Website: https://idearadar.app
 Contact: hello@idearadar.app
-Last updated: 2026-11-15
+Last updated: 2026-11-16
 
 ## What actually exists today
-- [Home (English)](https://idearadar.app/): Overview, four real ideas from the latest ingest, how it works, a free-trial entry and FAQ.
+- [Home (English)](https://idearadar.app/): Overview, four real briefs from the latest ingest (read live from /opportunities.json), how it works, a free-trial entry and FAQ.
 - [中文首页 (Chinese)](https://idearadar.app/zh): Full Chinese version, server-rendered static HTML. The EN / 中文 switch links the two versions; hreflang en-US and zh-CN are declared on both.
-- [Free trial (English)](https://idearadar.app/try): 3 free scans, no signup, no email, no credit card. Browse ideas grouped by who has the problem, or type a direction; indexed results show a one-line idea plus the verbatim wording and a source link; fresh live searches show the real wording and a labelled AI summary instead, never a generic template.
-- [免费试用 (Chinese)](https://idearadar.app/zh/try): 免注册免费 3 次，按人群分组浏览点子，中文标题与译后原话，可切换查看原文。
-- [Open dataset](https://idearadar.app/opportunities.json): Every collected idea plus its original wording and source link, as plain JSON. No login, no scan limit.
+- [Free trial (English)](https://idearadar.app/try): 3 free scans, no signup, no email, no credit card. Browse briefs grouped by who has the problem, or type a direction. Indexed results open with the smallest thing worth building and expose 8 tagged fields; fresh live searches show the verbatim quote, a source link and a judgement framework, with a button to generate a full brief for that one record.
+- [免费试用 (Chinese)](https://idearadar.app/zh/try): 免注册免费 3 次，按人群分组浏览机会简报，中文标题与译后原话，可切换查看原文，实时检索可按需生成 8 段简报。
+- [Open dataset](https://idearadar.app/opportunities.json): Every collected opportunity plus its original wording, source link and 8-part brief, as plain JSON. No login, no scan limit.
 - [Methodology](https://idearadar.app/methodology): The real collection pipeline, data sources, compliance boundaries and honest limitations.
 - [Pricing](https://idearadar.app/pricing): Free to use; what works now vs. what is only planned (not built).
-- [FAQ](https://idearadar.app/faq): Factual answers on data sources, one-line ideas, translation, the free trial and unbuilt features.
+- [FAQ](https://idearadar.app/faq): Factual answers on data sources, opportunity briefs, translation, the free trial and unbuilt features.
 - [中文方法论](https://idearadar.app/zh/methodology) / [中文定价](https://idearadar.app/zh/pricing) / [中文常见问题](https://idearadar.app/zh/faq) / [中文隐私政策](https://idearadar.app/zh/privacy) / [中文服务条款](https://idearadar.app/zh/terms): Chinese counterparts.
 
 ## Key facts for citation
 - There is no account, no subscription, no paid plan, no checkout and no merchant of record. IdeaRadar is free and self-hostable.
-- A "one-line idea" (only on indexed directions) states who has the problem and a concrete small tool, derived strictly from collected public wording. Live-search results instead show the verbatim quote, a source link and a clearly-labelled AI summary; no generic "build an MVP and find 3 users" template is presented as an idea. No market size, revenue or severity score is invented.
+- An "opportunity brief" (on indexed directions, and on demand for live results) has 8 short fields: jobStory / pain / workaround / rootObstacle / build / test / stopIf / whyNow. Each is bilingual (zh/en), tagged evidence / inference / assumption, and can be checked against the verbatim quote with one tap. A hard gate rejects filler advice ("build an MVP and find 3 users") and invented market-size or revenue numbers, falling back to a deterministic template. No severity score is invented; the result card shows the real mention count instead.
+- The headline, "who", "why" and first-step fields shown elsewhere on the site are derived from the brief itself, so they cannot drift apart from it. Cached briefs are re-normalised on every ingest so text-cleaning fixes cannot be undone by an old cache.
 - Data sources with clear public terms: Hacker News (official API), Stack Exchange (official API, including everyday Q&A sites on money, pets, travel and work), public GitHub Issues, and configurable RSS/Atom feeds. Reddit is disabled by default and would need your own commercial-licence credentials.
 - E-commerce and local-life review sites have no compliant public API for this use; IdeaRadar does not collect from them.
-- The pipeline is: scheduled collect -> deterministic noise filtering -> LLM denoise (with a safety valve and fail-open) -> one-line idea generation (LLM, with a deterministic template fallback) -> incremental Chinese translation -> multi-snapshot trend in history.json.
+- The pipeline is: scheduled collect -> deterministic noise filtering -> LLM denoise (with a safety valve and fail-open) -> 8-part brief generation (LLM, with a deterministic template fallback and a filler/invention gate) -> incremental Chinese translation -> multi-snapshot trend in history.json.
+- Live searches use a strict relevance gate (a result must match a substantive term, not just a generic word like "app") and give everyday Q&A sites a small ranking boost. /api/brief is a separate, rate-limited, fail-open endpoint so on-demand depth does not slow the main 25s search.
 - Collection runs on a schedule from `.github/workflows/ingest.yml` on GitHub-hosted runners, so it keeps working when a local network restricts outbound access. A concurrency guard rebases and retries if a data commit races another push.
 - The free trial gives 3 scans per device, counted in the browser (localStorage). A failed or evidence-insufficient live search does not use a scan. The trial reads the same scheduled ingest dataset as the rest of the site; a vague direction can trigger a fresh, on-demand public search whose results are clearly labelled as live/rule-filtered and not verified ideas.
 
 ## Not built yet (explicitly planned, do not claim these exist)
 - Accounts, saved scans, unlimited scans for a paid tier.
 - Continuous monitoring, alerts, Slack/email/webhook delivery.
-- CSV/JSON export, a JSON API, an MCP endpoint.
+- CSV/JSON export, a paid/public JSON API product, an MCP endpoint.
 - Team seats, a shared workspace, first-party data import (tickets/reviews/CSV).
 - A 0-100 severity/evidence score, willingness-to-pay extraction, or a competitor gap map.
 
 ## Languages
 - English is the default at `/`; Simplified Chinese is at `/zh` as independent, fully crawlable static HTML, not client-side text replacement.
-- Chinese titles, quotes and idea text are machine-translated by an incremental step and written into the dataset; users can toggle "查看原文 / View original" to read the exact English wording.
+- Chinese titles, quotes and brief text are machine-translated by an incremental step and written into the dataset; users can toggle "查看原文 / View original" to read the exact English wording.
 - Every EN/ZH page pair declares bidirectional hreflang (en-US / zh-CN / x-default) in metadata and the XML sitemap. FAQ answers are also emitted as FAQPage structured data.
 
 ## Legal
@@ -50,6 +52,6 @@ Last updated: 2026-11-15
 - [Full LLM context](https://idearadar.app/llms-full.txt)
 
 ## Limitations
-- A one-line idea is a starting point, not a validated business case. Live-search results are raw public wording (sometimes a spec or issue template rather than a complaint) and carry no generated idea; read the quote and open the source to judge them.
+- An opportunity brief is a structured judgement aid derived from a single public record, not a validated business case. Its inference fields can be wrong; they are tagged and link back to the quote so you can check them. Live-search results start as raw public wording (sometimes a spec or issue template rather than a complaint) plus a judgement framework; read the quote and open the source to judge them.
 - The 3-scan quota is browser-only and resets when site data is cleared — a demonstration limit, not a production entitlement.
-- On-demand live search quality is lower than the curated nightly dataset and is never presented as a verified idea.
+- On-demand live search quality is lower than the curated nightly dataset and is never presented as a verified idea. Chinese-to-English query mapping is still coarse and the source mix leans towards developer communities, so everyday-consumer directions can be thin.

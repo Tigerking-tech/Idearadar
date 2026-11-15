@@ -2,9 +2,9 @@ import { getSEOTags, renderBreadcrumbSchema } from "@/lib/seo";
 import { FaqSection, FinalCta } from "@/components/marketing/sections";
 
 export const metadata = getSEOTags({
-  title: "FAQ — IdeaRadar data sources, one-line ideas & the free trial",
+  title: "FAQ — IdeaRadar data sources, opportunity briefs & the free trial",
   description:
-    "Answers about IdeaRadar: what it does, how a complaint becomes a one-line idea, which public data sources are used, machine translation, the no-signup 3-scan trial, and which features are not built yet.",
+    "Answers about IdeaRadar: what it does, how a complaint becomes an 8-part decision-ready opportunity brief, which public data sources are used, machine translation, the no-signup 3-scan trial, and which features are not built yet.",
   canonicalUrlRelative: "/faq",
   languages: { "en-US": "/faq", "zh-CN": "/zh/faq", "x-default": "/faq" },
 });

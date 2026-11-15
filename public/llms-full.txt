@@ -1,7 +1,7 @@
 # IdeaRadar / 创意雷达 — full context for language models
 
 This document is the extended, plain-text version of https://idearadar.app/llms.txt. It is intentionally
-factual and free of marketing language so that assistants can quote it accurately. Last updated: 2026-11-15.
+factual and free of marketing language so that assistants can quote it accurately. Last updated: 2026-11-16.
 
 ## 0. Language versions
 
@@ -23,30 +23,45 @@ All seven marketing and documentation pages have Chinese counterparts, each an i
 - /privacy and /zh/privacy
 - /terms and /zh/terms
 
-Chinese titles, quotes and one-line ideas are machine-translated by an incremental translation step and
+Chinese titles, quotes and brief text are machine-translated by an incremental translation step and
 written into the dataset; users can toggle "查看原文 / View original" to read the exact English wording.
 On Chinese pages, the FAQ section and its FAQPage structured data, the legal prose and the methodology
 prose are all in Simplified Chinese. Product names and technical terms (IdeaRadar, GitHub, Reddit, API,
 JSON) remain in their original form.
 
-The four idea cards shown in the landing-page preview are real one-line ideas taken from the latest
-scheduled ingest, not invented examples. The full collected dataset — original wording, sources, and
-derived ideas — is exposed as structured JSON at https://idearadar.app/opportunities.json.
+The four cards shown in the landing-page preview are read live from /opportunities.json at build time:
+they are the four highest-mention "smallest thing worth building" headlines from the latest scheduled
+ingest, in the page's own language, not invented examples. The full collected dataset — original wording,
+sources, and the derived 8-part briefs — is exposed as structured JSON at
+https://idearadar.app/opportunities.json.
 
 ## 1. Definition
 
 IdeaRadar is a free, open, self-hostable idea-discovery tool. It reads real, unprompted questions and
 complaints from public forums and Q&A sites and shows each with the verbatim wording and a link to the
-original discussion. For directions already in the fixed index, an LLM-written one-line idea is added.
-Fresh on-demand live searches show the real wording, a clearly-labelled AI summary and a source link first,
-and do NOT dress a generic template up as an idea. Its output is not a scored opportunity brief.
+original discussion. For directions already in the fixed index, an LLM-written 8-part opportunity brief
+is added. Fresh on-demand live searches show the real quote, a source link and an 8-question judgement
+framework first, and can generate the same brief on demand; they do NOT dress a generic template up as
+an idea.
 
-A "one-line idea" (indexed directions only) states who has the problem and a concrete small tool. It is
-derived strictly from the collected wording. Live-search results instead show the verbatim quote, a
-source link and a clearly-labelled AI summary — the deterministic template idea is never shown as a
-generated idea. IdeaRadar does NOT
-compute a 0-100 severity score, extract willingness-to-pay signals, or build a competitor gap map —
-those were earlier marketing claims and have been removed because the product does not do them.
+An "opportunity brief" has 8 short bilingual fields:
+- jobStory — the concrete scenario ("When… I want… so I can…")
+- pain — the pain and what it costs the person
+- workaround — how they cope today, and why that fails
+- rootObstacle — the underlying obstacle stripped of symptoms (first-principles reasoning)
+- build — the smallest thing worth building that removes that obstacle
+- test — the cheapest action that could disprove the idea
+- stopIf — the signal that says walk away
+- whyNow — timing evidence, left blank when the quote contains none
+
+Every field is tagged evidence / inference / assumption, and each inference links back to the verbatim
+quote with one tap so a reader can check it. A hard gate rejects filler advice ("build an MVP and find 3
+users", "do market research") and invented market-size, revenue or percentage claims; on failure a
+deterministic template is used. The headline, "who", "why" and first-step fields shown elsewhere on the
+site are derived from the brief, so they cannot drift apart from it. IdeaRadar does NOT compute a 0-100
+severity score, extract willingness-to-pay signals, or build a competitor gap map — those were earlier
+marketing claims and have been removed because the product does not do them. The result card shows the
+real mention count instead of an invented score.
 
 IdeaRadar has no account, no subscription, no paid plan and no checkout. There is no merchant of record.
 It is a free, self-hostable open project.
@@ -61,12 +76,17 @@ pipeline keeps the deterministic result rather than dropping the record or block
    with complaint or help-seeking signals. Everyday (non-technical) Q&A uses looser, evergreen-pain rules.
 3. Denoise — An LLM pass judges whether each record is a real user problem. A safety valve keeps the
    whole batch if too many are rejected; the step fails open on any error.
-4. Ideate — A second LLM pass writes the one-line idea (who / why / first step). Short per-item batching,
-   stack-based JSON recovery and an incremental cache handle weak model output; a deterministic template
-   is used when the LLM result is missing or invalid.
-5. Translate — Chinese titles, quotes and idea text are written into the dataset; originals are kept.
+4. Brief — A second LLM pass writes the 8-part brief strictly from the verbatim wording. Short per-item
+   batching, stack-based JSON recovery, per-field recovery for malformed trailing output and an
+   incremental cache handle weak model output; a filler/invention gate rejects bad briefs and a
+   deterministic template is used when the LLM result is missing or invalid.
+5. Translate — Chinese titles, quotes and brief text are written into the dataset; originals are kept.
 6. Track — Each ingest appends a snapshot to history.json. Trends need several real snapshots before
    they move off "Steady"; seeded bootstrap snapshots retire automatically once enough real ones exist.
+
+Cached briefs are re-normalised through the same cleaning and validation rules on every ingest, so a
+text-cleaning fix (for example removing JTBD placeholders such as <specific user>) cannot be undone by
+an old cache entry reappearing in the published dataset.
 
 ## 3. Data sources and compliance
 
@@ -115,35 +135,39 @@ requirement, not a feature.
 
 Collection runs on a schedule from `.github/workflows/ingest.yml` on GitHub-hosted runners. Each
 connector is independent. The pipeline normalises results to a common schema, de-duplicates, filters
-noise, runs the LLM denoise and idea steps, writes Chinese text, refreshes external search interest and
+noise, runs the LLM denoise and brief steps, writes Chinese text, refreshes external search interest and
 promotes frequent live-scan directions into new niches, then commits the refreshed JSON. Because it runs
 on the runner rather than the user's workstation, collection continues even when a local network
 restricts outbound access. A concurrency guard rebases and retries if a data commit races another push.
 
 Outputs: a public /opportunities.json dataset and a history.json of snapshots. There is NO CSV export,
-NO webhook, NO JSON API and NO MCP endpoint. There is NO continuous monitoring with Slack/email/webhook
-alerts. These are planned ideas, not built features.
+NO webhook, NO paid/public JSON API product and NO MCP endpoint. There is NO continuous monitoring with
+Slack/email/webhook alerts. These are planned ideas, not built features. The trial and the on-demand
+brief button use internal endpoints (/api/scan, /api/brief); these are not a public API product.
 
 ## 5. Free to use — no plans to buy
 
 | What | Status | Detail |
 | --- | --- | --- |
 | Free trial | Available now | 3 scans per device, no signup, no email, no credit card |
-| Browsing ideas | Available now | Grouped by who has the problem; no input needed |
+| Browsing opportunities | Available now | Grouped by who has the problem; no input needed |
 | Verbatim quotes + source links | Available now | On every result; one tap opens the original discussion |
-| One-line ideas (indexed directions) | Available now | LLM-written; live-search results show the real quote instead |
+| 8-part opportunity briefs (indexed) | Available now | LLM-written, evidence/inference/assumption tagged, claim-level "check against quote" links |
+| On-demand brief for live results | Available now | Separate /api/brief call, fail-open, rate-limited; does not slow the main search |
+| Verification checklist | Available now | test + stopIf + source link, copyable in one click |
 | Open dataset | Available now | /opportunities.json — no login, no scan limit |
 | Accounts, saved scans | Planned (not built) | — |
 | Continuous monitoring, alerts | Planned (not built) | — |
-| CSV/JSON export, webhooks, API, MCP | Planned (not built) | — |
+| CSV/JSON export, webhooks, public API, MCP | Planned (not built) | — |
 | Team seats, shared workspace | Planned (not built) | — |
 | First-party data import | Planned (not built) | — |
 
 The free trial at /try (Chinese: /zh/try) reads the same scheduled ingest dataset as the rest of the
 site. It lets a visitor browse without typing anything, or run up to 3 scans. Every result opens with
-the verbatim wording and a link to the original discussion; indexed results also carry a one-line idea,
-while live-search results show the real wording, a labelled AI summary and a source link instead of a
-generic idea. The 3-scan counter is stored
+the verbatim wording and a link to the original discussion; indexed results open with the smallest thing
+worth building and expose the 8 tagged brief fields, while live-search results show the real wording, a
+source link and a judgement framework, with a button to generate a full brief for that one record. The
+3-scan counter is stored
 in the browser (localStorage); it is a demonstration limit, not a production-grade quota. A failed or
 evidence-insufficient live search does not use one of the 3 scans. After 3 scans there is no account to
 create and no plan to buy — the full public dataset remains open.
@@ -152,23 +176,31 @@ There are no prices, no billing, no VAT handling and no merchant of record, beca
 
 ## 6. Frequently asked questions
 
+Q: What is an opportunity brief?
+A: Eight short fields that let you decide whether an idea is worth acting on: scenario, pain,
+workaround, root obstacle, smallest build, cheapest test, stop signal and why now. Each is tagged
+evidence / inference / assumption and can be checked against the original quote with one tap. It is a
+judgement aid, not a validated business case; no market size or revenue numbers are invented.
+
 Q: How is IdeaRadar different from a keyword monitor or a raw forum feed?
 A: A raw feed mixes bug reports, news and job posts. IdeaRadar filters that noise, shows the verbatim
-wording with a source link, and (for indexed directions) adds a one-line idea grouped by who would use it.
-It does not run continuous monitoring
-and does not invent a market-size or severity score; if the evidence is thin, the card says so.
+wording with a source link, and structures each real problem into a tagged 8-part brief that separates
+what the person actually wrote from what is inferred. It does not run continuous monitoring
+and does not invent a market-size or severity score; if the evidence is thin, the brief leaves that
+field blank.
 
 Q: Can I import my own support tickets, reviews or CSV data?
 A: No. First-party data import is not built. The product currently uses only public, compliant sources.
 
 Q: Do you provide an API or MCP access, monitoring or alerts?
-A: No. Those are planned ideas and are marked as not built. What works today is the free 3-scan demo and
-the open /opportunities.json dataset. There is no continuous monitoring, alerting, JSON API or MCP endpoint.
+A: Not as a product. Those are planned ideas and are marked as not built. What works today is the free
+3-scan demo, the open /opportunities.json dataset, and the internal /api/scan and /api/brief endpoints
+that power the trial. There is no account, continuous monitoring, alerting, paid API product or MCP endpoint.
 
 Q: Why is some text in Chinese, and is it machine-translated?
 A: The public sources are mostly English. A scheduled translation step writes Chinese titles, quotes and
-ideas into the dataset. Toggle View original to read the exact English wording. Title, translated quote
-and one-line idea all come from the same collected record, so they do not drift apart.
+brief text into the dataset. Toggle View original to read the exact English wording. Title, translated
+quote and brief fields all come from the same collected record, so they do not drift apart.
 
 Q: Is there a free trial, and do I need to sign up?
 A: Yes, and no signup is required. Anyone can run 3 scans at /try (Chinese: /zh/try) with no account, no
@@ -182,19 +214,24 @@ A: It is free. There is no account, subscription, paid plan or checkout. It is a
 
 - https://idearadar.app/llms.txt — short LLM site index
 - https://idearadar.app/llms-full.txt — this document
-- https://idearadar.app/opportunities.json — the full public idea dataset
+- https://idearadar.app/opportunities.json — the full public opportunity dataset with 8-part briefs
 - https://idearadar.app/sitemap.xml — XML sitemap
 - https://idearadar.app/robots.txt — robots rules (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot,
   PerplexityBot, Google-Extended, Applebot-Extended, CCBot and others explicitly allowed)
 
 ## 8. Limitations
 
-A one-line idea (indexed directions only) is a starting point, not a validated business case. Live-search
-results are raw public wording — sometimes a spec or issue template rather than a complaint — with no
-generated idea; read the quote and open the source to judge them. Chinese
-text is machine-translated; the original wording is always available. The 3-scan quota is enforced in the
+An opportunity brief is a structured judgement aid derived from a single public record, not a validated
+business case. Its inference fields are reasoned from one quote and can be wrong — that is why they are
+tagged and link back to the quote. Live-search results start as raw public wording — sometimes a spec or
+issue template rather than a complaint — plus an 8-question judgement framework; the brief is generated
+only if the reader asks for it. Chinese text is machine-translated; the original wording is always
+available. The 3-scan quota is enforced in the
 browser only — clearing site data or switching devices resets it, so it is a demonstration limit rather
 than a production-grade entitlement. On-demand live search (for directions outside the fixed index) is
 clearly labelled as live/rule-filtered, is not a verified idea, and is lower quality than the curated
-nightly dataset; it can occasionally surface news or off-topic posts. Early trend curves use seeded
+nightly dataset; it can occasionally surface news or off-topic posts. A strict relevance gate now drops
+results that only match a generic word, and everyday Q&A sites get a small ranking boost, but Chinese-
+to-English query mapping is still coarse and the source mix still leans towards developer communities,
+so everyday-consumer directions can be thin. Early trend curves use seeded
 sample history until enough real snapshots accumulate, then switch to real data automatically.

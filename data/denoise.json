@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-15T18:51:35.311Z",
+  "updatedAt": "2026-11-16T06:25:12.761Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 101,
+  "totalVerdicts": 120,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -811,6 +811,158 @@
       "id": "scheduling-c5-appointment-planning",
       "title": "C5. Appointment planning",
       "at": "2026-11-15T18:51:30.400Z"
+    },
+    "1nboolq": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为关于AI代码开源的讨论。",
+      "id": "dev-workflow-all-ai-generated-code-should-be-open-source",
+      "title": "All AI-generated code should be Open Source",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "14yt4my": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到Windy上传出现HTTP 401错误。",
+      "id": "dev-workflow-windy-upload-fails-with-http-401-on-stations-api",
+      "title": "Windy upload fails with HTTP 401 on Stations API v2 (alphanumeric Station ID / Station password)",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "ondo72": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "指出Margaret的回答存在工资数据错误。",
+      "id": "invoice-export-margaret-calls-the-crew-s-wage-bill-money-they-b",
+      "title": "Margaret calls the crew's wage bill money they \"brought in\" and \"profits\"",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "ddachk": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "称Xero连接器无法处理2026年4月后的自定义连接。",
+      "id": "invoice-export-xero-connection",
+      "title": "xero connection",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "1q3xk1u": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "描述Salesforce API版本格式导致上传失败。",
+      "id": "solo-crm-salesforce-upsert-and-query-urls-format-the-api-",
+      "title": "Salesforce: upsert and query URLs format the API version with the server's culture",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "z64lgf": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能实现说明，非问题反馈",
+      "id": "support-transcripts-intercom-a-released-subagent-sees-a-failed-super",
+      "title": "Intercom: a released subagent sees a failed supervisor ask as the supervisor's reply",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "bgvlba": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能需求描述，非问题反馈",
+      "id": "support-transcripts-per-cron-and-per-source-tool-allowlist-to-limit-",
+      "title": "Per-cron (and per-source) tool allowlist to limit what a run can call",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "crtr2c": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为对微软产品的厌恶宣传",
+      "id": "scheduling-libreoffice-actually-works-365-days-a-year",
+      "title": "LibreOffice actually works 365 days a year",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "1xf1g9n": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能特性介绍，非问题反馈",
+      "id": "scheduling-owner-api-keys-and-outbound-booking-webhooks",
+      "title": "Owner API keys and outbound booking webhooks",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "1oc2z0p": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能需求描述，非问题反馈",
+      "id": "scheduling-us-b4-reschedule-or-cancel",
+      "title": "US-B4: Reschedule or cancel",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "f6bboo": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能需求说明，无具体问题描述。",
+      "id": "dev-workflow-resolve-fleet-incidents-with-impact-evidence-and",
+      "title": "Resolve Fleet incidents with impact evidence and replayed recovery plans",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "htejjb": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题提及官方步骤，属于平台状态相关内容。",
+      "id": "invoice-export-popcorn-step-26-implement-data-driven-automation",
+      "title": "Popcorn Step 26 - Implement data-driven automation runtime, placement, upkeep, and controls",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "bhk9jh": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为AI与工作相关的讨论，与软件流程无关。",
+      "id": "scheduling-possible-futures",
+      "title": "Possible Futures",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "ztypg3": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到删除操作不完整的问题。",
+      "id": "scheduling-review-finding-s10-deletion-with-a-future-bookin",
+      "title": "Review finding S10: Deletion with a future booking is incomplete",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "1v38tgd": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为需求审查说明，无具体问题描述。",
+      "id": "scheduling-review-finding-s28-terms-used-without-a-definiti",
+      "title": "Review finding S28: Terms used without a definition, where the missing definition changes…",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "cavyxz": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及预订记录状态不一致的故障问题。",
+      "id": "scheduling-review-finding-s33-the-booking-record-is-inconsi",
+      "title": "Review finding S33: The booking record is inconsistent and its states are not listed",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "ulk9z2": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题说明dispatch动词的requestTransform无效果。",
+      "id": "support-transcripts-a-dispatch-verb-s-requesttransform-is-accepted-p",
+      "title": "A dispatch verb's requestTransform is accepted, plumbed to the call, and never applied -- so a…",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "7nlyjq": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题为亚马逊替换系统的官方新闻。",
+      "id": "support-transcripts-amazon-saves-millions-by-replacing-sonnet-4-6-wi",
+      "title": "Amazon saves millions by replacing Sonnet 4.6 with Strands Decider",
+      "at": "2026-11-16T06:24:51.324Z"
+    },
+    "k0xfgs": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题为Microsoft 365的服务故障官方公告。",
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "title": "Service degradation on Microsoft 365",
+      "at": "2026-11-16T06:24:51.324Z"
     }
   }
 }

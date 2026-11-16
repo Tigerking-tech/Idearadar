@@ -16,6 +16,10 @@ export const FAQ_ITEMS = [
     a: "A scheduled workflow collects from sources with clear public terms: Hacker News (official API), Stack Exchange (official API, including everyday Q&A sites about money, pets, travel and work), public GitHub issues, and any RSS/Atom feed you configure. Reddit is off by default and would require your own commercial-licence credentials.",
   },
   {
+    q: "Does it show how crowded a direction is, or a success rate?",
+    a: "There is an optional supply check: a small public snapshot of revenue-verified projects (TrustMRR's no-key endpoints, about 100 projects) is keyword-matched to your direction, and it shows only the real matched project names with a link back to the source. It deliberately does not compute a 'track win rate', success percentage or median growth — those require the full paid dataset and would be fabricated from this tiny overseas sample. A direction with no match simply means 'none in this snapshot', not 'nobody is building it'.",
+  },
+  {
     q: "Is scraping Reddit allowed, and how do you handle Reddit's API policy?",
     a: "Reddit's User Agreement prohibits unlicensed commercial scraping, so the Reddit connector is off by default and requires you to supply authorised credentials. Every other connector is independent, so a single platform changing its terms cannot disable the product.",
   },
@@ -58,6 +62,10 @@ export const FAQ_ITEMS_ZH = [
   {
     q: "创意雷达 用哪些数据源？",
     a: "由定时工作流从访问条款清晰的公开来源采集：Hacker News（官方 API）、Stack Exchange（官方 API，含记账、宠物、差旅、职场等日常问答站点）、公开的 GitHub issue，以及任意可配置的 RSS/Atom 订阅。Reddit 默认关闭，需要你自备商业授权凭证才会启用。",
+  },
+  {
+    q: "会显示一个方向挤不挤、或者成功率吗？",
+    a: "有一条可选的供给参考：把公开验证收入项目库（TrustMRR 的免密钥接口，约 100 个项目）的小样本快照按关键词与你的方向匹配，只显示真实命中的项目名并链接回原页。它刻意不计算「赛道胜率」「成功比例」或「中位增速」—— 这些需要付费全量数据，用这个海外小样本算出来就是编造。没有命中只代表「本次快照里没有」，不代表「没人在做」。",
   },
   {
     q: "抓取 Reddit 允许吗？你们怎么处理 Reddit 的 API 政策？",

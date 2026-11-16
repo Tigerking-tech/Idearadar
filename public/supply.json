@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-16T05:42:42.167Z",
+  "source": "https://trustmrr.com",
+  "endpoints": [
+    "https://trustmrr.com/api/ai",
+    "https://trustmrr.com/api/ai/discovery"
+  ],
+  "status": "ok",
+  "sampleSize": 93,
+  "byNiche": {
+    "everyday-money": {
+      "matched": false,
+      "count": 0,
+      "projects": []
+    },
+    "pet-and-home-care": {
+      "matched": false,
+      "count": 0,
+      "projects": []
+    },
+    "local-service-booking": {
+      "matched": false,
+      "count": 0,
+      "projects": []
+    },
+    "personal-admin": {
+      "matched": false,
+      "count": 0,
+      "projects": []
+    },
+    "solo-crm": {
+      "matched": false,
+      "count": 0,
+      "projects": []
+    },
+    "invoice-export": {
+      "matched": false,
+      "count": 0,
+      "projects": []
+    },
+    "support-transcripts": {
+      "matched": true,
+      "count": 1,
+      "projects": [
+        {
+          "name": "Reception",
+          "url": "https://trustmrr.com/startup/reception",
+          "category": "Customer Support",
+          "matchedTerm": "customer support"
+        }
+      ]
+    },
+    "scheduling": {
+      "matched": true,
+      "count": 1,
+      "projects": [
+        {
+          "name": "UniFeeds",
+          "url": "https://trustmrr.com/startup/unifeeds",
+          "category": "Marketing",
+          "matchedTerm": "scheduling"
+        }
+      ]
+    },
+    "dev-workflow": {
+      "matched": true,
+      "count": 1,
+      "projects": [
+        {
+          "name": "TrustQR",
+          "url": "https://trustmrr.com/startup/trustqr",
+          "category": "SaaS",
+          "matchedTerm": "authentication"
+        }
+      ]
+    },
+    "auto-pet-app-booking": {
+      "matched": false,
+      "count": 0,
+      "projects": []
+    }
+  }
+}

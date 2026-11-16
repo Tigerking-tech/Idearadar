@@ -577,6 +577,24 @@ body {
 .rr-heat-nomatch { background: #f2f3f7; color: #6c7180; }
 .rr-heat-unavailable { background: #f2f3f7; color: #9a9ead; font-style: italic; }
 
+/* ---------- 供给侧参考（公开验证项目真实匹配，样本口径） ---------- */
+.rr-supply {
+  display: inline-flex; flex-direction: column; gap: 4px;
+  font-size: 11px; line-height: 1.55; padding: 6px 10px;
+  border-radius: 8px; overflow-wrap: anywhere; max-width: 100%;
+}
+.rr-supply-hit { background: #eef6ff; color: #2c5a91; }
+.rr-supply-nomatch { background: #f2f3f7; color: #6c7180; }
+.rr-supply-head { font-weight: 650; }
+.rr-supply-projects { display: flex; flex-wrap: wrap; gap: 6px; }
+.rr-supply-project {
+  display: inline-block; color: #245a9c; text-decoration: none;
+  border-bottom: 1px solid #b9d2ef; font-weight: 600;
+}
+.rr-supply-project:hover { color: #123c72; border-bottom-color: #245a9c; }
+.rr-supply-caveat { color: #5a6a7d; font-size: 10.5px; }
+.rr-supply-caveat a { color: #245a9c; text-decoration: none; border-bottom: 1px solid #b9d2ef; }
+
 /* ---------- 结构化机会卡（P0-3，可折叠） ---------- */
 .rr-card-panel {
   margin-top: 14px; border: 1px solid #e4e0ff; border-radius: 12px;

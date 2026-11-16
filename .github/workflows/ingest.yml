@@ -115,6 +115,12 @@ jobs:
       - name: Fetch external search interest
         run: node scripts/external-heat.mjs
 
+      # 供给侧参考：TrustMRR 面向公开/AI 使用的只读快照（无需密钥），按方向关键词
+      # 匹配真实已验证项目，只报命中项目数 + 可点原页链接。样本很小，绝不编造
+      # 胜率/成功比例/中位增速；端点变更或抓取失败诚实写 status=unavailable，不阻塞采集。
+      - name: Fetch supply-side reference
+        run: node scripts/supply.mjs
+
       # 第 3 步「沉淀」：把用户按需扫描过的高频方向提升为定时采集赛道，
       # 下一轮采集就会覆盖这些方向，固定索引自然变宽。脚本幂等，无新增时不改文件。
       # P0-1 召回准入闸门：方向必须有 /api/scan 落盘的高分候选证据，或用
@@ -146,6 +152,8 @@ jobs:
             data/idea.json
             data/external-heat.json
             public/external-heat.json
+            data/supply.json
+            public/supply.json
           retention-days: 14
 
       - name: Commit refreshed data
@@ -155,7 +163,7 @@ jobs:
           git add data/opportunities.json public/opportunities.json data/history.json public/history.json data/recall-eval.json public/recall-eval.json scripts/ingest.config.json
           # 新增产物都是「有则提交」：脚本首次运行或诚实降级时文件仍会生成，
           # 但用 -f 兜底，任何单文件缺失都不影响整批提交。
-          for f in data/query-scans.json data/scan-candidates.json data/rejected.json data/denoise.json data/idea.json data/external-heat.json public/external-heat.json; do
+          for f in data/query-scans.json data/scan-candidates.json data/rejected.json data/denoise.json data/idea.json data/external-heat.json public/external-heat.json data/supply.json public/supply.json; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if git diff --cached --quiet; then

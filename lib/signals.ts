@@ -106,6 +106,16 @@ export type ExternalHeat = {
   traffic: number | null;
 };
 
+/** 供给侧参考：公开验证项目库里与方向真实匹配的少量项目（不含编造的胜率/增速）。 */
+export type SupplyMatch = { name: string; url: string; category: string | null; matchedTerm: string };
+export type SupplySignal = {
+  matched: boolean;
+  count: number;
+  projects: SupplyMatch[];
+  /** 本次公开快照的去重项目总数（诚实样本口径）。 */
+  sampleSize: number;
+};
+
 /**
  * v3「可决策机会简报」：8 段双语，把一条真实抱怨拆成
  * 场景(JTBD) → 痛点 → 现在的凑合办法 → 第一性原理本质障碍 →
@@ -167,6 +177,8 @@ export type Signal = {
   card?: OpportunityCard | null;
   /** 外部搜索热度（仅真实采集数据带，按 niche 关联） */
   externalHeat?: ExternalHeat | null;
+  /** 供给侧参考（公开验证项目库的真实匹配；未取到/未匹配为 null） */
+  supply?: SupplySignal | null;
   /** L1 一句话机会（采集端 LLM 或确定性模板生成） */
   idea?: Idea | null;
   /** 原始 niche id，用于关联外部热度等按赛道组织的数据 */
@@ -368,12 +380,22 @@ export type ExternalHeatDoc = {
   byNiche?: Record<string, { matched: boolean; term: string | null; traffic: number | null }>;
 };
 
+/** 供给侧参考产物（scripts/supply.mjs 写），按 niche id 索引。 */
+export type SupplyDoc = {
+  schemaVersion?: number;
+  generatedAt?: string;
+  source?: string;
+  status?: "ok" | "unavailable";
+  sampleSize?: number;
+  byNiche?: Record<string, SupplySignal>;
+};
+
 function norm(n: number | undefined, max = 20): number {
   const x = Number(n ?? 0);
   return Math.max(0, Math.min(1, x / max));
 }
 
-function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, locale: "en" | "zh", heatDoc: ExternalHeatDoc | null = null): Signal | null {
+function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, locale: "en" | "zh", heatDoc: ExternalHeatDoc | null = null, supplyDoc: SupplyDoc | null = null): Signal | null {
   const id = raw.id ?? raw.title ?? "";
   if (!id || typeof raw.title !== "string" || raw.title.length < 6) return null;
   const b = raw.breakdown ?? {};
@@ -415,6 +437,18 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
   const externalHeat: ExternalHeat | null = nicheHeat
     ? { status: "ok", matched: Boolean(nicheHeat.matched), term: nicheHeat.term ?? null, traffic: nicheHeat.traffic ?? null }
     : null;
+  // 供给侧参考：可选增强，缺失/损坏时传 null，前端不显示，绝不回退到假项目。
+  const nicheSupply = supplyDoc && supplyDoc.status === "ok" && raw.nicheId
+    ? supplyDoc.byNiche?.[raw.nicheId]
+    : undefined;
+  const supply: SupplySignal | null = nicheSupply
+    ? {
+        matched: Boolean(nicheSupply.matched),
+        count: Number(nicheSupply.count) || (nicheSupply.projects?.length ?? 0),
+        projects: Array.isArray(nicheSupply.projects) ? nicheSupply.projects : [],
+        sampleSize: Number(supplyDoc?.sampleSize) || 0,
+      }
+    : null;
   return {
     id,
     title: useZh && titleZh ? titleZh : titleEn,
@@ -432,6 +466,7 @@ function mapOpportunity(raw: RawOpportunity, history: SignalHistory | null, loca
     sourceUrl: evidence.find((e) => typeof e?.url === "string" && /^https?:\/\//.test(e.url))?.url ?? null,
     card: raw.opportunityCard ?? null,
     externalHeat,
+    supply,
     // L1 一句话机会：优先用采集端 LLM 产出；缺失/版本旧/结构不全时用确定性模板兜底，
     // 保证任何数据来源（实时采集/本地/演示）前端都能显示一句可读机会，绝不空白。
     // LLM 偶尔把 persona 判成 general：以赛道映射为准对齐，避免首页出现空泛分组。
@@ -452,13 +487,13 @@ function withPersona(idea: Idea, raw: RawOpportunity): Idea {
 }
 
 /** 健壮性：任何解析异常都返回 null，让调用方安全回退到演示数据。 */
-export function tryParseLiveSignals(json: unknown, history: SignalHistory | null = null, locale: "en" | "zh" = "en", heatDoc: ExternalHeatDoc | null = null): Signal[] | null {
+export function tryParseLiveSignals(json: unknown, history: SignalHistory | null = null, locale: "en" | "zh" = "en", heatDoc: ExternalHeatDoc | null = null, supplyDoc: SupplyDoc | null = null): Signal[] | null {
   try {
     if (!json || typeof json !== "object") return null;
     const items = (json as { items?: unknown }).items;
     if (!Array.isArray(items) || items.length === 0) return null;
     const mapped = (items as RawOpportunity[])
-      .map((raw) => mapOpportunity(raw, history, locale, heatDoc))
+      .map((raw) => mapOpportunity(raw, history, locale, heatDoc, supplyDoc))
       .filter((x): x is Signal => x !== null)
       .filter((s) => s.score >= 20 && s.mentions >= 1);
     return mapped.length >= 3 ? mapped : null;
@@ -518,7 +553,15 @@ export function resolveSignals(locale: "en" | "zh"): ResolvedFeed {
       } catch {
         heatDoc = null;
       }
-      live = tryParseLiveSignals(raw, hist, locale, heatDoc);
+      // 供给侧参考同样是可选增强：文件缺失/损坏时传 null，前端不显示。
+      let supplyDoc: SupplyDoc | null = null;
+      try {
+        const parsedSupply = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "supply.json"), "utf8"));
+        if (parsedSupply && parsedSupply.status === "ok" && parsedSupply.byNiche) supplyDoc = parsedSupply as SupplyDoc;
+      } catch {
+        supplyDoc = null;
+      }
+      live = tryParseLiveSignals(raw, hist, locale, heatDoc, supplyDoc);
       generatedAt = raw?.generatedAt ?? null;
     } catch {
       live = null;

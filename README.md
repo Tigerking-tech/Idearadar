@@ -35,6 +35,7 @@ pnpm build              # 生产构建
 pnpm test:ingest        # node --test scripts/*.test.mjs，全量采集管线单测
 pnpm ingest             # 手动跑一次多源采集
 pnpm ingest:heat        # 抓 Google Trends 每日热榜，写外部搜索热度
+pnpm ingest:supply      # 抓 TrustMRR 公开快照，按方向匹配真实已验证项目（供给参考）
 pnpm ingest:promote     # 把高频扫描方向提升为 auto 赛道（带召回准入闸门）
 pnpm ingest:denoise     # LLM 二次去噪（需 IDEARADAR_DENOISE=1 + token）
 pnpm ingest:idea        # 生成 8 段可决策机会简报（需 IDEARADAR_IDEA=1 + token）
@@ -66,6 +67,7 @@ pnpm ingest:idea        # 生成 8 段可决策机会简报（需 IDEARADAR_IDEA
 | `/llms.txt`、`/llms-full.txt` | LLM 可读站点索引与完整上下文 |
 | `/opportunities.json` | 采集产物（前端可读） |
 | `/external-heat.json` | 外部搜索热度产物，抓取失败时 `status: unavailable` |
+| `/supply.json` | 供给参考：公开验证项目快照按方向的真实匹配（项目名 + 原页链接），仅样本、不算胜率；失败时 `status: unavailable` |
 
 界面设计规范见 [DESIGN.md](./DESIGN.md)。设计 token 全部集中在 `app/globals.css`，切换视觉风格只需替换该文件。
 
@@ -92,8 +94,8 @@ pnpm ingest:idea        # 生成 8 段可决策机会简报（需 IDEARADAR_IDEA
 文件：`.github/workflows/ingest.yml` + `scripts/ingest.mjs` + `scripts/ingest-lib.mjs` + `scripts/ingest.config.json`。
 
 - 定时：每 6 小时在 GitHub 托管 runner 上运行；也支持 `workflow_dispatch` 手动触发。
-- 流程：`node --test scripts/*.test.mjs` 全量单测 → recall 评估 → cooldown → 多源采集 → TokenHub `hy-mt2-plus` 批量翻译 → **LLM 二次去噪（`scripts/denoise.mjs`）** → **8 段机会简报生成（`scripts/idea.mjs`，缓存命中也重新归一化）** → Google Trends 外部热度 → 高频扫描方向提升（带准入闸门）→ 上传 artifact → 有变化时把数据产物提交回仓库（bot 提交带 `[skip ci]`，不会触发递归构建）。
-- 有则提交的数据产物：`data/opportunities.json`、`public/opportunities.json`、`data/history.json`、`data/recall-eval.json`、`data/rejected.json`、`data/denoise.json`、`data/idea.json`、`data/external-heat.json`、`public/external-heat.json`、`data/query-scans.json`、`data/scan-candidates.json`。后两者是运行时产物，仓库初始可以没有。
+- 流程：`node --test scripts/*.test.mjs` 全量单测 → recall 评估 → cooldown → 多源采集 → TokenHub `hy-mt2-plus` 批量翻译 → **LLM 二次去噪（`scripts/denoise.mjs`）** → **8 段机会简报生成（`scripts/idea.mjs`，缓存命中也重新归一化）** → Google Trends 外部热度 → 供给参考（TrustMRR 公开快照真实匹配，不编成功率）→ 高频扫描方向提升（带准入闸门）→ 上传 artifact → 有变化时把数据产物提交回仓库（bot 提交带 `[skip ci]`，不会触发递归构建）。
+- 有则提交的数据产物：`data/opportunities.json`、`public/opportunities.json`、`data/history.json`、`data/recall-eval.json`、`data/rejected.json`、`data/denoise.json`、`data/idea.json`、`data/external-heat.json`、`public/external-heat.json`、`data/supply.json`、`public/supply.json`、`data/query-scans.json`、`data/scan-candidates.json`。后两者是运行时产物，仓库初始可以没有。
 - 纯函数评分层（`ingest-lib.mjs`）：频率 30% / 强度 20% / 近期性 15% / 跨源印证 20% / 显式付费意愿**词面命中** 15%，规则显式、可单测、可复现。这是采集端对候选条目的启发式排序权重，**不是**对外展示的 `0–100` 严重度评分，也不提取付费金额；普通人赛道走 `consumerMode` 的常青痛点口径（见第 7 节）。
 - **默认启用的合规源**：Hacker News 官方 API、Stack Exchange 官方 API（技术站 + `consumerQa` 非技术站）、GitHub Issues 公开 API、可配置 RSS/Atom、第一方数据导入。`consumerQa` 走 Stack Exchange 2.3 官方接口的 `webapps` / `money` / `workplace` / `travel` / `superuser` / `pets`，`timeless=true` 不加 30 天窗口、按 `relevance` 抓常青痛点，服务于 4 个普通人赛道。
 - **Reddit 默认关闭**：`ENABLE_REDDIT=false`。只有持有 Reddit 商业数据授权并配置 `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET` 时才启用。Reddit 用户协议禁止未授权商业抓取。2026-10-31 起不再受理新的公开 API 申请，2027-01-12 起撤销未登记应用的权限，2027 年 3 月公开 Data API 全面终止；此后官方路径只剩与 Reddit 签商业数据协议，或迁入 Devvit（代码须运行在 Reddit 基础设施上、由 Reddit 决定开放哪些接口，做不了跨平台聚合的独立订阅产品）。

@@ -540,6 +540,16 @@ const EN = {
       noMatch: "Not on today's external trend list",
       hit: "Trending: {term} · ~{traffic} searches",
     },
+    // 供给侧参考：公开验证项目库的真实匹配。样本很小，只做引用、不编成功比例。
+    supply: {
+      label: "Supply check",
+      basis: "A small public snapshot of revenue-verified projects, keyword-matched to this direction. Sample only — not the whole market, not a success rate.",
+      basisShort: "Public verified-project snapshot · sample only",
+      noMatch: "Checked {sample} public verified projects in this snapshot — none directly matched this direction (not proof nobody is building it).",
+      hit: "{count} public verified project(s) touch this direction:",
+      caveat: "Small sample, overseas data — use as a signal, not proof.",
+      source: "Source: TrustMRR ↗",
+    },
     // P2 会员额度：仅当服务端开启计费时才会出现，默认关闭时前端不展示。
     entitlement: {
       unlimited: "Pro member · unlimited scans",
@@ -1084,6 +1094,16 @@ export const ZH_DICT: Dict = {
       unavailable: "本次未取到外部趋势数据",
       noMatch: "未进入今日外部热榜",
       hit: "上榜：{term} · 约 {traffic} 次搜索",
+    },
+    // 供给侧参考：公开验证项目库的真实匹配。样本很小，只做引用、不编成功比例。
+    supply: {
+      label: "供给参考",
+      basis: "公开验证收入项目库的小样本快照，按关键词与本方向匹配。仅为样本，不代表整个市场，也不是成功率。",
+      basisShort: "公开验证项目快照 · 仅样本",
+      noMatch: "本次快照查了 {sample} 个公开验证项目，没有直接对应的（不等于没人在做）。",
+      hit: "公开验证库中有 {count} 个项目涉及这个方向：",
+      caveat: "样本小、以海外项目为主——仅供参考，不作定论。",
+      source: "来源：TrustMRR ↗",
     },
     // P2 会员额度：仅当服务端开启计费时才出现，默认关闭时前端不展示。
     entitlement: {

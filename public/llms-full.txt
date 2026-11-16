@@ -135,8 +135,11 @@ requirement, not a feature.
 
 Collection runs on a schedule from `.github/workflows/ingest.yml` on GitHub-hosted runners. Each
 connector is independent. The pipeline normalises results to a common schema, de-duplicates, filters
-noise, runs the LLM denoise and brief steps, writes Chinese text, refreshes external search interest and
-promotes frequent live-scan directions into new niches, then commits the refreshed JSON. Because it runs
+noise, runs the LLM denoise and brief steps, writes Chinese text, refreshes external search interest,
+refreshes a small supply-side snapshot of revenue-verified projects (TrustMRR public no-key endpoints,
+keyword-matched to each direction, showing only real project names and source links — never a fabricated
+win rate or success percentage), and promotes frequent live-scan directions into new niches, then commits
+the refreshed JSON. Because it runs
 on the runner rather than the user's workstation, collection continues even when a local network
 restricts outbound access. A concurrency guard rebases and retries if a data commit races another push.
 

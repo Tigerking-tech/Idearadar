@@ -17,6 +17,7 @@ const PIPELINE = [
   ["Brief", "A second LLM pass writes an 8-part decision-ready brief from the verbatim wording: scenario, pain, workaround, root obstacle, smallest build, cheapest test, stop signal and why now. A hard gate rejects filler advice and invented market numbers; on failure a deterministic template is used."],
   ["Translate", "Chinese titles, quotes and brief text are written into the dataset by an incremental translation step; users can toggle to the original wording."],
   ["Track", "Each ingest appends a snapshot to history.json; trends need several real snapshots before they move off Steady."],
+  ["Supply check", "A separate optional signal keyword-matches your direction against a small public snapshot of revenue-verified projects (TrustMRR). It shows only the real matched project names and links back to the source — never a win rate, success percentage or median growth, which this small sample cannot support."],
 ] as const;
 
 export default function MethodologyPage() {
@@ -88,6 +89,15 @@ export default function MethodologyPage() {
             official API, the Stack Exchange official API (including everyday Q&A sites about money,
             pets, travel and work), the public GitHub Issues API, and any RSS/Atom feed you configure.
             Because collection is multi-source, no single platform changing its terms can disable it.
+          </p>
+          <p>
+            A separate, optional <strong>supply check</strong> reads TrustMRR&apos;s public, no-key snapshot endpoints
+            (<code>/api/ai</code> and <code>/api/ai/discovery</code>, about 100 revenue-verified projects) and keyword-matches
+            them to your direction. It only ever shows the real matched project names with a link back to
+            TrustMRR, labelled as a small overseas sample. It deliberately does <strong>not</strong> compute a
+            &quot;track win rate&quot;, success percentage or median growth: those need the full paid dataset and
+            would be fabricated from this tiny snapshot. No dataset is mirrored onto this site; if the
+            endpoint changes or fails, the signal is hidden honestly.
           </p>
           <p>
             The Reddit connector is <strong>disabled by default</strong> and would require your own

@@ -14,6 +14,7 @@ import {
   type BriefField,
   type OpportunityCard,
   type ExternalHeat,
+  type SupplySignal,
 } from "@/lib/signals";
 
 /** 机会简报 8 段的渲染顺序与「证据 / 推断 / 假设」归属。
@@ -159,6 +160,38 @@ function ExternalHeatNote({ heat, d, zh }: { heat: ExternalHeat | null | undefin
   const traffic = heat.traffic ? heat.traffic.toLocaleString(zh ? "zh-CN" : "en-US") : "—";
   const text = t.hit.replace("{term}", heat.term).replace("{traffic}", traffic);
   return <span className="rr-heat rr-heat-hit" title={t.basis}>{text}</span>;
+}
+
+/**
+ * 供给侧参考：公开验证项目库里与该方向关键词真实匹配的少量项目。
+ * 只显示真实命中的项目名 + 可点的原页链接 + 样本量；每个项目可点开核对。
+ * 绝不显示胜率/成功比例/中位增速（公开快照样本太小，算了就是编造）。
+ */
+function SupplyNote({ supply, d }: { supply: SupplySignal | null | undefined; d: Dict }) {
+  const t = d.tryPage.supply;
+  const sampleText = t.noMatch.replace("{sample}", String(supply?.sampleSize ?? 0));
+  if (!supply || !supply.matched || !supply.projects?.length) {
+    return (
+      <span className="rr-supply rr-supply-nomatch" title={t.basis}>
+        <span>{sampleText}</span>
+        <span className="rr-supply-caveat"><a href="https://trustmrr.com" target="_blank" rel="noopener noreferrer">{t.source}</a></span>
+      </span>
+    );
+  }
+  const hit = t.hit.replace("{count}", String(supply.count));
+  return (
+    <span className="rr-supply rr-supply-hit" title={t.basis}>
+      <span className="rr-supply-head">{hit}</span>
+      <span className="rr-supply-projects">
+        {supply.projects.map((p) => (
+          <a key={p.url} className="rr-supply-project" href={p.url} target="_blank" rel="noopener noreferrer">
+            {p.name} ↗
+          </a>
+        ))}
+      </span>
+      <span className="rr-supply-caveat">{t.caveat} <a href="https://trustmrr.com" target="_blank" rel="noopener noreferrer">{t.source}</a></span>
+    </span>
+  );
 }
 
 /**
@@ -877,6 +910,12 @@ export function GuestScan({
                                       <ExternalHeatNote heat={it.externalHeat} d={d} zh={zh} />
                                     </div>
                                   )}
+                                  {it.supply !== undefined && (
+                                    <div className="rr-heat-row">
+                                      <span className="rr-try-label">{t.supply.label}</span>
+                                      <SupplyNote supply={it.supply} d={d} />
+                                    </div>
+                                  )}
                                   {sourceUrl && (
                                     <div className="rr-try-quote">
                                       <span className="rr-try-label">{t.clue.openSource}</span>
@@ -930,6 +969,12 @@ export function GuestScan({
                                 <span className="rr-cat-badge rr-cat-badge-sm">{it.category}</span>
                                 <span className="rr-try-result-mentions">{it.mentions} {t.mentions}</span>
                               </div>
+                              {it.supply !== undefined && (
+                                <div className="rr-heat-row">
+                                  <span className="rr-try-label">{t.supply.label}</span>
+                                  <SupplyNote supply={it.supply} d={d} />
+                                </div>
+                              )}
                               <div className="rr-try-gap">
                                 <span className="rr-try-label">{t.idea.signalLabel}</span>
                                 <p>{it.gap}</p>

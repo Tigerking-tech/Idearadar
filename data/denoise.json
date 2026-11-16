@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-16T06:25:12.761Z",
+  "updatedAt": "2026-11-16T22:03:08.256Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 120,
+  "totalVerdicts": 135,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -963,6 +963,126 @@
       "id": "scheduling-service-degradation-on-microsoft-365",
       "title": "Service degradation on Microsoft 365",
       "at": "2026-11-16T06:24:51.324Z"
+    },
+    "77r9bs": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到配置Nifi服务出现故障。",
+      "id": "dev-workflow-nifi-how-to-create-oauth2-access-token-provider-",
+      "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "1u76rbr": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到与Discord集成出现错误。",
+      "id": "dev-workflow-pangolin-eventstreaming-data-block-seems-incompa",
+      "title": "Pangolin Eventstreaming {{data}} block seems incompatible with Discord",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "rjhzmn": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到Webhook触发代理运行失败。",
+      "id": "dev-workflow-webhook-agent-runs-fail-runtimestoreerror-not-fo",
+      "title": "Webhook agent runs fail: RuntimeStoreError('not_found') on multiplexed gateway (dynamic +…",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "7mr6ua": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到预算功能存在错误。",
+      "id": "invoice-export-budget-upcoming-bills-uses-rule-start-dates-inst",
+      "title": "Budget: Upcoming Bills uses rule start dates instead of next due dates",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "1muibr7": {
+      "keep": true,
+      "code": "other",
+      "reason": "为测试相关技术问题。",
+      "id": "invoice-export-flaky-real-postgresql-test-the-partial-repair-di",
+      "title": "Flaky real-PostgreSQL test: the PARTIAL repair 'died after its payment was recorded' case…",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "1c8o98v": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到讨厌QuickBooks，希望有替代产品。",
+      "id": "invoice-export-ongoing-dev",
+      "title": "ongoing dev?",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "2mnu0t": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "集成映射的字段被删除后仍显示错误信息。",
+      "id": "solo-crm-integration-mapping-to-a-deleted-field-displays-",
+      "title": "Integration mapping to a deleted field displays \"Don't Include\" but keeps the stale reference…",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "ml5ppl": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "无认证部分的ManagementContext会导致GKO崩溃。",
+      "id": "support-transcripts-gko-crashes-on-every-sync-when-a-gravitee-cloud-",
+      "title": "GKO crashes on every sync when a Gravitee Cloud ManagementContext has no auth section",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "7adazo": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "已撤销的共享API密钥与有效密钥值相同会出问题。",
+      "id": "support-transcripts-shared-api-key-returns-401-after-redeploy-when-a",
+      "title": "Shared API key returns 401 after redeploy when a revoked key has the same value",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "2mxer2": {
+      "keep": true,
+      "code": "status-news",
+      "reason": "标题明确提及Jenkins CI处于停机状态。",
+      "id": "support-transcripts-jenkins-ci-appears-to-be-down",
+      "title": "Jenkins CI appears to be down",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "10d226w": {
+      "keep": true,
+      "code": "other",
+      "reason": "为西班牙语界面修复相关内容",
+      "id": "support-transcripts-spanish-es-the-whole-catalog-941-of-941-with-som",
+      "title": "Spanish (es): the whole catalog, 941 of 941, with some fixes to the strings already in",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "17sxz2e": {
+      "keep": true,
+      "code": "other",
+      "reason": "为供应商信息导出功能提需求",
+      "id": "dev-workflow-export-exact-supplier-identities-and-remaining-q",
+      "title": "Export exact supplier identities and remaining quantities through the existing BOM spreadsheet",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "1ncay3w": {
+      "keep": true,
+      "code": "other",
+      "reason": "为Grafana相关功能提需求",
+      "id": "dev-workflow-grafana-dashboards-and-alerts-as-code",
+      "title": "Grafana dashboards and alerts as code",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "uya3vr": {
+      "keep": true,
+      "code": "other",
+      "reason": "为代码运行状态相关内容",
+      "id": "scheduling-what-the-code-owes-grew-this-week",
+      "title": "What the code owes grew this week",
+      "at": "2026-11-16T22:03:01.527Z"
+    },
+    "1x12t3p": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为NVIDIA CEO更迭新闻",
+      "id": "dev-workflow-nvidia-announces-ceo-transition",
+      "title": "NVIDIA Announces CEO Transition",
+      "at": "2026-11-16T22:03:01.527Z"
     }
   }
 }

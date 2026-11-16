@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T06:23:25.862Z",
+  "generatedAt": "2026-11-16T22:00:21.323Z",
   "lookbackDays": 30,
   "minScore": 20,
   "curation": {
@@ -51,42 +51,42 @@
       {
         "niche": "solo-crm",
         "method": "legacy",
-        "raw": 254,
+        "raw": 243,
         "itemCount": 11,
-        "recallTitleRate": 0.08661417322834646,
-        "finalTitleRate": 0.36363636363636365
+        "recallTitleRate": 0.06995884773662552,
+        "finalTitleRate": 0.09090909090909091
       },
       {
         "niche": "invoice-export",
         "method": "legacy",
-        "raw": 219,
-        "itemCount": 23,
-        "recallTitleRate": 0.1506849315068493,
-        "finalTitleRate": 0.43478260869565216
+        "raw": 205,
+        "itemCount": 18,
+        "recallTitleRate": 0.13658536585365855,
+        "finalTitleRate": 0.3888888888888889
       },
       {
         "niche": "support-transcripts",
         "method": "legacy",
-        "raw": 241,
-        "itemCount": 18,
-        "recallTitleRate": 0.12863070539419086,
-        "finalTitleRate": 0.16666666666666666
+        "raw": 239,
+        "itemCount": 23,
+        "recallTitleRate": 0.08368200836820083,
+        "finalTitleRate": 0.043478260869565216
       },
       {
         "niche": "scheduling",
         "method": "legacy",
-        "raw": 244,
-        "itemCount": 17,
-        "recallTitleRate": 0.12704918032786885,
-        "finalTitleRate": 0.23529411764705882
+        "raw": 248,
+        "itemCount": 23,
+        "recallTitleRate": 0.11290322580645161,
+        "finalTitleRate": 0.21739130434782608
       },
       {
         "niche": "dev-workflow",
         "method": "legacy",
-        "raw": 227,
-        "itemCount": 26,
-        "recallTitleRate": 0.11894273127753303,
-        "finalTitleRate": 0.19230769230769232
+        "raw": 225,
+        "itemCount": 25,
+        "recallTitleRate": 0.08888888888888889,
+        "finalTitleRate": 0.24
       }
     ]
   },
@@ -95,19 +95,19 @@
       "id": "hn",
       "label": "Hacker News (official API)",
       "enabled": true,
-      "rows": 552
+      "rows": 530
     },
     {
       "id": "so",
       "label": "Stack Exchange / Stack Overflow (official API)",
       "enabled": true,
-      "rows": 55
+      "rows": 54
     },
     {
       "id": "github",
       "label": "GitHub Issues (public REST API)",
       "enabled": true,
-      "rows": 624
+      "rows": 625
     },
     {
       "id": "consumerQa",
@@ -119,7 +119,7 @@
       "id": "rss",
       "label": "Configured RSS / Atom feeds",
       "enabled": true,
-      "rows": 4
+      "rows": 1
     },
     {
       "id": "firstParty",
@@ -135,8 +135,8 @@
     }
   ],
   "totals": {
-    "rawRecords": 1383,
-    "complaintRecords": 233,
+    "rawRecords": 1358,
+    "complaintRecords": 235,
     "opportunities": 60
   },
   "errors": [],
@@ -489,122 +489,10 @@
       }
     },
     {
-      "id": "dev-workflow-all-ai-generated-code-should-be-open-source",
+      "id": "dev-workflow-nifi-how-to-create-oauth2-access-token-provider-",
       "nicheId": "dev-workflow",
       "nicheLabel": "Developer workflow and integration friction",
-      "title": "All AI-generated code should be Open Source",
-      "score": 29,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "hn"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-15T22:05:20.000Z",
-      "evidence": [
-        {
-          "title": "All AI-generated code should be Open Source",
-          "url": "https://news.ycombinator.com/item?id=50511342",
-          "source": "hn",
-          "createdAt": "2026-11-15T22:05:20.000Z",
-          "excerpt": "Open or Closed. If it is not human engineered it will just amount to the pile of generated slop. If the model generated that version it will be able to do it infinitely. I fail to see what would it fix. It's like if we a"
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 4,
-          "urgency": 6,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 32,
-        "audience": "unknown",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1nboolq:v1",
-      "idea": {
-        "version": 3,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "brief": {
-          "jobStory": {
-            "zh": "When writing code using an AI tool, a developer wants to use the output directly in a project, so that the code can be i",
-            "en": "When writing code using an AI tool, a developer wants to use the output directly in a project, so that the code can be integrated into the existing system witho"
-          },
-          "pain": {
-            "zh": "The AI-generated code cannot be used directly because it is not open source, causing the developer to waste time modifyi",
-            "en": "The AI-generated code cannot be used directly because it is not open source, causing the developer to waste time modifying it before it can be integrated."
-          },
-          "workaround": {
-            "zh": "Assuming the developer manually edits the AI-generated code to meet open source requirements before using it.",
-            "en": "Assuming the developer manually edits the AI-generated code to meet open source requirements before using it."
-          },
-          "rootObstacle": {
-            "zh": "The lack of access to the original AI model code prevents direct use of generated output.",
-            "en": "The lack of access to the original AI model code prevents direct use of generated output."
-          },
-          "build": {
-            "zh": "A function that outputs the full source code of an AI-generated program along with a link to the model’s training data.",
-            "en": "A function that outputs the full source code of an AI-generated program along with a link to the model’s training data."
-          },
-          "test": {
-            "zh": "Ask an AI tool to generate a simple program and have the built function return its source code and model link within one",
-            "en": "Ask an AI tool to generate a simple program and have the built function return its source code and model link within one hour."
-          },
-          "stopIf": {
-            "zh": "The AI tool refuses to provide the model’s training data or source code when requested.",
-            "en": "The AI tool refuses to provide the model’s training data or source code when requested."
-          },
-          "whyNow": {
-            "zh": "There is no timing evidence specified in the complaint.",
-            "en": "There is no timing evidence specified in the complaint."
-          }
-        },
-        "headline": {
-          "zh": "A function that outputs the full source code of an AI-generated program along with a link to the model’s training data.",
-          "en": "A function that outputs the full source code of an AI-generated program along with a link to the model’s training data."
-        },
-        "who": {
-          "zh": "When writing code using an AI tool, a developer wants to use the output directly in a project, so that the code can be i",
-          "en": "When writing code using an AI tool, a developer wants to use the output directly in a project, so that the code can be integrated into the existing system witho"
-        },
-        "why": {
-          "zh": "The lack of access to the original AI model code prevents direct use of generated output.",
-          "en": "The lack of access to the original AI model code prevents direct use of generated output."
-        },
-        "step": {
-          "zh": "Ask an AI tool to generate a simple program and have the built function return its source code and model link within one",
-          "en": "Ask an AI tool to generate a simple program and have the built function return its source code and model link within one hour."
-        }
-      }
-    },
-    {
-      "id": "dev-workflow-windy-upload-fails-with-http-401-on-stations-api",
-      "nicheId": "dev-workflow",
-      "nicheLabel": "Developer workflow and integration friction",
-      "title": "Windy upload fails with HTTP 401 on Stations API v2 (alphanumeric Station ID / Station password)",
+      "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
       "score": 29,
       "breakdown": {
         "frequency": 3,
@@ -615,20 +503,20 @@
       },
       "mentions": 1,
       "sources": [
-        "github"
+        "so"
       ],
       "signals": [
         "broken"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-16T06:21:15.000Z",
+      "lastSeen": "2026-11-16T21:54:39.000Z",
       "evidence": [
         {
-          "title": "Windy upload fails with HTTP 401 on Stations API v2 (alphanumeric Station ID / Station password)",
-          "url": "https://github.com/kmich/ha_ws_core/issues/196",
-          "source": "github",
-          "createdAt": "2026-11-16T06:21:15.000Z",
-          "excerpt": "### Integration version 2.13.15 ### Home Assistant version 2026.10.4 ### Weather station hardware Personal Weather Station (via Home Assistant sensor entities) ### Describe the bug Windy introduced **Stations API v2** (`"
+          "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body wants Raw JSON?",
+          "url": "https://stackoverflow.com/questions/80017055/nifi-how-to-create-oauth2-access-token-provider-as-a-controller-service-when-ht",
+          "source": "so",
+          "createdAt": "2026-11-16T21:54:39.000Z",
+          "excerpt": "Configuring a StandardOauth2AccessTokenProvider as a Controller Service in Apache Nifi 2.12 is not working in a specific situation. I am trying to work out if i'm doing something wrong or if Nifi just isn't supporting th"
         }
       ],
       "opportunityCard": {
@@ -655,68 +543,68 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "14yt4my:v1",
+      "cardKey": "77r9bs:v1",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当使用Home Assistant 2026.10.4集成Personal Weather Station的Station API v2时，独立开发者希望完成设备数据同步，以便在系统中获取实时天气信息。",
-            "en": "When using Home Assistant 2026.10.4 to integrate Personal Weather Station’s Stations API v2, indie developers want to complete device data synchronization to ge"
+            "zh": "当在Apache Nifi 2.12中尝试将StandardOauth2AccessTokenProvider配置为控制器服务时，这个人希望完成该配置，以便实现OAuth2授权流程。",
+            "en": "When trying to configure a StandardOauth2AccessTokenProvider as a Controller Service in Apache Nifi 2.12, the person wants to complete this setup so as to"
           },
           "pain": {
-            "zh": "在尝试上传Station ID和密码时，会收到HTTP 401错误，导致数据同步失败。",
-            "en": "When trying to upload the Station ID and password, an HTTP 401 error occurs, causing data synchronization to fail."
+            "zh": "在特定情况下，将该提供商配置为控制器服务失败，导致用户无法继续推进OAuth2授权相关操作。",
+            "en": "Under specific circumstances, configuring the provider as a Controller Service fails, preventing the user from progressing with OAuth2 authorization tasks."
           },
           "workaround": {
-            "zh": "假设开发者目前只能放弃同步尝试或更换其他兼容的天气数据源。",
-            "en": "Assuming developers currently have to give up synchronization attempts or switch to other compatible weather data sources."
+            "zh": "假设用户目前尝试手动调整配置文件或依赖其他未明确的临时方案来绕过问题。",
+            "en": "It is assumed the user currently attempts to manually modify configuration files or rely on other unspecified temporary solutions to bypass the issue."
           },
           "rootObstacle": {
-            "zh": "API认证机制未正确验证输入的Station ID与密码组合的权限。",
-            "en": "The API authentication mechanism fails to properly validate the permission of the entered Station ID and password combination."
+            "zh": "Nifi 2.12的控制器服务架构缺乏处理StandardOauth2AccessTokenProvider配置的必要功能实现。",
+            "en": "The Controller Service architecture in Nifi 2.12 lacks the necessary functional implementation to handle StandardOauth2AccessTokenProvider configurations."
           },
           "build": {
-            "zh": "实现一个函数，接收Station ID和密码后返回验证通过的布尔值。",
-            "en": "Build a function that returns a boolean value indicating successful validation when given a Station ID and password."
+            "zh": "创建一个可插入Nifi 2.12控制器服务的最小功能模块，用于正确解析并设置StandardOauth2AccessTokenProvider的必需参数。",
+            "en": "Build a minimal functional module that can be inserted into Nifi 2.12’s Controller Service to properly parse and set required parameters for StandardOauth2Acces"
           },
           "test": {
-            "zh": "编写测试用例，用有效的站点凭证调用该函数并确认返回true，用无效凭证调用则返回false。",
-            "en": "Write test cases that call the function with valid site credentials to confirm true is returned, and with invalid credentials to confirm false is returned."
+            "zh": "编写一段测试用例，模拟请求体数据并验证该模块能否成功生成有效的OAuth2访问令牌。",
+            "en": "Create a test case that simulates request body data to verify whether the module can successfully generate a valid OAuth2 access token."
           },
           "stopIf": {
-            "zh": "若测试中有效凭证始终返回false，则应放弃该功能开发。",
-            "en": "If valid credentials always return false in tests, the development of this function should be abandoned."
+            "zh": "若测试用例运行后仍无法生成有效令牌，则该需求不具备实际价值。",
+            "en": "If the test case still fails to generate a valid token after execution, the requirement has no practical value."
           },
           "whyNow": {
-            "zh": "现有证据仅说明该特定版本的API存在认证问题，无更多时间相关提示。",
+            "zh": "现有证据仅表明存在特定场景下的配置故障，无额外时间相关提示。",
             "en": ""
           }
         },
         "headline": {
-          "zh": "实现一个函数，接收Station ID和密码后返回验证通过的布尔值。",
-          "en": "Build a function that returns a boolean value indicating successful validation when given a Station ID and password."
+          "zh": "创建一个可插入Nifi 2.12控制器服务的最小功能模块，用于正确解析并设置StandardOauth2AccessTokenProvider的必需参数。",
+          "en": "Build a minimal functional module that can be inserted into Nifi 2.12’s Controller Service to properly parse and set required parameters for StandardOauth2Acces"
         },
         "who": {
-          "zh": "当使用Home Assistant 2026.10.4集成Personal Weather Station的Station API v2时，独立开发者希望完成设备数据同步，以便在系统中获取实时天气信息。",
-          "en": "When using Home Assistant 2026.10.4 to integrate Personal Weather Station’s Stations API v2, indie developers want to complete device data synchronization to ge"
+          "zh": "当在Apache Nifi 2.12中尝试将StandardOauth2AccessTokenProvider配置为控制器服务时，这个人希望完成该配置，以便实现OAuth2授权流程。",
+          "en": "When trying to configure a StandardOauth2AccessTokenProvider as a Controller Service in Apache Nifi 2.12, the person wants to complete this setup so as to"
         },
         "why": {
-          "zh": "API认证机制未正确验证输入的Station ID与密码组合的权限。",
-          "en": "The API authentication mechanism fails to properly validate the permission of the entered Station ID and password combination."
+          "zh": "Nifi 2.12的控制器服务架构缺乏处理StandardOauth2AccessTokenProvider配置的必要功能实现。",
+          "en": "The Controller Service architecture in Nifi 2.12 lacks the necessary functional implementation to handle StandardOauth2AccessTokenProvider configurations."
         },
         "step": {
-          "zh": "编写测试用例，用有效的站点凭证调用该函数并确认返回true，用无效凭证调用则返回false。",
-          "en": "Write test cases that call the function with valid site credentials to confirm true is returned, and with invalid credentials to confirm false is returned."
+          "zh": "编写一段测试用例，模拟请求体数据并验证该模块能否成功生成有效的OAuth2访问令牌。",
+          "en": "Create a test case that simulates request body data to verify whether the module can successfully generate a valid OAuth2 access token."
         }
       }
     },
     {
-      "id": "invoice-export-margaret-calls-the-crew-s-wage-bill-money-they-b",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Margaret calls the crew's wage bill money they \"brought in\" and \"profits\"",
+      "id": "dev-workflow-pangolin-eventstreaming-data-block-seems-incompa",
+      "nicheId": "dev-workflow",
+      "nicheLabel": "Developer workflow and integration friction",
+      "title": "Pangolin Eventstreaming {{data}} block seems incompatible with Discord",
       "score": 29,
       "breakdown": {
         "frequency": 3,
@@ -733,14 +621,205 @@
         "broken"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-16T04:16:39.000Z",
+      "lastSeen": "2026-11-16T21:52:38.000Z",
       "evidence": [
         {
-          "title": "Margaret calls the crew's wage bill money they \"brought in\" and \"profits\"",
-          "url": "https://github.com/Stephenson-Software/FishE/issues/282",
+          "title": "Pangolin Eventstreaming {{data}} block seems incompatible with Discord",
+          "url": "https://github.com/fosrl/pangolin/issues/4129",
           "source": "github",
-          "createdAt": "2026-11-16T04:16:39.000Z",
-          "excerpt": "## Bug Margaret's answer to \"What do you think of my fishing business?\" (`src/location/bank.py`, `_businessDialogue`) quotes `stats.totalWagesPaid`, which is money the player has **paid out** (`boats.runDailyProduction` "
+          "createdAt": "2026-11-16T21:52:38.000Z",
+          "excerpt": "### Describe the Bug As soon as I include the {{data}} field in the JSON response, or use a standard JSON body, I get errors such as: HttpLogDestination: server at \"https://discord.com/api/webhooks/xxxxxx\" returned HTTP "
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1u76rbr:v1",
+      "idea": {
+        "version": 3,
+        "origin": "template",
+        "persona": "indie-dev",
+        "brief": null,
+        "headline": {
+          "zh": "关于「Pangolin Eventstreaming {{data}} block seems incompatible wi」：给独立开发者把这个老出错的环节做稳",
+          "en": "Re: \"Pangolin Eventstreaming {{data}} block seems inc\" — make this failing step reliable for indie developers"
+        },
+        "who": {
+          "zh": "独立开发者",
+          "en": "indie developers"
+        },
+        "why": {
+          "zh": "公开讨论里有人在问「Pangolin Eventstreaming {{data}} block seems incompatible wi」，现有做法还不省心；具体价值需点开原帖判断。",
+          "en": "Someone raised \"Pangolin Eventstreaming {{data}} block seems incompatible wi\" in public Q&A; open the source to judge the value."
+        },
+        "step": {
+          "zh": "先点开原始讨论，确认这是不是反复出现、有人真的愿意解决的麻烦。",
+          "en": "Open the original discussion first and check whether this is a recurring problem people actually want solved."
+        }
+      }
+    },
+    {
+      "id": "dev-workflow-webhook-agent-runs-fail-runtimestoreerror-not-fo",
+      "nicheId": "dev-workflow",
+      "nicheLabel": "Developer workflow and integration friction",
+      "title": "Webhook agent runs fail: RuntimeStoreError('not_found') on multiplexed gateway (dynamic +…",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-16T21:53:56.000Z",
+      "evidence": [
+        {
+          "title": "Webhook agent runs fail: RuntimeStoreError('not_found') on multiplexed gateway (dynamic + static routes)",
+          "url": "https://github.com/NousResearch/hermes-agent/issues/156703",
+          "source": "github",
+          "createdAt": "2026-11-16T21:53:56.000Z",
+          "excerpt": "# BUG REPORT: Webhook-triggered agent runs fail with RuntimeStoreError('not_found') on multiplexed gateways (dynamic + static routes) ## Environment - Hermes Agent v0.23.2 (2026.9.24), install method: git, commit ae2a81c"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "rjhzmn:v1",
+      "idea": {
+        "version": 3,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "brief": {
+          "jobStory": {
+            "zh": "当使用Hermes Agent v0.23.2处理动态+静态路由的multiplexed gateway时，独立开发者想要触发webhook并让对应agent运行，以便完成工作流自动化。",
+            "en": "When using Hermes Agent v0.23.2 with dynamic+static routes on multiplexed gateways, indie devs want to trigger webhooks and run agents to automate workflows."
+          },
+          "pain": {
+            "zh": "在尝试触发webhook时，agent会因RuntimeStoreError('not_found')直接失败，导致工作流无法继续推进。",
+            "en": "Attempting to trigger a webhook causes the agent to fail immediately with RuntimeStoreError('not_found'), preventing workflow progression."
+          },
+          "workaround": {
+            "zh": "假设开发者目前只能放弃该webhook触发操作，等待问题修复后再重新尝试。",
+            "en": "Assuming devs currently must abandon the webhook attempt and retry after the issue is fixed."
+          },
+          "rootObstacle": {
+            "zh": "系统无法在动态+静态路由混合的gateway环境中定位到目标agent实例，导致存储查询失败。",
+            "en": "The system cannot locate target agent instances in a gateway with mixed dynamic+static routes, causing storage lookup failures."
+          },
+          "build": {
+            "zh": "实现一个基于路由规则的agent实例快速定位函数，输入路由配置即可返回对应实例ID。",
+            "en": "Build a function that quickly locates agent instances based on route rules, returning the instance ID from route configuration."
+          },
+          "test": {
+            "zh": "编写测试用例，输入包含动态与静态路由的模拟gateway配置，验证函数能否返回正确的agent实例ID。",
+            "en": "Create test cases with simulated gateway configurations including dynamic+static routes to verify the function returns the correct instance ID."
+          },
+          "stopIf": {
+            "zh": "若测试用例中函数始终返回错误或空值，则无需继续开发。",
+            "en": "If the function always returns errors or null values in test cases, stop development."
+          },
+          "whyNow": {
+            "zh": "现有报告明确指出该错误发生在特定版本的Hermes Agent中，存在即时的问题解决需求。",
+            "en": ""
+          }
+        },
+        "headline": {
+          "zh": "实现一个基于路由规则的agent实例快速定位函数，输入路由配置即可返回对应实例ID。",
+          "en": "Build a function that quickly locates agent instances based on route rules, returning the instance ID from route configuration."
+        },
+        "who": {
+          "zh": "当使用Hermes Agent v0.23.2处理动态+静态路由的multiplexed gateway时，独立开发者想要触发webhook并让对应agent运行，以便完成工作流自动化。",
+          "en": "When using Hermes Agent v0.23.2 with dynamic+static routes on multiplexed gateways, indie devs want to trigger webhooks and run agents to automate workflows."
+        },
+        "why": {
+          "zh": "系统无法在动态+静态路由混合的gateway环境中定位到目标agent实例，导致存储查询失败。",
+          "en": "The system cannot locate target agent instances in a gateway with mixed dynamic+static routes, causing storage lookup failures."
+        },
+        "step": {
+          "zh": "编写测试用例，输入包含动态与静态路由的模拟gateway配置，验证函数能否返回正确的agent实例ID。",
+          "en": "Create test cases with simulated gateway configurations including dynamic+static routes to verify the function returns the correct instance ID."
+        }
+      }
+    },
+    {
+      "id": "invoice-export-budget-upcoming-bills-uses-rule-start-dates-inst",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Budget: Upcoming Bills uses rule start dates instead of next due dates",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 15,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-16T20:46:23.000Z",
+      "evidence": [
+        {
+          "title": "Budget: Upcoming Bills uses rule start dates instead of next due dates",
+          "url": "https://github.com/ejsadiarin/coregateway/issues/29",
+          "source": "github",
+          "createdAt": "2026-11-16T20:46:23.000Z",
+          "excerpt": "> *This was generated by AI during triage.* ## What's broken The Budget dashboard's “Upcoming Bills” card filters active expense rules by whether the rule's `start_date` falls in the next 7 days. It never looks at the ne"
         }
       ],
       "opportunityCard": {
@@ -767,60 +846,284 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "ondo72:v1",
+      "cardKey": "7mr6ua:v1",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当Margaret想要评估自己的钓鱼业务状况时，她需要查看已支付的员工工资总额，以便了解经营成本。",
-            "en": "When Margaret wants to assess her fishing business, she needs to view the total wages paid to employees to understand operating costs."
+            "zh": "当独立开发者需要查看即将到期的支出规则时，希望按实际到期日而非规则起始日筛选，从而准确安排还款计划。",
+            "en": "When an indie-dev needs to view upcoming expense rules, they want to filter by actual due dates rather than start dates to plan repayments accurately."
           },
           "pain": {
-            "zh": "当前系统显示的‘totalWagesPaid’实际是已支付的工资金额，而非她口中需要的‘带进来的资金’，导致她无法正确判断业务盈利情况。",
-            "en": "The current system shows ‘totalWagesPaid’, which is actually the amount of wages already paid rather than the ‘funds brought in’ she refers to, preventing her f"
+            "zh": "因为仪表板仅按规则起始日筛选，导致开发者无法看到真正需要在未来7天内支付的账单，造成错失还款时机。",
+            "en": "The dashboard only filters by start dates, preventing developers from seeing bills that actually need payment within the next 7 days, causing missed repayment d"
           },
           "workaround": {
-            "zh": "她目前只能依靠记忆或手动记录工资支出，容易出错且无法实时更新数据。",
-            "en": "She currently relies on memory or manual record-keeping of wage expenses, which is prone to errors and cannot be updated in real time."
+            "zh": "假设开发者只能手动检查每个规则的起始日期，确认是否在7天内到期，但效率极低且容易出错。",
+            "en": "Assuming developers must manually check each rule’s start date to determine if it falls within 7 days, which is inefficient and prone to errors."
           },
           "rootObstacle": {
-            "zh": "系统将已支付的工资金额错误标记为业务初始投入资金，导致收入与成本数据完全颠倒。",
-            "en": "The system incorrectly labels the amount of wages already paid as initial business investment funds, reversing income and cost data."
+            "zh": "系统缺乏按实际到期日而非规则定义日期进行筛选的能力。",
+            "en": "The system lacks the capability to filter by actual due dates instead of rule-defined start dates."
           },
           "build": {
-            "zh": "修改代码将‘totalWagesPaid’字段的值直接替换为‘0’，确保其始终显示为已投入的资金数值。",
-            "en": "Modify the code to directly replace the value of ‘totalWagesPaid’ with ‘0’, ensuring it always displays as the invested fund amount."
+            "zh": "实现一个函数，允许用户输入账单金额并选择到期日范围，自动筛选出该范围内所有需支付的规则。",
+            "en": "Build a function that lets users input a bill amount and select a due date range to automatically filter all payable rules within that range."
           },
           "test": {
-            "zh": "在测试环境中将对应字段值设为0后，检查业务评估界面是否仍显示为正确的资金数值。",
-            "en": "Set the corresponding field value to 0 in the testing environment and verify if the business assessment interface still shows the correct fund value."
+            "zh": "编写一个包含5条不同起始日和到期日的测试规则数据集，验证筛选结果是否仅包含指定到期日范围内的账单。",
+            "en": "Create a test dataset with 5 rules having different start and due dates to verify filtering results include only bills within the specified due date range."
           },
           "stopIf": {
-            "zh": "修改后业务评估界面的资金数值仍未变为0，则说明问题根源不在该字段显示上。",
-            "en": "If the fund value in the business assessment interface does not change to 0 after modification, it indicates the issue lies elsewhere."
+            "zh": "若筛选结果包含起始日期在7天前的规则，则说明该功能无法解决核心问题。",
+            "en": "If filtering results include rules with start dates before 7 days, it indicates the feature cannot solve the core problem."
           },
           "whyNow": {
-            "zh": "现有代码存在明显的数据逻辑错误，直接影响核心业务功能的准确性。",
-            "en": "The existing code has a clear data logic error that directly affects the accuracy of core business functions."
+            "zh": "无相关时间证据表明当前必须立即解决此问题。",
+            "en": "There is no timing evidence indicating this issue must be resolved immediately."
           }
         },
         "headline": {
-          "zh": "修改代码将‘totalWagesPaid’字段的值直接替换为‘0’，确保其始终显示为已投入的资金数值。",
-          "en": "Modify the code to directly replace the value of ‘totalWagesPaid’ with ‘0’, ensuring it always displays as the invested fund amount."
+          "zh": "实现一个函数，允许用户输入账单金额并选择到期日范围，自动筛选出该范围内所有需支付的规则。",
+          "en": "Build a function that lets users input a bill amount and select a due date range to automatically filter all payable rules within that range."
         },
         "who": {
-          "zh": "当Margaret想要评估自己的钓鱼业务状况时，她需要查看已支付的员工工资总额，以便了解经营成本。",
-          "en": "When Margaret wants to assess her fishing business, she needs to view the total wages paid to employees to understand operating costs."
+          "zh": "当独立开发者需要查看即将到期的支出规则时，希望按实际到期日而非规则起始日筛选，从而准确安排还款计划。",
+          "en": "When an indie-dev needs to view upcoming expense rules, they want to filter by actual due dates rather than start dates to plan repayments accurately."
         },
         "why": {
-          "zh": "系统将已支付的工资金额错误标记为业务初始投入资金，导致收入与成本数据完全颠倒。",
-          "en": "The system incorrectly labels the amount of wages already paid as initial business investment funds, reversing income and cost data."
+          "zh": "系统缺乏按实际到期日而非规则定义日期进行筛选的能力。",
+          "en": "The system lacks the capability to filter by actual due dates instead of rule-defined start dates."
         },
         "step": {
-          "zh": "在测试环境中将对应字段值设为0后，检查业务评估界面是否仍显示为正确的资金数值。",
-          "en": "Set the corresponding field value to 0 in the testing environment and verify if the business assessment interface still shows the correct fund value."
+          "zh": "编写一个包含5条不同起始日和到期日的测试规则数据集，验证筛选结果是否仅包含指定到期日范围内的账单。",
+          "en": "Create a test dataset with 5 rules having different start and due dates to verify filtering results include only bills within the specified due date range."
+        }
+      }
+    },
+    {
+      "id": "invoice-export-flaky-real-postgresql-test-the-partial-repair-di",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "Flaky real-PostgreSQL test: the PARTIAL repair 'died after its payment was recorded' case…",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-16T17:20:05.000Z",
+      "evidence": [
+        {
+          "title": "Flaky real-PostgreSQL test: the PARTIAL repair 'died after its payment was recorded' case restores its mock too early",
+          "url": "https://github.com/thatskiff33/AlpineClubBookingsNZ/issues/5215",
+          "source": "github",
+          "createdAt": "2026-11-16T17:20:05.000Z",
+          "excerpt": "### What happens today One real-PostgreSQL test fails now and then on a slow or busy runner, for changes that have nothing to do with it: `src/lib/__tests__/xero-partial-repair-claim.realdb.test.ts`, \"MUTATION: a repair "
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1muibr7:v1",
+      "idea": {
+        "version": 3,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "brief": {
+          "jobStory": {
+            "zh": "当处理与测试用例无关的业务变更时，希望测试能正常运行，以便及时发现代码问题。",
+            "en": "When handling business changes unrelated to the test case, wants the test to run properly so issues can be detected promptly."
+          },
+          "pain": {
+            "zh": "在慢速或繁忙的服务器上，某个与测试无关的变更会导致`src/lib/__tests__/xero-partial-repair-claim.realdb.test.ts`测试偶尔失败，报错为‘MUTATION: a repair’。",
+            "en": "On slow or busy servers, a change unrelated to the test causes `src/lib/__tests__/xero-partial-repair-claim.realdb.test.ts` to fail occasionally with the error"
+          },
+          "workaround": {
+            "zh": "假设开发者目前只能等待测试环境恢复或手动排查故障原因。",
+            "en": "Assuming developers currently must wait for the testing environment to recover or manually investigate the cause."
+          },
+          "rootObstacle": {
+            "zh": "测试环境在处理非相关业务负载时无法保持稳定状态，导致随机故障。",
+            "en": "The testing environment cannot remain stable when handling unrelated business load, causing random failures."
+          },
+          "build": {
+            "zh": "实现一个自动检测测试环境负载状态的函数，当负载超过阈值时立即中断当前测试。",
+            "en": "Build a function that automatically detects test environment load and stops the current test if it exceeds a threshold."
+          },
+          "test": {
+            "zh": "编写该函数后，立即在慢速服务器上运行一次包含非相关变更的测试用例，观察是否仍会触发故障。",
+            "en": "After building the function, immediately run the test case with unrelated changes on a slow server to see if it still triggers the failure."
+          },
+          "stopIf": {
+            "zh": "如果测试在正常负载下也能随机失败，则无需继续开发。",
+            "en": "If the test fails randomly even under normal load, there is no need to proceed."
+          },
+          "whyNow": {
+            "zh": "现有证据仅描述了已存在的故障现象，未提及时间相关的推进理由。",
+            "en": "Current evidence only describes existing failure phenomena without any timing-related justification."
+          }
+        },
+        "headline": {
+          "zh": "实现一个自动检测测试环境负载状态的函数，当负载超过阈值时立即中断当前测试。",
+          "en": "Build a function that automatically detects test environment load and stops the current test if it exceeds a threshold."
+        },
+        "who": {
+          "zh": "当处理与测试用例无关的业务变更时，希望测试能正常运行，以便及时发现代码问题。",
+          "en": "When handling business changes unrelated to the test case, wants the test to run properly so issues can be detected promptly."
+        },
+        "why": {
+          "zh": "测试环境在处理非相关业务负载时无法保持稳定状态，导致随机故障。",
+          "en": "The testing environment cannot remain stable when handling unrelated business load, causing random failures."
+        },
+        "step": {
+          "zh": "编写该函数后，立即在慢速服务器上运行一次包含非相关变更的测试用例，观察是否仍会触发故障。",
+          "en": "After building the function, immediately run the test case with unrelated changes on a slow server to see if it still triggers the failure."
+        }
+      }
+    },
+    {
+      "id": "invoice-export-ongoing-dev",
+      "nicheId": "invoice-export",
+      "nicheLabel": "Invoicing and expense export failures",
+      "title": "ongoing dev?",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 14.8,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "frustration"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-16T13:14:52.000Z",
+      "evidence": [
+        {
+          "title": "ongoing dev?",
+          "url": "https://github.com/ChrisTitusTech/titusbooks/issues/5",
+          "source": "github",
+          "createdAt": "2026-11-16T13:14:52.000Z",
+          "excerpt": "I too hate QuickBooks, and you have chosen my dream stack for a replacement and have a solid foundation so far. Is this going to happen? Would you like contributions? I'm no accountant, but happy to pitch in."
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 5,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1c8o98v:v1",
+      "idea": {
+        "version": 3,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "brief": {
+          "jobStory": {
+            "zh": "当需要处理发票和费用导出时，希望使用符合自己技术偏好的工具来完成工作，以便顺利获取财务数据。",
+            "en": "When needing to process invoices and expense exports, wants to use a tool matching their technical preferences to obtain financial data smoothly"
+          },
+          "pain": {
+            "zh": "在尝试使用当前工具进行发票和费用导出时，会遇到故障，导致无法获取所需数据。",
+            "en": "When trying to use the current tool to export invoices and expenses, failures occur that prevent obtaining the required data."
+          },
+          "workaround": {
+            "zh": "假设该用户目前只能依赖存在故障的QuickBooks来完成相关操作。",
+            "en": "Assumed the user currently must rely on the faulty QuickBooks to complete these tasks."
+          },
+          "rootObstacle": {
+            "zh": "当前工具缺乏稳定处理发票和费用导出功能，无法可靠生成所需数据。",
+            "en": "The current tool lacks a stable function to process invoices and expense exports, failing to generate reliable data."
+          },
+          "build": {
+            "zh": "开发一个可正常导出发票和费用数据的单一功能模块。",
+            "en": "Build a single functional module that can export invoices and expenses correctly."
+          },
+          "test": {
+            "zh": "编写一段测试代码，模拟导出流程并验证数据是否按预期生成。",
+            "en": "Write test code to simulate the export process and verify if data is generated as expected."
+          },
+          "stopIf": {
+            "zh": "若测试中导出过程始终出现故障且无法修复，则应放弃该想法。",
+            "en": "If the export process consistently fails during testing and cannot be fixed, abandon the idea."
+          },
+          "whyNow": {
+            "zh": "现有工具存在明确的功能故障，且有用户主动提出愿意贡献力量协助改进。",
+            "en": "The existing tool has clear functional failures, and a user has offered to contribute to improvements."
+          }
+        },
+        "headline": {
+          "zh": "开发一个可正常导出发票和费用数据的单一功能模块。",
+          "en": "Build a single functional module that can export invoices and expenses correctly."
+        },
+        "who": {
+          "zh": "当需要处理发票和费用导出时，希望使用符合自己技术偏好的工具来完成工作，以便顺利获取财务数据。",
+          "en": "When needing to process invoices and expense exports, wants to use a tool matching their technical preferences to obtain financial data smoothly"
+        },
+        "why": {
+          "zh": "当前工具缺乏稳定处理发票和费用导出功能，无法可靠生成所需数据。",
+          "en": "The current tool lacks a stable function to process invoices and expense exports, failing to generate reliable data."
+        },
+        "step": {
+          "zh": "编写一段测试代码，模拟导出流程并验证数据是否按预期生成。",
+          "en": "Write test code to simulate the export process and verify if data is generated as expected."
         }
       }
     },
@@ -833,7 +1136,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.9,
+        "recency": 14.6,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1054,15 +1357,15 @@
       }
     },
     {
-      "id": "solo-crm-salesforce-upsert-and-query-urls-format-the-api-",
+      "id": "solo-crm-integration-mapping-to-a-deleted-field-displays-",
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
-      "title": "Salesforce: upsert and query URLs format the API version with the server's culture",
+      "title": "Integration mapping to a deleted field displays \"Don't Include\" but keeps the stale reference…",
       "score": 29,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.9,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1074,14 +1377,14 @@
         "broken"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-15T23:25:45.000Z",
+      "lastSeen": "2026-11-16T21:42:16.000Z",
       "evidence": [
         {
-          "title": "Salesforce: upsert and query URLs format the API version with the server's culture",
-          "url": "https://github.com/functionaldevices-cis/syteline-ido-replication/issues/32",
+          "title": "Integration mapping to a deleted field displays \"Don't Include\" but keeps the stale reference, so every send fails with missingField",
+          "url": "https://github.com/verbb/formie/issues/3128",
           "source": "github",
-          "createdAt": "2026-11-15T23:25:45.000Z",
-          "excerpt": "On a server whose culture uses a comma as the decimal separator, this produces `/services/data/v61,0/...`, and every upsert fails. `DeleteRecordBatch` already does it correctly with `this.ApiVersion.ToString(\"0.0\", Cultu"
+          "createdAt": "2026-11-16T21:42:16.000Z",
+          "excerpt": "### Describe the bug When a field that is mapped in an integration is deleted from the form, the integration's mapping row in the control panel shows \"Don't Include\", but the form settings still hold the reference to the"
         }
       ],
       "opportunityCard": {
@@ -1108,73 +1411,73 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "1q3xk1u:v1",
+      "cardKey": "2mnu0t:v1",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当使用以逗号作为小数分隔符的服务器文化设置时，独立开发者想要通过API执行数据操作，以便正常完成业务流程。",
-            "en": "When using a server culture with a comma as the decimal separator, an indie developer wants to perform API operations to complete business tasks successfully."
+            "zh": "当在表单中配置了集成映射的字段被删除后，想要让集成配置不再引用该字段，以便正常使用表单。",
+            "en": "When a field that is mapped in an integration is deleted from the form, a user wants to remove the integration’s reference to that field so the form can functio"
           },
           "pain": {
-            "zh": "在以逗号作为小数分隔符的服务器上，API请求路径会包含错误格式的版本号，导致所有upsert操作失败。",
-            "en": "On a server using a comma as the decimal separator, API request paths contain incorrectly formatted version numbers, causing all upsert operations to fail."
+            "zh": "集成控制面板显示‘不要包含’，但表单设置仍保留旧引用，导致数据同步出错。",
+            "en": "The integration control panel shows ‘Don’t Include’, but the form settings still hold the stale reference, causing data synchronization errors."
           },
           "workaround": {
-            "zh": "假设开发者目前只能放弃相关数据操作或手动修改请求路径中的版本号。",
-            "en": "It is assumed developers currently either abandon the operations or manually modify the version number in request paths."
+            "zh": "假设用户需手动在控制面板修改映射状态或删除表单中的字段引用。",
+            "en": "It is assumed the user must manually adjust the mapping status in the control panel or delete the field reference from the form."
           },
           "rootObstacle": {
-            "zh": "API版本号与服务器区域设置之间的格式映射逻辑缺失，导致不同区域设置的服务器产生不兼容的请求格式。",
-            "en": "The lack of a format mapping logic between API version numbers and server region settings results in incompatible request formats across servers with different"
+            "zh": "表单设置与集成控制面板的状态不同步，导致系统忽略控制面板的显式排除指令。",
+            "en": "The form settings are not synchronized with the integration control panel’s status, causing the system to ignore the explicit exclusion instruction from the pan"
           },
           "build": {
-            "zh": "实现一个函数，自动将API版本号转换为对应服务器区域设置要求的小数分隔格式。",
-            "en": "Build a function that automatically converts API version numbers to the decimal separator format required by the server’s region settings."
+            "zh": "创建一个函数，自动将集成控制面板中标记为‘不要包含’的字段从表单设置中移除。",
+            "en": "Build a function that automatically removes fields marked as ‘Don’t Include’ in the integration control panel from the form settings."
           },
           "test": {
-            "zh": "编写单元测试，用逗号作为分隔符的测试服务器输入，验证函数输出的版本号格式正确且能成功触发upsert操作。",
-            "en": "Write unit tests using a test server with a comma as the separator to verify the output version number format is correct and can successfully trigger upsert ope"
+            "zh": "编写测试用例，模拟字段删除后触发函数，验证表单设置是否立即更新为不包含该字段。",
+            "en": "Create a test case that simulates a field deletion and triggers the function to verify if the form settings are immediately updated to exclude the field."
           },
           "stopIf": {
-            "zh": "若用分号作为分隔符的测试服务器输入后，函数仍输出包含逗号的版本号格式，则该功能无解决价值。",
-            "en": "If the function still outputs a version number format containing commas when tested on a server using a semicolon as the separator, the feature has no value."
+            "zh": "函数执行后表单设置仍未更新为不包含该字段，则说明需求不存在。",
+            "en": "If the form settings are not updated to exclude the field after the function runs, it indicates no real demand exists."
           },
           "whyNow": {
-            "zh": "现有解决方案仅针对DeleteRecordBatch功能，存在其他API操作同样受此问题影响，亟需通用解决方案。",
-            "en": "Current solutions only address DeleteRecordBatch, and other API operations are also affected by this issue, requiring a universal solution."
+            "zh": "现有方案依赖手动操作，存在错误风险，亟需自动化解决方案。",
+            "en": "Current manual solutions carry error risks, making an automated fix urgently needed."
           }
         },
         "headline": {
-          "zh": "实现一个函数，自动将API版本号转换为对应服务器区域设置要求的小数分隔格式。",
-          "en": "Build a function that automatically converts API version numbers to the decimal separator format required by the server’s region settings."
+          "zh": "创建一个函数，自动将集成控制面板中标记为‘不要包含’的字段从表单设置中移除。",
+          "en": "Build a function that automatically removes fields marked as ‘Don’t Include’ in the integration control panel from the form settings."
         },
         "who": {
-          "zh": "当使用以逗号作为小数分隔符的服务器文化设置时，独立开发者想要通过API执行数据操作，以便正常完成业务流程。",
-          "en": "When using a server culture with a comma as the decimal separator, an indie developer wants to perform API operations to complete business tasks successfully."
+          "zh": "当在表单中配置了集成映射的字段被删除后，想要让集成配置不再引用该字段，以便正常使用表单。",
+          "en": "When a field that is mapped in an integration is deleted from the form, a user wants to remove the integration’s reference to that field so the form can functio"
         },
         "why": {
-          "zh": "API版本号与服务器区域设置之间的格式映射逻辑缺失，导致不同区域设置的服务器产生不兼容的请求格式。",
-          "en": "The lack of a format mapping logic between API version numbers and server region settings results in incompatible request formats across servers with different"
+          "zh": "表单设置与集成控制面板的状态不同步，导致系统忽略控制面板的显式排除指令。",
+          "en": "The form settings are not synchronized with the integration control panel’s status, causing the system to ignore the explicit exclusion instruction from the pan"
         },
         "step": {
-          "zh": "编写单元测试，用逗号作为分隔符的测试服务器输入，验证函数输出的版本号格式正确且能成功触发upsert操作。",
-          "en": "Write unit tests using a test server with a comma as the separator to verify the output version number format is correct and can successfully trigger upsert ope"
+          "zh": "编写测试用例，模拟字段删除后触发函数，验证表单设置是否立即更新为不包含该字段。",
+          "en": "Create a test case that simulates a field deletion and triggers the function to verify if the form settings are immediately updated to exclude the field."
         }
       }
     },
     {
-      "id": "support-transcripts-intercom-a-released-subagent-sees-a-failed-super",
+      "id": "support-transcripts-gko-crashes-on-every-sync-when-a-gravitee-cloud-",
       "nicheId": "support-transcripts",
       "nicheLabel": "Support tooling and transcript exports",
-      "title": "Intercom: a released subagent sees a failed supervisor ask as the supervisor's reply",
+      "title": "GKO crashes on every sync when a Gravitee Cloud ManagementContext has no auth section",
       "score": 29,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 14.7,
+        "recency": 15,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -1186,14 +1489,14 @@
         "broken"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-15T18:19:33.000Z",
+      "lastSeen": "2026-11-16T21:40:22.000Z",
       "evidence": [
         {
-          "title": "Intercom: a released subagent sees a failed supervisor ask as the supervisor's reply",
-          "url": "https://github.com/bastani-inc/atomic/issues/5188",
+          "title": "GKO crashes on every sync when a Gravitee Cloud ManagementContext has no auth section",
+          "url": "https://github.com/gravitee-io/issues/issues/12082",
           "source": "github",
-          "createdAt": "2026-11-15T18:19:33.000Z",
-          "excerpt": "### What happened? When a released subagent's pending `contact_supervisor` ask fails (for example the broker's `Session \"boss\" ended before replying` after the supervisor ends), the child is shown the failure as a normal"
+          "createdAt": "2026-11-16T21:40:22.000Z",
+          "excerpt": "Describe the bug : **------------------** When a ManagementContext is set up in Gravitee Cloud mode (only a cloud token secret, as in the documented example), GKO normally relies on its admission webhook to complete it w"
         }
       ],
       "opportunityCard": {
@@ -1220,172 +1523,172 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "z64lgf:v1",
+      "cardKey": "ml5ppl:v1",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当已释放的子代理的待处理`contact_supervisor`请求失败时，该代理希望看到失败原因，以便知晓下一步操作。",
-            "en": "When a released subagent’s pending `contact_supervisor` request fails, the agent wants to see the reason for failure to know next steps."
+            "zh": "当在Gravitee Cloud模式下配置ManagementContext且仅使用云令牌密钥时，独立开发者想要完成同步操作，以便获取相关数据。",
+            "en": "When configuring a ManagementContext in Gravitee Cloud mode using only a cloud token secret, an indie-dev wants to complete a sync operation to obtain relevant"
           },
           "pain": {
-            "zh": "当前系统将失败直接显示为正常状态，导致代理无法识别问题根源并继续处理任务。",
-            "en": "The system currently shows failures as normal, preventing agents from identifying the root cause and proceeding."
+            "zh": "在同步过程中GKO会崩溃，导致他们无法完成操作并获取数据。",
+            "en": "During sync, GKO crashes, preventing them from completing the operation and accessing data."
           },
           "workaround": {
-            "zh": "代理需自行检查系统日志或联系主管获取反馈，效率低下且易出错。",
-            "en": "Agents must check system logs manually or contact supervisors for feedback, which is inefficient and error-prone."
+            "zh": "假设他们目前尝试手动重启服务或等待故障自行恢复。",
+            "en": "They presumably attempt to restart the service manually or wait for the failure to resolve itself."
           },
           "rootObstacle": {
-            "zh": "系统未能在失败发生时向相关代理实时传递明确的失败原因信息。",
-            "en": "The system fails to deliver clear failure reasons to relevant agents in real time when failures occur."
+            "zh": "系统缺乏在缺少认证信息时安全终止同步流程的机制。",
+            "en": "The system lacks a mechanism to safely terminate the sync process when authentication information is missing."
           },
           "build": {
-            "zh": "实现一个在`contact_supervisor`请求失败时自动向对应子代理展示失败详情的功能。",
-            "en": "Build a function that automatically displays failure details to the corresponding subagent when a `contact_supervisor` request fails."
+            "zh": "实现一个前置检查功能，在检测到无认证信息时立即中止同步请求。",
+            "en": "Build a pre-check function that immediately aborts the sync request when no authentication information is detected."
           },
           "test": {
-            "zh": "创建两个模拟账户：一个作为主管触发请求后立即离开，另一个作为子代理接收请求，验证失败信息是否正确显示。",
-            "en": "Create two mock accounts: one as a supervisor who triggers a request and leaves immediately, and another as a subagent receiving the request, to verify if failu"
+            "zh": "创建一个模拟缺失认证信息的测试用例，运行同步并观察是否崩溃。",
+            "en": "Create a test case simulating missing authentication information, run the sync, and observe whether it crashes."
           },
           "stopIf": {
-            "zh": "测试中子代理始终未收到任何失败提示信息。",
-            "en": "In testing, the subagent never receives any failure notification."
+            "zh": "同步操作能够在没有认证信息的情况下正常完成。",
+            "en": "The sync operation completes successfully without authentication information."
           },
           "whyNow": {
-            "zh": "现有缺陷直接影响代理的工作效率，存在立即修复的价值。",
-            "en": "The existing defect directly impacts agents’ efficiency, making immediate fixes valuable."
-          }
-        },
-        "headline": {
-          "zh": "实现一个在`contact_supervisor`请求失败时自动向对应子代理展示失败详情的功能。",
-          "en": "Build a function that automatically displays failure details to the corresponding subagent when a `contact_supervisor` request fails."
-        },
-        "who": {
-          "zh": "当已释放的子代理的待处理`contact_supervisor`请求失败时，该代理希望看到失败原因，以便知晓下一步操作。",
-          "en": "When a released subagent’s pending `contact_supervisor` request fails, the agent wants to see the reason for failure to know next steps."
-        },
-        "why": {
-          "zh": "系统未能在失败发生时向相关代理实时传递明确的失败原因信息。",
-          "en": "The system fails to deliver clear failure reasons to relevant agents in real time when failures occur."
-        },
-        "step": {
-          "zh": "创建两个模拟账户：一个作为主管触发请求后立即离开，另一个作为子代理接收请求，验证失败信息是否正确显示。",
-          "en": "Create two mock accounts: one as a supervisor who triggers a request and leaves immediately, and another as a subagent receiving the request, to verify if failu"
-        }
-      }
-    },
-    {
-      "id": "support-transcripts-per-cron-and-per-source-tool-allowlist-to-limit-",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "Per-cron (and per-source) tool allowlist to limit what a run can call",
-      "score": 29,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "broken"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-15T18:51:48.000Z",
-      "evidence": [
-        {
-          "title": "Per-cron (and per-source) tool allowlist to limit what a run can call",
-          "url": "https://github.com/akmatori/akmatori/issues/98",
-          "source": "github",
-          "createdAt": "2026-11-15T18:51:48.000Z",
-          "excerpt": "**Problem** Since v0.4.x a cron job has only `tools_enabled` (all enabled connector tools or none) and `builtin_tools`. A cron job that reads untrusted text (support tickets, bug-bounty reports, inbound email, webhooks) "
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 4,
-          "urgency": 6,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 32,
-        "audience": "support",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "bgvlba:v1",
-      "idea": {
-        "version": 3,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "brief": {
-          "jobStory": {
-            "zh": "当需要处理来自支持工单、漏洞奖励报告、邮件或Webhook的不可信文本时，独立开发者希望限制定时任务可调用的工具范围，以便安全处理数据。",
-            "en": "When processing untrusted text from support tickets, bug-bounty reports, emails, or Webhooks, an indie-dev wants to restrict which tools a cron job can use to s"
-          },
-          "pain": {
-            "zh": "当前cron任务仅支持全部启用工具或完全禁用，无法针对特定来源的文本限制可用工具，导致处理风险。",
-            "en": "Currently, cron jobs only allow all connectors to be enabled or none at all, preventing restriction of tools for specific source texts, causing handling risks."
-          },
-          "workaround": {
-            "zh": "假设开发者目前只能全部启用工具，或手动检查每条文本后再处理，但效率低且易出错。",
-            "en": "Assuming developers currently must either enable all tools or manually inspect each text before processing, which is inefficient and error-prone."
-          },
-          "rootObstacle": {
-            "zh": "缺乏按任务来源动态限制工具调用的机制，导致统一规则无法适配不同类型输入的安全需求。",
-            "en": "The lack of a mechanism to dynamically restrict tool calls by task source prevents uniform rules from meeting security needs for different input types."
-          },
-          "build": {
-            "zh": "实现一个函数，根据任务来源参数自动过滤工具列表，仅允许指定来源允许的工具被调用。",
-            "en": "Build a function that automatically filters the tool list based on a task source parameter, allowing only tools permitted for that source to be called."
-          },
-          "test": {
-            "zh": "编写一个测试脚本，模拟来自不同来源的文本输入，验证函数是否仅返回对应来源允许的工具列表。",
-            "en": "Write a test script simulating text inputs from different sources to verify the function returns only tools permitted for that source."
-          },
-          "stopIf": {
-            "zh": "若测试发现函数对任意来源的文本都返回所有工具列表，则该需求无实际价值。",
-            "en": "If testing shows the function returns all tools for any source text, the requirement has no practical value."
-          },
-          "whyNow": {
-            "zh": "现有功能存在明显缺陷，直接阻碍安全处理多源输入的任务，亟需修复。",
+            "zh": "现有证据表明该问题会导致同步失败，存在明确的改进需求。",
             "en": ""
           }
         },
         "headline": {
-          "zh": "实现一个函数，根据任务来源参数自动过滤工具列表，仅允许指定来源允许的工具被调用。",
-          "en": "Build a function that automatically filters the tool list based on a task source parameter, allowing only tools permitted for that source to be called."
+          "zh": "实现一个前置检查功能，在检测到无认证信息时立即中止同步请求。",
+          "en": "Build a pre-check function that immediately aborts the sync request when no authentication information is detected."
         },
         "who": {
-          "zh": "当需要处理来自支持工单、漏洞奖励报告、邮件或Webhook的不可信文本时，独立开发者希望限制定时任务可调用的工具范围，以便安全处理数据。",
-          "en": "When processing untrusted text from support tickets, bug-bounty reports, emails, or Webhooks, an indie-dev wants to restrict which tools a cron job can use to s"
+          "zh": "当在Gravitee Cloud模式下配置ManagementContext且仅使用云令牌密钥时，独立开发者想要完成同步操作，以便获取相关数据。",
+          "en": "When configuring a ManagementContext in Gravitee Cloud mode using only a cloud token secret, an indie-dev wants to complete a sync operation to obtain relevant"
         },
         "why": {
-          "zh": "缺乏按任务来源动态限制工具调用的机制，导致统一规则无法适配不同类型输入的安全需求。",
-          "en": "The lack of a mechanism to dynamically restrict tool calls by task source prevents uniform rules from meeting security needs for different input types."
+          "zh": "系统缺乏在缺少认证信息时安全终止同步流程的机制。",
+          "en": "The system lacks a mechanism to safely terminate the sync process when authentication information is missing."
         },
         "step": {
-          "zh": "编写一个测试脚本，模拟来自不同来源的文本输入，验证函数是否仅返回对应来源允许的工具列表。",
-          "en": "Write a test script simulating text inputs from different sources to verify the function returns only tools permitted for that source."
+          "zh": "创建一个模拟缺失认证信息的测试用例，运行同步并观察是否崩溃。",
+          "en": "Create a test case simulating missing authentication information, run the sync, and observe whether it crashes."
+        }
+      }
+    },
+    {
+      "id": "support-transcripts-shared-api-key-returns-401-after-redeploy-when-a",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Shared API key returns 401 after redeploy when a revoked key has the same value",
+      "score": 29,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 6,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "broken"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-16T17:06:21.000Z",
+      "evidence": [
+        {
+          "title": "Shared API key returns 401 after redeploy when a revoked key has the same value",
+          "url": "https://github.com/gravitee-io/issues/issues/12081",
+          "source": "github",
+          "createdAt": "2026-11-16T17:06:21.000Z",
+          "excerpt": "Describe the bug : ------------------ In a shared-API-key application, a revoked key can knock out the active key when both have the same value. New subscriptions get attached to every key of the application, including r"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 4,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "support",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "7adazo:v1",
+      "idea": {
+        "version": 3,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "brief": {
+          "jobStory": {
+            "zh": "当共享API密钥应用重新部署后，使用相同值的已撤销密钥会导致服务中断时，独立开发者希望恢复服务正常运行，以便继续开发项目。",
+            "en": "When a shared-API-key application is redeployed and a revoked key with the same value causes service disruption, an indie-dev wants to restore service to contin"
+          },
+          "pain": {
+            "zh": "重新部署应用后，相同值的已撤销密钥会触发401错误，使新订阅请求被拒绝，导致服务无法启动。",
+            "en": "After redeploying, a revoked key with the same value triggers a 401 error, blocking new subscription requests and preventing service startup."
+          },
+          "workaround": {
+            "zh": "假设开发者目前手动检查密钥状态并临时更换有效密钥，但这种方式效率低且易出错。",
+            "en": "Assuming developers currently manually check key status and temporarily replace it with a valid key, but this is inefficient and prone to errors."
+          },
+          "rootObstacle": {
+            "zh": "系统无法区分同一值下已撤销与有效的密钥状态，导致无效密钥仍能拦截请求。",
+            "en": "The system fails to distinguish between revoked and valid keys with identical values, allowing invalid keys to intercept requests."
+          },
+          "build": {
+            "zh": "实现一个函数，输入密钥值后返回该密钥当前是否为有效状态。",
+            "en": "Build a function that returns whether a given key value is currently valid."
+          },
+          "test": {
+            "zh": "编写测试用例，用两个相同值的密钥分别模拟有效和已撤销状态，验证函数返回结果是否符合预期。",
+            "en": "Create test cases simulating valid and revoked states for two keys with identical values to verify function output accuracy."
+          },
+          "stopIf": {
+            "zh": "若测试中相同值的密钥始终返回有效状态，则说明该功能无法解决核心问题。",
+            "en": "If tests show keys with identical values always return valid status, the function fails to address the core issue."
+          },
+          "whyNow": {
+            "zh": "无相关时间证据表明为何现在必须解决此问题。",
+            "en": ""
+          }
+        },
+        "headline": {
+          "zh": "实现一个函数，输入密钥值后返回该密钥当前是否为有效状态。",
+          "en": "Build a function that returns whether a given key value is currently valid."
+        },
+        "who": {
+          "zh": "当共享API密钥应用重新部署后，使用相同值的已撤销密钥会导致服务中断时，独立开发者希望恢复服务正常运行，以便继续开发项目。",
+          "en": "When a shared-API-key application is redeployed and a revoked key with the same value causes service disruption, an indie-dev wants to restore service to contin"
+        },
+        "why": {
+          "zh": "系统无法区分同一值下已撤销与有效的密钥状态，导致无效密钥仍能拦截请求。",
+          "en": "The system fails to distinguish between revoked and valid keys with identical values, allowing invalid keys to intercept requests."
+        },
+        "step": {
+          "zh": "编写测试用例，用两个相同值的密钥分别模拟有效和已撤销状态，验证函数返回结果是否符合预期。",
+          "en": "Create test cases simulating valid and revoked states for two keys with identical values to verify function output accuracy."
         }
       }
     },
@@ -2213,11 +2516,11 @@
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
       "title": "LibreOffice actually works 365 days a year",
-      "score": 28,
+      "score": 27,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.8,
+        "recency": 13.4,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2327,11 +2630,11 @@
       "nicheId": "solo-crm",
       "nicheLabel": "CRM complexity for solo founders",
       "title": "Service degradation on Microsoft 365",
-      "score": 28,
+      "score": 27,
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 13.6,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -2354,6 +2657,7 @@
         }
       ],
       "titleZh": "Microsoft 365服务性能下降问题",
+      "quoteZh": "今年停机故障频发，先是今年早些时候欧洲地区的Google停电，还有PHP相关问题（虽关联度较低），5月又出现AWS停电，近期Cloudflare也出现过几次故障。",
       "translationKey": "gega1c",
       "opportunityCard": {
         "version": 1,
@@ -2380,7 +2684,6 @@
         ]
       },
       "cardKey": "gega1c:v1",
-      "quoteZh": "今年停机故障频发，先是今年早些时候欧洲地区的Google停电，还有PHP相关问题（虽关联度较低），5月又出现AWS停电，近期Cloudflare也出现过几次故障。",
       "idea": {
         "version": 3,
         "origin": "llm",
@@ -2438,125 +2741,10 @@
       }
     },
     {
-      "id": "scheduling-owner-api-keys-and-outbound-booking-webhooks",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Owner API keys and outbound booking webhooks",
-      "score": 27,
-      "breakdown": {
-        "frequency": 3,
-        "intensity": 4,
-        "recency": 14.8,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 1,
-      "sources": [
-        "github"
-      ],
-      "signals": [
-        "churn"
-      ],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-15T20:30:51.000Z",
-      "evidence": [
-        {
-          "title": "Owner API keys and outbound booking webhooks",
-          "url": "https://github.com/asm0dey/calit/issues/319",
-          "source": "github",
-          "createdAt": "2026-11-15T20:30:51.000Z",
-          "excerpt": "Authenticated owner REST API via per-owner API keys, plus JSON webhooks on booking created/rescheduled/cancelled/approved. The webhook:// notification channel is a partial start. Owner-scoped. Competitors: Calendly, Cal."
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 3,
-          "urgency": 6,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 30,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1xf1g9n:v1",
-      "titleZh": "所有者API密钥与预订出站Webhook功能",
-      "quoteZh": "通过针对每个所有者的API密钥实现经过认证的所有者REST API，同时在预订创建、重新安排、取消或批准时发送JSON Webhook。目前仅支持webhook://通知渠道，属于所有者级功能。同类产品有Calendly、Cal。",
-      "translationKey": "1xf1g9n",
-      "idea": {
-        "version": 3,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "brief": {
-          "jobStory": {
-            "zh": "当需要为每个独立账户单独管理预订状态时，独立开发者希望实现按账户隔离的API访问和预订事件通知，以便独立处理每个客户的日程数据。",
-            "en": "When managing bookings for individual accounts separately, indie developers want account-isolated API access and booking event notifications to handle each clie"
-          },
-          "pain": {
-            "zh": "当前仅提供通用的webhook通道，无法针对不同所有者发送定制化的预订创建、调整或取消通知，导致开发者需自行编写适配逻辑，增加工作量。",
-            "en": "The current generic webhook channel cannot send customized notifications for creation, rescheduling, cancellation, or approval of bookings per owner, forcing de"
-          },
-          "workaround": {
-            "zh": "假设开发者目前通过手动查询数据库或第三方工具获取状态信息，但这种方式效率低且容易出错。",
-            "en": "Assumed developers currently retrieve status information manually via database queries or third-party tools, which is inefficient and prone to errors."
-          },
-          "rootObstacle": {
-            "zh": "缺乏按账户维度隔离的专用通知通道，使得不同所有者的预订事件无法独立触发和处理。",
-            "en": "The lack of a dedicated notification channel isolated by account dimension prevents booking events for different owners from being triggered and processed indep"
-          },
-          "build": {
-            "zh": "开发一个支持按所有者ID区分的JSON webhook接口，用于发送预订创建、调整、取消或批准状态的定制化通知。",
-            "en": "Build a JSON webhook interface that distinguishes by owner ID to send customized notifications for booking creation, adjustment, cancellation, or approval statu"
-          },
-          "test": {
-            "zh": "编写一个简单脚本，在模拟预订创建后向指定所有者地址发送测试消息，验证通知是否按预期到达。",
-            "en": "Write a simple script to send a test message to a specified owner’s address after simulating a booking creation to verify if notifications arrive as expected."
-          },
-          "stopIf": {
-            "zh": "若测试中多个所有者收到相同内容的通知，则说明该功能无法解决当前问题。",
-            "en": "If multiple owners receive identical content in tests, it indicates the feature cannot solve the current problem."
-          },
-          "whyNow": {
-            "zh": "现有方案存在明显缺陷，亟需通过专用通知通道提升系统可维护性。",
-            "en": "The existing solution has clear flaws, making it urgent to improve system maintainability with a dedicated notification channel."
-          }
-        },
-        "headline": {
-          "zh": "开发一个支持按所有者ID区分的JSON webhook接口，用于发送预订创建、调整、取消或批准状态的定制化通知。",
-          "en": "Build a JSON webhook interface that distinguishes by owner ID to send customized notifications for booking creation, adjustment, cancellation, or approval statu"
-        },
-        "who": {
-          "zh": "当需要为每个独立账户单独管理预订状态时，独立开发者希望实现按账户隔离的API访问和预订事件通知，以便独立处理每个客户的日程数据。",
-          "en": "When managing bookings for individual accounts separately, indie developers want account-isolated API access and booking event notifications to handle each clie"
-        },
-        "why": {
-          "zh": "缺乏按账户维度隔离的专用通知通道，使得不同所有者的预订事件无法独立触发和处理。",
-          "en": "The lack of a dedicated notification channel isolated by account dimension prevents booking events for different owners from being triggered and processed indep"
-        },
-        "step": {
-          "zh": "编写一个简单脚本，在模拟预订创建后向指定所有者地址发送测试消息，验证通知是否按预期到达。",
-          "en": "Write a simple script to send a test message to a specified owner’s address after simulating a booking creation to verify if notifications arrive as expected."
-        }
-      }
-    },
-    {
-      "id": "scheduling-us-b4-reschedule-or-cancel",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "US-B4: Reschedule or cancel",
+      "id": "support-transcripts-jenkins-ci-appears-to-be-down",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Jenkins CI appears to be down",
       "score": 27,
       "breakdown": {
         "frequency": 3,
@@ -2570,25 +2758,25 @@
         "github"
       ],
       "signals": [
-        "churn"
+        "manual"
       ],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-16T01:24:39.000Z",
+      "lastSeen": "2026-11-16T18:44:22.000Z",
       "evidence": [
         {
-          "title": "US-B4: Reschedule or cancel",
-          "url": "https://github.com/zishon89us/polyglot-sales-agent/issues/23",
+          "title": "Jenkins CI appears to be down",
+          "url": "https://github.com/eclipse-cdt/cdt/issues/1568",
           "source": "github",
-          "createdAt": "2026-11-16T01:24:39.000Z",
-          "excerpt": "**Story US-B4** · persona P4 (end customer) · milestone M5 As an end customer, I want to move or cancel my appointment in the chat, so that the slot is freed for someone else. **Given** a contact with one future booking,"
+          "createdAt": "2026-11-16T18:44:22.000Z",
+          "excerpt": "No jobs have been scheduled on Jenkins CI for a few days, as a result the last few commits have not been built or published and I cannot manually trigger any builds. Follow helpdesk ticket: https://gitlab.eclipse.org/ecl"
         }
       ],
       "opportunityCard": {
         "version": 1,
         "dimensions": {
           "demand": 3,
-          "urgency": 6,
-          "feasibility": 2,
+          "urgency": 3,
+          "feasibility": 6,
           "monetization": 0,
           "confidence": 4,
           "competition": null,
@@ -2597,8 +2785,8 @@
         },
         "evaluatedDimensions": 5,
         "totalDimensions": 8,
-        "total": 30,
-        "audience": "ops",
+        "total": 32,
+        "audience": "support",
         "validation": "interview",
         "riskFlags": [
           "single-source",
@@ -2607,71 +2795,180 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "1oc2z0p:v1",
-      "titleZh": "US-B4：重新安排或取消预订",
-      "quoteZh": "**需求描述US-B4** · 用户角色P4（最终客户） · 里程碑M5 作为最终客户，我希望能在聊天中移动或取消我的预约，以便将该时段让给其他人。**前提条件**：该联系人已有一项未来的预订。",
-      "translationKey": "1oc2z0p",
+      "cardKey": "2mxer2:v1",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当已有预约的最终用户想要在聊天中调整时间或取消预约时，该用户希望释放对应时段供他人使用。",
-            "en": "When an end customer with an existing booking wants to reschedule or cancel via chat, they want to free up the slot for someone else."
+            "zh": "当最新的代码提交后，希望自动构建并发布代码，以便能够立即使用新功能或修复问题，",
+            "en": "When new code commits are made, wants the code to be automatically built and released so they can immediately use new features or fix iss"
           },
           "pain": {
-            "zh": "当前无法直接在聊天界面完成调整或取消操作，必须通过其他渠道处理，导致流程繁琐。",
-            "en": "Currently, there is no way to directly adjust or cancel bookings in the chat interface, forcing users to use alternative methods that are cumbersome."
+            "zh": "由于Jenkins CI数天未调度任何任务，最新提交无法被构建或发布，且无法手动触发构建，导致他们无法获取最新代码成果。",
+            "en": "Because no jobs have been scheduled on Jenkins CI for several days, recent commits cannot be built or released, and manual triggering of builds is not possible,"
           },
           "workaround": {
-            "zh": "假设用户需手动联系客服或通过网站后台操作，但效率低且可能错过最佳处理时机。",
-            "en": "Assuming users must manually contact support or use the website backend, which is inefficient and may result in missed optimal handling times."
+            "zh": "假设他们目前只能等待Jenkins恢复服务，或手动检查是否有其他渠道可获取代码更新。",
+            "en": "It is assumed they currently must wait for Jenkins to resume service or manually check if there are other channels to obtain code updates."
           },
           "rootObstacle": {
-            "zh": "缺少在聊天界面内直接触发预订状态变更的交互能力。",
-            "en": "The lack of an interactive capability to directly trigger changes to booking status within the chat interface."
+            "zh": "缺乏自动执行构建任务的持续运行服务，使得代码提交后无法在没有人工干预的情况下完成构建流程。",
+            "en": "There is a lack of a continuously running service to automatically execute build tasks, preventing code commits from completing the build process without human"
           },
           "build": {
-            "zh": "开发一个可在聊天中输入调整时间或取消原因后立即更新预订状态的按钮功能。",
-            "en": "Build a button in the chat that allows entering a reason for rescheduling or cancellation to immediately update the booking status."
+            "zh": "开发一个可自动接收代码提交并触发构建的单功能服务端脚本。",
+            "en": "Build a single-function server script that can automatically receive code commits and trigger builds."
           },
           "test": {
-            "zh": "让测试用户在现有聊天窗口输入调整时间内容并点击按钮，验证预订状态是否实时更新。",
-            "en": "Have a tester enter a rescheduling reason in the existing chat window and click the button to verify if the booking status updates instantly."
+            "zh": "将该脚本部署到本地，手动上传一个测试代码文件并观察是否成功触发构建。",
+            "en": "Deploy the script locally, manually upload a test code file, and observe whether a build is successfully triggered."
           },
           "stopIf": {
-            "zh": "若测试后预订状态未在几秒内同步更新，则无需继续开发。",
-            "en": "If the booking status does not update within a few seconds after testing, there is no need to proceed with development."
+            "zh": "如果手动上传测试文件后仍无任何构建反应，则该需求不存在实际价值。",
+            "en": "If no build reaction occurs after manually uploading a test file, there is no actual value in this requirement."
           },
           "whyNow": {
-            "zh": "现有流程存在明显缺陷，直接阻碍用户核心需求实现，亟待解决。",
-            "en": ""
+            "zh": "现有证据仅表明当前存在服务故障，未提供该问题出现的频率或持续时间相关依据。",
+            "en": "The existing evidence only indicates a current service outage, with no information provided about the frequency or duration of this issue."
           }
         },
         "headline": {
-          "zh": "开发一个可在聊天中输入调整时间或取消原因后立即更新预订状态的按钮功能。",
-          "en": "Build a button in the chat that allows entering a reason for rescheduling or cancellation to immediately update the booking status."
+          "zh": "开发一个可自动接收代码提交并触发构建的单功能服务端脚本。",
+          "en": "Build a single-function server script that can automatically receive code commits and trigger builds."
         },
         "who": {
-          "zh": "当已有预约的最终用户想要在聊天中调整时间或取消预约时，该用户希望释放对应时段供他人使用。",
-          "en": "When an end customer with an existing booking wants to reschedule or cancel via chat, they want to free up the slot for someone else."
+          "zh": "当最新的代码提交后，希望自动构建并发布代码，以便能够立即使用新功能或修复问题，",
+          "en": "When new code commits are made, wants the code to be automatically built and released so they can immediately use new features or fix iss"
         },
         "why": {
-          "zh": "缺少在聊天界面内直接触发预订状态变更的交互能力。",
-          "en": "The lack of an interactive capability to directly trigger changes to booking status within the chat interface."
+          "zh": "缺乏自动执行构建任务的持续运行服务，使得代码提交后无法在没有人工干预的情况下完成构建流程。",
+          "en": "There is a lack of a continuously running service to automatically execute build tasks, preventing code commits from completing the build process without human"
         },
         "step": {
-          "zh": "让测试用户在现有聊天窗口输入调整时间内容并点击按钮，验证预订状态是否实时更新。",
-          "en": "Have a tester enter a rescheduling reason in the existing chat window and click the button to verify if the booking status updates instantly."
+          "zh": "将该脚本部署到本地，手动上传一个测试代码文件并观察是否成功触发构建。",
+          "en": "Deploy the script locally, manually upload a test code file, and observe whether a build is successfully triggered."
         }
       }
     },
     {
-      "id": "dev-workflow-resolve-fleet-incidents-with-impact-evidence-and",
+      "id": "support-transcripts-spanish-es-the-whole-catalog-941-of-941-with-som",
+      "nicheId": "support-transcripts",
+      "nicheLabel": "Support tooling and transcript exports",
+      "title": "Spanish (es): the whole catalog, 941 of 941, with some fixes to the strings already in",
+      "score": 27,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 14.9,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "manual"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-16T16:31:10.000Z",
+      "evidence": [
+        {
+          "title": "Spanish (es): the whole catalog, 941 of 941, with some fixes to the strings already in",
+          "url": "https://github.com/HuskerMinion/techo5/issues/608",
+          "source": "github",
+          "createdAt": "2026-11-16T16:31:10.000Z",
+          "excerpt": "This completes the Spanish screen: 464 → 941 of 941 strings, made against `echod/internal/lib/locale/text.go` on `main` as of 2026-11-16 (159f051). **To apply it, copy and paste:** the next 2 comments have the whole `\"es"
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 3,
+          "feasibility": 6,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 32,
+        "audience": "support",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "10d226w:v1",
+      "idea": {
+        "version": 3,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "brief": {
+          "jobStory": {
+            "zh": "当需要使用支持工具导出西班牙语转录内容时，这个人想要完成所有字符串的本地化，以便正常使用该功能。",
+            "en": "When needing to export Spanish transcripts using support tools, a specific developer wants to localize all strings to use the feature properly."
+          },
+          "pain": {
+            "zh": "当前仅有464个字符串完成本地化，剩余477个未处理，导致无法完整使用西班牙语界面。",
+            "en": "Currently only 464 strings are localized, leaving 477 unprocessed, preventing full use of the Spanish interface."
+          },
+          "workaround": {
+            "zh": "暂时使用英语界面或等待后续本地化更新，但功能体验受限。",
+            "en": "Temporarily use the English interface or wait for future localization updates, but functionality is limited."
+          },
+          "rootObstacle": {
+            "zh": "缺少针对剩余未本地化字符串的自动化处理机制，阻碍功能完整性。",
+            "en": "There is a lack of an automated mechanism to process the remaining unlocalized strings, blocking full functionality."
+          },
+          "build": {
+            "zh": "开发一个自动替换未本地化字符串为默认值的脚本函数。",
+            "en": "Build a script function that automatically replaces unlocalized strings with default values."
+          },
+          "test": {
+            "zh": "将未本地化的字符串替换为默认值后，验证西班牙语界面是否可正常显示。",
+            "en": "Replace unlocalized strings with default values and verify if the Spanish interface displays correctly."
+          },
+          "stopIf": {
+            "zh": "替换后仍出现大量字符串缺失或格式错误。",
+            "en": "Many strings remain missing or malformed after replacement."
+          },
+          "whyNow": {
+            "zh": "现有477个未处理字符串是当前明确的阻塞点，无需额外假设。",
+            "en": ""
+          }
+        },
+        "headline": {
+          "zh": "开发一个自动替换未本地化字符串为默认值的脚本函数。",
+          "en": "Build a script function that automatically replaces unlocalized strings with default values."
+        },
+        "who": {
+          "zh": "当需要使用支持工具导出西班牙语转录内容时，这个人想要完成所有字符串的本地化，以便正常使用该功能。",
+          "en": "When needing to export Spanish transcripts using support tools, a specific developer wants to localize all strings to use the feature properly."
+        },
+        "why": {
+          "zh": "缺少针对剩余未本地化字符串的自动化处理机制，阻碍功能完整性。",
+          "en": "There is a lack of an automated mechanism to process the remaining unlocalized strings, blocking full functionality."
+        },
+        "step": {
+          "zh": "将未本地化的字符串替换为默认值后，验证西班牙语界面是否可正常显示。",
+          "en": "Replace unlocalized strings with default values and verify if the Spanish interface displays correctly."
+        }
+      }
+    },
+    {
+      "id": "dev-workflow-export-exact-supplier-identities-and-remaining-q",
       "nicheId": "dev-workflow",
       "nicheLabel": "Developer workflow and integration friction",
-      "title": "Resolve Fleet incidents with impact evidence and replayed recovery plans",
+      "title": "Export exact supplier identities and remaining quantities through the existing BOM spreadsheet",
       "score": 26,
       "breakdown": {
         "frequency": 6,
@@ -2686,21 +2983,21 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-16T06:03:55.000Z",
+      "lastSeen": "2026-11-16T21:58:41.000Z",
       "evidence": [
         {
-          "title": "Resolve Fleet incidents with impact evidence and replayed recovery plans",
-          "url": "https://github.com/JamelHammoud/basecase/issues/1345",
+          "title": "Export exact supplier identities and remaining quantities through the existing BOM spreadsheet",
+          "url": "https://github.com/JamelHammoud/basecase/issues/1558",
           "source": "github",
-          "createdAt": "2026-11-16T06:03:55.000Z",
-          "excerpt": "Requires: repository, linux-container, linux-ci, windows-ci Request: #1335 Arc: #1338 Kind: feature Inputs: `src/fleet`, `src/fleet/twinArena.ts`, `src/cases/tryStore`, `electron/robot/operateRecorder.mjs`, `src/reality`"
+          "createdAt": "2026-11-16T21:58:41.000Z",
+          "excerpt": "Requires: repository, linux-ci, windows-ci Idea: #1135 Arc: #1489 Kind: integration Inputs: `src/utils/bomFormat.ts`, `src/utils/bomTypes.ts`, `src/utils/onHand.ts`, `src/types/`, `src/data/`, `src/components/build/`, `s"
         },
         {
-          "title": "Resolve Fleet incidents with impact evidence and replayed recovery plans",
-          "url": "https://github.com/JamelHammoud/basecase/issues/1345",
+          "title": "Export exact supplier identities and remaining quantities through the existing BOM spreadsheet",
+          "url": "https://github.com/JamelHammoud/basecase/issues/1558",
           "source": "github",
-          "createdAt": "2026-11-16T06:03:55.000Z",
-          "excerpt": "Requires: repository, linux-container, linux-ci, windows-ci Request: #1335 Arc: #1338 Kind: feature Inputs: `src/fleet`, `src/fleet/twinArena.ts`, `src/cases/tryStore`, `electron/robot/operateRecorder.mjs`, `src/reality`"
+          "createdAt": "2026-11-16T21:58:41.000Z",
+          "excerpt": "Requires: repository, linux-ci, windows-ci Idea: #1135 Arc: #1489 Kind: integration Inputs: `src/utils/bomFormat.ts`, `src/utils/bomTypes.ts`, `src/utils/onHand.ts`, `src/types/`, `src/data/`, `src/components/build/`, `s"
         }
       ],
       "opportunityCard": {
@@ -2727,71 +3024,68 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "f6bboo:v1",
-      "titleZh": "利用影响证据及恢复方案回放解决Fleet系统故障",
-      "quoteZh": "所需资源：代码仓库、linux容器、linux-ci、windows-ci。需求编号：#1335，任务编号：#1338，类型为功能模块。输入文件包括：`src/fleet`、`src/fleet/twinArena.ts`、`src/cases/tryStore`、`electron/robot/operateRecorder.mjs`、`src/reality`。",
-      "translationKey": "f6bboo",
+      "cardKey": "17sxz2e:v1",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当处理Fleet系统故障时，独立开发者想要快速获取故障影响证据与恢复方案回放，以便定位问题并复现修复过程",
-            "en": "When fixing Fleet system failures, indie developers want quick access to impact evidence and recovery plan replays to diagnose issues and reproduce fixes"
+            "zh": "When editing a bill of materials spreadsheet, wants to export the exact supplier names and current sto",
+            "en": ""
           },
           "pain": {
-            "zh": "当前无法直接获取故障时的影响证据及恢复方案回放，导致故障排查效率低下",
-            "en": "Currently, there is no way to directly obtain impact evidence and recovery plan replays during failures, slowing down troubleshooting"
+            "zh": "The current system cannot provide these details directly, causing",
+            "en": ""
           },
           "workaround": {
-            "zh": "假设开发者需手动查找相关代码文件或依赖外部工具来尝试解决问题，但效率较低",
-            "en": "Assuming developers must manually search for relevant code files or rely on external tools to attempt solutions, which is inefficient"
+            "zh": "Assuming manually copies data from related tables, which is error-prone and time-consuming.",
+            "en": "Assuming manually extracts data from separate tables, leading to errors and wasted time."
           },
           "rootObstacle": {
-            "zh": "缺乏自动捕获故障时系统状态与恢复操作并生成可回放证据的机制",
-            "en": "The lack of a mechanism to automatically capture system state and recovery actions during failures and generate replayable evidence"
+            "zh": "The existing code lacks a direct function to retrieve supplier identities and inventory counts from the data sources.",
+            "en": "The existing code does not include a mechanism to fetch supplier names and on-hand quantities directly."
           },
           "build": {
-            "zh": "开发一个能自动录制故障发生时的系统状态变化及恢复操作流程的功能模块",
-            "en": "Build a functional module that automatically records system state changes and recovery operation flows during failures"
+            "zh": "Add a function that calls `onHand.ts` to return supplier names and quantities for the active BOM record.",
+            "en": "Create a function using `onHand.ts` to output supplier identities and remaining stock for the current BOM entry."
           },
           "test": {
-            "zh": "编写简单测试用例模拟故障场景，验证该功能能否生成包含状态变化与操作步骤的回放文件",
-            "en": "Create simple test cases to simulate failure scenarios and verify if the feature can generate replay files containing state changes and operation steps"
+            "zh": "Run the function on a single BOM record and verify the output contains both supplier names and quantity values.",
+            "en": "Execute the function on one BOM record and confirm the output includes supplier names and stock amounts."
           },
           "stopIf": {
-            "zh": "若测试中无法生成符合预期的回放文件，则该需求不值得实现",
-            "en": "If no expected replay files can be generated during testing, this requirement is not worth building"
+            "zh": "No observable signal indicates failure; stop only if the function returns empty results.",
+            "en": "There is no observable failure signal; halt only if the output is empty."
           },
           "whyNow": {
-            "zh": "现有需求明确列出了所需的技术组件与输入文件，具备直接启动开发的基础条件",
-            "en": "The existing request specifies required technical components and input files, providing a direct foundation for starting development"
+            "zh": "There is no timing evidence specified in the input.",
+            "en": "No timing-related information is provided in the query."
           }
         },
         "headline": {
-          "zh": "开发一个能自动录制故障发生时的系统状态变化及恢复操作流程的功能模块",
-          "en": "Build a functional module that automatically records system state changes and recovery operation flows during failures"
+          "zh": "Add a function that calls `onHand.ts` to return supplier names and quantities for the active BOM record.",
+          "en": "Create a function using `onHand.ts` to output supplier identities and remaining stock for the current BOM entry."
         },
         "who": {
-          "zh": "当处理Fleet系统故障时，独立开发者想要快速获取故障影响证据与恢复方案回放，以便定位问题并复现修复过程",
-          "en": "When fixing Fleet system failures, indie developers want quick access to impact evidence and recovery plan replays to diagnose issues and reproduce fixes"
+          "zh": "When editing a bill of materials spreadsheet, wants to export the exact supplier names and current sto",
+          "en": "indie developers"
         },
         "why": {
-          "zh": "缺乏自动捕获故障时系统状态与恢复操作并生成可回放证据的机制",
-          "en": "The lack of a mechanism to automatically capture system state and recovery actions during failures and generate replayable evidence"
+          "zh": "The existing code lacks a direct function to retrieve supplier identities and inventory counts from the data sources.",
+          "en": "The existing code does not include a mechanism to fetch supplier names and on-hand quantities directly."
         },
         "step": {
-          "zh": "编写简单测试用例模拟故障场景，验证该功能能否生成包含状态变化与操作步骤的回放文件",
-          "en": "Create simple test cases to simulate failure scenarios and verify if the feature can generate replay files containing state changes and operation steps"
+          "zh": "Run the function on a single BOM record and verify the output contains both supplier names and quantity values.",
+          "en": "Execute the function on one BOM record and confirm the output includes supplier names and stock amounts."
         }
       }
     },
     {
-      "id": "invoice-export-popcorn-step-26-implement-data-driven-automation",
-      "nicheId": "invoice-export",
-      "nicheLabel": "Invoicing and expense export failures",
-      "title": "Popcorn Step 26 - Implement data-driven automation runtime, placement, upkeep, and controls",
+      "id": "dev-workflow-grafana-dashboards-and-alerts-as-code",
+      "nicheId": "dev-workflow",
+      "nicheLabel": "Developer workflow and integration friction",
+      "title": "Grafana dashboards and alerts as code",
       "score": 26,
       "breakdown": {
         "frequency": 6,
@@ -2806,21 +3100,21 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-16T05:47:07.000Z",
+      "lastSeen": "2026-11-16T21:51:21.000Z",
       "evidence": [
         {
-          "title": "Popcorn Step 26 - Implement data-driven automation runtime, placement, upkeep, and controls",
-          "url": "https://github.com/7bvcxz/gamo/issues/139",
+          "title": "Grafana dashboards and alerts as code",
+          "url": "https://github.com/michaelweinberg/signing-platform-apps/issues/27",
           "source": "github",
-          "createdAt": "2026-11-16T05:47:07.000Z",
-          "excerpt": "# Objective Implement data-driven automation runtime, placement, upkeep, and controls **Depends on:** Steps 17, 24–25 ## Claude Code implementation prompt (English) 1. Create a stable machine catalog schema and per-insta"
+          "createdAt": "2026-11-16T21:51:21.000Z",
+          "excerpt": "## What to build Build the two dashboards (pipeline health, agreement lifecycle) and the alert rules as JSON files in this repo, and add a provisioning step to the deploy workflow between deploy and the smoke test. Fill "
         },
         {
-          "title": "Popcorn Step 26 - Implement data-driven automation runtime, placement, upkeep, and controls",
-          "url": "https://github.com/7bvcxz/gamo/issues/139",
+          "title": "Grafana dashboards and alerts as code",
+          "url": "https://github.com/michaelweinberg/signing-platform-apps/issues/27",
           "source": "github",
-          "createdAt": "2026-11-16T05:47:07.000Z",
-          "excerpt": "# Objective Implement data-driven automation runtime, placement, upkeep, and controls **Depends on:** Steps 17, 24–25 ## Claude Code implementation prompt (English) 1. Create a stable machine catalog schema and per-insta"
+          "createdAt": "2026-11-16T21:51:21.000Z",
+          "excerpt": "## What to build Build the two dashboards (pipeline health, agreement lifecycle) and the alert rules as JSON files in this repo, and add a provisioning step to the deploy workflow between deploy and the smoke test. Fill "
         }
       ],
       "opportunityCard": {
@@ -2838,7 +3132,7 @@
         "evaluatedDimensions": 5,
         "totalDimensions": 8,
         "total": 22,
-        "audience": "ops",
+        "audience": "unknown",
         "validation": "interview",
         "riskFlags": [
           "single-source",
@@ -2847,63 +3141,60 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "htejjb:v1",
-      "titleZh": "Popcorn步骤26：实现数据驱动的自动化运行时、部署、维护及管控功能",
-      "quoteZh": "# 目标 实现数据驱动的自动化运行时、部署、维护及管控功能 **依赖步骤**：17、24–25 ## Claude Code实现提示（英文）1. 创建稳定的机器目录架构以及针对不同实例的配置。",
-      "translationKey": "htejjb",
+      "cardKey": "1ncay3w:v1",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当需要为特定实例配置自动化运行时参数时，独立开发者想要手动创建机器目录架构并填写实例信息，以便完成自动化部署。",
-            "en": "When configuring automation runtime parameters for specific instances, an indie developer wants to manually create a machine catalog schema and fill in instance"
+            "zh": "当需要监控流水线健康状态和协议生命周期时，独立开发者希望将相关可视化图表与告警规则以代码形式管理，以便在部署后自动执行验证流程。",
+            "en": "When monitoring pipeline health and agreement lifecycle is needed, independent developers want to manage visualizations and alert rules as code so automated val"
           },
           "pain": {
-            "zh": "在尝试创建机器目录架构和填充实例信息时，系统出现故障导致自动化部署无法完成。",
-            "en": "While trying to create a machine catalog schema and fill in instance information, the system fails causing automated deployment to not complete."
+            "zh": "当前必须手动编写JSON文件来定义仪表板内容和告警规则，且在部署完成后还需额外操作来触发验证，这增加了工作量并容易出错。",
+            "en": "Currently, developers must manually write JSON files for dashboards and alerts, and perform extra steps after deployment to trigger validation, increasing workl"
           },
           "workaround": {
-            "zh": "假设开发者目前只能放弃自动化部署，转而手动执行所有配置步骤。",
-            "en": "It is assumed the developer currently has to abandon automated deployment and manually perform all configuration steps."
+            "zh": "假设他们目前通过手动编辑配置文件或临时脚本来解决这些问题，但这种方式效率低且难以维护。",
+            "en": "Assumed they currently use manual configuration editing or temporary scripts, which are inefficient and hard to maintain."
           },
           "rootObstacle": {
-            "zh": "缺乏能够稳定接收并处理机器目录架构与实例信息的输入接口，导致配置数据无法被系统正确解析。",
-            "en": "There is a lack of an input interface that can reliably receive and process machine catalog schemas and instance information, preventing configuration data from"
+            "zh": "缺乏将可视化配置与自动化验证流程直接关联的统一编码机制，导致配置管理与流程执行分离。",
+            "en": "The lack of a unified coding mechanism that directly links visualization configurations to automated validation workflows, separating configuration management f"
           },
           "build": {
-            "zh": "开发一个能够接收机器目录架构JSON格式数据并返回解析状态的单函数接口。",
-            "en": "Build a single-function interface that accepts machine catalog schema JSON data and returns a parsing status."
+            "zh": "开发一个可将JSON格式的仪表板定义和告警规则自动转换为部署后需执行的验证步骤的脚本函数。",
+            "en": "Build a script function that automatically converts JSON-formatted dashboard definitions and alert rules into validation steps to execute after deployment."
           },
           "test": {
-            "zh": "编写测试用例发送有效JSON结构数据，验证系统是否返回成功响应。",
-            "en": "Write test cases sending valid JSON structure data to verify if the system returns a successful response."
+            "zh": "创建两个测试JSON文件，用该脚本生成对应的验证步骤，然后手动执行这些步骤查看是否能按预期运行。",
+            "en": "Create two test JSON files, use the script to generate corresponding validation steps, and manually execute them to confirm they work as intended."
           },
           "stopIf": {
-            "zh": "若测试中发送任意格式的数据都无法得到系统响应，则该需求无实际价值。",
-            "en": "If sending data in any format yields no system response during testing, the requirement has no practical value."
+            "zh": "若生成的验证步骤无法在模拟环境中正确触发预定义的动作，则说明该需求不成立。",
+            "en": "If the generated validation steps cannot correctly trigger predefined actions in a simulated environment, the need is invalid."
           },
           "whyNow": {
-            "zh": "现有描述明确了配置流程中的具体故障点，可直接定位解决方向。",
-            "en": ""
+            "zh": "无相关时间证据表明为何现在要解决此问题。",
+            "en": "There is no timing evidence indicating why this should be addressed now."
           }
         },
         "headline": {
-          "zh": "开发一个能够接收机器目录架构JSON格式数据并返回解析状态的单函数接口。",
-          "en": "Build a single-function interface that accepts machine catalog schema JSON data and returns a parsing status."
+          "zh": "开发一个可将JSON格式的仪表板定义和告警规则自动转换为部署后需执行的验证步骤的脚本函数。",
+          "en": "Build a script function that automatically converts JSON-formatted dashboard definitions and alert rules into validation steps to execute after deployment."
         },
         "who": {
-          "zh": "当需要为特定实例配置自动化运行时参数时，独立开发者想要手动创建机器目录架构并填写实例信息，以便完成自动化部署。",
-          "en": "When configuring automation runtime parameters for specific instances, an indie developer wants to manually create a machine catalog schema and fill in instance"
+          "zh": "当需要监控流水线健康状态和协议生命周期时，独立开发者希望将相关可视化图表与告警规则以代码形式管理，以便在部署后自动执行验证流程。",
+          "en": "When monitoring pipeline health and agreement lifecycle is needed, independent developers want to manage visualizations and alert rules as code so automated val"
         },
         "why": {
-          "zh": "缺乏能够稳定接收并处理机器目录架构与实例信息的输入接口，导致配置数据无法被系统正确解析。",
-          "en": "There is a lack of an input interface that can reliably receive and process machine catalog schemas and instance information, preventing configuration data from"
+          "zh": "缺乏将可视化配置与自动化验证流程直接关联的统一编码机制，导致配置管理与流程执行分离。",
+          "en": "The lack of a unified coding mechanism that directly links visualization configurations to automated validation workflows, separating configuration management f"
         },
         "step": {
-          "zh": "编写测试用例发送有效JSON结构数据，验证系统是否返回成功响应。",
-          "en": "Write test cases sending valid JSON structure data to verify if the system returns a successful response."
+          "zh": "创建两个测试JSON文件，用该脚本生成对应的验证步骤，然后手动执行这些步骤查看是否能按预期运行。",
+          "en": "Create two test JSON files, use the script to generate corresponding validation steps, and manually execute them to confirm they work as intended."
         }
       }
     },
@@ -3150,487 +3441,10 @@
       }
     },
     {
-      "id": "scheduling-possible-futures",
+      "id": "scheduling-what-the-code-owes-grew-this-week",
       "nicheId": "scheduling",
       "nicheLabel": "Scheduling and booking workflows",
-      "title": "Possible Futures",
-      "score": 26,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
-        "recency": 14.6,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-15T12:12:29.000Z",
-      "evidence": [
-        {
-          "title": "Possible Futures",
-          "url": "https://news.ycombinator.com/item?id=50506366",
-          "source": "hn",
-          "createdAt": "2026-11-15T12:12:29.000Z",
-          "excerpt": "> If AI is better than humans at all the work (nevermind ASI), we'll give it all the work eventually. Will we? I worked for company where using Google Drive was a nuisance, they still preferred the old ways of sharing fi"
-        },
-        {
-          "title": "Possible Futures",
-          "url": "https://news.ycombinator.com/item?id=50506366",
-          "source": "hn",
-          "createdAt": "2026-11-15T12:12:29.000Z",
-          "excerpt": "> If AI is better than humans at all the work (nevermind ASI), we'll give it all the work eventually. Will we? I worked for company where using Google Drive was a nuisance, they still preferred the old ways of sharing fi"
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 2,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 22,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "bhk9jh:v1",
-      "titleZh": "可能的未来场景",
-      "quoteZh": "> 如果AI在所有工作上的表现都优于人类（更不用说超人工智能了），我们最终会把所有工作都交给它处理。真的会这样吗？我曾在一家公司工作，当时使用Google Drive非常麻烦，他们仍然更喜欢传统的文件共享方式。",
-      "translationKey": "bhk9jh",
-      "idea": {
-        "version": 3,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "brief": {
-          "jobStory": {
-            "zh": "当需要共享文件时，某开发者希望直接在现有工具中完成操作，以便高效协作。",
-            "en": "When sharing files is needed, a developer wants to complete tasks directly within existing tools for efficient collaboration."
-          },
-          "pain": {
-            "zh": "使用Google Drive进行文件共享十分繁琐，导致他们不得不继续采用旧有的分享方式。",
-            "en": "Using Google Drive for file sharing is cumbersome, forcing them to continue using older sharing methods."
-          },
-          "workaround": {
-            "zh": "假设他们目前继续使用旧有的文件分享方式。",
-            "en": "Assumed they currently continue using older file sharing methods."
-          },
-          "rootObstacle": {
-            "zh": "缺乏在现有工具中直接实现便捷文件共享的集成能力。",
-            "en": "The lack of integrated capabilities to enable seamless file sharing directly within existing tools."
-          },
-          "build": {
-            "zh": "开发一个可在Google Drive界面内直接上传和分享文件的插件功能。",
-            "en": "Build a plugin that allows direct file upload and sharing within the Google Drive interface."
-          },
-          "test": {
-            "zh": "创建一个简单插件原型，在Google Drive中测试能否实现直接上传文件的功能。",
-            "en": "Create a simple plugin prototype and test whether direct file upload can be achieved within Google Drive."
-          },
-          "stopIf": {
-            "zh": "若在Google Drive界面内无法直接执行文件上传操作，则放弃该想法。",
-            "en": "Abandon the idea if direct file upload cannot be performed within the Google Drive interface."
-          },
-          "whyNow": {
-            "zh": "无相关时间证据表明为何现在要开发此功能。",
-            "en": "There is no timing evidence indicating why this should be developed now."
-          }
-        },
-        "headline": {
-          "zh": "开发一个可在Google Drive界面内直接上传和分享文件的插件功能。",
-          "en": "Build a plugin that allows direct file upload and sharing within the Google Drive interface."
-        },
-        "who": {
-          "zh": "当需要共享文件时，某开发者希望直接在现有工具中完成操作，以便高效协作。",
-          "en": "When sharing files is needed, a developer wants to complete tasks directly within existing tools for efficient collaboration."
-        },
-        "why": {
-          "zh": "缺乏在现有工具中直接实现便捷文件共享的集成能力。",
-          "en": "The lack of integrated capabilities to enable seamless file sharing directly within existing tools."
-        },
-        "step": {
-          "zh": "创建一个简单插件原型，在Google Drive中测试能否实现直接上传文件的功能。",
-          "en": "Create a simple plugin prototype and test whether direct file upload can be achieved within Google Drive."
-        }
-      }
-    },
-    {
-      "id": "scheduling-review-finding-s10-deletion-with-a-future-bookin",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Review finding S10: Deletion with a future booking is incomplete",
-      "score": 26,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-16T02:45:27.000Z",
-      "evidence": [
-        {
-          "title": "Review finding S10: Deletion with a future booking is incomplete",
-          "url": "https://github.com/zishon89us/polyglot-sales-agent/issues/74",
-          "source": "github",
-          "createdAt": "2026-11-16T02:45:27.000Z",
-          "excerpt": "**Finding S10** (Medium) from the second independent Gate 1 review, `docs/reviews/2026-11-16-gate1-requirements-review-2.md`. **Location:** US-D5.2 to D5.6; US-C6.3; US-D12.3; NFR-V3 **Finding:** Deletion with a future b"
-        },
-        {
-          "title": "Review finding S10: Deletion with a future booking is incomplete",
-          "url": "https://github.com/zishon89us/polyglot-sales-agent/issues/74",
-          "source": "github",
-          "createdAt": "2026-11-16T02:45:27.000Z",
-          "excerpt": "**Finding S10** (Medium) from the second independent Gate 1 review, `docs/reviews/2026-11-16-gate1-requirements-review-2.md`. **Location:** US-D5.2 to D5.6; US-C6.3; US-D12.3; NFR-V3 **Finding:** Deletion with a future b"
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 2,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 22,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "ztypg3:v1",
-      "titleZh": "审查发现S10：存在未来预订时的删除操作不完整问题",
-      "quoteZh": "**发现S10**（严重程度中等），来自第二次独立的Gate 1审查，文档路径为`docs/reviews/2026-11-16-gate1-requirements-review-2.md`。**涉及区域**：US-D5.2至D5.6；US-C6.3；US-D12.3；NFR-V3 **问题描述**：存在未来预订时的删除操作不完整的情况。",
-      "translationKey": "ztypg3",
-      "idea": {
-        "version": 3,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "brief": {
-          "jobStory": {
-            "zh": "当US-D5.2到D5.6、US-C6.3、US-D12.3以及NFR-V3区域的用户需要删除已存在的未来预订时，该用户想要完成删除操作，以便释放相关资源。",
-            "en": "When users in US-D5.2 to D5.6, US-C6.3, US-D12.3, and NFR-V3 need to delete existing future bookings, they want to complete the deletion to free up related reso"
-          },
-          "pain": {
-            "zh": "当前删除操作无法处理带有未来预订的记录，导致用户无法彻底移除目标对象，必须手动寻找其他方式解决。",
-            "en": "The current deletion operation cannot handle records with future bookings, preventing users from completely removing the target objects and forcing them to find"
-          },
-          "workaround": {
-            "zh": "假设用户目前只能尝试直接删除记录，若失败则需手动查找并取消关联的未来预订。",
-            "en": "Assuming users currently can only attempt direct deletion, and if that fails, they must manually locate and cancel associated future bookings."
-          },
-          "rootObstacle": {
-            "zh": "系统缺乏在删除操作时自动识别并处理关联未来预订的能力，导致删除流程不完整。",
-            "en": "The system lacks the capability to automatically identify and handle associated future bookings during deletion, resulting in an incomplete deletion process."
-          },
-          "build": {
-            "zh": "开发一个可在执行删除操作前自动检测并标记所有关联未来预订的功能模块。",
-            "en": "Build a functional module that automatically detects and marks all associated future bookings before executing a deletion operation."
-          },
-          "test": {
-            "zh": "编写一段模拟删除操作的测试代码，输入包含未来预订的记录，验证系统是否会正确标记关联预订。",
-            "en": "Write test code simulating a deletion operation with a record containing future bookings to verify if the system correctly marks associated bookings."
-          },
-          "stopIf": {
-            "zh": "若测试中系统未对任何关联未来预订进行标记，则说明该障碍不存在，无需继续开发。",
-            "en": "If the system fails to mark any associated future bookings during testing, it indicates the obstacle does not exist and further development is unnecessary."
-          },
-          "whyNow": {
-            "zh": "现有证据明确指出该删除操作存在不完整问题，亟需通过最小化功能修复。",
-            "en": ""
-          }
-        },
-        "headline": {
-          "zh": "开发一个可在执行删除操作前自动检测并标记所有关联未来预订的功能模块。",
-          "en": "Build a functional module that automatically detects and marks all associated future bookings before executing a deletion operation."
-        },
-        "who": {
-          "zh": "当US-D5.2到D5.6、US-C6.3、US-D12.3以及NFR-V3区域的用户需要删除已存在的未来预订时，该用户想要完成删除操作，以便释放相关资源。",
-          "en": "When users in US-D5.2 to D5.6, US-C6.3, US-D12.3, and NFR-V3 need to delete existing future bookings, they want to complete the deletion to free up related reso"
-        },
-        "why": {
-          "zh": "系统缺乏在删除操作时自动识别并处理关联未来预订的能力，导致删除流程不完整。",
-          "en": "The system lacks the capability to automatically identify and handle associated future bookings during deletion, resulting in an incomplete deletion process."
-        },
-        "step": {
-          "zh": "编写一段模拟删除操作的测试代码，输入包含未来预订的记录，验证系统是否会正确标记关联预订。",
-          "en": "Write test code simulating a deletion operation with a record containing future bookings to verify if the system correctly marks associated bookings."
-        }
-      }
-    },
-    {
-      "id": "scheduling-review-finding-s28-terms-used-without-a-definiti",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Review finding S28: Terms used without a definition, where the missing definition changes…",
-      "score": 26,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-16T02:45:46.000Z",
-      "evidence": [
-        {
-          "title": "Review finding S28: Terms used without a definition, where the missing definition changes behaviour or a metric: **assistant** ...",
-          "url": "https://github.com/zishon89us/polyglot-sales-agent/issues/92",
-          "source": "github",
-          "createdAt": "2026-11-16T02:45:46.000Z",
-          "excerpt": "**Finding S28** (Medium) from the second independent Gate 1 review, `docs/reviews/2026-11-16-gate1-requirements-review-2.md`. **Location:** G: Terms; G: Metrics (First-reply time, Contained session); US-C6.4; US-C14.6; U"
-        },
-        {
-          "title": "Review finding S28: Terms used without a definition, where the missing definition changes behaviour or a metric: **assistant** ...",
-          "url": "https://github.com/zishon89us/polyglot-sales-agent/issues/92",
-          "source": "github",
-          "createdAt": "2026-11-16T02:45:46.000Z",
-          "excerpt": "**Finding S28** (Medium) from the second independent Gate 1 review, `docs/reviews/2026-11-16-gate1-requirements-review-2.md`. **Location:** G: Terms; G: Metrics (First-reply time, Contained session); US-C6.4; US-C14.6; U"
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 2,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 22,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "1v38tgd:v1",
-      "titleZh": "审查发现S28：存在未定义术语且缺失定义会影响功能的问题",
-      "quoteZh": "**发现S28**（严重程度中等），来自第二次独立的Gate 1审查，文档路径为`docs/reviews/2026-11-16-gate1-requirements-review-2.md`。**涉及区域**：G：术语部分；G：指标部分（首次回复时间、受控会话时长）；US-C6.4；US-C14.6；U。",
-      "translationKey": "1v38tgd",
-      "idea": {
-        "version": 3,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "brief": {
-          "jobStory": {
-            "zh": "当独立评审员需要审核调度与预订工作流相关的文档时，他想确认所有术语的含义，以便准确评估需求是否完整。",
-            "en": "When an independent reviewer needs to audit documents related to scheduling and booking workflows, they want to confirm the meaning of all terms to accurately a"
-          },
-          "pain": {
-            "zh": "由于存在未定义的术语，他无法理解相关功能的实现方式，导致评审工作受阻。",
-            "en": "Due to undefined terms, he cannot understand how related functions should be implemented, which hinders his review work."
-          },
-          "workaround": {
-            "zh": "他假设这些术语有默认含义，直接基于现有描述进行评审。",
-            "en": "He assumes these terms have default meanings and proceeds with the review based on existing descriptions."
-          },
-          "rootObstacle": {
-            "zh": "缺乏对文档中所有术语的明确定义，使得信息传递出现歧义。",
-            "en": "The lack of explicit definitions for all terms in the document causes ambiguity in information transmission."
-          },
-          "build": {
-            "zh": "在文档中为每个未定义术语添加简短的定义说明。",
-            "en": "Add brief definition explanations for each undefined term in the document."
-          },
-          "test": {
-            "zh": "手动为文档中的两个未定义术语各写一个5字以内的定义并保存，观察下次查看时是否能理解对应内容。",
-            "en": "Manually write a 5-character or shorter definition for two undefined terms in the document and save it, then check if the corresponding content can be understoo"
-          },
-          "stopIf": {
-            "zh": "再次查看文档时仍无法理解添加了定义的术语。",
-            "en": "Still unable to understand the terms with added definitions upon next viewing."
-          },
-          "whyNow": {
-            "zh": "该问题出现在具体的文档评审场景中，存在明确的解决需求。",
-            "en": "This issue arises in a specific document review scenario with a clear need for resolution."
-          }
-        },
-        "headline": {
-          "zh": "在文档中为每个未定义术语添加简短的定义说明。",
-          "en": "Add brief definition explanations for each undefined term in the document."
-        },
-        "who": {
-          "zh": "当独立评审员需要审核调度与预订工作流相关的文档时，他想确认所有术语的含义，以便准确评估需求是否完整。",
-          "en": "When an independent reviewer needs to audit documents related to scheduling and booking workflows, they want to confirm the meaning of all terms to accurately a"
-        },
-        "why": {
-          "zh": "缺乏对文档中所有术语的明确定义，使得信息传递出现歧义。",
-          "en": "The lack of explicit definitions for all terms in the document causes ambiguity in information transmission."
-        },
-        "step": {
-          "zh": "手动为文档中的两个未定义术语各写一个5字以内的定义并保存，观察下次查看时是否能理解对应内容。",
-          "en": "Manually write a 5-character or shorter definition for two undefined terms in the document and save it, then check if the corresponding content can be understoo"
-        }
-      }
-    },
-    {
-      "id": "scheduling-review-finding-s33-the-booking-record-is-inconsi",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Review finding S33: The booking record is inconsistent and its states are not listed",
-      "score": 26,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
-        "recency": 14.9,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "github"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-16T02:45:52.000Z",
-      "evidence": [
-        {
-          "title": "Review finding S33: The booking record is inconsistent and its states are not listed",
-          "url": "https://github.com/zishon89us/polyglot-sales-agent/issues/97",
-          "source": "github",
-          "createdAt": "2026-11-16T02:45:52.000Z",
-          "excerpt": "**Finding S33** (Medium) from the second independent Gate 1 review, `docs/reviews/2026-11-16-gate1-requirements-review-2.md`. **Location:** US-B2.8; US-B3.4; US-D8.1; US-D12.1, D12.2; US-D9.3; US-D2 **Finding:** The book"
-        },
-        {
-          "title": "Review finding S33: The booking record is inconsistent and its states are not listed",
-          "url": "https://github.com/zishon89us/polyglot-sales-agent/issues/97",
-          "source": "github",
-          "createdAt": "2026-11-16T02:45:52.000Z",
-          "excerpt": "**Finding S33** (Medium) from the second independent Gate 1 review, `docs/reviews/2026-11-16-gate1-requirements-review-2.md`. **Location:** US-B2.8; US-B3.4; US-D8.1; US-D12.1, D12.2; US-D9.3; US-D2 **Finding:** The book"
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 2,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 22,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "cavyxz:v1",
-      "idea": {
-        "version": 3,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "brief": {
-          "jobStory": {
-            "zh": "当US-B2.8等地点的预订需要确认状态时，相关负责人员想要查看准确的预订记录状态，以便做出决策。",
-            "en": "When booking statuses need to be confirmed for locations like US-B2.8, relevant personnel want to view accurate booking record statuses to make decisions."
-          },
-          "pain": {
-            "zh": "当前无法查看预订记录的具体状态，导致他们无法了解预订进展。",
-            "en": "Currently, they cannot view the specific status of booking records, preventing them from understanding booking progress."
-          },
-          "workaround": {
-            "zh": "假设他们目前通过其他方式尝试获取状态信息，但效果不佳。",
-            "en": "It is assumed they currently try to obtain status information through other methods, but with poor results."
-          },
-          "rootObstacle": {
-            "zh": "缺乏直接查询预订记录状态的标准化接口。",
-            "en": "There is a lack of a standardized interface to directly query booking record statuses."
-          },
-          "build": {
-            "zh": "实现一个可输入地点代码即可返回对应预订记录状态的查询功能。",
-            "en": "Build a function that returns the corresponding booking record status when a location code is entered."
-          },
-          "test": {
-            "zh": "编写一个简单的测试脚本，输入不同地点代码后检查是否返回预期状态。",
-            "en": "Write a simple test script to check if expected statuses are returned after entering different location codes."
-          },
-          "stopIf": {
-            "zh": "如果输入任意地点代码都无法返回任何状态信息，则放弃该想法。",
-            "en": "Abandon the idea if no status information is returned for any entered location code."
-          },
-          "whyNow": {
-            "zh": "现有问题直接阻碍了预订流程的效率，存在立即解决的必要性。",
-            "en": "The existing problem directly hinders booking process efficiency, making immediate resolution necessary."
-          }
-        },
-        "headline": {
-          "zh": "实现一个可输入地点代码即可返回对应预订记录状态的查询功能。",
-          "en": "Build a function that returns the corresponding booking record status when a location code is entered."
-        },
-        "who": {
-          "zh": "当US-B2.8等地点的预订需要确认状态时，相关负责人员想要查看准确的预订记录状态，以便做出决策。",
-          "en": "When booking statuses need to be confirmed for locations like US-B2.8, relevant personnel want to view accurate booking record statuses to make decisions."
-        },
-        "why": {
-          "zh": "缺乏直接查询预订记录状态的标准化接口。",
-          "en": "There is a lack of a standardized interface to directly query booking record statuses."
-        },
-        "step": {
-          "zh": "编写一个简单的测试脚本，输入不同地点代码后检查是否返回预期状态。",
-          "en": "Write a simple test script to check if expected statuses are returned after entering different location codes."
-        }
-      }
-    },
-    {
-      "id": "support-transcripts-a-dispatch-verb-s-requesttransform-is-accepted-p",
-      "nicheId": "support-transcripts",
-      "nicheLabel": "Support tooling and transcript exports",
-      "title": "A dispatch verb's requestTransform is accepted, plumbed to the call, and never applied -- so a…",
+      "title": "What the code owes grew this week",
       "score": 26,
       "breakdown": {
         "frequency": 6,
@@ -3645,21 +3459,21 @@
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-16T06:16:16.000Z",
+      "lastSeen": "2026-11-16T20:44:11.000Z",
       "evidence": [
         {
-          "title": "A dispatch verb's requestTransform is accepted, plumbed to the call, and never applied -- so a dispatch can file a vendor record it can never correlate",
-          "url": "https://github.com/krateo-platformops/oasgen-provider/issues/718",
+          "title": "What the code owes grew this week",
+          "url": "https://github.com/expectmeout/chanlytics-os/issues/2381",
           "source": "github",
-          "createdAt": "2026-11-16T06:16:16.000Z",
-          "excerpt": "## Searchable symptoms - a `requestTransform` declared on an `action: dispatch` verb has **no effect**; the flat spec body goes on the wire - the dispatch POST is accepted by the vendor but creates a record missing field"
+          "createdAt": "2026-11-16T20:44:11.000Z",
+          "excerpt": "**Red 1 run in a row**, the last on 2026-11-16. Run: https://github.com/expectmeout/chanlytics-os/actions/runs/43951999815 Closed by the first green run; each red run comments below. ### What the code owes: the week Grew"
         },
         {
-          "title": "A dispatch verb's requestTransform is accepted, plumbed to the call, and never applied -- so a dispatch can file a vendor record it can never correlate",
-          "url": "https://github.com/krateo-platformops/oasgen-provider/issues/718",
+          "title": "What the code owes grew this week",
+          "url": "https://github.com/expectmeout/chanlytics-os/issues/2381",
           "source": "github",
-          "createdAt": "2026-11-16T06:16:16.000Z",
-          "excerpt": "## Searchable symptoms - a `requestTransform` declared on an `action: dispatch` verb has **no effect**; the flat spec body goes on the wire - the dispatch POST is accepted by the vendor but creates a record missing field"
+          "createdAt": "2026-11-16T20:44:11.000Z",
+          "excerpt": "**Red 1 run in a row**, the last on 2026-11-16. Run: https://github.com/expectmeout/chanlytics-os/actions/runs/43951999815 Closed by the first green run; each red run comments below. ### What the code owes: the week Grew"
         }
       ],
       "opportunityCard": {
@@ -3677,7 +3491,7 @@
         "evaluatedDimensions": 5,
         "totalDimensions": 8,
         "total": 22,
-        "audience": "support",
+        "audience": "ops",
         "validation": "interview",
         "riskFlags": [
           "single-source",
@@ -3686,60 +3500,175 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "ulk9z2:v1",
+      "cardKey": "uya3vr:v1",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当开发者在`action: dispatch`动词上声明`requestTransform`时，希望该转换规则能被应用以修改传输的数据结构，从而得到符合预期的处理结果",
-            "en": "When a developer declares `requestTransform` on an `action: dispatch` verb, they want that transformation rule applied to modify the transmitted data structure"
+            "zh": "当需要查看代码最近一周的运行状态时，开发人员希望直接获取相关数据，以便了解系统运行情况。",
+            "en": "When developers need to check the recent running status of code over the past week, they want to directly access relevant data to understand system performance."
           },
           "pain": {
-            "zh": "转换规则完全未被应用，导致传输的原始数据结构直接发送，造成生成的记录缺少必要字段",
-            "en": "The transformation rule has no effect at all, so the raw data structure is sent directly, resulting in records being created without the required fields"
+            "zh": "因为每次出现红色运行结果后都需要手动查看下方注释，非常耗时且容易遗漏信息。",
+            "en": "Manually checking comments below each red run result is time-consuming and prone to missing information."
           },
           "workaround": {
-            "zh": "假设开发者目前只能接受数据结构不完整的情况，或手动修复传输数据，但这既耗时又容易出错",
-            "en": "Assuming developers currently must accept incomplete data structures or manually fix the transmitted data, which is time-consuming and error-prone"
+            "zh": "假设他们目前只能通过逐条阅读红色运行记录下的注释来获取信息。",
+            "en": "It is assumed they currently must read comments under each red run record to obtain information."
           },
           "rootObstacle": {
-            "zh": "系统无法识别并执行用户声明的特定数据转换逻辑",
-            "en": "The system fails to recognize and execute the specific data transformation logic declared by the user"
+            "zh": "无法快速自动获取红色运行结果对应的注释信息。",
+            "en": "There is no quick way to automatically retrieve comment information associated with red run results."
           },
           "build": {
-            "zh": "实现一个函数，该函数在接收到`dispatch`动作的请求时自动应用指定的`requestTransform`规则",
-            "en": "Build a function that automatically applies the specified `requestTransform` rule when receiving a request for a `dispatch` action"
+            "zh": "构建一个函数，输入红色运行结果的ID，直接返回对应的注释内容。",
+            "en": "Build a function that takes a red run result ID as input and directly returns the corresponding comment content."
           },
           "test": {
-            "zh": "编写一个测试用例，模拟`requestTransform`声明后的`dispatch`请求，验证输出记录是否包含预期字段",
-            "en": "Create a test case simulating a `dispatch` request with a declared `requestTransform` to verify if the output record contains the expected fields"
+            "zh": "创建三个模拟的红色运行记录，分别对应不同的注释内容，测试该函数是否能正确返回对应注释。",
+            "en": "Create three simulated red run records with different comment contents to test whether the function correctly returns the matching comments."
           },
           "stopIf": {
-            "zh": "测试用例运行后仍生成缺少必要字段的记录，说明转换规则未被正确处理",
-            "en": "If records still lack required fields after running the test case, it indicates the transformation rule is not being properly applied"
+            "zh": "如果尝试后函数无法正确返回任何注释内容，则放弃该想法。",
+            "en": "Abandon the idea if the function fails to return any correct comment content after testing."
           },
           "whyNow": {
-            "zh": "现有问题直接导致数据错误，需要立即通过简单功能解决，无额外时间延迟因素",
-            "en": "The existing problem directly causes data errors that require immediate resolution via a simple function, with no additional time delays"
+            "zh": "现有流程依赖人工查看，存在效率低下的问题，有改进空间。",
+            "en": "The current process relies on manual viewing, which is inefficient and ripe for improvement."
           }
         },
         "headline": {
-          "zh": "实现一个函数，该函数在接收到`dispatch`动作的请求时自动应用指定的`requestTransform`规则",
-          "en": "Build a function that automatically applies the specified `requestTransform` rule when receiving a request for a `dispatch` action"
+          "zh": "构建一个函数，输入红色运行结果的ID，直接返回对应的注释内容。",
+          "en": "Build a function that takes a red run result ID as input and directly returns the corresponding comment content."
         },
         "who": {
-          "zh": "当开发者在`action: dispatch`动词上声明`requestTransform`时，希望该转换规则能被应用以修改传输的数据结构，从而得到符合预期的处理结果",
-          "en": "When a developer declares `requestTransform` on an `action: dispatch` verb, they want that transformation rule applied to modify the transmitted data structure"
+          "zh": "当需要查看代码最近一周的运行状态时，开发人员希望直接获取相关数据，以便了解系统运行情况。",
+          "en": "When developers need to check the recent running status of code over the past week, they want to directly access relevant data to understand system performance."
         },
         "why": {
-          "zh": "系统无法识别并执行用户声明的特定数据转换逻辑",
-          "en": "The system fails to recognize and execute the specific data transformation logic declared by the user"
+          "zh": "无法快速自动获取红色运行结果对应的注释信息。",
+          "en": "There is no quick way to automatically retrieve comment information associated with red run results."
         },
         "step": {
-          "zh": "编写一个测试用例，模拟`requestTransform`声明后的`dispatch`请求，验证输出记录是否包含预期字段",
-          "en": "Create a test case simulating a `dispatch` request with a declared `requestTransform` to verify if the output record contains the expected fields"
+          "zh": "创建三个模拟的红色运行记录，分别对应不同的注释内容，测试该函数是否能正确返回对应注释。",
+          "en": "Create three simulated red run records with different comment contents to test whether the function correctly returns the matching comments."
+        }
+      }
+    },
+    {
+      "id": "scheduling-owner-api-keys-and-outbound-booking-webhooks",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Owner API keys and outbound booking webhooks",
+      "score": 26,
+      "breakdown": {
+        "frequency": 3,
+        "intensity": 4,
+        "recency": 14.5,
+        "corroboration": 5,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "github"
+      ],
+      "signals": [
+        "churn"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2026-11-15T20:30:51.000Z",
+      "evidence": [
+        {
+          "title": "Owner API keys and outbound booking webhooks",
+          "url": "https://github.com/asm0dey/calit/issues/319",
+          "source": "github",
+          "createdAt": "2026-11-15T20:30:51.000Z",
+          "excerpt": "Authenticated owner REST API via per-owner API keys, plus JSON webhooks on booking created/rescheduled/cancelled/approved. The webhook:// notification channel is a partial start. Owner-scoped. Competitors: Calendly, Cal."
+        }
+      ],
+      "titleZh": "所有者API密钥与预订出站Webhook功能",
+      "quoteZh": "通过针对每个所有者的API密钥实现经过认证的所有者REST API，同时在预订创建、重新安排、取消或批准时发送JSON Webhook。目前仅支持webhook://通知渠道，属于所有者级功能。同类产品有Calendly、Cal。",
+      "translationKey": "1xf1g9n",
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 6,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 30,
+        "audience": "ops",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition"
+        ]
+      },
+      "cardKey": "1xf1g9n:v1",
+      "idea": {
+        "version": 3,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "brief": {
+          "jobStory": {
+            "zh": "当需要为每个独立账户单独管理预订状态时，独立开发者希望实现按账户隔离的API访问和预订事件通知，以便独立处理每个客户的日程数据。",
+            "en": "When managing bookings for individual accounts separately, indie developers want account-isolated API access and booking event notifications to handle each clie"
+          },
+          "pain": {
+            "zh": "当前仅提供通用的webhook通道，无法针对不同所有者发送定制化的预订创建、调整或取消通知，导致开发者需自行编写适配逻辑，增加工作量。",
+            "en": "The current generic webhook channel cannot send customized notifications for creation, rescheduling, cancellation, or approval of bookings per owner, forcing de"
+          },
+          "workaround": {
+            "zh": "假设开发者目前通过手动查询数据库或第三方工具获取状态信息，但这种方式效率低且容易出错。",
+            "en": "Assumed developers currently retrieve status information manually via database queries or third-party tools, which is inefficient and prone to errors."
+          },
+          "rootObstacle": {
+            "zh": "缺乏按账户维度隔离的专用通知通道，使得不同所有者的预订事件无法独立触发和处理。",
+            "en": "The lack of a dedicated notification channel isolated by account dimension prevents booking events for different owners from being triggered and processed indep"
+          },
+          "build": {
+            "zh": "开发一个支持按所有者ID区分的JSON webhook接口，用于发送预订创建、调整、取消或批准状态的定制化通知。",
+            "en": "Build a JSON webhook interface that distinguishes by owner ID to send customized notifications for booking creation, adjustment, cancellation, or approval statu"
+          },
+          "test": {
+            "zh": "编写一个简单脚本，在模拟预订创建后向指定所有者地址发送测试消息，验证通知是否按预期到达。",
+            "en": "Write a simple script to send a test message to a specified owner’s address after simulating a booking creation to verify if notifications arrive as expected."
+          },
+          "stopIf": {
+            "zh": "若测试中多个所有者收到相同内容的通知，则说明该功能无法解决当前问题。",
+            "en": "If multiple owners receive identical content in tests, it indicates the feature cannot solve the current problem."
+          },
+          "whyNow": {
+            "zh": "现有方案存在明显缺陷，亟需通过专用通知通道提升系统可维护性。",
+            "en": "The existing solution has clear flaws, making it urgent to improve system maintainability with a dedicated notification channel."
+          }
+        },
+        "headline": {
+          "zh": "开发一个支持按所有者ID区分的JSON webhook接口，用于发送预订创建、调整、取消或批准状态的定制化通知。",
+          "en": "Build a JSON webhook interface that distinguishes by owner ID to send customized notifications for booking creation, adjustment, cancellation, or approval statu"
+        },
+        "who": {
+          "zh": "当需要为每个独立账户单独管理预订状态时，独立开发者希望实现按账户隔离的API访问和预订事件通知，以便独立处理每个客户的日程数据。",
+          "en": "When managing bookings for individual accounts separately, indie developers want account-isolated API access and booking event notifications to handle each clie"
+        },
+        "why": {
+          "zh": "缺乏按账户维度隔离的专用通知通道，使得不同所有者的预订事件无法独立触发和处理。",
+          "en": "The lack of a dedicated notification channel isolated by account dimension prevents booking events for different owners from being triggered and processed indep"
+        },
+        "step": {
+          "zh": "编写一个简单脚本，在模拟预订创建后向指定所有者地址发送测试消息，验证通知是否按预期到达。",
+          "en": "Write a simple script to send a test message to a specified owner’s address after simulating a booking creation to verify if notifications arrive as expected."
         }
       }
     },
@@ -3752,7 +3681,7 @@
       "breakdown": {
         "frequency": 3,
         "intensity": 6,
-        "recency": 12,
+        "recency": 11.7,
         "corroboration": 5,
         "willingnessToPay": 0
       },
@@ -3799,6 +3728,9 @@
         ]
       },
       "cardKey": "7nlyjq:v1",
+      "titleZh": "亚马逊用Strands Decider替代Sonnet 4.6节省数百万成本",
+      "quoteZh": "我们公司也是这样，每次向工程团队提交请求（警报、安全问题、漏洞、客户支持升级）都会生成一张工单。",
+      "translationKey": "7nlyjq",
       "idea": {
         "version": 3,
         "origin": "llm",
@@ -3852,123 +3784,6 @@
         "step": {
           "zh": "编写一个简单脚本，输入示例请求字符串，验证是否能生成符合预期的工单文本。",
           "en": "Write a simple script that inputs an example request string to verify if it generates the expected ticket text."
-        }
-      }
-    },
-    {
-      "id": "scheduling-service-degradation-on-microsoft-365",
-      "nicheId": "scheduling",
-      "nicheLabel": "Scheduling and booking workflows",
-      "title": "Service degradation on Microsoft 365",
-      "score": 25,
-      "breakdown": {
-        "frequency": 6,
-        "intensity": 0,
-        "recency": 13.5,
-        "corroboration": 5,
-        "willingnessToPay": 0
-      },
-      "mentions": 2,
-      "sources": [
-        "hn"
-      ],
-      "signals": [],
-      "willingnessToPay": false,
-      "lastSeen": "2026-11-13T08:05:07.000Z",
-      "evidence": [
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://news.ycombinator.com/item?id=50475792",
-          "source": "hn",
-          "createdAt": "2026-11-12T23:15:56.000Z",
-          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
-        },
-        {
-          "title": "Service degradation on Microsoft 365",
-          "url": "https://news.ycombinator.com/item?id=50479943",
-          "source": "hn",
-          "createdAt": "2026-11-13T08:05:07.000Z",
-          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
-        }
-      ],
-      "opportunityCard": {
-        "version": 1,
-        "dimensions": {
-          "demand": 2,
-          "urgency": 3,
-          "feasibility": 2,
-          "monetization": 0,
-          "confidence": 4,
-          "competition": null,
-          "marketSize": null,
-          "retention": null
-        },
-        "evaluatedDimensions": 5,
-        "totalDimensions": 8,
-        "total": 22,
-        "audience": "ops",
-        "validation": "interview",
-        "riskFlags": [
-          "single-source",
-          "thin-evidence",
-          "no-wtp",
-          "unverified-competition"
-        ]
-      },
-      "cardKey": "k0xfgs:v1",
-      "idea": {
-        "version": 3,
-        "origin": "llm",
-        "persona": "indie-dev",
-        "brief": {
-          "jobStory": {
-            "zh": "当UTC时间凌晨1点06分17秒的更新后，负责建立安全连接的受影响服务器上的某个进程变得过度活跃时，需要处理工作相关事务的人希望继续正常开展工作。",
-            "en": "When a process on affected servers responsible for establishing secure connections becomes overactive after the UTC update at 1:06:17 AM, people who need to han"
-          },
-          "pain": {
-            "zh": "在UTC时间凌晨1点06分17秒的更新后，负责建立安全连接的受影响服务器上的某个进程变得过度活跃，导致服务性能下降。",
-            "en": "After the UTC update at 1:06:17 AM, a process on affected servers responsible for establishing secure connections becomes overactive, causing service degradatio"
-          },
-          "workaround": {
-            "zh": "目前未知，仅为基于标题的假设。",
-            "en": "Unknown at present; this is merely an assumption based on the title."
-          },
-          "rootObstacle": {
-            "zh": "无法在服务出现性能下降时快速恢复到正常工作状态。",
-            "en": "The inability to quickly return to normal operation when service performance degrades."
-          },
-          "build": {
-            "zh": "一个可在服务异常时自动触发并通知用户的简单警报功能。",
-            "en": "A simple alert function that automatically triggers and notifies users when a service experiences an anomaly."
-          },
-          "test": {
-            "zh": "立即编写代码实现该警报功能，并在本地模拟服务故障场景测试通知是否发送。",
-            "en": "Immediately write code for the alert function and test whether notifications are sent by simulating a service failure locally."
-          },
-          "stopIf": {
-            "zh": "若测试中未观察到任何通知被发送，则应放弃该想法。",
-            "en": "If no notifications are observed during testing, the idea should be abandoned."
-          },
-          "whyNow": {
-            "zh": "无相关时间证据表明为何现在要处理此问题。",
-            "en": "There is no timing evidence indicating why this issue should be addressed now."
-          }
-        },
-        "headline": {
-          "zh": "一个可在服务异常时自动触发并通知用户的简单警报功能。",
-          "en": "A simple alert function that automatically triggers and notifies users when a service experiences an anomaly."
-        },
-        "who": {
-          "zh": "当UTC时间凌晨1点06分17秒的更新后，负责建立安全连接的受影响服务器上的某个进程变得过度活跃时，需要处理工作相关事务的人希望继续正常开展工作。",
-          "en": "When a process on affected servers responsible for establishing secure connections becomes overactive after the UTC update at 1:06:17 AM, people who need to han"
-        },
-        "why": {
-          "zh": "无法在服务出现性能下降时快速恢复到正常工作状态。",
-          "en": "The inability to quickly return to normal operation when service performance degrades."
-        },
-        "step": {
-          "zh": "立即编写代码实现该警报功能，并在本地模拟服务故障场景测试通知是否发送。",
-          "en": "Immediately write code for the alert function and test whether notifications are sent by simulating a service failure locally."
         }
       }
     },
@@ -6293,44 +6108,41 @@
       }
     },
     {
-      "id": "dev-workflow-python-flask-webhook-receives-meta-lead-ads-test",
+      "id": "dev-workflow-nvidia-announces-ceo-transition",
       "nicheId": "dev-workflow",
       "nicheLabel": "Developer workflow and integration friction",
-      "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request…",
+      "title": "NVIDIA Announces CEO Transition",
       "score": 24,
       "breakdown": {
         "frequency": 6,
         "intensity": 0,
-        "recency": 12.7,
+        "recency": 12.9,
         "corroboration": 5,
         "willingnessToPay": 0
       },
       "mentions": 2,
       "sources": [
-        "so"
+        "hn"
       ],
       "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-11T15:50:49.000Z",
+      "lastSeen": "2026-11-12T17:32:24.000Z",
       "evidence": [
         {
-          "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request arrives for generated test leads",
-          "url": "https://stackoverflow.com/questions/80016032/python-flask-webhook-receives-meta-lead-ads-test-event-with-http-200-but-no-pos",
-          "source": "so",
-          "createdAt": "2026-11-11T15:50:49.000Z",
-          "excerpt": "I'm integrating Meta (Facebook) Lead Ads with a custom CRM application using a Python Flask backend and Meta Graph API. The goal is to receive webhook notifications automatically whenever a lead is submitted through an I"
+          "title": "NVIDIA Announces CEO Transition",
+          "url": "https://news.ycombinator.com/item?id=50470966",
+          "source": "hn",
+          "createdAt": "2026-11-12T17:32:24.000Z",
+          "excerpt": "Well, AI bubble is not going to burst, probably ever. We have a new equivalent to something like Web 2.0 boom, Its not like the dot com bubble, because its not actually made up of a lot of empty unimplemented websites wi"
         },
         {
-          "title": "Python Flask webhook receives Meta Lead Ads test event with HTTP 200, but no POST request arrives for generated test leads",
-          "url": "https://stackoverflow.com/questions/80016032/python-flask-webhook-receives-meta-lead-ads-test-event-with-http-200-but-no-pos",
-          "source": "so",
-          "createdAt": "2026-11-11T15:50:49.000Z",
-          "excerpt": "I'm integrating Meta (Facebook) Lead Ads with a custom CRM application using a Python Flask backend and Meta Graph API. The goal is to receive webhook notifications automatically whenever a lead is submitted through an I"
+          "title": "NVIDIA Announces CEO Transition",
+          "url": "https://news.ycombinator.com/item?id=50470966",
+          "source": "hn",
+          "createdAt": "2026-11-12T17:32:24.000Z",
+          "excerpt": "Well, AI bubble is not going to burst, probably ever. We have a new equivalent to something like Web 2.0 boom, Its not like the dot com bubble, because its not actually made up of a lot of empty unimplemented websites wi"
         }
       ],
-      "titleZh": "Python Flask webhook收到HTTP 200状态的Meta Lead Ads测试事件但无POST请求",
-      "quoteZh": "我正在使用Python Flask后端和Meta Graph API，将Meta（脸书）的Lead Ads功能集成到自定义CRM应用中，目的是在有潜在客户通过相关渠道提交信息时自动收到webhook通知。",
-      "translationKey": "x996j0",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
@@ -6355,102 +6167,107 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "x996j0:v1",
+      "cardKey": "1x12t3p:v1",
+      "titleZh": "NVIDIA宣布CEO更迭",
+      "quoteZh": "AI泡沫不会破裂，很可能永远都不会。我们现在正经历类似Web 2.0繁荣的局面，但它和互联网泡沫不同，因为并非由大量空置且未实现的网站构成。",
+      "translationKey": "1x12t3p",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当通过Meta Lead Ads提交潜在客户时，使用Python Flask后端的开发者希望自动接收Webhook通知，以便在CRM中更新记录。",
-            "en": "When leads are submitted through Meta Lead Ads, a developer using a Python Flask backend wants to automatically receive Webhook notifications to update records"
+            "zh": "当需要将AI模型集成到现有应用中时，独立开发者希望快速完成部署，以便将功能上线使用",
+            "en": "When integrating AI models into existing apps, independent developers want to deploy quickly to launch features"
           },
           "pain": {
-            "zh": "Webhook返回HTTP 200状态码，但实际并未发送POST请求，导致无法在CRM中更新潜在客户数据。",
-            "en": "The Webhook returns HTTP 200 status but no actual POST request is sent, preventing updates to potential customer data in the CRM."
+            "zh": "在尝试将AI模型集成到应用时，遇到无法直接获取适配接口的问题，导致开发工作停滞",
+            "en": "When trying to integrate AI models into apps, they face issues getting ready-to-use APIs, halting development"
           },
           "workaround": {
-            "zh": "假设是网络问题，尝试重新启动服务器或检查网络连接，但问题依旧存在。",
-            "en": "Assuming it’s a network issue, the developer tries restarting the server or checking connections, but the problem persists."
+            "zh": "假设他们目前自行编写代码调用底层API，但效率低下且容易出错",
+            "en": "They likely write custom code to call underlying APIs, which is inefficient and error-prone"
           },
           "rootObstacle": {
-            "zh": "Webhook服务器未正确处理请求，导致无法生成并发送POST请求。",
-            "en": "The Webhook server fails to properly process requests, preventing the generation and transmission of POST requests."
+            "zh": "缺乏统一的标准接口来简化AI模型的调用流程",
+            "en": "There is no standardized interface to simplify AI model invocation"
           },
           "build": {
-            "zh": "实现一个自动验证请求完整性并触发POST请求的简单中间件函数。",
-            "en": "Build a minimal middleware function that automatically verifies request integrity and triggers a POST request."
+            "zh": "开发一个基础接口查询工具，允许用户输入模型名称即可查看可用的调用端点信息",
+            "en": "Build a basic tool that lets users search model names to see available endpoints"
           },
           "test": {
-            "zh": "创建一个模拟请求的测试脚本，发送有效请求后验证CRM是否收到预期数据。",
-            "en": "Create a test script that simulates a request and verifies if the CRM receives expected data after sending a valid request."
+            "zh": "创建两个测试模型，分别生成对应的接口查询结果页面，观察是否能在1小时内完成简单测试",
+            "en": "Create two test models and generate corresponding endpoint query pages to check if simple testing can be done within 1 hour"
           },
           "stopIf": {
-            "zh": "测试脚本发送请求后仍无法在CRM中触发数据更新，则放弃该功能开发。",
-            "en": "If sending a request via the test script still doesn’t trigger data updates in the CRM, abandon developing this feature."
+            "zh": "若查询工具无法返回任何有效模型信息，则无需继续开发",
+            "en": "If the tool returns no valid model information, drop the idea"
           },
           "whyNow": {
-            "zh": "无相关时间证据，无法说明为何现在需要解决此问题。",
-            "en": "There is no timing evidence indicating why this issue needs to be addressed now."
+            "zh": "无相关时间证据表明当前需立即行动",
+            "en": "There is no timing evidence indicating immediate action is needed"
           }
         },
         "headline": {
-          "zh": "实现一个自动验证请求完整性并触发POST请求的简单中间件函数。",
-          "en": "Build a minimal middleware function that automatically verifies request integrity and triggers a POST request."
+          "zh": "开发一个基础接口查询工具，允许用户输入模型名称即可查看可用的调用端点信息",
+          "en": "Build a basic tool that lets users search model names to see available endpoints"
         },
         "who": {
-          "zh": "当通过Meta Lead Ads提交潜在客户时，使用Python Flask后端的开发者希望自动接收Webhook通知，以便在CRM中更新记录。",
-          "en": "When leads are submitted through Meta Lead Ads, a developer using a Python Flask backend wants to automatically receive Webhook notifications to update records"
+          "zh": "当需要将AI模型集成到现有应用中时，独立开发者希望快速完成部署，以便将功能上线使用",
+          "en": "When integrating AI models into existing apps, independent developers want to deploy quickly to launch features"
         },
         "why": {
-          "zh": "Webhook服务器未正确处理请求，导致无法生成并发送POST请求。",
-          "en": "The Webhook server fails to properly process requests, preventing the generation and transmission of POST requests."
+          "zh": "缺乏统一的标准接口来简化AI模型的调用流程",
+          "en": "There is no standardized interface to simplify AI model invocation"
         },
         "step": {
-          "zh": "创建一个模拟请求的测试脚本，发送有效请求后验证CRM是否收到预期数据。",
-          "en": "Create a test script that simulates a request and verifies if the CRM receives expected data after sending a valid request."
+          "zh": "创建两个测试模型，分别生成对应的接口查询结果页面，观察是否能在1小时内完成简单测试",
+          "en": "Create two test models and generate corresponding endpoint query pages to check if simple testing can be done within 1 hour"
         }
       }
     },
     {
-      "id": "dev-workflow-devvm-dev-one-vm-for-every-project",
-      "nicheId": "dev-workflow",
-      "nicheLabel": "Developer workflow and integration friction",
-      "title": "Devvm.dev: One VM for every project",
+      "id": "scheduling-service-degradation-on-microsoft-365",
+      "nicheId": "scheduling",
+      "nicheLabel": "Scheduling and booking workflows",
+      "title": "Service degradation on Microsoft 365",
       "score": 24,
       "breakdown": {
-        "frequency": 3,
-        "intensity": 6,
-        "recency": 10.3,
+        "frequency": 6,
+        "intensity": 0,
+        "recency": 13.2,
         "corroboration": 5,
         "willingnessToPay": 0
       },
-      "mentions": 1,
+      "mentions": 2,
       "sources": [
         "hn"
       ],
-      "signals": [
-        "broken"
-      ],
+      "signals": [],
       "willingnessToPay": false,
-      "lastSeen": "2026-11-06T21:16:46.000Z",
+      "lastSeen": "2026-11-13T08:05:07.000Z",
       "evidence": [
         {
-          "title": "Devvm.dev: One VM for every project",
-          "url": "https://news.ycombinator.com/item?id=50398653",
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://news.ycombinator.com/item?id=50475792",
           "source": "hn",
-          "createdAt": "2026-11-06T21:16:46.000Z",
-          "excerpt": "I see. But then I have to debug some failing CI pipeline and the agent is quite good at going through the logs, so I give in and `gh auth login` anyway..."
+          "createdAt": "2026-11-12T23:15:56.000Z",
+          "excerpt": "Working in reverse-chronological order here: From the 1:06:17 AM UTC update: Current status: Our investigation has found that a process on the affected servers responsible for establishing secure connections becomes over"
+        },
+        {
+          "title": "Service degradation on Microsoft 365",
+          "url": "https://news.ycombinator.com/item?id=50479943",
+          "source": "hn",
+          "createdAt": "2026-11-13T08:05:07.000Z",
+          "excerpt": "From the Health Status page: \"Microsoft Teams: Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted. Scenarios that depend on Exchange Online, including Cal"
         }
       ],
-      "titleZh": "Devvm.dev：每个项目对应一台虚拟机",
-      "quoteZh": "我明白这个思路。但后来我需要调试出故障的CI流水线，而自动化工具很擅长分析日志，所以我还是选择了登录账号继续处理问题。",
-      "translationKey": "14qo93j",
       "opportunityCard": {
         "version": 1,
         "dimensions": {
-          "demand": 4,
-          "urgency": 5,
+          "demand": 2,
+          "urgency": 3,
           "feasibility": 2,
           "monetization": 0,
           "confidence": 4,
@@ -6460,8 +6277,8 @@
         },
         "evaluatedDimensions": 5,
         "totalDimensions": 8,
-        "total": 30,
-        "audience": "unknown",
+        "total": 22,
+        "audience": "ops",
         "validation": "interview",
         "riskFlags": [
           "single-source",
@@ -6470,60 +6287,63 @@
           "unverified-competition"
         ]
       },
-      "cardKey": "14qo93j:v1",
+      "cardKey": "k0xfgs:v1",
+      "titleZh": "Microsoft 365服务性能下降",
+      "quoteZh": "按时间倒序说明：从UTC时间凌晨1点06分17秒的更新来看，当前状况为：我们的调查发现，受影响服务器上负责建立安全连接的进程出现了异常。",
+      "translationKey": "k0xfgs",
       "idea": {
         "version": 3,
         "origin": "llm",
         "persona": "indie-dev",
         "brief": {
           "jobStory": {
-            "zh": "当某个项目的CI流水线出现故障时，独立开发者想要直接登录GitHub Agent来查看日志并解决问题，以便快速恢复开发进度。",
-            "en": "When a CI pipeline fails for a project, an independent developer wants to log in to the GitHub Agent directly to view logs and fix the issue quickly to resume d"
+            "zh": "当UTC时间凌晨1点06分17秒的更新后，负责建立安全连接的受影响服务器上的某个进程变得过度活跃时，需要处理工作相关事务的人希望继续正常开展工作。",
+            "en": "When a process on affected servers responsible for establishing secure connections becomes overactive after the UTC update at 1:06:17 AM, people who need to han"
           },
           "pain": {
-            "zh": "必须先通过`gh auth login`完成身份认证才能访问Agent日志，这一额外步骤增加了故障排查的时间成本。",
-            "en": "They must first run `gh auth login` to authenticate before accessing the Agent logs, adding time cost to troubleshooting failures."
+            "zh": "在UTC时间凌晨1点06分17秒的更新后，负责建立安全连接的受影响服务器上的某个进程变得过度活跃，导致服务性能下降。",
+            "en": "After the UTC update at 1:06:17 AM, a process on affected servers responsible for establishing secure connections becomes overactive, causing service degradatio"
           },
           "workaround": {
-            "zh": "假设他们选择放弃认证流程直接使用Agent日志，尽管这可能带来安全风险或数据访问限制。",
-            "en": "They assume they will skip authentication and use the Agent logs directly, even though this may pose security risks or data access limitations."
+            "zh": "目前未知，仅为基于标题的假设。",
+            "en": "Unknown at present; this is merely an assumption based on the title."
           },
           "rootObstacle": {
-            "zh": "缺少无需认证即可直接访问目标服务日志的统一入口。",
-            "en": "There is no unified entry point that allows direct access to target service logs without authentication."
+            "zh": "无法在服务出现性能下降时快速恢复到正常工作状态。",
+            "en": "The inability to quickly return to normal operation when service performance degrades."
           },
           "build": {
-            "zh": "实现一个支持直接输入GitHub项目URL即可跳过认证并加载对应项目日志的简单接口。",
-            "en": "Build a simple interface that accepts a GitHub project URL directly to bypass authentication and load its logs."
+            "zh": "一个可在服务异常时自动触发并通知用户的简单警报功能。",
+            "en": "A simple alert function that automatically triggers and notifies users when a service experiences an anomaly."
           },
           "test": {
-            "zh": "创建两个测试项目，分别尝试直接访问日志和通过认证访问日志，记录操作耗时差异。",
-            "en": "Create two test projects and measure the time difference between accessing logs directly and via authentication."
+            "zh": "立即编写代码实现该警报功能，并在本地模拟服务故障场景测试通知是否发送。",
+            "en": "Immediately write code for the alert function and test whether notifications are sent by simulating a service failure locally."
           },
           "stopIf": {
-            "zh": "发现直接访问日志的操作耗时与认证后访问无显著差异。",
-            "en": "If there is no noticeable time difference between direct and authenticated log access."
+            "zh": "若测试中未观察到任何通知被发送，则应放弃该想法。",
+            "en": "If no notifications are observed during testing, the idea should be abandoned."
           },
           "whyNow": {
-            "zh": "现有方案存在额外的认证步骤，影响故障排查效率，亟需简化访问流程。",
-            "en": "The current solution requires additional authentication steps that slow down troubleshooting, making streamlining access urgent."
+            "zh": "无相关时间证据表明为何现在要处理此问题。",
+            "en": "There is no timing evidence indicating why this issue should be addressed now."
           }
         },
         "headline": {
-          "zh": "实现一个支持直接输入GitHub项目URL即可跳过认证并加载对应项目日志的简单接口。",
-          "en": "Build a simple interface that accepts a GitHub project URL directly to bypass authentication and load its logs."
+          "zh": "一个可在服务异常时自动触发并通知用户的简单警报功能。",
+          "en": "A simple alert function that automatically triggers and notifies users when a service experiences an anomaly."
         },
         "who": {
-          "zh": "当某个项目的CI流水线出现故障时，独立开发者想要直接登录GitHub Agent来查看日志并解决问题，以便快速恢复开发进度。",
-          "en": "When a CI pipeline fails for a project, an independent developer wants to log in to the GitHub Agent directly to view logs and fix the issue quickly to resume d"
+          "zh": "当UTC时间凌晨1点06分17秒的更新后，负责建立安全连接的受影响服务器上的某个进程变得过度活跃时，需要处理工作相关事务的人希望继续正常开展工作。",
+          "en": "When a process on affected servers responsible for establishing secure connections becomes overactive after the UTC update at 1:06:17 AM, people who need to han"
         },
         "why": {
-          "zh": "缺少无需认证即可直接访问目标服务日志的统一入口。",
-          "en": "There is no unified entry point that allows direct access to target service logs without authentication."
+          "zh": "无法在服务出现性能下降时快速恢复到正常工作状态。",
+          "en": "The inability to quickly return to normal operation when service performance degrades."
         },
         "step": {
-          "zh": "创建两个测试项目，分别尝试直接访问日志和通过认证访问日志，记录操作耗时差异。",
-          "en": "Create two test projects and measure the time difference between accessing logs directly and via authentication."
+          "zh": "立即编写代码实现该警报功能，并在本地模拟服务故障场景测试通知是否发送。",
+          "en": "Immediately write code for the alert function and test whether notifications are sent by simulating a service failure locally."
         }
       }
     },
@@ -7106,21 +6926,137 @@
           "en": "Display the hard drive page on an e-commerce platform for 24 hours to see if any users inquire or place orders."
         }
       }
+    },
+    {
+      "id": "personal-admin-is-there-a-facility-in-outlook-2003-that-will-fi",
+      "nicheId": "personal-admin",
+      "nicheLabel": "Personal admin: documents, photos and contacts",
+      "title": "Is there a facility in OUTLOOK 2003 that will find and merge duplicate contacts?",
+      "score": 24,
+      "breakdown": {
+        "frequency": 5,
+        "intensity": 3,
+        "recency": 8,
+        "corroboration": 8,
+        "willingnessToPay": 0
+      },
+      "mentions": 1,
+      "sources": [
+        "consumerQa"
+      ],
+      "signals": [
+        "question"
+      ],
+      "willingnessToPay": false,
+      "lastSeen": "2013-07-10T03:27:10.000Z",
+      "evidence": [
+        {
+          "title": "Is there a facility in OUTLOOK 2003 that will find and merge duplicate contacts?",
+          "url": "https://superuser.com/questions/121622/is-there-a-facility-in-outlook-2003-that-will-find-and-merge-duplicate-contacts",
+          "source": "consumerQa",
+          "createdAt": "2013-07-10T03:27:10.000Z",
+          "excerpt": "Is there a facility in OUTLOOK 2003 that will find and merge duplicate contacts? OS is Windows XP SP3."
+        }
+      ],
+      "opportunityCard": {
+        "version": 1,
+        "dimensions": {
+          "demand": 3,
+          "urgency": 2,
+          "feasibility": 2,
+          "monetization": 0,
+          "confidence": 4,
+          "competition": null,
+          "marketSize": null,
+          "retention": null
+        },
+        "evaluatedDimensions": 5,
+        "totalDimensions": 8,
+        "total": 22,
+        "audience": "unknown",
+        "validation": "interview",
+        "riskFlags": [
+          "single-source",
+          "thin-evidence",
+          "no-wtp",
+          "unverified-competition",
+          "stale"
+        ]
+      },
+      "cardKey": "1g9tf5t:v1",
+      "titleZh": "OUTLOOK 2003是否有查找并合并重复联系人的功能？",
+      "quoteZh": "OUTLOOK 2003是否有查找并合并重复联系人的功能？操作系统为Windows XP SP3。",
+      "translationKey": "1g9tf5t",
+      "idea": {
+        "version": 3,
+        "origin": "llm",
+        "persona": "indie-dev",
+        "brief": {
+          "jobStory": {
+            "zh": "当需要整理Windows XP SP3系统上OUTLOOK 2003中的联系人信息时，这个人希望找到并合并重复的联系人记录，以便获得唯一的联系人列表。",
+            "en": "When organizing contact records in OUTLOOK 2003 on a Windows XP SP3 system, the person wants to locate and merge duplicate contacts to get a unique list."
+          },
+          "pain": {
+            "zh": "在尝试查找和合并重复联系人时，该用户无法直接通过OUTLOOK 2003的现有功能完成操作，导致工作停滞。",
+            "en": "The user cannot complete the task of finding and merging duplicates using OUTLOOK 2003’s existing features, causing work delays."
+          },
+          "workaround": {
+            "zh": "该用户假设需要手动筛选联系人或使用其他软件来处理重复项，但未明确说明具体方法。",
+            "en": "The user assumes manual filtering or third-party software is needed, but the specific method is unclear."
+          },
+          "rootObstacle": {
+            "zh": "OUTLOOK 2003缺乏内置的逻辑来自动识别并合并符合重复标准的联系人记录。",
+            "en": "OUTLOOK 2003 lacks a built-in mechanism to automatically detect and merge contacts that meet duplicate criteria."
+          },
+          "build": {
+            "zh": "开发一个可导入OUTLOOK 2003格式的联系人数据、自动识别重复项并生成合并后列表的简单脚本工具。",
+            "en": "Create a simple script tool that imports contacts in OUTLOOK 2003 format, automatically identifies duplicates, and outputs a merged list."
+          },
+          "test": {
+            "zh": "编写一段测试代码，输入包含三组重复联系人的样本数据，验证工具能否正确输出仅含一组重复项的合并结果。",
+            "en": "Write test code with sample data containing three groups of duplicates to verify the tool outputs a merged list with only one duplicate group."
+          },
+          "stopIf": {
+            "zh": "若测试用例中的重复联系人组合未被工具正确识别为重复项，则放弃该想法。",
+            "en": "Abandon the idea if duplicate contact combinations in test cases are not correctly identified as duplicates."
+          },
+          "whyNow": {
+            "zh": "无相关时间证据表明当前是开展此工作的合适时机。",
+            "en": ""
+          }
+        },
+        "headline": {
+          "zh": "开发一个可导入OUTLOOK 2003格式的联系人数据、自动识别重复项并生成合并后列表的简单脚本工具。",
+          "en": "Create a simple script tool that imports contacts in OUTLOOK 2003 format, automatically identifies duplicates, and outputs a merged list."
+        },
+        "who": {
+          "zh": "当需要整理Windows XP SP3系统上OUTLOOK 2003中的联系人信息时，这个人希望找到并合并重复的联系人记录，以便获得唯一的联系人列表。",
+          "en": "When organizing contact records in OUTLOOK 2003 on a Windows XP SP3 system, the person wants to locate and merge duplicate contacts to get a unique list."
+        },
+        "why": {
+          "zh": "OUTLOOK 2003缺乏内置的逻辑来自动识别并合并符合重复标准的联系人记录。",
+          "en": "OUTLOOK 2003 lacks a built-in mechanism to automatically detect and merge contacts that meet duplicate criteria."
+        },
+        "step": {
+          "zh": "编写一段测试代码，输入包含三组重复联系人的样本数据，验证工具能否正确输出仅含一组重复项的合并结果。",
+          "en": "Write test code with sample data containing three groups of duplicates to verify the tool outputs a merged list with only one duplicate group."
+        }
+      }
     }
   ],
   "translation": {
     "model": "hy-mt2-plus",
-    "at": "2026-11-16T06:24:51.272Z",
+    "at": "2026-11-16T22:03:01.478Z",
     "status": "partial",
     "skippedReason": null,
     "errors": [
-      "invalid quote translation for dev-workflow-all-ai-generated-code-should-be-open-source",
-      "invalid quote translation for scheduling-review-finding-s33-the-booking-record-is-inconsi"
+      "invalid quote translation for dev-workflow-nifi-how-to-create-oauth2-access-token-provider-",
+      "Expected ',' or '}' after property value in JSON at position 1828 (line 25 column 235)"
     ],
     "total": 60,
     "cached": 40,
-    "translated": 8,
-    "failed": 12,
+    "translated": 4,
+    "failed": 16,
     "requests": 1
   },
   "cardInsights": {
@@ -7132,17 +7068,17 @@
   },
   "denoise": {
     "version": 1,
-    "at": "2026-11-16T06:25:12.761Z",
+    "at": "2026-11-16T22:03:08.256Z",
     "model": "hy-mt2-plus",
     "status": "suspicious",
     "enabled": true,
     "total": 60,
-    "cached": 41,
-    "pending": 19,
-    "judged": 19,
+    "cached": 45,
+    "pending": 15,
+    "judged": 15,
     "kept": 60,
     "rejected": 0,
-    "requests": 4,
+    "requests": 3,
     "ratioGuard": true,
     "forceKeepIds": 2,
     "forceKept": 0,
@@ -7152,14 +7088,16 @@
   "ideaSummary": {
     "version": 3,
     "model": "hy-mt2-plus",
-    "at": "2026-11-16T06:27:53.888Z",
+    "at": "2026-11-16T22:04:49.746Z",
     "enabled": true,
-    "status": "ok",
+    "status": "partial",
     "total": 60,
-    "cached": 40,
-    "generated": 20,
-    "templated": 0,
-    "requests": 20,
-    "errors": []
+    "cached": 44,
+    "generated": 15,
+    "templated": 1,
+    "requests": 15,
+    "errors": [
+      "no valid idea objects in model output"
+    ]
   }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-16T06:21:00.509Z",
+  "evaluatedAt": "2026-11-16T21:57:49.091Z",
   "verdict": "fallback",
   "method": "legacy",
   "reasons": [
@@ -17,20 +17,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 949,
+      "raw": 960,
       "itemCount": 60,
-      "recallHits": 451,
+      "recallHits": 453,
       "finalHits": 35,
-      "recallTitleRate": 0.47523709167544786,
+      "recallTitleRate": 0.471875,
       "finalTitleRate": 0.5833333333333334
     },
     "legacy": {
-      "raw": 968,
+      "raw": 960,
       "itemCount": 60,
-      "recallHits": 143,
-      "finalHits": 26,
-      "recallTitleRate": 0.14772727272727273,
-      "finalTitleRate": 0.43333333333333335
+      "recallHits": 138,
+      "finalHits": 27,
+      "recallTitleRate": 0.14375,
+      "finalTitleRate": 0.45
     }
   },
   "perNiche": {
@@ -85,24 +85,24 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 154,
+        "raw": 151,
         "itemCount": 5,
-        "recallTitleRate": 0.38311688311688313,
+        "recallTitleRate": 0.40397350993377484,
         "finalTitleRate": 0.6,
         "stats": {
-          "raw": 154,
+          "raw": 151,
           "complaintRecords": 5,
           "items": 5
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 108,
+        "raw": 124,
         "itemCount": 5,
-        "recallTitleRate": 0.5555555555555556,
+        "recallTitleRate": 0.49193548387096775,
         "finalTitleRate": 0.6,
         "stats": {
-          "raw": 108,
+          "raw": 124,
           "complaintRecords": 6,
           "items": 5
         }
@@ -110,37 +110,37 @@
       {
         "niche": "support-transcripts",
         "raw": 155,
-        "itemCount": 2,
-        "recallTitleRate": 0.4064516129032258,
+        "itemCount": 4,
+        "recallTitleRate": 0.41935483870967744,
         "finalTitleRate": 1,
         "stats": {
           "raw": 155,
-          "complaintRecords": 3,
-          "items": 2
+          "complaintRecords": 5,
+          "items": 4
         }
       },
       {
         "niche": "scheduling",
-        "raw": 167,
-        "itemCount": 12,
-        "recallTitleRate": 0.6107784431137725,
+        "raw": 166,
+        "itemCount": 8,
+        "recallTitleRate": 0.6024096385542169,
         "finalTitleRate": 0.75,
         "stats": {
-          "raw": 167,
-          "complaintRecords": 18,
-          "items": 12
+          "raw": 166,
+          "complaintRecords": 14,
+          "items": 8
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 167,
-        "itemCount": 5,
-        "recallTitleRate": 0.5449101796407185,
-        "finalTitleRate": 0.6,
+        "raw": 166,
+        "itemCount": 8,
+        "recallTitleRate": 0.5421686746987951,
+        "finalTitleRate": 0.5,
         "stats": {
-          "raw": 167,
-          "complaintRecords": 9,
-          "items": 5
+          "raw": 166,
+          "complaintRecords": 11,
+          "items": 8
         }
       },
       {
@@ -196,73 +196,73 @@
       {
         "niche": "personal-admin",
         "raw": 41,
-        "itemCount": 32,
+        "itemCount": 31,
         "recallTitleRate": 0.7560975609756098,
-        "finalTitleRate": 0.90625,
+        "finalTitleRate": 0.9032258064516129,
         "stats": {
           "raw": 41,
-          "complaintRecords": 32,
-          "items": 32
+          "complaintRecords": 31,
+          "items": 31
         }
       },
       {
         "niche": "solo-crm",
-        "raw": 154,
-        "itemCount": 6,
-        "recallTitleRate": 0.03896103896103896,
-        "finalTitleRate": 0.5,
+        "raw": 151,
+        "itemCount": 5,
+        "recallTitleRate": 0.033112582781456956,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 154,
+          "raw": 151,
+          "complaintRecords": 5,
+          "items": 5
+        }
+      },
+      {
+        "niche": "invoice-export",
+        "raw": 124,
+        "itemCount": 6,
+        "recallTitleRate": 0.07258064516129033,
+        "finalTitleRate": 0.16666666666666666,
+        "stats": {
+          "raw": 124,
           "complaintRecords": 6,
           "items": 6
         }
       },
       {
-        "niche": "invoice-export",
-        "raw": 127,
-        "itemCount": 12,
-        "recallTitleRate": 0.07086614173228346,
-        "finalTitleRate": 0.08333333333333333,
-        "stats": {
-          "raw": 127,
-          "complaintRecords": 14,
-          "items": 12
-        }
-      },
-      {
         "niche": "support-transcripts",
         "raw": 155,
-        "itemCount": 10,
-        "recallTitleRate": 0.1032258064516129,
-        "finalTitleRate": 0,
+        "itemCount": 15,
+        "recallTitleRate": 0.09032258064516129,
+        "finalTitleRate": 0.06666666666666667,
         "stats": {
           "raw": 155,
-          "complaintRecords": 10,
-          "items": 10
+          "complaintRecords": 15,
+          "items": 15
         }
       },
       {
         "niche": "scheduling",
-        "raw": 167,
-        "itemCount": 12,
-        "recallTitleRate": 0.08383233532934131,
-        "finalTitleRate": 0.25,
+        "raw": 166,
+        "itemCount": 14,
+        "recallTitleRate": 0.10240963855421686,
+        "finalTitleRate": 0.07142857142857142,
         "stats": {
-          "raw": 167,
-          "complaintRecords": 15,
-          "items": 12
+          "raw": 166,
+          "complaintRecords": 17,
+          "items": 14
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 167,
-        "itemCount": 12,
-        "recallTitleRate": 0.1317365269461078,
-        "finalTitleRate": 0.25,
+        "raw": 166,
+        "itemCount": 15,
+        "recallTitleRate": 0.10240963855421686,
+        "finalTitleRate": 0.3333333333333333,
         "stats": {
-          "raw": 167,
-          "complaintRecords": 15,
-          "items": 12
+          "raw": 166,
+          "complaintRecords": 18,
+          "items": 15
         }
       },
       {
@@ -297,9 +297,9 @@
         "titleHit": false
       },
       {
-        "title": "WISH: import Expense Report (and invoice) lines from CSV",
-        "niche": "invoice-export",
-        "titleHit": true
+        "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
+        "niche": "dev-workflow",
+        "titleHit": false
       },
       {
         "title": "Export personal Outlook 2016 contacts, excluding the global address list",
@@ -307,14 +307,14 @@
         "titleHit": true
       },
       {
-        "title": "Appointment Booking",
-        "niche": "scheduling",
-        "titleHit": true
-      },
-      {
         "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
         "niche": "everyday-money",
         "titleHit": false
+      },
+      {
+        "title": "WISH: import Expense Report (and invoice) lines from CSV",
+        "niche": "invoice-export",
+        "titleHit": true
       },
       {
         "title": "Can I get UK visa appointment fees refund before my appointment date?",
@@ -339,28 +339,28 @@
         "titleHit": false
       },
       {
-        "title": "Margaret calls the crew's wage bill money they \"brought in\" and \"profits\"",
+        "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
+        "title": "Pangolin Eventstreaming {{data}} block seems incompatible with Discord",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
+        "title": "Webhook agent runs fail: RuntimeStoreError('not_found') on multiplexed gateway (dynamic +…",
+        "niche": "dev-workflow",
+        "titleHit": true
+      },
+      {
+        "title": "Budget: Upcoming Bills uses rule start dates instead of next due dates",
         "niche": "invoice-export",
         "titleHit": false
       },
       {
         "title": "Export personal Outlook 2016 contacts, excluding the global address list",
         "niche": "personal-admin",
-        "titleHit": true
-      },
-      {
-        "title": "Per-cron (and per-source) tool allowlist to limit what a run can call",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
-        "niche": "everyday-money",
-        "titleHit": false
-      },
-      {
-        "title": "Can I get UK visa appointment fees refund before my appointment date?",
-        "niche": "local-service-booking",
         "titleHit": true
       }
     ]

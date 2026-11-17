@@ -1,23 +1,37 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T22:04:50.401Z",
+  "generatedAt": "2026-11-17T07:56:27.459Z",
   "source": "https://trustmrr.com",
   "endpoints": [
     "https://trustmrr.com/api/ai",
     "https://trustmrr.com/api/ai/discovery"
   ],
   "status": "ok",
-  "sampleSize": 92,
+  "sampleSize": 93,
   "byNiche": {
     "everyday-money": {
-      "matched": false,
-      "count": 0,
-      "projects": []
+      "matched": true,
+      "count": 1,
+      "projects": [
+        {
+          "name": "TicketVids",
+          "url": "https://trustmrr.com/startup/ticketvids",
+          "category": null,
+          "matchedTerm": "subscription"
+        }
+      ]
     },
     "pet-and-home-care": {
-      "matched": false,
-      "count": 0,
-      "projects": []
+      "matched": true,
+      "count": 1,
+      "projects": [
+        {
+          "name": "Pet Toxicity Lens",
+          "url": "https://trustmrr.com/startup/pet-toxicity-lens",
+          "category": null,
+          "matchedTerm": "pet"
+        }
+      ]
     },
     "local-service-booking": {
       "matched": false,
@@ -25,9 +39,16 @@
       "projects": []
     },
     "personal-admin": {
-      "matched": false,
-      "count": 0,
-      "projects": []
+      "matched": true,
+      "count": 1,
+      "projects": [
+        {
+          "name": "Roamer",
+          "url": "https://trustmrr.com/startup/roamer-1",
+          "category": "Mobile Apps",
+          "matchedTerm": "organize"
+        }
+      ]
     },
     "solo-crm": {
       "matched": false,
@@ -58,8 +79,14 @@
     },
     "dev-workflow": {
       "matched": true,
-      "count": 1,
+      "count": 2,
       "projects": [
+        {
+          "name": "Anonymous startup",
+          "url": "https://trustmrr.com/startup/mudbase-inc",
+          "category": "SaaS",
+          "matchedTerm": "authentication"
+        },
         {
           "name": "TrustQR",
           "url": "https://trustmrr.com/startup/trustqr",

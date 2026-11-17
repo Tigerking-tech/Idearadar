@@ -1,11 +1,9 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-16T21:57:49.091Z",
-  "verdict": "fallback",
-  "method": "legacy",
-  "reasons": [
-    "finalTitleRate 58% < 60%"
-  ],
+  "evaluatedAt": "2026-11-17T07:50:11.485Z",
+  "verdict": "adopt",
+  "method": "relevance",
+  "reasons": [],
   "thresholds": {
     "minFinalTitleRate": 0.6,
     "minItems": 24
@@ -17,19 +15,19 @@
   },
   "global": {
     "relevance": {
-      "raw": 960,
+      "raw": 954,
       "itemCount": 60,
-      "recallHits": 453,
-      "finalHits": 35,
-      "recallTitleRate": 0.471875,
-      "finalTitleRate": 0.5833333333333334
+      "recallHits": 451,
+      "finalHits": 38,
+      "recallTitleRate": 0.4727463312368973,
+      "finalTitleRate": 0.6333333333333333
     },
     "legacy": {
-      "raw": 960,
+      "raw": 949,
       "itemCount": 60,
-      "recallHits": 138,
+      "recallHits": 141,
       "finalHits": 27,
-      "recallTitleRate": 0.14375,
+      "recallTitleRate": 0.14857744994731295,
       "finalTitleRate": 0.45
     }
   },
@@ -97,21 +95,21 @@
       },
       {
         "niche": "invoice-export",
-        "raw": 124,
-        "itemCount": 5,
-        "recallTitleRate": 0.49193548387096775,
-        "finalTitleRate": 0.6,
+        "raw": 118,
+        "itemCount": 8,
+        "recallTitleRate": 0.5338983050847458,
+        "finalTitleRate": 0.75,
         "stats": {
-          "raw": 124,
-          "complaintRecords": 6,
-          "items": 5
+          "raw": 118,
+          "complaintRecords": 9,
+          "items": 8
         }
       },
       {
         "niche": "support-transcripts",
         "raw": 155,
         "itemCount": 4,
-        "recallTitleRate": 0.41935483870967744,
+        "recallTitleRate": 0.4,
         "finalTitleRate": 1,
         "stats": {
           "raw": 155,
@@ -134,13 +132,13 @@
       {
         "niche": "dev-workflow",
         "raw": 166,
-        "itemCount": 8,
-        "recallTitleRate": 0.5421686746987951,
-        "finalTitleRate": 0.5,
+        "itemCount": 9,
+        "recallTitleRate": 0.536144578313253,
+        "finalTitleRate": 0.5555555555555556,
         "stats": {
           "raw": 166,
-          "complaintRecords": 11,
-          "items": 8
+          "complaintRecords": 12,
+          "items": 9
         }
       },
       {
@@ -196,73 +194,73 @@
       {
         "niche": "personal-admin",
         "raw": 41,
-        "itemCount": 31,
+        "itemCount": 32,
         "recallTitleRate": 0.7560975609756098,
-        "finalTitleRate": 0.9032258064516129,
+        "finalTitleRate": 0.90625,
         "stats": {
           "raw": 41,
-          "complaintRecords": 31,
-          "items": 31
+          "complaintRecords": 32,
+          "items": 32
         }
       },
       {
         "niche": "solo-crm",
         "raw": 151,
-        "itemCount": 5,
-        "recallTitleRate": 0.033112582781456956,
+        "itemCount": 4,
+        "recallTitleRate": 0.052980132450331126,
         "finalTitleRate": 0,
         "stats": {
           "raw": 151,
-          "complaintRecords": 5,
-          "items": 5
+          "complaintRecords": 4,
+          "items": 4
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 124,
-        "itemCount": 6,
-        "recallTitleRate": 0.07258064516129033,
-        "finalTitleRate": 0.16666666666666666,
+        "raw": 113,
+        "itemCount": 10,
+        "recallTitleRate": 0.168141592920354,
+        "finalTitleRate": 0.4,
         "stats": {
-          "raw": 124,
-          "complaintRecords": 6,
-          "items": 6
+          "raw": 113,
+          "complaintRecords": 10,
+          "items": 10
         }
       },
       {
         "niche": "support-transcripts",
         "raw": 155,
-        "itemCount": 15,
-        "recallTitleRate": 0.09032258064516129,
-        "finalTitleRate": 0.06666666666666667,
+        "itemCount": 8,
+        "recallTitleRate": 0.07096774193548387,
+        "finalTitleRate": 0,
         "stats": {
           "raw": 155,
-          "complaintRecords": 15,
-          "items": 15
+          "complaintRecords": 8,
+          "items": 8
         }
       },
       {
         "niche": "scheduling",
         "raw": 166,
-        "itemCount": 14,
-        "recallTitleRate": 0.10240963855421686,
-        "finalTitleRate": 0.07142857142857142,
+        "itemCount": 16,
+        "recallTitleRate": 0.0963855421686747,
+        "finalTitleRate": 0.3125,
         "stats": {
           "raw": 166,
-          "complaintRecords": 17,
-          "items": 14
+          "complaintRecords": 20,
+          "items": 16
         }
       },
       {
         "niche": "dev-workflow",
         "raw": 166,
-        "itemCount": 15,
-        "recallTitleRate": 0.10240963855421686,
-        "finalTitleRate": 0.3333333333333333,
+        "itemCount": 16,
+        "recallTitleRate": 0.06626506024096386,
+        "finalTitleRate": 0.125,
         "stats": {
           "raw": 166,
           "complaintRecords": 18,
-          "items": 15
+          "items": 16
         }
       },
       {
@@ -339,29 +337,29 @@
         "titleHit": false
       },
       {
+        "title": "Agent surface: Claude's clients built in, and a company can turn them off",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
+        "title": "Antigravity 429: Claude Code's second system prompt has two triggers beyond the identity line",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
         "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
         "niche": "dev-workflow",
         "titleHit": false
       },
       {
-        "title": "Pangolin Eventstreaming {{data}} block seems incompatible with Discord",
+        "title": "Notifications when the loop stops on a question or ends",
         "niche": "dev-workflow",
         "titleHit": false
       },
       {
-        "title": "Webhook agent runs fail: RuntimeStoreError('not_found') on multiplexed gateway (dynamic +…",
+        "title": "pdd accounts import --provider claude misses /.credentials.json and accepts expired short-lived…",
         "niche": "dev-workflow",
-        "titleHit": true
-      },
-      {
-        "title": "Budget: Upcoming Bills uses rule start dates instead of next due dates",
-        "niche": "invoice-export",
         "titleHit": false
-      },
-      {
-        "title": "Export personal Outlook 2016 contacts, excluding the global address list",
-        "niche": "personal-admin",
-        "titleHit": true
       }
     ]
   },

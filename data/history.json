@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "seeded": false,
-  "methodVersion": 1,
+  "methodVersion": 2,
   "note": "冷启动引导历史：各赛道最后一个快照为真实采集聚合值，其余为按目标形态确定性生成的演示序列。真实采集每 6 小时追加一个真实快照，攒够 12 个后 appendHistory 会自动剔除全部引导快照并把 seeded 置为 false。",
   "maxSnapshots": 120,
   "snapshots": [
@@ -596,6 +596,52 @@
         }
       },
       "methodVersion": 1
+    },
+    {
+      "t": "2026-11-17T07:52:39.272Z",
+      "byNiche": {
+        "scheduling": {
+          "score": 30,
+          "mentions": 9,
+          "items": 3
+        },
+        "everyday-money": {
+          "score": 28,
+          "mentions": 9,
+          "items": 9
+        },
+        "dev-workflow": {
+          "score": 25,
+          "mentions": 7,
+          "items": 6
+        },
+        "personal-admin": {
+          "score": 26,
+          "mentions": 15,
+          "items": 15
+        },
+        "invoice-export": {
+          "score": 25,
+          "mentions": 7,
+          "items": 7
+        },
+        "local-service-booking": {
+          "score": 26,
+          "mentions": 12,
+          "items": 12
+        },
+        "solo-crm": {
+          "score": 26,
+          "mentions": 3,
+          "items": 3
+        },
+        "pet-and-home-care": {
+          "score": 25,
+          "mentions": 7,
+          "items": 5
+        }
+      },
+      "methodVersion": 2
     }
   ]
 }

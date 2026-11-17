@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-16T22:03:08.256Z",
+  "updatedAt": "2026-11-17T07:54:37.158Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 135,
+  "totalVerdicts": 141,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -1083,6 +1083,54 @@
       "id": "dev-workflow-nvidia-announces-ceo-transition",
       "title": "NVIDIA Announces CEO Transition",
       "at": "2026-11-16T22:03:01.527Z"
+    },
+    "y45jeh": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能需求建议，非问题反馈。",
+      "id": "scheduling-appointment-status-updates",
+      "title": "Appointment Status Updates",
+      "at": "2026-11-17T07:54:32.804Z"
+    },
+    "b1kn9e": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为行业趋势分析，非问题反馈。",
+      "id": "dev-workflow-the-active-directory-era-is-finally-over",
+      "title": "The Active Directory Era Is Finally Over",
+      "at": "2026-11-17T07:54:32.804Z"
+    },
+    "9ijyt0": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为技术操作指南，非问题反馈。",
+      "id": "dev-workflow-webhooks-webhook-tests-in-ci-cd-pipelines",
+      "title": "Webhooks: Webhook tests in CI/CD pipelines",
+      "at": "2026-11-17T07:54:32.804Z"
+    },
+    "15bm2yn": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到Xero存在错误提示问题。",
+      "id": "invoice-export-a-refund-note-link-to-a-credit-note-xero-says-do",
+      "title": "A refund-note link to a credit note Xero says does not exist stays active, and no tool retires…",
+      "at": "2026-11-17T07:54:32.804Z"
+    },
+    "w6ug0w": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到Xero处理请求出错问题。",
+      "id": "invoice-export-a-xero-outbox-row-refused-by-a-cooldown-after-it",
+      "title": "A Xero outbox row refused by a cooldown after its handler rewrote the request is skipped for…",
+      "at": "2026-11-17T07:54:32.804Z"
+    },
+    "q6yeu6": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能开发目标说明",
+      "id": "invoice-export-connect-alz-core-to-quickbooks-online-with-sandb",
+      "title": "Connect alz-core to QuickBooks Online with sandbox-only local setup",
+      "at": "2026-11-17T07:54:32.804Z"
     }
   }
 }

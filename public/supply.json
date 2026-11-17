@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-17T07:56:27.459Z",
+  "generatedAt": "2026-11-17T21:00:42.572Z",
   "source": "https://trustmrr.com",
   "endpoints": [
     "https://trustmrr.com/api/ai",
@@ -10,28 +10,14 @@
   "sampleSize": 93,
   "byNiche": {
     "everyday-money": {
-      "matched": true,
-      "count": 1,
-      "projects": [
-        {
-          "name": "TicketVids",
-          "url": "https://trustmrr.com/startup/ticketvids",
-          "category": null,
-          "matchedTerm": "subscription"
-        }
-      ]
+      "matched": false,
+      "count": 0,
+      "projects": []
     },
     "pet-and-home-care": {
-      "matched": true,
-      "count": 1,
-      "projects": [
-        {
-          "name": "Pet Toxicity Lens",
-          "url": "https://trustmrr.com/startup/pet-toxicity-lens",
-          "category": null,
-          "matchedTerm": "pet"
-        }
-      ]
+      "matched": false,
+      "count": 0,
+      "projects": []
     },
     "local-service-booking": {
       "matched": false,
@@ -43,9 +29,9 @@
       "count": 1,
       "projects": [
         {
-          "name": "Roamer",
-          "url": "https://trustmrr.com/startup/roamer-1",
-          "category": "Mobile Apps",
+          "name": "IMP-ACT",
+          "url": "https://trustmrr.com/startup/imp-act",
+          "category": null,
           "matchedTerm": "organize"
         }
       ]
@@ -79,14 +65,8 @@
     },
     "dev-workflow": {
       "matched": true,
-      "count": 2,
+      "count": 1,
       "projects": [
-        {
-          "name": "Anonymous startup",
-          "url": "https://trustmrr.com/startup/mudbase-inc",
-          "category": "SaaS",
-          "matchedTerm": "authentication"
-        },
         {
           "name": "TrustQR",
           "url": "https://trustmrr.com/startup/trustqr",

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T07:54:37.158Z",
+  "updatedAt": "2026-11-17T20:57:23.183Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 141,
+  "totalVerdicts": 166,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -1131,6 +1131,206 @@
       "id": "invoice-export-connect-alz-core-to-quickbooks-online-with-sandb",
       "title": "Connect alz-core to QuickBooks Online with sandbox-only local setup",
       "at": "2026-11-17T07:54:32.804Z"
+    },
+    "zm9iot": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为工作流运行统计信息，非问题描述。",
+      "id": "solo-crm-use-case-inventory-link-health",
+      "title": "Use-case inventory: link health",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1iqdxvg": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "Claude Opus 5.5不支持思考等级关闭功能。",
+      "id": "dev-workflow-auth-mode-sh-turn-check-thinking-level-working-r",
+      "title": "auth-mode.sh: turn check thinking level, working rollback, reload after restart",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "694xke": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "该漏洞可在网络中被利用，存在预认证问题。",
+      "id": "dev-workflow-java4shell",
+      "title": "Java4Shell",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "8zv00c": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "dephealth_test.go测试在特定情况下会失败。",
+      "id": "dev-workflow-the-live-deps-dev-test-fails-when-the-service-wi",
+      "title": "The live deps.dev test fails when the service withholds a recommendation during a cooldown",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1k64nj": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "卡片退款功能存在异常，无法正常处理。",
+      "id": "invoice-export-a-group-organiser-s-dead-card-refund-closed-as-p",
+      "title": "A group organiser's dead card refund closed as Paid another way still needs its Xero credit…",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "inx8p7": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及9个链接损坏，属于具体故障问题。",
+      "id": "invoice-export-use-case-inventory-link-health",
+      "title": "Use-case inventory: link health",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1e500bp": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "测试运行超时，是具体的故障表现。",
+      "id": "invoice-export-xero-sync-now-real-database-suite-times-out-at-5",
+      "title": "xero-sync-now real-database suite times out at 5 seconds when run alone on a fresh database",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "wt4mfk": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "定时任务窗口过后仍会运行，存在故障问题。",
+      "id": "scheduling-abort-scheduled-full-suite-when-window-has-passe",
+      "title": "Abort scheduled full suite when window has passed",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1p4yhtm": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "按钮条件满足后仍受限，是具体故障问题。",
+      "id": "scheduling-port-281-abilities-still-restricted-after-their-",
+      "title": "Port 281: abilities still restricted after their condition is met: Erkenbrand's Master of the…",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1x1rap1": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及9个链接损坏，属于具体故障问题。",
+      "id": "scheduling-use-case-inventory-link-health",
+      "title": "Use-case inventory: link health",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "el62na": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及自动补全功能覆盖错误闭合标签",
+      "id": "solo-crm-b2c-vs-extension-isml-autocomplete-overwrites-wr",
+      "title": "b2c-vs-extension isml autocomplete overwrites wrong closing tags",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "fbv316": {
+      "keep": false,
+      "code": "issue-template",
+      "reason": "是空的功能需求模板，无用户投诉",
+      "id": "solo-crm-hierarchical-customers-and-branch-level-commerci",
+      "title": "Hierarchical Customers and Branch-Level Commercial Ownership with Consolidated or Independent…",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1awkc39": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及Swagger UI授权出现类型错误",
+      "id": "support-transcripts-developer-portal-swagger-ui-authorize-fails-with",
+      "title": "Developer Portal: Swagger UI \"Authorize\" fails with TypeError: r is not a function when \"Use…",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "fuhrh5": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及安全域阻止同主机路径型域名访问",
+      "id": "support-transcripts-security-domain-with-a-virtual-host-blocks-path-",
+      "title": "Security domain with a / virtual host blocks path-based domains on the same hostname, depending…",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "t5p2v1": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及上下文窗口使用情况未显示",
+      "id": "support-transcripts-show-context-window-usage-beside-the-chat-compos",
+      "title": "Show context-window usage beside the chat composer's send button",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1is13oc": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为用例统计信息，非问题描述。",
+      "id": "support-transcripts-use-case-inventory-link-health",
+      "title": "Use-case inventory: link health",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "kbrs1p": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到插件更新后无法重新启用的问题。",
+      "id": "support-transcripts-wp-rocket-stays-deactivated-after-an-update-when",
+      "title": "WP Rocket stays deactivated after an update when the update tool reactivates it in the same…",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1izi2o8": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "用户希望每月获取指定格式的发票CSV。",
+      "id": "invoice-export-csv-export-for-accounting",
+      "title": "csv export for accounting",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "3hivcb": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "退款状态无操作选项，存在使用障碍。",
+      "id": "invoice-export-stuck-states-some-card-refund-rows-can-only-say-",
+      "title": "Stuck States: some card refund rows can only say 'ask a developer', with no action and no…",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "p1kqrp": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "取消记录被错误标记为未到访。",
+      "id": "scheduling-appointments-cancelappointments-reports-a-succes",
+      "title": "appointments: cancelAppointments reports a successful cancel as NoShow at 0001-01-01",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "prxiij": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "参会者无法在活动取消后取消注册",
+      "id": "scheduling-attendees-cannot-cancel-registrations-after-the-",
+      "title": "Attendees cannot cancel registrations after the event or occurrence is cancelled",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "2xdb6v": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为操作系统相关技术讨论",
+      "id": "scheduling-microsoft-blames-monster-email-outage-on-softwar",
+      "title": "Microsoft blames monster email outage on software defect introduced in July fix",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "qmc7gq": {
+      "keep": false,
+      "code": "meta",
+      "reason": "内容为代码审计相关的讨论",
+      "id": "dev-workflow-findings-the-audit-of-925",
+      "title": "findings: the audit of #925",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "128dgzp": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "多账户企业无法正确设置客户关系",
+      "id": "invoice-export-expand-organization-scoped-client-profiles-for-m",
+      "title": "Expand Organization-scoped Client profiles for multiple contacts, addresses, and invoice…",
+      "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1j8nils": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "发票报表列未显示为费用字段",
+      "id": "invoice-export-invoice-report-column-is-not-shown-as-expense-fi",
+      "title": "Invoice - Report column is not shown as expense field in invoice expense",
+      "at": "2026-11-17T20:57:02.235Z"
     }
   }
 }

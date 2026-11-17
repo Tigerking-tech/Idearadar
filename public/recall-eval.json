@@ -1,9 +1,11 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-17T07:50:11.485Z",
-  "verdict": "adopt",
-  "method": "relevance",
-  "reasons": [],
+  "evaluatedAt": "2026-11-17T20:51:37.928Z",
+  "verdict": "fallback",
+  "method": "legacy",
+  "reasons": [
+    "finalTitleRate 57% < 60%"
+  ],
   "thresholds": {
     "minFinalTitleRate": 0.6,
     "minItems": 24
@@ -15,20 +17,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 954,
+      "raw": 969,
       "itemCount": 60,
-      "recallHits": 451,
-      "finalHits": 38,
-      "recallTitleRate": 0.4727463312368973,
-      "finalTitleRate": 0.6333333333333333
+      "recallHits": 445,
+      "finalHits": 34,
+      "recallTitleRate": 0.45923632610939114,
+      "finalTitleRate": 0.5666666666666667
     },
     "legacy": {
-      "raw": 949,
+      "raw": 966,
       "itemCount": 60,
-      "recallHits": 141,
-      "finalHits": 27,
-      "recallTitleRate": 0.14857744994731295,
-      "finalTitleRate": 0.45
+      "recallHits": 156,
+      "finalHits": 29,
+      "recallTitleRate": 0.16149068322981366,
+      "finalTitleRate": 0.48333333333333334
     }
   },
   "perNiche": {
@@ -83,61 +85,61 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 151,
-        "itemCount": 5,
-        "recallTitleRate": 0.40397350993377484,
-        "finalTitleRate": 0.6,
+        "raw": 153,
+        "itemCount": 6,
+        "recallTitleRate": 0.39215686274509803,
+        "finalTitleRate": 0.5,
         "stats": {
-          "raw": 151,
-          "complaintRecords": 5,
-          "items": 5
+          "raw": 153,
+          "complaintRecords": 6,
+          "items": 6
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 118,
-        "itemCount": 8,
-        "recallTitleRate": 0.5338983050847458,
-        "finalTitleRate": 0.75,
+        "raw": 126,
+        "itemCount": 6,
+        "recallTitleRate": 0.47619047619047616,
+        "finalTitleRate": 0.5,
         "stats": {
-          "raw": 118,
-          "complaintRecords": 9,
-          "items": 8
+          "raw": 126,
+          "complaintRecords": 7,
+          "items": 6
         }
       },
       {
         "niche": "support-transcripts",
         "raw": 155,
-        "itemCount": 4,
-        "recallTitleRate": 0.4,
-        "finalTitleRate": 1,
+        "itemCount": 5,
+        "recallTitleRate": 0.4064516129032258,
+        "finalTitleRate": 0.8,
         "stats": {
           "raw": 155,
-          "complaintRecords": 5,
-          "items": 4
+          "complaintRecords": 6,
+          "items": 5
         }
       },
       {
         "niche": "scheduling",
-        "raw": 166,
-        "itemCount": 8,
-        "recallTitleRate": 0.6024096385542169,
-        "finalTitleRate": 0.75,
+        "raw": 168,
+        "itemCount": 9,
+        "recallTitleRate": 0.5952380952380952,
+        "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 166,
-          "complaintRecords": 14,
-          "items": 8
+          "raw": 168,
+          "complaintRecords": 15,
+          "items": 9
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 166,
+        "raw": 169,
         "itemCount": 9,
-        "recallTitleRate": 0.536144578313253,
-        "finalTitleRate": 0.5555555555555556,
+        "recallTitleRate": 0.5088757396449705,
+        "finalTitleRate": 0.6666666666666666,
         "stats": {
-          "raw": 166,
-          "complaintRecords": 12,
+          "raw": 169,
+          "complaintRecords": 11,
           "items": 9
         }
       },
@@ -205,34 +207,34 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 151,
-        "itemCount": 4,
-        "recallTitleRate": 0.052980132450331126,
+        "raw": 153,
+        "itemCount": 8,
+        "recallTitleRate": 0.0457516339869281,
         "finalTitleRate": 0,
         "stats": {
-          "raw": 151,
-          "complaintRecords": 4,
-          "items": 4
+          "raw": 153,
+          "complaintRecords": 8,
+          "items": 8
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 113,
-        "itemCount": 10,
-        "recallTitleRate": 0.168141592920354,
-        "finalTitleRate": 0.4,
+        "raw": 123,
+        "itemCount": 14,
+        "recallTitleRate": 0.14634146341463414,
+        "finalTitleRate": 0.21428571428571427,
         "stats": {
-          "raw": 113,
-          "complaintRecords": 10,
-          "items": 10
+          "raw": 123,
+          "complaintRecords": 16,
+          "items": 14
         }
       },
       {
         "niche": "support-transcripts",
         "raw": 155,
         "itemCount": 8,
-        "recallTitleRate": 0.07096774193548387,
-        "finalTitleRate": 0,
+        "recallTitleRate": 0.09032258064516129,
+        "finalTitleRate": 0.375,
         "stats": {
           "raw": 155,
           "complaintRecords": 8,
@@ -241,26 +243,26 @@
       },
       {
         "niche": "scheduling",
-        "raw": 166,
-        "itemCount": 16,
-        "recallTitleRate": 0.0963855421686747,
-        "finalTitleRate": 0.3125,
+        "raw": 168,
+        "itemCount": 23,
+        "recallTitleRate": 0.06547619047619048,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 166,
-          "complaintRecords": 20,
-          "items": 16
+          "raw": 168,
+          "complaintRecords": 25,
+          "items": 23
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 166,
-        "itemCount": 16,
-        "recallTitleRate": 0.06626506024096386,
-        "finalTitleRate": 0.125,
+        "raw": 169,
+        "itemCount": 17,
+        "recallTitleRate": 0.17751479289940827,
+        "finalTitleRate": 0.29411764705882354,
         "stats": {
-          "raw": 166,
-          "complaintRecords": 18,
-          "items": 16
+          "raw": 169,
+          "complaintRecords": 23,
+          "items": 17
         }
       },
       {
@@ -337,12 +339,17 @@
         "titleHit": false
       },
       {
-        "title": "Agent surface: Claude's clients built in, and a company can turn them off",
+        "title": "Agent Build Acceptance Lab",
         "niche": "dev-workflow",
-        "titleHit": false
+        "titleHit": true
       },
       {
-        "title": "Antigravity 429: Claude Code's second system prompt has two triggers beyond the identity line",
+        "title": "Backend hardening: dev auth bypass, Auth0 fallback domain, non-constant-time webhook compare…",
+        "niche": "dev-workflow",
+        "titleHit": true
+      },
+      {
+        "title": "Java4Shell",
         "niche": "dev-workflow",
         "titleHit": false
       },
@@ -352,13 +359,8 @@
         "titleHit": false
       },
       {
-        "title": "Notifications when the loop stops on a question or ends",
-        "niche": "dev-workflow",
-        "titleHit": false
-      },
-      {
-        "title": "pdd accounts import --provider claude misses /.credentials.json and accepts expired short-lived…",
-        "niche": "dev-workflow",
+        "title": "Use-case inventory: link health",
+        "niche": "invoice-export",
         "titleHit": false
       }
     ]

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-17T07:54:37.158Z",
+  "generatedAt": "2026-11-17T20:57:23.183Z",
   "curationVersion": 2,
-  "count": 25,
+  "count": 24,
   "items": [
     {
       "id": "pet-and-home-care-how-does-one-get-past-hr-gatekeepers",
@@ -47,6 +47,15 @@
         "llm:meta"
       ],
       "note": "内容为Outlook联系人导出操作讨论"
+    },
+    {
+      "id": "solo-crm-hierarchical-customers-and-branch-level-commerci",
+      "title": "Hierarchical Customers and Branch-Level Commercial Ownership with Consolidated or Independent…",
+      "layer": "denoise",
+      "reasons": [
+        "llm:issue-template"
+      ],
+      "note": "是空的功能需求模板，无用户投诉"
     },
     {
       "id": "everyday-money-how-are-business-travel-expenses-usually-reporte",
@@ -94,6 +103,24 @@
       "note": "内容为邮件客户端联系人管理问题"
     },
     {
+      "id": "scheduling-libreoffice-actually-works-365-days-a-year",
+      "title": "LibreOffice actually works 365 days a year",
+      "layer": "denoise",
+      "reasons": [
+        "llm:off-topic"
+      ],
+      "note": "内容为对微软产品的厌恶宣传"
+    },
+    {
+      "id": "scheduling-microsoft-blames-monster-email-outage-on-softwar",
+      "title": "Microsoft blames monster email outage on software defect introduced in July fix",
+      "layer": "denoise",
+      "reasons": [
+        "llm:off-topic"
+      ],
+      "note": "内容为操作系统相关技术讨论"
+    },
+    {
       "id": "solo-crm-service-degradation-on-microsoft-365",
       "title": "Service degradation on Microsoft 365",
       "layer": "denoise",
@@ -101,6 +128,15 @@
         "llm:status-news"
       ],
       "note": "标题为微软365服务性能下降官方公告"
+    },
+    {
+      "id": "dev-workflow-findings-the-audit-of-925",
+      "title": "findings: the audit of #925",
+      "layer": "denoise",
+      "reasons": [
+        "llm:meta"
+      ],
+      "note": "内容为代码审计相关的讨论"
     },
     {
       "id": "pet-and-home-care-can-i-consider-pets-as-evidence-of-family-member",
@@ -119,6 +155,15 @@
         "llm:off-topic"
       ],
       "note": "内容为兽医服务相关问题"
+    },
+    {
+      "id": "scheduling-possible-futures",
+      "title": "Possible Futures",
+      "layer": "denoise",
+      "reasons": [
+        "llm:off-topic"
+      ],
+      "note": "内容为AI与工作相关的讨论，与软件流程无关。"
     },
     {
       "id": "everyday-money-how-do-i-legally-download-the-songs-from-a-googl",
@@ -173,62 +218,8 @@
         "llm:off-topic"
       ],
       "note": "内容为自行车买卖快递骗局相关问题"
-    },
-    {
-      "id": "pet-and-home-care-my-rabbit-is-hyperventilating-and-can-t-get-comf",
-      "title": "My rabbit is hyperventilating and can't get comfortable. What is wrong with her?",
-      "layer": "denoise",
-      "reasons": [
-        "llm:off-topic"
-      ],
-      "note": "内容为宠物健康问题"
-    },
-    {
-      "id": "scheduling-ai-is-turning-apple-s-app-review-process-into-a-",
-      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
-      "layer": "denoise",
-      "reasons": [
-        "llm:off-topic"
-      ],
-      "note": "内容为苹果应用审核相关的行业新闻"
-    },
-    {
-      "id": "local-service-booking-making-up-for-having-accidentally-left-work-earl",
-      "title": "Making up for having accidentally left work early",
-      "layer": "denoise",
-      "reasons": [
-        "llm:off-topic"
-      ],
-      "note": "内容为工作失误补救问题"
-    },
-    {
-      "id": "local-service-booking-who-s-calendar-reminder-is-in-control",
-      "title": "Who's calendar reminder is in control?",
-      "layer": "denoise",
-      "reasons": [
-        "llm:meta"
-      ],
-      "note": "内容为日历提醒设置的相关讨论"
-    },
-    {
-      "id": "pet-and-home-care-how-do-i-get-dynamic-images-to-show-up-on-each-m",
-      "title": "How do I get Dynamic Images to show up on each Microsoft Access 2007 database for reporting?",
-      "layer": "denoise",
-      "reasons": [
-        "llm:status-news"
-      ],
-      "note": "标题提及Microsoft Access 2007服务相关问题"
-    },
-    {
-      "id": "solo-crm-running-a-law-firm-on-free-software",
-      "title": "Running a law firm on Free software",
-      "layer": "denoise",
-      "reasons": [
-        "llm:status-news"
-      ],
-      "note": "标题为用免费软件运营律师事务所的感慨"
     }
   ],
   "curationCount": 1,
-  "denoiseCount": 24
+  "denoiseCount": 23
 }

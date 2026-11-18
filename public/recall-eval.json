@@ -1,11 +1,9 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-18T07:20:55.310Z",
-  "verdict": "fallback",
-  "method": "legacy",
-  "reasons": [
-    "finalTitleRate 58% < 60%"
-  ],
+  "evaluatedAt": "2026-11-18T20:26:57.603Z",
+  "verdict": "adopt",
+  "method": "relevance",
+  "reasons": [],
   "thresholds": {
     "minFinalTitleRate": 0.6,
     "minItems": 24
@@ -17,20 +15,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 970,
+      "raw": 967,
       "itemCount": 60,
-      "recallHits": 443,
-      "finalHits": 35,
-      "recallTitleRate": 0.45670103092783504,
-      "finalTitleRate": 0.5833333333333334
+      "recallHits": 442,
+      "finalHits": 36,
+      "recallTitleRate": 0.45708376421923474,
+      "finalTitleRate": 0.6
     },
     "legacy": {
-      "raw": 970,
+      "raw": 961,
       "itemCount": 60,
-      "recallHits": 144,
-      "finalHits": 30,
-      "recallTitleRate": 0.14845360824742268,
-      "finalTitleRate": 0.5
+      "recallHits": 147,
+      "finalHits": 28,
+      "recallTitleRate": 0.1529656607700312,
+      "finalTitleRate": 0.4666666666666667
     }
   },
   "perNiche": {
@@ -85,61 +83,61 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 153,
-        "itemCount": 6,
-        "recallTitleRate": 0.38562091503267976,
-        "finalTitleRate": 0.5,
+        "raw": 154,
+        "itemCount": 7,
+        "recallTitleRate": 0.38311688311688313,
+        "finalTitleRate": 0.42857142857142855,
         "stats": {
-          "raw": 153,
-          "complaintRecords": 6,
-          "items": 6
+          "raw": 154,
+          "complaintRecords": 8,
+          "items": 7
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 126,
-        "itemCount": 6,
-        "recallTitleRate": 0.47619047619047616,
-        "finalTitleRate": 0.5,
-        "stats": {
-          "raw": 126,
-          "complaintRecords": 7,
-          "items": 6
-        }
-      },
-      {
-        "niche": "support-transcripts",
-        "raw": 156,
+        "raw": 124,
         "itemCount": 5,
-        "recallTitleRate": 0.40384615384615385,
-        "finalTitleRate": 0.8,
+        "recallTitleRate": 0.47580645161290325,
+        "finalTitleRate": 0.4,
         "stats": {
-          "raw": 156,
+          "raw": 124,
           "complaintRecords": 6,
           "items": 5
         }
       },
       {
+        "niche": "support-transcripts",
+        "raw": 154,
+        "itemCount": 7,
+        "recallTitleRate": 0.4090909090909091,
+        "finalTitleRate": 0.7142857142857143,
+        "stats": {
+          "raw": 154,
+          "complaintRecords": 8,
+          "items": 7
+        }
+      },
+      {
         "niche": "scheduling",
         "raw": 168,
-        "itemCount": 8,
-        "recallTitleRate": 0.5952380952380952,
-        "finalTitleRate": 0.75,
+        "itemCount": 6,
+        "recallTitleRate": 0.5833333333333334,
+        "finalTitleRate": 0.6666666666666666,
         "stats": {
           "raw": 168,
-          "complaintRecords": 14,
-          "items": 8
+          "complaintRecords": 12,
+          "items": 6
         }
       },
       {
         "niche": "dev-workflow",
         "raw": 169,
         "itemCount": 10,
-        "recallTitleRate": 0.5029585798816568,
-        "finalTitleRate": 0.7,
+        "recallTitleRate": 0.514792899408284,
+        "finalTitleRate": 0.8,
         "stats": {
           "raw": 169,
-          "complaintRecords": 12,
+          "complaintRecords": 13,
           "items": 10
         }
       },
@@ -207,62 +205,62 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 153,
-        "itemCount": 2,
-        "recallTitleRate": 0.0392156862745098,
+        "raw": 154,
+        "itemCount": 4,
+        "recallTitleRate": 0.025974025974025976,
         "finalTitleRate": 0,
         "stats": {
-          "raw": 153,
-          "complaintRecords": 2,
-          "items": 2
+          "raw": 154,
+          "complaintRecords": 5,
+          "items": 4
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 126,
-        "itemCount": 9,
-        "recallTitleRate": 0.1111111111111111,
-        "finalTitleRate": 0.1111111111111111,
-        "stats": {
-          "raw": 126,
-          "complaintRecords": 9,
-          "items": 9
-        }
-      },
-      {
-        "niche": "support-transcripts",
-        "raw": 156,
+        "raw": 118,
         "itemCount": 8,
-        "recallTitleRate": 0.08974358974358974,
-        "finalTitleRate": 0,
+        "recallTitleRate": 0.1271186440677966,
+        "finalTitleRate": 0.125,
         "stats": {
-          "raw": 156,
+          "raw": 118,
           "complaintRecords": 8,
           "items": 8
         }
       },
       {
+        "niche": "support-transcripts",
+        "raw": 154,
+        "itemCount": 9,
+        "recallTitleRate": 0.09740259740259741,
+        "finalTitleRate": 0,
+        "stats": {
+          "raw": 154,
+          "complaintRecords": 9,
+          "items": 9
+        }
+      },
+      {
         "niche": "scheduling",
         "raw": 168,
-        "itemCount": 13,
+        "itemCount": 20,
         "recallTitleRate": 0.10119047619047619,
-        "finalTitleRate": 0.15384615384615385,
+        "finalTitleRate": 0.2,
         "stats": {
           "raw": 168,
-          "complaintRecords": 17,
-          "items": 13
+          "complaintRecords": 23,
+          "items": 20
         }
       },
       {
         "niche": "dev-workflow",
         "raw": 169,
-        "itemCount": 12,
-        "recallTitleRate": 0.10059171597633136,
-        "finalTitleRate": 0.3333333333333333,
+        "itemCount": 22,
+        "recallTitleRate": 0.11834319526627218,
+        "finalTitleRate": 0.22727272727272727,
         "stats": {
           "raw": 169,
-          "complaintRecords": 14,
-          "items": 12
+          "complaintRecords": 25,
+          "items": 22
         }
       },
       {
@@ -297,9 +295,19 @@
         "titleHit": false
       },
       {
+        "title": "OAuth hardening",
+        "niche": "dev-workflow",
+        "titleHit": true
+      },
+      {
         "title": "Export personal Outlook 2016 contacts, excluding the global address list",
         "niche": "personal-admin",
         "titleHit": true
+      },
+      {
+        "title": "Standard Support: How AI agents ask for support",
+        "niche": "support-transcripts",
+        "titleHit": false
       },
       {
         "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
@@ -310,16 +318,6 @@
         "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
         "niche": "everyday-money",
         "titleHit": false
-      },
-      {
-        "title": "WISH: import Expense Report (and invoice) lines from CSV",
-        "niche": "invoice-export",
-        "titleHit": true
-      },
-      {
-        "title": "Can I get UK visa appointment fees refund before my appointment date?",
-        "niche": "local-service-booking",
-        "titleHit": true
       }
     ],
     "legacy": [
@@ -329,13 +327,13 @@
         "titleHit": false
       },
       {
-        "title": "how do you verify your household budget?",
-        "niche": "everyday-money",
+        "title": "Patient Appointment accepts overlapping bookings of a non-overlap Healthcare Service Unit by…",
+        "niche": "scheduling",
         "titleHit": true
       },
       {
-        "title": "S4-13: Cancel and reschedule a booked appointment",
-        "niche": "scheduling",
+        "title": "how do you verify your household budget?",
+        "niche": "everyday-money",
         "titleHit": true
       },
       {
@@ -344,23 +342,23 @@
         "titleHit": false
       },
       {
-        "title": "Export personal Outlook 2016 contacts, excluding the global address list",
-        "niche": "personal-admin",
-        "titleHit": true
-      },
-      {
-        "title": "Ticket list: browser Back from a ticket drops unsaved filters",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "Ticket list: Refresh drops unsaved filters of a saved view",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
+        "title": "Access lock: invite-only checks on every request",
         "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
+        "title": "FIPS host suite fails on policy-engine metering tests added in #1981",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
+        "title": "Waitlist updates via Resend Broadcasts",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
+        "title": "Remove framework-only, one-off-migration, removed-feature and partly overlapping tests",
+        "niche": "invoice-export",
         "titleHit": false
       }
     ]

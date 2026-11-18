@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-18T07:31:26.517Z",
+  "generatedAt": "2026-11-18T20:34:53.604Z",
   "source": "https://trustmrr.com",
   "endpoints": [
     "https://trustmrr.com/api/ai",
     "https://trustmrr.com/api/ai/discovery"
   ],
   "status": "ok",
-  "sampleSize": 91,
+  "sampleSize": 93,
   "byNiche": {
     "everyday-money": {
       "matched": true,
       "count": 1,
       "projects": [
         {
-          "name": "Stockruum",
-          "url": "https://trustmrr.com/startup/stockruum",
-          "category": null,
-          "matchedTerm": "subscription"
+          "name": "Underspend",
+          "url": "https://trustmrr.com/startup/underspend",
+          "category": "Utilities",
+          "matchedTerm": "budget"
         }
       ]
     },
@@ -27,21 +27,21 @@
       "projects": []
     },
     "local-service-booking": {
+      "matched": false,
+      "count": 0,
+      "projects": []
+    },
+    "personal-admin": {
       "matched": true,
       "count": 1,
       "projects": [
         {
-          "name": "Waitlist",
-          "url": "https://trustmrr.com/startup/waitlist",
-          "category": "Analytics",
-          "matchedTerm": "waitlist"
+          "name": "ReplyCurrent",
+          "url": "https://trustmrr.com/startup/replycurrent",
+          "category": "Artificial Intelligence",
+          "matchedTerm": "documents"
         }
       ]
-    },
-    "personal-admin": {
-      "matched": false,
-      "count": 0,
-      "projects": []
     },
     "solo-crm": {
       "matched": false,
@@ -58,9 +58,9 @@
       "count": 1,
       "projects": [
         {
-          "name": "Reception",
-          "url": "https://trustmrr.com/startup/reception",
-          "category": "Customer Support",
+          "name": "ReplyCurrent",
+          "url": "https://trustmrr.com/startup/replycurrent",
+          "category": "Artificial Intelligence",
           "matchedTerm": "customer support"
         }
       ]

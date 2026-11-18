@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-18T07:25:49.176Z",
+  "updatedAt": "2026-11-18T20:31:59.560Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 180,
+  "totalVerdicts": 191,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -1443,6 +1443,94 @@
       "id": "scheduling-verify-attendance-with-a-check-in-code-and-qr",
       "title": "Verify attendance with a check-in code and QR",
       "at": "2026-11-18T07:25:40.892Z"
+    },
+    "1vra4gb": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及登录CSRF等具体问题。",
+      "id": "dev-workflow-oauth-hardening",
+      "title": "OAuth hardening",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "1ipb9ye": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "内容为AI客服相关说明。",
+      "id": "support-transcripts-standard-support-how-ai-agents-ask-for-support",
+      "title": "Standard Support: How AI agents ask for support",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "17e0ktv": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及API返回403错误。",
+      "id": "dev-workflow-autodesk-forma-build-aps-data-management-api-ret",
+      "title": "Autodesk Forma Build: APS Data Management API returns 403 BIM360DM_ERROR despite successful…",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "1faaoh9": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及认证流程相关问题。",
+      "id": "dev-workflow-python-to-sharepoint-spo-upload-files-what-is-au",
+      "title": "Python to SharePoint SPO, upload files, what is authentication flow",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "s2z1gz": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及webhook模式无法启动问题。",
+      "id": "dev-workflow-telegram-bot-webhook-mode-cannot-start-run-webho",
+      "title": "Telegram bot webhook mode cannot start: run_webhook is awaited but synchronous; webhook_port…",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "15ys6yl": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为产品功能规划说明",
+      "id": "invoice-export-get-quickbooks-production-keys-and-connect-the-r",
+      "title": "Get QuickBooks production keys and connect the real company",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "9i8hz4": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为代码迁移相关开发说明",
+      "id": "invoice-export-port-the-quickbooks-online-mcp-cluster-to-nvoos-",
+      "title": "Port the QuickBooks Online MCP cluster to nvoos-content-graph-pro",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "11jovep": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题含有服务无法访问的官方状态表述",
+      "id": "scheduling-codeberg-org-not-reachable",
+      "title": "Codeberg.org Not Reachable",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "16y7frr": {
+      "keep": false,
+      "code": "issue-template",
+      "reason": "内容为任务清单格式的空白开发模板",
+      "id": "scheduling-goal-shows-scheduling",
+      "title": "Goal: Shows + Scheduling",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "kp8bqc": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "标题含有苹果服务停服的官方状态表述",
+      "id": "solo-crm-apple-services-down",
+      "title": "Apple Services Down",
+      "at": "2026-11-18T20:31:52.610Z"
+    },
+    "13tpose": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为行业趋势讨论，与软件痛点无关",
+      "id": "solo-crm-is-the-saas-business-model-dead-or-there-is-stil",
+      "title": "Is the SaaS business model dead or there is still oportunities in this age of AI",
+      "at": "2026-11-18T20:31:52.610Z"
     }
   }
 }

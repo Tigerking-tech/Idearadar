@@ -1,18 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-17T21:00:42.572Z",
+  "generatedAt": "2026-11-18T07:31:26.517Z",
   "source": "https://trustmrr.com",
   "endpoints": [
     "https://trustmrr.com/api/ai",
     "https://trustmrr.com/api/ai/discovery"
   ],
   "status": "ok",
-  "sampleSize": 93,
+  "sampleSize": 91,
   "byNiche": {
     "everyday-money": {
-      "matched": false,
-      "count": 0,
-      "projects": []
+      "matched": true,
+      "count": 1,
+      "projects": [
+        {
+          "name": "Stockruum",
+          "url": "https://trustmrr.com/startup/stockruum",
+          "category": null,
+          "matchedTerm": "subscription"
+        }
+      ]
     },
     "pet-and-home-care": {
       "matched": false,
@@ -20,21 +27,21 @@
       "projects": []
     },
     "local-service-booking": {
-      "matched": false,
-      "count": 0,
-      "projects": []
-    },
-    "personal-admin": {
       "matched": true,
       "count": 1,
       "projects": [
         {
-          "name": "IMP-ACT",
-          "url": "https://trustmrr.com/startup/imp-act",
-          "category": null,
-          "matchedTerm": "organize"
+          "name": "Waitlist",
+          "url": "https://trustmrr.com/startup/waitlist",
+          "category": "Analytics",
+          "matchedTerm": "waitlist"
         }
       ]
+    },
+    "personal-admin": {
+      "matched": false,
+      "count": 0,
+      "projects": []
     },
     "solo-crm": {
       "matched": false,

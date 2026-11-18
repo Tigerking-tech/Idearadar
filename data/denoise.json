@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T20:57:23.183Z",
+  "updatedAt": "2026-11-18T07:25:49.176Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 166,
+  "totalVerdicts": 180,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -1331,6 +1331,118 @@
       "id": "invoice-export-invoice-report-column-is-not-shown-as-expense-fi",
       "title": "Invoice - Report column is not shown as expense field in invoice expense",
       "at": "2026-11-17T20:57:02.235Z"
+    },
+    "1xauseo": {
+      "keep": true,
+      "code": "other",
+      "reason": "为已合并的PR相关任务列表，无实际问题描述。",
+      "id": "scheduling-s4-13-cancel-and-reschedule-a-booked-appointment",
+      "title": "S4-13: Cancel and reschedule a booked appointment",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "9aec02": {
+      "keep": true,
+      "code": "other",
+      "reason": "为功能需求概述，无具体问题表述。",
+      "id": "scheduling-whatsapp-appointment-notifications-and-reminders",
+      "title": "WhatsApp appointment notifications and reminders with CTA buttons",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "1la32vm": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "诊断报告泄露Linux驱动路径等个人隐私信息。",
+      "id": "scheduling-diagnostic-reports-leave-linux-drive-paths-local",
+      "title": "Diagnostic reports leave Linux drive paths, local phone numbers and scheme-less links unmasked",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "xx8mdu": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "文档错误将不存在的twitch列为提供类型。",
+      "id": "solo-crm-ory-social-provider-docs-list-provider-type-twit",
+      "title": "ory_social_provider: docs list provider_type twitch, which the API rejects",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "8l5ms8": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "集成导入时计划未设置environmentId导致创建失败。",
+      "id": "support-transcripts-federated-api-ingest-does-not-set-environmentid-",
+      "title": "Federated API ingest does not set environmentId on plans: plan insert fails on JDBC, and plans…",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "eayvgr": {
+      "keep": true,
+      "code": "other",
+      "reason": "为代码结构优化建议，非问题反馈。",
+      "id": "support-transcripts-move-copied-ui-helpers-into-one-shared-core-scri",
+      "title": "Move copied UI helpers into one shared core script, with a test that stops new copies",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "1b5i1wo": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "浏览器返回时未保存的筛选器丢失。",
+      "id": "support-transcripts-ticket-list-browser-back-from-a-ticket-drops-uns",
+      "title": "Ticket list: browser Back from a ticket drops unsaved filters",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "ij07ul": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "刷新操作导致未保存的筛选器丢失。",
+      "id": "support-transcripts-ticket-list-refresh-drops-unsaved-filters-of-a-s",
+      "title": "Ticket list: Refresh drops unsaved filters of a saved view",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "1dwr69": {
+      "keep": true,
+      "code": "other",
+      "reason": "为功能规划说明，非问题反馈。",
+      "id": "scheduling-booking-notifications-for-customers-and-business",
+      "title": "Booking notifications for customers and businesses",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "1752ceg": {
+      "keep": true,
+      "code": "other",
+      "reason": "为测试用例优化建议，非问题反馈。",
+      "id": "dev-workflow-enforce-the-capability-and-resource-assertions-i",
+      "title": "Enforce the capability and resource assertions in SDK conformance fixtures",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "b0i0oe": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及交付丢失的响应过慢问题。",
+      "id": "dev-workflow-webhook-receiver-answers-too-slowly-for-senders-",
+      "title": "Webhook receiver answers too slowly for senders with a short timeout (deliveries dropped)",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "rz0ng2": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提到连接器写入存在未知重复结果问题。",
+      "id": "invoice-export-repeat-unknown-outcomes-in-every-connector-write",
+      "title": "Repeat unknown outcomes in every connector write (read back, resend below the cap, uncertain…",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "9e7ile": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为网站流量增长服务宣传。",
+      "id": "scheduling-organic-website-traffic-growth-services-in-chand",
+      "title": "Organic Website Traffic Growth Services in Chandigarh",
+      "at": "2026-11-18T07:25:40.892Z"
+    },
+    "zm5qn1": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为签到核验功能的营销宣传。",
+      "id": "scheduling-verify-attendance-with-a-check-in-code-and-qr",
+      "title": "Verify attendance with a check-in code and QR",
+      "at": "2026-11-18T07:25:40.892Z"
     }
   }
 }

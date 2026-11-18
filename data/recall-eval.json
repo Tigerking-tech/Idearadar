@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-17T20:51:37.928Z",
+  "evaluatedAt": "2026-11-18T07:20:55.310Z",
   "verdict": "fallback",
   "method": "legacy",
   "reasons": [
-    "finalTitleRate 57% < 60%"
+    "finalTitleRate 58% < 60%"
   ],
   "thresholds": {
     "minFinalTitleRate": 0.6,
@@ -17,20 +17,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 969,
+      "raw": 970,
       "itemCount": 60,
-      "recallHits": 445,
-      "finalHits": 34,
-      "recallTitleRate": 0.45923632610939114,
-      "finalTitleRate": 0.5666666666666667
+      "recallHits": 443,
+      "finalHits": 35,
+      "recallTitleRate": 0.45670103092783504,
+      "finalTitleRate": 0.5833333333333334
     },
     "legacy": {
-      "raw": 966,
+      "raw": 970,
       "itemCount": 60,
-      "recallHits": 156,
-      "finalHits": 29,
-      "recallTitleRate": 0.16149068322981366,
-      "finalTitleRate": 0.48333333333333334
+      "recallHits": 144,
+      "finalHits": 30,
+      "recallTitleRate": 0.14845360824742268,
+      "finalTitleRate": 0.5
     }
   },
   "perNiche": {
@@ -87,7 +87,7 @@
         "niche": "solo-crm",
         "raw": 153,
         "itemCount": 6,
-        "recallTitleRate": 0.39215686274509803,
+        "recallTitleRate": 0.38562091503267976,
         "finalTitleRate": 0.5,
         "stats": {
           "raw": 153,
@@ -109,12 +109,12 @@
       },
       {
         "niche": "support-transcripts",
-        "raw": 155,
+        "raw": 156,
         "itemCount": 5,
-        "recallTitleRate": 0.4064516129032258,
+        "recallTitleRate": 0.40384615384615385,
         "finalTitleRate": 0.8,
         "stats": {
-          "raw": 155,
+          "raw": 156,
           "complaintRecords": 6,
           "items": 5
         }
@@ -122,25 +122,25 @@
       {
         "niche": "scheduling",
         "raw": 168,
-        "itemCount": 9,
+        "itemCount": 8,
         "recallTitleRate": 0.5952380952380952,
-        "finalTitleRate": 0.6666666666666666,
+        "finalTitleRate": 0.75,
         "stats": {
           "raw": 168,
-          "complaintRecords": 15,
-          "items": 9
+          "complaintRecords": 14,
+          "items": 8
         }
       },
       {
         "niche": "dev-workflow",
         "raw": 169,
-        "itemCount": 9,
-        "recallTitleRate": 0.5088757396449705,
-        "finalTitleRate": 0.6666666666666666,
+        "itemCount": 10,
+        "recallTitleRate": 0.5029585798816568,
+        "finalTitleRate": 0.7,
         "stats": {
           "raw": 169,
-          "complaintRecords": 11,
-          "items": 9
+          "complaintRecords": 12,
+          "items": 10
         }
       },
       {
@@ -208,35 +208,35 @@
       {
         "niche": "solo-crm",
         "raw": 153,
-        "itemCount": 8,
-        "recallTitleRate": 0.0457516339869281,
+        "itemCount": 2,
+        "recallTitleRate": 0.0392156862745098,
         "finalTitleRate": 0,
         "stats": {
           "raw": 153,
-          "complaintRecords": 8,
-          "items": 8
+          "complaintRecords": 2,
+          "items": 2
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 123,
-        "itemCount": 14,
-        "recallTitleRate": 0.14634146341463414,
-        "finalTitleRate": 0.21428571428571427,
+        "raw": 126,
+        "itemCount": 9,
+        "recallTitleRate": 0.1111111111111111,
+        "finalTitleRate": 0.1111111111111111,
         "stats": {
-          "raw": 123,
-          "complaintRecords": 16,
-          "items": 14
+          "raw": 126,
+          "complaintRecords": 9,
+          "items": 9
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 155,
+        "raw": 156,
         "itemCount": 8,
-        "recallTitleRate": 0.09032258064516129,
-        "finalTitleRate": 0.375,
+        "recallTitleRate": 0.08974358974358974,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 155,
+          "raw": 156,
           "complaintRecords": 8,
           "items": 8
         }
@@ -244,25 +244,25 @@
       {
         "niche": "scheduling",
         "raw": 168,
-        "itemCount": 23,
-        "recallTitleRate": 0.06547619047619048,
-        "finalTitleRate": 0,
+        "itemCount": 13,
+        "recallTitleRate": 0.10119047619047619,
+        "finalTitleRate": 0.15384615384615385,
         "stats": {
           "raw": 168,
-          "complaintRecords": 25,
-          "items": 23
+          "complaintRecords": 17,
+          "items": 13
         }
       },
       {
         "niche": "dev-workflow",
         "raw": 169,
-        "itemCount": 17,
-        "recallTitleRate": 0.17751479289940827,
-        "finalTitleRate": 0.29411764705882354,
+        "itemCount": 12,
+        "recallTitleRate": 0.10059171597633136,
+        "finalTitleRate": 0.3333333333333333,
         "stats": {
           "raw": 169,
-          "complaintRecords": 23,
-          "items": 17
+          "complaintRecords": 14,
+          "items": 12
         }
       },
       {
@@ -297,14 +297,14 @@
         "titleHit": false
       },
       {
-        "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
-        "niche": "dev-workflow",
-        "titleHit": false
-      },
-      {
         "title": "Export personal Outlook 2016 contacts, excluding the global address list",
         "niche": "personal-admin",
         "titleHit": true
+      },
+      {
+        "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
+        "niche": "dev-workflow",
+        "titleHit": false
       },
       {
         "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
@@ -334,33 +334,33 @@
         "titleHit": true
       },
       {
+        "title": "S4-13: Cancel and reschedule a booked appointment",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
         "title": "What functions can I use to track subscriptions?",
         "niche": "everyday-money",
         "titleHit": false
       },
       {
-        "title": "Agent Build Acceptance Lab",
-        "niche": "dev-workflow",
+        "title": "Export personal Outlook 2016 contacts, excluding the global address list",
+        "niche": "personal-admin",
         "titleHit": true
       },
       {
-        "title": "Backend hardening: dev auth bypass, Auth0 fallback domain, non-constant-time webhook compare…",
-        "niche": "dev-workflow",
-        "titleHit": true
+        "title": "Ticket list: browser Back from a ticket drops unsaved filters",
+        "niche": "support-transcripts",
+        "titleHit": false
       },
       {
-        "title": "Java4Shell",
-        "niche": "dev-workflow",
+        "title": "Ticket list: Refresh drops unsaved filters of a saved view",
+        "niche": "support-transcripts",
         "titleHit": false
       },
       {
         "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
         "niche": "dev-workflow",
-        "titleHit": false
-      },
-      {
-        "title": "Use-case inventory: link health",
-        "niche": "invoice-export",
         "titleHit": false
       }
     ]

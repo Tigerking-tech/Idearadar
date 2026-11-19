@@ -846,6 +846,57 @@
         }
       },
       "methodVersion": 1
+    },
+    {
+      "t": "2026-11-19T20:33:08.083Z",
+      "byNiche": {
+        "everyday-money": {
+          "score": 28,
+          "mentions": 9,
+          "items": 9
+        },
+        "invoice-export": {
+          "score": 29,
+          "mentions": 4,
+          "items": 2
+        },
+        "dev-workflow": {
+          "score": 27,
+          "mentions": 6,
+          "items": 4
+        },
+        "personal-admin": {
+          "score": 26,
+          "mentions": 13,
+          "items": 13
+        },
+        "scheduling": {
+          "score": 27,
+          "mentions": 12,
+          "items": 10
+        },
+        "support-transcripts": {
+          "score": 29,
+          "mentions": 4,
+          "items": 4
+        },
+        "local-service-booking": {
+          "score": 26,
+          "mentions": 12,
+          "items": 12
+        },
+        "solo-crm": {
+          "score": 26,
+          "mentions": 4,
+          "items": 3
+        },
+        "pet-and-home-care": {
+          "score": 26,
+          "mentions": 5,
+          "items": 3
+        }
+      },
+      "methodVersion": 1
     }
   ]
 }

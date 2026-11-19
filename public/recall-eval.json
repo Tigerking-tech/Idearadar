@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-19T07:18:37.438Z",
+  "evaluatedAt": "2026-11-19T20:30:22.224Z",
   "verdict": "fallback",
   "method": "legacy",
   "reasons": [
-    "finalTitleRate 55% < 60%"
+    "finalTitleRate 58% < 60%"
   ],
   "thresholds": {
     "minFinalTitleRate": 0.6,
@@ -17,20 +17,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 970,
+      "raw": 958,
       "itemCount": 60,
-      "recallHits": 443,
-      "finalHits": 33,
-      "recallTitleRate": 0.45670103092783504,
-      "finalTitleRate": 0.55
+      "recallHits": 435,
+      "finalHits": 35,
+      "recallTitleRate": 0.45407098121085593,
+      "finalTitleRate": 0.5833333333333334
     },
     "legacy": {
-      "raw": 954,
+      "raw": 968,
       "itemCount": 60,
-      "recallHits": 142,
-      "finalHits": 26,
-      "recallTitleRate": 0.1488469601677149,
-      "finalTitleRate": 0.43333333333333335
+      "recallHits": 141,
+      "finalHits": 27,
+      "recallTitleRate": 0.14566115702479338,
+      "finalTitleRate": 0.45
     }
   },
   "perNiche": {
@@ -87,7 +87,7 @@
         "niche": "solo-crm",
         "raw": 153,
         "itemCount": 5,
-        "recallTitleRate": 0.3790849673202614,
+        "recallTitleRate": 0.38562091503267976,
         "finalTitleRate": 0.2,
         "stats": {
           "raw": 153,
@@ -97,48 +97,48 @@
       },
       {
         "niche": "invoice-export",
-        "raw": 127,
-        "itemCount": 7,
-        "recallTitleRate": 0.4881889763779528,
-        "finalTitleRate": 0.42857142857142855,
+        "raw": 112,
+        "itemCount": 4,
+        "recallTitleRate": 0.5446428571428571,
+        "finalTitleRate": 0.5,
         "stats": {
-          "raw": 127,
-          "complaintRecords": 8,
-          "items": 7
+          "raw": 112,
+          "complaintRecords": 6,
+          "items": 4
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 153,
-        "itemCount": 7,
-        "recallTitleRate": 0.41830065359477125,
-        "finalTitleRate": 0.7142857142857143,
+        "raw": 154,
+        "itemCount": 8,
+        "recallTitleRate": 0.3961038961038961,
+        "finalTitleRate": 0.75,
         "stats": {
-          "raw": 153,
-          "complaintRecords": 8,
-          "items": 7
+          "raw": 154,
+          "complaintRecords": 9,
+          "items": 8
         }
       },
       {
         "niche": "scheduling",
-        "raw": 169,
+        "raw": 170,
         "itemCount": 6,
-        "recallTitleRate": 0.5798816568047337,
-        "finalTitleRate": 0.5,
+        "recallTitleRate": 0.5705882352941176,
+        "finalTitleRate": 0.8333333333333334,
         "stats": {
-          "raw": 169,
-          "complaintRecords": 12,
+          "raw": 170,
+          "complaintRecords": 13,
           "items": 6
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 169,
+        "raw": 170,
         "itemCount": 13,
-        "recallTitleRate": 0.5029585798816568,
+        "recallTitleRate": 0.4764705882352941,
         "finalTitleRate": 0.6153846153846154,
         "stats": {
-          "raw": 169,
+          "raw": 170,
           "complaintRecords": 16,
           "items": 13
         }
@@ -208,61 +208,61 @@
       {
         "niche": "solo-crm",
         "raw": 153,
-        "itemCount": 15,
-        "recallTitleRate": 0.0457516339869281,
-        "finalTitleRate": 0.06666666666666667,
+        "itemCount": 3,
+        "recallTitleRate": 0.11764705882352941,
+        "finalTitleRate": 0,
         "stats": {
           "raw": 153,
-          "complaintRecords": 16,
-          "items": 15
+          "complaintRecords": 5,
+          "items": 3
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 111,
-        "itemCount": 14,
-        "recallTitleRate": 0.09009009009009009,
-        "finalTitleRate": 0.07142857142857142,
+        "raw": 122,
+        "itemCount": 9,
+        "recallTitleRate": 0.040983606557377046,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 111,
-          "complaintRecords": 15,
-          "items": 14
+          "raw": 122,
+          "complaintRecords": 10,
+          "items": 9
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 153,
-        "itemCount": 14,
-        "recallTitleRate": 0.0784313725490196,
-        "finalTitleRate": 0.07142857142857142,
+        "raw": 154,
+        "itemCount": 12,
+        "recallTitleRate": 0.05194805194805195,
+        "finalTitleRate": 0,
         "stats": {
-          "raw": 153,
-          "complaintRecords": 17,
-          "items": 14
+          "raw": 154,
+          "complaintRecords": 12,
+          "items": 12
         }
       },
       {
         "niche": "scheduling",
-        "raw": 169,
-        "itemCount": 14,
-        "recallTitleRate": 0.11242603550295859,
-        "finalTitleRate": 0.07142857142857142,
+        "raw": 170,
+        "itemCount": 16,
+        "recallTitleRate": 0.08235294117647059,
+        "finalTitleRate": 0.1875,
         "stats": {
-          "raw": 169,
-          "complaintRecords": 16,
-          "items": 14
+          "raw": 170,
+          "complaintRecords": 19,
+          "items": 16
         }
       },
       {
         "niche": "dev-workflow",
-        "raw": 169,
-        "itemCount": 18,
-        "recallTitleRate": 0.10650887573964497,
-        "finalTitleRate": 0.16666666666666666,
+        "raw": 170,
+        "itemCount": 11,
+        "recallTitleRate": 0.11764705882352941,
+        "finalTitleRate": 0.36363636363636365,
         "stats": {
-          "raw": 169,
-          "complaintRecords": 25,
-          "items": 18
+          "raw": 170,
+          "complaintRecords": 14,
+          "items": 11
         }
       },
       {
@@ -287,6 +287,11 @@
         "titleHit": false
       },
       {
+        "title": "Appointment Booking",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
         "title": "how do you verify your household budget?",
         "niche": "everyday-money",
         "titleHit": true
@@ -297,14 +302,9 @@
         "titleHit": false
       },
       {
-        "title": "CI and release pipeline",
+        "title": "Webhooks simulation",
         "niche": "dev-workflow",
         "titleHit": false
-      },
-      {
-        "title": "OAuth hardening",
-        "niche": "dev-workflow",
-        "titleHit": true
       },
       {
         "title": "Export personal Outlook 2016 contacts, excluding the global address list",
@@ -312,14 +312,14 @@
         "titleHit": true
       },
       {
-        "title": "Standard Support: How AI agents ask for support",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
         "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
         "niche": "dev-workflow",
         "titleHit": false
+      },
+      {
+        "title": "OAuth hardening",
+        "niche": "dev-workflow",
+        "titleHit": true
       }
     ],
     "legacy": [
@@ -329,6 +329,11 @@
         "titleHit": false
       },
       {
+        "title": "Analytics: Chart Y axis keeps the currency of the first render after the report currency changes",
+        "niche": "invoice-export",
+        "titleHit": false
+      },
+      {
         "title": "how do you verify your household budget?",
         "niche": "everyday-money",
         "titleHit": true
@@ -339,28 +344,23 @@
         "titleHit": false
       },
       {
-        "title": "AI Providers: split ChatGPT-plan/Codex and Agents API access, with web setup and live model…",
-        "niche": "dev-workflow",
-        "titleHit": false
-      },
-      {
-        "title": "AI Providers: split ChatGPT-plan/Codex and Agents API access, with web setup and live model…",
-        "niche": "support-transcripts",
-        "titleHit": false
-      },
-      {
-        "title": "Bundle PyPI Wheels red since #1586: test_a_source_checkout_has_no_bundled_directory asserts…",
-        "niche": "dev-workflow",
-        "titleHit": false
-      },
-      {
         "title": "Export personal Outlook 2016 contacts, excluding the global address list",
         "niche": "personal-admin",
         "titleHit": true
       },
       {
-        "title": "Apply the Dependabot updates #36 to #48 in one change and one release",
+        "title": "Bot hands the chat to a person when nobody asked for one",
         "niche": "scheduling",
+        "titleHit": false
+      },
+      {
+        "title": "Wait for the appointment conflict alert to become visible in Storybook",
+        "niche": "scheduling",
+        "titleHit": true
+      },
+      {
+        "title": "Gemini 4 Neon",
+        "niche": "support-transcripts",
         "titleHit": false
       }
     ]

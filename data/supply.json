@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T07:25:00.620Z",
+  "generatedAt": "2026-11-19T20:41:00.759Z",
   "source": "https://trustmrr.com",
   "endpoints": [
     "https://trustmrr.com/api/ai",
     "https://trustmrr.com/api/ai/discovery"
   ],
   "status": "ok",
-  "sampleSize": 91,
+  "sampleSize": 93,
   "byNiche": {
     "everyday-money": {
       "matched": false,
@@ -43,14 +43,28 @@
       ]
     },
     "solo-crm": {
-      "matched": false,
-      "count": 0,
-      "projects": []
+      "matched": true,
+      "count": 1,
+      "projects": [
+        {
+          "name": "Superjoin",
+          "url": "https://trustmrr.com/startup/superjoin",
+          "category": "Productivity",
+          "matchedTerm": "salesforce"
+        }
+      ]
     },
     "invoice-export": {
-      "matched": false,
-      "count": 0,
-      "projects": []
+      "matched": true,
+      "count": 1,
+      "projects": [
+        {
+          "name": "Statement to Excel",
+          "url": "https://trustmrr.com/startup/statement-to-excel",
+          "category": null,
+          "matchedTerm": "quickbooks"
+        }
+      ]
     },
     "support-transcripts": {
       "matched": true,

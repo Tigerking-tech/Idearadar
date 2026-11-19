@@ -1,9 +1,17 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-19T07:22:55.832Z",
+  "updatedAt": "2026-11-19T20:35:50.535Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 206,
+  "totalVerdicts": 218,
   "verdicts": {
+    "72325": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到预约冲突警告在界面显示时出现故障。",
+      "id": "scheduling-wait-for-the-appointment-conflict-alert-to-becom",
+      "title": "Wait for the appointment conflict alert to become visible in Storybook",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
     "o0xygl": {
       "keep": true,
       "code": "complaint",
@@ -1651,6 +1659,94 @@
       "id": "support-transcripts-serve-image-speech-transcription-and-video-model",
       "title": "Serve image, speech, transcription and video models through per-Kind Provider endpoints",
       "at": "2026-11-19T07:22:39.871Z"
+    },
+    "14m2b3v": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提到图表Y轴在报告货币更改后仍保留原货币。",
+      "id": "invoice-export-analytics-chart-y-axis-keeps-the-currency-of-the",
+      "title": "Analytics: Chart Y axis keeps the currency of the first render after the report currency changes",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "1vlxupt": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到AI功能浪费大量带宽，导致应用运行变慢。",
+      "id": "dev-workflow-chrome-ai-features-wasting-much-bandwidth",
+      "title": "Chrome AI features wasting much bandwidth",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "19h4lj5": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到机器人未经请求就将聊天转接给他人。",
+      "id": "scheduling-bot-hands-the-chat-to-a-person-when-nobody-asked",
+      "title": "Bot hands the chat to a person when nobody asked for one",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "17datix": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到仪表板待处理预约计数存在大小写敏感问题。",
+      "id": "scheduling-bug-dashboard-pending-booking-count-is-case-sens",
+      "title": "BUG: Dashboard pending booking count is case-sensitive",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "qkqmps": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为电影相关内容",
+      "id": "support-transcripts-gemini-4-neon",
+      "title": "Gemini 4 Neon",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "1vzdmp": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为播客相关内容",
+      "id": "support-transcripts-how-the-european-commission-rolled-out-matrix-to",
+      "title": "How the European Commission rolled out Matrix to more than 40k staff",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "14fll5p": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到权限检查的错误行为",
+      "id": "support-transcripts-role-update-checkcangrant-checks-every-permissio",
+      "title": "Role update: checkCanGrant checks every permission in the payload instead of only the added ones",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "1712uu": {
+      "keep": false,
+      "code": "issue-template",
+      "reason": "是待完成的列表模板",
+      "id": "scheduling-appointment-booking",
+      "title": "Appointment booking",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "1p8ve64": {
+      "keep": false,
+      "code": "issue-template",
+      "reason": "是待完成的列表模板",
+      "id": "scheduling-appointment-management-for-store-staff",
+      "title": "Appointment management for store staff",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "1xw6iy0": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "标题提及色彩对比度违反WCAG标准。",
+      "id": "scheduling-color-contrast-below-wcag-aa-on-the-booking-and-",
+      "title": "Color contrast below WCAG AA on the booking and landing pages",
+      "at": "2026-11-19T20:35:23.174Z"
+    },
+    "1rqq9hj": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能规划说明，非问题反馈。",
+      "id": "solo-crm-rechnungsausbau-kundenverwaltung-einmalige-wiede",
+      "title": "Rechnungsausbau: Kundenverwaltung, einmalige/ wiederkehrende Rechnungen, Projekte und Zeiten",
+      "at": "2026-11-19T20:35:23.174Z"
     }
   }
 }

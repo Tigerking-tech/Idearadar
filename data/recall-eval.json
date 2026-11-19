@@ -1,9 +1,11 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-11-18T20:26:57.603Z",
-  "verdict": "adopt",
-  "method": "relevance",
-  "reasons": [],
+  "evaluatedAt": "2026-11-19T07:18:37.438Z",
+  "verdict": "fallback",
+  "method": "legacy",
+  "reasons": [
+    "finalTitleRate 55% < 60%"
+  ],
   "thresholds": {
     "minFinalTitleRate": 0.6,
     "minItems": 24
@@ -15,20 +17,20 @@
   },
   "global": {
     "relevance": {
-      "raw": 967,
+      "raw": 970,
       "itemCount": 60,
-      "recallHits": 442,
-      "finalHits": 36,
-      "recallTitleRate": 0.45708376421923474,
-      "finalTitleRate": 0.6
+      "recallHits": 443,
+      "finalHits": 33,
+      "recallTitleRate": 0.45670103092783504,
+      "finalTitleRate": 0.55
     },
     "legacy": {
-      "raw": 961,
+      "raw": 954,
       "itemCount": 60,
-      "recallHits": 147,
-      "finalHits": 28,
-      "recallTitleRate": 0.1529656607700312,
-      "finalTitleRate": 0.4666666666666667
+      "recallHits": 142,
+      "finalHits": 26,
+      "recallTitleRate": 0.1488469601677149,
+      "finalTitleRate": 0.43333333333333335
     }
   },
   "perNiche": {
@@ -83,48 +85,48 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 154,
+        "raw": 153,
+        "itemCount": 5,
+        "recallTitleRate": 0.3790849673202614,
+        "finalTitleRate": 0.2,
+        "stats": {
+          "raw": 153,
+          "complaintRecords": 7,
+          "items": 5
+        }
+      },
+      {
+        "niche": "invoice-export",
+        "raw": 127,
         "itemCount": 7,
-        "recallTitleRate": 0.38311688311688313,
+        "recallTitleRate": 0.4881889763779528,
         "finalTitleRate": 0.42857142857142855,
         "stats": {
-          "raw": 154,
+          "raw": 127,
           "complaintRecords": 8,
           "items": 7
         }
       },
       {
-        "niche": "invoice-export",
-        "raw": 124,
-        "itemCount": 5,
-        "recallTitleRate": 0.47580645161290325,
-        "finalTitleRate": 0.4,
-        "stats": {
-          "raw": 124,
-          "complaintRecords": 6,
-          "items": 5
-        }
-      },
-      {
         "niche": "support-transcripts",
-        "raw": 154,
+        "raw": 153,
         "itemCount": 7,
-        "recallTitleRate": 0.4090909090909091,
+        "recallTitleRate": 0.41830065359477125,
         "finalTitleRate": 0.7142857142857143,
         "stats": {
-          "raw": 154,
+          "raw": 153,
           "complaintRecords": 8,
           "items": 7
         }
       },
       {
         "niche": "scheduling",
-        "raw": 168,
+        "raw": 169,
         "itemCount": 6,
-        "recallTitleRate": 0.5833333333333334,
-        "finalTitleRate": 0.6666666666666666,
+        "recallTitleRate": 0.5798816568047337,
+        "finalTitleRate": 0.5,
         "stats": {
-          "raw": 168,
+          "raw": 169,
           "complaintRecords": 12,
           "items": 6
         }
@@ -132,23 +134,23 @@
       {
         "niche": "dev-workflow",
         "raw": 169,
-        "itemCount": 10,
-        "recallTitleRate": 0.514792899408284,
-        "finalTitleRate": 0.8,
+        "itemCount": 13,
+        "recallTitleRate": 0.5029585798816568,
+        "finalTitleRate": 0.6153846153846154,
         "stats": {
           "raw": 169,
-          "complaintRecords": 13,
-          "items": 10
+          "complaintRecords": 16,
+          "items": 13
         }
       },
       {
         "niche": "auto-pet-app-booking",
-        "raw": 50,
+        "raw": 51,
         "itemCount": 0,
         "recallTitleRate": 0,
         "finalTitleRate": 0,
         "stats": {
-          "raw": 50,
+          "raw": 51,
           "complaintRecords": 0,
           "items": 0
         }
@@ -205,72 +207,72 @@
       },
       {
         "niche": "solo-crm",
-        "raw": 154,
-        "itemCount": 4,
-        "recallTitleRate": 0.025974025974025976,
-        "finalTitleRate": 0,
+        "raw": 153,
+        "itemCount": 15,
+        "recallTitleRate": 0.0457516339869281,
+        "finalTitleRate": 0.06666666666666667,
         "stats": {
-          "raw": 154,
-          "complaintRecords": 5,
-          "items": 4
+          "raw": 153,
+          "complaintRecords": 16,
+          "items": 15
         }
       },
       {
         "niche": "invoice-export",
-        "raw": 118,
-        "itemCount": 8,
-        "recallTitleRate": 0.1271186440677966,
-        "finalTitleRate": 0.125,
+        "raw": 111,
+        "itemCount": 14,
+        "recallTitleRate": 0.09009009009009009,
+        "finalTitleRate": 0.07142857142857142,
         "stats": {
-          "raw": 118,
-          "complaintRecords": 8,
-          "items": 8
+          "raw": 111,
+          "complaintRecords": 15,
+          "items": 14
         }
       },
       {
         "niche": "support-transcripts",
-        "raw": 154,
-        "itemCount": 9,
-        "recallTitleRate": 0.09740259740259741,
-        "finalTitleRate": 0,
+        "raw": 153,
+        "itemCount": 14,
+        "recallTitleRate": 0.0784313725490196,
+        "finalTitleRate": 0.07142857142857142,
         "stats": {
-          "raw": 154,
-          "complaintRecords": 9,
-          "items": 9
+          "raw": 153,
+          "complaintRecords": 17,
+          "items": 14
         }
       },
       {
         "niche": "scheduling",
-        "raw": 168,
-        "itemCount": 20,
-        "recallTitleRate": 0.10119047619047619,
-        "finalTitleRate": 0.2,
+        "raw": 169,
+        "itemCount": 14,
+        "recallTitleRate": 0.11242603550295859,
+        "finalTitleRate": 0.07142857142857142,
         "stats": {
-          "raw": 168,
-          "complaintRecords": 23,
-          "items": 20
+          "raw": 169,
+          "complaintRecords": 16,
+          "items": 14
         }
       },
       {
         "niche": "dev-workflow",
         "raw": 169,
-        "itemCount": 22,
-        "recallTitleRate": 0.11834319526627218,
-        "finalTitleRate": 0.22727272727272727,
+        "itemCount": 18,
+        "recallTitleRate": 0.10650887573964497,
+        "finalTitleRate": 0.16666666666666666,
         "stats": {
           "raw": 169,
           "complaintRecords": 25,
-          "items": 22
+          "items": 18
         }
       },
       {
         "niche": "auto-pet-app-booking",
-        "raw": 50,
+        "raw": 51,
         "itemCount": 0,
         "recallTitleRate": 0,
         "finalTitleRate": 0,
         "stats": {
-          "raw": 50,
+          "raw": 51,
           "complaintRecords": 0,
           "items": 0
         }
@@ -295,6 +297,11 @@
         "titleHit": false
       },
       {
+        "title": "CI and release pipeline",
+        "niche": "dev-workflow",
+        "titleHit": false
+      },
+      {
         "title": "OAuth hardening",
         "niche": "dev-workflow",
         "titleHit": true
@@ -313,11 +320,6 @@
         "title": "Nifi: How to create Oauth2 access token provider as a controller service when Http request body…",
         "niche": "dev-workflow",
         "titleHit": false
-      },
-      {
-        "title": "How are business travel expenses usually reported when using the Dutch public transport system?",
-        "niche": "everyday-money",
-        "titleHit": false
       }
     ],
     "legacy": [
@@ -325,11 +327,6 @@
         "title": "Does an expenses-paid interview cover meals as well?",
         "niche": "everyday-money",
         "titleHit": false
-      },
-      {
-        "title": "Patient Appointment accepts overlapping bookings of a non-overlap Healthcare Service Unit by…",
-        "niche": "scheduling",
-        "titleHit": true
       },
       {
         "title": "how do you verify your household budget?",
@@ -342,23 +339,28 @@
         "titleHit": false
       },
       {
-        "title": "Access lock: invite-only checks on every request",
+        "title": "AI Providers: split ChatGPT-plan/Codex and Agents API access, with web setup and live model…",
         "niche": "dev-workflow",
         "titleHit": false
       },
       {
-        "title": "FIPS host suite fails on policy-engine metering tests added in #1981",
+        "title": "AI Providers: split ChatGPT-plan/Codex and Agents API access, with web setup and live model…",
+        "niche": "support-transcripts",
+        "titleHit": false
+      },
+      {
+        "title": "Bundle PyPI Wheels red since #1586: test_a_source_checkout_has_no_bundled_directory asserts…",
         "niche": "dev-workflow",
         "titleHit": false
       },
       {
-        "title": "Waitlist updates via Resend Broadcasts",
-        "niche": "dev-workflow",
-        "titleHit": false
+        "title": "Export personal Outlook 2016 contacts, excluding the global address list",
+        "niche": "personal-admin",
+        "titleHit": true
       },
       {
-        "title": "Remove framework-only, one-off-migration, removed-feature and partly overlapping tests",
-        "niche": "invoice-export",
+        "title": "Apply the Dependabot updates #36 to #48 in one change and one release",
+        "niche": "scheduling",
         "titleHit": false
       }
     ]

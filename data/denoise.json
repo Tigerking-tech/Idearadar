@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-18T20:31:59.560Z",
+  "updatedAt": "2026-11-19T07:22:55.832Z",
   "model": "hy-mt2-plus",
-  "totalVerdicts": 191,
+  "totalVerdicts": 206,
   "verdicts": {
     "o0xygl": {
       "keep": true,
@@ -1531,6 +1531,126 @@
       "id": "solo-crm-is-the-saas-business-model-dead-or-there-is-stil",
       "title": "Is the SaaS business model dead or there is still oportunities in this age of AI",
       "at": "2026-11-18T20:31:52.610Z"
+    },
+    "im7fzp": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能规划讨论，非痛点。",
+      "id": "dev-workflow-ai-providers-split-chatgpt-plan-codex-and-agents",
+      "title": "AI Providers: split ChatGPT-plan/Codex and Agents API access, with web setup and live model…",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "grnc1t": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为功能规划讨论，非痛点。",
+      "id": "support-transcripts-ai-providers-split-chatgpt-plan-codex-and-agents",
+      "title": "AI Providers: split ChatGPT-plan/Codex and Agents API access, with web setup and live model…",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "16t8qy1": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到测试流程失败。",
+      "id": "dev-workflow-bundle-pypi-wheels-red-since-1586-test-a-source-",
+      "title": "Bundle PyPI Wheels red since #1586: test_a_source_checkout_has_no_bundled_directory asserts…",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "sg130t": {
+      "keep": true,
+      "code": "other",
+      "reason": "内容为工作流程安排，非痛点。",
+      "id": "scheduling-apply-the-dependabot-updates-36-to-48-in-one-cha",
+      "title": "Apply the Dependabot updates #36 to #48 in one change and one release",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "1e7q6q1": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到存在预订漏洞。",
+      "id": "scheduling-patient-appointment-accepts-overlapping-bookings",
+      "title": "Patient Appointment accepts overlapping bookings of a non-overlap Healthcare Service Unit by…",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "yba9k8": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到访问权限失效的故障问题",
+      "id": "support-transcripts-temporary-access-pass-for-onboarding-and-recover",
+      "title": "Temporary access pass for onboarding and recovery",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "1vgzy6o": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到Companies模块使用上的痛点问题",
+      "id": "solo-crm-general-suggestions-enhancements-feature-request",
+      "title": "General suggestions/enhancements feature requests for Companies",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "1uc3wue": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到农业融资申请时的文档处理问题",
+      "id": "invoice-export-v2-add-csv-excel-cash-flow-export-and-localized-",
+      "title": "v2: Add CSV/Excel cash-flow export and localized rainfall alerts for field spraying",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "wqd5uo": {
+      "keep": true,
+      "code": "meta",
+      "reason": "是关于CI调试流程的讨论",
+      "id": "dev-workflow-ci-debug-quality-gates-run-44477732466",
+      "title": "ci-debug quality gates (run 44477732466)",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "u08p1u": {
+      "keep": true,
+      "code": "meta",
+      "reason": "是关于GitHub问题追踪器功能的讨论",
+      "id": "dev-workflow-github-issues-tracker-with-worktree-isolation-la",
+      "title": "GitHub Issues tracker with worktree isolation: labeled issues become Claude Code tasks",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "b6ky4s": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到对话上下文丢失的问题。",
+      "id": "dev-workflow-persistent-coach-chat-with-memory-strava-trackin",
+      "title": "Persistent coach chat with memory, Strava tracking and editable Plan",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "ryabqf": {
+      "keep": true,
+      "code": "complaint",
+      "reason": "提到会计系统标签数量过多的问题。",
+      "id": "invoice-export-carry-expectation-metadata-to-journal-exports-as",
+      "title": "Carry expectation metadata to journal exports as dimensions",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "ww6ebg": {
+      "keep": false,
+      "code": "off-topic",
+      "reason": "内容为应用交易推广宣传。",
+      "id": "invoice-export-trading",
+      "title": "trading",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "osew8f": {
+      "keep": true,
+      "code": "other",
+      "reason": "为工具发布流程指南。",
+      "id": "support-transcripts-epp-2026-12-m3",
+      "title": "EPP 2026-12 M3",
+      "at": "2026-11-19T07:22:39.871Z"
+    },
+    "1parup3": {
+      "keep": false,
+      "code": "status-news",
+      "reason": "提及路由器LM无法提供服务。",
+      "id": "support-transcripts-serve-image-speech-transcription-and-video-model",
+      "title": "Serve image, speech, transcription and video models through per-Kind Provider endpoints",
+      "at": "2026-11-19T07:22:39.871Z"
     }
   }
 }
